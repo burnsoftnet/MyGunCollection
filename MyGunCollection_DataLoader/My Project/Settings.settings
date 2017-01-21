@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.burnsoft.net/services/bsmgc.asmx</Value>
+    </Setting>
+    <Setting Name="MyGunCollection_DataLoader_Database_Updates" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.burnsoft.net/services/bsmgc.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

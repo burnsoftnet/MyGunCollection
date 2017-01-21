@@ -1,0 +1,853 @@
+Imports System.Windows.Forms
+Imports BSMyGunCollection.MGC
+Imports System.Data.Odbc
+Imports BSMyGunCollection.Cyhper
+Imports BurnSoft.MsgBox
+Public Class MDIParent1
+    Private m_ChildFormNumber As Integer = 0
+    Public DaysLeftToTry As String
+    Public IsReady As Boolean = False
+    Public RunningRegForm As Boolean
+#Region " Menu Subs "
+    Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Global.System.Windows.Forms.Application.Exit()
+    End Sub
+    Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
+        ' Use My.Computer.Clipboard to insert the selected text or images into the clipboard
+    End Sub
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
+        ' Use My.Computer.Clipboard to insert the selected text or images into the clipboard
+    End Sub
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
+        'Use My.Computer.Clipboard.GetText() or My.Computer.Clipboard.GetData to retrieve information from the clipboard.
+    End Sub
+    Private Sub ToolBarToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolBarToolStripMenuItem.Click
+        Me.ToolStrip.Visible = Me.ToolBarToolStripMenuItem.Checked
+    End Sub
+    Private Sub StatusBarToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles StatusBarToolStripMenuItem.Click
+        Me.StatusStrip.Visible = Me.StatusBarToolStripMenuItem.Checked
+    End Sub
+    Private Sub CascadeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CascadeToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.Cascade)
+    End Sub
+    Private Sub TileVerticleToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileVerticalToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.TileVertical)
+    End Sub
+    Private Sub TileHorizontalToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TileHorizontalToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.TileHorizontal)
+    End Sub
+    Private Sub ArrangeIconsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ArrangeIconsToolStripMenuItem.Click
+        Me.LayoutMdi(MdiLayout.ArrangeIcons)
+    End Sub
+    Private Sub CloseAllToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CloseAllToolStripMenuItem.Click
+        ' Close all child forms of the parent.
+        For Each ChildForm As Form In Me.MdiChildren
+            ChildForm.Close()
+        Next
+    End Sub
+    Private Sub AmmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmToolStripMenuItem.Click
+        Dim frmNew As New frmAddAmmo
+        frmNew.Show()
+    End Sub
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        Dim frmNew As New AboutBox1
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub GunToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GunToolStripMenuItem.Click
+        Dim frmNew As New frmAddFirearm
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub AddModelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddModelToolStripMenuItem.Click
+        Dim frmNew As New frmAddModel
+        frmNew.Show()
+    End Sub
+    Private Sub AddManufacturerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddManufacturerToolStripMenuItem.Click
+        Dim frmNew As New frmAddManufacturer
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub AddPlaceOfOriginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddPlaceOfOriginToolStripMenuItem.Click
+        Dim frmNew As New frmAddNationality
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub CollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim frmNew As New frmViewReport
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub CheckForUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
+        Call CheckForUpdates()
+    End Sub
+    Private Sub AmmunitionInventroyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionInventroyToolStripMenuItem.Click
+        frmViewAmmoInventory.MdiParent = Me
+        frmViewAmmoInventory.Show()
+    End Sub
+    Private Sub AmmunitionInventoryReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        frmViewReport_Ammo.MdiParent = Me
+        frmViewReport_Ammo.Show()
+    End Sub
+    Private Sub QuickCollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuickCollectionReportToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub AmmunitionCollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionCollectionReportToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Ammo
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub TechnicalSupportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TechnicalSupportToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_SUPPORT
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Private Sub ReportABugToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReportABugToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_BUG
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Private Sub KnowledgeBaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KnowledgeBaseToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_WIKI
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_SHOP
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Private Sub ListedShopsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListedShopsToolStripMenuItem.Click
+        frmViewShops.MdiParent = Me
+        frmViewShops.Show()
+    End Sub
+    Private Sub ListedBuyersToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListedBuyersToolStripMenuItem.Click
+        frmViewBuyers.MdiParent = Me
+        frmViewBuyers.Show()
+    End Sub
+    Private Sub IndexToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IndexToolStripMenuItem.Click
+        Help.ShowHelpIndex(Me, MY_HELP_FILE)
+    End Sub
+    Private Sub SearchToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_SITESEARCH
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Private Sub PlaceOfOriginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlaceOfOriginToolStripMenuItem.Click
+        frmEditNationality.MdiParent = Me
+        frmEditNationality.Show()
+    End Sub
+    Private Sub RegisterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegisterToolStripMenuItem.Click
+        BSRegistration.StatusMessage = ToolStripStatusLabel.Text
+        BSRegistration.Show()
+    End Sub
+#End Region
+#Region " Tool Strip Subs "
+    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+        Call DoDelete()
+        Call RefreshCollection()
+    End Sub
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+        Dim frmNew As New frmAddFirearm
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+        Call CheckForUpdates()
+    End Sub
+    Private Sub SaveToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripButton.Click
+        Call DoBackup()
+    End Sub
+    Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+        Call DoBackup()
+    End Sub
+    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+        frmViewAmmoInventory.MdiParent = Me
+        frmViewAmmoInventory.Show()
+    End Sub
+    Private Sub MaintancePlanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaintancePlanToolStripMenuItem.Click
+        frmAddMaintancePlans.MdiParent = Me
+        frmAddMaintancePlans.Show()
+    End Sub
+    Private Sub MaintancePlanToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaintancePlanToolStripMenuItem1.Click
+        frmViewMaintancePlanList.MdiParent = Me
+        frmViewMaintancePlanList.Show()
+    End Sub
+    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
+        frmViewMaintancePlanList.MdiParent = Me
+        frmViewMaintancePlanList.Show()
+    End Sub
+    Private Sub ManufacturersToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ManufacturersToolStripMenuItem.Click
+        frmEditmanufactures.MdiParent = Me
+        frmEditmanufactures.Show()
+    End Sub
+    Private Sub AmmunitionTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionTypeToolStripMenuItem.Click
+        frmEditAmmunitionType.MdiParent = Me
+        frmEditAmmunitionType.Show()
+    End Sub
+    Private Sub ModelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModelToolStripMenuItem.Click
+        frmEditModel.MdiParent = Me
+        frmEditModel.Show()
+    End Sub
+    Private Sub ContentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ContentsToolStripMenuItem.Click
+        Call DoHelp()
+    End Sub
+    Private Sub HelpToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HelpToolStripButton.Click
+        Call DoHelp()
+    End Sub
+    Private Sub OptionsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OptionsToolStripMenuItem.Click
+        frmSettings.MdiParent = Me
+        frmSettings.Show()
+    End Sub
+    Private Sub AddMmunitionToMyCollectionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddMmunitionToMyCollectionToolStripMenuItem.Click
+        Dim frmNew As New frmAddCollectionAmmo
+        frmNew.MdiParent = Me.MdiParent
+        frmNew.Show()
+    End Sub
+    Private Sub ViewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewToolStripMenuItem.Click
+        Dim MyValue As Long = ListBox1.SelectedValue
+        Dim frmNew As New frmViewCollectionDetails
+        frmNew.MdiParent = Me
+        frmNew.ItemID = MyValue
+        frmNew.Show()
+    End Sub
+    Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
+        Dim MyValue As Long = ListBox1.SelectedValue
+        Dim frmNew As New frmEditCollectionDetails
+        frmNew.ItemID = MyValue
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+        Call DoDelete()
+        Call RefreshCollection()
+    End Sub
+    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
+        frmSettings.MdiParent = Me
+        frmSettings.Show()
+    End Sub
+    Private Sub ToolStripButton7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton7.Click
+        Me.Cursor = Cursors.WaitCursor
+        frmViewReport_Ammo.MdiParent = Me
+        frmViewReport_Ammo.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub ViewGunSmithReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewGunSmithReportToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim MyValue As Long = ListBox1.SelectedValue
+        frmViewReport_GunSmith.MdiParent = Me
+        frmViewReport_GunSmith.GID = MyValue
+        frmViewReport_GunSmith.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub ToolStripButton9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton9.Click
+        Dim frmNew As New frmAddCollectionAmmo
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ToolStripButton10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton10.Click
+        Dim frmNew As New frmViewWishList
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ToolStripButton11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton11.Click
+        Dim frmNew As New frmAddToWishList
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub AddToWishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToWishlistToolStripMenuItem.Click
+        Dim frmNew As New frmAddToWishList
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub PrintOutWishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintOutWishlistToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_WishList
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub WishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WishlistToolStripMenuItem.Click
+        Dim frmNew As New frmViewWishList
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ByPurchasedValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByPurchasedValueToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub ByInsuredValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByInsuredValueToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance_InsuredValue
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub ByAppraisedValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByAppraisedValueToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance_ApprisedValue
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub CopyFirearmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyFirearmToolStripMenuItem.Click
+        Try
+            Dim ItemName As String = ListBox1.Text
+            Dim ItemID As Long = ListBox1.SelectedValue
+            Dim frmNew As New frmAddFirearm
+            frmNew.IsCopy = True
+            frmNew.CopyID = ItemID
+            frmNew.MdiParent = Me
+            frmNew.Show()
+        Catch ex As Exception
+            Dim strProcedure As String = "CopyFirearmToolStripMenuItem.Click"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+#End Region
+#Region " Form Subs "
+    Private Sub DoRegistrationProcessForApp()
+        Try
+            Dim ObjReg As New RegistrationProcess
+            Dim IsRegistered As Boolean = False
+            Dim MyDaysLeft As String = ""
+            Dim Has2Expired As Boolean = False
+            Dim MyRegTo As String = ""
+            Dim MyregPath As String = ObjReg.DefaultRegPath & "\Settings"
+            Call ObjReg.StartRegistration(MyregPath, IsRegistered, MyDaysLeft, Has2Expired, MyRegTo)
+            If Not IsRegistered Then
+                Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is not Registered")
+                If Not Has2Expired Then
+                    Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Days left before Expire:" & MyDaysLeft)
+                    Select Case MyDaysLeft
+                        Case 0
+                            DaysLeftToTry = "This is your Last Day to register!"
+                            ToolStripStatusLabel.Text = "This is a shareware version that will expire today."
+                        Case 1
+                            DaysLeftToTry = "You have " & MyDaysLeft & " day left to register!"
+                            ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " more day."
+                        Case Else
+                            DaysLeftToTry = "You have " & MyDaysLeft & " days left to register!"
+                            ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " days."
+                    End Select
+                    RunningRegForm = False
+                Else
+                    Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "APPLICATION HAS EXPIRED")
+                    BSRegistration.MainFormUnloaded = True
+                    BSRegistration.StatusMessage = "This Application has Expired!"
+                    BSRegistration.Show()
+                    RunningRegForm = True
+                    Me.Close()
+                End If
+            Else
+                RunningRegForm = False
+                ToolStripStatusLabel.Text = "Registered To: " & MyRegTo
+                RegisterToolStripMenuItem.Enabled = False
+                RegisterToolStripMenuItem.Visible = False
+                ToolStripSeparator4.Visible = False
+                PurchaseToolStripMenuItem.Visible = False
+                Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is registered to:" & MyRegTo)
+            End If
+            If Not Has2Expired Then Call CheckBackup()
+        Catch ex As Exception
+            Dim strProcedure As String = "DoRegistrationProcessForApp"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Private Sub MDIParent1_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+        Try
+            If DoAutoBackup Then
+                Dim myProcess As New Process
+                myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_BACKUP
+                myProcess.StartInfo.Arguments = "/auto"
+                myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+                myProcess.Start()
+            End If
+            If Not RunningRegForm Then Global.System.Windows.Forms.Application.Exit()
+        Catch ex As Exception
+            Dim strProcedure As String = "Disposed"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Private Sub MDIParent1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ShowDebugLogToolStripMenuItem.Visible = DEBUG_MODE
+        Dim iOS As Integer = Environment.OSVersion.Version.Major
+        Try
+            If LoginEnabled(UseMyPWD, UseMyUID, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIN Then
+                Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
+                frmLogin.Show()
+            End If
+            LASTVIEWEDFIREARM = 0
+            Dim ObjR As New BSRegistry
+            OwnerID = GetOwnerID()
+            Call Buggerme("mdiparent1.load", "Owner ID=" & OwnerID)
+            Call Buggerme("mdiparent1.load", "Updating App Details")
+            ObjR.UpDateAppDetails()
+            Call Buggerme("mdiparent1.load", "Checking Registration for App")
+            Call DoRegistrationProcessForApp()
+            IsReady = True
+            cmbView.Text = ObjR.GetViewSettings("VIEW_FirearmList", "In Stock")
+            Call Buggerme("mdiparent1.load", "View The Selected Collection: " & cmbView.Text)
+            Call Buggerme("mdiparent1.load", "Refreshing Collection list")
+            Call RefreshCollection()
+            If OwnerID = 0 Then
+                Dim frmNew As New frmSettings
+                frmNew.MdiParent = Me
+                frmNew.Show()
+            End If
+            Dim ObjFS As New BSFileSystem
+            If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then ReRunHotfixUpdatesToolStripMenuItem.Enabled = True
+        Catch ex As Exception
+            Dim strProcedure As String = "Load"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Sub CheckBackup()
+        Try
+            Dim ObjR As New BSRegistry
+            Dim LastSucBackup As String = ""
+            Dim AlertOnBackUp As Boolean
+            Dim TrackHistoryDays As Integer
+            Dim TrackHistory As Boolean
+            Call ObjR.GetSettings(LastSucBackup, AlertOnBackUp, TrackHistoryDays, TrackHistory, DoAutoBackup, DoOriginalImage, UsePetLoads, PersonalMark, UseNumberCatOnly, AUDITAMMO, USEAUTOASSIGN, DISABLEUNIQUECUSTCATID, USESELECTIVEBOUNDBOOK)
+            If Not AlertOnBackUp Then Exit Sub
+            Dim MyLastDateDiff As Long = DateDiff(DateInterval.Day, CDate(LastSucBackup), DateTime.Now)
+            Dim Obj As New MsgClass
+            If MyLastDateDiff > TrackHistoryDays Then Obj.DoMessage("It has been " & MyLastDateDiff & " days since your last backup.", MgboxStyle.Inf_OK, MgBtnStyle.mb_Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
+        Catch ex As Exception
+            Dim strProcedure As String = "CheckBackup"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            Dim MyValue As Long = ListBox1.SelectedValue
+            Dim frmNew As New frmViewCollectionDetails
+            frmNew.MdiParent = Me
+            frmNew.ItemID = MyValue
+            frmNew.Show()
+            Me.Cursor = Cursors.Arrow
+        Catch ex As Exception
+            Dim strProcedure As String = "ListBox1.DoubleClick"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Call RefreshCollection()
+    End Sub
+    Private Sub MDIParent1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+        If Me.Height <> 0 Then
+            ListBox1.Height = Me.Height - 188
+            Dim p As New Point
+            p = New Point(lbltotalview.Location.X, ListBox1.Height + 35)
+            Me.lbltotalview.Location = p
+            p = New Point(lblTotal.Location.X, lbltotalview.Location.Y + 13)
+            Me.lblTotal.Location = p
+        End If
+    End Sub
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbView.SelectedIndexChanged
+        Call RefreshCollection()
+    End Sub
+#End Region
+#Region " General Subs and Functions "
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
+        Dim ChildForm As New System.Windows.Forms.Form
+        ChildForm.MdiParent = Me
+        m_ChildFormNumber += 1
+        ChildForm.Text = "Window " & m_ChildFormNumber
+        ChildForm.Show()
+    End Sub
+    Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
+        Call DoRestore()
+    End Sub
+    Function IsNotOldEnough(ByVal strID As String) As Boolean
+        Dim bAns As Boolean = False
+        Try
+            Dim Obj As New BSDatabase
+            Obj.ConnectDB()
+            Dim SQL As String = "SELECT ItemSold, dtSold from qryGunCollectionDetails where ID=" & strID
+            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+            Dim RS As OdbcDataReader
+            RS = CMD.ExecuteReader
+            Dim strDate As String = ""
+            Dim IsSold As Integer = 0
+            While RS.Read()
+                If Not IsDBNull(RS("dtSold")) Then
+                    strDate = RS("dtSold")
+                Else
+                    strDate = DateTime.Now.ToString
+                End If
+                IsSold = CInt(RS("ItemSold"))
+            End While
+            RS.Close()
+            RS = Nothing
+            CMD = Nothing
+            Obj.CloseDB()
+            If IsSold > 0 Then
+                If DateDiff(DateInterval.Year, CDate(strDate), DateTime.Now) < 5 Then bAns = True
+            End If
+        Catch ex As Exception
+            Dim strProcedure As String = "IsNotOldEnough"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+        Return bAns
+    End Function
+    Sub DoDelete()
+        Try
+            Dim ItemName As String = ListBox1.Text
+            Dim ItemID As Long = ListBox1.SelectedValue
+            Dim strMsg As String = "Are you sure that you wish to delete " & ItemName & " from your collection?"
+            Dim bIsNotOld As Boolean = IsNotOldEnough(ItemID)
+            If bIsNotOld Then strMsg = "BATFE recommends that you keep a record of the firearm for over 5 years of sale." & Chr(10) & strMsg
+            Dim MyAns As String = MsgBox(strMsg, MsgBoxStyle.YesNo, "Delete Firearm from Collection")
+            If MyAns = vbYes Then
+                Dim Obj As New BSDatabase
+                Dim SQL As String = "DELETE from Gun_Collection where ID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE from Maintance_Details where GID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE from Gun_Collection_Pictures where CID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE from Gun_Collection_Accessories where GID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE from GunSmith_Details where GID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE from Gun_Collection_Ext where GID=" & ItemID
+                Obj.ConnExec(SQL)
+                SQL = "DELETE FROM Gun_Collection_Ext_Links where GID=" & ItemID
+                Obj.ConnExec(SQL)
+                MsgBox(ItemName & " was removed from your collection.", MsgBoxStyle.Information, "Deleted Item")
+            End If
+        Catch ex As Exception
+            Dim strProcedure As String = "DoDelete"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Sub CheckForUpdates()
+        Try
+            DoAutoBackup = False
+            Dim myProcess As New Process
+            myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_UPDATER
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+            myProcess.Start()
+            Me.Close()
+        Catch ex As Exception
+            Dim strProcedure As String = "CheckForUpdates"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Sub DoBackup()
+        Try
+            DoAutoBackup = False
+            Dim myProcess As New Process
+            myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_BACKUP
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+            myProcess.Start()
+            Me.Close()
+        Catch ex As Exception
+            Dim strProcedure As String = "DoBackup"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Sub DoRestore()
+        Try
+            DoAutoBackup = False
+            Dim myProcess As New Process
+            myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_RESTORE
+            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+            myProcess.Start()
+            Me.Close()
+        Catch ex As Exception
+            Dim strProcedure As String = "DoRestore"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Public Sub RefreshCollection()
+        Try
+            MGCDataSetBindingSource.ResetBindings(True)
+            Select Case UCase(cmbView.SelectedItem.ToString)
+                Case "ALL"
+                    Me.Gun_CollectionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection)
+                Case "IN STOCK"
+                    Me.Gun_CollectionTableAdapter.FillByInStock(Me.MGCDataSet.Gun_Collection)
+                Case "SOLD/STOLEN"
+                    Me.Gun_CollectionTableAdapter.FillBySold(Me.MGCDataSet.Gun_Collection)
+                Case "C & R"
+                    Me.Gun_CollectionTableAdapter.FillByCandR(Me.MGCDataSet.Gun_Collection)
+                Case "NON C & R"
+                    Me.Gun_CollectionTableAdapter.FillByNonCAndR(Me.MGCDataSet.Gun_Collection)
+                Case UCase("Cust. Catalog #")
+                    Me.Gun_CollectionTableAdapter.FillBy_CustomIDList(Me.MGCDataSet.Gun_Collection)
+                Case Else
+                    Me.Gun_CollectionTableAdapter.FillByInStock(Me.MGCDataSet.Gun_Collection)
+            End Select
+            Me.ListBox1.Refresh()
+            lblTotal.Text = Me.ListBox1.Items.Count
+            If LASTVIEWEDFIREARM > 0 Then Me.ListBox1.SelectedValue = LASTVIEWEDFIREARM
+            Dim ObjR As New BSRegistry
+            If IsReady Then ObjR.SaveFirearmListSort(cmbView.SelectedItem.ToString)
+        Catch ex As Exception
+            Dim strProcedure As String = "RefreshCollection"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Sub DoHelp()
+        Try
+            Help.ShowHelp(Me, MY_HELP_FILE)
+        Catch ex As Exception
+            Dim strProcedure As String = "DoHelp"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+#End Region
+    Private Sub RenameDisplayNameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameDisplayNameToolStripMenuItem.Click
+        Try
+            Dim ItemName As String = ListBox1.Text
+            Dim ItemID As Long = ListBox1.SelectedValue
+            Dim Obj As New BSDatabase
+            Dim strNewName As String = InputBox("Type in the new name for " & ItemName & ":", "Rename Firearm Display Name", ItemName)
+            If Len(strNewName) = 0 Then Exit Sub
+            Dim sql As String = "UPDATE Gun_Collection set FullName='" & strNewName & "',sync_lastupdate=Now() where ID=" & ItemID
+            Obj.ConnExec(sql)
+            Call RefreshCollection()
+        Catch ex As Exception
+            Dim strProcedure As String = "RenameDisplayNameToolStripMenuItem.Click"
+            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Private Sub CleanUpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CleanUpToolStripMenuItem.Click
+        Dim frmNew As New frmDBCleanup
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub GripTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GripTypesToolStripMenuItem.Click
+        Dim frmNew As New frmViewGrips
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub tsslErrorsFound_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsslErrorsFound.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MyLogFile
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+    End Sub
+    Private Sub DataPreLoaderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataPreLoaderToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_DATALOADER
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+    End Sub
+
+    Private Sub SupportForumToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SupportForumToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_FORUM
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+    Public Sub ReRunHotFixUpdates()
+        DoAutoBackup = False
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
+        myProcess.StartInfo.Arguments = "/redo /debug"
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+        Global.System.Windows.Forms.Application.Exit()
+        End
+    End Sub
+    Private Sub ReRunHotfixUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReRunHotfixUpdatesToolStripMenuItem.Click
+        Call ReRunHotFixUpdates()
+    End Sub
+
+    Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomReportToolStripMenuItem.Click
+        Dim frmNew As New frmCR_SelectTable
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub MiscFirearmLinksToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MiscFirearmLinksToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = MENU_LINKS
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+        myProcess.Start()
+    End Sub
+
+    Private Sub ImportFirearmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportFirearmToolStripMenuItem.Click
+        Dim frmNew As New frmImportFirearm
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub ToolStripButton12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton12.Click
+        Dim frmNew As New frmCR_SelectTable
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Call CheckDefaultPic(ListBox1.SelectedValue)
+        Dim frmNew As New frmViewReport_FirearmDetails
+        frmNew.intID = ListBox1.SelectedValue
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Call CheckDefaultPic(ListBox1.SelectedValue)
+        Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
+        frmNew.intID = ListBox1.SelectedValue
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub ByPurchasedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByPurchasedValueToolStripMenuItem1.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance_wTotal
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub ByInsuredValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByInsuredValueToolStripMenuItem1.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance_InsuredValue_wTotal
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub ByAppraisedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByAppraisedValueToolStripMenuItem1.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_Insurance_ApprisedValue_wTotal
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+    Sub RunSearch()
+        Dim frmNew As New frmSearch_Collection
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub SearchCollectionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchCollectionToolStripMenuItem.Click
+        Call RunSearch()
+    End Sub
+
+    Private Sub ToolStripButton13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton13.Click
+        Call RunSearch()
+    End Sub
+
+    Private Sub FirearmConditionsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmConditionsToolStripMenuItem.Click
+        Dim frmNew As New frmEditGunConditions
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub FirearmTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmTypesToolStripMenuItem.Click
+        Dim frmNew As New frmEditFirearmType
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub BoundBookToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem1.Click
+        Dim frmNew As New frmViewReport_Blank_BoundBook
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub QuickCollectionReportWNotesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuickCollectionReportWNotesToolStripMenuItem.Click
+        Dim frmnew As New frmViewReport_Quickinv_w_DetailNotes
+        frmnew.MdiParent = Me
+        frmnew.Show()
+    End Sub
+
+    Private Sub ShootersCardToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem.Click
+        Dim frmNew As New frmViewReport_Blank_ShootersCard
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub ShootersCardToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem1.Click
+        Dim frmNew As New frmViewReport_Blank_ShootersCard2
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub ShowDebugLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowDebugLogToolStripMenuItem.Click
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = "notepad.exe" 'Application.LocalUserAppDataPath.ToString & "\" & DEBUG_FILE
+        myProcess.StartInfo.Arguments = Application.LocalUserAppDataPath.ToString & "\" & DEBUG_FILE
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+    End Sub
+    Private Sub ListedGunsmithsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedGunsmithsToolStripMenuItem.Click
+        frmViewGunSmiths.MdiParent = Me
+        frmViewGunSmiths.Show()
+    End Sub
+
+    Private Sub ListedAppriasersToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedAppriasersToolStripMenuItem.Click
+        frmViewAppraisers.MdiParent = Me
+        frmViewAppraisers.Show()
+    End Sub
+
+    Private Sub DocumentToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentToolStripMenuItem.Click
+        Dim frmNew As New frmAddDocument
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ToolStripButton8_ButtonClick(sender As System.Object, e As System.EventArgs) Handles ToolStripButton8.ButtonClick
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub BoundBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion2ToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook2
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub BoundBookVersion1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion1ToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub BounfBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BounfBookVersion2ToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook2
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
+End Class

@@ -1,0 +1,35 @@
+﻿Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("BurnSoft My Gun Collection")> 
+<Assembly: AssemblyDescription("The BurnSoft My Gun Collection application allows you to store information about your gun collection safely and in a well-organized fashion.  It contains reports which allows you to print a hard copy of your information.  It will also allow you to store pictures of your firearm collection, and keep track of the ammunition that you have in-stock.")> 
+<Assembly: AssemblyCompany("BurnSoft")> 
+<Assembly: AssemblyProduct("BurnSoft My Gun Collection")> 
+<Assembly: AssemblyCopyright("Copyright © Burnsoft. 2007 - 2014")> 
+<Assembly: AssemblyTrademark("BurnSoft, www.burnsoft.net, www.burnsoft.org")> 
+
+<Assembly: ComVisible(False)>
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("a313b302-46bd-4a3b-a46b-907bb72bf154")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")> 
+
+<Assembly: AssemblyVersion("6.0.0.*")> 
+<Assembly: AssemblyFileVersion("6.0.0.0")> 

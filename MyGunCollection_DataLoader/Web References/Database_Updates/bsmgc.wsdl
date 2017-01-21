@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.burnsoft.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.burnsoft.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Web Service will allow registered users to update their database with all the Manufactures, Models and more that are listed in our database.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.burnsoft.net/">
+      <s:element name="IsRegisteredUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strProdKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsRegisteredUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsRegisteredUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_Manufacturer">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_ManufacturerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_ManufacturerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_Cal">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_CalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_CalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_GripType">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_GripTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_GripTypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_Model">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_ModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_ModelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_Nationality">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_NationalityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_NationalityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Gun_Type">
+        <s:complexType />
+      </s:element>
+      <s:element name="Gun_TypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Gun_TypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Maintance_Plans">
+        <s:complexType />
+      </s:element>
+      <s:element name="Maintance_PlansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Maintance_PlansResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsRegisteredUserSoapIn">
+    <wsdl:part name="parameters" element="tns:IsRegisteredUser" />
+  </wsdl:message>
+  <wsdl:message name="IsRegisteredUserSoapOut">
+    <wsdl:part name="parameters" element="tns:IsRegisteredUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_ManufacturerSoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_Manufacturer" />
+  </wsdl:message>
+  <wsdl:message name="Gun_ManufacturerSoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_ManufacturerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_CalSoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_Cal" />
+  </wsdl:message>
+  <wsdl:message name="Gun_CalSoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_CalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_GripTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_GripType" />
+  </wsdl:message>
+  <wsdl:message name="Gun_GripTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_GripTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_ModelSoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_Model" />
+  </wsdl:message>
+  <wsdl:message name="Gun_ModelSoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_ModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_NationalitySoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_Nationality" />
+  </wsdl:message>
+  <wsdl:message name="Gun_NationalitySoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_NationalityResponse" />
+  </wsdl:message>
+  <wsdl:message name="Gun_TypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Gun_Type" />
+  </wsdl:message>
+  <wsdl:message name="Gun_TypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Gun_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Maintance_PlansSoapIn">
+    <wsdl:part name="parameters" element="tns:Maintance_Plans" />
+  </wsdl:message>
+  <wsdl:message name="Maintance_PlansSoapOut">
+    <wsdl:part name="parameters" element="tns:Maintance_PlansResponse" />
+  </wsdl:message>
+  <wsdl:portType name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap">
+    <wsdl:operation name="IsRegisteredUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will validate if the person who requested the update is a registered user.</wsdl:documentation>
+      <wsdl:input message="tns:IsRegisteredUserSoapIn" />
+      <wsdl:output message="tns:IsRegisteredUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Manufacturer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will List all the Firearm Manufacturers that are listed in our database.</wsdl:documentation>
+      <wsdl:input message="tns:Gun_ManufacturerSoapIn" />
+      <wsdl:output message="tns:Gun_ManufacturerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Cal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will list all the Ammunition Calibers that are listed in the database.</wsdl:documentation>
+      <wsdl:input message="tns:Gun_CalSoapIn" />
+      <wsdl:output message="tns:Gun_CalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_GripType">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This will list all the Grip types that are in the database</wsdl:documentation>
+      <wsdl:input message="tns:Gun_GripTypeSoapIn" />
+      <wsdl:output message="tns:Gun_GripTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Model">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This contains all the Models that the Manufacturers distribute.</wsdl:documentation>
+      <wsdl:input message="tns:Gun_ModelSoapIn" />
+      <wsdl:output message="tns:Gun_ModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Nationality">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This contains all the Countries that the Manufacturers reside in.</wsdl:documentation>
+      <wsdl:input message="tns:Gun_NationalitySoapIn" />
+      <wsdl:output message="tns:Gun_NationalitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Type">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This contains the Gun types that are listed in the database</wsdl:documentation>
+      <wsdl:input message="tns:Gun_TypeSoapIn" />
+      <wsdl:output message="tns:Gun_TypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Maintance_Plans">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Contain additional optional Maintance plans for your firearm.</wsdl:documentation>
+      <wsdl:input message="tns:Maintance_PlansSoapIn" />
+      <wsdl:output message="tns:Maintance_PlansSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap" type="tns:My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsRegisteredUser">
+      <soap:operation soapAction="http://www.burnsoft.net/IsRegisteredUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Manufacturer">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_Manufacturer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Cal">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_Cal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_GripType">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_GripType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Model">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_Model" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Nationality">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_Nationality" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Type">
+      <soap:operation soapAction="http://www.burnsoft.net/Gun_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Maintance_Plans">
+      <soap:operation soapAction="http://www.burnsoft.net/Maintance_Plans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap12" type="tns:My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IsRegisteredUser">
+      <soap12:operation soapAction="http://www.burnsoft.net/IsRegisteredUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Manufacturer">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_Manufacturer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Cal">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_Cal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_GripType">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_GripType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Model">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_Model" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Nationality">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_Nationality" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gun_Type">
+      <soap12:operation soapAction="http://www.burnsoft.net/Gun_Type" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Maintance_Plans">
+      <soap12:operation soapAction="http://www.burnsoft.net/Maintance_Plans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Web Service will allow registered users to update their database with all the Manufactures, Models and more that are listed in our database.</wsdl:documentation>
+    <wsdl:port name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap" binding="tns:My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap">
+      <soap:address location="http://www.burnsoft.net/services/bsmgc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap12" binding="tns:My_x0020_Gun_x0020_Collection_x0020_Database_x0020_UpdateSoap12">
+      <soap12:address location="http://www.burnsoft.net/services/bsmgc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

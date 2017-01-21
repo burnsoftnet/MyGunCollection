@@ -1,0 +1,31 @@
+# osx noise
+.DS_Store
+profile
+
+# xcode noise
+build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# svn & cvs
+.svn
+CVS
+BSMGC_HotFixes/bin*.*
+BSMGC_HotFixes/obj/*.*
+BSMyGunCollection/bin*.*
+BSMyGunCollection/obj/*.*
+BSMyGunCollection_Setup/BSMyGunCollection_Setup/Debug/*.*
+BSMyGunCollection_Setup/BSMyGunCollection_Setup/Release/*.*
+BuzCardCDFiles/*.*
+CDFiles/*.*
+MyGunCollection_DataLoader/bin/*.*
+MyGunCollection_DataLoader/obj/*.*
+TrialRemover/*.*
+BSMyGunCollection/help/Files/_vti_cnf/*.*
+BSMyGunCollection/help/Files/images/_vti_cnf/*.*

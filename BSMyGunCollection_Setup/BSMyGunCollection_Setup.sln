@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BSMyGunCollection_Setup", "BSMyGunCollection_Setup\BSMyGunCollection_Setup.vdproj", "{F4C54AC3-963E-41A2-9F93-4D8A54E6E759}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4C54AC3-963E-41A2-9F93-4D8A54E6E759}.Debug|Default.ActiveCfg = Debug
+		{F4C54AC3-963E-41A2-9F93-4D8A54E6E759}.Debug|Default.Build.0 = Debug
+		{F4C54AC3-963E-41A2-9F93-4D8A54E6E759}.Release|Default.ActiveCfg = Release
+		{F4C54AC3-963E-41A2-9F93-4D8A54E6E759}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

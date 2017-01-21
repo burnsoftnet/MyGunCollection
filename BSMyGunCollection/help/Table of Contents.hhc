@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Home">
+		<param name="Local" value="Files\home.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Starting Out">
+		<param name="Local" value="Files\starting_out.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="On Load Settings">
+			<param name="Local" value="Files\Starting_out_Settings.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding a Firearm">
+			<param name="Local" value="Files\Starting_out_Adding_A_Firearm.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Details">
+			<param name="Local" value="Files\starting_out_Viewing_Details.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Viewing Details">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Details Window">
+			<param name="Local" value="Files\Details_View_Details.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Condition Comments">
+			<param name="Local" value="Files\Details_Condition_Comments.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Additonal Notes">
+			<param name="Local" value="Files\Details_Notes.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Pictures">
+			<param name="Local" value="Files\Details_Pictures.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Accessories">
+			<param name="Local" value="Files\Details_Accessories.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition">
+			<param name="Local" value="Files\Details_Ammunition.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Maintenance">
+			<param name="Local" value="Files\Details_Maintenace.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Gun Smith">
+			<param name="Local" value="Files\Details_GunSmith.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Buyer Details">
+			<param name="Local" value="Files\Details_BuyerDetails.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Viewing Items">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Maintenance Plans">
+			<param name="Local" value="Files\Viewing_a_maintenance_plan.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Listed Shops">
+			<param name="Local" value="Files\Viewing_Items_Shops.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing the WishList">
+			<param name="Local" value="Files\Wishlist.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Pictures">
+			<param name="Local" value="Files\Details_Pictures.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Grip Types">
+			<param name="Local" value="Files\GripTypes.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition Inventory">
+			<param name="Local" value="Files\Ammunition_Inventory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition Inventory Audit List">
+			<param name="Local" value="Files\Viewing_Ammunition_Audit_List.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Adding Items">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Viewing Listed Buyers">
+			<param name="Local" value="Files\Viewing_Items_Buyers.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Accessories">
+			<param name="Local" value="Files\Adding - Accessories.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition">
+			<param name="Local" value="Files\Adding_Ammunition.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition Qty">
+			<param name="Local" value="Files\Ammunition_Inventory.htm#AQTY">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition Qty with Auditing">
+			<param name="Local" value="Files\Ammunition_Inventory.htm#AQTYWAE">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Maintance Details">
+			<param name="Local" value="Files\Adding_Maintance_Details.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Maintenance Plans">
+			<param name="Local" value="Files\Adding_Maintance_Plans.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Gun Smith Details">
+			<param name="Local" value="Files\Adding_To_GunSmith_Log.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Pictures">
+			<param name="Local" value="Files\Details_Pictures.htm#Add">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Buyer Information">
+			<param name="Local" value="Files\Adding_Buyer_Information.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Manufacturers">
+			<param name="Local" value="Files\Adding_Items_Manufactures.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Ammunition Type">
+			<param name="Local" value="Files\Adding_Items_Ammunition_Type.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Model">
+			<param name="Local" value="Files\Adding_Items_Models.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Place of Orgin">
+			<param name="Local" value="Files\Adding_Items_Origin.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding a Shop">
+			<param name="Local" value="Files\Viewing_Items_Shops_List_Adding_Shopname.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding to the Wishlist">
+			<param name="Local" value="Files\Wishlist.htm#add">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding Grip Types">
+			<param name="Local" value="Files\GripTypes.htm#add">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding a Barrel or Conversion Kit">
+			<param name="Local" value="Files\Adding_Barrel_or_Conversion_Kit_to_a_Firearm.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding a Condition type">
+			<param name="Local" value="Files\Condition_Types_Adding.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Adding a Firearm Type">
+			<param name="Local" value="Files\Firearms_Type_Adding.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Editing Items">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Maintenance Plans">
+			<param name="Local" value="Files\Editing_a_Maintance_Plan.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing Manufactures">
+			<param name="Local" value="Files\Editing_Items_Manufactures.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing Ammuntion Type">
+			<param name="Local" value="Files\Editing_Items_Ammution_Type.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing Place of Origin">
+			<param name="Local" value="Files\Editing_Items_Origin.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing Ammunition Details">
+			<param name="Local" value="Files\Ammunition_Inventory.htm#Edit">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit Shops Details">
+			<param name="Local" value="Files\Editing_Shop_Details.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit Buyer Details">
+			<param name="Local" value="Files\Editing_Buyer_Details.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit a Wishlist Item">
+			<param name="Local" value="Files\Wishlist.htm#edit">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit an Accessory">
+			<param name="Local" value="Files\Edit_an_Accessory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing Grip Types">
+			<param name="Local" value="Files\GripTypes.htm#edit">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit a Firearm">
+			<param name="Local" value="Files\Editing_Firearm.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing a Condition type">
+			<param name="Local" value="Files\Condition_Types_editing.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Editing a Firearm Type">
+			<param name="Local" value="Files\Firearms_Type_Editing.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Copying an Item">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Copying an Accessory">
+			<param name="Local" value="Files\Copy_An_Accessory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Copy a Firearm">
+			<param name="Local" value="Files\Copy_a_firearm.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Deleting Items">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Deleting Pictures">
+			<param name="Local" value="Files\Details_Pictures.htm#Delete">
+			<param name="URL" value="Files\Details_Pictures.htm#Delete">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Removing a Firearm from your Collection">
+			<param name="Local" value="Files\Deleting_Firearms.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Removing Ammunition Listing">
+			<param name="Local" value="Files\Ammunition_Inventory.htm#RAMO">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Delete a Wishlist Item">
+			<param name="Local" value="Files\Wishlist.htm#delete">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Deleting an Accessory">
+			<param name="Local" value="Files\Delete_an_Accessory.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Removing Grip Types">
+			<param name="Local" value="Files\GripTypes.htm#del">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Delete Model Types">
+			<param name="Local" value="Files\Delete_Model_Types.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Removing a Condition Type">
+			<param name="Local" value="Files\Condition_Types_deleting.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Removing a Firearm Type">
+			<param name="Local" value="Files\Firearms_Type_Deleting.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tools">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Settings">
+			<param name="Local" value="Files\Tools_Settings.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Other Setting Options">
+			<param name="Local" value="Files\settings_other.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Backup Settings and Alerts">
+			<param name="Local" value="Files\settings_backup.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Security Settings">
+			<param name="Local" value="Files\settings_security.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Checking for Updates">
+			<param name="Local" value="Files\Applications_ApplicationUpdater.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Logging In">
+			<param name="Local" value="Files\Tools_Logging_in.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Database Clean-Up">
+			<param name="Local" value="Files\Database_Cleanup.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Data Loader">
+			<param name="Local" value="Files\DataLoader.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Setting Default Image">
+			<param name="Local" value="Files\Details_Pictures.htm#mainimg">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Picture Sizing">
+			<param name="Local" value="Files\Details_Pictures.htm#iso">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Searching Your Collection">
+			<param name="Local" value="Files\Searching_Your_Collection.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Reports">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Blank Shooters Card w/ Target">
+			<param name="Local" value="Files\report_blank_ShootersCarsWTarget.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Blank Shooters Card ">
+			<param name="Local" value="Files\report_blank_ShootersCard.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Blank Bound Book">
+			<param name="Local" value="Files\report_blank_boundbook.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Ammunition Inventory Report">
+			<param name="Local" value="Files\Report_Ammunition_Inv.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Bound Book Report">
+			<param name="Local" value="Files\Reports_BoundBook.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Gun Smith Details">
+			<param name="Local" value="Files\Report_GunSmith.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Maintenance">
+			<param name="Local" value="Files\Report_Maintenance.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Simple Inventory Report">
+			<param name="Local" value="Files\Report_Simple_Inv.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Simple Inventory w/ Notes Report">
+			<param name="Local" value="Files\Report_Simple_Inv_w_notes.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Gun For Sale Flyer">
+			<param name="Local" value="Files\Report_ForSale.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Wishlist Report">
+			<param name="Local" value="Files\Wishlist.htm#view">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Insurance Reports">
+			<param name="Local" value="Files\Insurance_Reports.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Insurance Report with Total">
+			<param name="Local" value="Files\Insurance_Reports_w_total.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Firearm Full Details Report">
+			<param name="Local" value="Files\report_fulldetails.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Firearm Complete Details Report">
+			<param name="Local" value="Files\Report_CompleteDetails.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Building Custom Reports">
+			<param name="Local" value="Files\Report_CustomReporting.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Firearm Picture Report">
+			<param name="Local" value="Files\Report-Firearm_Picture_Gallery.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Exporting, Backups and Restores">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exporting a Picture">
+			<param name="Local" value="Files\Details_Pictures.htm#Export">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Backing Up The Database">
+			<param name="Local" value="Files\backup_database.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Restoring your Database">
+			<param name="Local" value="Files\import_database.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exporting Firearm Details">
+			<param name="Local" value="Files\Imp-Exp_Firearm_Details.htm#e">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Importing Firearm Details">
+			<param name="Local" value="Files\Imp-Exp_Firearm_Details.htm#i">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Exporting/Saving Reports to PDF or Excel">
+			<param name="Local" value="Files\exporting_reports_to_file.htm">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Technical Support">
+		<param name="Local" value="Files\TechSupport.htm">
+		<param name="ImageNumber" value="1">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Contact">
+			<param name="Local" value="Files\Contact_Technical_Support.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Knowledge Base">
+			<param name="Local" value="Files\KnowledgeBase.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Report A Bug">
+			<param name="Local" value="Files\reportbug.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Suggestions">
+			<param name="Local" value="Files\Suggestions.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="User Fourms">
+			<param name="Local" value="Files\User_Forum.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Version History">
+			<param name="Local" value="Files\versions.htm">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Application Updater">
+			<param name="Local" value="Files\Applications_ApplicationUpdater_Home.html">
+			<param name="ImageNumber" value="1">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Application Updater via Internet">
+				<param name="Local" value="Files\Applications_ApplicationUpdater_Internet.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Application Updater via File">
+				<param name="Local" value="Files\Applications_ApplicationUpdater_File.html">
+				</OBJECT>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>
