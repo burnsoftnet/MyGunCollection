@@ -15,152 +15,302 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_00907420E1F1439D8169C965B13460B8"
+        "MsmKey" = "8:_0875771BBC554141B42E2DD8BAABE1C1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+        "MsmKey" = "8:_0AC334F38F8B464F827044D3F3BB2D41"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_23B4AC2EEC264670885EE6291F0AEAAA"
+        "MsmKey" = "8:_0D247CD7D9094B6CA32F805144483828"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2B4D2E5619144A6091C560C0B0ADBE37"
+        "MsmKey" = "8:_15C7BD63838B41F3BE676FF7726355A1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3187FBF8D74E4D118B32DCA61DF96E61"
+        "MsmKey" = "8:_16D826E5FE8C4B76874E884AF42B954B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_353BE3DB44744A61BA15B1CFB0C87546"
+        "MsmKey" = "8:_1ACA440B138441A081842C4F3CFA43DD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_35F2E670B3CC41AE9348353C39E88279"
+        "MsmKey" = "8:_1E28E5A162584F338CC79B5484AB5414"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_36D302690BD5416F8E35A9E325685A32"
+        "MsmKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_20CFAA02259483C208FF039351D0588E"
+        "OwnerKey" = "8:_64ACDE644B1441A29B316A367C85B164"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_26DB322B3F4E47F5A3108D0DA5D6C82A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_39A14837129C47CE855FF3E1171599AB"
+        "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
+        "OwnerKey" = "8:_0D247CD7D9094B6CA32F805144483828"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3571663173ED428ABA70CA80B19930DB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_41F02277FE794EBDBBB9E3BE54E452ED"
+        "MsmKey" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6208E7F05E3C40F486C12304AB99A1D8"
+        "MsmKey" = "8:_428296EB1B5F4835B63DBB0615F5196F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6E7246BE5A0546849ADEFDF9A5C73C3F"
+        "MsmKey" = "8:_45A2E1AA91F821649245F3E6B7730A92"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_46236F755B64400F94A21532366A1D57"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_700597FE2FA54355AE146BB79ED888F1"
+        "MsmKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64ACDE644B1441A29B316A367C85B164"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7A07BFE234904BDE8CD98F203D0E5B35"
+        "MsmKey" = "8:_656C9DBC7206D865C8539A232BB8999E"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_68D0E784107D437EA993C89EEABE97B3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9B657DFFE03C452BB9D99681D34E398D"
+        "MsmKey" = "8:_89B0027030A04F74956B0A6A404E2C72"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AEF1B493AC3E4C0DAF44082D883F43C9"
+        "MsmKey" = "8:_8E981E0873324E3182BC9C2091879908"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B2E8FF0E1FC6454F9682E7951841EA27"
+        "MsmKey" = "8:_999BE58EC6AA4461885EBBB73BFB822F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C2ADF8AB134A46BF8226593D2C65D44F"
+        "MsmKey" = "8:_A57421839BFF4338B9CCF2ADD93A618F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C4D9DD616EBA4E6496EDB7C72E4DE0D9"
+        "MsmKey" = "8:_BBB2C3FAEC6640B78CB5D2475F52BB1A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C92906F8FC6C4EA8A9A829E90815B642"
+        "MsmKey" = "8:_BDCE59A2125D4008935824F79C0C70E5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D634D96D1522407DA87EAFBA2AB29EDD"
+        "MsmKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D8AAC367368D46FDAC5BA001F61FBA2B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D6C01A5712934E11935AAD766EBDC45E"
+        "MsmKey" = "8:_F08CA8A3AF114E2EAB6440841C6FA9DC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E5A89C8AB3A94FE185DACD0D831F177C"
+        "MsmKey" = "8:_F7641E41748F4CA599700C2B25A804D6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F0A02E4BC96F4EC4BC6AC9F464DFDBEF"
+        "MsmKey" = "8:_F80326B4B75340E5896AC5D6E84C82C2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F97B22FB092E446EACC4CFA96B937FC9"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_16D826E5FE8C4B76874E884AF42B954B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20CFAA02259483C208FF039351D0588E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_64ACDE644B1441A29B316A367C85B164"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_428296EB1B5F4835B63DBB0615F5196F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_15C7BD63838B41F3BE676FF7726355A1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3571663173ED428ABA70CA80B19930DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F80326B4B75340E5896AC5D6E84C82C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_26DB322B3F4E47F5A3108D0DA5D6C82A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_45A2E1AA91F821649245F3E6B7730A92"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_656C9DBC7206D865C8539A232BB8999E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0D247CD7D9094B6CA32F805144483828"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -300,69 +450,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_00907420E1F1439D8169C965B13460B8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0875771BBC554141B42E2DD8BAABE1C1"
             {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MGC.mdb"
-            "TargetName" = "8:MGC.mdb"
-            "Tag" = "8:"
-            "Folder" = "8:_54076A5C29C84CA69992CD54E5CB0E5C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A3F402B13F44B358D51027FB7EE0153"
-            {
-            "SourcePath" = "8:images\\Setup_Banner.jpg"
-            "TargetName" = "8:Setup_Banner.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23B4AC2EEC264670885EE6291F0AEAAA"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\ProxyConfig.xml"
-            "TargetName" = "8:ProxyConfig.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B4D2E5619144A6091C560C0B0ADBE37"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe.config"
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe.config"
             "TargetName" = "8:BSMyGunCollection.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
@@ -380,10 +470,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3187FBF8D74E4D118B32DCA61DF96E61"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0AC334F38F8B464F827044D3F3BB2D41"
             {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\mgc_default.jpg"
-            "TargetName" = "8:mgc_default.jpg"
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMGC_HotFixes.exe.config"
+            "TargetName" = "8:BSMGC_HotFixes.exe.config"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -400,75 +490,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_353BE3DB44744A61BA15B1CFB0C87546"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBBackup.exe.config"
-            "TargetName" = "8:DBBackup.exe.config"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_35F2E670B3CC41AE9348353C39E88279"
-            {
-            "SourcePath" = "8:images\\My_GunCollection_Multi_Icon.ico"
-            "TargetName" = "8:My_GunCollection_Multi_Icon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36D302690BD5416F8E35A9E325685A32"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\images\\Computer_System_53_32x32.ico"
-            "TargetName" = "8:Computer_System_53_32x32.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_39A14837129C47CE855FF3E1171599AB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0D247CD7D9094B6CA32F805144483828"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=5.0.1.15917, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.30428, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_0D247CD7D9094B6CA32F805144483828"
+                    {
+                    "Name" = "8:BSMGC_HotFixes.exe"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMGC_HotFixes.exe"
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMGC_HotFixes.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
@@ -486,10 +521,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41F02277FE794EBDBBB9E3BE54E452ED"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15C7BD63838B41F3BE676FF7726355A1"
             {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\images\\My_GunCollection_32_x_32.ico"
-            "TargetName" = "8:My_GunCollection_32_x_32.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DBRestore, Version=4.10.456.26575, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_15C7BD63838B41F3BE676FF7726355A1"
+                    {
+                    "Name" = "8:DBRestore.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBRestore.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -506,10 +552,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6208E7F05E3C40F486C12304AB99A1D8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_16D826E5FE8C4B76874E884AF42B954B"
             {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\images\\My_GunCollection_72_x_72.ico"
-            "TargetName" = "8:My_GunCollection_72_x_72.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_16D826E5FE8C4B76874E884AF42B954B"
+                    {
+                    "Name" = "8:adodb.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\adodb.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -526,67 +583,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6E7246BE5A0546849ADEFDF9A5C73C3F"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBRestore.exe.config"
-            "TargetName" = "8:DBRestore.exe.config"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_700597FE2FA54355AE146BB79ED888F1"
-            {
-            "SourcePath" = "8:images\\Help_32_x_32.ico"
-            "TargetName" = "8:Help_32_x_32.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A07BFE234904BDE8CD98F203D0E5B35"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBRestore.exe"
-            "TargetName" = "8:DBRestore.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B657DFFE03C452BB9D99681D34E398D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1ACA440B138441A081842C4F3CFA43DD"
             {
             "SourcePath" = "8:images\\Update.ico"
             "TargetName" = "8:Update.ico"
@@ -606,7 +603,559 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEF1B493AC3E4C0DAF44082D883F43C9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E28E5A162584F338CC79B5484AB5414"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\mgc_default.jpg"
+            "TargetName" = "8:mgc_default.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20A6B045CBBC50BD9034365C0A20E703"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_20A6B045CBBC50BD9034365C0A20E703"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.ProcessingObjectModel.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.ReportViewer.ProcessingObjectModel.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20CFAA02259483C208FF039351D0588E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.2.8.456, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_20CFAA02259483C208FF039351D0588E"
+                    {
+                    "Name" = "8:MyGunCollection_DataLoader.EXE"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MyGunCollection_DataLoader.EXE"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_26DB322B3F4E47F5A3108D0DA5D6C82A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_26DB322B3F4E47F5A3108D0DA5D6C82A"
+                    {
+                    "Name" = "8:BurnSoft.MsgBox.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BurnSoft.MsgBox.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3030A34192A528D682681084E6C746E2"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_3030A34192A528D682681084E6C746E2"
+                    {
+                    "Name" = "8:ADODB.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ADODB.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3571663173ED428ABA70CA80B19930DB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DBBackup, Version=4.10.357.16309, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_3571663173ED428ABA70CA80B19930DB"
+                    {
+                    "Name" = "8:DBBackup.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBBackup.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3A8C0F9590BB4ACA91B66A1765A71108"
+            {
+            "SourcePath" = "8:images\\Setup_Banner.jpg"
+            "TargetName" = "8:Setup_Banner.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_428296EB1B5F4835B63DBB0615F5196F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.2.8.456, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_428296EB1B5F4835B63DBB0615F5196F"
+                    {
+                    "Name" = "8:MyGunCollection_DataLoader.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_45A2E1AA91F821649245F3E6B7730A92"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_45A2E1AA91F821649245F3E6B7730A92"
+                    {
+                    "Name" = "8:DataGridViewAutoFilter.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:DataGridViewAutoFilter.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_46236F755B64400F94A21532366A1D57"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.30403, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_46236F755B64400F94A21532366A1D57"
+                    {
+                    "Name" = "8:BSMyGunCollection.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_600939FD6B60028399EB2C5DB5BB49BA"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_600939FD6B60028399EB2C5DB5BB49BA"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_64ACDE644B1441A29B316A367C85B164"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=2.2.8.456, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_64ACDE644B1441A29B316A367C85B164"
+                    {
+                    "Name" = "8:MyGunCollection_DataLoader.XmlSerializers.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.XmlSerializers.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_656C9DBC7206D865C8539A232BB8999E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_656C9DBC7206D865C8539A232BB8999E"
+                    {
+                    "Name" = "8:BurnSoft.MsgBox.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BurnSoft.MsgBox.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_68D0E784107D437EA993C89EEABE97B3"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\Config.xml"
+            "TargetName" = "8:Config.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_89B0027030A04F74956B0A6A404E2C72"
+            {
+            "SourcePath" = "8:images\\My_GunCollection_Multi_Icon.ico"
+            "TargetName" = "8:My_GunCollection_Multi_Icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8E981E0873324E3182BC9C2091879908"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBRestore.exe.config"
+            "TargetName" = "8:DBRestore.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_999BE58EC6AA4461885EBBB73BFB822F"
+            {
+            "SourcePath" = "8:images\\Help_32_x_32.ico"
+            "TargetName" = "8:Help_32_x_32.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A57421839BFF4338B9CCF2ADD93A618F"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\my_gun_collection_help.chm"
+            "TargetName" = "8:my_gun_collection_help.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BBB2C3FAEC6640B78CB5D2475F52BB1A"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBBackup.exe.config"
+            "TargetName" = "8:DBBackup.exe.config"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BDCE59A2125D4008935824F79C0C70E5"
+            {
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MGC.mdb"
+            "TargetName" = "8:MGC.mdb"
+            "Tag" = "8:"
+            "Folder" = "8:_54076A5C29C84CA69992CD54E5CB0E5C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CAE9B7B3C53B538DA83589CEBD5C6643"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_CAE9B7B3C53B538DA83589CEBD5C6643"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.DataVisualization.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.ReportViewer.DataVisualization.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D8AAC367368D46FDAC5BA001F61FBA2B"
             {
             "SourcePath" = "8:images\\u-Winxpicons_(Winxpicons)_ComputerDevice_3.ico"
             "TargetName" = "8:u-Winxpicons_(Winxpicons)_ComputerDevice_3.ico"
@@ -626,125 +1175,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B2E8FF0E1FC6454F9682E7951841EA27"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBBackup.exe"
-            "TargetName" = "8:DBBackup.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C2ADF8AB134A46BF8226593D2C65D44F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSAppRegistration, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\ExtraUtilities\\BSAppRegistration.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C4D9DD616EBA4E6496EDB7C72E4DE0D9"
-            {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\my_gun_collection_help.chm"
-            "TargetName" = "8:my_gun_collection_help.chm"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C92906F8FC6C4EA8A9A829E90815B642"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=5.5.86.17471, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D634D96D1522407DA87EAFBA2AB29EDD"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=2.2.8.456, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.XmlSerializers.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D6C01A5712934E11935AAD766EBDC45E"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F08CA8A3AF114E2EAB6440841C6FA9DC"
             {
             "SourcePath" = "8:images\\u-Winxpicons_(Winxpicons)_Disk_2.ico"
             "TargetName" = "8:u-Winxpicons_(Winxpicons)_Disk_2.ico"
@@ -764,7 +1195,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E5A89C8AB3A94FE185DACD0D831F177C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F7641E41748F4CA599700C2B25A804D6"
             {
             "SourcePath" = "8:images\\Military_OtherWeapon_4_32x32.ico"
             "TargetName" = "8:Military_OtherWeapon_4_32x32.ico"
@@ -784,15 +1215,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F0A02E4BC96F4EC4BC6AC9F464DFDBEF"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F80326B4B75340E5896AC5D6E84C82C2"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_F80326B4B75340E5896AC5D6E84C82C2"
+                    {
+                    "Name" = "8:DataGridViewAutoFilter.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\adodb.dll"
+            "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DataGridViewAutoFilter.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
@@ -810,10 +1246,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F97B22FB092E446EACC4CFA96B937FC9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC89F63BD650014779B3A9A67875358D"
             {
-            "SourcePath" = "8:\\\\psf\\Home\\Documents\\Visual Studio 2010\\Projects\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\Config.xml"
-            "TargetName" = "8:Config.xml"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FC89F63BD650014779B3A9A67875358D"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.WinForms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -827,7 +1274,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -941,15 +1388,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{32767E12-3776-473C-90F8-C070AEEAFDEE}"
-        "PackageCode" = "8:{42C39932-15C9-4B79-9B49-598DB840D485}"
+        "ProductCode" = "8:{731DEAD7-2CB7-4044-BDFE-9937B5591C12}"
+        "PackageCode" = "8:{7ADA78B2-500D-4A57-8268-2470F4FCE2C0}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:FALSE"
-        "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:5.5"
+        "InstallAllUsers" = "11:FALSE"
+        "ProductVersion" = "8:6.0"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:(502) 330-0129"
         "ARPHELPLINK" = "8:http://support.burnsoft.net"
@@ -959,7 +1406,7 @@
         "Keywords" = "8:Burnsoft, My Gun Collection, Gun Collection, Guns, Collection. Ammunition, Inventory, Reports, Collectors"
         "ARPCOMMENTS" = "8:My Gun Collection Application will help manage your gun collection, accessories and ammunition."
         "ARPURLINFOABOUT" = "8:http://www.burnsoft.net"
-        "ARPPRODUCTICON" = "8:_E5A89C8AB3A94FE185DACD0D831F177C"
+        "ARPPRODUCTICON" = "8:_89B0027030A04F74956B0A6A404E2C72"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1034,7 +1481,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0B16DF0C55194495A12B1595AFBCB913"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_62941439D2F44802891D5D1FB1302D1E"
             {
             "Name" = "8:My Gun Collection"
             "Arguments" = "8:"
@@ -1042,94 +1489,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_C92906F8FC6C4EA8A9A829E90815B642"
+            "Target" = "8:_46236F755B64400F94A21532366A1D57"
             "Folder" = "8:_EAD20B52ADE64C04BA3216C14AAFDC68"
-            "WorkingFolder" = "8:_54076A5C29C84CA69992CD54E5CB0E5C"
-            "Icon" = "8:_6208E7F05E3C40F486C12304AB99A1D8"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3181EDD4D28149DB8F55028C7B05997A"
-            {
-            "Name" = "8:Register Application"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_C2ADF8AB134A46BF8226593D2C65D44F"
-            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
             "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_36D302690BD5416F8E35A9E325685A32"
+            "Icon" = "8:_89B0027030A04F74956B0A6A404E2C72"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_40F8D44C2A0645D69576774C6D4B9BDD"
-            {
-            "Name" = "8:MGC Application Updater"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:"
-            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
-            "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_9B657DFFE03C452BB9D99681D34E398D"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_60BC86A66024410487A99019196742A1"
-            {
-            "Name" = "8:My Gun Collection Help"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:3"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_C4D9DD616EBA4E6496EDB7C72E4DE0D9"
-            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
-            "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_700597FE2FA54355AE146BB79ED888F1"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6752B168B1D646DAB801F85034CEF473"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C448254DE5C04B90B66A51582D001D67"
             {
             "Name" = "8:My Gun Collection"
             "Arguments" = "8:"
             "Description" = "8:"
-            "ShowCmd" = "3:3"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_C92906F8FC6C4EA8A9A829E90815B642"
-            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
-            "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_6208E7F05E3C40F486C12304AB99A1D8"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B32813EE547647CCA9E80E5C2C76AC73"
-            {
-            "Name" = "8:MGC Backup Database"
-            "Arguments" = "8:"
-            "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B2E8FF0E1FC6454F9682E7951841EA27"
+            "Target" = "8:_46236F755B64400F94A21532366A1D57"
             "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
             "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_D6C01A5712934E11935AAD766EBDC45E"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C99917CEED1E4DDB8438669BEE367BA2"
-            {
-            "Name" = "8:MGC Restore Database"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_7A07BFE234904BDE8CD98F203D0E5B35"
-            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
-            "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Icon" = "8:_AEF1B493AC3E4C0DAF44082D883F43C9"
+            "Icon" = "8:_89B0027030A04F74956B0A6A404E2C72"
             "Feature" = "8:"
             }
         }
@@ -1166,7 +1543,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -1198,7 +1575,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -1247,7 +1624,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -1270,7 +1647,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -1302,7 +1679,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -1347,7 +1724,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -1392,7 +1769,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -1441,7 +1818,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -1464,7 +1841,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -1515,7 +1892,7 @@
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
                             "Setting" = "3:2"
-                            "Value" = "8:_1A3F402B13F44B358D51027FB7EE0153"
+                            "Value" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"

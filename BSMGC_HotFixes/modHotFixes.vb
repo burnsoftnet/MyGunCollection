@@ -2,11 +2,28 @@ Module modHotFixes
     Public HotFixApplied As Boolean
     Public Const MAX_HOTFIX = 9
     Sub ApplyregistryHotfixes(ByVal sNumber As String)
+        'This Sub will apply the hotfixes from a starting number to the max hot fix
+        'This is mostly used by the DoVersionCheck sub
+        Dim i As Integer = 0
+        'For i = 1 To CInt(sNumber)
+        For i = (CInt(sNumber) + 1) To CInt(MAX_HOTFIX)
+            If Not HotFixExists(i) Then Call RunSpecificHotFic(i)
+        Next
+        'We are skipping to the last hotfix for the database version, but it is maxing at the number to loop to, but nothing past it
+        'Need to do everything after that number
+        'Check to see what else uses this sub.
+    End Sub
+    Sub AppliedregistryHotfixes(ByVal sNumber As String)
+        'This Sub will apply the previous versions of the hotfix in registry since they should already exist in the database
+        'This is mostly used by the DoVersionCheck sub
         Dim i As Integer = 0
         For i = 1 To CInt(sNumber)
             If Not HotFixExists(i) Then Call UpdateLastUpdate(i)
             Call AppliedUpdates(i)
         Next
+        'We are skipping to the last hotfix for the database version, but it is maxing at the number to loop to, but nothing past it
+        'Need to do everything after that number
+        'Check to see what else uses this sub.
     End Sub
     Public Sub DoVersioncheck()
         Dim CurVer As String = GetLastDatabaseUpdate()
@@ -15,18 +32,43 @@ Module modHotFixes
         Select Case CurVer
             Case "4.5"
                 DoToVersion = 7
+                AppliedregistryHotfixes(DoToVersion)
+                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
                 ApplyregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database")
             Case "5.0"
                 DoToVersion = 8
+                AppliedregistryHotfixes(DoToVersion)
+                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
                 ApplyregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database")
             Case "6.0"
                 'Database Version was jumped to match the current version of the application
                 'technically true, but was different since we started late in this.
                 DoToVersion = 9
+                AppliedregistryHotfixes(DoToVersion)
+                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
                 ApplyregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database")
+        End Select
+    End Sub
+    Public Sub RunSpecificHotFic(iFix As Integer)
+        Select Case iFix
+            Case 1
+                Call HotFix_1()
+            Case 2
+                Call HotFix_2()
+            Case 3
+                Call HotFix_3()
+            Case 4
+                Call HotFix_4()
+            Case 5
+                Call HotFix_5()
+            Case 6
+                Call HotFix_6()
+            Case 7
+                Call HotFix_7()
+            Case 8
+                Call HotFix_8()
+            Case 9
+                Call HotFix_9()
         End Select
     End Sub
     Public Sub DoUpdates()
@@ -39,7 +81,7 @@ Module modHotFixes
         If Not HotFixExists("6") Then Call HotFix_6()
         If Not HotFixExists("7") Then Call HotFix_7()
         If Not HotFixExists("8") Then Call HotFix_8()
-        'If Not HotFixExists("9") Then Call HotFix_9()
+        If Not HotFixExists("9") Then Call HotFix_9()
     End Sub
     Sub RedoAll()
         Call DelRegValue("HotFix", "1", "")
@@ -50,7 +92,7 @@ Module modHotFixes
         Call DelRegValue("HotFix", "6", "")
         Call DelRegValue("HotFix", "7", "")
         Call DelRegValue("HotFix", "8", "")
-        'Call DelRegValue("HotFix", "9", "")
+        Call DelRegValue("HotFix", "9", "")
         Call DelRegValue("HotFix", "LastUpdate", "")
     End Sub
     Sub HotFix_1()
@@ -144,7 +186,7 @@ Module modHotFixes
         'End Updates
         Call UpdateLastUpdate(strUpdateName)
         Call AppliedUpdates(strUpdateName)
-       Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
+        Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
     Sub HotFix_5()
@@ -595,7 +637,7 @@ Module modHotFixes
         Dim strUpdateName As String
         strUpdateName = "9"
         Dim DBVersion As String = "6.0"
-        Dim DBVerHasChanged As Boolean = False
+        Dim DBVerHasChanged As Boolean = True
         Call DebugLog("HotFix_" & strUpdateName, "Starting HotFix " & strUpdateName)
         'INSERT UPDATES HERE!!
         Dim SQL As String = ""
@@ -608,7 +650,7 @@ Module modHotFixes
         Call AddColumn("lbs_trigger", "Gun_Collection", "N/A", "Text(255)")
         Call AddColumn("Caliber3", "Gun_Collection", "N/A", "Text(255)")
         Call AddColumn("Classification", "Gun_Collection", "N/A", "Text(255)")
-        Call AddColumn("DateofCRr", "Gun_Collection", "N/A", "DATETIME")
+        Call AddColumn("DateofCR", "Gun_Collection", "N/A", "DATETIME")
         SQL = "UPDATE Gun_Collection set IsInBoundBook=1"
         Call RunSQL(SQL)
         Console.WriteLine(vbTab & "Creating Appraiser Contact Details Table")

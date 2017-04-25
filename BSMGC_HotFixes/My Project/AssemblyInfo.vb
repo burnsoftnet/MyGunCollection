@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("My Gun Collection Hotfix Application - This application will apply any hotfox needed to the database and subcomponets of the My Gun Collection Application, mostly used to help upgrade a person to the latest version.")> 
 <Assembly: AssemblyCompany("BurnSoft")> 
 <Assembly: AssemblyProduct("My Gun Collection Hotfix Application")> 
-<Assembly: AssemblyCopyright("Copyright © BurnSoft  2007-2013")> 
+<Assembly: AssemblyCopyright("Copyright © BurnSoft  2007-2017")> 
 <Assembly: AssemblyTrademark("BurnSoft, www.burnsoft.net")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("5.1.1.*")> 
-<Assembly: AssemblyFileVersion("5.1.1.234")> 
+<Assembly: AssemblyVersion("6.1.1.*")> 
+<Assembly: AssemblyFileVersion("6.1.1.10")> 

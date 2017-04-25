@@ -409,8 +409,9 @@ Public Class MDIParent1
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
-            Dim ObjFS As New BSFileSystem
-            If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then ReRunHotfixUpdatesToolStripMenuItem.Enabled = True
+            'This was removed since the app updater is no longer in use
+            'Dim ObjFS As New BSFileSystem
+            'If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then ReRunHotfixUpdatesToolStripMenuItem.Enabled = True
         Catch ex As Exception
             Dim strProcedure As String = "Load"
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)

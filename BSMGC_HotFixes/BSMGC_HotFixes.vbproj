@@ -112,9 +112,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BSMGC_HotFixes.exe.manifest" />
-    <None Include="hotfix.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Resources\hotfix.ico" />
   </ItemGroup>
   <ItemGroup>
