@@ -157,10 +157,22 @@
     <Compile Include="BSRegistration.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditGunClassications.Designer.vb">
+      <DependentUpon>EditGunClassications.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditGunClassications.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddDocument.Designer.vb">
       <DependentUpon>frmAddDocument.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAddDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddFirearmClassification.Designer.vb">
+      <DependentUpon>frmAddFirearmClassification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddFirearmClassification.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditModelTypes.Designer.vb">
@@ -706,6 +718,12 @@
     <EmbeddedResource Include="BSRegistration.resx">
       <DependentUpon>BSRegistration.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditGunClassications.resx">
+      <DependentUpon>EditGunClassications.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddFirearmClassification.resx">
+      <DependentUpon>frmAddFirearmClassification.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewReport_BoundBook2.resx">
       <DependentUpon>frmViewReport_BoundBook2.vb</DependentUpon>

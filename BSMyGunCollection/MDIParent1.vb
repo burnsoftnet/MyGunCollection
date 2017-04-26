@@ -851,4 +851,16 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
+
+    Private Sub ClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClassificationToolStripMenuItem.Click
+        Dim frmNew As New EditGunClassications
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+
+    Private Sub AddFirearmClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddFirearmClassificationToolStripMenuItem.Click
+        Dim frmNew As New frmAddFirearmClassification
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
 End Class

@@ -7,7 +7,7 @@ Module modHotFixes
         Dim i As Integer = 0
         'For i = 1 To CInt(sNumber)
         For i = (CInt(sNumber) + 1) To CInt(MAX_HOTFIX)
-            If Not HotFixExists(i) Then Call RunSpecificHotFic(i)
+            Call RunSpecificHotFic(i)
         Next
         'We are skipping to the last hotfix for the database version, but it is maxing at the number to loop to, but nothing past it
         'Need to do everything after that number
@@ -679,6 +679,10 @@ Module modHotFixes
         Call AddSyncToTable("Gun_Collection_Docs_Links", True)
         SQL = "CREATE TABLE Gun_Collection_Classification (ID AUTOINCREMENT PRIMARY KEY,myclass Text(255))"
         Call RunSQL(SQL)
+        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('Antique')")
+        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('C&R')")
+        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('Modern')")
+
         Call AddSyncToTable("Gun_Collection_Classification", True)
         'End Updates
         If DBVerHasChanged Then Call SaveDatabaseVersion(DBVersion)
