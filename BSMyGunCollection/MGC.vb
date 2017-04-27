@@ -425,6 +425,11 @@ Namespace MGC
             sAns = "Driver={Microsoft Access Driver (*.mdb)};dbq=" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & ";Pwd=14un0t2n0"
             Return sAns
         End Function
+        Public Function sConnectOLE() As String
+            Dim sAns As String = ""
+            sAns = "Provider=Microsoft.Jet.OLEDB.4.0; User Id=;Data Source=" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & ";Pwd=14un0t2n0"
+            Return sAns
+        End Function
         Public Sub ConnectDB()
             Try
                 Conn = New OdbcConnection(sConnect)
