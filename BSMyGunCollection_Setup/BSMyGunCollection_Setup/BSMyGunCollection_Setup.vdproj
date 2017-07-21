@@ -141,6 +141,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_878CD9B915754F0D81D03C794197C71D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_89B0027030A04F74956B0A6A404E2C72"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -165,6 +171,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A90935D599EA4A2A9EA2A8C309C61F74"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B1BC6549F7D144A3A0D2548D72CC5E58"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B73E7B073A8A4DF1A26F487781BBBE8C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BBB2C3FAEC6640B78CB5D2475F52BB1A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -184,6 +208,18 @@
         "Entry"
         {
         "MsmKey" = "8:_D8AAC367368D46FDAC5BA001F61FBA2B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E154043F4F164A42886F3DC435990C40"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E9AD904A35DD49269B1121FA5DB9C795"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -220,85 +256,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20CFAA02259483C208FF039351D0588E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_64ACDE644B1441A29B316A367C85B164"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_428296EB1B5F4835B63DBB0615F5196F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_15C7BD63838B41F3BE676FF7726355A1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3571663173ED428ABA70CA80B19930DB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F80326B4B75340E5896AC5D6E84C82C2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_26DB322B3F4E47F5A3108D0DA5D6C82A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_45A2E1AA91F821649245F3E6B7730A92"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_656C9DBC7206D865C8539A232BB8999E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,7 +268,85 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
+        "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_46236F755B64400F94A21532366A1D57"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_656C9DBC7206D865C8539A232BB8999E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_45A2E1AA91F821649245F3E6B7730A92"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_26DB322B3F4E47F5A3108D0DA5D6C82A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F80326B4B75340E5896AC5D6E84C82C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3571663173ED428ABA70CA80B19930DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_15C7BD63838B41F3BE676FF7726355A1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_428296EB1B5F4835B63DBB0615F5196F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_64ACDE644B1441A29B316A367C85B164"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20CFAA02259483C208FF039351D0588E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -497,11 +533,6 @@
             "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.30428, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_0D247CD7D9094B6CA32F805144483828"
-                    {
-                    "Name" = "8:BSMGC_HotFixes.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMGC_HotFixes.exe"
             "TargetName" = "8:"
@@ -528,11 +559,6 @@
             "AssemblyAsmDisplayName" = "8:DBRestore, Version=4.10.456.26575, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_15C7BD63838B41F3BE676FF7726355A1"
-                    {
-                    "Name" = "8:DBRestore.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBRestore.exe"
             "TargetName" = "8:"
@@ -559,11 +585,6 @@
             "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_16D826E5FE8C4B76874E884AF42B954B"
-                    {
-                    "Name" = "8:adodb.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\adodb.dll"
             "TargetName" = "8:"
@@ -661,11 +682,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.2.8.456, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_20CFAA02259483C208FF039351D0588E"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.EXE"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MyGunCollection_DataLoader.EXE"
             "TargetName" = "8:"
@@ -692,11 +708,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_26DB322B3F4E47F5A3108D0DA5D6C82A"
-                    {
-                    "Name" = "8:BurnSoft.MsgBox.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BurnSoft.MsgBox.dll"
             "TargetName" = "8:"
@@ -754,11 +765,6 @@
             "AssemblyAsmDisplayName" = "8:DBBackup, Version=4.10.357.16309, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_3571663173ED428ABA70CA80B19930DB"
-                    {
-                    "Name" = "8:DBBackup.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DBBackup.exe"
             "TargetName" = "8:"
@@ -805,11 +811,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.2.8.456, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_428296EB1B5F4835B63DBB0615F5196F"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.exe"
             "TargetName" = "8:"
@@ -836,11 +837,6 @@
             "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_45A2E1AA91F821649245F3E6B7730A92"
-                    {
-                    "Name" = "8:DataGridViewAutoFilter.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DataGridViewAutoFilter.DLL"
             "TargetName" = "8:"
@@ -867,11 +863,6 @@
             "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.30403, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_46236F755B64400F94A21532366A1D57"
-                    {
-                    "Name" = "8:BSMyGunCollection.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe"
             "TargetName" = "8:"
@@ -929,11 +920,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=2.2.8.456, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_64ACDE644B1441A29B316A367C85B164"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.XmlSerializers.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.XmlSerializers.dll"
             "TargetName" = "8:"
@@ -960,11 +946,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_656C9DBC7206D865C8539A232BB8999E"
-                    {
-                    "Name" = "8:BurnSoft.MsgBox.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BurnSoft.MsgBox.DLL"
             "TargetName" = "8:"
@@ -990,6 +971,26 @@
             "TargetName" = "8:Config.xml"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_878CD9B915754F0D81D03C794197C71D"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\png.png"
+            "TargetName" = "8:png.png"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1070,6 +1071,66 @@
             "TargetName" = "8:my_gun_collection_help.chm"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A90935D599EA4A2A9EA2A8C309C61F74"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\pdf.png"
+            "TargetName" = "8:pdf.png"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1BC6549F7D144A3A0D2548D72CC5E58"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\jpg_icon.jpg"
+            "TargetName" = "8:jpg_icon.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B73E7B073A8A4DF1A26F487781BBBE8C"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\txt.png"
+            "TargetName" = "8:txt.png"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1175,6 +1236,46 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E154043F4F164A42886F3DC435990C40"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\bmp.png"
+            "TargetName" = "8:bmp.png"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E9AD904A35DD49269B1121FA5DB9C795"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\doc_images\\word.png"
+            "TargetName" = "8:word.png"
+            "Tag" = "8:"
+            "Folder" = "8:_86822D4D5C4A406EA6D2E0980C2257FC"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F08CA8A3AF114E2EAB6440841C6FA9DC"
             {
             "SourcePath" = "8:images\\u-Winxpicons_(Winxpicons)_Disk_2.ico"
@@ -1222,11 +1323,6 @@
             "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_F80326B4B75340E5896AC5D6E84C82C2"
-                    {
-                    "Name" = "8:DataGridViewAutoFilter.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:\\\\Mac\\Home\\Documents\\Source_Code\\Visual Studio 2010\\Projects\\Beta\\BSMyGunCollection\\BSMyGunCollection\\bin\\Release\\DataGridViewAutoFilter.dll"
             "TargetName" = "8:"
@@ -1326,6 +1422,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_86822D4D5C4A406EA6D2E0980C2257FC"
+                    {
+                    "Name" = "8:doc_images"
+                    "AlwaysCreate" = "11:TRUE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_61DFB31C4D894D56AB42B25F50A94253"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{1525181F-901A-416C-8A58-119130FE478E}:_E9C5765542DA4409A9412464AADA752E"
@@ -1355,6 +1462,17 @@
                             "Property" = "8:_5A8E0248867D40BBB82F41B2DFE30B76"
                                 "Folders"
                                 {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_EADD203A62264B4385E13753B42720FB"
+                                    {
+                                    "Name" = "8:docs"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_2A1E8D8418A74654B5E19C565FD1FA20"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
                                 }
                             }
                         }

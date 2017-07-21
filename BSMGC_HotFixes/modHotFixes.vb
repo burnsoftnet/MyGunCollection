@@ -671,7 +671,7 @@ Module modHotFixes
         Call MoveGunSmiths()
         Console.WriteLine(vbTab & "Creating Documents Tables")
         SQL = "CREATE TABLE Gun_Collection_Docs (ID AUTOINCREMENT PRIMARY KEY,doc_name Text(255), doc_description Text(255)" & _
-               ", doc_filename Text(255),dta (DATETIME),doc_file OLEOBJECT, doc_thumb OLEOBJECT)"
+               ", doc_filename Text(255),dta (DATETIME),doc_file OLEOBJECT, doc_thumb OLEOBJECT,doc_ext Text(255), doc_cat Text(255), sync_lastupdate (DATETIME));"
         Call RunSQL(SQL)
         Call AddSyncToTable("Gun_Collection_Docs", True)
         SQL = "CREATE TABLE Gun_Collection_Docs_Links (ID AUTOINCREMENT PRIMARY KEY,DID INTEGER, GID INTEGER,dta (DATETIME)"

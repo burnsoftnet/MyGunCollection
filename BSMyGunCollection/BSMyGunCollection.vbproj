@@ -1170,6 +1170,24 @@
     <None Include="images\My_GunCollection_16_x_16.ico" />
     <None Include="images\My_GunCollection_72_x_72.ico" />
     <None Include="images\My_GunCollection_64_x_64.ico" />
+    <Content Include="doc_images\bmp.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc_images\jpg_icon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc_images\pdf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc_images\png.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc_images\txt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="doc_images\word.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="images\Search_RiflePistol.gif" />
     <Content Include="images\Search_RiflePistol.ico" />
     <Content Include="MGC.mdb">

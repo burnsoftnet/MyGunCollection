@@ -111,7 +111,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BSMGC_HotFixes.exe.manifest" />
     <None Include="Resources\hotfix.ico" />
   </ItemGroup>
   <ItemGroup>

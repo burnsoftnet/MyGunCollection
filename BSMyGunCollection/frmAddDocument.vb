@@ -18,10 +18,11 @@ Public Class frmAddDocument
     End Function
     Public Sub InsertDoc(DocPath As String)
         Try
+            'Might not even you the doc type thumbnail for now.
             Dim doc As Byte() = GetDocFromHDD(DocPath)
             Dim Obj As New BSDatabase
             Dim Conn As New OleDbConnection(Obj.sConnectOLE)
-            Dim addDoc As New OleDbCommand("insert into Gun_Collection_Docs (doc_name,doc_description,doc_filename,doc_file,length) values(@doc_name,@doc_description,@doc_filename,@doc_file,@length)", Conn)
+            Dim addDoc As New OleDbCommand("insert into Gun_Collection_Docs (doc_name,doc_description,doc_filename,doc_file,length,doc_ext,doc_cat) values(@doc_name,@doc_description,@doc_filename,@doc_file,@length,@doc_ext,@doc_cat)", Conn)
             Dim MyDataAdapter As New OleDbDataAdapter()
             MyDataAdapter.InsertCommand = addDoc
 
@@ -33,9 +34,15 @@ Public Class frmAddDocument
             docPar.Value = doc
             Dim length As New OleDbParameter("@length", OleDbType.[Integer])
             length.Value = doc.Length
+
+            Dim docType As New OleDbParameter("@doc_ext", OleDbType.VarChar)
+            Dim docCat As New OleDbParameter("@doc_cat", OleDbType.VarChar)
+
             docName.Value = txtTitle.Text
             docDesc.Value = txtDescription.Text
             docFile.Value = lblSelectedDoc.Text
+            docType.Value = getDocType(SelectedFileType)
+            docCat.Value = txtCat.Text
 
             MyDataAdapter.InsertCommand.Parameters.Add(docName)
             MyDataAdapter.InsertCommand.Parameters.Add(docDesc)
@@ -56,11 +63,31 @@ Public Class frmAddDocument
         End Try
 
     End Sub
+    Function getDocType(selectedIndex As Integer) As String
+        Dim sAns As String = ""
 
+        Select Case selectedIndex
+            Case 1
+                sAns = "pdf"
+            Case 2
+                sAns = "txt"
+            Case 3
+                sAns = "jpg"
+            Case 4
+                sAns = "bmp"
+            Case 5
+                sAns = "doc"
+            Case 6
+                sAns = "docx"
+            Case 7
+                sAns = "png"
+        End Select
+        Return sAns
+    End Function
     Private Sub btnBrowse_Click(sender As System.Object, e As System.EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 1
-            OpenFileDialog1.Filter = "PDF Files(*.pdf)|*.pdf|Text Files(*.txt)|*.txt|Jpg Files(*.jpg)|*.jpg"
+            OpenFileDialog1.Filter = "PDF Files(*.pdf)|*.pdf|Text Files(*.txt)|*.txt|Jpg Files(*.jpg)|*.jpg|Bitmap(*.bmp)|*.bmp|Microsoft Word(*.doc)|*.doc|Microsoft Word Open XML(*.docx)|*.docx|Portable Network Graphics(*.png)|*.png"
             'If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
             If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then lblSelectedDoc.Text = OpenFileDialog1.FileName
             SelectedFileType = OpenFileDialog1.FilterIndex
