@@ -5,6 +5,7 @@ Public Class frmMain
     End Sub
 
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Call INIT()
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName
         lblWelcomeMsg.Text = " Welcome to the " & Application.ProductName & ".  " & My.Application.Info.Description

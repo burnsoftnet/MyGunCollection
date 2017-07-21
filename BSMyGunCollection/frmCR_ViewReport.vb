@@ -171,7 +171,7 @@ Public Class frmCR_ViewReport
                 End If
             Else
                 MySQL = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & ReportName & "','" & _
-                            SQL & "','" & Now & "',Now())"
+                            Replace(SQL, "'", "''") & "','" & Now & "',Now())"
                 Obj.ConnExec(MySQL)
                 MsgBox("The Report was Saved!")
             End If

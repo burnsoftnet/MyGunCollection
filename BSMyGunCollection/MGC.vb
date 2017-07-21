@@ -427,7 +427,8 @@ Namespace MGC
         End Function
         Public Function sConnectOLE() As String
             Dim sAns As String = ""
-            sAns = "Provider=Microsoft.Jet.OLEDB.4.0; User Id=;Data Source=" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & ";Pwd=14un0t2n0"
+            'removed ; User Id=
+            sAns = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & """;Jet OLEDB:Database Password=14un0t2n0;"
             Return sAns
         End Function
         Public Sub ConnectDB()

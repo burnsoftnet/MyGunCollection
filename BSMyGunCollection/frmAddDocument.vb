@@ -20,7 +20,7 @@ Public Class frmAddDocument
             Dim doc As Byte() = GetDocFromHDD(DocPath)
             Dim Obj As New BSDatabase
             Dim Conn As New OleDbConnection(Obj.sConnectOLE)
-            Dim addDoc As New OleDbCommand("insert into table1 (doc_name,doc_description,doc_filename,doc_file,length) values(@doc_name,@doc_description,@doc_filename,@doc_file,@length)", Conn)
+            Dim addDoc As New OleDbCommand("insert into Gun_Collection_Docs (doc_name,doc_description,doc_filename,doc_file,length) values(@doc_name,@doc_description,@doc_filename,@doc_file,@length)", Conn)
             Dim MyDataAdapter As New OleDbDataAdapter()
             MyDataAdapter.InsertCommand = addDoc
 
@@ -32,6 +32,9 @@ Public Class frmAddDocument
             docPar.Value = doc
             Dim length As New OleDbParameter("@length", OleDbType.[Integer])
             length.Value = doc.Length
+            docName.Value = txtTitle.Text
+            docDesc.Value = txtDescription.Text
+            docFile.Value = lblSelectedDoc.Text
 
             MyDataAdapter.InsertCommand.Parameters.Add(docName)
             MyDataAdapter.InsertCommand.Parameters.Add(docDesc)

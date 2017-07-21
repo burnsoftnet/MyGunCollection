@@ -22,20 +22,20 @@ Partial Class frmCR_SelectTable
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCR_SelectTable))
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.CRTableListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet
-        Me.CR_TableListTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.CR_TableListTableAdapter
-        Me.btnNext = New System.Windows.Forms.Button
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.CR_TableListTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.CR_TableListTableAdapter()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.CRSavedReportsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CR_SavedReportsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.CR_SavedReportsTableAdapter
-        Me.btnLoadSaved = New System.Windows.Forms.Button
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider
+        Me.CR_SavedReportsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.CR_SavedReportsTableAdapter()
+        Me.btnLoadSaved = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.CRTableListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CRSavedReportsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,7 +134,7 @@ Partial Class frmCR_SelectTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 68)
+        Me.ClientSize = New System.Drawing.Size(292, 63)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnLoadSaved)
         Me.Controls.Add(Me.ComboBox2)
