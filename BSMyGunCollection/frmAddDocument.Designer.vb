@@ -22,6 +22,7 @@ Partial Class frmAddDocument
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddDocument))
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnBrowse = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -137,6 +138,7 @@ Partial Class frmAddDocument
         Me.Controls.Add(Me.lblSelectedDoc)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnBrowse)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmAddDocument"

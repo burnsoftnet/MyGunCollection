@@ -22,32 +22,32 @@ Partial Class frmViewAmmoInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewAmmoInventory))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CalDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.GrainDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.JacketDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.vel_n = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Qty1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GunCollectionAmmoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet
-        Me.Gun_Collection_AmmoTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_AmmoTableAdapter
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton
-        Me.tslAmmoTotal = New System.Windows.Forms.ToolStripLabel
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.CalDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
-        Me.GrainDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
-        Me.JacketDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.vel_n = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.Qty1DataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.Gun_Collection_AmmoTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_AmmoTableAdapter()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
+        Me.tslAmmoTotal = New System.Windows.Forms.ToolStripLabel()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GunCollectionAmmoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +66,65 @@ Partial Class frmViewAmmoInventory
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(711, 272)
         Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        '
+        'ManufacturerDataGridViewTextBoxColumn
+        '
+        Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
+        Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'CalDataGridViewTextBoxColumn
+        '
+        Me.CalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.CalDataGridViewTextBoxColumn.DataPropertyName = "Cal"
+        Me.CalDataGridViewTextBoxColumn.HeaderText = "Cal"
+        Me.CalDataGridViewTextBoxColumn.Name = "CalDataGridViewTextBoxColumn"
+        Me.CalDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CalDataGridViewTextBoxColumn.Width = 63
+        '
+        'GrainDataGridViewTextBoxColumn
+        '
+        Me.GrainDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.GrainDataGridViewTextBoxColumn.DataPropertyName = "Grain"
+        Me.GrainDataGridViewTextBoxColumn.HeaderText = "Grain"
+        Me.GrainDataGridViewTextBoxColumn.Name = "GrainDataGridViewTextBoxColumn"
+        Me.GrainDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GrainDataGridViewTextBoxColumn.Width = 73
+        '
+        'JacketDataGridViewTextBoxColumn
+        '
+        Me.JacketDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.JacketDataGridViewTextBoxColumn.DataPropertyName = "Jacket"
+        Me.JacketDataGridViewTextBoxColumn.HeaderText = "Jacket"
+        Me.JacketDataGridViewTextBoxColumn.Name = "JacketDataGridViewTextBoxColumn"
+        Me.JacketDataGridViewTextBoxColumn.Width = 64
+        '
+        'vel_n
+        '
+        Me.vel_n.DataPropertyName = "vel_n"
+        Me.vel_n.HeaderText = "Velocity (FPS)"
+        Me.vel_n.Name = "vel_n"
+        '
+        'Qty1DataGridViewTextBoxColumn
+        '
+        Me.Qty1DataGridViewTextBoxColumn.DataPropertyName = "Qty1"
+        Me.Qty1DataGridViewTextBoxColumn.HeaderText = "Qty."
+        Me.Qty1DataGridViewTextBoxColumn.Name = "Qty1DataGridViewTextBoxColumn"
         '
         'GunCollectionAmmoBindingSource
         '
@@ -87,7 +146,7 @@ Partial Class frmViewAmmoInventory
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton4, Me.ToolStripSeparator1, Me.ToolStripButton1, Me.ToolStripButton5, Me.ToolStripButton6, Me.ToolStripSeparator2, Me.ToolStripButton2, Me.ToolStripSeparator3, Me.ToolStripButton3, Me.tslAmmoTotal})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(716, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(732, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -163,80 +222,18 @@ Partial Class frmViewAmmoInventory
         'tslAmmoTotal
         '
         Me.tslAmmoTotal.Name = "tslAmmoTotal"
-        Me.tslAmmoTotal.Size = New System.Drawing.Size(136, 22)
+        Me.tslAmmoTotal.Size = New System.Drawing.Size(146, 22)
         Me.tslAmmoTotal.Text = "Total Rounds in Inventory:"
         '
         'HelpProvider1
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IDDataGridViewTextBoxColumn.Visible = False
-        '
-        'ManufacturerDataGridViewTextBoxColumn
-        '
-        Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
-        Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
-        Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
-        Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ManufacturerDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        '
-        'CalDataGridViewTextBoxColumn
-        '
-        Me.CalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.CalDataGridViewTextBoxColumn.DataPropertyName = "Cal"
-        Me.CalDataGridViewTextBoxColumn.HeaderText = "Cal"
-        Me.CalDataGridViewTextBoxColumn.Name = "CalDataGridViewTextBoxColumn"
-        Me.CalDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CalDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.CalDataGridViewTextBoxColumn.Width = 63
-        '
-        'GrainDataGridViewTextBoxColumn
-        '
-        Me.GrainDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.GrainDataGridViewTextBoxColumn.DataPropertyName = "Grain"
-        Me.GrainDataGridViewTextBoxColumn.HeaderText = "Grain"
-        Me.GrainDataGridViewTextBoxColumn.Name = "GrainDataGridViewTextBoxColumn"
-        Me.GrainDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GrainDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        Me.GrainDataGridViewTextBoxColumn.Width = 73
-        '
-        'JacketDataGridViewTextBoxColumn
-        '
-        Me.JacketDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.JacketDataGridViewTextBoxColumn.DataPropertyName = "Jacket"
-        Me.JacketDataGridViewTextBoxColumn.HeaderText = "Jacket"
-        Me.JacketDataGridViewTextBoxColumn.Name = "JacketDataGridViewTextBoxColumn"
-        Me.JacketDataGridViewTextBoxColumn.Width = 64
-        '
-        'vel_n
-        '
-        Me.vel_n.DataPropertyName = "vel_n"
-        Me.vel_n.HeaderText = "Velocity (FPS)"
-        Me.vel_n.Name = "vel_n"
-        '
-        'Qty1DataGridViewTextBoxColumn
-        '
-        Me.Qty1DataGridViewTextBoxColumn.DataPropertyName = "Qty1"
-        Me.Qty1DataGridViewTextBoxColumn.HeaderText = "Qty."
-        Me.Qty1DataGridViewTextBoxColumn.Name = "Qty1DataGridViewTextBoxColumn"
-        '
         'frmViewAmmoInventory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(716, 299)
+        Me.ClientSize = New System.Drawing.Size(732, 326)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.DataGridView1)
         Me.HelpProvider1.SetHelpKeyword(Me, "Ammunition Inventory")

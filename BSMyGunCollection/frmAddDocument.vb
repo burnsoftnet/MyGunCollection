@@ -6,21 +6,28 @@ Imports ADODB
 Imports System.Data.OleDb
 Public Class frmAddDocument
     Dim SelectedFileType As Integer
-
-    Private Sub frmAddDocument_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-
-    End Sub
+    Const FormName = "frmAddDocument"
     Private Function GetDocFromHDD(p As String) As Byte()
-        Dim fs As New FileStream(p, FileMode.Open, FileAccess.Read)
-        Dim br As New BinaryReader(fs)
-        Return br.ReadBytes(CInt(fs.Length))
-
+        Dim btAns As Byte() = Nothing
+        Try
+            Dim fs As New FileStream(p, FileMode.Open, FileAccess.Read)
+            Dim br As New BinaryReader(fs)
+            btAns = br.ReadBytes(CInt(fs.Length))
+            br.Close()
+            br = Nothing
+            fs = Nothing
+        Catch ex As Exception
+            Dim sSubFunc As String = FormName & ".GetDocFromHDD"
+            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
+        Return btAns
     End Function
     Public Sub InsertDoc(DocPath As String)
         Try
             'Might not even you the doc type thumbnail for now.
             Dim doc As Byte() = GetDocFromHDD(DocPath)
             Dim Obj As New BSDatabase
+
             Dim Conn As New OleDbConnection(Obj.sConnectOLE)
             Dim addDoc As New OleDbCommand("insert into Gun_Collection_Docs (doc_name,doc_description,doc_filename,doc_file,length,doc_ext,doc_cat) values(@doc_name,@doc_description,@doc_filename,@doc_file,@length,@doc_ext,@doc_cat)", Conn)
             Dim MyDataAdapter As New OleDbDataAdapter()
@@ -38,9 +45,10 @@ Public Class frmAddDocument
             Dim docType As New OleDbParameter("@doc_ext", OleDbType.VarChar)
             Dim docCat As New OleDbParameter("@doc_cat", OleDbType.VarChar)
 
+            Dim ObjFS As New BSFileSystem
             docName.Value = txtTitle.Text
             docDesc.Value = txtDescription.Text
-            docFile.Value = lblSelectedDoc.Text
+            docFile.Value = ObjFS.GetNameOfFile(lblSelectedDoc.Text)
             docType.Value = getDocType(SelectedFileType)
             docCat.Value = txtCat.Text
 
@@ -49,6 +57,8 @@ Public Class frmAddDocument
             MyDataAdapter.InsertCommand.Parameters.Add(docFile)
             MyDataAdapter.InsertCommand.Parameters.Add(docPar)
             MyDataAdapter.InsertCommand.Parameters.Add(length)
+            MyDataAdapter.InsertCommand.Parameters.Add(docType)
+            MyDataAdapter.InsertCommand.Parameters.Add(docCat)
 
             ' connect
             Conn.Open()
@@ -56,9 +66,10 @@ Public Class frmAddDocument
             addDoc.ExecuteNonQuery()
 
             Conn.Close()
-            '........
+            frmViewDocuments.RefreshData()
+            Me.Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "frmAddDocument.InsertDoc"
+            Dim sSubFunc As String = FormName & ".InsertDoc"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
 
@@ -92,12 +103,16 @@ Public Class frmAddDocument
             If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then lblSelectedDoc.Text = OpenFileDialog1.FileName
             SelectedFileType = OpenFileDialog1.FilterIndex
         Catch ex As Exception
-            Dim sSubFunc As String = "btnBrowse.Click"
+            Dim sSubFunc As String = FormName & ".btnBrowse.Click"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
         Call InsertDoc(lblSelectedDoc.Text)
+    End Sub
+
+    Private Sub frmAddDocument_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

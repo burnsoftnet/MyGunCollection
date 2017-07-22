@@ -199,6 +199,12 @@
     <Compile Include="frmViewAppraisers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmViewDocuments.Designer.vb">
+      <DependentUpon>frmViewDocuments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmViewGunSmithDetails.Designer.vb">
       <DependentUpon>frmViewGunSmithDetails.vb</DependentUpon>
     </Compile>
@@ -725,6 +731,9 @@
     <EmbeddedResource Include="frmAddFirearmClassification.resx">
       <DependentUpon>frmAddFirearmClassification.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmViewDocuments.resx">
+      <DependentUpon>frmViewDocuments.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewReport_BoundBook2.resx">
       <DependentUpon>frmViewReport_BoundBook2.vb</DependentUpon>
     </EmbeddedResource>
@@ -1188,6 +1197,13 @@
     <Content Include="doc_images\word.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="images\documents_16_x_16.ico" />
+    <Content Include="images\documents_32_x_32.ico" />
+    <Content Include="images\documents_add_16_x_16.ico" />
+    <Content Include="images\documents_add_16_x_16.jpg" />
+    <Content Include="images\documents_add_32_x_32.ico" />
+    <Content Include="images\My-Documents-icon.png" />
+    <Content Include="images\PDF.png" />
     <Content Include="images\Search_RiflePistol.gif" />
     <Content Include="images\Search_RiflePistol.ico" />
     <Content Include="MGC.mdb">

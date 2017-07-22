@@ -661,12 +661,6 @@ Public Class MDIParent1
         myProcess.Start()
     End Sub
 
-    Private Sub SupportForumToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SupportForumToolStripMenuItem.Click
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = MENU_FORUM
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
-        myProcess.Start()
-    End Sub
     Public Sub ReRunHotFixUpdates()
         DoAutoBackup = False
         Dim myProcess As New Process
@@ -862,5 +856,17 @@ Public Class MDIParent1
         Dim frmNew As New frmAddFirearmClassification
         frmNew.MdiParent = Me
         frmNew.Show()
+    End Sub
+
+    Private Sub DocumentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentsToolStripMenuItem.Click
+        Call ViewDocuments()
+    End Sub
+    Private Sub ViewDocuments()
+        Dim frmNew As New frmViewDocuments
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
+    Private Sub ToolStripButton14_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton14.Click
+        Call ViewDocuments()
     End Sub
 End Class
