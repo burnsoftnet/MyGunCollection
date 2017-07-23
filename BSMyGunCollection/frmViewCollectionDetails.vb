@@ -14,55 +14,70 @@ Public Class frmViewCollectionDetails
     Public BS_DEFAULTBARRELSYSTEMID As Long
     Public UpdatePendingMaint As Boolean
     Public IsShotGun As Boolean
+    Public HasDocuments As Boolean
 #Region " General Form Subs "
-
+    'Save the form size to the config file so that it will be the same size when the user opens it back up
     Private Sub frmViewCollectionDetails_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
-        Dim objS As New ViewSizeSettings
-        objS.SaveViewCollectionDetails(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
-        objS = Nothing
+        Try
+            Dim objS As New ViewSizeSettings
+            objS.SaveViewCollectionDetails(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
+            objS = Nothing
+        Catch ex As Exception
+            Dim sSubFunc As String = "frmViewCollectionDetails_Disposed"
+            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
     End Sub
-
+    'When the form first opens load all the data
     Private Sub frmViewCollectionDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim objS As New ViewSizeSettings
-        objS.LoadViewCollectionDetails(Me.Height, Me.Width, Me.Location)
-        objS = Nothing
-        Label42.Visible = UsePetLoads
-        txtPetLoads.Visible = UsePetLoads
-        LASTVIEWEDFIREARM = ItemID
-        If Len(ItemID) <> 0 Then
-            Call LoadData()
-            If IsSold Or IsStolen Then
-                btnSold.Visible = False
-                btnStolen.Visible = False
-                btnFlyer.Visible = False
-                btnUnDoSale.Visible = True
-                btnPrintSale.Visible = True
-                If IsSold Then pbSold.Visible = True
-                If IsStolen Then pbStolen.Visible = True
-                lblSold.Visible = True
-                LoadSellerData()
+        Try
+            Dim objS As New ViewSizeSettings
+            objS.LoadViewCollectionDetails(Me.Height, Me.Width, Me.Location)
+            objS = Nothing
+            Label42.Visible = UsePetLoads
+            txtPetLoads.Visible = UsePetLoads
+            LASTVIEWEDFIREARM = ItemID
+            If Len(ItemID) <> 0 Then
+                Call LoadData()
+                If IsSold Or IsStolen Then
+                    btnSold.Visible = False
+                    btnStolen.Visible = False
+                    btnFlyer.Visible = False
+                    btnUnDoSale.Visible = True
+                    btnPrintSale.Visible = True
+                    If IsSold Then pbSold.Visible = True
+                    If IsStolen Then pbStolen.Visible = True
+                    lblSold.Visible = True
+                    LoadSellerData()
+                Else
+                    btnPrintSale.Visible = False
+                    pbSold.Visible = False
+                    pbStolen.Visible = False
+                    btnUnDoSale.Visible = False
+                    lblSold.Visible = False
+                End If
             Else
-                btnPrintSale.Visible = False
-                pbSold.Visible = False
-                pbStolen.Visible = False
-                btnUnDoSale.Visible = False
-                lblSold.Visible = False
+                Me.Close()
             End If
-        Else
-            Me.Close()
-        End If
+        Catch ex As Exception
+            Dim sSubFunc As String = "frmViewCollectionDetails_Load"
+            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
     End Sub
+    'Action to take when the form is double cliecked
     Private Function Form_IsDoubleTab() As Boolean
         Dim bAns As Boolean = False
         If TabControl1.Width < 1000 Then bAns = True
         Return bAns
     End Function
+    'Set the size of the tab control 
     Private Sub Form_SetTabContol(ByRef TabContentsAvgHeight As Long, ByRef TabContentsAvgWidth As Long)
         TabControl1.Width = Me.Width - 5
         TabControl1.Height = Me.Height - 60
         TabContentsAvgHeight = TabControl1.Height - 69
         TabContentsAvgWidth = TabControl1.Width - 27
     End Sub
+    'Adjust the datagrids on the form according to the form details, tabs footers, etc
+    'to allow the form to be adjusted as well as the data below the grid to be viewable still.
     Private Sub Form_SetDataGrids(TabContentsAvgHeight As Long, TabContentsAvgWidth As Long)
         Dim DataGridHeightWithFooter As Long = 0
         DataGridHeightWithFooter = TabContentsAvgHeight - 57
@@ -74,15 +89,18 @@ Public Class frmViewCollectionDetails
         DataGridView3.Height = DataGridHeightWithFooter
         DataGridView4.Width = TabContentsAvgWidth
         DataGridView4.Height = TabContentsAvgHeight
+        DataGridView6.Width = TabContentsAvgWidth
+        DataGridView6.Height = TabContentsAvgHeight - 20
     End Sub
+    'set the size and form of the accessories tab
     Private Sub Form_FormatAccessories(Default_Labellocation As Long)
         Dim NewY As Integer = 0
         Dim OldX As Integer = 0
         'Accessories Totals X,Y Repositioning
         NewY = DataGridView1.Height + Default_Labellocation
         OldX = Label51.Location.X
-        Debug.Print(Label51.Location.Y)
-        Debug.Print(Label51.Location.X)
+        'Debug.Print(Label51.Location.Y)
+        'Debug.Print(Label51.Location.X)
         Label51.Location = New System.Drawing.Point(OldX, NewY)
         OldX = lblTPV.Location.X
         lblTPV.Location = New System.Drawing.Point(OldX, NewY)
@@ -91,6 +109,7 @@ Public Class frmViewCollectionDetails
         OldX = lblTAV.Location.X
         lblTAV.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    'format the size and format of the Ammunition Tab
     Private Sub Form_FormatAmmo(Default_Labellocation As Long)
         Dim NewY As Integer = 0
         Dim OldX As Integer = 0
@@ -101,6 +120,7 @@ Public Class frmViewCollectionDetails
         OldX = lblAmmoTotal.Location.X
         lblAmmoTotal.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    'format the size and format of the Maintenance Tab
     Private Sub Form_FormatMaintenance(Default_Labellocation As Long)
         Dim NewY As Integer = 0
         Dim OldX As Integer = 0
@@ -119,12 +139,14 @@ Public Class frmViewCollectionDetails
         OldX = lblTotalFirearm.Location.X
         lblTotalFirearm.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    'format the size of the text box in the notes tab
     Private Sub Form_FormatNotes(Default_Notes As Long, Default_Notes_Width As Long)
         txtConCom.Width = TabControl1.Width - Default_Notes_Width ' was 8
         txtConCom.Height = TabControl1.Height - Default_Notes
         txtAddNotes.Width = TabControl1.Width - Default_Notes_Width
         txtAddNotes.Height = TabControl1.Height - Default_Notes
     End Sub
+    'Action to take to re format all the details on the form when the Main form is resized
     Private Sub frmViewCollectionDetails_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         Dim TabContentsAvgHeight As Long = 0
         Dim TabContentsAvgWidth As Long = 0
@@ -153,6 +175,7 @@ Public Class frmViewCollectionDetails
             Call Form_FormatNotes(DEFAULT_NOTES, DEFAULT_NOTES_WIDTH)
         End If
     End Sub
+    'Pictures Tab, when a picture tumbnail is double clicked, perform these action and bring up the picture viewer.
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Dim MyIndex As String = ListView1.FocusedItem.Index
         Dim ItemCount As Integer = ListView1.Items.Count
@@ -321,6 +344,7 @@ Public Class frmViewCollectionDetails
     End Sub
 #End Region
 #Region " General Functions "
+    'Count the number of pictures that is attached to this firearm.
     Function CountPics() As Long
         Dim Obj As New BSDatabase
         Dim iAns As Long = 0
@@ -400,6 +424,8 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'Load the maintenace data, also check to see if there are other barrels attached which will affect
+    'the total rounds fired count base on the count from the barrel vs the count form the reciver
     Sub LoadMaintData()
         Dim Obj As New GlobalFunctions
         If Not BS_HASMULTIBARRELS Then
@@ -417,6 +443,7 @@ Public Class frmViewCollectionDetails
             lblAvgRndsFired.Text = Obj.AverageRoundsFiredBS(BS_DEFAULTBARRELSYSTEMID)
         End If
     End Sub
+    'Populate the selling information in the disposition tab.
     Sub LoadSellerData()
         Try
             Dim Obj As New BSDatabase
@@ -450,11 +477,15 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'Load the Accessories and total up the cost of the accories and the total appriased value
     Sub LoadAddAccessories()
         Dim ObjGF As New GlobalFunctions
         lblTPV.Text = ObjGF.AddPurchasePriceAccessories(ItemID)
         lblTAV.Text = ObjGF.AddAppriasedPriceAccessories(ItemID)
     End Sub
+    'When a shotgun is selected, add the ability to put in what choke is in the firearm
+    'But in order to do that, there are fields that need to be moved around just to keep things in order 
+    'and try to keep the flow of data input relivant to the user.
     Sub AddChokeOption()
         Label53.Location = New System.Drawing.Point(Label27.Location.X, Label27.Location.Y)
         txtChoke.Location = New System.Drawing.Point(txtStorage.Location.X, txtStorage.Location.Y)
@@ -493,6 +524,7 @@ Public Class frmViewCollectionDetails
         OldX = txtBarLen.Location.X
         txtBarLen.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    'Start Loading data for the form
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
@@ -503,6 +535,8 @@ Public Class frmViewCollectionDetails
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
             Call LoadAddAccessories()
+
+            'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
             BS_HASMULTIBARRELS = ObjGF.HasMultiBarrelsListed(ItemID)
             BS_DEFAULTBARRELSYSTEMID = ObjGF.GetDefaultBarrelID(ItemID)
             If Not BS_HASMULTIBARRELS Then
@@ -511,7 +545,16 @@ Public Class frmViewCollectionDetails
                 Me.Gun_Collection_ExtTableAdapter.FillBy_GID(Me.MGCDataSet.Gun_Collection_Ext, ItemID)
                 DataGridView5.Columns(0).Visible = False
             End If
+            'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
+            HasDocuments = ObjGF.HasDocumentsAttached(ItemID)
+            If Not HasDocuments Then
+                TabControl1.TabPages.Remove(TabPage12)
+            Else
+                Me.Qry_DocsAndLinksTableAdapter.FillBy_GID(Me.MGCDataSet.qry_DocsAndLinks, ItemID)
 
+            End If
+
+            'Start populating the fields on the details for from the database
             While RS.Read
                 Me.Text = RS("fullname")
                 txtManu.Text = ObjGF.GetManufacturersName(RS("MID"))
@@ -611,14 +654,17 @@ Public Class frmViewCollectionDetails
 
             End While
             RS.Close()
+            RS = Nothing
             CMD = Nothing
             Obj.CloseDB()
+            Obj = Nothing
             Me.Refresh()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+
     Public Sub GetPics()
         Try
             ListView1.Clear()
@@ -1158,7 +1204,7 @@ Public Class frmViewCollectionDetails
         frmNew.PID = CLng(MyText)
         frmNew.Show()
     End Sub
-
+    'Delete maintenance details from firearm
     Private Sub DeleteToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem1.Click
         Try
             Dim RowID As Long = DataGridView3.SelectedCells.Item(0).RowIndex
@@ -1175,6 +1221,7 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'get the id of the maintenance details ID and pass that ID to the edit Maintence form
     Sub RunEditMaintenance()
         Try
             Dim RowID As Long = DataGridView3.SelectedCells.Item(0).RowIndex
@@ -1190,10 +1237,11 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'Context menu for Maintenance editing
     Private Sub EditToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem2.Click
         Call RunEditMaintenance()
     End Sub
-
+    'bring up the Stolen Form when the Stole button was clicked in the sale and disposition tab
     Private Sub btnStolen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStolen.Click
         Dim frmNew As New frmStolen
         frmNew.MdiParent = Me.MdiParent
@@ -1201,7 +1249,7 @@ Public Class frmViewCollectionDetails
         frmNew.Show()
         Me.Close()
     End Sub
-
+    'Create a report to print when the Print Sale button is clicked
     Private Sub btnPrintSale_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrintSale.Click
         Dim frmNew As New frmViewReport_FirearmSaleInvoice
         frmNew.MdiParent = Me.MdiParent
@@ -1209,6 +1257,7 @@ Public Class frmViewCollectionDetails
         frmNew.FIREARM_ID = ItemID
         frmNew.Show()
     End Sub
+    'Show appriaser details when the appriaser is clicked
     Private Sub txtAppBy_Click(sender As Object, e As System.EventArgs)
         Dim ObjGF As New GlobalFunctions
         Dim AppraiserID As Long = ObjGF.GetID("SELECT ID from Appriaser_Contact_Details where aName='" & txtAppBy.Text & "'")
@@ -1216,5 +1265,52 @@ Public Class frmViewCollectionDetails
         NewForm.ShopID = AppraiserID
         NewForm.MdiParent = Me.MdiParent
         NewForm.Show()
+    End Sub
+
+    Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
+        Dim DID As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+        frmViewDocuments.GetDocumentfromDB(DID)
+    End Sub
+
+    Private Sub btnAddDocument_Click(sender As System.Object, e As System.EventArgs) Handles btnAddDocument.Click
+        Dim frmNew As New frmAddDocument
+        frmNew.GID = ItemID
+        frmNew.MdiParent = Me.MdiParent
+        frmNew.Show()
+    End Sub
+
+    Private Sub btnAddExistingDoc_Click(sender As System.Object, e As System.EventArgs) Handles btnAddExistingDoc.Click
+        Dim frmNew As New frmLinkFromExistingDoc
+        frmNew.GID = ItemID
+        frmNew.MdiParent = Me.MdiParent
+        frmNew.Show()
+    End Sub
+
+    Private Sub EditToolStripMenuItem3_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem3.Click
+        Dim DID As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+        Dim frmNew As New frmAddDocument
+        frmNew.EditMode = True
+        frmNew.DID = DID
+        frmNew.Show()
+    End Sub
+
+    Private Sub ViewToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ViewToolStripMenuItem.Click
+        Dim DID As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+        frmViewDocuments.GetDocumentfromDB(DID)
+    End Sub
+
+    Private Sub UnLinkToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UnLinkToolStripMenuItem.Click
+        Try
+            Dim DID As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim SQL As String = "delete from Gun_Collection_Docs_Links where id=" & DID
+            Dim Obj As New BSDatabase
+            Obj.ConnExec(SQL)
+            Obj = Nothing
+            MsgBox("Document was unlinked!")
+            Call LoadData()
+        Catch ex As Exception
+            Dim sSubFunc As String = "UnLinkToolStripMenuItem_Click"
+            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 End Class

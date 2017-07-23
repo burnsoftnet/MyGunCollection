@@ -3,6 +3,7 @@ Imports System.Configuration
 Imports System.Security.Principal
 Namespace My
     Partial Friend Class MyApplication
+        'when the application initialize, setup the running path of the database and where the log file is going to be loaded.
         Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
             Dim Objf As New BSFileSystem
             Try

@@ -862,9 +862,11 @@ Public Class MDIParent1
         Call ViewDocuments()
     End Sub
     Private Sub ViewDocuments()
-        Dim frmNew As New frmViewDocuments
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        'Dim frmNew As New frmViewDocuments
+        'frmNew.MdiParent = Me
+        'frmNew.Show()
+        frmViewDocuments.MdiParent = Me
+        frmViewDocuments.Show()
     End Sub
     Private Sub ToolStripButton14_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton14.Click
         Call ViewDocuments()

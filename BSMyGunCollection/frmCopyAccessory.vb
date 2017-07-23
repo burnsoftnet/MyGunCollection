@@ -1,8 +1,9 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Public Class frmCopyAccessory
-    Public ItemID As String
-    Private FullName As String
+    Public ItemID As String ' Accessory ID
+    Private FullName As String ' Full Name
+    'Get the Accessory Manufacture and Model for the form details
     Function GetFullName(ByVal strID As String) As String
         Dim sAns As String = ""
         Try
@@ -25,6 +26,7 @@ Public Class frmCopyAccessory
         End Try
         Return sAns
     End Function
+    'Perform the Copy Action and copy the accessory back into the same database but accossiated with the selected firearm.
     Sub DoCopy(ByVal StrID As String)
         Try
             Dim Obj As New BSDatabase
@@ -68,6 +70,7 @@ Public Class frmCopyAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'When Load Forms, populate the drop down box
     Private Sub frmCopyAccessory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.QryGunCollectionDetailsTableAdapter.FillBy_Default(Me.MGCDataSet.qryGunCollectionDetails)
@@ -78,7 +81,7 @@ Public Class frmCopyAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    'When the Copy button is selected
     Private Sub btnCopy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCopy.Click
         Try
             Dim strFireArmID As String = ComboBox1.SelectedValue.ToString

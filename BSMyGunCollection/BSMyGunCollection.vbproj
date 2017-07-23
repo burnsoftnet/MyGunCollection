@@ -181,6 +181,18 @@
     <Compile Include="frmEditModelTypes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmLinkDocToFirearm.Designer.vb">
+      <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLinkDocToFirearm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLinkFromExistingDoc.Designer.vb">
+      <DependentUpon>frmLinkFromExistingDoc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLinkFromExistingDoc.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmStolen.Designer.vb">
       <DependentUpon>frmStolen.vb</DependentUpon>
     </Compile>
@@ -731,6 +743,12 @@
     <EmbeddedResource Include="frmAddFirearmClassification.resx">
       <DependentUpon>frmAddFirearmClassification.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLinkDocToFirearm.resx">
+      <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLinkFromExistingDoc.resx">
+      <DependentUpon>frmLinkFromExistingDoc.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewDocuments.resx">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>
     </EmbeddedResource>
@@ -1206,6 +1224,7 @@
     <Content Include="images\PDF.png" />
     <Content Include="images\Search_RiflePistol.gif" />
     <Content Include="images\Search_RiflePistol.ico" />
+    <Content Include="images\SEO_communication-512.png" />
     <Content Include="MGC.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

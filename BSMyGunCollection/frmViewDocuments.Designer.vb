@@ -28,6 +28,10 @@ Partial Class frmViewDocuments
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AttachToFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DocnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DocdescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,12 +40,10 @@ Partial Class frmViewDocuments
         Me.DocextDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.DoccatDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.DtaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GunCollectionDocsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_Collection_DocsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_DocsTableAdapter()
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -55,7 +57,7 @@ Partial Class frmViewDocuments
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(755, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(872, 25)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -91,8 +93,35 @@ Partial Class frmViewDocuments
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(755, 354)
+        Me.DataGridView1.Size = New System.Drawing.Size(872, 425)
         Me.DataGridView1.TabIndex = 1
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem, Me.EditToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(170, 114)
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        '
+        'AttachToFirearmToolStripMenuItem
+        '
+        Me.AttachToFirearmToolStripMenuItem.Image = CType(resources.GetObject("AttachToFirearmToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.AttachToFirearmToolStripMenuItem.Name = "AttachToFirearmToolStripMenuItem"
+        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.AttachToFirearmToolStripMenuItem.Text = "Attach  to Firearm"
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -104,6 +133,7 @@ Partial Class frmViewDocuments
         '
         'DocnameDataGridViewTextBoxColumn
         '
+        Me.DocnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DocnameDataGridViewTextBoxColumn.DataPropertyName = "doc_name"
         Me.DocnameDataGridViewTextBoxColumn.HeaderText = "Title"
         Me.DocnameDataGridViewTextBoxColumn.Name = "DocnameDataGridViewTextBoxColumn"
@@ -112,12 +142,14 @@ Partial Class frmViewDocuments
         'DocdescriptionDataGridViewTextBoxColumn
         '
         Me.DocdescriptionDataGridViewTextBoxColumn.DataPropertyName = "doc_description"
+        Me.DocdescriptionDataGridViewTextBoxColumn.FillWeight = 200.0!
         Me.DocdescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
         Me.DocdescriptionDataGridViewTextBoxColumn.Name = "DocdescriptionDataGridViewTextBoxColumn"
         Me.DocdescriptionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DocfilenameDataGridViewTextBoxColumn
         '
+        Me.DocfilenameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DocfilenameDataGridViewTextBoxColumn.DataPropertyName = "doc_filename"
         Me.DocfilenameDataGridViewTextBoxColumn.HeaderText = "File Name"
         Me.DocfilenameDataGridViewTextBoxColumn.Name = "DocfilenameDataGridViewTextBoxColumn"
@@ -125,6 +157,7 @@ Partial Class frmViewDocuments
         '
         'LengthDataGridViewTextBoxColumn
         '
+        Me.LengthDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.LengthDataGridViewTextBoxColumn.DataPropertyName = "length"
         Me.LengthDataGridViewTextBoxColumn.HeaderText = "Length"
         Me.LengthDataGridViewTextBoxColumn.Name = "LengthDataGridViewTextBoxColumn"
@@ -132,6 +165,7 @@ Partial Class frmViewDocuments
         '
         'DocextDataGridViewTextBoxColumn
         '
+        Me.DocextDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DocextDataGridViewTextBoxColumn.DataPropertyName = "doc_ext"
         Me.DocextDataGridViewTextBoxColumn.HeaderText = "Doc Type"
         Me.DocextDataGridViewTextBoxColumn.Name = "DocextDataGridViewTextBoxColumn"
@@ -140,6 +174,7 @@ Partial Class frmViewDocuments
         '
         'DoccatDataGridViewTextBoxColumn
         '
+        Me.DoccatDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DoccatDataGridViewTextBoxColumn.DataPropertyName = "doc_cat"
         Me.DoccatDataGridViewTextBoxColumn.HeaderText = "Category"
         Me.DoccatDataGridViewTextBoxColumn.Name = "DoccatDataGridViewTextBoxColumn"
@@ -148,30 +183,11 @@ Partial Class frmViewDocuments
         '
         'DtaDataGridViewTextBoxColumn
         '
+        Me.DtaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.DtaDataGridViewTextBoxColumn.DataPropertyName = "dta"
         Me.DtaDataGridViewTextBoxColumn.HeaderText = "Date Added"
         Me.DtaDataGridViewTextBoxColumn.Name = "DtaDataGridViewTextBoxColumn"
         Me.DtaDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewToolStripMenuItem, Me.DeleteToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(108, 48)
-        '
-        'ViewToolStripMenuItem
-        '
-        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.ViewToolStripMenuItem.Text = "View"
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'GunCollectionDocsBindingSource
         '
@@ -187,11 +203,17 @@ Partial Class frmViewDocuments
         '
         Me.Gun_Collection_DocsTableAdapter.ClearBeforeFill = True
         '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
         'frmViewDocuments
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(755, 379)
+        Me.ClientSize = New System.Drawing.Size(872, 450)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -225,4 +247,6 @@ Partial Class frmViewDocuments
     Friend WithEvents DocextDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents DoccatDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents DtaDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents AttachToFirearmToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EditToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

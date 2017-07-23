@@ -42,7 +42,7 @@ Partial Class frmAddDocument
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(91, 25)
         Me.btnAdd.TabIndex = 3
-        Me.btnAdd.Text = "Add"
+        Me.btnAdd.Text = "Save"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnBrowse

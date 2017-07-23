@@ -23,17 +23,17 @@ Partial Class frmViewCollectionDetails
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewCollectionDetails))
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewCollectionDetails))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.Label59 = New System.Windows.Forms.Label()
@@ -257,6 +257,10 @@ Partial Class frmViewCollectionDetails
         Me.Label41 = New System.Windows.Forms.Label()
         Me.btnSold = New System.Windows.Forms.Button()
         Me.btnFlyer = New System.Windows.Forms.Button()
+        Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.btnAddDocument = New System.Windows.Forms.Button()
+        Me.DataGridView6 = New System.Windows.Forms.DataGridView()
+        Me.QryDocsAndLinksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -279,6 +283,20 @@ Partial Class frmViewCollectionDetails
         Me.Maintance_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Maintance_DetailsTableAdapter()
         Me.GunSmith_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.GunSmith_DetailsTableAdapter()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
+        Me.Qry_DocsAndLinksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter()
+        Me.btnAddExistingDoc = New System.Windows.Forms.Button()
+        Me.mnuDocsMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UnLinkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EditToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LinkIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DocnameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DocdescriptionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DocfilenameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DocextDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.DoccatDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.DtaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         CType(Me.pbStolen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -311,7 +329,11 @@ Partial Class frmViewCollectionDetails
         CType(Me.GunSmithDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage9.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage12.SuspendLayout()
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QryDocsAndLinksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
+        Me.mnuDocsMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -327,6 +349,7 @@ Partial Class frmViewCollectionDetails
         Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage9)
+        Me.TabControl1.Controls.Add(Me.TabPage12)
         Me.TabControl1.ImageList = Me.ImageList1
         Me.TabControl1.ItemSize = New System.Drawing.Size(112, 19)
         Me.TabControl1.Location = New System.Drawing.Point(0, 28)
@@ -399,7 +422,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage5.ImageIndex = 0
         Me.TabPage5.Location = New System.Drawing.Point(4, 42)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(833, 453)
+        Me.TabPage5.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Standard Details"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -995,7 +1018,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage11.Controls.Add(Me.Label49)
         Me.TabPage11.Location = New System.Drawing.Point(4, 42)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Size = New System.Drawing.Size(833, 453)
+        Me.TabPage11.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage11.TabIndex = 10
         Me.TabPage11.Text = "Collector Details"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -1239,7 +1262,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage1.Location = New System.Drawing.Point(4, 42)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(833, 453)
+        Me.TabPage1.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Condition Comments"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1261,7 +1284,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage2.Location = New System.Drawing.Point(4, 42)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(833, 443)
+        Me.TabPage2.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Additional Notes"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -1286,7 +1309,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage3.Location = New System.Drawing.Point(4, 42)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(833, 443)
+        Me.TabPage3.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Picture(s)"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1367,7 +1390,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage10.Location = New System.Drawing.Point(4, 42)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(833, 486)
+        Me.TabPage10.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage10.TabIndex = 9
         Me.TabPage10.Text = "Barrels/Conversion Kits"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -1377,32 +1400,32 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView5.AllowUserToAddRows = False
         Me.DataGridView5.AllowUserToDeleteRows = False
         Me.DataGridView5.AutoGenerateColumns = False
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView5.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView5.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView5.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ModelNameDataGridViewTextBoxColumn, Me.CaliberDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.BarrelLengthDataGridViewTextBoxColumn, Me.PetLoadsDataGridViewTextBoxColumn, Me.PurchasedPriceDataGridViewTextBoxColumn})
         Me.DataGridView5.ContextMenuStrip = Me.mnuBarrel
         Me.DataGridView5.DataSource = Me.GunCollectionExtBindingSource
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView5.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView5.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridView5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView5.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView5.Name = "DataGridView5"
         Me.DataGridView5.ReadOnly = True
         Me.DataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView5.Size = New System.Drawing.Size(827, 480)
+        Me.DataGridView5.Size = New System.Drawing.Size(1136, 415)
         Me.DataGridView5.TabIndex = 0
         '
         'IDDataGridViewTextBoxColumn
@@ -1433,7 +1456,7 @@ Partial Class frmViewCollectionDetails
         Me.CaliberDataGridViewTextBoxColumn.Name = "CaliberDataGridViewTextBoxColumn"
         Me.CaliberDataGridViewTextBoxColumn.ReadOnly = True
         Me.CaliberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CaliberDataGridViewTextBoxColumn.Width = 85
+        Me.CaliberDataGridViewTextBoxColumn.Width = 64
         '
         'TypeDataGridViewTextBoxColumn
         '
@@ -1443,7 +1466,7 @@ Partial Class frmViewCollectionDetails
         Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
         Me.TypeDataGridViewTextBoxColumn.ReadOnly = True
         Me.TypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TypeDataGridViewTextBoxColumn.Width = 77
+        Me.TypeDataGridViewTextBoxColumn.Width = 56
         '
         'BarrelLengthDataGridViewTextBoxColumn
         '
@@ -1526,7 +1549,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage4.Location = New System.Drawing.Point(4, 42)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(833, 453)
+        Me.TabPage4.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Accessories"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -1737,9 +1760,9 @@ Partial Class frmViewCollectionDetails
         Me.TabPage6.Controls.Add(Me.btnAddAmmo)
         Me.TabPage6.Controls.Add(Me.DataGridView2)
         Me.TabPage6.ImageIndex = 3
-        Me.TabPage6.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 42)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage6.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Ammunition"
         Me.TabPage6.UseVisualStyleBackColor = True
@@ -1892,10 +1915,10 @@ Partial Class frmViewCollectionDetails
         Me.TabPage7.Controls.Add(Me.DataGridView3)
         Me.TabPage7.Controls.Add(Me.btnAddMain)
         Me.TabPage7.ImageIndex = 6
-        Me.TabPage7.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 42)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage7.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Maintenance"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -1982,26 +2005,26 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView3.AllowUserToAddRows = False
         Me.DataGridView3.AllowUserToDeleteRows = False
         Me.DataGridView3.AutoGenerateColumns = False
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.MaintID, Me.NameDataGridViewTextBoxColumn1, Me.OpDateDataGridViewTextBoxColumn, Me.OpDueDateDataGridViewTextBoxColumn, Me.RndFiredDataGridViewTextBoxColumn, Me.au, Me.NotesDataGridViewTextBoxColumn1})
         Me.DataGridView3.ContextMenuStrip = Me.mnuMain
         Me.DataGridView3.DataSource = Me.MaintanceDetailsBindingSource
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridView3.Location = New System.Drawing.Point(6, 38)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.ReadOnly = True
@@ -2027,7 +2050,7 @@ Partial Class frmViewCollectionDetails
         Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
         Me.NameDataGridViewTextBoxColumn1.ReadOnly = True
         Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NameDataGridViewTextBoxColumn1.Width = 118
+        Me.NameDataGridViewTextBoxColumn1.Width = 97
         '
         'OpDateDataGridViewTextBoxColumn
         '
@@ -2116,7 +2139,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage8.Location = New System.Drawing.Point(4, 42)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(833, 421)
+        Me.TabPage8.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage8.TabIndex = 7
         Me.TabPage8.Text = "Gun Smith"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -2143,26 +2166,26 @@ Partial Class frmViewCollectionDetails
         '
         Me.DataGridView4.AllowUserToAddRows = False
         Me.DataGridView4.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView4.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView4.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView4.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.GsmithDataGridViewTextBoxColumn, Me.SdateDataGridViewTextBoxColumn, Me.RdateDataGridViewTextBoxColumn, Me.OdDataGridViewTextBoxColumn, Me.NotesDataGridViewTextBoxColumn2})
         Me.DataGridView4.ContextMenuStrip = Me.mnuGunSmith
         Me.DataGridView4.DataSource = Me.GunSmithDetailsBindingSource
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView4.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView4.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridView4.Location = New System.Drawing.Point(11, 35)
         Me.DataGridView4.Name = "DataGridView4"
         Me.DataGridView4.Size = New System.Drawing.Size(703, 366)
@@ -2187,7 +2210,7 @@ Partial Class frmViewCollectionDetails
         Me.GsmithDataGridViewTextBoxColumn.Name = "GsmithDataGridViewTextBoxColumn"
         Me.GsmithDataGridViewTextBoxColumn.ReadOnly = True
         Me.GsmithDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GsmithDataGridViewTextBoxColumn.Width = 96
+        Me.GsmithDataGridViewTextBoxColumn.Width = 75
         '
         'SdateDataGridViewTextBoxColumn
         '
@@ -2261,7 +2284,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage9.Location = New System.Drawing.Point(4, 42)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(833, 453)
+        Me.TabPage9.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Sale/Disposition"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -2595,6 +2618,51 @@ Partial Class frmViewCollectionDetails
         Me.btnFlyer.Text = "Print Preview Flyer"
         Me.btnFlyer.UseVisualStyleBackColor = True
         '
+        'TabPage12
+        '
+        Me.TabPage12.Controls.Add(Me.btnAddExistingDoc)
+        Me.TabPage12.Controls.Add(Me.btnAddDocument)
+        Me.TabPage12.Controls.Add(Me.DataGridView6)
+        Me.TabPage12.ImageIndex = 10
+        Me.TabPage12.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage12.Name = "TabPage12"
+        Me.TabPage12.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage12.Size = New System.Drawing.Size(1142, 421)
+        Me.TabPage12.TabIndex = 11
+        Me.TabPage12.Text = "Documents"
+        Me.TabPage12.UseVisualStyleBackColor = True
+        '
+        'btnAddDocument
+        '
+        Me.btnAddDocument.Location = New System.Drawing.Point(42, 12)
+        Me.btnAddDocument.Name = "btnAddDocument"
+        Me.btnAddDocument.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddDocument.TabIndex = 1
+        Me.btnAddDocument.Text = "Add New"
+        Me.btnAddDocument.UseVisualStyleBackColor = True
+        '
+        'DataGridView6
+        '
+        Me.DataGridView6.AllowUserToAddRows = False
+        Me.DataGridView6.AllowUserToDeleteRows = False
+        Me.DataGridView6.AutoGenerateColumns = False
+        Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView6.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LinkIDDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn2, Me.DocnameDataGridViewTextBoxColumn, Me.DocdescriptionDataGridViewTextBoxColumn, Me.DocfilenameDataGridViewTextBoxColumn, Me.DocextDataGridViewTextBoxColumn, Me.DoccatDataGridViewTextBoxColumn, Me.DtaDataGridViewTextBoxColumn})
+        Me.DataGridView6.ContextMenuStrip = Me.mnuDocsMenu
+        Me.DataGridView6.DataSource = Me.QryDocsAndLinksBindingSource
+        Me.DataGridView6.Location = New System.Drawing.Point(8, 41)
+        Me.DataGridView6.MultiSelect = False
+        Me.DataGridView6.Name = "DataGridView6"
+        Me.DataGridView6.ReadOnly = True
+        Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView6.Size = New System.Drawing.Size(1116, 354)
+        Me.DataGridView6.TabIndex = 0
+        '
+        'QryDocsAndLinksBindingSource
+        '
+        Me.QryDocsAndLinksBindingSource.DataMember = "qry_DocsAndLinks"
+        Me.QryDocsAndLinksBindingSource.DataSource = Me.MGCDataSet
+        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -2609,6 +2677,7 @@ Partial Class frmViewCollectionDetails
         Me.ImageList1.Images.SetKeyName(7, "_5_16x16.ico")
         Me.ImageList1.Images.SetKeyName(8, "Others_Other1_5_32x32.ico")
         Me.ImageList1.Images.SetKeyName(9, "Barrel.ico")
+        Me.ImageList1.Images.SetKeyName(10, "documents_16_x_16.ico")
         '
         'OpenFileDialog1
         '
@@ -2748,6 +2817,114 @@ Partial Class frmViewCollectionDetails
         '
         Me.Gun_Collection_ExtTableAdapter.ClearBeforeFill = True
         '
+        'Qry_DocsAndLinksTableAdapter
+        '
+        Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = True
+        '
+        'btnAddExistingDoc
+        '
+        Me.btnAddExistingDoc.Location = New System.Drawing.Point(204, 12)
+        Me.btnAddExistingDoc.Name = "btnAddExistingDoc"
+        Me.btnAddExistingDoc.Size = New System.Drawing.Size(75, 23)
+        Me.btnAddExistingDoc.TabIndex = 2
+        Me.btnAddExistingDoc.Text = "Add Existing"
+        Me.btnAddExistingDoc.UseVisualStyleBackColor = True
+        '
+        'mnuDocsMenu
+        '
+        Me.mnuDocsMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewToolStripMenuItem, Me.UnLinkToolStripMenuItem, Me.EditToolStripMenuItem3})
+        Me.mnuDocsMenu.Name = "mnuDocsMenu"
+        Me.mnuDocsMenu.Size = New System.Drawing.Size(153, 92)
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'UnLinkToolStripMenuItem
+        '
+        Me.UnLinkToolStripMenuItem.Image = CType(resources.GetObject("UnLinkToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.UnLinkToolStripMenuItem.Name = "UnLinkToolStripMenuItem"
+        Me.UnLinkToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UnLinkToolStripMenuItem.Text = "Unlink"
+        '
+        'EditToolStripMenuItem3
+        '
+        Me.EditToolStripMenuItem3.Image = CType(resources.GetObject("EditToolStripMenuItem3.Image"), System.Drawing.Image)
+        Me.EditToolStripMenuItem3.Name = "EditToolStripMenuItem3"
+        Me.EditToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+        Me.EditToolStripMenuItem3.Text = "Edit"
+        '
+        'LinkIDDataGridViewTextBoxColumn
+        '
+        Me.LinkIDDataGridViewTextBoxColumn.DataPropertyName = "LinkID"
+        Me.LinkIDDataGridViewTextBoxColumn.FillWeight = 5.0!
+        Me.LinkIDDataGridViewTextBoxColumn.HeaderText = "LinkID"
+        Me.LinkIDDataGridViewTextBoxColumn.Name = "LinkIDDataGridViewTextBoxColumn"
+        Me.LinkIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LinkIDDataGridViewTextBoxColumn.Visible = False
+        Me.LinkIDDataGridViewTextBoxColumn.Width = 5
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
+        '
+        'DocnameDataGridViewTextBoxColumn
+        '
+        Me.DocnameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DocnameDataGridViewTextBoxColumn.DataPropertyName = "doc_name"
+        Me.DocnameDataGridViewTextBoxColumn.HeaderText = "Title"
+        Me.DocnameDataGridViewTextBoxColumn.Name = "DocnameDataGridViewTextBoxColumn"
+        Me.DocnameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DocdescriptionDataGridViewTextBoxColumn
+        '
+        Me.DocdescriptionDataGridViewTextBoxColumn.DataPropertyName = "doc_description"
+        Me.DocdescriptionDataGridViewTextBoxColumn.FillWeight = 400.0!
+        Me.DocdescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
+        Me.DocdescriptionDataGridViewTextBoxColumn.Name = "DocdescriptionDataGridViewTextBoxColumn"
+        Me.DocdescriptionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DocfilenameDataGridViewTextBoxColumn
+        '
+        Me.DocfilenameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DocfilenameDataGridViewTextBoxColumn.DataPropertyName = "doc_filename"
+        Me.DocfilenameDataGridViewTextBoxColumn.HeaderText = "File Name"
+        Me.DocfilenameDataGridViewTextBoxColumn.Name = "DocfilenameDataGridViewTextBoxColumn"
+        Me.DocfilenameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DocextDataGridViewTextBoxColumn
+        '
+        Me.DocextDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DocextDataGridViewTextBoxColumn.DataPropertyName = "doc_ext"
+        Me.DocextDataGridViewTextBoxColumn.HeaderText = "Doc Type"
+        Me.DocextDataGridViewTextBoxColumn.Name = "DocextDataGridViewTextBoxColumn"
+        Me.DocextDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DocextDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'DoccatDataGridViewTextBoxColumn
+        '
+        Me.DoccatDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DoccatDataGridViewTextBoxColumn.DataPropertyName = "doc_cat"
+        Me.DoccatDataGridViewTextBoxColumn.HeaderText = "Category"
+        Me.DoccatDataGridViewTextBoxColumn.Name = "DoccatDataGridViewTextBoxColumn"
+        Me.DoccatDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DoccatDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'DtaDataGridViewTextBoxColumn
+        '
+        Me.DtaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DtaDataGridViewTextBoxColumn.DataPropertyName = "dta"
+        Me.DtaDataGridViewTextBoxColumn.HeaderText = "Date Added"
+        Me.DtaDataGridViewTextBoxColumn.Name = "DtaDataGridViewTextBoxColumn"
+        Me.DtaDataGridViewTextBoxColumn.ReadOnly = True
+        '
         'frmViewCollectionDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2805,8 +2982,12 @@ Partial Class frmViewCollectionDetails
         Me.TabPage9.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.TabPage12.ResumeLayout(False)
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QryDocsAndLinksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.mnuDocsMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3056,4 +3237,22 @@ Partial Class frmViewCollectionDetails
     Friend WithEvents Label58 As System.Windows.Forms.Label
     Friend WithEvents Label59 As System.Windows.Forms.Label
     Friend WithEvents txtCaliber3 As System.Windows.Forms.TextBox
+    Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
+    Friend WithEvents btnAddDocument As System.Windows.Forms.Button
+    Friend WithEvents DataGridView6 As System.Windows.Forms.DataGridView
+    Friend WithEvents QryDocsAndLinksBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Qry_DocsAndLinksTableAdapter As BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter
+    Friend WithEvents btnAddExistingDoc As System.Windows.Forms.Button
+    Friend WithEvents mnuDocsMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UnLinkToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EditToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LinkIDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DocnameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DocdescriptionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DocfilenameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents DocextDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents DoccatDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents DtaDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

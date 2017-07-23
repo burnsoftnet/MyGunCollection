@@ -1485,12 +1485,35 @@ Namespace MGC
                 RS = Nothing
                 CMD = Nothing
                 Obj.CloseDB()
+                Obj = Nothing
             Catch ex As Exception
                 Dim sSubFunc As String = "HasMultiBarrelsListed"
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return bAns
         End Function
+        Function HasDocumentsAttached(GID As Long) As Boolean
+            Dim bAns As Boolean = False
+            Try
+                Dim Obj As New BSDatabase
+                Obj.ConnectDB()
+                Dim SQL As String = "select * from Gun_Collection_Docs_Links where GID=" & GID
+                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+                Dim RS As OdbcDataReader
+                RS = CMD.ExecuteReader
+                bAns = RS.HasRows
+                RS.Close()
+                RS = Nothing
+                CMD = Nothing
+                Obj.CloseDB()
+                Obj = Nothing
+            Catch ex As Exception
+                Dim sSubFunc As String = "HasDocumentsAttached"
+                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+            End Try
+            Return bAns
+        End Function
+
         Function AddPurchasePriceAccessories(ByVal GID As Long) As Double
             Dim dAns As Double = 0
             Try

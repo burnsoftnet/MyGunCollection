@@ -1,6 +1,6 @@
 Imports BSMyGunCollection.MGC
 Public NotInheritable Class AboutBox1
-
+    'When the form Loads, populate the fields
     Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ' Set the title of the form.
         Dim ApplicationTitle As String
@@ -20,9 +20,5 @@ Public NotInheritable Class AboutBox1
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
         Me.Close()
-    End Sub
-
-    Private Sub TableLayoutPanel_Paint(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles TableLayoutPanel.Paint
-
     End Sub
 End Class

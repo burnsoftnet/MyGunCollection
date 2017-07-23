@@ -2,9 +2,12 @@ Imports BSMyGunCollection.MGC
 Public Class BSRegistration
     Public StatusMessage As String
     Public MainFormUnloaded As Boolean
+    'Put up the status message when the form loads
     Private Sub BSRegistration_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         lblApplicationStatus.Text = StatusMessage
     End Sub
+    'When the Register button is click, start the process to see if it is valid and warn the user if it is not
+    'or thank the user for their purchase.
     Private Sub btnRegister_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRegister.Click
         Dim sKey As String
         Dim oReg As New Cyhper.CGenericRegistration
@@ -32,9 +35,11 @@ Public Class BSRegistration
         End If
         oReg = Nothing
     End Sub
+    'Cancel Button just in case the user desides not to register
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Global.System.Windows.Forms.Application.Exit()
     End Sub
+    'Action taken when the purchase button is clicked, it will take them to the purchase page.
     Private Sub btnPurchase_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPurchase.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MENU_SHOP
