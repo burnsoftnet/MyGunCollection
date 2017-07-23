@@ -370,6 +370,10 @@ Public Class MDIParent1
     End Sub
     Private Sub MDIParent1_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         Try
+            'Dim ObjVS As New ViewSizeSettings
+            'ObjVS.SaveViewAmmoInv(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
+            'ObjVS = Nothing
+
             If DoAutoBackup Then
                 Dim myProcess As New Process
                 myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_BACKUP
@@ -387,6 +391,11 @@ Public Class MDIParent1
         ShowDebugLogToolStripMenuItem.Visible = DEBUG_MODE
         Dim iOS As Integer = Environment.OSVersion.Version.Major
         Try
+
+            'Dim ObjVS As New ViewSizeSettings
+            'ObjVS.LoadViewAmmoInv(Me.Height, Me.Width, Me.Location)
+            'ObjVS = Nothing
+
             If LoginEnabled(UseMyPWD, UseMyUID, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIN Then
                 Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
                 frmLogin.Show()

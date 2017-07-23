@@ -34,11 +34,18 @@ Partial Class frmCR_SelectTable
         Me.CRSavedReportsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CR_SavedReportsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.CR_SavedReportsTableAdapter()
         Me.btnLoadSaved = New System.Windows.Forms.Button()
+        Me.cmsSavedReports = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.cmsNextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.CRTableListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CRSavedReportsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsSavedReports.SuspendLayout()
+        Me.cmsNextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -81,6 +88,7 @@ Partial Class frmCR_SelectTable
         '
         'btnNext
         '
+        Me.btnNext.ContextMenuStrip = Me.cmsNextMenu
         Me.btnNext.Location = New System.Drawing.Point(199, 38)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(75, 23)
@@ -110,12 +118,33 @@ Partial Class frmCR_SelectTable
         '
         'btnLoadSaved
         '
+        Me.btnLoadSaved.ContextMenuStrip = Me.cmsSavedReports
         Me.btnLoadSaved.Location = New System.Drawing.Point(199, 88)
         Me.btnLoadSaved.Name = "btnLoadSaved"
         Me.btnLoadSaved.Size = New System.Drawing.Size(75, 23)
         Me.btnLoadSaved.TabIndex = 7
         Me.btnLoadSaved.Text = "Load"
         Me.btnLoadSaved.UseVisualStyleBackColor = True
+        '
+        'cmsSavedReports
+        '
+        Me.cmsSavedReports.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem})
+        Me.cmsSavedReports.Name = "cmsSavedReports"
+        Me.cmsSavedReports.Size = New System.Drawing.Size(108, 48)
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.EditToolStripMenuItem.Text = "Edit"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'Label2
         '
@@ -130,11 +159,24 @@ Partial Class frmCR_SelectTable
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
+        'cmsNextMenu
+        '
+        Me.cmsNextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1})
+        Me.cmsNextMenu.Name = "cmsNextMenu"
+        Me.cmsNextMenu.Size = New System.Drawing.Size(183, 26)
+        '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Image = CType(resources.GetObject("ToolStripMenuItem1.Image"), System.Drawing.Image)
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(182, 22)
+        Me.ToolStripMenuItem1.Text = "New with SQL Editor"
+        '
         'frmCR_SelectTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 63)
+        Me.ClientSize = New System.Drawing.Size(292, 125)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnLoadSaved)
         Me.Controls.Add(Me.ComboBox2)
@@ -153,6 +195,8 @@ Partial Class frmCR_SelectTable
         CType(Me.CRTableListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CRSavedReportsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsSavedReports.ResumeLayout(False)
+        Me.cmsNextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -169,4 +213,9 @@ Partial Class frmCR_SelectTable
     Friend WithEvents btnLoadSaved As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
+    Friend WithEvents cmsSavedReports As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents EditToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents cmsNextMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 End Class

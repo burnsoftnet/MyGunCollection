@@ -175,6 +175,12 @@
     <Compile Include="frmAddFirearmClassification.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCR_EditSQL.Designer.vb">
+      <DependentUpon>frmCR_EditSQL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCR_EditSQL.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEditModelTypes.Designer.vb">
       <DependentUpon>frmEditModelTypes.vb</DependentUpon>
     </Compile>
@@ -743,6 +749,9 @@
     <EmbeddedResource Include="frmAddFirearmClassification.resx">
       <DependentUpon>frmAddFirearmClassification.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCR_EditSQL.resx">
+      <DependentUpon>frmCR_EditSQL.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLinkDocToFirearm.resx">
       <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
     </EmbeddedResource>
@@ -1220,11 +1229,13 @@
     <Content Include="images\documents_add_16_x_16.ico" />
     <Content Include="images\documents_add_16_x_16.jpg" />
     <Content Include="images\documents_add_32_x_32.ico" />
+    <Content Include="images\imagesHVDOZ5JK.png" />
     <Content Include="images\My-Documents-icon.png" />
     <Content Include="images\PDF.png" />
     <Content Include="images\Search_RiflePistol.gif" />
     <Content Include="images\Search_RiflePistol.ico" />
     <Content Include="images\SEO_communication-512.png" />
+    <Content Include="images\T-SQL_32_x_32.ico" />
     <Content Include="MGC.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

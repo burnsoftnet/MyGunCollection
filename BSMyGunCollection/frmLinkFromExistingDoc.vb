@@ -16,7 +16,7 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
-        Dim docName As String = cmbDoc.SelectedItem.ToString
+        Dim docName As String = cmbDoc.SelectedText
         Dim DocID As Long = cmbDoc.SelectedValue
         Dim objAddObject As New frmAddDocument
         If objAddObject.PerformDocLink(GID, DocID) Then
