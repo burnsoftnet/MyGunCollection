@@ -5,6 +5,7 @@ Public Class frmMain
     End Sub
 
     Private Sub frmMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Call in the init in the modPublic File
         Call INIT()
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName

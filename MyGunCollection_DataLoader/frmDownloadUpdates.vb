@@ -24,25 +24,25 @@ Public Class frmDownloadUpdates
         Select Case LCase(sDataSet)
             Case LCase("Gun_Cal")
                 RS = Obj.Gun_Cal
-                RS.WriteXml(DL_AMMO, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_AMMO, XmlWriteMode.WriteSchema)
             Case LCase("Gun_GripType")
                 RS = Obj.Gun_GripType
-                RS.WriteXml(DL_GRIPS, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_GRIPS, XmlWriteMode.WriteSchema)
             Case LCase("Gun_Manufacturer")
                 RS = Obj.Gun_Manufacturer
-                RS.WriteXml(DL_MANU, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_MANU, XmlWriteMode.WriteSchema)
             Case LCase("Gun_Model")
                 RS = Obj.Gun_Model
-                RS.WriteXml(DL_MOD, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_MOD, XmlWriteMode.WriteSchema)
             Case LCase("Gun_Nationality")
                 RS = Obj.Gun_Nationality
-                RS.WriteXml(DL_NAT, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_NAT, XmlWriteMode.WriteSchema)
             Case LCase("Gun_Type")
                 RS = Obj.Gun_Type
-                RS.WriteXml(DL_TYPES, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_TYPES, XmlWriteMode.WriteSchema)
             Case LCase("Maintance_Plans")
                 RS = Obj.Maintance_Plans
-                RS.WriteXml(DL_MAINT, XmlWriteMode.WriteSchema)
+                RS.WriteXml(APPLICATION_PATH_DATA & "\" & DL_MAINT, XmlWriteMode.WriteSchema)
                 'Case LCase("")
         End Select
         ProgressBar1.Value = iStatus
