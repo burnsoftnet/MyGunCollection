@@ -16,7 +16,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_MANU)
+            doc.Load(MyPath & DL_MANU)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_Manufacturer")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
@@ -56,7 +56,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_MOD)
+            doc.Load(MyPath & DL_MOD)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_Model")
             Dim i As Long
             Dim o As Long = 100
@@ -105,7 +105,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_AMMO)
+            doc.Load(MyPath & DL_AMMO)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_Cal")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
@@ -143,7 +143,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_GRIPS)
+            doc.Load(MyPath & DL_GRIPS)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_GripType")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
@@ -185,7 +185,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_MAINT)
+            doc.Load(MyPath & DL_MAINT)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Maintance_Plans")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
@@ -229,7 +229,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_NAT)
+            doc.Load(MyPath & DL_NAT)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_Nationality")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
@@ -267,7 +267,7 @@ Public Class frmApplyUpdates
             Dim obj As New MyGlobalFunctions
             Dim ObjDB As New BSDatabase
             Dim doc As New XmlDocument
-            doc.Load(DL_TYPES)
+            doc.Load(MyPath & DL_TYPES)
             Dim elemList As XmlNodeList = doc.GetElementsByTagName("Gun_Type")
             Dim i As Integer
             Dim MaxCount As Long = elemList.Count
