@@ -11,6 +11,7 @@ Module modPublic
     Public BNationality As Boolean
     Public bType As Boolean
     Public BMaintPlan As Boolean
+    Public MyLogFile As String
     Public Const DL_AMMO As String = "DL_AMMO.XML"
     Public Const DL_GRIPS As String = "DL_GRIPS.XML"
     Public Const DL_MANU As String = "DL_MANU.XML"
@@ -22,6 +23,7 @@ Module modPublic
     Public APPLICATION_PATH As String
     Public APPLICATION_PATH_DATA As String
     Public Const DATABASE_NAME = "MGC.mdb"
+    'initialize the following global variables, mostly what path to use
     Sub INIT()
         Dim ObjF As New bsfilesystem
         Dim AppDataPath As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
@@ -33,13 +35,31 @@ Module modPublic
                 APPLICATION_PATH_DATA = AppDataPath
             End If
         End If
+        MyLogFile = APPLICATION_PATH_DATA & "\dataLoader.err.log"
     End Sub
+    'Format content, usualy for database inserts
     Public Function FluffContent(ByVal strContent As String) As String
         Dim sAns As String = ""
-        sAns = Trim(Replace(strContent, "'", "''"))
-        If Len(sAns) = 0 Then
-            sAns = "   "
-        End If
+        Try
+            sAns = Trim(Replace(strContent, "'", "''"))
+            If Len(sAns) = 0 Then
+                sAns = "   "
+            End If
+        Catch ex As Exception
+            Dim sSubFunc As String = "FluffContent"
+            Call LogError("modPublic", sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
         Return sAns
     End Function
+    'Throw Errors into log file
+    Public Sub LogError(ByVal sForm As String, ByVal sProcedure As String, ByVal iErrNo As Long, ByVal sErrorDesc As String)
+        Try
+            Dim ObjFS As New MyGunCollection_DataLoader.GlobalFunctions.BSFileSystem
+            Dim sMessage As String = sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
+            ObjFS.LogFile(MyLogFile, sMessage)
+        Catch ex As Exception
+            Dim sMsg As String = "ERRROR Writing to Log File!" & Chr(13) & sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
+            MsgBox(sMsg)
+        End Try
+    End Sub
 End Module

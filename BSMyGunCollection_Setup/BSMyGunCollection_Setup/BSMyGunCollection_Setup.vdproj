@@ -1400,7 +1400,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{731DEAD7-2CB7-4044-BDFE-9937B5591C12}"
-        "PackageCode" = "8:{7ADA78B2-500D-4A57-8268-2470F4FCE2C0}"
+        "PackageCode" = "8:{22DCFDD4-28F6-47C1-A8C4-B3F1BE8DBC51}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
