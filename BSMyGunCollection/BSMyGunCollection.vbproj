@@ -126,6 +126,7 @@
       <HintPath>.\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -185,6 +186,12 @@
       <DependentUpon>frmEditModelTypes.vb</DependentUpon>
     </Compile>
     <Compile Include="frmEditModelTypes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFirearmImagePicker.Designer.vb">
+      <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFirearmImagePicker.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLinkDocToFirearm.Designer.vb">
@@ -752,6 +759,9 @@
     <EmbeddedResource Include="frmCR_EditSQL.resx">
       <DependentUpon>frmCR_EditSQL.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFirearmImagePicker.resx">
+      <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLinkDocToFirearm.resx">
       <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
     </EmbeddedResource>
@@ -1206,24 +1216,6 @@
     <None Include="images\My_GunCollection_16_x_16.ico" />
     <None Include="images\My_GunCollection_72_x_72.ico" />
     <None Include="images\My_GunCollection_64_x_64.ico" />
-    <Content Include="doc_images\bmp.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="doc_images\jpg_icon.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="doc_images\pdf.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="doc_images\png.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="doc_images\txt.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="doc_images\word.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="images\documents_16_x_16.ico" />
     <Content Include="images\documents_32_x_32.ico" />
     <Content Include="images\documents_add_16_x_16.ico" />

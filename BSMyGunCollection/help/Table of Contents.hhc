@@ -486,10 +486,6 @@
 			<param name="Local" value="Files\Suggestions.htm">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="User Fourms">
-			<param name="Local" value="Files\User_Forum.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Version History">
 			<param name="Local" value="Files\versions.htm">
 			</OBJECT>

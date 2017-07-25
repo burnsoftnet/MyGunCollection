@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <description>The BurnSoft My Gun Collection application allows you to store information about your gun collection safely and in a well-organized fashion.  It contains reports which allows you to print a hard copy of your information.  It will also allow you to store pictures of your firearm collection, and keep track of the ammunition that you have in-stock.</description>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v2">
+    <security>
+      <applicationRequestMinimum>
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+        <PermissionSet class="System.Security.PermissionSet" version="1" ID="Custom" SameSite="site" Unrestricted="true" />
+      </applicationRequestMinimum>
+    </security>
+  </trustInfo>
+</asmv1:assembly>
