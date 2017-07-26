@@ -74,12 +74,15 @@ Partial Class frmFirearmImagePicker
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(786, 448)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.btnRight)
         Me.Controls.Add(Me.btnLeft)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmFirearmImagePicker"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Firearm Chooser"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

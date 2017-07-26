@@ -63,12 +63,14 @@ Public Class frmViewPicture
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'strech the windows to the orginal size of the picture
     Private Sub AutoSizeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AutoSizeToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.Normal
         AutoSizeToolStripMenuItem.Checked = True
         StretchToolStripMenuItem.Checked = False
         Call DoInitPicDrawing()
     End Sub
+    'strech the image to the size of the active window
     Private Sub StretchToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StretchToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         StretchToolStripMenuItem.Checked = True
@@ -77,7 +79,7 @@ Public Class frmViewPicture
     End Sub
 #End Region
 #Region "Form Items"
-
+    'When the form closes, save location ending
     Private Sub frmViewPicture_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Leave
         PictureBox1.Dispose()
 
@@ -87,22 +89,6 @@ Public Class frmViewPicture
             ObjVS = Nothing
         End If
     End Sub
-    '  Sub LoadViewSize()
-    '      If My.Settings.ViewPicture_Width.Length > 0 And My.Settings.ViewPicture_Height.Length > 0 Then
-    '          Me.Height = My.Settings.ViewPicture_Height
-    '          Me.Width = My.Settings.ViewPicture_Width
-    '      End If
-    '      If My.Settings.ViewPicture_X.Length > 0 And My.Settings.ViewPicture_Y.Length > 0 Then
-    '          Me.Location = New System.Drawing.Point(My.Settings.ViewPicture_X, My.Settings.ViewPicture_Y)
-    '      End If
-    '  End Sub
-    ' Sub SaveViewSize()
-    '     My.Settings.ViewPicture_Height = Me.Height
-    '     My.Settings.ViewPicture_Width = Me.Width
-    '     My.Settings.ViewPicture_X = Me.Location.X
-    '     My.Settings.ViewPicture_Y = Me.Location.Y
-    '     My.Settings.Save()
-    ' End Sub
     Private Sub frmViewPicture_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Call GetPictureInfo(MyID, sName, sNote)
         If Len(sName) = 0 Then sName = "PictureID_" & MyID

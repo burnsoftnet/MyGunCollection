@@ -882,7 +882,13 @@ Public Class MDIParent1
     End Sub
 
     Private Sub PickerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles PickerToolStripMenuItem.Click
+        Call ShowFirearmGalleryPicker()
+    End Sub
+    Sub ShowFirearmGalleryPicker()
         frmFirearmImagePicker.MdiParent = Me
         frmFirearmImagePicker.Show()
+    End Sub
+    Private Sub ToolStripButton15_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton15.Click
+        Call ShowFirearmGalleryPicker()
     End Sub
 End Class

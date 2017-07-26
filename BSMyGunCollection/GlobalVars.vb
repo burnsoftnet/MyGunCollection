@@ -25,6 +25,7 @@ Module GlobalVars
     Public APPLICATION_PATH As String
     Public APPLICATION_PATH_DATA As String
     Public DEBUG_MODE As Boolean
+    Public SHOW_FIRARM_GALLERY_ON_START As Boolean
     Public Const MY_DATABASE_VERSION As Double = 6.0
     Public Const MY_HELP_FILE = "my_gun_collection_help.chm"
     Public Const MY_HOTFIX_FILE = "BSMGC_HotFixes.exe"
@@ -44,6 +45,7 @@ Module GlobalVars
     Public Const TESTEXPIRED = False
     Public Const DEBUG_FILE = "mgc.debug.log"
     Public Const DATABASE_NAME = "MGC.mdb"
+    'format the strings to be database firendly
     Public Function FluffContent(ByVal strContent As String, Optional ByVal sDefault As String = " ") As String
         Dim sAns As String = ""
         Try
@@ -57,6 +59,7 @@ Module GlobalVars
         End Try
         Return sAns
     End Function
+    'Format a string value into a double value
     Public Function FluffContent(ByVal strContent As String, ByVal lDefault As Double) As Double
         Dim sAns As Double = 0
         Try
@@ -71,6 +74,7 @@ Module GlobalVars
         End Try
         Return sAns
     End Function
+    'format a astring value into a long value
     Public Function FluffContent(ByVal strContent As String, ByVal lDefault As Long) As Long
         Dim lAns As Long = 0
         Try
@@ -85,6 +89,7 @@ Module GlobalVars
         End Try
         Return lAns
     End Function
+    'Check to see if a field is required and alert if the value is not blank and alert if it is required
     Public Function IsRequired(ByVal strValue As String, ByVal strField As String, ByVal StrTitle As String) As Boolean
         Dim bAns As Boolean = False
         Try

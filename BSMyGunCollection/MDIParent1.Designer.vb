@@ -64,6 +64,7 @@ Partial Class MDIParent1
         Me.ListedGunsmithsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListedAppriasersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DocumentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PickerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickCollectionReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickCollectionReportWNotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -163,7 +164,7 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.PickerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripButton15 = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -469,6 +470,13 @@ Partial Class MDIParent1
         Me.DocumentsToolStripMenuItem.Name = "DocumentsToolStripMenuItem"
         Me.DocumentsToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.DocumentsToolStripMenuItem.Text = "Documents"
+        '
+        'PickerToolStripMenuItem
+        '
+        Me.PickerToolStripMenuItem.Image = CType(resources.GetObject("PickerToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PickerToolStripMenuItem.Name = "PickerToolStripMenuItem"
+        Me.PickerToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.PickerToolStripMenuItem.Text = "Image Picker"
         '
         'ReportsToolStripMenuItem
         '
@@ -811,7 +819,7 @@ Partial Class MDIParent1
         '
         Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.ToolStripButton3, Me.HelpToolStripButton})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.ToolStripButton3, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -1189,11 +1197,14 @@ Partial Class MDIParent1
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'PickerToolStripMenuItem
+        'ToolStripButton15
         '
-        Me.PickerToolStripMenuItem.Name = "PickerToolStripMenuItem"
-        Me.PickerToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
-        Me.PickerToolStripMenuItem.Text = "Image Picker"
+        Me.ToolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton15.Image = CType(resources.GetObject("ToolStripButton15.Image"), System.Drawing.Image)
+        Me.ToolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton15.Name = "ToolStripButton15"
+        Me.ToolStripButton15.Size = New System.Drawing.Size(36, 36)
+        Me.ToolStripButton15.Text = "Firearm Gallery Picker"
         '
         'MDIParent1
         '
@@ -1370,5 +1381,6 @@ Partial Class MDIParent1
     Friend WithEvents DocumentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButton14 As System.Windows.Forms.ToolStripButton
     Friend WithEvents PickerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripButton15 As System.Windows.Forms.ToolStripButton
 
 End Class
