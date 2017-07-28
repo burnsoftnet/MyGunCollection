@@ -89,6 +89,8 @@ Partial Class frmEditCollectionDetails
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.cmbClassification = New System.Windows.Forms.ComboBox()
+        Me.GunCollectionClassificationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dtpDateofCR = New System.Windows.Forms.DateTimePicker()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.txtTriggerPull = New System.Windows.Forms.TextBox()
@@ -117,17 +119,19 @@ Partial Class frmEditCollectionDetails
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.txtAddNotes = New System.Windows.Forms.TextBox()
         Me.Gun_Collection_ConditionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ConditionTableAdapter()
-        Me.cmbClassification = New System.Windows.Forms.ComboBox()
-        Me.GunCollectionClassificationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Gun_Collection_ClassificationTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter()
+        Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.chkClassIII = New System.Windows.Forms.CheckBox()
+        Me.Label60 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.GunCollectionConditionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage4.SuspendLayout()
+        CType(Me.GunCollectionClassificationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.GunCollectionClassificationBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnCancel
@@ -762,6 +766,10 @@ Partial Class frmEditCollectionDetails
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.txtClassIIIOwner)
+        Me.TabPage4.Controls.Add(Me.Label61)
+        Me.TabPage4.Controls.Add(Me.chkClassIII)
+        Me.TabPage4.Controls.Add(Me.Label60)
         Me.TabPage4.Controls.Add(Me.cmbClassification)
         Me.TabPage4.Controls.Add(Me.dtpDateofCR)
         Me.TabPage4.Controls.Add(Me.Label38)
@@ -793,6 +801,24 @@ Partial Class frmEditCollectionDetails
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Collector Details"
         Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'cmbClassification
+        '
+        Me.cmbClassification.AllowDrop = True
+        Me.cmbClassification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.cmbClassification.DataSource = Me.GunCollectionClassificationBindingSource
+        Me.cmbClassification.DisplayMember = "myclass"
+        Me.cmbClassification.FormattingEnabled = True
+        Me.cmbClassification.Location = New System.Drawing.Point(429, 73)
+        Me.cmbClassification.Name = "cmbClassification"
+        Me.cmbClassification.Size = New System.Drawing.Size(156, 21)
+        Me.cmbClassification.TabIndex = 224
+        Me.cmbClassification.ValueMember = "myclass"
+        '
+        'GunCollectionClassificationBindingSource
+        '
+        Me.GunCollectionClassificationBindingSource.DataMember = "Gun_Collection_Classification"
+        Me.GunCollectionClassificationBindingSource.DataSource = Me.MGCDataSet
         '
         'dtpDateofCR
         '
@@ -1051,27 +1077,44 @@ Partial Class frmEditCollectionDetails
         '
         Me.Gun_Collection_ConditionTableAdapter.ClearBeforeFill = True
         '
-        'cmbClassification
-        '
-        Me.cmbClassification.AllowDrop = True
-        Me.cmbClassification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.cmbClassification.DataSource = Me.GunCollectionClassificationBindingSource
-        Me.cmbClassification.DisplayMember = "myclass"
-        Me.cmbClassification.FormattingEnabled = True
-        Me.cmbClassification.Location = New System.Drawing.Point(429, 73)
-        Me.cmbClassification.Name = "cmbClassification"
-        Me.cmbClassification.Size = New System.Drawing.Size(156, 21)
-        Me.cmbClassification.TabIndex = 224
-        Me.cmbClassification.ValueMember = "myclass"
-        '
-        'GunCollectionClassificationBindingSource
-        '
-        Me.GunCollectionClassificationBindingSource.DataMember = "Gun_Collection_Classification"
-        Me.GunCollectionClassificationBindingSource.DataSource = Me.MGCDataSet
-        '
         'Gun_Collection_ClassificationTableAdapter
         '
         Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = True
+        '
+        'txtClassIIIOwner
+        '
+        Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 206)
+        Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
+        Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
+        Me.txtClassIIIOwner.TabIndex = 239
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(10, 209)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(41, 13)
+        Me.Label61.TabIndex = 238
+        Me.Label61.Text = "Owner:"
+        '
+        'chkClassIII
+        '
+        Me.chkClassIII.AutoSize = True
+        Me.chkClassIII.Location = New System.Drawing.Point(109, 185)
+        Me.chkClassIII.Name = "chkClassIII"
+        Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
+        Me.chkClassIII.TabIndex = 237
+        Me.chkClassIII.Text = "Yes"
+        Me.chkClassIII.UseVisualStyleBackColor = True
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(9, 186)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(73, 13)
+        Me.Label60.TabIndex = 236
+        Me.Label60.Text = "Class III Item?"
         '
         'frmEditCollectionDetails
         '
@@ -1103,11 +1146,11 @@ Partial Class frmEditCollectionDetails
         CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
+        CType(Me.GunCollectionClassificationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
-        CType(Me.GunCollectionClassificationBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1208,4 +1251,8 @@ Partial Class frmEditCollectionDetails
     Friend WithEvents cmbClassification As System.Windows.Forms.ComboBox
     Friend WithEvents GunCollectionClassificationBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents Gun_Collection_ClassificationTableAdapter As BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter
+    Friend WithEvents txtClassIIIOwner As System.Windows.Forms.TextBox
+    Friend WithEvents Label61 As System.Windows.Forms.Label
+    Friend WithEvents chkClassIII As System.Windows.Forms.CheckBox
+    Friend WithEvents Label60 As System.Windows.Forms.Label
 End Class

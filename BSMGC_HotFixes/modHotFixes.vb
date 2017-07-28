@@ -653,6 +653,11 @@ Module modHotFixes
         Call AddColumn("DateofCR", "Gun_Collection", "N/A", "DATETIME")
         SQL = "UPDATE Gun_Collection set IsInBoundBook=1"
         Call RunSQL(SQL)
+        Call AddColumn("IsClassIII", "Gun_Collection", "N/A", "number")
+        SQL = "UPDATE Gun_Collection set IsClassIII=0"
+        Call RunSQL(SQL)
+        Call AddColumn("ClassIII_owner", "Gun_Collection", "N/A", "Text(255)")
+
         Console.WriteLine(vbTab & "Creating Appraiser Contact Details Table")
         SQL = "CREATE TABLE Appriaser_Contact_Details (ID AUTOINCREMENT PRIMARY KEY,aName Text(255), Address1 Text(255)" & _
                 ", Address2 Text(255),City Text(255),State Text(255), Country Text(255), Phone Text(255), fax Text(255)" & _
@@ -677,11 +682,15 @@ Module modHotFixes
         SQL = "CREATE TABLE Gun_Collection_Docs_Links (ID AUTOINCREMENT PRIMARY KEY,DID INTEGER, GID INTEGER,dta (DATETIME)"
         Call RunSQL(SQL)
         Call AddSyncToTable("Gun_Collection_Docs_Links", True)
+        Console.WriteLine(vbTab & "Creating Classification Table & inserting values")
         SQL = "CREATE TABLE Gun_Collection_Classification (ID AUTOINCREMENT PRIMARY KEY,myclass Text(255))"
         Call RunSQL(SQL)
-        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('Antique')")
-        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('C&R')")
-        Call RunSQL("INSERT INTO Gun_Collection_Classification (myclass) VALUES('Modern')")
+        Dim sValue As String = "Antique"
+        If Not ValueDoesExist("Gun_Collection_Classification", "[myclass]", sValue) Then Call ConnExec(("INSERT INTO Gun_Collection_Classification ([myclass]) VALUES('" & sValue & "')"))
+        sValue = "C&R"
+        If Not ValueDoesExist("Gun_Collection_Classification", "[myclass]", sValue) Then Call ConnExec(("INSERT INTO Gun_Collection_Classification ([myclass]) VALUES('" & sValue & "')"))
+        sValue = "Modern"
+        If Not ValueDoesExist("Gun_Collection_Classification", "[myclass]", sValue) Then Call ConnExec(("INSERT INTO Gun_Collection_Classification ([myclass]) VALUES('" & sValue & "')"))
 
         Call AddSyncToTable("Gun_Collection_Classification", True)
         'End Updates

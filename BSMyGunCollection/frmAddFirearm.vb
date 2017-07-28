@@ -5,6 +5,7 @@ Imports BSMyGunCollection.MGC
 Public Class frmAddFirearm
     Public IsCopy As Boolean
     Public CopyID As String
+    'Load the data on the form from start or refresh is available.
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
@@ -96,6 +97,7 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'Perform Auto Fill on the selected textboxes baseed on values in the database to help unify input
     Private Sub DoAutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -130,6 +132,7 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    'On form Load Will the  some of the droupdown boxes, 
     Private Sub frmAddFirearm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
@@ -240,6 +243,7 @@ Public Class frmAddFirearm
             Call ObjGF.UpdateGunType(strType)
             Dim ItemID As Long = 0
             Dim BID As Long = 0
+
 
             Dim SQL As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
                     "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
