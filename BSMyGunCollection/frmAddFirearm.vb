@@ -222,6 +222,9 @@ Public Class frmAddFirearm
             Dim sTrigger As String = FluffContent(txtTriggerPull.Text)
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCR As String = dtpDateofCR.Value
+            Dim iClassIII As Integer = 0
+            If chkClassIII.Checked Then iClassIII = 1
+            Dim sClassIIIOwner As String = FluffContent(txtClassIIIOwner.Text)
             'If dtpDateofCR.Checked Then sDateOfCR = dtpDateofCR.Value
 
             If Not DISABLEUNIQUECUSTCATID Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID)) : Exit Sub
@@ -249,7 +252,7 @@ Public Class frmAddFirearm
                     "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
                     "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
                     "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
-                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate) VALUES(" & _
+                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" & _
                     OwnerID & "," & lngManID & ",'" & strFullName & "','" & strModel & "'," & lngModelID & ",'" & strSerial & "','" & _
                     strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & ObjGF.SetCatalogINSType(strCustCatID) & "," & _
                     lngNationalityID & "," & lngGripID & "," & strQty & ",'" & strWeight & "','" & strLength & "','" & _
@@ -258,7 +261,7 @@ Public Class frmAddFirearm
                     strAppDate & "','" & strAppBy & "','" & strInsVal & "','" & strStorage & "','" & strConCom & "','" & strAddNotes & _
                     "','" & strProduced & "','" & strPetLoads & "','" & strPurDate & "'," & intIsCandR & ",'" & strImporter & _
                     "','" & sReManDT & "','" & sPOI & "',0,0,'" & sChoke & "'," & iBoundBook & ",'" & sTwist & "','" & sTrigger & _
-                    "','" & sCaliber3 & "','" & sClassification & "','" & sDateOfCR & "',0,2,Now())"
+                    "','" & sCaliber3 & "','" & sClassification & "','" & sDateOfCR & "',0,2,Now()," & iClassIII & ",'" & sClassIIIOwner & "')"
 
             Obj.ConnExec(SQL)
             Dim ObjG As New GlobalFunctions

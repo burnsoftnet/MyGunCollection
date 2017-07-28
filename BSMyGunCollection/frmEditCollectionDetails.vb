@@ -253,6 +253,9 @@ Public Class frmEditCollectionDetails
             Dim sTrigger As String = FluffContent(txtTriggerPull.Text)
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCR As String = dtpDateofCR.Value
+            Dim iClassIII As Integer = 0
+            If chkClassIII.Checked Then iClassIII = 1
+            Dim sClassIIIOwner As String = FluffContent(txtClassIIIOwner.Text)
 
             If Not DISABLEUNIQUECUSTCATID Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID, CLng(ItemID))) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Me.Text) Then Exit Sub
@@ -285,7 +288,8 @@ Public Class frmEditCollectionDetails
                     "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " & _
                     "ReManDT='" & sReManDT & "', POI='" & sPOI & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook & _
                     ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 & _
-                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCR & "', sync_lastupdate=now()"
+                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCR & "', sync_lastupdate=now(),IsClassIII=" & _
+                    iClassIII & ",ClassIII_owner='" & sClassIIIOwner & "'"
             If IsSold Then SQL &= ", dtsold='" & dtpSold.Value & "'"
             SQL &= " where ID=" & ItemID
             Obj.ConnExec(SQL)
