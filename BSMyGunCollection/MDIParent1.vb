@@ -391,11 +391,6 @@ Public Class MDIParent1
         ShowDebugLogToolStripMenuItem.Visible = DEBUG_MODE
         Dim iOS As Integer = Environment.OSVersion.Version.Major
         Try
-
-            'Dim ObjVS As New ViewSizeSettings
-            'ObjVS.LoadViewAmmoInv(Me.Height, Me.Width, Me.Location)
-            'ObjVS = Nothing
-
             If LoginEnabled(UseMyPWD, UseMyUID, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIN Then
                 Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
                 frmLogin.Show()
@@ -418,9 +413,6 @@ Public Class MDIParent1
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
-            'This was removed since the app updater is no longer in use
-            'Dim ObjFS As New BSFileSystem
-            'If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then ReRunHotfixUpdatesToolStripMenuItem.Enabled = True
         Catch ex As Exception
             Dim strProcedure As String = "Load"
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
@@ -669,6 +661,15 @@ Public Class MDIParent1
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
     End Sub
+    Public Sub RunHotFix()
+        DoAutoBackup = False
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+        Global.System.Windows.Forms.Application.Exit()
+        End
+    End Sub
 
     Public Sub ReRunHotFixUpdates()
         DoAutoBackup = False
@@ -689,9 +690,6 @@ Public Class MDIParent1
         myProcess.Start()
         Global.System.Windows.Forms.Application.Exit()
         End
-    End Sub
-    Private Sub ReRunHotfixUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReRunHotfixUpdatesToolStripMenuItem.Click
-        'Call ReRunHotFixUpdates()
     End Sub
 
     Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomReportToolStripMenuItem.Click

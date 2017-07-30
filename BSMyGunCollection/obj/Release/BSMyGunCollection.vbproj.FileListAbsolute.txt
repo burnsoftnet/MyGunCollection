@@ -105,18 +105,11 @@
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\RdlCompile.cache
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\RdlCompile.compiled
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\BSMyGunCollection.exe
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\MGC.mdb
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\adodb.dll
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\Config.xml
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\DataGridViewAutoFilter.dll
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\DBBackup.exe
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\DBRestore.exe
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\bmp.png
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\jpg_icon.jpg
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\pdf.png
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\png.png
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\txt.png
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\doc_images\word.png
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\mgc_default.jpg
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\MyGunCollection_DataLoader.exe
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\MyGunCollection_DataLoader.XmlSerializers.dll
@@ -225,3 +218,5 @@ C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\B
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\BSMyGunCollection.frmLinkDocToFirearm.resources
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\BSMyGunCollection.frmLinkFromExistingDoc.resources
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\BSMyGunCollection.frmViewDocuments.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Release\BSMyGunCollection.frmFirearmImagePicker.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Release\MGC.mdb

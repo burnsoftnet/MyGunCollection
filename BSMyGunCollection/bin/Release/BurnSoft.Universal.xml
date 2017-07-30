@@ -1,0 +1,1367 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+BurnSoft.Universal
+</name>
+</assembly>
+<members>
+<member name="T:BurnSoft.Universal.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:BurnSoft.Universal.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:BurnSoft.Universal.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:BurnSoft.Universal.BSActiveDirectory.AD_AccountType">
+<summary>
+ Public Enumerations for USER OR COMPUTER
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerAccountLastLogon(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the last time the Computer logged onto the domain
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_IsComputerEnabled(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to see if the Computer account is enabled
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_SetComputerAccountToEnable(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Enabled a computer Account
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_SetComputerAccountToDisabled(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to disable a computer account
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerAccountIsAccountLockedOut(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to see if a computer account it locked out
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerAccountLockoutTime(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the last time a computer account was disabled
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerLastBadPasswordAttempt(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the last bad password attempt from a computer account
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerDescription(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the computer description
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_SetComputerDescription(System.String,System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Set the Computer Descrition
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerSamAccountName(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the Sam Account Name of the computer
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_DeleteComputer(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Delete the computer from Active Directory
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerSid(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Get the Computer SID from Active Directory
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DSC_GetComputerStructuralObjectClass(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Get the Structural Object Class from Active Directory
+ </summary>
+     ''' <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.isWorkstation(System.String,System.String,System.String)">
+<summary>
+ Checks a machine name in a OU to determin is it is a workstation
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.isServer(System.String,System.String,System.String)">
+<summary>
+ Checks a machine name in a OU to determin is it is a Server
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.ListAllADComputers_AC(System.String@)">
+<summary>
+Get all the Computers in Active Directory for an AutoComplete Collection Array.
+ This Pulls Back all PC's and Servers excluding Domain Controllers
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.ListAllADComputers">
+<summary>
+Get all the Computers in Active Directory as a regular Collection Array.
+ This Pulls Back all PC's and Servers excluding Domain Controllers
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetComputerEntry(System.String,System.String,System.String,System.String@)">
+ <summary>
+ create directory entry connection to the remote machine
+ </summary>
+ <param name="Computername"></param>
+ <param name="Username"></param>
+ <param name="Password"></param>
+ <returns>DirectoryEntry</returns>
+ <remarks>Dim deComputer As DirectoryEntry = GetComputerEntry(computername)</remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.MoveUserToNewOU(System.String,System.String,System.String@,System.Boolean,System.Boolean)">
+<summary>
+ This will move a user from their current OU to the a new Ou.  If there is an error it
+ will return as false, and it went successfully it will return true
+ </summary>
+ <remarks>
+ Uses the AuthenticationIsSet Function as an option for elevated access
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetCurrentOULocation_Friendly(System.String,System.String@,System.String@)">
+<summary>
+ Formats the OU string that is returned from AD for a user into something a little more readably
+ AD will return ou=mygroup,ou=other group,dc=domain,dc=com
+ this will return is as \domain\com\other group\mygroup
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetCurrentOULocation(System.String)">
+<summary>
+ Returns the OU that a user is in on Active Directory
+ AD will return ou=mygroup,ou=other group,dc=domain,dc=com
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetCurrentOUPath(System.String)">
+<summary>
+ Returns the current path of a user's OU
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetOUChildren(System.String,System.String,System.String)">
+<summary>
+ List the Children in an OU as a collection
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetOUStreet(System.String,System.String,System.String,System.String,System.String@)">
+<summary>
+ Get the Street Value property from an OU
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetDomainInfoPlus(System.String,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@,System.String@)">
+<summary>
+ Gets information about a user and returns values gathered from Active Directory
+ </summary>
+ <remarks>
+ CITUDOMAIN is Domain, CITUID = UserID,
+ CITULNAME= User Last Name,CITUFNAME = User First Name
+ UserMemberOf is groups the user is a member of
+ AccStatus = status of their account, eMail is eMail address listed in AD.
+ ExpOn = when their account expires
+ pwdLastSet = the last time there password was set
+ lastLogon = the last time they logged into the domain.
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_IsUserLockedOut(System.String)">
+<summary>
+ Uses DirectoryServices to See if the User is locked out
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetDisplayName(System.String)">
+<summary>
+ Uses DirectoryServices to get the user's Display Name
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetLastPasswordSet(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the Last time the user set their password
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetAccountExpirationDate(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the Expiration Date for the user
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetLastBadPasswordAttempt(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get the Last Bad Password Attempt
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetLastLogon(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to Get the Last Time the User Logged onto the domain
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DS_GetAccountLockoutTime(System.String,System.String@)">
+<summary>
+ Uses DirectoryServices to get what time the user was last locked out
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.LocateUser(System.Object)">
+<summary>
+ This function searches for a supplied UserID and Domain for existence
+ It returns the OU container hierarchy
+ </summary>
+ <remarks>Uses the LDAP_STRING property</remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AddAdministrator(System.String,System.String)">
+<summary>
+ Uses WMI to Run the net localgroup command on the target machine to add a user
+ or group to the local administrators of the target machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AddUserToLocalAdministrator(System.String,System.String)">
+<summary>
+ Uses ADSI to add a userto the Local Administrators group of the target machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.RemoveUserFromLocalAdministrator(System.String,System.String)">
+<summary>
+ Uses ADSI to remove a user from the Local Administrators group of the target machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.RemoveAdministrator(System.String,System.String)">
+<summary>
+ Uses WMI to run the net localgroup command to remove a user fromt eh local 
+ administrators group of the target machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.UsersFoundInLocalAdmin(System.String,System.String@)">
+<summary>
+ Checks to see if a user is found in the local administrators group of the curent machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.RemoveUserFromGroup(System.DirectoryServices.DirectoryEntry,System.DirectoryServices.DirectoryEntry)">
+<summary>
+ Remove Users from a local group
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AddUserToGroup2(System.DirectoryServices.DirectoryEntry,System.DirectoryServices.DirectoryEntry)">
+<summary>
+ add users to a local group
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.adUserToGroup(System.String,System.String,System.String,System.String)">
+<summary>
+ Add Users to an Active Directory Group
+ </summary>
+ <remarks>
+ Uses the ADSIString, LDAP_DOMAIN_NAME properties for the domain connection
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AddUserToADGroup(System.String,System.String,System.String)">
+<summary>
+ Adds a user to a group in AD
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DeleteUserFromADGroup(System.String,System.String)">
+<summary>
+ Delets a user from a group in AD
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DeleteDomainUserFromRemoteGroup(System.String,System.String,System.String,System.String,System.String@)">
+ <summary>
+ Deletes a Domain User from the Local Machint, this sub uses the rights of the user that runs it.
+ </summary>
+ <param name="sUser"></param>
+ <param name="sGroup"></param>
+ <param name="sComputer"></param>
+ <param name="sDomain"></param>
+ <remarks></remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.UpdateAccount(System.Object,System.Object,System.Object,System.Object)">
+<summary>
+ Uses ADSI to add or remove a group from a local group on the target machine
+ sMachineName is the target, sGroupName is the Group that you want to add or remove
+ sLocalGroup is the local group that you want to add or remove to
+ sOperations is either "add" or "del" to determain the action
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.ADGroupExists(System.String)">
+<summary>
+ Checks to see if the group Exists in AD
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.CreateADGroup(System.String,System.String,System.String)">
+<summary>
+ Creates a Group in Active Directory and puts it in an OU
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.DeleteADGroup(System.String)">
+<summary>
+ Deletes a Group in AD
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetGroups(System.String,System.String,System.String)">
+<summary>
+ Gets groups for a user and returns it as a collection
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetGroupByName(System.DirectoryServices.DirectoryEntry,System.String)">
+ <summary>
+ get admin group info
+ </summary>
+ <param name="DE"></param>
+ <param name="Groupname"></param>
+ <returns>DirectoryEntr</returns>
+ <remarks>Dim deGroup As DirectoryEntry = GetGroupByName(deComputer, "administrators")</remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetGroupMembers(System.DirectoryServices.DirectoryEntry)">
+ <summary>
+ Returns a DirectoryEntry List of group members on the selected machine
+ </summary>
+ <param name="deGroup"></param>
+ <returns>List(Of DirectoryEntry)</returns>
+ <remarks>Dim groupMembers As List(Of DirectoryEntry) = GetGroupMembers(deGroup)</remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AddGroupToLocalAdministrator(System.String,System.String)">
+<summary>
+ Uses ADSI to add a Group to the Local Administrators group of the target machine
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.ADSIObject_EnumToString(BurnSoft.Universal.BSActiveDirectory.ADSIObject)">
+<summary>
+ ADSI Translator to convert the integer to a redable string
+ 1=class, 2=computer,3=domain, etc
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.IsShareRan">
+<summary>
+ works with the APPLICATION_LAUNCH_PATH property to determin is the application is only suppose to run 
+ from a certain location.
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.AuthenticationIsSet(System.String@)">
+<summary>
+ Uses the DOMAIN_NAME, DOMAIN_USER and DOMAIN_USER_PASSWORD properties to see if all 3 properties
+ has been set, if they have been then it return as true, otherwise if one is missed then it returns
+ as false.  This is handy for some functions that require elivated access to perform certain functions
+ only if the user that is running it does not have that access.
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetDomainInfo(System.String@,System.String@)">
+<summary>
+ Quick Domain Look up for the user that is running the application
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.FindObject(System.String,BurnSoft.Universal.BSActiveDirectory.AD_AccountType,System.String@)">
+<summary>
+ Internal Function to looks up the account to see if account is in ad
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.SetLDAPAttribute(System.String,System.String@,System.String@)">
+<summary>
+ This Sub will get the Name, Groups and Status of the Current User that is accessing the Site.
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.TrimADCrap(System.String)">
+<summary>
+ Get rid of all the AICN, CN, DC, OU, etc crap out of the string
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.isAllowedToUseApp(System.String,System.String)">
+<summary>
+ Quick Check to see if the user is allowed to use the application
+ This is based off of passing the list of groups that they are in as the iGroup
+ and Putting the Group Name in the AdminGroupName parameter for group that is allowed
+ to use the application.  This function will look through the iGroup for a match
+ tot he AdminGroupName
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSActiveDirectory.GetDirectoryEntry">
+<summary>
+ Get the Directory Entry
+ </summary>
+ 
+<remarks> Requires setting the Properties for ADSIString, DOMAIN_USER, and DOMAIN_USER_PASSWORD</remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.ISDatePastNow(System.String,System.String@)">
+<summary>
+ Checks to see if the data that is passed is greater than or less then the current time
+ if not current then it is true
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.ISDateNow(System.String,System.String@)">
+<summary>
+ Checks to see if the data that is passed is greater than or less then the current time
+ if not current then it is false
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.ISDateBeforeNow(System.String,System.String@)">
+<summary>
+Checks to see if the data that is passed is greater than or less then the current time
+ if not current then it is true
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.FormatDate(System.String)">
+<summary>
+ Format the date
+ IE: 5/5/04 will turn into 05/05/2004
+ Extract the elements
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.isValidDate(System.String)">
+<summary>
+ Checks to see if the value is a valid date format
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.ConvertWeekToDays(System.Int64)">
+<summary>
+ convert the number of weeks into days
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.ConvertType(System.String)">
+<summary>
+ convert english to dateinterval
+ </summary>
+ <remarks>
+ sValue can be: day, hous, minute, or month
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSDateTime.SQLFormatDate(System.String)">
+<summary>
+ Formats the date into an SQL Friendly date, used for SQL Commands
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.LogFile(System.String,System.String)">
+ <summary>
+ The Log File Sub is a quick and easy way to create a log file for your application.
+ </summary>
+ <param name="strPath"></param>
+ <param name="strMessage"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.DeleteFile(System.String)">
+ <summary>
+ The DeleteFile Sub will check to see if the file exists, if it does exist it will delete it.
+ </summary>
+ <param name="strPath"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.FileExists(System.String)">
+ <summary>
+ The AppendToFile Sub is like the LogFile Sub except it will not add the Date and Time Stamp to the File.
+ </summary>
+ <param name="sPath"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.CreateFile(System.String)">
+ <summary>
+ Private Sub to Create a file if it doesn't exist
+ </summary>
+ <param name="strPath"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.AppendToFile(System.String,System.String)">
+ <summary>
+ Public Sub to write a new line to a file that already exists, if the file doesn't not exist, it will create it.
+ </summary>
+ <param name="strPath"></param>
+ <param name="strNewLine"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.MoveFile(System.String,System.String)">
+ <summary>
+ The MoveFile Sub will check to see if the File exists if the Source path, if it does exist then it will move it over to the destination path.
+ </summary>
+ <param name="strFrom"></param>
+ <param name="strTo"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.CopyFile(System.String,System.String)">
+ <summary>
+ The MoveFile Sub will check to see if the File exists if the Source path, if it does exist then it will copy it over to the destination path.
+ </summary>
+ <param name="strFrom"></param>
+ <param name="strTo"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.CreateDirectory(System.String)">
+ <summary>
+ The CreateDirectory Sub will check to see if the directory exists in the Target path that you provided. If it doesn’t exist, it will create it.
+ </summary>
+ <param name="strPath"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.DirectoryExists(System.String)">
+ <summary>
+ The DirectoryExists Function will check to see the directory that you provided exists.
+ </summary>
+ <param name="strPath"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.DeleteDirectory(System.String)">
+ <summary>
+ The DeleteDirectory Sub will check to see the directory that you provided exists. If it does exist, it will delete it.
+ </summary>
+ <param name="strPath"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.MoveDirectory(System.String,System.String)">
+ <summary>
+ The MoveDirectory Sub will check to see the directory that you provided exists in the Source, if it Does exist, it will move it to the targe path that you provided.
+ </summary>
+ <param name="strFrom"></param>
+ <param name="strTo"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.RenameFile(System.String,System.String)">
+ <summary>
+ The RenameFile Sub will rename the file that you provide in the source and rename it to that of the target
+ </summary>
+ <param name="strFrom"></param>
+ <param name="strTo"></param>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetPathOfFile(System.String)">
+ <summary>
+ The GetPathOfFile Function will return the Full Directory of the File that you give it. Let’s say you Passed “C:\Temp\MyFile.log”, it will return “C:\Temp”
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetExtOfFile(System.String)">
+ <summary>
+ The GetExtOfFile Function will return just the file extension of the file that you give it. Let’s say you Passed “C:\Temp\MyFile.log”, it will return “.Log”
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetNameOfFile(System.String)">
+ <summary>
+ The GetNameOfFile function will return just the file name of the file that you give it. Let’s say you Passed “C:\Temp\MyFile.log”, it will return “MyFile.Log”
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.FileHasExtension(System.String)">
+ <summary>
+ This will check and see if the file you provided has a file extension type.
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetNameOfFileWOExt(System.String)">
+ <summary>
+ The GetNameOfFileWOExt function will return just the file name of the file that you give it. Let’s say you Passed “C:\Temp\MyFile.log”, it will return “MyFile”
+ </summary>
+ <param name="strFile"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetFileVersion(System.String)">
+ <summary>
+ Public Function to get the version of a file, usually useful for getting application, library versions
+ </summary>
+ <param name="sFile"></param>
+ <returns>Version as string</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetFileDescription(System.String)">
+ <summary>
+ Public Function to get any description of a file in the tag property
+ </summary>
+ <param name="sFile"></param>
+ <returns>Description as string</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetFileComments(System.String)">
+ <summary>
+ Public Function to get any File Comments in the tag property section
+ </summary>
+ <param name="sFile"></param>
+ <returns>Comments as string</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetFileCompany(System.String)">
+ <summary>
+ Public Function to get the Company that created the application or library
+ </summary>
+ <param name="sFile"></param>
+ <returns>Company Name as string</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetCreationDateTime(System.String)">
+ <summary>
+ Get the Createion date and time of the file that is passed
+ </summary>
+ <param name="sFile"></param>
+ <returns>Date and Time</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetLastAccessDateTime(System.String)">
+ <summary>
+ Get the Last Access date and time fo the file that is being passed
+ </summary>
+ <param name="sFile"></param>
+ <returns>Date and Time</returns>
+</member>
+<member name="M:BurnSoft.Universal.FileIO.GetLastWriteDateTime(System.String)">
+ <summary>
+ Get the last time the file was written to from the file that was being passed
+ </summary>
+ <param name="sFile"></param>
+ <returns>Date and Time</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetShortPathName(System.String,BurnSoft.Universal.FSInfo.DirectoryPathlength)">
+ <summary>
+ Return the Shot 8-BIT DOS name of the path
+ </summary>
+ <param name="sPath"></param>
+ <param name="enumDirectoryPathlength"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetLongPathName(System.String,BurnSoft.Universal.FSInfo.DirectoryPathlength)">
+ <summary>
+ Return the Long Path Name
+ </summary>
+ <param name="sPath"></param>
+ <param name="enumDirectoryPathLength"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetDiskFreeSpaceEx(System.String@,System.Int64@,System.Int64@,System.Int64@)">
+ <summary>
+ Private function using a windows API to get the diskfreespace
+ </summary>
+ <param name="lpDirectoryName"></param>
+ <param name="lpFreeBytesAvailableToCaller"></param>
+ <param name="lpTotalNumberOfBytes"></param>
+ <param name="lpTotalNumberOfFreeBytes"></param>
+ <returns>Bytes as long</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.CountAllDirectoriesEx(System.String,System.String@)">
+ <summary>
+ Counts all the directories from the target path ( sPath )
+ </summary>
+ <param name="sPath"></param>
+ <param name="ErrMsg"></param>
+ <returns>Count as long</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.CountAllDirectories(System.String,System.String@)">
+ <summary>
+ The FSInfo.CountAllDirectories function will return the count of all the sub folders in the selected target path.
+ </summary>
+ <param name="sPath"></param>
+ <param name="ErrMsg"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.CountAllFiles(System.String,System.String@)">
+ <summary>
+ The FSInfo.CountAllFiles function will return the total number of files in the target directory/drive, this includes files in all sub directories including that what is in the root path.
+ </summary>
+ <param name="sPath"></param>
+ <param name="ErrMsg"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.CountFiles(System.String,System.String@)">
+ <summary>
+ Private function to count all the files in teh target path ( spath )
+ </summary>
+ <param name="sPath"></param>
+ <param name="ErrMsg"></param>
+ <returns>Count as long</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetFreeSpace(System.String)">
+ <summary>
+ The FSInfo.GetFreeSpace will give you the free space of the selected drive
+ </summary>
+ <param name="Drive"></param>
+ <returns>Value in GigaBytes</returns>
+</member>
+<member name="M:BurnSoft.Universal.FSInfo.GetTotalSpace(System.String)">
+ <summary>
+ The FSInfo.GetTotalSpace will give you the Total space of the selected drive
+ </summary>
+ <param name="Drive"></param>
+ <returns>Value in GigaBytes</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSMath.RoundValueNotZero(System.Double)">
+ <summary>
+ Function Used for Out of 100 Calculations
+ its more of a reverse round, where 0.270 would be 1 and 99.678 would be 99
+ </summary>
+ <param name="Value"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSMath.getStandardDeviation(System.Collections.Generic.List{System.Double})">
+ <summary>
+ Get the standard deviation from an array of numbers
+ </summary>
+ <param name="data"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSMath.ConvertToDollars(System.Double)">
+ <summary>
+ Mostly converts the double value to the dollar format with two decimal points
+ and rounds up the 3 decimal.
+ </summary>
+ <param name="dValue"></param>
+ <returns></returns>
+</member>
+<member name="T:BurnSoft.Universal.BSNetwork.IPProtocolType">
+ <summary>
+ Public network Protocol Types used
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSNetwork.PortOpen(System.Net.IPAddress,System.Int64,BurnSoft.Universal.BSNetwork.IPProtocolType)">
+ <summary>
+ Private Function to check and see if the port is operational
+ </summary>
+ <param name="sHost"></param>
+ <param name="iPort"></param>
+ <param name="ProtocolType"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSNetwork.PortIsUP(System.String,System.Int64,BurnSoft.Universal.BSNetwork.IPProtocolType,System.String@)">
+ <summary>
+ Quick Public Function to check and see if a port on the host is up and running
+ </summary>
+ <param name="sHost"></param>
+ <param name="iPort"></param>
+ <param name="ProtocolType"></param>
+ <param name="ErrMsg"></param>
+ <returns>true/false</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.StringCompair(System.String,System.String)">
+ <summary>
+ A quick compairison of string value1 to string value2 if both are the same, then it will return truw
+ </summary>
+ <param name="sValue1"></param>
+ <param name="sValue2"></param>
+ <returns>true</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.ContentsExistsRegEx(System.String,System.String)">
+ <summary>
+ Using regular expression to search the Content String for a word or phrase
+ </summary>
+ <param name="sContent"></param>
+ <param name="sSearchFor"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.ArraysEqual(System.Byte[],System.Byte[])">
+ <summary>
+ Checks the first array against the second array to see if they are equal to each other
+ </summary>
+ <param name="first"></param>
+ <param name="second"></param>
+ <returns>True/False</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.Sleep(System.Int64)">
+ <summary>
+ Private Sub used for sleep functions
+ </summary>
+ <param name="dwMilliseconds"></param>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.Pause(System.Int64,System.Int64)">
+<summary>
+ Uses the Stopwatch to pause the application for x amount of seconds
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.EventAction(System.Object)">
+<summary>
+ More of a place holder for over commands, no code listed in this but has been used for other functions
+ </summary>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.SendMail(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Boolean,System.Boolean,System.String,System.String@)">
+ <summary>
+ Sends an email
+ </summary>
+ <param name="sTo"></param>
+ <param name="sFrom"></param>
+ <param name="sFrom_Name"></param>
+ <param name="sSubject"></param>
+ <param name="sMessage"></param>
+ <param name="MAIL_SERVER_NAME"></param>
+ <param name="MAIL_SERVER_PORT"></param>
+ <param name="USEHTML"></param>
+ <param name="USEBCC"></param>
+ <param name="sBCC"></param>
+ <param name="sErrMsg"></param>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.Parse(System.String,System.Int32,System.String)">
+ <summary>
+ Parses s tring of information based on the fireld or location that it is at in the string
+ </summary>
+ <param name="sInput"></param>
+ <param name="lField"></param>
+ <param name="sDelimiter"></param>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.GetXMLNode(System.Xml.XmlNode)">
+ <summary>
+ Gets the instance of the selected XML node and returns as string
+ </summary>
+ <param name="instance"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.Found(System.String,System.String)">
+ <summary>
+ Searchs one string for a key word to see if there is a match
+ txt is the string of information you want to search
+ strSearch is the word/value that you are looking for
+ </summary>
+ <param name="Txt"></param>
+ <param name="strSearch"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.GetLoggedonUser">
+ <summary>
+ This uses WMI to get the user that is logged on the local machine based on the who is signed on at the time
+ This scrolls through all the running processes on the PC to determine who is running the "explorer.exe" process. It then returns the username ready for comparison.
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.GetCommand(System.String,System.String,System.Boolean@,System.String@)">
+ <summary>
+ The Get Command will looks for Command Line Arguments, this on will return as string
+ the switch will be something like /mystring="this is fun"
+ if it is just /mystring then it will return what is set in the sDefault string.
+ </summary>
+ <param name="strLookFor"></param>
+ <param name="sDefault"></param>
+ <param name="DidExist"></param>
+ <param name="Switch"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.GetCommand(System.String,System.Int64,System.Boolean@,System.String@)">
+ <summary>
+ The Get Command will looks for Command Line Arguments, this on will return as long
+ the switch will be something like /mylongvalue=92
+ if it is just /mylongvalue it will return the lDefault value
+ </summary>
+ <param name="strLookFor"></param>
+ <param name="lDefault"></param>
+ <param name="DidExist"></param>
+ <param name="Switch"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.GetCommand(System.String,System.Boolean,System.Boolean@,System.String@)">
+ <summary>
+ The Get Command will looks for Command Line Arguments, this on will return as boolean.
+ if the command is /swtich it will return as true since it did exist
+ you can also use /switch=false
+ </summary>
+ <param name="strLookFor"></param>
+ <param name="bDefault"></param>
+ <param name="DidExist"></param>
+ <param name="Switch"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.FC(System.String,System.String)">
+ <summary>
+ Usually Stands for Fluff Content, this is usually good for formating SQL Strings
+ taking away the single qoute and putting a single qoute twice to prevent errors
+ on SQL commands.
+ </summary>
+ <param name="sValue"></param>
+ <param name="DefaultValue"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.ConvertBoolToInt(System.Boolean)">
+ <summary>
+ Convert a boolean value to an integer
+ </summary>
+ <param name="bValue"></param>
+ <returns>1/0</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.ConvertYNtoBool(System.String)">
+ <summary>
+ Converts a y/Y or n/N value to boolean
+ </summary>
+ <param name="sValue"></param>
+ <returns>True/False</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSOtherObjects.ConvertIntToBool(System.Int32)">
+ <summary>
+ Converts a Integer to to boolean value, if it is not 0 it is true
+ </summary>
+ <param name="iValue"></param>
+ <returns>True/False</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetManagementObject(System.String,System.String)">
+ <summary>
+ Simple WMI Call just pass the Object then the desciption of the object to look for
+ </summary>
+ <param name="sObject"></param>
+ <param name="sValue"></param>
+ <returns>value</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProccessHandleCount(System.String)">
+ <summary>
+ Get the handlecount for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <returns>Count</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessThreadCount(System.String)">
+ <summary>
+ Get the ThreadCount for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <returns>Count</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessTerminationDate(System.String)">
+ <summary>
+ Get the TerminationDate for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <returns>Termination Date</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessCaption(System.String)">
+ <summary>
+ Get the Caption for a particular Process by PID
+ Short description of an object—a one-line string.
+ </summary>
+ <param name="PID"></param>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessCommandLine(System.String)">
+ <summary>
+ Get the CommandLine for a particular Process by PID
+ Command line used to start a specific process, if applicable.
+ </summary>
+ <param name="PID"></param>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessCreationDate(System.String)">
+ <summary>
+ Get the CreationDate for a particular Process by PID
+ Date the process begins executing.
+ </summary>
+ <param name="PID"></param>
+ <returns>datetime as string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessDescription(System.String)">
+ <summary>
+ Get the Description for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <returns>Description of an object.</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessExecutablePath(System.String)">
+ <summary>
+ Get the ExecutablePath for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <return>Path to the executable file of the process.</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessExecutionState(System.String)">
+ <summary>
+ Get the ExecutionState for a particular Process by PID
+ Unknown (0)
+ Other (1)
+ Ready (2)
+ Running (3)
+ Blocked (4)
+ Suspended Blocked (5)
+ Suspended Ready (6)
+ Terminated (7)
+ Stopped (8)
+ Growing (9)
+ </summary>
+ <param name="PID"></param>
+ <return>Current operating condition of the process</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPageFaults(System.String)">
+ <summary>
+ Get the PageFaults for a particular Process by PID
+ </summary>
+ <param name="PID"></param>
+ <return>Number of page faults that a process generates.</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPageFileUsage(System.String)">
+ <summary>
+ Get the PageFileUsage for a particular Process by PID
+ Amount of page file space that a process is using currently. 
+ This value is consistent with the VMSize value in TaskMgr.exe.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("kilobytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessParentProcessId(System.String)">
+ <summary>
+ Get the ParentProcessId for a particular Process by PID
+ Unique identifier of the process that creates a process. Process 
+ identifier numbers are reused, so they only identify a process for 
+ the lifetime of that process. It is possible that the process identified 
+ by ParentProcessId is terminated, so ParentProcessId may not refer to 
+ a running process. It is also possible that ParentProcessId incorrectly 
+ refers to a process that reuses a process identifier. You can use the 
+ CreationDate property to determine whether the specified parent was 
+ created after the process represented by this Win32_Process instance was created
+ </summary>
+ <param name="PID"></param>
+ <return>Parent Process Id</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPeakPageFileUsage(System.String)">
+ <summary>
+ Get the PeakPageFileUsage for a particular Process by PID
+ Maximum amount of page file space used during the life of a process.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("kilobytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPeakVirtualSize(System.String)">
+ <summary>
+ Get the PeakVirtualSize for a particular Process by PID
+ Maximum virtual address space a process uses at any one time. 
+ Using virtual address space does not necessarily imply corresponding
+ use of either disk or main memory pages. However, virtual space is 
+ finite, and by using too much the process might not be able to load 
+ libraries.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("bytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPeakWorkingSetSize(System.String)">
+ <summary>
+ Get the PeakWorkingSetSize for a particular Process by PID
+ Peak working set size of a process.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("kilobytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessPrivatePageCount(System.String)">
+ <summary>
+ Get the PrivatePageCount for a particular Process by PID
+ Current number of pages allocated that are only accessible to the process 
+ represented by this Win32_Process instance.
+ </summary>
+ <param name="PID"></param>
+ <return>count</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessSessionId(System.String)">
+ <summary>
+ Get the SessionId for a particular Process by PID
+ Unique identifier that an operating system generates when a 
+ session is created. A session spans a period of time from logon 
+ until logoff from a specific system.
+ </summary>
+ <param name="PID"></param>
+ <return>sessionID</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessUserModeTime(System.String)">
+ <summary>
+ Get the UserModeTime for a particular Process by PID
+ Time in user mode, in 100 nanosecond units. If this information 
+ is not available, use a value of 0 (zero).
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("100 nanoseconds")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessVirtualSize(System.String)">
+ <summary>
+ Get the VirtualSize for a particular Process by PID
+ Current size of the virtual address space that a process is using, not
+ the physical or virtual memory actually used by the process. Using virtual 
+ address space does not necessarily imply corresponding use of either disk 
+ or main memory pages. Virtual space is finite, and by using too much, the 
+ process might not be able to load libraries. This value is consistent with 
+ what you see in Perfmon.exe.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("bytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessWorkingSetSize(System.String)">
+ <summary>
+ Get the WorkingSetSize for a particular Process by PID
+ Amount of memory in bytes that a process needs to execute efficiently—for 
+ an operating system that uses page-based memory management. If the system 
+ does not have enough memory (less than the working set size), thrashing occurs. 
+ If the size of the working set is not known, use NULL or 0 (zero). If working 
+ set data is provided, you can monitor the information to understand the changing 
+ memory requirements of a process.
+ </summary>
+ <param name="PID"></param>
+ <return>Units ("bytes")</return>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.ProcessExists(System.String,System.String@,System.Int32@)">
+ <summary>
+ Check to see if a process exists by name, Optionally get the PID and Process Count for the result(s)
+ </summary>\
+ <param name="sProcessName"></param>
+ <param name="PID"></param>
+ <param name="ProcessCount"></param>
+ <returns>true/false</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.ProcessExists(System.String,System.String,System.String@,System.Int32@)">
+ <summary>
+ Check to see if a process exists by name and what might be in the commandline parameters, Optionally get the PID and Process Count for the result(s)
+ </summary>
+ <param name="sProcessName"></param>
+ <param name="CommandLineContains"></param>
+ <param name="PID"></param>
+ <param name="ProcessCount"></param>
+ <returns>true/false</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.ExactProcessExists(System.String,System.Int32@)">
+ <summary>
+ Check to see if a process is running or not.
+ </summary>
+ <param name="sProcessName"></param>
+ <returns>true/false</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSProcessInfo.GetProcessMemoryUseage(System.String)">
+ <summary>
+ Use the Performance counter Process/Working Set - Private to get the 
+ memory that is used for a process
+ </summary>
+ <param name="ProcessName"></param>
+ <returns>memory in bytes</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSRegistry.DefaultRegPath">
+ <summary>
+ Set the Default registry path
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.Enum_Registry_Entries(System.String)">
+ <summary>
+ List all the entries in the registry
+ </summary>
+ <param name="sKey"></param>
+ <returns>collection</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.Enum_Registry_Entries_WithValue(System.String,System.String)">
+ <summary>
+ List all the registry entries with their values
+ </summary>
+ <param name="sKey"></param>
+ <param name="sValue"></param>
+ <returns>collection</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.CreateSubKey(System.String)">
+ <summary>
+ Create Sub Key in CurrentUser
+ </summary>
+ <param name="strValue"></param>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.RegSubKeyExists(System.String)">
+ <summary>
+ Check to see if a sub registry key exists in current user
+ </summary>
+ <param name="strValue"></param>
+ <returns>true/false</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.GetRegSubKeyValue(System.String,System.String,System.String)">
+ <summary>
+ Get the Regstry Sub Key Value in the Current User
+ </summary>
+ <param name="strKey"></param>
+ <param name="strValue"></param>
+ <param name="strDefault"></param>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.SettingsExists">
+ <summary>
+ Check to see if the Setting Registry Key is created in the the current user + defaultpath
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSRegistry.GetViewSettings(System.String,System.String)">
+ <summary>
+ view a value in the settings sub set
+ </summary>
+ <param name="sKey"></param>
+ <param name="sDefault"></param>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetPhysicalMemory">
+ <summary>
+ Returns the Physical memory of the machine broken down to kb, mb, gb, or tb
+ </summary>
+ <returns>total</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetCPUSpeed(System.Int32)">
+ <summary>
+ Gets the Current Clock Speed in MegaHertz, By Default it is looking as CPU 0 by Can be changed if
+ if needed by adding a value to the CPUID
+ </summary>
+ <param name="CPUID"></param>
+ <returns>Speed in Megahertz</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetCPUDescription(System.Int32)">
+ <summary>
+ Gets the CPU Description, 
+ EXAMPLE: Intel64 Family 6 Model 58 Stepping 9
+ </summary>
+ <param name="CPUID"></param>
+ <returns>descriptoion</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetCPUName(System.Int32)">
+ <summary>
+ Gets the Full CPU Name with Processor speed, 
+ Example: Intel(R) Core(TM) i5-3317U CPU @ 1.70GHz
+ </summary>
+ <param name="CPUID"></param>
+ <returns>name</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetUserName">
+ <summary>
+ Uses My.User.Name to get the current user that is running the application
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetDomainName">
+ <summary>
+  Uses SystemInformation.UserDomainName to get the Domain from the user that is running the applications
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.IsOnNetWork">
+ <summary>
+ Uses SystemInformation.Network to see if it is network connected
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetComputerName">
+ <summary>
+ Uses SystemInformation.ComputerName to Get the Computer that the application is running on
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetUsername2">
+ <summary>
+ Uses SystemInformation.UserName to get the users that is running the applications
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.GetManagementObject(System.String,System.String)">
+ <summary>
+ Simple WMI Call just pass the Object then the desciption of the object to look for
+ </summary>
+ <param name="sObject"></param>
+ <param name="sValue"></param>
+ <returns>value</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.ProcessExists(System.String,System.Int32@)">
+ <summary>
+ Check to see if a process is running or not.
+ </summary>
+ <param name="sProcessName"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.TranslateMemory(System.Int64)">
+ <summary>
+ Breaks down a byte value to determin if it is in KB, MB, GB, or TB
+ </summary>
+ <param name="lValue"></param>
+ <returns>KB, MB, GB, or TB</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSSystemInfo.TranslateCPUSpeed(System.Int64)">
+ <summary>
+ breaks down a value to determine if it is Khz, Mhz, Ghz, Thz
+ </summary>
+ <param name="lValue"></param>
+ <returns>Khz, Mhz, Ghz, Thz</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSWebResponse.UseAuthentication">
+ <summary>
+ True or False to set if you need to use authentiation to the website for NTLM or other
+ </summary>
+ <returns>True/False</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSWebResponse.UseNTLM">
+ <summary>
+ True or False to set if you need to authenticate using NTLM
+ </summary>
+ <returns>True/False</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSWebResponse.Domain">
+ <summary>
+ The Domain for the NTLM authentication to use
+ </summary>
+ <returns>string</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSWebResponse.UserName">
+ <summary>
+ The User Name to use
+ </summary>
+ <returns>string</returns>
+</member>
+<member name="P:BurnSoft.Universal.BSWebResponse.Password">
+ <summary>
+ The Password to use for authentication
+ </summary>
+ <returns>string</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSWebResponse.SiteIsUp(System.String,System.String@,System.String@,System.Double@)">
+ <summary>
+  Checks to see if the site is up, if there is an error connecting to it, or 500,401, etc then it will
+  return false and give the error message that was given, other wise it will return the contents of that
+  webpage and return it in the sHttpContext string, along with the lenght of time it took to get that page
+  in the iSecondsResponse 
+ </summary>
+ <remarks>
+  uses the following properties:
+  UseAuthentication, UseNTLM, UserName, Password And or Domain
+ </remarks>
+</member>
+<member name="M:BurnSoft.Universal.BSWebResponse.StringCompair(System.String,System.String)">
+ <summary>
+ A quick compairison of string value1 to string value2 if both are the same, then it will return truw
+ </summary>
+ <param name="sValue1"></param>
+ <param name="sValue2"></param>
+ <returns>true</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSWebResponse.ContentsExistsRegEx(System.String,System.String)">
+ <summary>
+ Using regular expression to search the Content String for a word or phrase
+ </summary>
+ <param name="sContent"></param>
+ <param name="sSearchFor"></param>
+ <returns></returns>
+</member>
+<member name="M:BurnSoft.Universal.BSWebResponse.ArraysEqual(System.Byte[],System.Byte[])">
+ <summary>
+ Checks the first array against the second array to see if they are equal to each other
+ </summary>
+ <param name="first"></param>
+ <param name="second"></param>
+ <returns>True/False</returns>
+</member>
+<member name="M:BurnSoft.Universal.BSWebResponse.#ctor">
+ <summary>
+ Initialize new instance and reset to private vars
+ </summary>
+</member>
+</members>
+</doc>

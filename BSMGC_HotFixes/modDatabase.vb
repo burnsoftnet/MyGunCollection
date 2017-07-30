@@ -395,9 +395,10 @@ Module modDatabase
             RS = CMD.ExecuteReader
             Dim sName As String = ""
             While RS.Read
-                sName = RS("name")
+                sName = FluffContent(RS("name"))
                 If Not ValueDoesExist("GunSmith_Contact_Details", "gName", sName) Then
-                    Call RunSQL("INSERT INTO GunSmith_Contact_Details(gName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
+                    'Call RunSQL("INSERT INTO GunSmith_Contact_Details(gName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
+                    Call ConnExec("INSERT INTO GunSmith_Contact_Details(gName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
                 End If
             End While
             CMD = Nothing
@@ -422,10 +423,11 @@ Module modDatabase
             Dim sName As String = ""
 
             While RS.Read
-                sName = RS("name")
+                sName = FluffContent(RS("name"))
                 If Not ValueDoesExist("Appriaser_Contact_Details", "aName", sName) Then
-                    Call RunSQL("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
+                    'Call RunSQL("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
                     ' Conn.execute("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
+                    Call ConnExec("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
                 End If
             End While
             RS.Close()

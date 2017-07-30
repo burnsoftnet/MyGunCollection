@@ -226,3 +226,4 @@ C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\B
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Debug\BSMyGunCollection.frmLinkFromExistingDoc.resources
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Debug\BSMyGunCollection.frmCR_EditSQL.resources
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Debug\BSMyGunCollection.frmFirearmImagePicker.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\MGC.mdb

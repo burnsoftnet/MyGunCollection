@@ -81,6 +81,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4DE36D3D7F1F4E28B254456B644E500E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5793DE60B87162D2363C3553C54BC2B6"
         "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
@@ -101,12 +107,6 @@
         {
         "MsmKey" = "8:_728C002C88B28773951F130ACDC9A921"
         "OwnerKey" = "8:_AED9BD026F824379880246D6B43683DF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8368E08F45A947E08A7FCB18E6EE17CE"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -177,6 +177,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
+        "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E6340D53A2A846F2A1328F9BB40D216C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_ECE7187D8B9243CBA69F01675F122E66"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -220,31 +232,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AED9BD026F824379880246D6B43683DF"
+        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_728C002C88B28773951F130ACDC9A921"
+        "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4B7895518B4049648E851EA318D08C08"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_27C5D004F731446185E753CB9CF15102"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_07109DA4010E41AB8749DC4746F88A09"
+        "OwnerKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -256,37 +256,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4A3EA5B21C74C88A880D939A490236D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "OwnerKey" = "8:_E6340D53A2A846F2A1328F9BB40D216C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -304,13 +286,55 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
+        "OwnerKey" = "8:_B4A3EA5B21C74C88A880D939A490236D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AED9BD026F824379880246D6B43683DF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_728C002C88B28773951F130ACDC9A921"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_4B7895518B4049648E851EA318D08C08"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_27C5D004F731446185E753CB9CF15102"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_07109DA4010E41AB8749DC4746F88A09"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -689,7 +713,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.3.1.456, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_4B7895518B4049648E851EA318D08C08"
@@ -702,6 +726,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4DE36D3D7F1F4E28B254456B644E500E"
+            {
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MGC.mdb"
+            "TargetName" = "8:MGC.mdb"
+            "Tag" = "8:"
+            "Folder" = "8:_54076A5C29C84CA69992CD54E5CB0E5C"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -802,7 +846,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=2.3.1.456, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_728C002C88B28773951F130ACDC9A921"
@@ -827,26 +871,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8368E08F45A947E08A7FCB18E6EE17CE"
-            {
-            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MGC.mdb"
-            "TargetName" = "8:MGC.mdb"
-            "Tag" = "8:"
-            "Folder" = "8:_54076A5C29C84CA69992CD54E5CB0E5C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_89107A6AC188459B9532332C4E362F9C"
@@ -953,7 +977,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=2.3.1.456, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=3.1.0.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_AED9BD026F824379880246D6B43683DF"
@@ -1046,7 +1070,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.30260, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.15622, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_BB8978C612174B058E01C2BCB831D740"
@@ -1108,6 +1132,68 @@
             {
             "SourcePath" = "8:images\\u-Winxpicons_(Winxpicons)_ComputerDevice_3.ico"
             "TargetName" = "8:u-Winxpicons_(Winxpicons)_ComputerDevice_3.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E605C4FE12CE7C06655C77DF5CE4415F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Universal, Version=4.0.26.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E605C4FE12CE7C06655C77DF5CE4415F"
+                    {
+                    "Name" = "8:BurnSoft.Universal.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BurnSoft.Universal.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E6340D53A2A846F2A1328F9BB40D216C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Universal, Version=4.0.26.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_E6340D53A2A846F2A1328F9BB40D216C"
+                    {
+                    "Name" = "8:BurnSoft.Universal.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\BurnSoft.Universal.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -1219,7 +1305,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.30260, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.15622, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_FA6DEE83374E40DAA7EF8943708450B4"
@@ -1400,12 +1486,12 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{731DEAD7-2CB7-4044-BDFE-9937B5591C12}"
-        "PackageCode" = "8:{22DCFDD4-28F6-47C1-A8C4-B3F1BE8DBC51}"
+        "PackageCode" = "8:{5A74E308-183D-4C0D-8D29-A6B87687933D}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
-        "DetectNewerInstalledVersion" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
+        "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:6.0"
         "Manufacturer" = "8:BurnSoft"
@@ -1518,6 +1604,20 @@
             "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
             "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Icon" = "8:_89B0027030A04F74956B0A6A404E2C72"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FB31E7189F89461498B9EEAB490DFF24"
+            {
+            "Name" = "8:Upgrade Database to version 6"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
+            "Folder" = "8:_0711968B710242079FD15AF27B68E18D"
+            "WorkingFolder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Icon" = "8:_1ACA440B138441A081842C4F3CFA43DD"
             "Feature" = "8:"
             }
         }
@@ -1813,7 +1913,7 @@
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_EA18461C13DC47C0A816B92B179038C8"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:400"
                     "DisplayName" = "8:Confirm Installation"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -1864,7 +1964,7 @@
                             "ContextData" = "8:1;True=1;False=0"
                             "Attributes" = "3:0"
                             "Setting" = "3:0"
-                            "Value" = "3:1"
+                            "Value" = "3:0"
                             "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }

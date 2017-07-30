@@ -125,9 +125,36 @@ Public Class frmFirearmImagePicker
         ObjVS.SaveViewPicture(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
         ObjVS = Nothing
     End Sub
+
+    Private Sub frmFirearmImagePicker_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Right
+                Call UpdateIndexes(RightButtonIndex)
+            Case Keys.Left
+                Call UpdateIndexes(LeftbuttonIndex)
+            Case Keys.Up
+                Call UpdateIndexes(RightButtonIndex)
+            Case Keys.Down
+                Call UpdateIndexes(LeftbuttonIndex)
+        End Select
+    End Sub
+
+    Private Sub frmFirearmImagePicker_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+        Select Case e.Handled
+            Case Keys.Right
+                Call UpdateIndexes(RightButtonIndex)
+            Case Keys.Left
+                Call UpdateIndexes(LeftbuttonIndex)
+            Case Keys.Up
+                Call UpdateIndexes(RightButtonIndex)
+            Case Keys.Down
+                Call UpdateIndexes(LeftbuttonIndex)
+        End Select
+    End Sub
     'When form Loads
     Private Sub frmFirearmImagePicker_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
+            Me.KeyPreview = True
             MaxItems = 0
             Dim objVS As New ViewSizeSettings
             objVS.LoadViewViewPicture(Me.Height, Me.Width, Me.Location)

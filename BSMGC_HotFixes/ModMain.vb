@@ -125,9 +125,28 @@ Module ModMain
         Console.WriteLine("Support and Updates at http://www.burnsoft.net")
         Console.WriteLine("")
     End Sub
+    'Makesure the process is not running, if so, kill it.
+    Private Sub CloseProcessesByName(processName As String)
+        For Each p As Process In Process.GetProcessesByName(processName)
+            ' Ask nicely for the process to close.
+            p.CloseMainWindow()
+
+            ' Wait up to 10 seconds for the process to close.
+            p.WaitForExit(10000)
+
+            If Not p.HasExited Then
+                ' The process did not close itself so force it to close.
+                p.Kill()
+            End If
+
+            ' Dispose the Process object, which is different to closing the running process.
+            p.Close()
+        Next
+    End Sub
     'Main Start sub
     Sub Main()
         Try
+            Call CloseProcessesByName("BSMyGunCollection")
             Call Banner()
             Call INIT()
             'After version 5 of my gun collection the registry key was moved from local to user.
