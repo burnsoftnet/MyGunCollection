@@ -216,6 +216,28 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
+    'Pass a SQL Statement to see if rows return or not
+    Function RowsExists(SQL As String) As Boolean
+        Dim bAns As BookmarkEnum = False
+        Dim conn As OdbcConnection
+        conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
+        Try
+            conn.Open()
+            Dim CMD As New OdbcCommand(SQL, conn)
+            Dim RS As OdbcDataReader
+            RS = CMD.ExecuteReader
+            bAns = RS.HasRows
+            RS.Close()
+            RS = Nothing
+            CMD = Nothing
+            conn.Close()
+        Catch ex As Exception
+            Call DebugLog("RowsExists", Err.Number & " - " & Err.Description, "ERROR")
+            Call LogError("modDatabase", "RowsExists", Err.Number, ex.Message.ToString)
+        End Try
+        If Conn.State <> 0 Then Conn.Close()
+        Return bAns
+    End Function
     'Swap old values to new in the gun collection, back when we had one value in one section and added another
     Sub SwapGunColPurchaseValues(ByRef strTable As String, ByRef strSourceCol As String, ByRef strDestCol As String)
         Dim Conn As ADODB.Connection
@@ -406,12 +428,44 @@ Module modDatabase
                     ' Conn.execute("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
                 End If
             End While
+            RS.Close()
+            RS = Nothing
             CMD = Nothing
             Conn.Close()
         Catch ex As Exception
             Call DebugLog("MoveAppraisers", Err.Number & " - " & Err.Description, "ERROR")
             If Conn.State <> 0 Then Conn.Close()
         End Try
+        Conn = Nothing
+    End Sub
+    'Run through the accessories and put them in the linker table
+    Public Sub LinkAccessories()
+        Dim Conn As OdbcConnection
+        Conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
+        Try
+            Conn.Open()
+            Dim SQL As String = "select * from Gun_Collection_Accessories order by gid asc"
+            Dim CMD As New OdbcCommand(SQL, Conn)
+            Dim RS As OdbcDataReader
+            RS = CMD.ExecuteReader
+            Dim GID As Long
+            Dim RID As Long
+
+            While RS.Read
+                GID = RS("gid")
+                RID = RS("id")
+                If Not RowsExists("SELECT * from Gun_Collection_Accessories_Link where gid=" & GID & " and rid=" & RID) Then
+                    Call ConnExec("INSERT INTO Gun_Collection_Accessories_Link (GID,AID) VALUES (" & GID & "," & RID & ")")
+                End If
+            End While
+            RS.Close()
+            RS = Nothing
+            CMD = Nothing
+            Conn.Close()
+        Catch ex As Exception
+            Call DebugLog("MoveAppraisers", Err.Number & " - " & Err.Description, "ERROR")
+        End Try
+        If Conn.State <> 0 Then Conn.Close()
         Conn = Nothing
     End Sub
     'Save the selected picture by ID to hdd

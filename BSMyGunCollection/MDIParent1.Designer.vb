@@ -165,6 +165,17 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.RunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RedoAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix3ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix4ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix5ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix6ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix7ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix8ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix9ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -651,23 +662,23 @@ Partial Class MDIParent1
         '
         Me.CleanUpToolStripMenuItem.Image = CType(resources.GetObject("CleanUpToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CleanUpToolStripMenuItem.Name = "CleanUpToolStripMenuItem"
-        Me.CleanUpToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.CleanUpToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.CleanUpToolStripMenuItem.Text = "C&lean-Up"
         '
         'DataPreLoaderToolStripMenuItem
         '
         Me.DataPreLoaderToolStripMenuItem.Image = CType(resources.GetObject("DataPreLoaderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DataPreLoaderToolStripMenuItem.Name = "DataPreLoaderToolStripMenuItem"
-        Me.DataPreLoaderToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.DataPreLoaderToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.DataPreLoaderToolStripMenuItem.Text = "Data Pre-Loader"
         '
         'ReRunHotfixUpdatesToolStripMenuItem
         '
-        Me.ReRunHotfixUpdatesToolStripMenuItem.Enabled = False
+        Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.RedoAllToolStripMenuItem})
         Me.ReRunHotfixUpdatesToolStripMenuItem.Image = CType(resources.GetObject("ReRunHotfixUpdatesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReRunHotfixUpdatesToolStripMenuItem.Name = "ReRunHotfixUpdatesToolStripMenuItem"
-        Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.ReRunHotfixUpdatesToolStripMenuItem.Text = "Re-Run Hotfix Updates"
+        Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.ReRunHotfixUpdatesToolStripMenuItem.Text = "Hotfix Updates"
         '
         'SearchCollectionToolStripMenuItem
         '
@@ -1206,6 +1217,73 @@ Partial Class MDIParent1
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
+        'RunToolStripMenuItem
+        '
+        Me.RunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Hotfix1ToolStripMenuItem, Me.Hotfix2ToolStripMenuItem, Me.Hotfix3ToolStripMenuItem, Me.Hotfix4ToolStripMenuItem, Me.Hotfix5ToolStripMenuItem, Me.Hotfix6ToolStripMenuItem, Me.Hotfix7ToolStripMenuItem, Me.Hotfix8ToolStripMenuItem, Me.Hotfix9ToolStripMenuItem})
+        Me.RunToolStripMenuItem.Name = "RunToolStripMenuItem"
+        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RunToolStripMenuItem.Text = "Run "
+        '
+        'RedoAllToolStripMenuItem
+        '
+        Me.RedoAllToolStripMenuItem.Name = "RedoAllToolStripMenuItem"
+        Me.RedoAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RedoAllToolStripMenuItem.Text = "Redo All"
+        '
+        'Hotfix1ToolStripMenuItem
+        '
+        Me.Hotfix1ToolStripMenuItem.Name = "Hotfix1ToolStripMenuItem"
+        Me.Hotfix1ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix1ToolStripMenuItem.Text = "Hotfix 1"
+        '
+        'Hotfix2ToolStripMenuItem
+        '
+        Me.Hotfix2ToolStripMenuItem.Name = "Hotfix2ToolStripMenuItem"
+        Me.Hotfix2ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix2ToolStripMenuItem.Text = "Hotfix 2"
+        '
+        'Hotfix3ToolStripMenuItem
+        '
+        Me.Hotfix3ToolStripMenuItem.Name = "Hotfix3ToolStripMenuItem"
+        Me.Hotfix3ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix3ToolStripMenuItem.Text = "Hotfix 3"
+        '
+        'Hotfix4ToolStripMenuItem
+        '
+        Me.Hotfix4ToolStripMenuItem.Name = "Hotfix4ToolStripMenuItem"
+        Me.Hotfix4ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix4ToolStripMenuItem.Text = "Hotfix 4"
+        '
+        'Hotfix5ToolStripMenuItem
+        '
+        Me.Hotfix5ToolStripMenuItem.Name = "Hotfix5ToolStripMenuItem"
+        Me.Hotfix5ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix5ToolStripMenuItem.Text = "Hotfix 5"
+        '
+        'Hotfix6ToolStripMenuItem
+        '
+        Me.Hotfix6ToolStripMenuItem.Name = "Hotfix6ToolStripMenuItem"
+        Me.Hotfix6ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix6ToolStripMenuItem.Text = "Hotfix 6"
+        '
+        'Hotfix7ToolStripMenuItem
+        '
+        Me.Hotfix7ToolStripMenuItem.Name = "Hotfix7ToolStripMenuItem"
+        Me.Hotfix7ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix7ToolStripMenuItem.Text = "Hotfix 7"
+        '
+        'Hotfix8ToolStripMenuItem
+        '
+        Me.Hotfix8ToolStripMenuItem.Name = "Hotfix8ToolStripMenuItem"
+        Me.Hotfix8ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix8ToolStripMenuItem.Text = "Hotfix 8"
+        '
+        'Hotfix9ToolStripMenuItem
+        '
+        Me.Hotfix9ToolStripMenuItem.Name = "Hotfix9ToolStripMenuItem"
+        Me.Hotfix9ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.Hotfix9ToolStripMenuItem.Text = "Hotfix 9"
+        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1382,5 +1460,16 @@ Partial Class MDIParent1
     Friend WithEvents ToolStripButton14 As System.Windows.Forms.ToolStripButton
     Friend WithEvents PickerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButton15 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents RunToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix1ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix2ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix3ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix4ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix5ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix6ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix7ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix8ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Hotfix9ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RedoAllToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

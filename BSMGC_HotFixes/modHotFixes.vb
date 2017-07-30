@@ -90,6 +90,7 @@ Module modHotFixes
         If Not HotFixExists("7") Then Call HotFix_7()
         If Not HotFixExists("8") Then Call HotFix_8()
         If Not HotFixExists("9") Then Call HotFix_9()
+        'If Not HotFixExists("10") Then Call HotFix_10()
     End Sub
     'Delete all hotfix registry keys to upgrade the database from the start.
     Sub RedoAll()
@@ -102,6 +103,7 @@ Module modHotFixes
         Call DelRegValue("HotFix", "7", "")
         Call DelRegValue("HotFix", "8", "")
         Call DelRegValue("HotFix", "9", "")
+        'Call DelRegValue("HotFix", "10", "")
         Call DelRegValue("HotFix", "LastUpdate", "")
     End Sub
     'Hotfix 1 created for MGC version 2.x
@@ -730,6 +732,33 @@ Module modHotFixes
         Call AddSyncToTable("Gun_Collection_Classification", True)
         SQL = "ALTER TABLE Gun_Collection_Classification ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
         Call RunSQL(SQL)
+
+        'End Updates
+        If DBVerHasChanged Then Call SaveDatabaseVersion(DBVersion)
+        If DBVerHasChanged Then Console.WriteLine(vbTab & "You are now updated to Database Version " & DBVersion)
+        Call UpdateLastUpdate(strUpdateName)
+        Call AppliedUpdates(strUpdateName)
+        Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
+        HotFixApplied = True
+    End Sub
+    'Hofix 10 for version 6.x or 7.0
+    Sub HotFix_10()
+        Dim strUpdateName As String
+        strUpdateName = "10"
+        Dim DBVersion As String = "6.1"
+        Dim DBVerHasChanged As Boolean = True
+        Call DebugLog("HotFix_" & strUpdateName, "Starting HotFix " & strUpdateName)
+        'INSERT UPDATES HERE!!
+        Dim SQL As String = ""
+        Console.WriteLine(vbTab & "Updating Accessories")
+
+        SQL = "CREATE TABLE Gun_Collection_Accessories_Link (ID AUTOINCREMENT PRIMARY KEY, GID Number,AID Number);"
+        Call RunSQL(SQL)
+
+        Call AddSyncToTable("Gun_Collection_Accessories_Link", True)
+        SQL = "ALTER TABLE Gun_Collection_Accessories ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+        Call LinkAccessories()
 
         'End Updates
         If DBVerHasChanged Then Call SaveDatabaseVersion(DBVersion)

@@ -680,8 +680,18 @@ Public Class MDIParent1
         Global.System.Windows.Forms.Application.Exit()
         End
     End Sub
+    Sub ReRunThisHostFixbyID(myID As Integer)
+        DoAutoBackup = False
+        Dim myProcess As New Process
+        myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
+        myProcess.StartInfo.Arguments = "/hotfix=" & myID
+        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
+        myProcess.Start()
+        Global.System.Windows.Forms.Application.Exit()
+        End
+    End Sub
     Private Sub ReRunHotfixUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReRunHotfixUpdatesToolStripMenuItem.Click
-        Call ReRunHotFixUpdates()
+        'Call ReRunHotFixUpdates()
     End Sub
 
     Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomReportToolStripMenuItem.Click
@@ -898,5 +908,45 @@ Public Class MDIParent1
         frmNew.MdiParent = Me
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
+    End Sub
+
+    Private Sub RedoAllToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RedoAllToolStripMenuItem.Click
+        Call ReRunHotFixUpdates()
+    End Sub
+
+    Private Sub Hotfix1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix1ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(1)
+    End Sub
+
+    Private Sub Hotfix2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix2ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(2)
+    End Sub
+
+    Private Sub Hotfix3ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix3ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(3)
+    End Sub
+
+    Private Sub Hotfix4ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix4ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(4)
+    End Sub
+
+    Private Sub Hotfix5ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix5ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(5)
+    End Sub
+
+    Private Sub Hotfix6ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix6ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(6)
+    End Sub
+
+    Private Sub Hotfix7ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix7ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(7)
+    End Sub
+
+    Private Sub Hotfix8ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix8ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(8)
+    End Sub
+
+    Private Sub Hotfix9ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix9ToolStripMenuItem.Click
+        Call ReRunThisHostFixbyID(9)
     End Sub
 End Class
