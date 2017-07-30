@@ -15,9 +15,11 @@ Public Class BSRegistry
             _RegPath = value
         End Set
     End Property
+    'create Registry sub key
     Public Sub CreateSubKey(ByVal strValue As String)
         Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
     End Sub
+    'check to see if key exists for the current user - post version 5.5
     Public Function RegSubKeyExists(ByVal strValue As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -33,6 +35,7 @@ Public Class BSRegistry
         End Try
         Return bAns
     End Function
+    'check to see if reg key existing in the localmachine - pre version 5.5
     Public Function RegSubKeyExistsLocalMachine(ByVal strValue As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -48,6 +51,7 @@ Public Class BSRegistry
         End Try
         Return bAns
     End Function
+    'delete the reg value 
     Public Sub DeleteRegValue(ByVal sReg As String, ByVal sKey As String)
         Try
             Dim MyReg As RegistryKey
@@ -60,12 +64,14 @@ Public Class BSRegistry
                 ex.Message.ToString)
         End Try
     End Sub
+    'save the reg value
     Public Sub SaveRegValue(ByVal sReg As String, ByVal sKey As String, ByVal sValue As String)
         Dim MyReg As RegistryKey
         MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(sReg, True)
         MyReg.SetValue(sKey, sValue)
         MyReg.Close()
     End Sub
+    'get the sub key value for current user - post ver 5.5
     Public Function GetRegSubKeyValue(ByVal strKey As String, ByVal strValue As String, Optional ByVal strDefault As String = "") As String
         Dim sAns As String = ""
         Dim strMsg As String = ""
@@ -90,6 +96,7 @@ Public Class BSRegistry
         End Try
         Return sAns
     End Function
+    'get the sub key value for local machine - pre version 5.5 
     Private Function GetRegSubKeyValueLocalMachine(ByVal strKey As String, ByVal strValue As String, Optional ByVal strDefault As String = "") As String
         Dim sAns As String = ""
         Dim strMsg As String = ""
@@ -114,18 +121,27 @@ Public Class BSRegistry
         End Try
         Return sAns
     End Function
+    'Get the application current version from the registry
     Public Function CurrentVersion() As String
         Return GetRegSubKeyValue(DefaultRegPath, "Version")
     End Function
+    'get the application last path from the registry
     Public Function CurrentAppPath() As String
         Return GetRegSubKeyValue(DefaultRegPath, "Path")
     End Function
+    'get the application last path and exe form the registy
     Public Function MainApplication() As String
         Return GetRegSubKeyValue(DefaultRegPath, "AppEXE")
     End Function
+    'get the last database path and database name from the registry
     Public Function GetDatabasePath() As String
         Return GetRegSubKeyValue(DefaultRegPath, "DataBase")
     End Function
+    'get only the database path, this is the writeable path in the users\appdata\roaming
+    Public Function GetDataPath() As String
+        Return GetRegSubKeyValue(DefaultRegPath, "AppDataPath")
+    End Function
+    'For version 5.5 we had to move the registry keys from localmachine to currentuser for windows 7,8,10 compliance
     Public Sub MoveSettingKeys()
         Dim sValue As String = ""
         Dim strKey As String = DefaultRegPath

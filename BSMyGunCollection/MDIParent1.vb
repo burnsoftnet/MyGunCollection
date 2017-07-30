@@ -891,4 +891,12 @@ Public Class MDIParent1
     Private Sub ToolStripButton15_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton15.Click
         Call ShowFirearmGalleryPicker()
     End Sub
+
+    Private Sub BoundBook1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBook1ToolStripMenuItem.Click
+        Me.Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmViewReport_BoundBook
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Me.Cursor = Cursors.Arrow
+    End Sub
 End Class

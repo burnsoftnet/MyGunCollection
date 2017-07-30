@@ -214,6 +214,7 @@ Namespace MGC
             MyReg.SetValue("Path", APPLICATION_PATH)
             MyReg.SetValue("LogPath", MyLogFile)
             MyReg.SetValue("DataBase", APPLICATION_PATH_DATA & "\" & DATABASE_NAME)
+            MyReg.SetValue("AppDataPath", APPLICATION_PATH_DATA)
             MyReg.Close()
         End Sub
         Public Sub CreateSubKey(ByVal strValue As String)

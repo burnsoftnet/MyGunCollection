@@ -6,6 +6,7 @@ Imports System.io
 Imports System.Windows.Forms
 Imports Microsoft.Win32
 Module modDatabase
+    'Add the Database Password
     Public Sub AddPassword()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -32,6 +33,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Remove the database password
     Public Sub RemovePassword()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -54,15 +56,18 @@ Module modDatabase
                 Case Else
                     Call DebugLog("RemovePassword", Err.Number & " - " & Err.Description, "ERROR")
             End Select
-            If Conn.State <> 0 Then Conn.Close()
+            Call LogError("modDatabase", "RemovePassword", Err.Number, ex.Message.ToString)
         End Try
+        If Conn.State <> 0 Then Conn.Close()
         Conn = Nothing
     End Sub
+    'Remove Password then Add New Password
     Sub ChangePassword()
         Call RemovePassword()
         Call AddPassword()
         Call DebugLog("ChangePassword", "ChangePassword", "INFO")
     End Sub
+    'Test database with no password
     Public Function TestDBWithNoPWD() As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -83,6 +88,7 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
+    'Test database with password
     Function TestDBwithPWD() As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -104,14 +110,15 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
-    Sub RunSQL(ByRef SQL As String)
+    'Run SQL statement, by default it will run in exclusive mode, unless you pass false in the second parameter
+    Sub RunSQL(ByVal SQL As String, Optional ByVal RUNASADMIN As Boolean = True)
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                If RUNASADMIN Then .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -130,46 +137,56 @@ Module modDatabase
                     Call DebugLog("RunSQL", SQL, "ERROR")
                     Call DebugLog("RunSQL", Err.Number & " - " & Err.Description, "ERROR")
             End Select
+            Call LogError("modDatabase", "RunSQL", Err.Number, ex.Message.ToString)
+            Call LogError("modDatabase", "RunSQL", "SQL STATEMENT", SQL)
             If Conn.State <> 0 Then Conn.Close()
         End Try
         Conn = Nothing
     End Sub
+    'Add Column to Table
     Sub AddColumn(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
         Dim MySQL As String
         MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & ";"
-        Call RunSQL(MySQL)
+        Call RunSQL(MySQL, False)
     End Sub
+    'Add Column to Table with default value
     Sub AddColumnD(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
         Dim MySQL As String
         MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " [""" & strDefaultValue & """];"
         'MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " DEFAULT '" & strDefaultValue & "';"
-        Call RunSQL(MySQL)
+        Call RunSQL(MySQL, False)
     End Sub
+    'Drop database view
     Sub DropView(ByVal ViewName As String)
         Dim SQL As String
         SQL = "DROP VIEW " & ViewName
         Call RunSQL(SQL)
     End Sub
+    'Create new View for database
     Sub CreateView(ByVal ViewName As String, ByVal SQL As String)
         Dim MySQL As String
         MySQL = "CREATE VIEW " & ViewName & " AS " & SQL
         Call RunSQL(MySQL)
     End Sub
+    'Alter database view
     Sub AlterView(ByVal ViewName As String, ByVal SQL As String)
         Dim MySQL As String
         MySQL = "ALTER VIEW " & ViewName & " AS (" & SQL & ")"
         Call RunSQL(MySQL)
     End Sub
+    'Alter database column in table
     Sub AlterColumn(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
         Dim MySQL As String
         MySQL = "ALTER TABLE " & strTable & " ALTER COLUMN " & strName & " " & StrType & ";"
         Call RunSQL(MySQL)
     End Sub
+    'Drop Table
     Sub DropTable(ByRef strTable As String)
         Dim MySQL As String
         MySQL = "DROP TABLE " & strTable & ";"
         Call RunSQL(MySQL)
     End Sub
+    'Check to see if value exists in selected table
     Function ValueDoesExist(ByRef strTable As String, ByRef strCol As String, ByRef strValue As String) As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -180,7 +197,7 @@ Module modDatabase
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                '.Mode = ADODB.ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -192,12 +209,14 @@ Module modDatabase
             RS = Nothing
             Conn.Close()
         Catch ex As Exception
+            Call LogError("modDatabase", "ValueDoesExist", Err.Number, ex.Message.ToString)
             Call DebugLog("ValueDoesExist", Err.Number & " - " & Err.Description, "ERROR")
             If Conn.State <> 0 Then Conn.Close()
         End Try
         Conn = Nothing
         Return bAns
     End Function
+    'Swap old values to new in the gun collection, back when we had one value in one section and added another
     Sub SwapGunColPurchaseValues(ByRef strTable As String, ByRef strSourceCol As String, ByRef strDestCol As String)
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -233,6 +252,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Get the Main Picture from the pictures collection table
     Function GetMainPictureFirstListing(ByRef strCID As String) As Long
         Dim lAns As Long = 0
         Dim Conn As ADODB.Connection
@@ -267,6 +287,7 @@ Module modDatabase
         Conn = Nothing
         Return lAns
     End Function
+    'Check to see if the selected firearm has a default picture setup
     Function HasDefaultPictureSet(ByRef strCID As String) As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -298,6 +319,7 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
+    'Set the main pciture of the firearm collection
     Sub SetMainPictures()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -338,6 +360,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'New in version 6, get the names form the gunsmith table and put them in the contacts table
     Sub MoveGunSmiths()
         'ValueDoesExist
         Dim Conn As OdbcConnection
@@ -352,7 +375,7 @@ Module modDatabase
             While RS.Read
                 sName = RS("name")
                 If Not ValueDoesExist("GunSmith_Contact_Details", "gName", sName) Then
-                    Call RunSQL("INSERT INTO GunSmith_Contact_Details(gName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
+                    Call RunSQL("INSERT INTO GunSmith_Contact_Details(gName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
                 End If
             End While
             CMD = Nothing
@@ -363,6 +386,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'New in version 6, get the unique names of the appriaser and put the in the appriser contact table
     Sub MoveAppraisers()
         'ValueDoesExist
         Dim Conn As OdbcConnection
@@ -374,10 +398,12 @@ Module modDatabase
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
             Dim sName As String = ""
+
             While RS.Read
                 sName = RS("name")
                 If Not ValueDoesExist("Appriaser_Contact_Details", "aName", sName) Then
-                    Call RunSQL("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
+                    Call RunSQL("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())", False)
+                    ' Conn.execute("INSERT INTO Appriaser_Contact_Details(aName,Address1,City,State,Zip,sync_lastupdate) VALUES('" & sName & "','N/A','N/A','N/A','N/A',Now())")
                 End If
             End While
             CMD = Nothing
@@ -388,6 +414,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Save the selected picture by ID to hdd
     Sub SaveDBPic_Org(ByVal myID As Long, ByRef rPicName As String)
         Dim Conn As OdbcConnection
         Conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
@@ -414,6 +441,8 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Save the Thumbnail of the picture by ID and the file name and location or the orginal
+    'to save it to the database as a thumbnail.
     Sub SaveAsThumb(ByVal MyID As Long, ByVal sFileName As String)
         Dim MyConn As New ADODB.Connection
         Try
@@ -450,7 +479,9 @@ Module modDatabase
 
         MyConn = Nothing
     End Sub
-
+    'Convert all the picture to have a thumbnail, this was new in version 4.0
+    'to solve the issue of the orginal pics being create as thumbnails on load.
+    'that method cause performance issue so thumbnails where created
     Sub ConvertPicsDB()
         Dim Conn As OdbcConnection
         Conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
@@ -479,6 +510,19 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Convert only a selected picture to have a thumbnail
+    'Added this in version 6, since I have noticed that there are pictures missing thumbnails
+    Public Sub ConvertSelectedPictureByID(PicID As Long)
+        Try
+            Dim SaveName As String = ""
+            Call SaveDBPic_Org(PicID, SaveName)
+            Call SaveAsThumb(PicID, SaveName)
+            Console.Write("Picture with the ID of " & PicID & " should have a thumbnail now!")
+        Catch ex As Exception
+            Call DebugLog("ConvertSelectedPictureByID", Err.Number & " - " & Err.Description, "ERROR")
+        End Try
+    End Sub
+    'Convert the grains in the ammo inventory to a decimal value
     Sub ConvertAmmoGrainsToNum()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -517,6 +561,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Get the barrel ID from from the extended table, usually to add the default barrel tha tit listed in the main table.
     Function GetBarrelID(ByVal FirearmID As Long) As Long
         Dim lAns As Long = 0
         Dim Conn As OdbcConnection
@@ -540,8 +585,9 @@ Module modDatabase
             If Conn.State <> 0 Then Conn.Close()
         End Try
         Conn = Nothing
-        Return lans
+        Return lAns
     End Function
+    'Connect to the database and issue an SQL Statment
     Public Sub ConnExec(ByVal strSQL As String)
         Dim Conn As OdbcConnection
         Conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
@@ -561,6 +607,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Copy the barrel information form the main collection to t
     Sub CopyBarrelInformation()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -625,6 +672,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
+    'Save the current or new database version at the end of a hotfix
     Public Sub SaveDatabaseVersion(ByVal newVer As String)
         Try
             Dim SQL As String = "INSERT INTO DB_Version (dbver,dta) VALUES('" & _
@@ -634,6 +682,7 @@ Module modDatabase
             Call DebugLog("SaveDatabaseVersion", Err.Number & " - " & Err.Description, "ERROR")
         End Try
     End Sub
+    'Get the last database version applied from teh database
     Public Function GetLastDatabaseUpdate() As String
         Dim sAns As String = "0"
         Dim Conn As OdbcConnection
@@ -658,7 +707,7 @@ Module modDatabase
         Conn = Nothing
         Return sAns
     End Function
-
+    'Add the sync colum to the selected table
     Public Sub AddSyncToTable(ByVal sNewTableName As String, Optional ByVal UpdateField As Boolean = False, Optional ByVal SyncTableName As String = "sync_tables")
         Try
             If Not ValueDoesExist(SyncTableName, "tblname", sNewTableName) Then Call ConnExec("INSERT INTO " & SyncTableName & " (tblname) VALUES('" & sNewTableName & "')")

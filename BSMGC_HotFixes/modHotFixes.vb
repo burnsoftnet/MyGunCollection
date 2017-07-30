@@ -1,9 +1,9 @@
 Module modHotFixes
     Public HotFixApplied As Boolean
     Public Const MAX_HOTFIX = 9
+    'This Sub will apply the hotfixes from a starting number to the max hot fix
+    'This is mostly used by the DoVersionCheck sub
     Sub ApplyregistryHotfixes(ByVal sNumber As String)
-        'This Sub will apply the hotfixes from a starting number to the max hot fix
-        'This is mostly used by the DoVersionCheck sub
         Dim i As Integer = 0
         'For i = 1 To CInt(sNumber)
         For i = (CInt(sNumber) + 1) To CInt(MAX_HOTFIX)
@@ -13,9 +13,9 @@ Module modHotFixes
         'Need to do everything after that number
         'Check to see what else uses this sub.
     End Sub
+    'This Sub will apply the previous versions of the hotfix in registry since they should already exist in the database
+    'This is mostly used by the DoVersionCheck sub
     Sub AppliedregistryHotfixes(ByVal sNumber As String)
-        'This Sub will apply the previous versions of the hotfix in registry since they should already exist in the database
-        'This is mostly used by the DoVersionCheck sub
         Dim i As Integer = 0
         For i = 1 To CInt(sNumber)
             If Not HotFixExists(i) Then Call UpdateLastUpdate(i)
@@ -25,6 +25,9 @@ Module modHotFixes
         'Need to do everything after that number
         'Check to see what else uses this sub.
     End Sub
+    'Checks the database version, which was avilable since version 4.5  From there it will be marked
+    'that Database Version 4.5 compatibale hotfix is 7, so from there it will start the update from anything past 
+    '7 ( basically 7 + 1) or start from hotfix 8 which is the next database version.
     Public Sub DoVersioncheck()
         Dim CurVer As String = GetLastDatabaseUpdate()
         Console.WriteLine("Current database Version: " & CurVer)
@@ -43,12 +46,14 @@ Module modHotFixes
             Case "6.0"
                 'Database Version was jumped to match the current version of the application
                 'technically true, but was different since we started late in this.
-                DoToVersion = 9
-                AppliedregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
-                ApplyregistryHotfixes(DoToVersion)
+                'DoToVersion = 9
+                'AppliedregistryHotfixes(DoToVersion)
+                'Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
+                'ApplyregistryHotfixes(DoToVersion)
         End Select
     End Sub
+    'MOstly for redoing updates, you can pass which hotfix to run by number, used in the db upgrade loop
+    'as well as the switch to apply a particular update switch
     Public Sub RunSpecificHotFic(iFix As Integer)
         Select Case iFix
             Case 1
@@ -71,6 +76,9 @@ Module modHotFixes
                 Call HotFix_9()
         End Select
     End Sub
+    'Older method of upgrading the database before hotfix 9, which would check to see if the hotfix has been applied
+    'and saved in the registry, but now, it will run the database version check to upgrade it, and if that doesn't
+    'come back upgrading anything, then it will run through the older way, mostly to upgrade older version of MGC
     Public Sub DoUpdates()
         Call DoVersioncheck()
         If Not HotFixExists("1") Then Call HotFix_1()
@@ -83,6 +91,7 @@ Module modHotFixes
         If Not HotFixExists("8") Then Call HotFix_8()
         If Not HotFixExists("9") Then Call HotFix_9()
     End Sub
+    'Delete all hotfix registry keys to upgrade the database from the start.
     Sub RedoAll()
         Call DelRegValue("HotFix", "1", "")
         Call DelRegValue("HotFix", "2", "")
@@ -95,6 +104,7 @@ Module modHotFixes
         Call DelRegValue("HotFix", "9", "")
         Call DelRegValue("HotFix", "LastUpdate", "")
     End Sub
+    'Hotfix 1 created for MGC version 2.x
     Sub HotFix_1()
         Dim strUpdateName As String
         strUpdateName = "1"
@@ -111,6 +121,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hotfix 2 created for MGC version 3.0
     Sub HotFix_2()
         Dim strUpdateName As String
         strUpdateName = "2"
@@ -147,6 +158,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hotfix 2 created for MGC version 3.2
     Sub HotFix_3()
         Dim strUpdateName As String
         strUpdateName = "3"
@@ -161,6 +173,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hotfix 2 created for MGC version 3.5
     Sub HotFix_4()
         Dim strUpdateName As String
         strUpdateName = "4"
@@ -189,6 +202,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hotfix 5 created for MGC version 4.0
     Sub HotFix_5()
         Dim strUpdateName As String
         strUpdateName = "5"
@@ -367,6 +381,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hotfix 6 created for MGC version 4.0
     Sub HotFix_6()
         Dim strUpdateName As String
         strUpdateName = "6"
@@ -399,6 +414,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'hotfix 7 created for MGC version 4.5, Also start of database version matching MGC version of, 4.5
     Sub HotFix_7()
         Dim strUpdateName As String
         strUpdateName = "7"
@@ -589,6 +605,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hot Fix 8, Database version 5.0, also created for the MGC 5.x
     Sub HotFix_8()
         Dim strUpdateName As String
         strUpdateName = "8"
@@ -633,6 +650,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
+    'Hot Fix 9 creaated for database version 6.0 and MGC 6.0
     Sub HotFix_9()
         Dim strUpdateName As String
         strUpdateName = "9"
@@ -643,7 +661,7 @@ Module modHotFixes
         Dim SQL As String = ""
         Console.WriteLine(vbTab & "Updating Column List")
         SQL = "UPDATE CR_ColumnList set Col='AppraisalDate' where Col='AppraisedDate'"
-        Call RunSQL(SQL)
+        Call RunSQL(SQL, False)
         Console.WriteLine(vbTab & "Adding Columns to Gun Collection Table")
         Call AddColumn("IsInBoundBook", "Gun_Collection", "N/A", "number")
         Call AddColumn("TwistRate", "Gun_Collection", "N/A", "Text(255)")
@@ -652,10 +670,10 @@ Module modHotFixes
         Call AddColumn("Classification", "Gun_Collection", "N/A", "Text(255)")
         Call AddColumn("DateofCR", "Gun_Collection", "N/A", "DATETIME")
         SQL = "UPDATE Gun_Collection set IsInBoundBook=1"
-        Call RunSQL(SQL)
+        Call RunSQL(SQL, False)
         Call AddColumn("IsClassIII", "Gun_Collection", "N/A", "number")
         SQL = "UPDATE Gun_Collection set IsClassIII=0"
-        Call RunSQL(SQL)
+        Call RunSQL(SQL, False)
         Call AddColumn("ClassIII_owner", "Gun_Collection", "N/A", "Text(255)")
 
         Console.WriteLine(vbTab & "Creating Appraiser Contact Details Table")
@@ -664,24 +682,41 @@ Module modHotFixes
                 ",website Text(255), email Text(255), lic Text(255), zip Text(255), SIB INTEGER);"
         Call RunSQL(SQL)
         Call AddSyncToTable("Appriaser_Contact_Details", True)
+        SQL = "ALTER TABLE Appriaser_Contact_Details ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+        SQL = "ALTER TABLE Appriaser_Contact_Details ALTER SIB Number DEFAULT 1 NOT NULL;"
+        Call RunSQL(SQL)
+
         Console.WriteLine(vbTab & "Creating GunSmith Contact Details Table")
         SQL = "CREATE TABLE GunSmith_Contact_Details (ID AUTOINCREMENT PRIMARY KEY,gName Text(255), Address1 Text(255)" & _
                ", Address2 Text(255),City Text(255),State Text(255), Country Text(255), Phone Text(255), fax Text(255)" & _
                ",website Text(255), email Text(255), lic Text(255), zip Text(255), SIB INTEGER);"
         Call RunSQL(SQL)
         Call AddSyncToTable("GunSmith_Contact_Details", True)
+        SQL = "ALTER TABLE GunSmith_Contact_Details ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+        SQL = "ALTER TABLE GunSmith_Contact_Details ALTER SIB Number DEFAULT 1 NOT NULL;"
+        Call RunSQL(SQL)
+
         Console.WriteLine(vbTab & "Copying Distinct Appraisers to new table.")
         Call MoveAppraisers()
         Console.WriteLine(vbTab & "Copying Distinct GunSmiths to new table.")
         Call MoveGunSmiths()
+
         Console.WriteLine(vbTab & "Creating Documents Tables")
         SQL = "CREATE TABLE Gun_Collection_Docs (ID AUTOINCREMENT PRIMARY KEY,doc_name Text(255), doc_description Text(255)" & _
-               ", doc_filename Text(255),dta (DATETIME),doc_file OLEOBJECT, doc_thumb OLEOBJECT,doc_ext Text(255), doc_cat Text(255), sync_lastupdate (DATETIME));"
+               ", doc_filename Text(255),dta DATETIME,doc_file OLEOBJECT,length Number, doc_thumb OLEOBJECT,doc_ext Text(255), doc_cat Text(255));"
         Call RunSQL(SQL)
         Call AddSyncToTable("Gun_Collection_Docs", True)
-        SQL = "CREATE TABLE Gun_Collection_Docs_Links (ID AUTOINCREMENT PRIMARY KEY,DID INTEGER, GID INTEGER,dta (DATETIME)"
+        SQL = "ALTER TABLE Gun_Collection_Docs ALTER dta DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+        SQL = "ALTER TABLE Gun_Collection_Docs ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+        SQL = "CREATE TABLE Gun_Collection_Docs_Links (ID AUTOINCREMENT PRIMARY KEY,DID INTEGER, GID INTEGER,dta DATETIME)"
         Call RunSQL(SQL)
         Call AddSyncToTable("Gun_Collection_Docs_Links", True)
+        SQL = "ALTER TABLE Gun_Collection_Docs_Links ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
         Console.WriteLine(vbTab & "Creating Classification Table & inserting values")
         SQL = "CREATE TABLE Gun_Collection_Classification (ID AUTOINCREMENT PRIMARY KEY,myclass Text(255))"
         Call RunSQL(SQL)
@@ -693,6 +728,9 @@ Module modHotFixes
         If Not ValueDoesExist("Gun_Collection_Classification", "[myclass]", sValue) Then Call ConnExec(("INSERT INTO Gun_Collection_Classification ([myclass]) VALUES('" & sValue & "')"))
 
         Call AddSyncToTable("Gun_Collection_Classification", True)
+        SQL = "ALTER TABLE Gun_Collection_Classification ALTER sync_lastupdate DATETIME DEFAULT NOW() NOT NULL;"
+        Call RunSQL(SQL)
+
         'End Updates
         If DBVerHasChanged Then Call SaveDatabaseVersion(DBVersion)
         If DBVerHasChanged Then Console.WriteLine(vbTab & "You are now updated to Database Version " & DBVersion)

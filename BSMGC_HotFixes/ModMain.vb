@@ -1,46 +1,67 @@
 Imports BSMGC_HotFixes.BSRegistry
 Imports System.Windows.Forms
+Imports BurnSoft.Universal
 Module ModMain
+    Dim HOTFIXONLY As Boolean
+    Dim HOTFIX_NUMBER As Integer
+    Dim PIC_THUMB_NUMBER As Integer
+    Dim PIC_THUMB_ONLY As Boolean
+    'Mostly to clean up the debug messages form the init
+    'This will display the values set in the init
+    Sub INIT_DEBUG()
+        Call DebugLog("INIT", "Redo=" & ReDo)
+        Call DebugLog("INIT", "debug=" & BUGGERME)
+        Call DebugLog("INIT", "showerrors=" & SUPPRESS_CONSOLE_ERRORS)
+        Call DebugLog("INIT", "ConvertPicturesToThumbNails=" & ConvertPicsOnly)
+        Call DebugLog("RunApp", "DBPATH=" & strDBPath, "INFO")
+        Call DebugLog("RunApp", "MAINAPPPATH=" & MainApp, "INFO")
+        Call DebugLog("RunApp", "CURPATH=" & CurPath, "INFO")
+        Call DebugLog("RunApp", "APPLICATION_PATH_DATA=" & APPLICATION_PATH_DATA, "INFO")
+    End Sub
+    'Initialize Global Vars with commands passed to the app, if any.
     Sub INIT()
         Try
-            SUPPRESS_CONSOLE_ERRORS = True
-            Dim TempBool As Boolean = False
-            TempBool = GetCommand("redo", "bool", ReDo)
-            TempBool = GetCommand("debug", "bool", BUGGERME)
-            TempBool = GetCommand("conpics", "bool", ConvertPicsOnly)
-            TempBool = GetCommand("acl", "bool", RUNACL)
-            SUPPRESS_CONSOLE_ERRORS = CBool(GetCommand("showerrors", "bool", TempBool))
-            If Not TempBool Then
-                SUPPRESS_CONSOLE_ERRORS = True
-            Else
-                SUPPRESS_CONSOLE_ERRORS = False
-            End If
-            Call DebugLog("INIT", "Redo=" & ReDo)
-            Call DebugLog("INIT", "debug=" & BUGGERME)
-            Call DebugLog("INIT", "showerrors=" & SUPPRESS_CONSOLE_ERRORS)
-            Call DebugLog("INIT", "ConvertPicturesToThumbNails=" & ConvertPicsOnly)
-            Call DebugLog("INIT", "RUNACL=" & RUNACL)
+            Dim Obj As New BSOtherObjects
+            Dim ObjRS As New BSRegistry
+
+            ReDo = Obj.GetCommand("redo", False)
+            BUGGERME = Obj.GetCommand("debug", False)
+            ConvertPicsOnly = Obj.GetCommand("conpics", False)
+            SUPPRESS_CONSOLE_ERRORS = Obj.GetCommand("showerrors", False)
+            HOTFIX_NUMBER = Obj.GetCommand("hotfix", 0, HOTFIXONLY)
+            PIC_THUMB_NUMBER = Obj.GetCommand("picthumb", 0, PIC_THUMB_ONLY)
+
+            strDBPath = ObjRS.GetDatabasePath
+            MainApp = ObjRS.MainApplication()
+            CurPath = ObjRS.CurrentAppPath()
+            APPLICATION_PATH_DATA = ObjRS.GetDataPath()
+
+            Obj = Nothing
+            ObjRS = Nothing
+            Call INIT_DEBUG()
         Catch ex As Exception
             Call LogError("ModMain", "INIT", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Sub DoACLChange()
-        Dim iOS As Integer = Environment.OSVersion.Version.Major
-        If iOS >= 6 Then
-            Dim myProcess As New Process
-            myProcess.StartInfo.FileName = Application.StartupPath & "\win7.bat"
-            myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
-            myProcess.Start()
-        Else
-            Console.Write("Your OS Does not need the ACL to Be Changed since it is less then Windows Vista")
-            Console.Read()
-        End If
-    End Sub
+    'This can be deleted, this is not longer in the build
+    'Sub DoACLChange()
+    ' Dim iOS As Integer = Environment.OSVersion.Version.Major
+    '    If iOS >= 6 Then
+    'Dim myProcess As New Process
+    '        myProcess.StartInfo.FileName = Application.StartupPath & "\win7.bat"
+    '        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
+    '        myProcess.Start()
+    '    Else
+    '        Console.Write("Your OS Does not need the ACL to Be Changed since it is less then Windows Vista")
+    '        Console.Read()
+    '    End If
+    'End Sub
+
+    'Two convertpics subs, since one option was for stand alone by removing and
+    'adding the password itself, it would conflict with the hotfix patch since
+    'it already removed it, and still need to run other fixes before adding it back on
+    'so this convertpicshf has the remove and add password subs removed from it
     Sub ConvertPicsHF()
-        'Two convertpics subs, since one option was for stand alone by removing and
-        'adding the password itself, it would conflict with the hotfix patch since
-        'it already removed it, and still need to run other fixes before adding it back on
-        'so this convertpicshf has the remove and add password subs removed from it
         Try
             Dim sAns As String = vbYes
             Dim UpdateMsg As String = ""
@@ -56,20 +77,11 @@ Module ModMain
             Console.Read()
         End Try
     End Sub
+    'Start the process to convert the pictures into thumbnails
     Sub ConvertPics()
         Try
             Dim sAns As String = vbYes
             Dim UpdateMsg As String = ""
-            Dim ObjRS As New BSRegistry
-            Call DebugLog("RunApp", "Getting DB Path", "INFO")
-            strDBPath = ObjRS.GetDatabasePath
-            Call DebugLog("RunApp", "DBPATH=" & strDBPath, "INFO")
-            Call DebugLog("RunApp", "Getting Main App Path", "INFO")
-            MainApp = ObjRS.MainApplication()
-            Call DebugLog("RunApp", "MAINAPPPATH=" & MainApp, "INFO")
-            Call DebugLog("RunApp", "Getting Current Path", "INFO")
-            CurPath = ObjRS.CurrentAppPath()
-            Call DebugLog("RunApp", "CURPATH=" & CurPath, "INFO")
             Call RemovePassword()
             Call ConvertPicsDB()
             Console.WriteLine(vbTab & "All Pictures now have it's own thumbnail")
@@ -80,24 +92,14 @@ Module ModMain
             Console.Read()
         End Try
     End Sub
+    'Remote the Password, run the hotfixed and updates, put back the password and start the app.
     Sub RunApp()
         Try
             Dim sAns As String = vbYes
             Dim UpdateMsg As String = ""
-            Dim ObjRS As New BSRegistry
-            Call DebugLog("RunApp", "Getting DB Path", "INFO")
-            strDBPath = ObjRS.GetDatabasePath
-            Call DebugLog("RunApp", "DBPATH=" & strDBPath, "INFO")
-            Call DebugLog("RunApp", "Getting Main App Path", "INFO")
-            MainApp = ObjRS.MainApplication()
-            Call DebugLog("RunApp", "MAINAPPPATH=" & MainApp, "INFO")
-            Call DebugLog("RunApp", "Getting Current Path", "INFO")
-            CurPath = ObjRS.CurrentAppPath()
-            Call DebugLog("RunApp", "CURPATH=" & CurPath, "INFO")
+
             Call RemovePassword()
-            Call RegHotfixExists()
             Call DoUpdates()
-            Call DeleteUpdateFile()
             Call AddPassword()
             If HotFixApplied Then
                 Console.WriteLine("Updates were applied!")
@@ -116,12 +118,14 @@ Module ModMain
             Console.Read()
         End Try
     End Sub
+    'Header for when the application starts or if help is presented
     Sub Banner()
         Console.WriteLine("BurnSoft " & ProductName & " HotFix/Upgrade Assistant")
         Console.WriteLine("Version: " & HFVer & vbTab & "Copyright 1997-" & Now.Year)
         Console.WriteLine("Support and Updates at http://www.burnsoft.net")
         Console.WriteLine("")
     End Sub
+    'Main Start sub
     Sub Main()
         Try
             Call Banner()
@@ -129,18 +133,21 @@ Module ModMain
             'After version 5 of my gun collection the registry key was moved from local to user.
             Dim bsreg As New BSRegistry
             Call bsreg.MoveSettingKeys()
-            If Not RUNACL Then
-                If Not ConvertPicsOnly Then
-                    If ReDo Then Call RedoAll()
-                    IsRunning = False
-                    HotFixApplied = False
-                    Call RunApp()
-                Else
-                    Call ConvertPics()
-                End If
+
+            If ConvertPicsOnly Then
+                Call ConvertPics()
+            ElseIf Not ConvertPicsOnly And HOTFIXONLY Then
+                Call RunSpecificHotFic(HOTFIX_NUMBER)
+            ElseIf Not ConvertPicsOnly And Not HOTFIXONLY And PIC_THUMB_ONLY Then
+                Call ConvertSelectedPictureByID(PIC_THUMB_NUMBER)
             Else
-                Call DoACLChange()
+                If ReDo Then Call RedoAll()
+                IsRunning = False
+                HotFixApplied = False
+                Call RunApp()
             End If
+
+            bsreg = Nothing
         Catch ex As Exception
             Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString)
             Console.Read()

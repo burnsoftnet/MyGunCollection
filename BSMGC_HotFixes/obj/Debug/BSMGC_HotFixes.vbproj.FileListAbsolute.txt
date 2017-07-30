@@ -15,3 +15,5 @@ C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\B
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMGC_HotFixes\obj\Debug\BSMGC_HotFixes.vbproj.GenerateResource.Cache
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMGC_HotFixes\obj\Debug\BSMGC_HotFixes.exe
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMGC_HotFixes\obj\Debug\BSMGC_HotFixes.pdb
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMGC_HotFixes\bin\Debug\BurnSoft.Universal.dll
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMGC_HotFixes\bin\Debug\BurnSoft.Universal.xml

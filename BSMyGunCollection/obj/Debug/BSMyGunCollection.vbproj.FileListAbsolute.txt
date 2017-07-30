@@ -113,7 +113,6 @@
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\BSMyGunCollection.exe.config
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Debug\BSMyGunCollection.exe
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\obj\Debug\BSMyGunCollection.pdb
-C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\MGC.mdb
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\adodb.dll
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\Config.xml
 C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\bin\Debug\DataGridViewAutoFilter.dll
