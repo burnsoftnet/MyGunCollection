@@ -677,6 +677,13 @@ Module modHotFixes
         SQL = "UPDATE Gun_Collection set IsClassIII=0"
         Call RunSQL(SQL, False)
         Call AddColumn("ClassIII_owner", "Gun_Collection", "N/A", "Text(255)")
+        SQL = "UPDATE Gun_Collection set Classification='Modern'"
+        'SQL = "ALTER TABLE Gun_Collection ALTER IsClassIII Number DEFAULT 0 NOT NULL;"
+        'Call RunSQL(SQL)
+        'SQL = "ALTER TABLE Gun_Collection ALTER IsInBoundBook Number DEFAULT 1 NOT NULL;"
+        'Call RunSQL(SQL)
+        'SQL = "ALTER TABLE Gun_Collection ALTER Classification Test(255) DEFAULT 'Modern' NOT NULL;"
+        'Call RunSQL(SQL)
 
         Console.WriteLine(vbTab & "Creating Appraiser Contact Details Table")
         SQL = "CREATE TABLE Appriaser_Contact_Details (ID AUTOINCREMENT PRIMARY KEY,aName Text(255), Address1 Text(255)" & _

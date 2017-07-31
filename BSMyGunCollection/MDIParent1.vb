@@ -595,6 +595,8 @@ Public Class MDIParent1
                     Me.Gun_CollectionTableAdapter.FillByNonCAndR(Me.MGCDataSet.Gun_Collection)
                 Case UCase("Cust. Catalog #")
                     Me.Gun_CollectionTableAdapter.FillBy_CustomIDList(Me.MGCDataSet.Gun_Collection)
+                Case UCase("Class III")
+                    Me.Gun_CollectionTableAdapter.FillBy_IsClassIII(Me.MGCDataSet.Gun_Collection)
                 Case Else
                     Me.Gun_CollectionTableAdapter.FillByInStock(Me.MGCDataSet.Gun_Collection)
             End Select

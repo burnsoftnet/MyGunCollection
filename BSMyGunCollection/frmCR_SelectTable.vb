@@ -106,9 +106,11 @@ Public Class frmCR_SelectTable
     'when the user right clicks on the Load button, this is one of the context menu
     'options that appears that allows the user to edit the custom report.
     Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
-        Dim RID As Long = ComboBox2.SelectedValue
+        Call editReport()
+    End Sub
+    'Bring up the SQL editor window
+    Sub ShowSQLEditor()
         Dim frmNew As New frmCR_EditSQL
-        frmNew.RID = RID
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
@@ -116,9 +118,24 @@ Public Class frmCR_SelectTable
     'when the user right clicks on the Next button, this is one of the context menu
     'options that appears that allows the user to edit the custom report.
     Private Sub ToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem1.Click
+        Call ShowSQLEditor()
+    End Sub
+    'options that appears that allows the user to edit the custom report.
+    Sub editReport()
+        Dim RID As Long = ComboBox2.SelectedValue
         Dim frmNew As New frmCR_EditSQL
+        frmNew.RID = RID
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
+    End Sub
+    'when the user clicks on the Edit button
+    'options that appears that allows the user to edit the custom report.
+    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
+        Call editReport()
+    End Sub
+    'when the user click on the sql editor button
+    Private Sub btnSQLEditor_Click(sender As System.Object, e As System.EventArgs) Handles btnSQLEditor.Click
+        Call ShowSQLEditor()
     End Sub
 End Class

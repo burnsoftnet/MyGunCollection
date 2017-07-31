@@ -64,6 +64,16 @@ Public Class frmEditCollectionDetails
                     dtpDateofCR.Enabled = True
                 End If
 
+                'TODO Add Class 3 checkbox & Class 3 owner
+                Dim iClassIII As Integer = 0
+                If Not IsDBNull(RS("IsClassIII")) Then iClassIII = RS("IsClassIII")
+                If Not IsDBNull(RS("ClassIII_owner")) Then txtClassIIIOwner.Text = RS("ClassIII_owner")
+                If iClassIII = 0 Then
+                    chkClassIII.Checked = False
+                Else
+                    chkClassIII.Checked = True
+                End If
+
                 If Not IsDBNull(RS("IsCandR")) Then
                     If CInt(RS("IsCandR")) = 0 Then
                         chkBoxCR.Checked = False

@@ -562,7 +562,7 @@ Namespace MGC
         Public Function Gun_Model_ByMan(ByVal strMan As String) As AutoCompleteStringCollection
             Dim iCol As New AutoCompleteStringCollection
             Try
-                Dim ArrList As New ArrayList
+                'Dim ArrList As New ArrayList
                 Dim ObjGF As New GlobalFunctions
                 Dim ManID As Long = ObjGF.GetManufacturersID(strMan)
                 Dim SQL As String = "SELECT Model from Gun_Model where GMID=" & ManID & " order by Model ASC"
@@ -584,6 +584,29 @@ Namespace MGC
                 Call Obj.CloseDB()
             Catch ex As Exception
                 Dim sSubFunc As String = "Gun_Model_ByMan"
+                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+            End Try
+            Return iCol
+        End Function
+        Public Function Document_Category() As AutoCompleteStringCollection
+            Dim iCol As New AutoCompleteStringCollection
+            Try
+                Dim SQL As String = "select distinct(doc_cat) as cat from Gun_Collection_Docs order by doc_cat asc"
+                Dim Obj As New BSDatabase
+                Obj.ConnectDB()
+                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+                Dim RS As OdbcDataReader
+                RS = CMD.ExecuteReader
+                While RS.Read
+                    iCol.Add(RS("cat"))
+                End While
+                RS.Close()
+                RS = Nothing
+                CMD = Nothing
+                Obj.CloseDB()
+                Obj = Nothing
+            Catch ex As Exception
+                Dim sSubFunc As String = "Document_Category"
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return iCol

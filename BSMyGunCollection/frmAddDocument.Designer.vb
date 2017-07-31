@@ -118,6 +118,8 @@ Partial Class frmAddDocument
         '
         'txtCat
         '
+        Me.txtCat.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtCat.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCat.Location = New System.Drawing.Point(83, 102)
         Me.txtCat.Name = "txtCat"
         Me.txtCat.Size = New System.Drawing.Size(222, 20)

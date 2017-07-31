@@ -259,9 +259,15 @@ Public Class frmAddDocument
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    'Form on Load
     Private Sub frmAddDocument_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Call LoadAutoFill()
         FileWasSelected = False
         If EditMode Then Call LoadData()
+    End Sub
+    'Load AUto Fill for texboxes
+    Sub LoadAutoFill()
+        Dim ObjAF As New AutoFillCollections
+        txtCat.AutoCompleteCustomSource = ObjAF.Document_Category
     End Sub
 End Class

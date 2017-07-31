@@ -64,12 +64,12 @@ Partial Class frmViewReport_BoundBook
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(46, 22)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(47, 22)
         Me.ToolStripLabel1.Text = "Sort By:"
         '
         'ToolStripComboBox1
         '
-        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Brand", "Type", "Caliber", "Gun Shop"})
+        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Class III", "Brand", "Type", "Caliber", "Gun Shop"})
         Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
         Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 25)
         Me.ToolStripComboBox1.Text = "Default"
@@ -82,7 +82,7 @@ Partial Class frmViewReport_BoundBook
         'ToolStripLabel2
         '
         Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(69, 22)
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(74, 22)
         Me.ToolStripLabel2.Text = "Default Title:"
         '
         'ToolStripTextBox1

@@ -808,6 +808,8 @@ ORDER BY FullName</CommandText>
               <Mapping SourceColumn="Caliber3" DataSetColumn="Caliber3" />
               <Mapping SourceColumn="Classification" DataSetColumn="Classification" />
               <Mapping SourceColumn="DateofCR" DataSetColumn="DateofCR" />
+              <Mapping SourceColumn="IsClassIII" DataSetColumn="IsClassIII" />
+              <Mapping SourceColumn="ClassIII_owner" DataSetColumn="ClassIII_owner" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -844,6 +846,19 @@ ORDER BY FullName</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection ORDER BY CustomID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_IsClassIII" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_IsClassIII" GeneratorSourceName="FillBy_IsClassIII" GetMethodModifier="Public" GetMethodName="GetDataBy_IsClassIII" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_IsClassIII" UserSourceName="FillBy_IsClassIII">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, 
+                      StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsystem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, 
+                      AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, 
+                      IsCandR, remandt, POI,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR
+FROM         Gun_Collection where IsClassIII=1
+ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -2548,6 +2563,25 @@ FROM         ((((Gun_Collection INNER JOIN
               <Mapping SourceColumn="BuyerName" DataSetColumn="BuyerName" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ClassIII" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_ClassIII" GeneratorSourceName="FillBy_ClassIII" GetMethodModifier="Public" GetMethodName="GetDataBy_ClassIII" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_ClassIII" UserSourceName="FillBy_ClassIII">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsClassIII=1 ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBrand" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBrand" GeneratorSourceName="FillByBrand" GetMethodModifier="Public" GetMethodName="GetDataByBrand" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBrand" UserSourceName="FillByBrand">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -4577,6 +4611,8 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="DateofCR" msprop:Generator_ColumnVarNameInTable="columnDateofCR" msprop:Generator_ColumnPropNameInRow="DateofCR" msprop:Generator_ColumnPropNameInTable="DateofCRColumn" msprop:Generator_UserColumnName="DateofCR" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ClassIII_owner" msprop:Generator_ColumnVarNameInTable="columnClassIII_owner" msprop:Generator_ColumnPropNameInRow="ClassIII_owner" msprop:Generator_ColumnPropNameInTable="ClassIII_ownerColumn" msprop:Generator_UserColumnName="ClassIII_owner" type="xs:string" minOccurs="0" />
+              <xs:element name="IsClassIII" msprop:Generator_ColumnVarNameInTable="columnIsClassIII" msprop:Generator_ColumnPropNameInRow="IsClassIII" msprop:Generator_ColumnPropNameInTable="IsClassIIIColumn" msprop:Generator_UserColumnName="IsClassIII" type="xs:int" default="0" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

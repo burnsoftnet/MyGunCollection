@@ -26,6 +26,8 @@ Public Class frmViewReport_BoundBook
                     Me.BoundBooksTableAdapter.FillByCaliber(Me.MGCDataSet.BoundBooks)
                 Case LCase("Gun Shop")
                     Me.BoundBooksTableAdapter.FillByGun_Shop_Name(Me.MGCDataSet.BoundBooks)
+                Case LCase("Class III")
+                    Me.BoundBooksTableAdapter.FillBy_ClassIII(Me.MGCDataSet.BoundBooks)
                 Case Else
                     Me.BoundBooksTableAdapter.Fill(Me.MGCDataSet.BoundBooks)
             End Select
