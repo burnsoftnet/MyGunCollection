@@ -89,6 +89,10 @@ Partial Class frmEditCollectionDetails
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.chkClassIII = New System.Windows.Forms.CheckBox()
+        Me.Label60 = New System.Windows.Forms.Label()
         Me.cmbClassification = New System.Windows.Forms.ComboBox()
         Me.GunCollectionClassificationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dtpDateofCR = New System.Windows.Forms.DateTimePicker()
@@ -120,10 +124,6 @@ Partial Class frmEditCollectionDetails
         Me.txtAddNotes = New System.Windows.Forms.TextBox()
         Me.Gun_Collection_ConditionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ConditionTableAdapter()
         Me.Gun_Collection_ClassificationTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter()
-        Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.chkClassIII = New System.Windows.Forms.CheckBox()
-        Me.Label60 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.GunCollectionConditionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -802,6 +802,43 @@ Partial Class frmEditCollectionDetails
         Me.TabPage4.Text = "Collector Details"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'txtClassIIIOwner
+        '
+        Me.txtClassIIIOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtClassIIIOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 206)
+        Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
+        Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
+        Me.txtClassIIIOwner.TabIndex = 239
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(10, 209)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(41, 13)
+        Me.Label61.TabIndex = 238
+        Me.Label61.Text = "Owner:"
+        '
+        'chkClassIII
+        '
+        Me.chkClassIII.AutoSize = True
+        Me.chkClassIII.Location = New System.Drawing.Point(109, 185)
+        Me.chkClassIII.Name = "chkClassIII"
+        Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
+        Me.chkClassIII.TabIndex = 237
+        Me.chkClassIII.Text = "Yes"
+        Me.chkClassIII.UseVisualStyleBackColor = True
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(9, 186)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(73, 13)
+        Me.Label60.TabIndex = 236
+        Me.Label60.Text = "Class III Item?"
+        '
         'cmbClassification
         '
         Me.cmbClassification.AllowDrop = True
@@ -1080,41 +1117,6 @@ Partial Class frmEditCollectionDetails
         'Gun_Collection_ClassificationTableAdapter
         '
         Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = True
-        '
-        'txtClassIIIOwner
-        '
-        Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 206)
-        Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
-        Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
-        Me.txtClassIIIOwner.TabIndex = 239
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(10, 209)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(41, 13)
-        Me.Label61.TabIndex = 238
-        Me.Label61.Text = "Owner:"
-        '
-        'chkClassIII
-        '
-        Me.chkClassIII.AutoSize = True
-        Me.chkClassIII.Location = New System.Drawing.Point(109, 185)
-        Me.chkClassIII.Name = "chkClassIII"
-        Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
-        Me.chkClassIII.TabIndex = 237
-        Me.chkClassIII.Text = "Yes"
-        Me.chkClassIII.UseVisualStyleBackColor = True
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(9, 186)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(73, 13)
-        Me.Label60.TabIndex = 236
-        Me.Label60.Text = "Class III Item?"
         '
         'frmEditCollectionDetails
         '

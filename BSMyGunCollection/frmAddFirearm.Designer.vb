@@ -84,6 +84,10 @@ Partial Class frmAddFirearm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
+        Me.Label61 = New System.Windows.Forms.Label()
+        Me.chkClassIII = New System.Windows.Forms.CheckBox()
+        Me.Label60 = New System.Windows.Forms.Label()
         Me.cmbClassification = New System.Windows.Forms.ComboBox()
         Me.GunCollectionClassificationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.txtTriggerPull = New System.Windows.Forms.TextBox()
@@ -115,10 +119,6 @@ Partial Class frmAddFirearm
         Me.txtAddNotes = New System.Windows.Forms.TextBox()
         Me.Gun_Collection_ConditionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ConditionTableAdapter()
         Me.Gun_Collection_ClassificationTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter()
-        Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
-        Me.Label61 = New System.Windows.Forms.Label()
-        Me.chkClassIII = New System.Windows.Forms.CheckBox()
-        Me.Label60 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.GunCollectionConditionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -782,6 +782,43 @@ Partial Class frmAddFirearm
         Me.TabPage4.Text = "Collector Details"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'txtClassIIIOwner
+        '
+        Me.txtClassIIIOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtClassIIIOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 202)
+        Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
+        Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
+        Me.txtClassIIIOwner.TabIndex = 235
+        '
+        'Label61
+        '
+        Me.Label61.AutoSize = True
+        Me.Label61.Location = New System.Drawing.Point(10, 205)
+        Me.Label61.Name = "Label61"
+        Me.Label61.Size = New System.Drawing.Size(41, 13)
+        Me.Label61.TabIndex = 234
+        Me.Label61.Text = "Owner:"
+        '
+        'chkClassIII
+        '
+        Me.chkClassIII.AutoSize = True
+        Me.chkClassIII.Location = New System.Drawing.Point(109, 181)
+        Me.chkClassIII.Name = "chkClassIII"
+        Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
+        Me.chkClassIII.TabIndex = 233
+        Me.chkClassIII.Text = "Yes"
+        Me.chkClassIII.UseVisualStyleBackColor = True
+        '
+        'Label60
+        '
+        Me.Label60.AutoSize = True
+        Me.Label60.Location = New System.Drawing.Point(9, 182)
+        Me.Label60.Name = "Label60"
+        Me.Label60.Size = New System.Drawing.Size(73, 13)
+        Me.Label60.TabIndex = 232
+        Me.Label60.Text = "Class III Item?"
+        '
         'cmbClassification
         '
         Me.cmbClassification.AllowDrop = True
@@ -1060,41 +1097,6 @@ Partial Class frmAddFirearm
         'Gun_Collection_ClassificationTableAdapter
         '
         Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = True
-        '
-        'txtClassIIIOwner
-        '
-        Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 202)
-        Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
-        Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
-        Me.txtClassIIIOwner.TabIndex = 235
-        '
-        'Label61
-        '
-        Me.Label61.AutoSize = True
-        Me.Label61.Location = New System.Drawing.Point(10, 205)
-        Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(41, 13)
-        Me.Label61.TabIndex = 234
-        Me.Label61.Text = "Owner:"
-        '
-        'chkClassIII
-        '
-        Me.chkClassIII.AutoSize = True
-        Me.chkClassIII.Location = New System.Drawing.Point(109, 181)
-        Me.chkClassIII.Name = "chkClassIII"
-        Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
-        Me.chkClassIII.TabIndex = 233
-        Me.chkClassIII.Text = "Yes"
-        Me.chkClassIII.UseVisualStyleBackColor = True
-        '
-        'Label60
-        '
-        Me.Label60.AutoSize = True
-        Me.Label60.Location = New System.Drawing.Point(9, 182)
-        Me.Label60.Name = "Label60"
-        Me.Label60.Size = New System.Drawing.Size(73, 13)
-        Me.Label60.TabIndex = 232
-        Me.Label60.Text = "Class III Item?"
         '
         'frmAddFirearm
         '

@@ -64,7 +64,7 @@ Public Class frmEditCollectionDetails
                     dtpDateofCR.Enabled = True
                 End If
 
-                'TODO Add Class 3 checkbox & Class 3 owner
+
                 Dim iClassIII As Integer = 0
                 If Not IsDBNull(RS("IsClassIII")) Then iClassIII = RS("IsClassIII")
                 If Not IsDBNull(RS("ClassIII_owner")) Then txtClassIIIOwner.Text = RS("ClassIII_owner")
@@ -89,13 +89,15 @@ Public Class frmEditCollectionDetails
                     dtpReManDT.Enabled = True
                 End If
                 If Not IsDBNull(RS("POI")) Then txtPOI.Text = Trim(RS("poi"))
-                If chkBoxCR.Checked Then
-                    dtpReManDT.Enabled = True
-                    txtPOI.Enabled = True
-                Else
-                    dtpReManDT.Enabled = False
-                    txtPOI.Enabled = False
-                End If
+                'If chkBoxCR.Checked Then
+                'dtpReManDT.Enabled = True
+                'txtPOI.Enabled = True
+                'Else
+                'dtpReManDT.Enabled = False
+                'txtPOI.Enabled = False
+                'End If
+                Call EnableDiableCandR()
+
                 If Not IsDBNull(RS("dtp")) Then
                     dtpPurchased.Checked = True
                     dtpPurchased.Value = RS("dtp")
@@ -199,6 +201,7 @@ Public Class frmEditCollectionDetails
                 txtImporter.AutoCompleteCustomSource = ObjAF.Gun_Collection_Importer
                 txtAppBy.AutoCompleteCustomSource = ObjAF.Appraisers_Name
                 txtCaliber3.AutoCompleteCustomSource = ObjAF.Gun_Cal
+                txtClassIIIOwner.AutoCompleteCustomSource = ObjAF.Gun_Collection_ClassIIIOwner
                 If Not USESELECTIVEBOUNDBOOK Then
                     chkBoundBook.Checked = True
                     chkBoundBook.Enabled = False
@@ -330,13 +333,18 @@ Public Class frmEditCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub chkBoxCR_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    Sub EnableDiableCandR()
         If chkBoxCR.Checked Then
-            txtPOI.Enabled = True
             dtpReManDT.Enabled = True
+            txtPOI.Enabled = True
         Else
-            txtPOI.Enabled = False
             dtpReManDT.Enabled = False
+            txtPOI.Enabled = False
         End If
+    End Sub
+
+    Private Sub chkBoxCR_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chkBoxCR.CheckedChanged
+        Call EnableDiableCandR()
     End Sub
 End Class

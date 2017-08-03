@@ -123,6 +123,8 @@ Public Class frmAddFirearm
             txtAppBy.AutoCompleteCustomSource = ObjAF.Appraisers_Name
             txtPetLoads.AutoCompleteCustomSource = ObjAF.Gun_Cal
             txtCaliber3.AutoCompleteCustomSource = ObjAF.Gun_Cal
+            txtClassIIIOwner.AutoCompleteCustomSource = ObjAF.Gun_Collection_ClassIIIOwner
+
             txtType.Text = ""
             txtAction.Text = ""
             txtStorage.Text = ""

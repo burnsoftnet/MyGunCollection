@@ -405,6 +405,7 @@ Public Class frmViewCollectionDetails
     End Function
 #End Region
 #Region " General Subs "
+    'Load the Ammo collection tab based on the calibers listed in the main details page
     Sub LoadAmmoData()
         Try
             Dim Obj As New GlobalFunctions
@@ -529,6 +530,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Dim ObjGF As New GlobalFunctions
+            Dim ObjDF As New BurnSoft.Universal.BSDateTime
             Call Obj.ConnectDB()
             Dim SQL As String = "SELECT * from Gun_Collection where ID=" & ItemID
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
@@ -598,16 +600,20 @@ Public Class frmViewCollectionDetails
                 Else
                     chkBoundBook.Checked = True
                 End If
+
                 If Not IsDBNull(RS("TwistRate")) Then txtTwistOfRate.Text = Trim(RS("TwistRate"))
                 If Not IsDBNull(RS("lbs_trigger")) Then txtTriggerPull.Text = Trim(RS("lbs_trigger"))
                 If Not IsDBNull(RS("Caliber3")) Then txtCaliber3.Text = Trim(RS("Caliber3"))
                 If Not IsDBNull(RS("Classification")) Then txtClassification.Text = Trim(RS("Classification"))
+
+                'Date of C & R
                 If Not IsDBNull(RS("DateofCR")) Then
-                    dtpDateofCR.Checked = False
-                    dtpDateofCR.Value = RS("DateofCR")
-                    dtpDateofCR.Enabled = False
+                    dtpDateofCR.Checked = True
+                    dtpDateofCR.Value = ObjDF.FormatDate(RS("DateofCR"))
+                    dtpDateofCR.Enabled = True
                 End If
-                'TODO Add Class 3 checkbox & Class 3 owner
+                dtpDateofCR.Enabled = False
+
                 Dim iClassIII As Integer = 0
                 If Not IsDBNull(RS("IsClassIII")) Then iClassIII = RS("IsClassIII")
                 If Not IsDBNull(RS("ClassIII_owner")) Then txtClassIIIOwner.Text = RS("ClassIII_owner")
@@ -627,7 +633,14 @@ Public Class frmViewCollectionDetails
                     chkBoxCR.Checked = False
                 End If
                 If Not IsDBNull(RS("POI")) Then txtPOI.Text = Trim(RS("poi"))
-                If Not IsDBNull(RS("ReManDT")) Then dtpReManDT.Value = RS("ReManDT")
+
+                If Not IsDBNull(RS("ReManDT")) Then
+                    dtpReManDT.Checked = True
+                    dtpReManDT.Value = RS("ReManDT")
+                    dtpReManDT.Enabled = True
+                End If
+                dtpReManDT.Enabled = False
+
                 If Not IsDBNull(RS("dtp")) Then
                     dtpPurchased.Checked = False
                     dtpPurchased.Value = RS("dtp")

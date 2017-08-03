@@ -58,13 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
-        "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
+        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
-        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
+        "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,6 +178,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
+        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
         "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -226,25 +232,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2073F511E7284FE79BEC65A67A6AE4D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "OwnerKey" = "8:_07109DA4010E41AB8749DC4746F88A09"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -262,19 +256,49 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC89F63BD650014779B3A9A67875358D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CAE9B7B3C53B538DA83589CEBD5C6643"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_5793DE60B87162D2363C3553C54BC2B6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E605C4FE12CE7C06655C77DF5CE4415F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -304,19 +328,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_600939FD6B60028399EB2C5DB5BB49BA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_4B7895518B4049648E851EA318D08C08"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -328,13 +340,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20A6B045CBBC50BD9034365C0A20E703"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_07109DA4010E41AB8749DC4746F88A09"
+        "OwnerKey" = "8:_2073F511E7284FE79BEC65A67A6AE4D0"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -481,11 +487,6 @@
             "AssemblyAsmDisplayName" = "8:DBBackup, Version=4.10.357.16309, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_07109DA4010E41AB8749DC4746F88A09"
-                    {
-                    "Name" = "8:DBBackup.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\DBBackup.exe"
             "TargetName" = "8:"
@@ -532,11 +533,6 @@
             "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_2073F511E7284FE79BEC65A67A6AE4D0"
-                    {
-                    "Name" = "8:adodb.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\adodb.dll"
             "TargetName" = "8:"
@@ -614,11 +610,6 @@
             "AssemblyAsmDisplayName" = "8:DBRestore, Version=4.10.456.26575, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_27C5D004F731446185E753CB9CF15102"
-                    {
-                    "Name" = "8:DBRestore.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\DBRestore.exe"
             "TargetName" = "8:"
@@ -716,11 +707,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_4B7895518B4049648E851EA318D08C08"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.exe"
             "TargetName" = "8:"
@@ -767,11 +753,6 @@
             "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_5793DE60B87162D2363C3553C54BC2B6"
-                    {
-                    "Name" = "8:DataGridViewAutoFilter.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DataGridViewAutoFilter.DLL"
             "TargetName" = "8:"
@@ -849,11 +830,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_728C002C88B28773951F130ACDC9A921"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.EXE"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:MyGunCollection_DataLoader.EXE"
             "TargetName" = "8:"
@@ -980,11 +956,6 @@
             "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=3.1.0.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_AED9BD026F824379880246D6B43683DF"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.XmlSerializers.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.XmlSerializers.dll"
             "TargetName" = "8:"
@@ -1011,11 +982,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_B4A3EA5B21C74C88A880D939A490236D"
-                    {
-                    "Name" = "8:BurnSoft.MsgBox.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\BurnSoft.MsgBox.dll"
             "TargetName" = "8:"
@@ -1042,11 +1008,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_B73508A2E60AF86541056F40CD1F4875"
-                    {
-                    "Name" = "8:BurnSoft.MsgBox.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BurnSoft.MsgBox.DLL"
             "TargetName" = "8:"
@@ -1070,14 +1031,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.29326, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.14432, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_BB8978C612174B058E01C2BCB831D740"
-                    {
-                    "Name" = "8:BSMyGunCollection.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\BSMyGunCollection.exe"
             "TargetName" = "8:"
@@ -1155,11 +1111,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.Universal, Version=4.0.26.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E605C4FE12CE7C06655C77DF5CE4415F"
-                    {
-                    "Name" = "8:BurnSoft.Universal.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BurnSoft.Universal.DLL"
             "TargetName" = "8:"
@@ -1186,11 +1137,6 @@
             "AssemblyAsmDisplayName" = "8:BurnSoft.Universal, Version=4.0.26.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E6340D53A2A846F2A1328F9BB40D216C"
-                    {
-                    "Name" = "8:BurnSoft.Universal.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\BurnSoft.Universal.dll"
             "TargetName" = "8:"
@@ -1217,11 +1163,6 @@
             "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_ECE7187D8B9243CBA69F01675F122E66"
-                    {
-                    "Name" = "8:DataGridViewAutoFilter.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\DataGridViewAutoFilter.dll"
             "TargetName" = "8:"
@@ -1305,14 +1246,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.29327, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.14433, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_FA6DEE83374E40DAA7EF8943708450B4"
-                    {
-                    "Name" = "8:BSMGC_HotFixes.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\BSMGC_HotFixes.exe"
             "TargetName" = "8:"
@@ -1486,7 +1422,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{731DEAD7-2CB7-4044-BDFE-9937B5591C12}"
-        "PackageCode" = "8:{8B85DF4A-7C18-40C5-A95B-57ED4EEAA1DF}"
+        "PackageCode" = "8:{A6AC742D-C265-466F-A2F4-6C1333FA9461}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

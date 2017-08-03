@@ -112,7 +112,6 @@ Partial Class frmViewCollectionDetails
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label56 = New System.Windows.Forms.Label()
-        Me.dtpDateofCR = New System.Windows.Forms.DateTimePicker()
         Me.txtClassification = New System.Windows.Forms.TextBox()
         Me.Label55 = New System.Windows.Forms.Label()
         Me.chkBoundBook = New System.Windows.Forms.CheckBox()
@@ -301,6 +300,7 @@ Partial Class frmViewCollectionDetails
         Me.GunSmith_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.GunSmith_DetailsTableAdapter()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.Qry_DocsAndLinksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter()
+        Me.dtpDateofCR = New System.Windows.Forms.DateTimePicker()
         Me.TabControl1.SuspendLayout()
         Me.TabPage5.SuspendLayout()
         CType(Me.pbStolen, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -996,6 +996,7 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage11
         '
+        Me.TabPage11.Controls.Add(Me.dtpDateofCR)
         Me.TabPage11.Controls.Add(Me.txtClassIIIOwner)
         Me.TabPage11.Controls.Add(Me.Label61)
         Me.TabPage11.Controls.Add(Me.chkClassIII)
@@ -1013,7 +1014,6 @@ Partial Class frmViewCollectionDetails
         Me.TabPage11.Controls.Add(Me.Label24)
         Me.TabPage11.Controls.Add(Me.Label23)
         Me.TabPage11.Controls.Add(Me.Label56)
-        Me.TabPage11.Controls.Add(Me.dtpDateofCR)
         Me.TabPage11.Controls.Add(Me.txtClassification)
         Me.TabPage11.Controls.Add(Me.Label55)
         Me.TabPage11.Controls.Add(Me.chkBoundBook)
@@ -1191,16 +1191,6 @@ Partial Class frmViewCollectionDetails
         Me.Label56.Size = New System.Drawing.Size(75, 13)
         Me.Label56.TabIndex = 215
         Me.Label56.Text = "Date of C && R:"
-        '
-        'dtpDateofCR
-        '
-        Me.dtpDateofCR.Checked = False
-        Me.dtpDateofCR.Enabled = False
-        Me.dtpDateofCR.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateofCR.Location = New System.Drawing.Point(442, 109)
-        Me.dtpDateofCR.Name = "dtpDateofCR"
-        Me.dtpDateofCR.Size = New System.Drawing.Size(156, 20)
-        Me.dtpDateofCR.TabIndex = 206
         '
         'txtClassification
         '
@@ -2971,6 +2961,16 @@ Partial Class frmViewCollectionDetails
         '
         Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = True
         '
+        'dtpDateofCR
+        '
+        Me.dtpDateofCR.Checked = False
+        Me.dtpDateofCR.Enabled = False
+        Me.dtpDateofCR.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDateofCR.Location = New System.Drawing.Point(442, 112)
+        Me.dtpDateofCR.Name = "dtpDateofCR"
+        Me.dtpDateofCR.Size = New System.Drawing.Size(154, 20)
+        Me.dtpDateofCR.TabIndex = 232
+        '
         'frmViewCollectionDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3265,7 +3265,6 @@ Partial Class frmViewCollectionDetails
     Friend WithEvents txtClassification As System.Windows.Forms.TextBox
     Friend WithEvents Label55 As System.Windows.Forms.Label
     Friend WithEvents MoveToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents dtpDateofCR As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label56 As System.Windows.Forms.Label
     Friend WithEvents txtInsVal As System.Windows.Forms.TextBox
     Friend WithEvents txtAppBy As System.Windows.Forms.TextBox
@@ -3305,4 +3304,5 @@ Partial Class frmViewCollectionDetails
     Friend WithEvents Label61 As System.Windows.Forms.Label
     Friend WithEvents chkClassIII As System.Windows.Forms.CheckBox
     Friend WithEvents Label60 As System.Windows.Forms.Label
+    Friend WithEvents dtpDateofCR As System.Windows.Forms.DateTimePicker
 End Class

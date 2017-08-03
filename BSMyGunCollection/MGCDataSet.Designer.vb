@@ -53885,7 +53885,8 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, doc_name, doc_description, doc_filename, dta, doc_file, length, doc_th"& _ 
-                "umb, doc_ext, doc_cat, sync_lastupdate FROM Gun_Collection_Docs"
+                "umb, doc_ext, doc_cat, sync_lastupdate FROM Gun_Collection_Docs order by doc_nam"& _ 
+                "e asc"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

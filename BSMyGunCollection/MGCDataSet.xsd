@@ -4043,8 +4043,8 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, doc_name, doc_description, doc_filename, dta, doc_file, length, doc_thumb, doc_ext, doc_cat, sync_lastupdate FROM Gun_Collection_Docs</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, doc_name, doc_description, doc_filename, dta, doc_file, length, doc_thumb, doc_ext, doc_cat, sync_lastupdate FROM Gun_Collection_Docs order by doc_name asc</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>

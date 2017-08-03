@@ -691,6 +691,9 @@ Namespace MGC
         Public Function Gun_Collection_Importer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Importer", "Gun_Collection")
         End Function
+        Public Function Gun_Collection_ClassIIIOwner() As AutoCompleteStringCollection
+            Return MainCollectionDistinct("ClassIII_owner", "Gun_Collection")
+        End Function
         Public Function Gun_Collection_BarrelSysTypes() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Name", "Gun_Collection_BarrelSysTypes")
         End Function
