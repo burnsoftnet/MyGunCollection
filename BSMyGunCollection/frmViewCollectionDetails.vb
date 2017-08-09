@@ -1335,4 +1335,13 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+
+    Private Sub MoveToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles MoveToolStripMenuItem.Click
+        Dim BID As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
+        Dim frmNew As New frmMoveBarrelConKit
+        frmNew.BarrelID = BID
+        frmNew.MdiParent = Me.MdiParent
+        frmNew.Show()
+        Me.Close()
+    End Sub
 End Class
