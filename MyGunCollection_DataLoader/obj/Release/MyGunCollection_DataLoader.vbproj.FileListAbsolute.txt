@@ -10,3 +10,15 @@
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.vbproj.GenerateResource.Cache
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.exe
 \\Mac\Home\Documents\Source_Code\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.XmlSerializers.dll
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\MyGunCollection_DataLoader.exe.config
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\MyGunCollection_DataLoader.exe
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\BSMyGunCollection\MyGunCollection_DataLoader.XmlSerializers.dll
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.frmApplyUpdates.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.frmDownloadUpdates.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.frmFinish.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.frmMain.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.frmSelectUpdates.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.Resources.resources
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.vbproj.GenerateResource.Cache
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.exe
+C:\Users\burnsoft\Documents\Visual Studio 2010\Projects\Beta\BSMyGunCollection\MyGunCollection_DataLoader\obj\Release\MyGunCollection_DataLoader.XmlSerializers.dll
