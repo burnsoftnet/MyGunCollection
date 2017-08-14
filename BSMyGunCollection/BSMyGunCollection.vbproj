@@ -12,9 +12,8 @@
     <AssemblyName>BSMyGunCollection</AssemblyName>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>images\My_GunCollection_72_x_72.ico</ApplicationIcon>
-    <ManifestCertificateThumbprint>099F3FFD8278A02F16387466A188FB74341A6727</ManifestCertificateThumbprint>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestCertificateThumbprint>2D7988CEAB4F1743FEA2D4CAFE2680371168D44C</ManifestCertificateThumbprint>
+    <ManifestKeyFile>BSMyGunCollection_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
