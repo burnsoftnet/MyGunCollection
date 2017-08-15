@@ -12,15 +12,15 @@
     <AssemblyName>BSMyGunCollection</AssemblyName>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>images\My_GunCollection_72_x_72.ico</ApplicationIcon>
-    <ManifestCertificateThumbprint>2D7988CEAB4F1743FEA2D4CAFE2680371168D44C</ManifestCertificateThumbprint>
-    <ManifestKeyFile>BSMyGunCollection_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestCertificateThumbprint>7A8EC588D285191AC5FC7F2E2C6E784F539770C2</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetZone>LocalIntranet</TargetZone>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>CollectCCC.p7s</AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -115,6 +115,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86">
@@ -136,6 +139,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -1153,6 +1157,8 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CollectCCC.p7s" />
+    <None Include="jm_software.pfx" />
     <None Include="MGCDataSet.xsc">
       <DependentUpon>MGCDataSet.xsd</DependentUpon>
     </None>

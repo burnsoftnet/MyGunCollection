@@ -1076,7 +1076,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.13714, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.28660, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_BB8978C612174B058E01C2BCB831D740"
@@ -1311,7 +1311,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.13715, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.28660, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_FA6DEE83374E40DAA7EF8943708450B4"
@@ -1491,15 +1491,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{09AFD7C8-3B93-47B9-B08D-7337F3FFAD23}"
-        "PackageCode" = "8:{926D9704-AA5B-4B20-BBA8-B3F7EE0869C3}"
+        "ProductCode" = "8:{6834089C-ECC7-4BA1-828F-61757EE83EBA}"
+        "PackageCode" = "8:{E66C0640-7BC6-48B5-8402-09B908FB8649}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:6.0.7"
+        "ProductVersion" = "8:6.0.8"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:(502) 330-0129"
         "ARPHELPLINK" = "8:http://support.burnsoft.net"
