@@ -484,7 +484,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DBBackup, Version=4.10.357.16309, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:DBBackup, Version=4.10.357.15753, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_07109DA4010E41AB8749DC4746F88A09"
@@ -617,7 +617,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DBRestore, Version=4.10.456.26575, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:DBRestore, Version=4.10.456.16564, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_27C5D004F731446185E753CB9CF15102"
@@ -1076,7 +1076,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.28660, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.0.0.37010, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_BB8978C612174B058E01C2BCB831D740"
@@ -1492,7 +1492,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{6834089C-ECC7-4BA1-828F-61757EE83EBA}"
-        "PackageCode" = "8:{E66C0640-7BC6-48B5-8402-09B908FB8649}"
+        "PackageCode" = "8:{A61779E6-23D0-4A98-9D91-FAB5430DFF93}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
