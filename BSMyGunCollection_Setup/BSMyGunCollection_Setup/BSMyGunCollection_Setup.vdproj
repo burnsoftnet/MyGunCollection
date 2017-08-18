@@ -1311,7 +1311,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.28660, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMGC_HotFixes, Version=6.1.1.37010, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_FA6DEE83374E40DAA7EF8943708450B4"
@@ -1492,7 +1492,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{6834089C-ECC7-4BA1-828F-61757EE83EBA}"
-        "PackageCode" = "8:{A61779E6-23D0-4A98-9D91-FAB5430DFF93}"
+        "PackageCode" = "8:{B7281561-2AB5-46E9-90E5-72251A0274C4}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
