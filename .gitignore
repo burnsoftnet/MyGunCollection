@@ -153,3 +153,7 @@
 /MyGunCollection_DataLoader/obj/Debug/MyGunCollection_DataLoader.Resources.resources
 /MyGunCollection_DataLoader/obj/Debug/MyGunCollection_DataLoader.vbproj.FileListAbsolute.txt
 /MyGunCollection_DataLoader/obj/Debug/MyGunCollection_DataLoader.vbproj.GenerateResource.Cache
+MyGunCollection_DataLoader/obj/
+BSMyGunCollection/obj/
+BSMGC_HotFixes/obj/
+BSMyGunCollection/obj/Release/BSMyGunCollection.vbprojResolveAssemblyReference.cache
