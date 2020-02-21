@@ -76,9 +76,12 @@ Module modHotFixes
                 Call HotFix_9()
         End Select
     End Sub
-    'Older method of upgrading the database before hotfix 9, which would check to see if the hotfix has been applied
-    'and saved in the registry, but now, it will run the database version check to upgrade it, and if that doesn't
-    'come back upgrading anything, then it will run through the older way, mostly to upgrade older version of MGC
+
+    ''' <summary>
+    ''' Older method of upgrading the database before hotfix 9, which would check to see if the hotfix has been applied
+    ''' and saved in the registry, but now, it will run the database version check to upgrade it, and if that doesn't
+    ''' come back upgrading anything, then it will run through the older way, mostly to upgrade older version of MGC
+    ''' </summary>
     Public Sub DoUpdates()
         Call DoVersioncheck()
         If Not HotFixExists("1") Then Call HotFix_1()
@@ -92,7 +95,10 @@ Module modHotFixes
         If Not HotFixExists("9") Then Call HotFix_9()
         'If Not HotFixExists("10") Then Call HotFix_10()
     End Sub
-    'Delete all hotfix registry keys to upgrade the database from the start.
+
+    ''' <summary>
+    ''' Delete all hotfix registry keys to upgrade the database from the start.
+    ''' </summary>
     Sub RedoAll()
         Call DelRegValue("HotFix", "1", "")
         Call DelRegValue("HotFix", "2", "")
@@ -619,7 +625,7 @@ Module modHotFixes
         'INSERT UPDATES HERE!!
         Dim SQL As String = ""
         Console.WriteLine(vbTab & "Creating Sync Tables Tables")
-        Sql = "CREATE TABLE sync_tables(ID AUTOINCREMENT PRIMARY KEY,tblname TEXT(255));"
+        SQL = "CREATE TABLE IF NOT EXISTS sync_tables(ID AUTOINCREMENT PRIMARY KEY,tblname TEXT(255));"
         Call RunSQL(SQL)
         Call AddSyncToTable("CR_SavedReports", True)
         Call AddSyncToTable("GunSmith_Details", True)

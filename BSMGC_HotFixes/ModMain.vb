@@ -74,6 +74,7 @@ Module ModMain
             Console.WriteLine(vbTab & "All Pictures now have it's own thumbnail")
         Catch ex As Exception
             Call LogError("ModMain::ConvertPicsHF", "RunApp", Err.Number, ex.Message.ToString)
+            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub
@@ -89,6 +90,7 @@ Module ModMain
             If ConvertPicsOnly Then Console.Read()
         Catch ex As Exception
             Call LogError("ModMain", "RunApp", Err.Number, ex.Message.ToString)
+            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub
@@ -115,6 +117,7 @@ Module ModMain
             End If
         Catch ex As Exception
             Call LogError("ModMain", "RunApp", Err.Number, ex.Message.ToString)
+            Console.WriteLine("Error occured: " & ex.Message.ToString & " Press any ley to continue")
             Console.Read()
         End Try
     End Sub
@@ -168,7 +171,8 @@ Module ModMain
 
             bsreg = Nothing
         Catch ex As Exception
-            Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString)
+            Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString
+            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub

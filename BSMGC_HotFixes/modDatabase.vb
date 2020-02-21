@@ -1,12 +1,10 @@
-Imports System
-Imports System.Data
 Imports System.Data.Odbc
 Imports ADODB
-Imports System.io
-Imports System.Windows.Forms
-Imports Microsoft.Win32
+Imports System.IO
 Module modDatabase
-    'Add the Database Password
+    ''' <summary>
+    ''' Add the Database Password
+    ''' </summary>
     Public Sub AddPassword()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -33,7 +31,9 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
-    'Remove the database password
+    ''' <summary>
+    ''' Remove the database password
+    ''' </summary>
     Public Sub RemovePassword()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -61,13 +61,18 @@ Module modDatabase
         If Conn.State <> 0 Then Conn.Close()
         Conn = Nothing
     End Sub
-    'Remove Password then Add New Password
+    ''' <summary>
+    ''' Remove Password then Add New Password
+    ''' </summary>
     Sub ChangePassword()
         Call RemovePassword()
         Call AddPassword()
         Call DebugLog("ChangePassword", "ChangePassword", "INFO")
     End Sub
-    'Test database with no password
+    ''' <summary>
+    ''' Test database with no password
+    ''' </summary>
+    ''' <returns></returns>
     Public Function TestDBWithNoPWD() As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -88,7 +93,10 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
-    'Test database with password
+    ''' <summary>
+    ''' Test database with password
+    ''' </summary>
+    ''' <returns></returns>
     Function TestDBwithPWD() As Boolean
         Dim bAns As Boolean = False
         Dim Conn As ADODB.Connection
@@ -110,7 +118,11 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
-    'Run SQL statement, by default it will run in exclusive mode, unless you pass false in the second parameter
+    ''' <summary>
+    ''' Run SQL statement, by default it will run in exclusive mode, unless you pass false in the second parameter
+    ''' </summary>
+    ''' <param name="SQL"></param>
+    ''' <param name="RUNASADMIN"></param>
     Sub RunSQL(ByVal SQL As String, Optional ByVal RUNASADMIN As Boolean = True)
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -137,13 +149,19 @@ Module modDatabase
                     Call DebugLog("RunSQL", SQL, "ERROR")
                     Call DebugLog("RunSQL", Err.Number & " - " & Err.Description, "ERROR")
             End Select
-            Call LogError("modDatabase", "RunSQL", Err.Number, ex.Message.ToString)
-            Call LogError("modDatabase", "RunSQL", "SQL STATEMENT", SQL)
+            'Call LogError("modDatabase", "RunSQL", Err.Number, ex.Message.ToString)
+            'Call LogError("modDatabase", "RunSQL", "SQL STATEMENT", SQL)
             If Conn.State <> 0 Then Conn.Close()
         End Try
         Conn = Nothing
     End Sub
-    'Add Column to Table
+    ''' <summary>
+    ''' Add Column to Table
+    ''' </summary>
+    ''' <param name="strName"></param>
+    ''' <param name="strTable"></param>
+    ''' <param name="strDefaultValue"></param>
+    ''' <param name="StrType"></param>
     Sub AddColumn(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
         Dim MySQL As String
         MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & ";"
