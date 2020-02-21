@@ -124,16 +124,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Universal, Version=4.0.26.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Production\libraries\BurnSoft.Universal.dll</HintPath>
+    <Reference Include="BurnSoft.Universal, Version=4.0.32.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\BurnSoft.Universal.4.0.32.1\lib\net40\BurnSoft.Universal.dll</HintPath>
     </Reference>
     <Reference Include="DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -1157,6 +1166,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="BurnSoft.Universal.chm" />
     <None Include="CollectCCC.p7s" />
     <None Include="jm_software.pfx" />
     <None Include="MGCDataSet.xsc">
@@ -1181,6 +1191,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\My_GunCollection_Multi_Icon.ico" />
     <None Include="ClassDiagram1.cd" />
     <None Include="DBBackup.exe.config">
@@ -1234,6 +1245,7 @@
     <None Include="images\My_GunCollection_16_x_16.ico" />
     <None Include="images\My_GunCollection_72_x_72.ico" />
     <None Include="images\My_GunCollection_64_x_64.ico" />
+    <Content Include="icon.png" />
     <Content Include="images\documents_16_x_16.ico" />
     <Content Include="images\documents_32_x_32.ico" />
     <Content Include="images\documents_add_16_x_16.ico" />
