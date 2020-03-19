@@ -1,7 +1,7 @@
 Module modHotFixes
     Public HotFixApplied As Boolean
     Public Const MAX_HOTFIX = 9
-    'This Sub will apply the hotfixes from a starting number to the max hot fix
+    'This Sub will apply the hot fixes from a starting number to the max hot fix
     'This is mostly used by the DoVersionCheck sub
     Sub ApplyregistryHotfixes(ByVal sNumber As String)
         Dim i As Integer = 0
@@ -9,11 +9,11 @@ Module modHotFixes
         For i = (CInt(sNumber) + 1) To CInt(MAX_HOTFIX)
             Call RunSpecificHotFic(i)
         Next
-        'We are skipping to the last hotfix for the database version, but it is maxing at the number to loop to, but nothing past it
+        'We are skipping to the last hot fix for the database version, but it is maxing at the number to loop to, but nothing past it
         'Need to do everything after that number
         'Check to see what else uses this sub.
     End Sub
-    'This Sub will apply the previous versions of the hotfix in registry since they should already exist in the database
+    'This Sub will apply the previous versions of the hot fix in registry since they should already exist in the database
     'This is mostly used by the DoVersionCheck sub
     Sub AppliedregistryHotfixes(ByVal sNumber As String)
         Dim i As Integer = 0
@@ -21,13 +21,13 @@ Module modHotFixes
             If Not HotFixExists(i) Then Call UpdateLastUpdate(i)
             Call AppliedUpdates(i)
         Next
-        'We are skipping to the last hotfix for the database version, but it is maxing at the number to loop to, but nothing past it
+        'We are skipping to the last hot fix for the database version, but it is maxing at the number to loop to, but nothing past it
         'Need to do everything after that number
         'Check to see what else uses this sub.
     End Sub
-    'Checks the database version, which was avilable since version 4.5  From there it will be marked
-    'that Database Version 4.5 compatibale hotfix is 7, so from there it will start the update from anything past 
-    '7 ( basically 7 + 1) or start from hotfix 8 which is the next database version.
+    'Checks the database version, which was available since version 4.5  From there it will be marked
+    'that Database Version 4.5 compatible hot fix is 7, so from there it will start the update from anything past 
+    '7 ( basically 7 + 1) or start from hot fix 8 which is the next database version.
     Public Sub DoVersioncheck()
         Dim CurVer As String = GetLastDatabaseUpdate()
         Console.WriteLine("Current database Version: " & CurVer)
@@ -52,7 +52,7 @@ Module modHotFixes
                 'ApplyregistryHotfixes(DoToVersion)
         End Select
     End Sub
-    'MOstly for redoing updates, you can pass which hotfix to run by number, used in the db upgrade loop
+    'Mostly for redoing updates, you can pass which hot fix to run by number, used in the db upgrade loop
     'as well as the switch to apply a particular update switch
     Public Sub RunSpecificHotFic(iFix As Integer)
         Select Case iFix
@@ -97,7 +97,7 @@ Module modHotFixes
     End Sub
 
     ''' <summary>
-    ''' Delete all hotfix registry keys to upgrade the database from the start.
+    ''' Delete all hot fix registry keys to upgrade the database from the start.
     ''' </summary>
     Sub RedoAll()
         Call DelRegValue("HotFix", "1", "")
@@ -112,7 +112,7 @@ Module modHotFixes
         'Call DelRegValue("HotFix", "10", "")
         Call DelRegValue("HotFix", "LastUpdate", "")
     End Sub
-    'Hotfix 1 created for MGC version 2.x
+    'Hot fix 1 created for MGC version 2.x
     Sub HotFix_1()
         Dim strUpdateName As String
         strUpdateName = "1"
@@ -129,7 +129,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
-    'Hotfix 2 created for MGC version 3.0
+    'Hot fix 2 created for MGC version 3.0
     Sub HotFix_2()
         Dim strUpdateName As String
         strUpdateName = "2"
@@ -658,7 +658,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
-    'Hot Fix 9 creaated for database version 6.0 and MGC 6.0
+    'Hot Fix 9 created for database version 6.0 and MGC 6.0
     Sub HotFix_9()
         Dim strUpdateName As String
         strUpdateName = "9"
@@ -754,7 +754,7 @@ Module modHotFixes
         Console.WriteLine("HotFix_" & strUpdateName & " was applied!")
         HotFixApplied = True
     End Sub
-    'Hofix 10 for version 6.x or 7.0
+    'Hotfix 10 for version 6.x or 7.0
     Sub HotFix_10()
         Dim strUpdateName As String
         strUpdateName = "10"

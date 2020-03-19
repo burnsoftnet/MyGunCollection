@@ -101,7 +101,7 @@ Public Class frmAddPicture
             Dim sSubFunc As String = "btnAdd.Click"
             Select Case Err.Number
                 Case 5
-                    MsgBox("You are currenly out of memory!" & Chr(13) & " Please close some programs to free up memory")
+                    MsgBox("You are currently out of memory!" & Chr(13) & " Please close some programs to free up memory")
                     Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
                 Case Else
                     Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)

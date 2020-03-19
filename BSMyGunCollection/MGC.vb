@@ -1627,14 +1627,14 @@ Namespace MGC
                     sMsg &= "Please download the last update package or contact support to get your database up-to-date." & Chr(10)
                     sMsg &= "The Application will still run, but you might notice some errors until you are properly upgraded."
                     If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then
-                        sMsg &= Chr(10) & "Do you wish to run the hotfix file?"
+                        sMsg &= Chr(10) & "Do you wish to run the hot fix file?"
                         Dim sans As String
                         sans = MsgBox(sMsg, MsgBoxStyle.YesNo)
                         If sans = vbYes Then
-                            'The midparent1.run hotfix would also active the load on the form, which caused an error
+                            'The midparent1.run hot fix would also active the load on the form, which caused an error
                             'Call MDIParent1.RunHotFix()
                             'TODO  I don't like the error that appears when this occurs
-                            'TODO Test to make sure this doen't happen elswhere
+                            'TODO Test to make sure this doesn't happen elsewhere
                             DoAutoBackup = False
                             Dim myProcess As New Process
                             myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
