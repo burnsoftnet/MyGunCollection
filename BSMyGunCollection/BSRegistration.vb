@@ -28,14 +28,14 @@ Public Class BSRegistration
         Else
             sMessage = "This is a invalid Key!" & Chr(10)
             sMessage &= "Please try again, or contact" & Chr(10)
-            sMessage &= "Customer support to make sure that you have a vaild" & Chr(10)
+            sMessage &= "Customer support to make sure that you have a valid" & Chr(10)
             sMessage &= "registration key." & Chr(10)
             MsgBox(sMessage, MsgBoxStyle.Critical, "BurnSoft Registration")
             Global.System.Windows.Forms.Application.Exit()
         End If
         oReg = Nothing
     End Sub
-    'Cancel Button just in case the user desides not to register
+    'Cancel Button just in case the user decides not to register
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Global.System.Windows.Forms.Application.Exit()
     End Sub

@@ -359,7 +359,7 @@ Module modDatabase
         Conn = Nothing
         Return bAns
     End Function
-    'Set the main pciture of the firearm collection
+    'Set the main picture of the firearm collection
     Sub SetMainPictures()
         Dim Conn As ADODB.Connection
         Conn = New ADODB.Connection
@@ -427,7 +427,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
-    'New in version 6, get the unique names of the appriaser and put the in the appriser contact table
+    'New in version 6, get the unique names of the appriaser and put the in the appraiser contact table
     Sub MoveAppraisers()
         'ValueDoesExist
         Dim Conn As OdbcConnection
@@ -515,7 +515,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
-    'Save the Thumbnail of the picture by ID and the file name and location or the orginal
+    'Save the Thumbnail of the picture by ID and the file name and location or the original
     'to save it to the database as a thumbnail.
     Sub SaveAsThumb(ByVal MyID As Long, ByVal sFileName As String)
         Dim MyConn As New ADODB.Connection
@@ -554,7 +554,7 @@ Module modDatabase
         MyConn = Nothing
     End Sub
     'Convert all the picture to have a thumbnail, this was new in version 4.0
-    'to solve the issue of the orginal pics being create as thumbnails on load.
+    'to solve the issue of the original pics being create as thumbnails on load.
     'that method cause performance issue so thumbnails where created
     Sub ConvertPicsDB()
         Dim Conn As OdbcConnection
@@ -661,7 +661,7 @@ Module modDatabase
         Conn = Nothing
         Return lAns
     End Function
-    'Connect to the database and issue an SQL Statment
+    'Connect to the database and issue an SQL Statement
     Public Sub ConnExec(ByVal strSQL As String)
         Dim Conn As OdbcConnection
         Conn = New OdbcConnection("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=" & DATABASEPASSWORD)
@@ -746,7 +746,7 @@ Module modDatabase
         End Try
         Conn = Nothing
     End Sub
-    'Save the current or new database version at the end of a hotfix
+    'Save the current or new database version at the end of a hot fix
     Public Sub SaveDatabaseVersion(ByVal newVer As String)
         Try
             Dim SQL As String = "INSERT INTO DB_Version (dbver,dta) VALUES('" & _
@@ -781,7 +781,7 @@ Module modDatabase
         Conn = Nothing
         Return sAns
     End Function
-    'Add the sync colum to the selected table
+    'Add the sync column to the selected table
     Public Sub AddSyncToTable(ByVal sNewTableName As String, Optional ByVal UpdateField As Boolean = False, Optional ByVal SyncTableName As String = "sync_tables")
         Try
             If Not ValueDoesExist(SyncTableName, "tblname", sNewTableName) Then Call ConnExec("INSERT INTO " & SyncTableName & " (tblname) VALUES('" & sNewTableName & "')")

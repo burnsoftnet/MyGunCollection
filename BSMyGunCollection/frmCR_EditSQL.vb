@@ -26,7 +26,7 @@ Public Class frmCR_EditSQL
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'when for first loas
+    'when for first load
     Private Sub frmCR_EditSQL_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         If RID > 0 Then
             Call LoadData()

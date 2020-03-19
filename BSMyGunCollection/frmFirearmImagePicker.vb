@@ -11,7 +11,7 @@ Public Class frmFirearmImagePicker
     Dim RightButtonIndex As Long
     Dim CurrentIndex As Long
     Dim MaxItems As Long
-    'Calculate the Propertiona Size of an Image by passing the image size and the MaxSize or Height of the image
+    'Calculate the Propertional Size of an Image by passing the image size and the MaxSize or Height of the image
     'to return the new size.  The Max Width and Height is the parameters of the container
     Public Function ProportionalSize(ByVal imageSize As Size, ByVal MaxW_MaxH As Size) As Size
         Dim multBy As Double = 1.01
@@ -68,7 +68,7 @@ Public Class frmFirearmImagePicker
     End Sub
     'Initialize the arrays and load them with information from the database
     ' Load the Picture ID's in one Array, the Firearm ID in another array
-    ' and the Fulle Name in the last array
+    ' and the Full Name in the last array
     Sub LoadArrays()
         Try
             PicArray = New ArrayList
@@ -97,7 +97,7 @@ Public Class frmFirearmImagePicker
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Update the indexes for what to display now, and load the buttonn for what was last and what is next
+    'Update the indexes for what to display now, and load the button for what was last and what is next
     Sub UpdateIndexes(IndexClicked As Long)
         If IndexClicked = 0 Then
             CurrentIndex = 0
@@ -183,7 +183,7 @@ Public Class frmFirearmImagePicker
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
     End Sub
-    'Resie the form and the components to fill the work space of the mdi parent.
+    'Resize the form and the components to fill the work space of the mdi parent.
     Sub sizeForm()
         Dim WorkspaceWidth As Double = Me.MdiParent.Size.Width - MDIParent1.Panel1.Size.Width - 30
         Dim WorkspaceHeight As Double = Me.MdiParent.Size.Height - 145

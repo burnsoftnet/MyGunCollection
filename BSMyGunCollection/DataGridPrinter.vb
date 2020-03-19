@@ -308,7 +308,7 @@ Public Class DataGridPrinter
 #Region "_GridPrintDocument events"
     Private Sub _GridPrintDocument_BeginPrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs) Handles _GridPrintDocument.BeginPrint
 
-        '\\ Initialise the current page and current grid line variables
+        '\\ Initialize the current page and current grid line variables
         _CurrentPrintGridLine = 1
         _CurrentPageDown = 1
         _CurrentPageAcross = 1
@@ -641,7 +641,7 @@ Public Class DataGridPrinter
 #Region "Public constructors"
 
     Public Sub New(ByVal Grid As DataGrid)
-        '\\ Initialise the bits we need to use later
+        '\\ Initialize the bits we need to use later
         _GridPrintDocument = New PrintDocument
         _DataGrid = Grid
 

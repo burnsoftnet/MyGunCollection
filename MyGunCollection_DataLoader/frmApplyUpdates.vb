@@ -319,7 +319,7 @@ Public Class frmApplyUpdates
             ProgressBar1.Value = i
             ProgressBar1.Refresh()
             Me.Refresh()
-            lblStatusMsg.Text = "Apply Maintanence Plans"
+            lblStatusMsg.Text = "Apply Maintenance Plans"
             lblStatusMsg.Refresh()
             If BMaintPlan Then Call GetMaintPlans()
             i = i + 1

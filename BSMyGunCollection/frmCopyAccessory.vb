@@ -26,7 +26,7 @@ Public Class frmCopyAccessory
         End Try
         Return sAns
     End Function
-    'Perform the Copy Action and copy the accessory back into the same database but accossiated with the selected firearm.
+    'Perform the Copy Action and copy the accessory back into the same database but accosiated with the selected firearm.
     Sub DoCopy(ByVal StrID As String)
         Try
             Dim Obj As New BSDatabase

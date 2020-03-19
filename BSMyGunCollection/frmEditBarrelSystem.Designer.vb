@@ -302,7 +302,7 @@ Partial Class frmEditBarrelSystem
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Main Reciever:"
+        Me.Label1.Text = "Main Receiver:"
         '
         'frmEditBarrelSystem
         '
@@ -340,7 +340,7 @@ Partial Class frmEditBarrelSystem
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmEditBarrelSystem"
-        Me.Text = "Edit Barrel/Converstion Kit System"
+        Me.Text = "Edit Barrel/Conversion Kit System"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

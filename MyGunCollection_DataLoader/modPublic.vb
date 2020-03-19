@@ -37,7 +37,7 @@ Module modPublic
         End If
         MyLogFile = APPLICATION_PATH_DATA & "\dataLoader.err.log"
     End Sub
-    'Format content, usualy for database inserts
+    'Format content, usually for database inserts
     Public Function FluffContent(ByVal strContent As String) As String
         Dim sAns As String = ""
         Try

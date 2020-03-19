@@ -97,7 +97,7 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Perform Auto Fill on the selected textboxes baseed on values in the database to help unify input
+    'Perform Auto Fill on the selected text boxes based on values in the database to help unify input
     Private Sub DoAutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -134,7 +134,7 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'On form Load Will the  some of the droupdown boxes, 
+    'On form Load Will the  some of the dropdown boxes, 
     Private Sub frmAddFirearm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)

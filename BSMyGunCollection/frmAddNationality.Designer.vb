@@ -99,9 +99,9 @@ Partial Class frmAddNationality
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.HelpProvider1.SetHelpKeyword(Me, "Adding Place of Orgin")
+        Me.HelpProvider1.SetHelpKeyword(Me, "Adding Place of Origin")
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
-        Me.HelpProvider1.SetHelpString(Me, "Adding Place of Orgin")
+        Me.HelpProvider1.SetHelpString(Me, "Adding Place of Origin")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

@@ -57,10 +57,10 @@ Module ModMain
     '    End If
     'End Sub
 
-    'Two convertpics subs, since one option was for stand alone by removing and
+    'Two convert pics subs, since one option was for stand alone by removing and
     'adding the password itself, it would conflict with the hotfix patch since
     'it already removed it, and still need to run other fixes before adding it back on
-    'so this convertpicshf has the remove and add password subs removed from it
+    'so this convert pics hf has the remove and add password subs removed from it
     Sub ConvertPicsHF()
         Try
             Dim sAns As String = vbYes
@@ -74,7 +74,7 @@ Module ModMain
             Console.WriteLine(vbTab & "All Pictures now have it's own thumbnail")
         Catch ex As Exception
             Call LogError("ModMain::ConvertPicsHF", "RunApp", Err.Number, ex.Message.ToString)
-            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
+            Console.WriteLine("An Error Occurred: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub
@@ -90,7 +90,7 @@ Module ModMain
             If ConvertPicsOnly Then Console.Read()
         Catch ex As Exception
             Call LogError("ModMain", "RunApp", Err.Number, ex.Message.ToString)
-            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
+            Console.WriteLine("An Error Occurred: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub
@@ -117,7 +117,7 @@ Module ModMain
             End If
         Catch ex As Exception
             Call LogError("ModMain", "RunApp", Err.Number, ex.Message.ToString)
-            Console.WriteLine("Error occured: " & ex.Message.ToString & " Press any ley to continue")
+            Console.WriteLine("Error occurred: " & ex.Message.ToString & " Press any ley to continue")
             Console.Read()
         End Try
     End Sub
@@ -128,7 +128,7 @@ Module ModMain
         Console.WriteLine("Support and Updates at http://www.burnsoft.net")
         Console.WriteLine("")
     End Sub
-    'Makesure the process is not running, if so, kill it.
+    'Make sure the process is not running, if so, kill it.
     Private Sub CloseProcessesByName(processName As String)
         For Each p As Process In Process.GetProcessesByName(processName)
             ' Ask nicely for the process to close.
@@ -171,8 +171,8 @@ Module ModMain
 
             bsreg = Nothing
         Catch ex As Exception
-            Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString
-            Console.WriteLine("An Error Occured: " & ex.Message.ToString & " Press any key to continue!")
+            Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString)
+            Console.WriteLine("An Error Occurred: " & ex.Message.ToString & " Press any key to continue!")
             Console.Read()
         End Try
     End Sub

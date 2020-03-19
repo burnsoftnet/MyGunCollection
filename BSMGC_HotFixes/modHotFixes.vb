@@ -36,19 +36,19 @@ Module modHotFixes
             Case "4.5"
                 DoToVersion = 7
                 AppliedregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
+                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, applying hotfixes after this version.")
                 ApplyregistryHotfixes(DoToVersion)
             Case "5.0"
                 DoToVersion = 8
                 AppliedregistryHotfixes(DoToVersion)
-                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
+                Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, applying hotfixes after this version.")
                 ApplyregistryHotfixes(DoToVersion)
             Case "6.0"
                 'Database Version was jumped to match the current version of the application
                 'technically true, but was different since we started late in this.
                 'DoToVersion = 9
                 'AppliedregistryHotfixes(DoToVersion)
-                'Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, appling hotfixes after this version.")
+                'Console.WriteLine("Last Database hotfix was " & DoToVersion & " for this database, applying hotfixes after this version.")
                 'ApplyregistryHotfixes(DoToVersion)
         End Select
     End Sub
@@ -476,7 +476,7 @@ Module modHotFixes
         Console.WriteLine(vbTab & "Creating Database Version Table.")
         SQL = "CREATE TABLE DB_Version(ID AUTOINCREMENT PRIMARY KEY,dbver TEXT(255),dta DATETIME);"
         Call RunSQL(SQL)
-        Console.WriteLine(vbTab & "Updating Maintanence Tables")
+        Console.WriteLine(vbTab & "Updating Maintenance Tables")
         Call AddColumn("BSID", "Maintance_Details", "N/A", "number")
         Call AddColumn("DC", "Maintance_Details", "N/A", "number")
         SQL = "UPDATE Maintance_Details set DC=1"
@@ -617,7 +617,7 @@ Module modHotFixes
     Sub HotFix_8()
         Dim strUpdateName As String
         strUpdateName = "8"
-        'This Hotfix is to create the ablity to sync the database if you have more then one computer
+        'This Hotfix is to create the ability to sync the database if you have more then one computer
         Dim DBVersion As String = "5.0"
         Dim DBVerHasChanged As Boolean = True
         Dim sValue As String = ""

@@ -78,9 +78,9 @@ Partial Class frmEditAmmunitionType
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(265, 343)
         Me.Controls.Add(Me.DataGridView1)
-        Me.HelpProvider1.SetHelpKeyword(Me, "Editing Ammuntion Type")
+        Me.HelpProvider1.SetHelpKeyword(Me, "Editing Ammunition Type")
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
-        Me.HelpProvider1.SetHelpString(Me, "Editing Ammuntion Type")
+        Me.HelpProvider1.SetHelpString(Me, "Editing Ammunition Type")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmEditAmmunitionType"
         Me.HelpProvider1.SetShowHelp(Me, True)

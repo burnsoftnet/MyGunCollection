@@ -1539,7 +1539,7 @@ Partial Class frmViewCollectionDetails
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(136, 13)
         Me.Label52.TabIndex = 6
-        Me.Label52.Text = "Total Appriased Value:"
+        Me.Label52.Text = "Total Appraised Value:"
         '
         'lblTPV
         '

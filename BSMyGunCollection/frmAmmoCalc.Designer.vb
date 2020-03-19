@@ -239,9 +239,9 @@ Partial Class frmAmmoCalc
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnFinish)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.HelpProvider1.SetHelpKeyword(Me, "Ammo Calaculator")
+        Me.HelpProvider1.SetHelpKeyword(Me, "Ammo Calculator")
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
-        Me.HelpProvider1.SetHelpString(Me, "Ammo Calaculator")
+        Me.HelpProvider1.SetHelpString(Me, "Ammo Calculator")
         Me.Name = "frmAmmoCalc"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Ammo Calculator"

@@ -9,7 +9,7 @@ Module ModGlobal
     Public Const RegKey = "Software\\BurnSoft\\BSMGC"
     Public Const MyLogFile = "mgchf_err.log"
     Public Const DebugLogFile = "hotfix.debug.log"
-    Public Const ProductName = "My Gun Collector"
+    Public Const ProductName = "My Gun Collecton"
     Public Const HFVer = "6.0"
     Public SUPPRESS_CONSOLE_ERRORS
     Public APPLICATION_PATH_DATA As String
@@ -88,13 +88,13 @@ Module ModGlobal
             End If
         End Try
     End Sub
-    'This doesn't retuen anything, you might be able to delete
+    'This doesn't return anything, you might be able to delete
     Sub RegHotfixExists()
         Dim BSReg As New BSRegistry
         Dim MyRead As String
         MyRead = BSReg.GetRegSubKeyValue(RegKey & "\\HotFix", "LastUpdate")
     End Sub
-    'check to see if a hotfix exists from the registry
+    'check to see if a hot fix exists from the registry
     Function HotFixExists(ByRef strID As String) As Boolean
         Dim bAns As Boolean = False
         Dim BSReg = New BSRegistry
@@ -107,12 +107,12 @@ Module ModGlobal
         End If
         HotFixExists = bAns
     End Function
-    'this will get the last hostfix that was applied
+    'this will get the last hotfix that was applied
     Sub UpdateLastUpdate(ByRef strUpdate As String)
         Dim BSReg As New BSRegistry
         Call BSReg.SaveRegValue(RegKey & "\HotFix", "LastUpdate", strUpdate)
     End Sub
-    'Save and mark the hotfix as being applied in the registry
+    'Save and mark the hot fix as being applied in the registry
     Sub AppliedUpdates(ByRef strUpdate As String)
         Dim BSReg As New BSRegistry
         Call BSReg.SaveRegValue(RegKey & "\HotFix", strUpdate, CStr(Now))
@@ -127,7 +127,7 @@ Module ModGlobal
         Dim BSReg As New BSRegistry
         Call BSReg.SaveRegValue(RegKey & "\" & strKey, strValue, strParameter)
     End Sub
-    'Convet a string value to a Double Value, This was mostly used when convering the grains string to a 
+    'Convert a string value to a Double Value, This was mostly used when converting the grains string to a 
     'double to help with proper table sorting when the user clicked on the grains table header
     Public Function ConvToNum(ByVal strValue As String) As Double
         Dim dAns As Double : dAns = 0

@@ -24,7 +24,7 @@ Public Class frmCR_SelectTable
         End Try
         Return sAns
     End Function
-    'Load the comboboxes from the datasets and resize the for if it does or doesn't have any saved reports.
+    'Load the combo boxes from the datasets and resize the for if it does or doesn't have any saved reports.
     Sub LoadData()
         Try
             Me.CR_SavedReportsTableAdapter.Fill(Me.MGCDataSet.CR_SavedReports)

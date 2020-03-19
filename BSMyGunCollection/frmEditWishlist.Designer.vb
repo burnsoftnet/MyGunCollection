@@ -195,9 +195,9 @@ Partial Class frmEditWishlist
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.HelpProvider1.SetHelpKeyword(Me, "Edit Item in Wishlist")
+        Me.HelpProvider1.SetHelpKeyword(Me, "Edit Item in Wish list")
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
-        Me.HelpProvider1.SetHelpString(Me, "Edit Item in Wishlist")
+        Me.HelpProvider1.SetHelpString(Me, "Edit Item in Wish list")
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

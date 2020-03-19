@@ -212,7 +212,7 @@ Namespace Cyhper
             ' If the top most bit (&H80000000) was set we need to do things differently
             ' as in a normal VB signed long integer the top most bit is used to indicate
             ' the sign of the number, when it is set it is a negative number, so just
-            ' deviding by a factor of 2 as above would not work.
+            ' dividing by a factor of 2 as above would not work.
             ' NOTE: (lValue And  &H80000000) is equivalent to (lValue < 0), you could
             ' get a very marginal speed improvement by changing the test to (lValue < 0)
             If (lValue And &H80000000) Then
@@ -535,7 +535,7 @@ Namespace Cyhper
         ' NOTE: Due to the way in which the string is processed the routine assumes a
         ' single byte character set. VB passes unicode (2-byte) character strings, the
         ' ConvertToWordArray function uses on the first byte for each character. This
-        ' has been done this way for ease of use, to make the routine truely portable
+        ' has been done this way for ease of use, to make the routine truly portable
         ' you could accept a byte array instead, it would then be up to the calling
         ' routine to make sure that the byte array is generated from their string in
         ' a manner consistent with the string type.
@@ -572,7 +572,7 @@ Namespace Cyhper
             ' Steps 1 and 2.  Append padding bits and length and convert to words
             x = ConvertToWordArray(sMessage)
 
-            ' Step 3.  Initialise
+            ' Step 3.  Initialize
             a = &H67452301
             b = &HEFCDAB89
             c = &H98BADCFE
