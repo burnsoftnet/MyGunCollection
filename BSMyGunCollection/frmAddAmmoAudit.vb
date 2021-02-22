@@ -1,11 +1,31 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddAmmoAudit.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddAmmoAudit
+    ''' <summary>
+    ''' The aid
+    ''' </summary>
     Public AID As Long
+    ''' <summary>
+    ''' The current count
+    ''' </summary>
     Public CurrentCount As String
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim iQty As Integer = nudQty.Value
@@ -23,8 +43,8 @@ Public Class frmAddAmmoAudit
                     lTotal = CLng(CurrentCount) + CLng(iQty)
                     SQL = "UPDATE Gun_Collection_Ammo set Qty=" & lTotal & " where id=" & AID
                     Obj.ConnExec(SQL)
-                    SQL = "INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,store,sync_lastupdate) " & _
-                                    "VALUES(" & AID & ",'" & sDate & "'," & iQty & "," & dPrice & "," & PPB & _
+                    SQL = "INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,store,sync_lastupdate) " &
+                                    "VALUES(" & AID & ",'" & sDate & "'," & iQty & "," & dPrice & "," & PPB &
                                     ",'" & Store & "',Now())"
                     Obj.ConnExec(SQL)
                 ElseIf iNumBox > 1 Then
@@ -32,8 +52,8 @@ Public Class frmAddAmmoAudit
                     SQL = "UPDATE Gun_Collection_Ammo set Qty=" & lTotal & " where id=" & AID
                     Obj.ConnExec(SQL)
                     For i = 1 To iNumBox
-                        SQL = "INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,store,sync_lastupdate) " & _
-                                    "VALUES(" & AID & ",'" & sDate & "'," & iQty & "," & dPrice & "," & PPB & _
+                        SQL = "INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,store,sync_lastupdate) " &
+                                    "VALUES(" & AID & ",'" & sDate & "'," & iQty & "," & dPrice & "," & PPB &
                                     ",'" & Store & "',Now())"
                         Obj.ConnExec(SQL)
                     Next i

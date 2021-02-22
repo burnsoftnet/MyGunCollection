@@ -1,5 +1,12 @@
+''' <summary>
+''' Export the results from a report to a files in varies formats
+''' </summary>
 Module ExportModule
-
+    ''' <summary>
+    ''' Oses the specified word.
+    ''' </summary>
+    ''' <param name="Word">The word.</param>
+    ''' <returns>System.String.</returns>
     Private Function OS(ByVal Word As String) As String
         Try
             Dim i As Integer = Word.IndexOf(".")
@@ -16,7 +23,11 @@ Module ExportModule
         End Try
         Return Word
     End Function
-
+    ''' <summary>
+    ''' Exports the excel.
+    ''' </summary>
+    ''' <param name="Table">The table.</param>
+    ''' <param name="Location">The location.</param>
     Public Sub ExportExcel(ByVal Table As DataTable, ByVal Location As String)
         Try
             If My.Computer.FileSystem.FileExists(Location) Then My.Computer.FileSystem.DeleteFile(Location)
@@ -103,7 +114,11 @@ Module ExportModule
             ObjFS.LogFile(MyLogFile, sMessage)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Exports the XML.
+    ''' </summary>
+    ''' <param name="Table">The table.</param>
+    ''' <param name="Location">The location.</param>
     Public Sub ExportXML(ByVal Table As DataTable, ByVal Location As String)
         Try
             Using Writer As New System.Xml.XmlTextWriter(Location, System.Text.Encoding.UTF8)
@@ -121,7 +136,11 @@ Module ExportModule
             ObjFS.LogFile(MyLogFile, sMessage)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Exports the HTML.
+    ''' </summary>
+    ''' <param name="Table">The table.</param>
+    ''' <param name="Location">The location.</param>
     Public Sub ExportHTML(ByVal Table As DataTable, ByVal Location As String)
         Try
             Using Writer As New System.IO.StreamWriter(Location)
@@ -156,7 +175,11 @@ Module ExportModule
             ObjFS.LogFile(MyLogFile, sMessage)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Exports the text.
+    ''' </summary>
+    ''' <param name="Table">The table.</param>
+    ''' <param name="Location">The location.</param>
     Public Sub ExportText(ByVal Table As DataTable, ByVal Location As String)
         Try
             Using Writer As New System.IO.StreamWriter(Location)
@@ -190,7 +213,11 @@ Module ExportModule
             ObjFS.LogFile(MyLogFile, sMessage)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Exports the CSV.
+    ''' </summary>
+    ''' <param name="Table">The table.</param>
+    ''' <param name="Location">The location.</param>
     Public Sub ExportCSV(ByVal Table As DataTable, ByVal Location As String)
         Try
             Using Writer As New System.IO.StreamWriter(Location)

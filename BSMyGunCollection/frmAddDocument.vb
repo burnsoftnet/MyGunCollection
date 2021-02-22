@@ -4,13 +4,36 @@ Imports System.Data
 Imports System.Data.Odbc
 Imports ADODB
 Imports System.Data.OleDb
+''' <summary>
+''' Class frmAddDocument.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddDocument
+    ''' <summary>
+    ''' The selected file type
+    ''' </summary>
     Dim SelectedFileType As Integer
+    ''' <summary>
+    ''' The gid
+    ''' </summary>
     Public GID As Long
+    ''' <summary>
+    ''' The did
+    ''' </summary>
     Public DID As Long
+    ''' <summary>
+    ''' The edit mode
+    ''' </summary>
     Public EditMode As Boolean
+    ''' <summary>
+    ''' The file was selected
+    ''' </summary>
     Dim FileWasSelected As Boolean
-    'Get the ID of the last document that was inserted
+    ''' <summary>
+    ''' Get the ID of the last document that was inserted
+    ''' </summary>
+    ''' <returns>System.Int64.</returns>
     Function GetLastID() As Long
         Dim lAns As Long = 0
         Try
@@ -34,16 +57,14 @@ Public Class frmAddDocument
         End Try
         Return lAns
     End Function
-    'Ran after the document has been inserted into the database, this will check to see if a GID was passed, if so 
-    ' then it will get the last ID of the document and link it with the firearm.
+    ''' <summary>
+    ''' Ran after the document has been inserted into the database, this will check to see if a GID was passed, if so 
+    ''' then it will get the last ID of the document and link it with the firearm.
+    ''' </summary>
     Sub CheckForLink()
         Try
             If GID > 0 Then
                 Dim DID As Long = GetLastID()
-                'Dim Obj As New BSDatabase
-                'Dim SQL As String = "INSERT INTO Gun_Collection_Docs_Links (GID,DID) VALUES(" & GID & "," & DID & ")"
-                'Obj.ConnExec(SQL)
-                'Obj = Nothing
                 PerformDocLink(GID, DID)
             End If
         Catch ex As Exception
@@ -51,7 +72,12 @@ Public Class frmAddDocument
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Link the document to the firearm
+    ''' <summary>
+    ''' Link the document to the firearm
+    ''' </summary>
+    ''' <param name="FirearmID">The firearm identifier.</param>
+    ''' <param name="DocumentID">The document identifier.</param>
+    ''' <returns>BookmarkEnum.</returns>
     Public Function PerformDocLink(FirearmID As Long, DocumentID As Long) As BookmarkEnum
         Dim bAns As BookmarkEnum = False
         Try
@@ -66,7 +92,11 @@ Public Class frmAddDocument
         End Try
         Return bAns
     End Function
-    'Get the Document from the Hard Drive and return the byte version to be inserted into the database.
+    ''' <summary>
+    ''' Get the Document from the Hard Drive and return the byte version to be inserted into the database.
+    ''' </summary>
+    ''' <param name="p">The p.</param>
+    ''' <returns>System.Byte().</returns>
     Private Function GetDocFromHDD(p As String) As Byte()
         Dim btAns As Byte() = Nothing
         Try
@@ -82,7 +112,10 @@ Public Class frmAddDocument
         End Try
         Return btAns
     End Function
-    'Insert or update the document and detail based on the Editmode switch
+    ''' <summary>
+    ''' Insert or update the document and detail based on the Editmode switch
+    ''' </summary>
+    ''' <param name="DocPath">The document path.</param>
     Public Sub InsertDoc(DocPath As String)
         Try
             'Might not even you the doc type thumbnail for now.
@@ -141,7 +174,10 @@ Public Class frmAddDocument
         End Try
 
     End Sub
-    'update the document and detail based on the Editmode switch
+    ''' <summary>
+    ''' update the document and detail based on the Editmode switch
+    ''' </summary>
+    ''' <param name="DocPath">The document path.</param>
     Public Sub UpdateDoc(DocPath As String)
         Dim SQL As String = ""
         Try
@@ -155,7 +191,7 @@ Public Class frmAddDocument
             If FileWasSelected Then
                 SQL = "update Gun_Collection_Docs set doc_name=@doc_name,doc_description=@doc_description,doc_cat=@doc_cat,doc_filename=@doc_filename,doc_file=@doc_file,length=@length,doc_ext=@doc_ext where id=@did"
             Else
-                Sql = "update Gun_Collection_Docs set doc_name=@doc_name,doc_description=@doc_description,doc_cat=@doc_cat where id=@did"
+                SQL = "update Gun_Collection_Docs set doc_name=@doc_name,doc_description=@doc_description,doc_cat=@doc_cat where id=@did"
             End If
 
             Dim addDoc As OleDbCommand = Conn.CreateCommand
@@ -187,7 +223,11 @@ Public Class frmAddDocument
             Call LogError(Me.Name, sSubFunc, Err.Number, sMsg)
         End Try
     End Sub
-    'Get the document type based on the index from teh Dialog box
+    ''' <summary>
+    ''' Get the document type based on the index from teh Dialog box
+    ''' </summary>
+    ''' <param name="selectedIndex">Index of the selected.</param>
+    ''' <returns>System.String.</returns>
     Function getDocType(selectedIndex As Integer) As String
         Dim sAns As String = ""
 
@@ -209,8 +249,12 @@ Public Class frmAddDocument
         End Select
         Return sAns
     End Function
-    'Action to take once the browse button is clicked
-    'This will allow the user to select the document to inert into the database
+    ''' <summary>
+    ''' Action to take once the browse button is clicked
+    ''' This will allow the user to select the document to inert into the database
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnBrowse_Click(sender As System.Object, e As System.EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 1
@@ -226,7 +270,11 @@ Public Class frmAddDocument
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Add/Save Button, when the user is ready they click this button to start the Add/Save data from the form details they filled out
+    ''' <summary>
+    ''' Add/Save Button, when the user is ready they click this button to start the Add/Save data from the form details they filled out
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
         If Not EditMode Then
             Call InsertDoc(lblSelectedDoc.Text)
@@ -234,7 +282,9 @@ Public Class frmAddDocument
             Call UpdateDoc(lblSelectedDoc.Text)
         End If
     End Sub
-    'Load the data when in edit mode, to mostly prepopulate the fields and the file they selected.
+    ''' <summary>
+    ''' Load the data when in edit mode, to mostly prepopulate the fields and the file they selected.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
@@ -259,13 +309,19 @@ Public Class frmAddDocument
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Form on Load
+    ''' <summary>
+    ''' Form on Load
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddDocument_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Call LoadAutoFill()
         FileWasSelected = False
         If EditMode Then Call LoadData()
     End Sub
-    'Load AUto Fill for texboxes
+    ''' <summary>
+    ''' Load AUto Fill for texboxes
+    ''' </summary>
     Sub LoadAutoFill()
         Dim ObjAF As New AutoFillCollections
         txtCat.AutoCompleteCustomSource = ObjAF.Document_Category

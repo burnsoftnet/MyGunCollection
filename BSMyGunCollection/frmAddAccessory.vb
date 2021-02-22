@@ -1,11 +1,31 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddAccessory.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddAccessory
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
     Public ItemID As String
+    ''' <summary>
+    ''' The is shot gun
+    ''' </summary>
     Public IsShotGun As Boolean
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
@@ -24,8 +44,8 @@ Public Class frmAddAccessory
             If Not IsRequired(strModel, "Model", Me.Text) Then Exit Sub
 
             Dim Obj As New BSDatabase
-            Dim SQL As String = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,AppValue,CIV,IC,sync_lastupdate) VALUES(" & _
-                    ItemID & ",'" & strMan & "','" & strModel & "','" & strSerial & "','" & strCondition & "','" & _
+            Dim SQL As String = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,AppValue,CIV,IC,sync_lastupdate) VALUES(" &
+                    ItemID & ",'" & strMan & "','" & strModel & "','" & strSerial & "','" & strCondition & "','" &
                     strNotes & "','" & strUse & "','" & strPurVal & "'," & dAppValue & "," & iCIV & "," & iIC & ",Now())"
             Obj.ConnExec(SQL)
             Me.Close()
@@ -34,7 +54,11 @@ Public Class frmAddAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Load event of the frmAddAccessory control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddAccessory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Label10.Visible = IsShotGun

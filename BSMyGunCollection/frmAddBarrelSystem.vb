@@ -1,7 +1,18 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmAddBarrelSystem.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddBarrelSystem
+    ''' <summary>
+    ''' The gid
+    ''' </summary>
     Public GID As Long
+    ''' <summary>
+    ''' Automatics the fill.
+    ''' </summary>
     Sub AutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -18,6 +29,9 @@ Public Class frmAddBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim SQL As String = "SELECT * from Gun_Collection where ID=" & GID
@@ -47,11 +61,20 @@ Public Class frmAddBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmAddBarrelSystem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddBarrelSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call AutoFill()
         Call LoadData()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim Obj As New BSDatabase
@@ -83,18 +106,18 @@ Public Class frmAddBarrelSystem
                 iDefault = 0
             End If
 
-            SQL = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
-                    GID & ",'" & sName & "','" & Cal & "','" & StockFinish & "','" & BarLen & _
-                    "','" & PetLoads & "','" & fAction & "','" & FeedSys & "','" & Sights & "','" & _
-                    PurPrice & "','" & PurFrom & "',DATE(),'" & OvalLen & "','" & SysType & _
+            SQL = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
+                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
+                    GID & ",'" & sName & "','" & Cal & "','" & StockFinish & "','" & BarLen &
+                    "','" & PetLoads & "','" & fAction & "','" & FeedSys & "','" & Sights & "','" &
+                    PurPrice & "','" & PurFrom & "',DATE(),'" & OvalLen & "','" & SysType &
                     "'," & iDefault & ",Now())"
 
 
             Obj.ConnExec(SQL)
             Dim BarrelID As Long = ObjGF.GetBarrelID(GID)
             Dim DefaultBarrelId As Long = 0
-            SQL = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & BarrelID & _
+            SQL = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & BarrelID &
                     "," & GID & ",Now())"
             Obj.ConnExec(SQL)
 
@@ -113,7 +136,11 @@ Public Class frmAddBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
