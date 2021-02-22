@@ -1,16 +1,43 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmAmmoCalc.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAmmoCalc
+    ''' <summary>
+    ''' The ammo type
+    ''' </summary>
     Public AmmoType As String
+    ''' <summary>
+    ''' The ammo type pet
+    ''' </summary>
     Public AmmoTypePet As String
+    ''' <summary>
+    ''' The ammo type cal3
+    ''' </summary>
     Public AmmoTypeCal3 As String
+    ''' <summary>
+    ''' The ammo used
+    ''' </summary>
     Public AmmoUsed As String
+    ''' <summary>
+    ''' Handles the Click event of the Button1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinish.Click
         If chkbxUI.Checked Then Call UpdateInventory()
         frmAddMaintance.NumericUpDown1.Value = CInt(lblTotal.Text)
         frmAddMaintance.txtAmmoUsed.Text = AmmoUsed
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Currents the qty.
+    ''' </summary>
+    ''' <param name="intID">The int identifier.</param>
+    ''' <returns>System.Int32.</returns>
     Function CurrentQty(ByVal intID As Integer) As Integer
         Dim iAns As Integer = 0
         Try
@@ -33,6 +60,9 @@ Public Class frmAmmoCalc
         End Try
         Return iAns
     End Function
+    ''' <summary>
+    ''' Updates the inventory.
+    ''' </summary>
     Sub UpdateInventory()
         Try
             Dim iAns As Integer = 0
@@ -60,6 +90,11 @@ Public Class frmAmmoCalc
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Updates the qty.
+    ''' </summary>
+    ''' <param name="intID">The int identifier.</param>
+    ''' <param name="intQty">The int qty.</param>
     Sub UpdateQty(ByVal intID As Integer, ByVal intQty As Integer)
         Try
             Dim SQL As String = "UPDATE Gun_Collection_Ammo set Qty=" & intQty & ",sync_lastupdate=Now() where id=" & intID
@@ -70,6 +105,10 @@ Public Class frmAmmoCalc
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Converts to tal.
+    ''' </summary>
+    ''' <returns>System.Int32.</returns>
     Function EndingTotal() As Integer
         Dim iAns As Integer = 0
         Try
@@ -86,6 +125,11 @@ Public Class frmAmmoCalc
         End Try
         Return iAns
     End Function
+    ''' <summary>
+    ''' Handles the Load event of the frmAmmoCalc control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAmmoCalc_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             If Len(AmmoTypePet) = 0 And Len(AmmoTypeCal3) = 0 Then
@@ -101,6 +145,11 @@ Public Class frmAmmoCalc
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim intCurInv As Integer = CInt(txtCurQty.Text)
@@ -128,9 +177,19 @@ Public Class frmAmmoCalc
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         txtCurQty.Text = CStr(CurrentQty(ComboBox1.SelectedValue))
     End Sub

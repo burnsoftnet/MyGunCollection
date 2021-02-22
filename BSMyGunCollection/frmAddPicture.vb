@@ -3,8 +3,21 @@ Imports BSMyGunCollection.MGC
 Imports System.Data
 Imports System.Data.Odbc
 Imports ADODB
+''' <summary>
+''' Class frmAddPicture.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddPicture
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
     Public ItemID As String
+    ''' <summary>
+    ''' Handles the Click event of the btnBrowse control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 3
@@ -15,6 +28,11 @@ Public Class frmAddPicture
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Determines whether [is first pic] [the specified string cid].
+    ''' </summary>
+    ''' <param name="strCID">The string cid.</param>
+    ''' <returns><c>true</c> if [is first pic] [the specified string cid]; otherwise, <c>false</c>.</returns>
     Function IsFirstPic(ByVal strCID As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -39,6 +57,11 @@ Public Class frmAddPicture
         End Try
         Return bAns
     End Function
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             If Len(OpenFileDialog1.FileName) = 0 Then
@@ -65,7 +88,7 @@ Public Class frmAddPicture
             Dim myBitmap As System.Drawing.Image
             myBitmap = System.Drawing.Image.FromFile(OpenFileDialog1.FileName)
             Dim myPicCallback As System.Drawing.Image.GetThumbnailImageAbort = Nothing
-            myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback, _
+            myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
                 IntPtr.Zero)
             myBitmap.Dispose()
             System.IO.File.Delete(sThumbName)
@@ -110,7 +133,11 @@ Public Class frmAddPicture
         Me.Cursor = Cursors.Arrow
         Me.Enabled = True
     End Sub
-
+    ''' <summary>
+    ''' Handles the Load event of the frmAddPicture control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddPicture_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub

@@ -1,9 +1,23 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddManufacturer.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddManufacturer
+    ''' <summary>
+    ''' Handles the Click event of the Button2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
@@ -25,7 +39,11 @@ Public Class frmAddManufacturer
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Load event of the frmAddManufacturer control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddManufacturer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Dim ObjAF As New AutoFillCollections
@@ -35,7 +53,11 @@ Public Class frmAddManufacturer
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Converts to p_checkedchanged.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub chkKTop_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkKTop.CheckedChanged
         Me.TopMost = chkKTop.Checked
         Me.MdiParent = Nothing

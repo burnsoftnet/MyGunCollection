@@ -1,10 +1,23 @@
 ﻿Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddFirearmClassification.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddFirearmClassification
-
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim strClass As String = FluffContent(txtClass.Text)

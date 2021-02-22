@@ -1,5 +1,13 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddToWishList.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddToWishList
+    ''' <summary>
+    ''' Does the automatic fill.
+    ''' </summary>
     Private Sub DoAutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -12,9 +20,19 @@ Public Class frmAddToWishList
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim ObjGF As New GlobalFunctions
@@ -32,8 +50,8 @@ Public Class frmAddToWishList
             If Not IsRequired(strValue, "Value", Me.Text) Then Exit Sub
 
             If Not ObjGF.ObjectExistsinDB(strModel, "Model", "Wishlist") Then
-                SQL = "INSERT INTO Wishlist (Manufacturer,Model,PlacetoBuy,Qty,[Value],Notes,sync_lastupdate) VALUES('" & _
-                        strManu & "','" & strModel & "','" & strSS & "','" & strQty & "','" & _
+                SQL = "INSERT INTO Wishlist (Manufacturer,Model,PlacetoBuy,Qty,[Value],Notes,sync_lastupdate) VALUES('" &
+                        strManu & "','" & strModel & "','" & strSS & "','" & strQty & "','" &
                         strValue & "','" & strNotes & "',Now())"
                 Obj.ConnExec(SQL)
             End If
@@ -43,7 +61,11 @@ Public Class frmAddToWishList
         End Try
         Me.Close()
     End Sub
-
+    ''' <summary>
+    ''' Converts to wishlist_load.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddToWishList_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             Call DoAutoFill()

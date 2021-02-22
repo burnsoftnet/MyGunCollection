@@ -2,10 +2,23 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmAddFirearm.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmAddFirearm
+    ''' <summary>
+    ''' The is copy
+    ''' </summary>
     Public IsCopy As Boolean
+    ''' <summary>
+    ''' The copy identifier
+    ''' </summary>
     Public CopyID As String
-    'Load the data on the form from start or refresh is available.
+    ''' <summary>
+    ''' Load the data on the form from start or refresh is available.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
@@ -97,7 +110,9 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Perform Auto Fill on the selected text boxes based on values in the database to help unify input
+    ''' <summary>
+    ''' Perform Auto Fill on the selected text boxes based on values in the database to help unify input
+    ''' </summary>
     Private Sub DoAutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -134,7 +149,11 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'On form Load Will the  some of the dropdown boxes, 
+    ''' <summary>
+    ''' On form Load Will the  some of the dropdown boxes, 
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddFirearm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
@@ -161,6 +180,11 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the GotFocus event of the txtModel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub txtModel_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs)
         Try
             Dim strMan As String = Trim(Replace(txtManu.Text, "'", "''"))
@@ -173,6 +197,11 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim ObjGF As New GlobalFunctions
@@ -250,19 +279,19 @@ Public Class frmAddFirearm
             Dim BID As Long = 0
 
 
-            Dim SQL As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
-                    "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
-                    "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
-                    "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
-                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" & _
-                    OwnerID & "," & lngManID & ",'" & strFullName & "','" & strModel & "'," & lngModelID & ",'" & strSerial & "','" & _
-                    strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & ObjGF.SetCatalogINSType(strCustCatID) & "," & _
-                    lngNationalityID & "," & lngGripID & "," & strQty & ",'" & strWeight & "','" & strLength & "','" & _
-                    strGripType & "','" & strBarLen & "','" & strBarWid & "','" & strBarHei & "','" & strAction & "','" & _
-                    strfeed & "','" & strSights & "','" & strPurPrice & "','" & strPurchasedFrom & "','" & strAppValue & "','" & _
-                    strAppDate & "','" & strAppBy & "','" & strInsVal & "','" & strStorage & "','" & strConCom & "','" & strAddNotes & _
-                    "','" & strProduced & "','" & strPetLoads & "','" & strPurDate & "'," & intIsCandR & ",'" & strImporter & _
-                    "','" & sReManDT & "','" & sPOI & "',0,0,'" & sChoke & "'," & iBoundBook & ",'" & sTwist & "','" & sTrigger & _
+            Dim SQL As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," &
+                    "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," &
+                    "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," &
+                    "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," &
+                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
+                    OwnerID & "," & lngManID & ",'" & strFullName & "','" & strModel & "'," & lngModelID & ",'" & strSerial & "','" &
+                    strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & ObjGF.SetCatalogINSType(strCustCatID) & "," &
+                    lngNationalityID & "," & lngGripID & "," & strQty & ",'" & strWeight & "','" & strLength & "','" &
+                    strGripType & "','" & strBarLen & "','" & strBarWid & "','" & strBarHei & "','" & strAction & "','" &
+                    strfeed & "','" & strSights & "','" & strPurPrice & "','" & strPurchasedFrom & "','" & strAppValue & "','" &
+                    strAppDate & "','" & strAppBy & "','" & strInsVal & "','" & strStorage & "','" & strConCom & "','" & strAddNotes &
+                    "','" & strProduced & "','" & strPetLoads & "','" & strPurDate & "'," & intIsCandR & ",'" & strImporter &
+                    "','" & sReManDT & "','" & sPOI & "',0,0,'" & sChoke & "'," & iBoundBook & ",'" & sTwist & "','" & sTrigger &
                     "','" & sCaliber3 & "','" & sClassification & "','" & sDateOfCR & "',0,2,Now()," & iClassIII & ",'" & sClassIIIOwner & "')"
 
             Obj.ConnExec(SQL)
@@ -281,11 +310,11 @@ Public Class frmAddFirearm
                 Call Obj.InsertNewContact(strPurchasedFrom, "Appriaser_Contact_Details", "aName")
             End If
 
-            SQL = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
-                    ItemID & ",'Default Barrel','" & strCal & "','" & strFinish & "','" & strBarLen & _
-                    "','" & strPetLoads & "','" & strAction & "','" & strfeed & "','" & strSights & "','" & _
-                    "0.00','" & strPurchasedFrom & "',DATE(),'" & strLength & "','Fixed Barrel" & _
+            SQL = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
+                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
+                    ItemID & ",'Default Barrel','" & strCal & "','" & strFinish & "','" & strBarLen &
+                    "','" & strPetLoads & "','" & strAction & "','" & strfeed & "','" & strSights & "','" &
+                    "0.00','" & strPurchasedFrom & "',DATE(),'" & strLength & "','Fixed Barrel" &
                     "',1,Now())"
             Obj.ConnExec(SQL)
             BID = ObjGF.GetBarrelID(ItemID, 1)
@@ -302,9 +331,19 @@ Public Class frmAddFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Handles the CheckedChanged event of the chkBoxCR control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub chkBoxCR_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If chkBoxCR.Checked Then
             txtPOI.Enabled = True
@@ -314,6 +353,9 @@ Public Class frmAddFirearm
             dtpReManDT.Enabled = False
         End If
     End Sub
+    ''' <summary>
+    ''' Adds the choke option.
+    ''' </summary>
     Sub AddChokeOption()
         If txtChoke.Visible Then Exit Sub
         Label34.Location = New System.Drawing.Point(Label27.Location.X, Label27.Location.Y)
@@ -352,6 +394,11 @@ Public Class frmAddFirearm
         OldX = txtBarLen.Location.X
         txtBarLen.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    ''' <summary>
+    ''' Handles the LostFocus1 event of the txtType control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub txtType_LostFocus1(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtType.LostFocus
         If Found(txtType.Text, "shotgun") Then Call AddChokeOption()
     End Sub
