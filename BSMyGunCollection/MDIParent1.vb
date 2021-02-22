@@ -1,12 +1,28 @@
-Imports System.Windows.Forms
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BSMyGunCollection.Cyhper
 Imports BurnSoft.MsgBox
+''' <summary>
+''' Class MDIParent1.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class MDIParent1
+    ''' <summary>
+    ''' The m child form number
+    ''' </summary>
     Private m_ChildFormNumber As Integer = 0
+    ''' <summary>
+    ''' Converts to try.
+    ''' </summary>
     Public DaysLeftToTry As String
+    ''' <summary>
+    ''' The is ready
+    ''' </summary>
     Public IsReady As Boolean = False
+    ''' <summary>
+    ''' The running reg form
+    ''' </summary>
     Public RunningRegForm As Boolean
 #Region " Menu Subs "
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -619,6 +635,11 @@ Public Class MDIParent1
         End Try
     End Sub
 #End Region
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub RenameDisplayNameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameDisplayNameToolStripMenuItem.Click
         Try
             Dim ItemName As String = ListBox1.Text
@@ -634,6 +655,11 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
@@ -641,28 +667,51 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub CleanUpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CleanUpToolStripMenuItem.Click
         Dim frmNew As New frmDBCleanup
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub GripTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GripTypesToolStripMenuItem.Click
         Dim frmNew As New frmViewGrips
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the tsslErrorsFound control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub tsslErrorsFound_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsslErrorsFound.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MyLogFile
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DataPreLoaderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataPreLoaderToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_DATALOADER
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
     End Sub
+    ''' <summary>
+    ''' Runs the hot fix.
+    ''' </summary>
     Public Sub RunHotFix()
         DoAutoBackup = False
         Dim myProcess As New Process
