@@ -1,4 +1,9 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class AboutBox1. This class cannot be inherited.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public NotInheritable Class AboutBox1
     'When the form Loads, populate the fields
     Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
