@@ -1,9 +1,24 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmCopyAccessory.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCopyAccessory
-    Public ItemID As String ' Accessory ID
-    Private FullName As String ' Full Name
-    'Get the Accessory Manufacture and Model for the form details
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
+    Public ItemID As String ' Accessory ID    
+    ''' <summary>
+    ''' The full name
+    ''' </summary>
+    Private FullName As String ' Full Name    
+    ''' <summary>
+    ''' Get the Accessory Manufacture and Model for the form details
+    ''' </summary>
+    ''' <param name="strID">The string identifier.</param>
+    ''' <returns>System.String.</returns>
     Function GetFullName(ByVal strID As String) As String
         Dim sAns As String = ""
         Try
@@ -26,7 +41,10 @@ Public Class frmCopyAccessory
         End Try
         Return sAns
     End Function
-    'Perform the Copy Action and copy the accessory back into the same database but accosiated with the selected firearm.
+    ''' <summary>
+    ''' Perform the Copy Action and copy the accessory back into the same database but accosiated with the selected firearm.
+    ''' </summary>
+    ''' <param name="StrID">The string identifier.</param>
     Sub DoCopy(ByVal StrID As String)
         Try
             Dim Obj As New BSDatabase
@@ -61,8 +79,8 @@ Public Class frmCopyAccessory
             RS.Close()
             RS = Nothing
             CMD = Nothing
-            SQL = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate,AppValue,CIV,IC) VALUES(" & _
-                        StrID & ",'" & strMan & "','" & strModel & "','" & strSerial & "','" & strCondition & "','" & _
+            SQL = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate,AppValue,CIV,IC) VALUES(" &
+                        StrID & ",'" & strMan & "','" & strModel & "','" & strSerial & "','" & strCondition & "','" &
                         strNotes & "','" & strUse & "','" & strPurVal & "',Now(),'" & strAppVal & "'," & iCIV & "," & IC & ")"
             Call Obj.ConnExec(SQL)
         Catch ex As Exception
@@ -70,7 +88,11 @@ Public Class frmCopyAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'When Load Forms, populate the drop down box
+    ''' <summary>
+    ''' When Load Forms, populate the drop down box
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCopyAccessory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.QryGunCollectionDetailsTableAdapter.FillBy_Default(Me.MGCDataSet.qryGunCollectionDetails)
@@ -81,7 +103,11 @@ Public Class frmCopyAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'When the Copy button is selected
+    ''' <summary>
+    ''' When the Copy button is selected
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCopy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCopy.Click
         Try
             Dim strFireArmID As String = ComboBox1.SelectedValue.ToString

@@ -1,7 +1,16 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmCR_SelectTable.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_SelectTable
-
+    ''' <summary>
+    ''' Gets the name of the table.
+    ''' </summary>
+    ''' <param name="TID">The tid.</param>
+    ''' <returns>System.String.</returns>
     Function GetTableName(ByVal TID As Long) As String
         Dim sAns As String = ""
         Try
@@ -24,7 +33,9 @@ Public Class frmCR_SelectTable
         End Try
         Return sAns
     End Function
-    'Load the combo boxes from the datasets and resize the for if it does or doesn't have any saved reports.
+    ''' <summary>
+    ''' Load the combo boxes from the datasets and resize the for if it does or doesn't have any saved reports.
+    ''' </summary>
     Sub LoadData()
         Try
             Me.CR_SavedReportsTableAdapter.Fill(Me.MGCDataSet.CR_SavedReports)
@@ -40,7 +51,11 @@ Public Class frmCR_SelectTable
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'When form loads
+    ''' <summary>
+    ''' When form loads
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_SelectTable_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Call LoadData()
@@ -49,7 +64,11 @@ Public Class frmCR_SelectTable
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'When the next button is clicked, get the value and pass them over to the select columns form and open it
+    ''' <summary>
+    ''' Handles the Click event of the btnNext control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnNext_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNext.Click
         Try
             Dim TID As Long = ComboBox1.SelectedValue
@@ -66,7 +85,11 @@ Public Class frmCR_SelectTable
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Load from the saved reports when the Load button is clicked
+    ''' <summary>
+    ''' Load from the saved reports when the Load button is clicked
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnLoadSaved_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoadSaved.Click
         Try
             Dim SRID As Long = ComboBox2.SelectedValue
@@ -83,8 +106,12 @@ Public Class frmCR_SelectTable
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'when the user right clicks on the Load button, this is one of the context menu
-    'options that appears that allows the user to delete the custom report.
+    ''' <summary>
+    ''' when the user right clicks on the Load button, this is one of the context menu
+    ''' options that appears that allows the user to delete the custom report.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim selectedName As String = ComboBox2.SelectedText
@@ -103,24 +130,36 @@ Public Class frmCR_SelectTable
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'when the user right clicks on the Load button, this is one of the context menu
-    'options that appears that allows the user to edit the custom report.
+    ''' <summary>
+    ''' when the user right clicks on the Load button, this is one of the context menu
+    ''' options that appears that allows the user to edit the custom report.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
         Call editReport()
     End Sub
-    'Bring up the SQL editor window
+    ''' <summary>
+    ''' Bring up the SQL editor window
+    ''' </summary>
     Sub ShowSQLEditor()
         Dim frmNew As New frmCR_EditSQL
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
     End Sub
-    'when the user right clicks on the Next button, this is one of the context menu
-    'options that appears that allows the user to edit the custom report.
+    ''' <summary>
+    ''' when the user right clicks on the Next button, this is one of the context menu
+    ''' options that appears that allows the user to edit the custom report.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem1.Click
         Call ShowSQLEditor()
     End Sub
-    'options that appears that allows the user to edit the custom report.
+    ''' <summary>
+    ''' options that appears that allows the user to edit the custom report.
+    ''' </summary>
     Sub editReport()
         Dim RID As Long = ComboBox2.SelectedValue
         Dim frmNew As New frmCR_EditSQL
@@ -129,12 +168,20 @@ Public Class frmCR_SelectTable
         frmNew.Show()
         Me.Close()
     End Sub
-    'when the user clicks on the Edit button
-    'options that appears that allows the user to edit the custom report.
+    ''' <summary>
+    ''' when the user clicks on the Edit button
+    ''' options that appears that allows the user to edit the custom report.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
         Call editReport()
     End Sub
-    'when the user click on the sql editor button
+    ''' <summary>
+    ''' when the user click on the sql editor button
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnSQLEditor_Click(sender As System.Object, e As System.EventArgs) Handles btnSQLEditor.Click
         Call ShowSQLEditor()
     End Sub

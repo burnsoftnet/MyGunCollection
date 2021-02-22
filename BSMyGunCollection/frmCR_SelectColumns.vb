@@ -1,9 +1,28 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmCR_SelectColumns.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_SelectColumns
+    ''' <summary>
+    ''' The table name
+    ''' </summary>
     Public TableName As String
+    ''' <summary>
+    ''' The table identifier
+    ''' </summary>
     Public TableID As Long
+    ''' <summary>
+    ''' The table real name
+    ''' </summary>
     Public TableRealName As String
+    ''' <summary>
+    ''' Gets the name of the column.
+    ''' </summary>
+    ''' <param name="DN">The dn.</param>
+    ''' <returns>System.String.</returns>
     Function GetColumnName(ByVal DN As String) As String
         Dim sAns As String = ""
         Try
@@ -26,6 +45,11 @@ Public Class frmCR_SelectColumns
         End Try
         Return sAns
     End Function
+    ''' <summary>
+    ''' Handles the Click event of the Button1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetData.Click
         Dim frmnew As New frmCR_ViewReport
         If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSQL()
@@ -33,6 +57,11 @@ Public Class frmCR_SelectColumns
         frmnew.MdiParent = Me.MdiParent
         frmnew.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmCR_SelectColumns control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_SelectColumns_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Dim Obj As New BSDatabase
@@ -53,6 +82,10 @@ Public Class frmCR_SelectColumns
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Generates the SQL.
+    ''' </summary>
+    ''' <returns>System.String.</returns>
     Function GenerateSQL() As String
         Dim sAns As String = ""
         Try
@@ -85,17 +118,30 @@ Public Class frmCR_SelectColumns
         End Try
         Return sAns
     End Function
+    ''' <summary>
+    ''' Handles the Click event of the btnGSQL control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGSQL.Click
         txtSQL.Text = GenerateSQL()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnHideSQL control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnHideSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHideSQL.Click
         Me.Height = 191
         Me.Width = 303
         btnShowSQL.Visible = True
         btnHideSQL.Visible = False
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnShowSQL control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnShowSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShowSQL.Click
         btnHideSQL.Visible = True
         btnShowSQL.Visible = False
