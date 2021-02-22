@@ -721,7 +721,9 @@ Public Class MDIParent1
         Global.System.Windows.Forms.Application.Exit()
         End
     End Sub
-
+    ''' <summary>
+    ''' Res the run hot fix updates.
+    ''' </summary>
     Public Sub ReRunHotFixUpdates()
         DoAutoBackup = False
         Dim myProcess As New Process
@@ -729,9 +731,13 @@ Public Class MDIParent1
         myProcess.StartInfo.Arguments = "/redo /debug"
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
-        Global.System.Windows.Forms.Application.Exit()
+        Application.Exit()
         End
     End Sub
+    ''' <summary>
+    ''' Res the run this host fixby identifier.
+    ''' </summary>
+    ''' <param name="myID">My identifier.</param>
     Sub ReRunThisHostFixbyID(myID As Integer)
         DoAutoBackup = False
         Dim myProcess As New Process
@@ -739,35 +745,55 @@ Public Class MDIParent1
         myProcess.StartInfo.Arguments = "/hotfix=" & myID
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
-        Global.System.Windows.Forms.Application.Exit()
+        Application.Exit()
         End
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomReportToolStripMenuItem.Click
         Dim frmNew As New frmCR_SelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub MiscFirearmLinksToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MiscFirearmLinksToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MENU_LINKS
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
         myProcess.Start()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ImportFirearmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportFirearmToolStripMenuItem.Click
         Dim frmNew As New frmImportFirearm
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripbutton12_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton12.Click
         Dim frmNew As New frmCR_SelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
@@ -777,7 +803,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
@@ -787,7 +817,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem1_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByPurchasedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByPurchasedValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_wTotal
@@ -795,7 +829,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem1_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByInsuredValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByInsuredValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_InsuredValue_wTotal
