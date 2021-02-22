@@ -1,9 +1,25 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmEditModel.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditModel
+    ''' <summary>
+    ''' The update pending
+    ''' </summary>
     Public UpdatePending As Boolean
+    ''' <summary>
+    ''' Handles the Load event of the frmEditModel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditModel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call LoadData()
     End Sub
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Public Sub LoadData()
         Try
             Me.GryGunModelToManufacturerTableAdapter.Fill(Me.MGCDataSet.gryGunModelToManufacturer)
@@ -12,6 +28,11 @@ Public Class frmEditModel
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Resize event of the frmEditModel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditModel_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         Try
             If Me.Height <> 0 Then
@@ -23,6 +44,11 @@ Public Class frmEditModel
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim MyID As Integer = CInt(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value.ToString)
@@ -42,6 +68,11 @@ Public Class frmEditModel
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
         Try
             Dim MyID As Integer = CInt(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value.ToString)

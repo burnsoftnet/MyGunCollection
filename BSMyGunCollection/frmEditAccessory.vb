@@ -1,8 +1,22 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmEditAccessory.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditAccessory
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
     Public ItemID As String
+    ''' <summary>
+    ''' The is shot gun
+    ''' </summary>
     Public IsShotGun As Boolean
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim SQL As String = "SELECT * from Gun_Collection_Accessories where ID=" & ItemID
@@ -46,6 +60,11 @@ Public Class frmEditAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmEditAccessory control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditAccessory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Label10.Visible = IsShotGun
@@ -61,9 +80,19 @@ Public Class frmEditAccessory
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnEdit control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
@@ -81,9 +110,9 @@ Public Class frmEditAccessory
             If Not IsRequired(strMan, "Manufacturer", Me.Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Me.Text) Then Exit Sub
             Dim Obj As New BSDatabase
-            Dim SQL As String = "UPDATE Gun_Collection_Accessories set Manufacturer='" & strMan & _
-                                "',Model='" & strModel & "',SerialNumber='" & strSerial & "',Condition='" & _
-                                strCondition & "',Notes='" & strNotes & "',Use='" & strUse & "',PurValue='" & strPurVal & _
+            Dim SQL As String = "UPDATE Gun_Collection_Accessories set Manufacturer='" & strMan &
+                                "',Model='" & strModel & "',SerialNumber='" & strSerial & "',Condition='" &
+                                strCondition & "',Notes='" & strNotes & "',Use='" & strUse & "',PurValue='" & strPurVal &
                                 "', AppValue=" & dAppValue & ",CIV=" & iCIV & ",IC=" & iIC & ",sync_lastupdate=Now() where ID=" & ItemID
             Obj.ConnExec(SQL)
             Me.Close()

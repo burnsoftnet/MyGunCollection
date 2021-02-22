@@ -2,10 +2,27 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmEditCollectionDetails.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditCollectionDetails
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
     Public ItemID As String
+    ''' <summary>
+    ''' The is sold
+    ''' </summary>
     Dim IsSold As Boolean
+    ''' <summary>
+    ''' The barrel identifier
+    ''' </summary>
     Public BarrelID As Long
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
@@ -135,6 +152,9 @@ Public Class frmEditCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Adds the choke option.
+    ''' </summary>
     Sub AddChokeOption()
         If txtChoke.Visible Then Exit Sub
         Dim MoveDownXPoints As Integer = 26
@@ -173,6 +193,11 @@ Public Class frmEditCollectionDetails
         OldX = txtBarLen.Location.X
         txtBarLen.Location = New System.Drawing.Point(OldX, NewY)
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmEditCollectionDetails control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditCollectionDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
@@ -214,9 +239,19 @@ Public Class frmEditCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnUpdate control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
         Try
             Dim ObjGF As New GlobalFunctions
@@ -287,29 +322,29 @@ Public Class frmEditCollectionDetails
             Dim sReManDT As String = dtpReManDT.Value
             Dim sPOI As String = FluffContent(txtPOI.Text)
 
-            Dim SQL As String = "UPDATE Gun_Collection set oid=" & OwnerID & ", MID=" & lngManID & _
-                    ", ModelName='" & strModel & "', ModelID=" & lngModelID & ", SerialNumber='" & _
-                    strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" & _
-                    strCondition & "', CustomID=" & ObjGF.SetCatalogINSType(strCustCatID) & ", NatID=" & lngNationalityID & ", gripid=" & lngGripID & _
-                    ", Qty=" & strQty & ", Weight='" & strWeight & "', Height='" & strLength & "', StockType='" & strGripType & _
-                    "', BarrelLength='" & strBarLen & "', BarrelWidth='" & strBarWid & "', BarrelHeight='" & _
-                    strBarHei & "', Action='" & strAction & "', FeedSystem='" & strfeed & "', Sights='" & strSights & _
-                    "', PurchasedPrice='" & strPurPrice & "', PurchasedFrom='" & strPurchasedFrom & "', AppraisedValue='" & strAppValue & _
-                     "', AppraisalDate='" & strAppDate & "', AppraisedBy='" & strAppBy & "', InsuredValue='" & strInsVal & "', StorageLocation='" & _
-                     strStorage & "', ConditionComments='" & strConCom & "', AdditionalNotes='" & strAddNotes & "', Produced='" & _
-                     strProduced & "', IsCandR=" & intIsCandR & ", PetLoads='" & strPetLoads & _
-                    "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " & _
-                    "ReManDT='" & sReManDT & "', POI='" & sPOI & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook & _
-                    ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 & _
-                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCR & "', sync_lastupdate=now(),IsClassIII=" & _
+            Dim SQL As String = "UPDATE Gun_Collection set oid=" & OwnerID & ", MID=" & lngManID &
+                    ", ModelName='" & strModel & "', ModelID=" & lngModelID & ", SerialNumber='" &
+                    strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" &
+                    strCondition & "', CustomID=" & ObjGF.SetCatalogINSType(strCustCatID) & ", NatID=" & lngNationalityID & ", gripid=" & lngGripID &
+                    ", Qty=" & strQty & ", Weight='" & strWeight & "', Height='" & strLength & "', StockType='" & strGripType &
+                    "', BarrelLength='" & strBarLen & "', BarrelWidth='" & strBarWid & "', BarrelHeight='" &
+                    strBarHei & "', Action='" & strAction & "', FeedSystem='" & strfeed & "', Sights='" & strSights &
+                    "', PurchasedPrice='" & strPurPrice & "', PurchasedFrom='" & strPurchasedFrom & "', AppraisedValue='" & strAppValue &
+                     "', AppraisalDate='" & strAppDate & "', AppraisedBy='" & strAppBy & "', InsuredValue='" & strInsVal & "', StorageLocation='" &
+                     strStorage & "', ConditionComments='" & strConCom & "', AdditionalNotes='" & strAddNotes & "', Produced='" &
+                     strProduced & "', IsCandR=" & intIsCandR & ", PetLoads='" & strPetLoads &
+                    "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " &
+                    "ReManDT='" & sReManDT & "', POI='" & sPOI & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook &
+                    ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 &
+                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCR & "', sync_lastupdate=now(),IsClassIII=" &
                     iClassIII & ",ClassIII_owner='" & sClassIIIOwner & "'"
             If IsSold Then SQL &= ", dtsold='" & dtpSold.Value & "'"
             SQL &= " where ID=" & ItemID
             Obj.ConnExec(SQL)
-            SQL = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish & _
-                    "',BarrelLength='" & strBarLen & "',PetLoads='" & strPetLoads & "',Action='" & _
-                    strAction & "',Feedsystem='" & strAction & "',Sights='" & strSights & _
-                    "',PurchasedPrice='" & strPurPrice & "',PurchasedFrom='" & strPurchasedFrom & _
+            SQL = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish &
+                    "',BarrelLength='" & strBarLen & "',PetLoads='" & strPetLoads & "',Action='" &
+                    strAction & "',Feedsystem='" & strAction & "',Sights='" & strSights &
+                    "',PurchasedPrice='" & strPurPrice & "',PurchasedFrom='" & strPurchasedFrom &
                     "',Height='" & strLength & "',Type='" & strType & "', sync_lastupdate=now() where ID=" & BarrelID
             Obj.ConnExec(SQL)
             If Len(strPurchasedFrom) <> 0 Then
@@ -333,7 +368,9 @@ Public Class frmEditCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Enables the diable cand r.
+    ''' </summary>
     Sub EnableDiableCandR()
         If chkBoxCR.Checked Then
             dtpReManDT.Enabled = True
@@ -343,7 +380,11 @@ Public Class frmEditCollectionDetails
             txtPOI.Enabled = False
         End If
     End Sub
-
+    ''' <summary>
+    ''' Handles the CheckedChanged event of the chkBoxCR control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub chkBoxCR_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chkBoxCR.CheckedChanged
         Call EnableDiableCandR()
     End Sub

@@ -1,9 +1,26 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmEditBarrelSystem.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditBarrelSystem
+    ''' <summary>
+    ''' The gid
+    ''' </summary>
     Public GID As Long
+    ''' <summary>
+    ''' The recname
+    ''' </summary>
     Public Recname As String
+    ''' <summary>
+    ''' The bid
+    ''' </summary>
     Public BID As Long
+    ''' <summary>
+    ''' Automatics the fill.
+    ''' </summary>
     Sub AutoFill()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -20,6 +37,9 @@ Public Class frmEditBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         txtRecieverName.Text = Recname
         Try
@@ -53,9 +73,17 @@ Public Class frmEditBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+    ''' <summary>
+    ''' Saves the data.
+    ''' </summary>
     Sub SaveData()
         Try
             Dim Obj As New BSDatabase
@@ -80,10 +108,10 @@ Public Class frmEditBarrelSystem
             If Not IsRequired(PurPrice, "Purchase Price", Me.Text) Then Exit Sub
             If Not IsRequired(PurFrom, "Purchased From", Me.Text) Then Exit Sub
 
-            SQL = "UPDATE Gun_Collection_Ext set ModelName='" & sName & "',Caliber='" & Cal & _
-                    "',Finish='" & StockFinish & "',BarrelLength='" & BarLen & "',PetLoads='" & _
-                    PetLoads & "',Action='" & fAction & "',Feedsystem='" & FeedSys & "',Sights='" & _
-                    Sights & "',PurchasedPrice='" & PurPrice & "',PurchasedFrom='" & PurFrom & _
+            SQL = "UPDATE Gun_Collection_Ext set ModelName='" & sName & "',Caliber='" & Cal &
+                    "',Finish='" & StockFinish & "',BarrelLength='" & BarLen & "',PetLoads='" &
+                    PetLoads & "',Action='" & fAction & "',Feedsystem='" & FeedSys & "',Sights='" &
+                    Sights & "',PurchasedPrice='" & PurPrice & "',PurchasedFrom='" & PurFrom &
                     "',Height='" & OvalLen & "',Type='" & SysType & "',sync_lastupdate=Now() where ID=" & BID
 
             Obj.ConnExec(SQL)
@@ -94,11 +122,20 @@ Public Class frmEditBarrelSystem
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmEditBarrelSystem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditBarrelSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call LoadData()
         Call AutoFill()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnSave control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Call SaveData()
     End Sub

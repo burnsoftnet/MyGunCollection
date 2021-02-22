@@ -1,5 +1,16 @@
+''' <summary>
+''' Edit the Ammunition Type
+''' </summary>
 Public Class frmEditAmmunitionType
+    ''' <summary>
+    ''' The update pending
+    ''' </summary>
     Public UpdatePending As Boolean
+    ''' <summary>
+    ''' Handles the Load event of the frmEditAmmunitionType control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditAmmunitionType_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Me.Gun_CalTableAdapter.Fill(Me.MGCDataSet.Gun_Cal)
@@ -8,7 +19,11 @@ Public Class frmEditAmmunitionType
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the RowValidated event of the DataGridView1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
         Try
             If Me.UpdatePending Then
@@ -22,6 +37,11 @@ Public Class frmEditAmmunitionType
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the ListChanged event of the GunCalBindingSource control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
     Private Sub GunCalBindingSource_ListChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles GunCalBindingSource.ListChanged
         Try
             If Me.MGCDataSet.HasChanges Then
@@ -32,7 +52,11 @@ Public Class frmEditAmmunitionType
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Resize event of the frmEditAmmunitionType control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditAmmunitionType_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         Try
             DataGridView1.Width = Me.Width - 15

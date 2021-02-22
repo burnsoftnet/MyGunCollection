@@ -1,8 +1,20 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
-Imports System.Data
+''' <summary>
+''' Class frmDBCleanup.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmDBCleanup
+    ''' <summary>
+    ''' The i
+    ''' </summary>
     Public i As Integer = 0
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the cbActionList control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub cbActionList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbActionList.SelectedIndexChanged
         If cbActionList.SelectedItem <> Nothing Then
             Dim strList As String = cbActionList.SelectedItem.ToString
@@ -13,6 +25,11 @@ Public Class frmDBCleanup
             End If
         End If
     End Sub
+    ''' <summary>
+    ''' Datas the is related.
+    ''' </summary>
+    ''' <param name="strSQL">The string SQL.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Function DataIsRelated(ByVal strSQL As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -31,11 +48,21 @@ Public Class frmDBCleanup
         End Try
         Return bAns
     End Function
+    ''' <summary>
+    ''' Kills the data.
+    ''' </summary>
+    ''' <param name="strTable">The string table.</param>
     Sub KillData(ByVal strTable As String)
         Dim Obj As New BSDatabase
         Dim SQL As String = "DELETE from " & strTable
         Call Obj.ConnExec(SQL)
     End Sub
+    ''' <summary>
+    ''' Existsins the collection.
+    ''' </summary>
+    ''' <param name="strID">The string identifier.</param>
+    ''' <param name="strColumn">The string column.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Function ExistsinCollection(ByVal strID As String, ByVal strColumn As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -57,11 +84,19 @@ Public Class frmDBCleanup
         End Try
         Return bAns
     End Function
+    ''' <summary>
+    ''' Deletes the record.
+    ''' </summary>
+    ''' <param name="strTable">The string table.</param>
+    ''' <param name="strID">The string identifier.</param>
     Sub DELETE_RECORD(ByVal strTable As String, ByVal strID As String)
         Dim SQL As String = "DELETE from " & strTable & " where ID=" & strID
         Dim Obj As New BSDatabase
         Obj.ConnExec(SQL)
     End Sub
+    ''' <summary>
+    ''' Clears the grip types.
+    ''' </summary>
     Sub ClearGripTypes()
         Try
             Dim strTable As String = "Gun_GripType"
@@ -90,6 +125,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the buyer list.
+    ''' </summary>
     Sub ClearBuyerList()
         Try
             Dim strTable As String = "Gun_Collection_SoldTo"
@@ -118,6 +156,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the gun shop list.
+    ''' </summary>
     Sub ClearGunShopList()
         Try
             Dim strTable As String = "Gun_Shop_Details"
@@ -146,6 +187,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the nationality.
+    ''' </summary>
     Sub ClearNationality()
         Try
             Dim strTable As String = "Gun_Nationality"
@@ -174,6 +218,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the models.
+    ''' </summary>
     Sub ClearModels()
         Try
             Dim strTable As String = "Gun_Model"
@@ -202,6 +249,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the manufacturers.
+    ''' </summary>
     Sub ClearManufacturers()
         Try
             Dim strTable As String = "Gun_Manufacturer"
@@ -230,6 +280,9 @@ Public Class frmDBCleanup
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Clears the collection.
+    ''' </summary>
     Sub ClearCollection()
         Call KillData("Gun_Collection_Accessories")
         Call KillData("Gun_Collection_Pictures")
@@ -239,27 +292,51 @@ Public Class frmDBCleanup
         Call KillData("Gun_Collection")
         Call MDIParent1.RefreshCollection()
     End Sub
+    ''' <summary>
+    ''' Clears the caliber.
+    ''' </summary>
     Sub ClearCaliber()
         Call KillData("Gun_Cal")
     End Sub
+    ''' <summary>
+    ''' Clears the ammunition.
+    ''' </summary>
     Sub ClearAmmunition()
         Call KillData("Gun_Collection_Ammo")
     End Sub
+    ''' <summary>
+    ''' Clears the maint plans.
+    ''' </summary>
     Sub ClearMaint_Plans()
         Call KillData("Maintance_Plans")
     End Sub
+    ''' <summary>
+    ''' Clears the wish list.
+    ''' </summary>
     Sub ClearWishList()
         Call KillData("Wishlist")
     End Sub
+    ''' <summary>
+    ''' Clears the type of the gun.
+    ''' </summary>
     Sub ClearGun_Type()
         Call KillData("Gun_Type")
     End Sub
+    ''' <summary>
+    ''' Clears the ammo audit.
+    ''' </summary>
     Sub ClearAmmoAudit()
         Call KillData("Gun_Collection_Ammo_PriceAudit")
     End Sub
+    ''' <summary>
+    ''' Clears the saved c reports.
+    ''' </summary>
     Sub ClearSavedCReports()
         Call KillData("CR_SavedReports")
     End Sub
+    ''' <summary>
+    ''' Clears all.
+    ''' </summary>
     Sub ClearAll()
         ProgressBar1.Visible = True
         ProgressBar1.Minimum = 0
@@ -297,6 +374,10 @@ Public Class frmDBCleanup
         lblStatus.Text = ""
         lblStatus.Refresh()
     End Sub
+    ''' <summary>
+    ''' Converts to progbar.
+    ''' </summary>
+    ''' <param name="strMsg">The string MSG.</param>
     Sub AddToProgBar(ByVal strMsg As String)
         'Try
         lblStatus.Text = strMsg
@@ -308,6 +389,11 @@ Public Class frmDBCleanup
 
         'End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnStart control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         Dim strSelected As String = cbActionList.SelectedItem.ToString
         btnStart.Enabled = False
@@ -346,7 +432,11 @@ Public Class frmDBCleanup
         MsgBox("Database clean up to " & strSelected & " is complete!")
         btnStart.Enabled = True
     End Sub
-
+    ''' <summary>
+    ''' Handles the Load event of the frmDBCleanup control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmDBCleanup_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub

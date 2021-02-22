@@ -1,7 +1,18 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''' <summary>
+''' Class frmEditGunSmithLog.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditGunSmithLog
+    ''' <summary>
+    ''' The identifier
+    ''' </summary>
     Public ID As Long
+    ''' <summary>
+    ''' Pres the load.
+    ''' </summary>
     Sub PreLoad()
         Try
             Dim ObjAF As New AutoFillCollections
@@ -11,6 +22,9 @@ Public Class frmEditGunSmithLog
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Dim Obj As New BSDatabase
         Obj.ConnectDB()
@@ -35,6 +49,11 @@ Public Class frmEditGunSmithLog
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmEditGunSmithLog control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditGunSmithLog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Try
             Dim ObjAF As New AutoFillCollections
@@ -45,7 +64,11 @@ Public Class frmEditGunSmithLog
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnUpdate control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
         Try
             Dim strSmith As String = FluffContent(txtGS.Text)
@@ -59,8 +82,8 @@ Public Class frmEditGunSmithLog
 
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "UPDATE GunSmith_Details set gsmith='" & strSmith & _
-                    "',od='" & strOD & "',notes='" & strNotes & "',sdate='" & _
+            Dim SQL As String = "UPDATE GunSmith_Details set gsmith='" & strSmith &
+                    "',od='" & strOD & "',notes='" & strNotes & "',sdate='" &
                     strShip & "',rdate='" & strReturn & "',sync_lastupdate=Now() where ID=" & ID
             Obj.ConnExec(SQL)
             Me.Close()
@@ -69,7 +92,11 @@ Public Class frmEditGunSmithLog
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub

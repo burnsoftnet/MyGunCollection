@@ -1,21 +1,37 @@
 Imports BSMyGunCollection.MGC
 Imports BSMyGunCollection.ExportModule
+''' <summary>
+''' Class frmCR_ViewReport.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_ViewReport
+    ''' <summary>
+    ''' The SQL
+    ''' </summary>
     Public SQL As String
+    ''' <summary>
+    ''' The grid printer
+    ''' </summary>
     Private GridPrinter As DataGridPrinter
+    ''' <summary>
+    ''' My data table
+    ''' </summary>
     Private MyDataTable As DataTable
+    ''' <summary>
+    ''' The report name
+    ''' </summary>
     Public ReportName As String
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
             Dim Obj As New BSDatabase
             MyDataTable = Obj.GetData(SQL)
             MyDataTable.TableName = "MyCustomReport"
             With DataGrid1
-                '.AutoGenerateColumns = True
-                'BindingSource1.DataSource = MyDataTable
-                '.DataSource = BindingSource1
                 .DataSource = MyDataTable
-                '.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells
                 .BorderStyle = BorderStyle.Fixed3D
             End With
         Catch ex As Exception
@@ -23,10 +39,20 @@ Public Class frmCR_ViewReport
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmCR_ViewReport control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_ViewReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If Len(ReportName) > 0 Then TextBox1.Text = ReportName
         Call LoadData()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton1_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         Try
             If GridPrinter Is Nothing Then
@@ -42,6 +68,11 @@ Public Class frmCR_ViewReport
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton2_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
         Try
             If GridPrinter Is Nothing Then
@@ -132,28 +163,58 @@ Public Class frmCR_ViewReport
         Combo.SelectedIndex = 0
     End Sub
 #End Region
+    ''' <summary>
+    ''' Handles the DrawItem event of the ComboBox_EvenBrush control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox_EvenBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_EvenBrush.Items(e.Index), Brush), e.Bounds)
         e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
     End Sub
+    ''' <summary>
+    ''' Handles the DrawItem event of the ComboBox_FooterBrush control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox_FooterBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_FooterBrush.Items(e.Index), Brush), e.Bounds)
         e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
     End Sub
+    ''' <summary>
+    ''' Handles the DrawItem event of the ComboBox_OddRowBrush control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox_OddRowBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
 
         e.Graphics.FillRectangle(CType(ComboBox_OddRowBrush.Items(e.Index), Brush), e.Bounds)
         e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
 
     End Sub
+    ''' <summary>
+    ''' Handles the DrawItem event of the ComboBox_HeaderBrush control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox_HeaderBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_HeaderBrush.Items(e.Index), Brush), e.Bounds)
         e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
     End Sub
+    ''' <summary>
+    ''' Handles the DrawItem event of the ComboBox_ColumnHeaderBrush control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox_ColumnHeaderBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_ColumnHeaderBrush.Items(e.Index), Brush), e.Bounds)
         e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton3_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
         Try
             Dim ReportName As String = TextBox1.Text
@@ -170,7 +231,7 @@ Public Class frmCR_ViewReport
                     MsgBox("Save Aborted!")
                 End If
             Else
-                MySQL = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & ReportName & "','" & _
+                MySQL = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & ReportName & "','" &
                             Replace(SQL, "'", "''") & "','" & Now & "',Now())"
                 Obj.ConnExec(MySQL)
                 MsgBox("The Report was Saved!")
@@ -180,6 +241,11 @@ Public Class frmCR_ViewReport
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ExcelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExcelToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 1
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
@@ -189,6 +255,11 @@ Public Class frmCR_ViewReport
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportExcel(MyDataTable, strFilePath)
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub TXTToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TXTToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 2
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
@@ -198,6 +269,11 @@ Public Class frmCR_ViewReport
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportText(MyDataTable, strFilePath)
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub CVSToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CVSToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 5
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
@@ -207,6 +283,11 @@ Public Class frmCR_ViewReport
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportCSV(MyDataTable, strFilePath)
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub HTMLToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HTMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 4
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
@@ -216,6 +297,11 @@ Public Class frmCR_ViewReport
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportHTML(MyDataTable, strFilePath)
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub XMLToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles XMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 3
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
@@ -225,6 +311,11 @@ Public Class frmCR_ViewReport
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportXML(MyDataTable, strFilePath)
     End Sub
+    ''' <summary>
+    ''' Handles the Resize event of the frmCR_ViewReport control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_ViewReport_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         DataGrid1.Height = GroupBox5.Location.Y - 31
     End Sub
