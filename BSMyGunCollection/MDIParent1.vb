@@ -386,10 +386,6 @@ Public Class MDIParent1
     End Sub
     Private Sub MDIParent1_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
         Try
-            'Dim ObjVS As New ViewSizeSettings
-            'ObjVS.SaveViewAmmoInv(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
-            'ObjVS = Nothing
-
             If DoAutoBackup Then
                 Dim myProcess As New Process
                 myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_BACKUP
@@ -483,6 +479,11 @@ Public Class MDIParent1
     End Sub
 #End Region
 #Region " General Subs and Functions "
+    ''' <summary>
+    ''' Show new form
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
         Dim ChildForm As New System.Windows.Forms.Form
         ChildForm.MdiParent = Me
@@ -490,9 +491,19 @@ Public Class MDIParent1
         ChildForm.Text = "Window " & m_ChildFormNumber
         ChildForm.Show()
     End Sub
+    ''' <summary>
+    ''' Perform restore
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
         Call DoRestore()
     End Sub
+    ''' <summary>
+    ''' Mark if the item was sold or not
+    ''' </summary>
+    ''' <param name="strID"></param>
+    ''' <returns></returns>
     Function IsNotOldEnough(ByVal strID As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -525,6 +536,9 @@ Public Class MDIParent1
         End Try
         Return bAns
     End Function
+    ''' <summary>
+    ''' Clean up the Database
+    ''' </summary>
     Sub DoDelete()
         Try
             Dim ItemName As String = ListBox1.Text
@@ -595,6 +609,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Refresh the collection
+    ''' </summary>
     Public Sub RefreshCollection()
         Try
             MGCDataSetBindingSource.ResetBindings(True)
@@ -626,6 +643,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Show the help file
+    ''' </summary>
     Sub DoHelp()
         Try
             Help.ShowHelp(Me, MY_HELP_FILE)
@@ -841,7 +861,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Menu Link to bring up report By Appriased Value
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ByAppraisedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByAppraisedValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_ApprisedValue_wTotal
@@ -849,15 +873,27 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Menu Link to run search
+    ''' </summary>
     Sub RunSearch()
         Dim frmNew As New frmSearch_Collection
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Menu link to search collection
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub SearchCollectionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchCollectionToolStripMenuItem.Click
         Call RunSearch()
     End Sub
-
+    ''' <summary>
+    ''' Another link to run search
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ToolStripButton13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton13.Click
         Call RunSearch()
     End Sub
@@ -968,9 +1004,6 @@ Public Class MDIParent1
         Call ViewDocuments()
     End Sub
     Private Sub ViewDocuments()
-        'Dim frmNew As New frmViewDocuments
-        'frmNew.MdiParent = Me
-        'frmNew.Show()
         frmViewDocuments.MdiParent = Me
         frmViewDocuments.Show()
     End Sub
@@ -1032,7 +1065,11 @@ Public Class MDIParent1
     Private Sub Hotfix8ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix8ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(8)
     End Sub
-
+    ''' <summary>
+    ''' Run Hotfix 9 Mnue Link
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub Hotfix9ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix9ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(9)
     End Sub
