@@ -1,11 +1,11 @@
-Imports System
 Imports System.IO
 Imports System.Text
-Imports System.Data
 Imports System.Data.Odbc
-Imports System.Windows.Forms
 Imports Microsoft.Win32
 Namespace MGC
+    ''' <summary>
+    ''' Class BSRegistry.
+    ''' </summary>
     Public Class BSRegistry
         Private Const MY_CLASS_NAME = "MGC.BSRegistry"
         Private _RegPath As String
@@ -297,10 +297,10 @@ Namespace MGC
             End If
             Return bAns
         End Function
-        Public Sub GetSettings(ByRef LastSucBackup As String, ByRef AlertOnBackUp As Boolean, _
-                            ByRef TrackHistoryDays As Integer, ByRef TrackHistory As Boolean, _
-                            ByRef AutoBackup As Boolean, ByRef UOIMG As Boolean, ByRef UsePL As Boolean, _
-                            ByRef UseIPer As Boolean, ByRef UseCCID As Boolean, ByRef USEAA As Boolean, _
+        Public Sub GetSettings(ByRef LastSucBackup As String, ByRef AlertOnBackUp As Boolean,
+                            ByRef TrackHistoryDays As Integer, ByRef TrackHistory As Boolean,
+                            ByRef AutoBackup As Boolean, ByRef UOIMG As Boolean, ByRef UsePL As Boolean,
+                            ByRef UseIPer As Boolean, ByRef UseCCID As Boolean, ByRef USEAA As Boolean,
                             ByRef UseAACID As Boolean, ByRef UseUniqueCustID As Boolean, ByRef bUSESELECTIVEBOUNDBOOK As Boolean)
             Dim MyReg As RegistryKey
             Dim NumberFormat As String
@@ -351,11 +351,11 @@ Namespace MGC
                 If MyErr = 13 Then Call SetSettingDetails()
             End Try
         End Sub
-        Public Sub SaveSettings(ByVal NumberFormat As String, ByVal TrackHistory As Boolean, _
-                                ByVal TrackHistoryDays As Integer, ByVal AutoUpdate As Boolean, _
-                                ByVal UseProxy As Boolean, ByVal AlertOnBackUp As Boolean, _
-                                ByVal AutoBackup As Boolean, ByVal UOIMG As Boolean, ByVal UsePL As Boolean, _
-                                ByVal UseIPer As Boolean, ByVal USENCCID As Boolean, ByVal USEAA As Boolean, _
+        Public Sub SaveSettings(ByVal NumberFormat As String, ByVal TrackHistory As Boolean,
+                                ByVal TrackHistoryDays As Integer, ByVal AutoUpdate As Boolean,
+                                ByVal UseProxy As Boolean, ByVal AlertOnBackUp As Boolean,
+                                ByVal AutoBackup As Boolean, ByVal UOIMG As Boolean, ByVal UsePL As Boolean,
+                                ByVal UseIPer As Boolean, ByVal USENCCID As Boolean, ByVal USEAA As Boolean,
                                 ByVal UseAACID As Boolean, ByVal UseUniqueCustID As Boolean, ByVal bUSESELECTIVEBOUNDBOOK As Boolean)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
@@ -418,20 +418,40 @@ Namespace MGC
             Return sAns
         End Function
     End Class
+    ''' <summary>
+    ''' Class BSDatabase.
+    ''' </summary>
     Public Class BSDatabase
+        ''' <summary>
+        ''' The Class Name for the error file
+        ''' </summary>
         Private Const MY_CLASS_NAME = "MGC.BSDatabase"
+        ''' <summary>
+        ''' The connection
+        ''' </summary>
         Public Conn As OdbcConnection
+        ''' <summary>
+        ''' ses the connect.
+        ''' </summary>
+        ''' <returns>System.String.</returns>
         Public Function sConnect() As String
             Dim sAns As String = ""
             sAns = "Driver={Microsoft Access Driver (*.mdb)};dbq=" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & ";Pwd=14un0t2n0"
             Return sAns
         End Function
+        ''' <summary>
+        ''' ses the connect OLE.
+        ''' </summary>
+        ''' <returns>System.String.</returns>
         Public Function sConnectOLE() As String
             Dim sAns As String = ""
             'removed ; User Id=
             sAns = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & """;Jet OLEDB:Database Password=14un0t2n0;"
             Return sAns
         End Function
+        ''' <summary>
+        ''' Connects the database.
+        ''' </summary>
         Public Sub ConnectDB()
             Try
                 Conn = New OdbcConnection(sConnect)
@@ -441,6 +461,9 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Closes the database.
+        ''' </summary>
         Public Sub CloseDB()
             Try
                 Conn.Close()
@@ -450,6 +473,10 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Connections the execute.
+        ''' </summary>
+        ''' <param name="strSQL">The string SQL.</param>
         Public Sub ConnExec(ByVal strSQL As String)
             Try
                 Call ConnectDB()
@@ -466,6 +493,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, 0, "ConnExec.strSQL=" & strSQL)
             End Try
         End Sub
+        ''' <summary>
+        ''' Gets the data.
+        ''' </summary>
+        ''' <param name="SQL">The SQL.</param>
+        ''' <returns>DataTable.</returns>
         Public Function GetData(ByVal SQL As String) As DataTable
             Dim Table As New DataTable
             Try
@@ -482,17 +514,39 @@ Namespace MGC
             End Try
             Return Table
         End Function
+        ''' <summary>
+        ''' Updates the synchronize data tables.
+        ''' </summary>
+        ''' <param name="sTable">The s table.</param>
         Public Sub UpdateSyncDataTables(ByVal sTable As String)
             Dim SQL As String = "UPDATE " & sTable & " set sync_lastupdate=Now()"
             If Len(sTable) > 0 Then Call ConnExec(SQL)
         End Sub
+        ''' <summary>
+        ''' Creates new contact.
+        ''' </summary>
+        ''' <param name="sValue">The s value.</param>
+        ''' <param name="sTable">The s table.</param>
+        ''' <param name="sColumn">The s column.</param>
         Public Sub InsertNewContact(sValue As String, sTable As String, sColumn As String)
             Dim Sql As String = "INSERT INTO " & sTable & "(" & sColumn & ",Address1,City,State,Zip,sync_lastupdate) VALUES('" & sValue & "','N/A','N/A','N/A','N/A',Now())"
             ConnExec(Sql)
         End Sub
     End Class
+    ''' <summary>
+    ''' Class AutoFillCollections.
+    ''' </summary>
     Public Class AutoFillCollections
+        ''' <summary>
+        ''' Class name for the error log file
+        ''' </summary>
         Private Const MY_CLASS_NAME = "MGC.AutoFillCollections"
+        ''' <summary>
+        ''' Mains the collection.
+        ''' </summary>
+        ''' <param name="strColumn">The string column.</param>
+        ''' <param name="strTable">The string table.</param>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Private Function MainCollection(ByVal strColumn As String, ByVal strTable As String) As AutoCompleteStringCollection
             Dim iCol As New AutoCompleteStringCollection
             Try
@@ -520,6 +574,12 @@ Namespace MGC
             End Try
             Return iCol
         End Function
+        ''' <summary>
+        ''' Mains the collection distinct.
+        ''' </summary>
+        ''' <param name="strColumn">The string column.</param>
+        ''' <param name="strTable">The string table.</param>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Private Function MainCollectionDistinct(ByVal strColumn As String, ByVal strTable As String) As AutoCompleteStringCollection
             Dim iCol As New AutoCompleteStringCollection
             Try
@@ -547,18 +607,39 @@ Namespace MGC
             End Try
             Return iCol
         End Function
+        ''' <summary>
+        ''' Guns the manufacturer.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Manufacturer() As AutoCompleteStringCollection
             Return MainCollection("Brand", "Gun_Manufacturer")
         End Function
+        ''' <summary>
+        ''' Guns the cal.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Cal() As AutoCompleteStringCollection
             Return MainCollection("Cal", "Gun_Cal")
         End Function
+        ''' <summary>
+        ''' Guns the nationality.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Nationality() As AutoCompleteStringCollection
             Return MainCollection("Country", "Gun_Nationality")
         End Function
+        ''' <summary>
+        ''' Guns the model.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Model() As AutoCompleteStringCollection
             Return MainCollection("Model", "Gun_Model")
         End Function
+        ''' <summary>
+        ''' Guns the model by man.
+        ''' </summary>
+        ''' <param name="strMan">The string man.</param>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Model_ByMan(ByVal strMan As String) As AutoCompleteStringCollection
             Dim iCol As New AutoCompleteStringCollection
             Try
@@ -588,6 +669,10 @@ Namespace MGC
             End Try
             Return iCol
         End Function
+        ''' <summary>
+        ''' Documents the category.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Document_Category() As AutoCompleteStringCollection
             Dim iCol As New AutoCompleteStringCollection
             Try
@@ -611,95 +696,220 @@ Namespace MGC
             End Try
             Return iCol
         End Function
+        ''' <summary>
+        ''' Guns the type of the grip.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_GripType() As AutoCompleteStringCollection
             Return MainCollection("grip", "Gun_GripType")
         End Function
+        ''' <summary>
+        ''' Guns the shop details.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Shop_Details() As AutoCompleteStringCollection
             Return MainCollection("Name", "Gun_Shop_Details")
         End Function
+        ''' <summary>
+        ''' Guns the type.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Type() As AutoCompleteStringCollection
             Return MainCollection("Type", "Gun_Type")
         End Function
+        ''' <summary>
+        ''' Ammoes the manufacturer.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Manufacturer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Ammo")
         End Function
+        ''' <summary>
+        ''' Ammoes the name.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Name() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Name", "Gun_Collection_Ammo")
         End Function
+        ''' <summary>
+        ''' Ammoes the cal.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Cal() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Cal", "Gun_Collection_Ammo")
         End Function
+        ''' <summary>
+        ''' Ammoes the grain.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Grain() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Grain", "Gun_Collection_Ammo")
         End Function
+        ''' <summary>
+        ''' Ammoes the jacket.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Jacket() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Jacket", "Gun_Collection_Ammo")
         End Function
+        ''' <summary>
+        ''' Accessories the manufacturer.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Accessory_Manufacturer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Accessories")
         End Function
+        ''' <summary>
+        ''' Accessories the model.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Accessory_Model() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Model", "Gun_Collection_Accessories")
         End Function
+        ''' <summary>
+        ''' Accessories the use.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Accessory_Use() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Use", "Gun_Collection_Accessories")
         End Function
+        ''' <summary>
+        ''' Accessories the pur value.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Accessory_PurValue() As AutoCompleteStringCollection
             Return MainCollectionDistinct("PurValue", "Gun_Collection_Accessories")
         End Function
+        ''' <summary>
+        ''' Guns the name of the smith.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function GunSmith_Name() As AutoCompleteStringCollection
             'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
             Return MainCollectionDistinct("gName", "GunSmith_Contact_Details")
         End Function
+        ''' <summary>
+        ''' Appraiserses the name.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Appraisers_Name() As AutoCompleteStringCollection
             'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
             Return MainCollectionDistinct("aName", "Appriaser_Contact_Details")
         End Function
+        ''' <summary>
+        ''' Wishlists the manufacturer.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Wishlist_Manufacturer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Manufacturer", "Wishlist")
         End Function
+        ''' <summary>
+        ''' Wishlists the model.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Wishlist_Model() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Model", "Wishlist")
         End Function
+        ''' <summary>
+        ''' Wishlists the shop.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Wishlist_Shop() As AutoCompleteStringCollection
             Return MainCollectionDistinct("PlacetoBuy", "Wishlist")
         End Function
+        ''' <summary>
+        ''' Wishlists the price.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Wishlist_Price() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Value", "Wishlist")
         End Function
+        ''' <summary>
+        ''' Guns the collection action.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_Action() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Action", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection storage location.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_StorageLocation() As AutoCompleteStringCollection
             Return MainCollectionDistinct("StorageLocation", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection custom identifier.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_CustomID() As AutoCompleteStringCollection
             Return MainCollectionDistinct("CustomID", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection feed system.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_FeedSystem() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Feedsystem", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection finish.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_Finish() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Finish", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection sights.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_Sights() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Sights", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection pet loads.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_PetLoads() As AutoCompleteStringCollection
             Return MainCollectionDistinct("PetLoads", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection importer.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_Importer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Importer", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection class iii owner.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_ClassIIIOwner() As AutoCompleteStringCollection
             Return MainCollectionDistinct("ClassIII_owner", "Gun_Collection")
         End Function
+        ''' <summary>
+        ''' Guns the collection barrel system types.
+        ''' </summary>
+        ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Gun_Collection_BarrelSysTypes() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Name", "Gun_Collection_BarrelSysTypes")
         End Function
     End Class
+    ''' <summary>
+    ''' Class GlobalFunctions. General Functions that is used through out the program
+    ''' </summary>
     Public Class GlobalFunctions
+        ''' <summary>
+        ''' Class Name for error file to help locate where the error occured
+        ''' </summary>
         Private Const MY_CLASS_NAME = "MGC.GlobalFunctions"
+        ''' <summary>
+        ''' Objects the existsin database.
+        ''' </summary>
+        ''' <param name="strObject">The string object.</param>
+        ''' <param name="strField">The string field.</param>
+        ''' <param name="strTable">The string table.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function ObjectExistsinDB(ByVal strObject As String, ByVal strField As String, ByVal strTable As String) As Boolean
             Try
                 Dim bAns As Boolean = False
@@ -723,6 +933,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Function
+        ''' <summary>
+        ''' Objects the existsin database.
+        ''' </summary>
+        ''' <param name="strTable">The string table.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function ObjectExistsinDB(ByVal strTable As String) As Boolean
             Try
                 Dim bAns As Boolean = False
@@ -746,6 +961,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Function
+        ''' <summary>
+        ''' Gets the identifier.
+        ''' </summary>
+        ''' <param name="SQL">The SQL.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetID(ByVal SQL As String) As Long
             Try
                 Dim sAns As Long = 0
@@ -770,6 +990,12 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString & "::" & SQL)
             End Try
         End Function
+        ''' <summary>
+        ''' Gets the name.
+        ''' </summary>
+        ''' <param name="SQL">The SQL.</param>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetName(ByVal SQL As String, ByVal strValue As String) As String
             Dim sAns As String = "N/A"
             Try
@@ -798,6 +1024,14 @@ Namespace MGC
             End Try
             Return sAns
         End Function
+        ''' <summary>
+        ''' Contacts the exists.
+        ''' </summary>
+        ''' <param name="strTable">The string table.</param>
+        ''' <param name="strColumnName">Name of the string column.</param>
+        ''' <param name="strName">Name of the string.</param>
+        ''' <param name="intCount">The int count.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function ContactExists(ByVal strTable As String, ByVal strColumnName As String, ByVal strName As String, Optional ByRef intCount As Integer = 0) As Boolean
             Dim bAns As Boolean = False
             Dim SQL As String = "SELECT Count(*) as Total from " & strTable & " where " & strColumnName & " like '" & strName & "%'"
@@ -824,6 +1058,13 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Determines whether [has collection attached] [the specified i identifier].
+        ''' </summary>
+        ''' <param name="iID">The i identifier.</param>
+        ''' <param name="strColumnName">Name of the string column.</param>
+        ''' <param name="strTableName">Name of the string table.</param>
+        ''' <returns>System.Int32.</returns>
         Public Function HasCollectionAttached(ByVal iID As Long, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
             Dim iAns As Integer = 0
             Dim SQL As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "=" & iID
@@ -848,6 +1089,13 @@ Namespace MGC
             End Try
             Return iAns
         End Function
+        ''' <summary>
+        ''' Determines whether [has collection attached] [the specified string name].
+        ''' </summary>
+        ''' <param name="strName">Name of the string.</param>
+        ''' <param name="strColumnName">Name of the string column.</param>
+        ''' <param name="strTableName">Name of the string table.</param>
+        ''' <returns>System.Int32.</returns>
         Public Function HasCollectionAttached(ByVal strName As String, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
             Dim iAns As Integer = 0
             Dim SQL As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "='" & strName & "'"
@@ -872,6 +1120,13 @@ Namespace MGC
             End Try
             Return iAns
         End Function
+        ''' <summary>
+        ''' Gets the barrel identifier.
+        ''' </summary>
+        ''' <param name="FirearmID">The firearm identifier.</param>
+        ''' <param name="UseDefault">The use default.</param>
+        ''' <param name="BLID">The blid.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetBarrelID(ByVal FirearmID As Long, Optional ByVal UseDefault As Integer = 0, Optional ByVal BLID As Long = 0) As Long
             'Pretty Much gets the last barrel that was added
             Dim lAns As Long = 0
@@ -886,6 +1141,11 @@ Namespace MGC
             End Try
             Return lAns
         End Function
+        ''' <summary>
+        ''' Gets the manufacturers identifier.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetManufacturersID(ByVal strValue As String) As Long
             Dim SQL As String = "SELECT ID from Gun_Manufacturer where Brand='" & strValue & "'"
             Dim iAns As Long = GetID(SQL)
@@ -896,54 +1156,112 @@ Namespace MGC
             End If
             Return iAns
         End Function
+        ''' <summary>
+        ''' Gets the name of the manufacturers.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetManufacturersName(ByVal strValue As String) As String
             Dim SQL As String = "SELECT Brand from Gun_Manufacturer where ID=" & strValue
             Dim sAns As String = GetName(SQL, "Brand")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Calibers the exists.
+        ''' </summary>
+        ''' <param name="strCaliber">The string caliber.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function CaliberExists(ByVal strCaliber As String) As Boolean
             Return ObjectExistsinDB(strCaliber, "Cal", "Gun_Cal")
         End Function
+        ''' <summary>
+        ''' Converts to talammoselected.
+        ''' </summary>
+        ''' <param name="strCaliber">The string caliber.</param>
+        ''' <param name="strCaliber2">The string caliber2.</param>
+        ''' <returns>System.String.</returns>
         Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String) As String
             Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "'"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to talammoselected.
+        ''' </summary>
+        ''' <param name="strCaliber">The string caliber.</param>
+        ''' <param name="strCaliber2">The string caliber2.</param>
+        ''' <param name="strCaliber3">The string caliber3.</param>
+        ''' <returns>System.String.</returns>
         Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String, strCaliber3 As String) As String
             Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "' or Cal='" & strCaliber3 & "'"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to talammoselected.
+        ''' </summary>
+        ''' <param name="strCaliber">The string caliber.</param>
+        ''' <returns>System.String.</returns>
         Public Function TotalAmmoSelected(ByVal strCaliber As String) As String
             Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "'"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to talroundsfired.
+        ''' </summary>
+        ''' <param name="strID">The string identifier.</param>
+        ''' <returns>System.String.</returns>
         Public Function TotalRoundsFired(ByVal strID As String) As String
             Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to talroundsfiredbs.
+        ''' </summary>
+        ''' <param name="strID">The string identifier.</param>
+        ''' <returns>System.String.</returns>
         Public Function TotalRoundsFiredBS(ByVal strID As String) As String
             Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Averages the rounds fired.
+        ''' </summary>
+        ''' <param name="strID">The string identifier.</param>
+        ''' <returns>System.String.</returns>
         Public Function AverageRoundsFired(ByVal strID As String) As String
             Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Averages the rounds fired bs.
+        ''' </summary>
+        ''' <param name="strID">The string identifier.</param>
+        ''' <returns>System.String.</returns>
         Public Function AverageRoundsFiredBS(ByVal strID As String) As String
             Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
             Dim sAns As Integer = GetName(SQL, "T")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to talammoinventory.
+        ''' </summary>
+        ''' <returns>System.Int64.</returns>
         Public Function GetTotalAmmoInventory() As Long
             Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo"
             Dim sAns As Long = CLng(GetName(SQL, "T"))
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the model identifier.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <param name="StrValueID">The string value identifier.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetModelID(ByVal strValue As String, ByVal StrValueID As Long) As Long
             Dim SQL As String = "SELECT ID from Gun_Model where Model='" & strValue & "' and GMID=" & StrValueID
             Dim iAns As Long = GetID(SQL)
@@ -954,6 +1272,11 @@ Namespace MGC
             End If
             Return iAns
         End Function
+        ''' <summary>
+        ''' Gets the nationality identifier.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.Object.</returns>
         Public Function GetNationalityID(ByVal strValue As String)
             Dim SQL As String = "SELECT ID from Gun_Nationality where Country='" & strValue & "'"
             Dim iAns As Long = GetID(SQL)
@@ -964,11 +1287,21 @@ Namespace MGC
             End If
             Return iAns
         End Function
+        ''' <summary>
+        ''' Gets the name of the nationality.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetNationalityName(ByVal strValue As String) As String
             Dim SQL As String = "SELECT Country from Gun_Nationality where ID=" & strValue
             Dim sAns As String = GetName(SQL, "Country")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the grip identifier.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetGripID(ByVal strValue As String) As Long
             Dim SQL As String = "SELECT ID from Gun_GripType where grip='" & strValue & "'"
             Dim iAns As Long = GetID(SQL)
@@ -979,11 +1312,21 @@ Namespace MGC
             End If
             Return iAns
         End Function
+        ''' <summary>
+        ''' Gets the name of the grip.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetGripName(ByVal strValue As String) As String
             Dim SQL As String = "SELECT grip from Gun_GripType where ID=" & strValue
             Dim sAns As String = GetName(SQL, "grip")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the gun shop identifier.
+        ''' </summary>
+        ''' <param name="strValue">The string value.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetGunShopID(ByVal strValue As String) As Long
             Try
                 Dim SQL As String = "SELECT ID from Gun_Shop_Details where Name='" & strValue & "'"
@@ -1000,6 +1343,10 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Function
+        ''' <summary>
+        ''' Gets the last firearm identifier.
+        ''' </summary>
+        ''' <returns>System.Int64.</returns>
         Public Function GetLastFirearmID() As Long
             Try
                 Dim SQL As String = "SELECT Top 1 ID from Gun_Collection order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
@@ -1010,6 +1357,10 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Function
+        ''' <summary>
+        ''' Gets the last ammo identifier.
+        ''' </summary>
+        ''' <returns>System.Int64.</returns>
         Public Function GetLastAmmoID() As Long
             Try
                 Dim SQL As String = "SELECT Top 1 ID from Gun_Collection_Ammo order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
@@ -1033,6 +1384,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Gets the name of the wish list.
+        ''' </summary>
+        ''' <param name="strID">The string identifier.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetWishListName(ByVal strID As String) As String
             Dim sAns As String = ""
             Try
@@ -1055,15 +1411,15 @@ Namespace MGC
             End Try
             Return sAns
         End Function
-        Public Function BuyerExists(ByVal strName As String, ByVal Address1 As String, _
-                    ByVal Address2 As String, ByVal City As String, ByVal State As String, _
+        Public Function BuyerExists(ByVal strName As String, ByVal Address1 As String,
+                    ByVal Address2 As String, ByVal City As String, ByVal State As String,
                     ByVal sZipCode As String, ByVal DOB As String, ByVal Dlic As String) As Boolean
             Dim bAns As Boolean = False
             Try
                 Dim Obj As New BSDatabase
-                Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where Name='" & strName & _
-                                "' and Address1='" & Address1 & "' and Address2='" & Address2 & "' and City='" & _
-                                City & "' and State='" & State & "' and ZipCode='" & sZipCode & "' and DOB='" & _
+                Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where Name='" & strName &
+                                "' and Address1='" & Address1 & "' and Address2='" & Address2 & "' and City='" &
+                                City & "' and State='" & State & "' and ZipCode='" & sZipCode & "' and DOB='" &
                                 DOB & "' and DLic='" & Dlic & "'"
                 Call Obj.ConnectDB()
                 Dim CMD As New OdbcCommand(SQL, Obj.Conn)
@@ -1318,7 +1674,7 @@ Namespace MGC
                 Dim myBitmap As System.Drawing.Image
                 myBitmap = System.Drawing.Image.FromFile(sFileName)
                 Dim myPicCallback As System.Drawing.Image.GetThumbnailImageAbort = Nothing
-                myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback, _
+                myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
                     IntPtr.Zero)
                 myBitmap.Dispose()
                 System.IO.File.Delete(sThumbName)
@@ -1438,9 +1794,9 @@ Namespace MGC
                     dtp = RS("dtp")
                     Height = RS("Height")
                     Type = RS("Type")
-                    SQL = "UPDATE Gun_Collection set BarrelLength='" & BarrelLength & _
-                            "', Caliber='" & Caliber & "', Action='" & Action & "',Feedsystem='" & _
-                            Feedsystem & "',PetLoads='" & PetLoads & "',HasMB=1,DBID=" & _
+                    SQL = "UPDATE Gun_Collection set BarrelLength='" & BarrelLength &
+                            "', Caliber='" & Caliber & "', Action='" & Action & "',Feedsystem='" &
+                            Feedsystem & "',PetLoads='" & PetLoads & "',HasMB=1,DBID=" &
                             NewBarrelID & ",Height='" & Height & "',Sights='" & Sights & "',sync_lastupdate=Now() where ID=" & GID
                     Obj.ConnExec(SQL)
 
@@ -1663,8 +2019,8 @@ Namespace MGC
             End Try
             Return bAns
         End Function
-        Public Sub GetUserSettingsDB(ByRef RecID As Long, ByRef sName As String, ByRef sAddress As String, _
-                                    ByRef sCity As String, ByRef sState As String, ByRef sZip As String, _
+        Public Sub GetUserSettingsDB(ByRef RecID As Long, ByRef sName As String, ByRef sAddress As String,
+                                    ByRef sCity As String, ByRef sState As String, ByRef sZip As String,
                                     ByRef sPhone As String, ByRef sCCD As String)
             Try
                 Dim Obj As New BSDatabase

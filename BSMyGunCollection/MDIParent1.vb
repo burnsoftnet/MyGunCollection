@@ -1,6 +1,5 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
-Imports BSMyGunCollection.Cyhper
 Imports BurnSoft.MsgBox
 ''' <summary>
 ''' Class MDIParent1.
