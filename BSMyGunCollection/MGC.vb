@@ -2375,7 +2375,16 @@ Namespace MGC
             Call AppendToFile(strPath, strNewLine)
         End Sub
     End Class
+    ''' <summary>
+    ''' Class ViewSizeSettings.
+    ''' </summary>
     Public Class ViewSizeSettings
+        ''' <summary>
+        ''' Loads the view collection details.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="location">The location.</param>
         Sub LoadViewCollectionDetails(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
             If My.Settings.ViewCollectionDetails_Width.Length > 0 And My.Settings.ViewCollectionDetails_Height.Length > 0 Then
                 height = My.Settings.ViewCollectionDetails_Height
@@ -2385,7 +2394,13 @@ Namespace MGC
                 location = New System.Drawing.Point(My.Settings.ViewCollectionDetails_X, My.Settings.ViewCollectionDetails_Y)
             End If
         End Sub
-
+        ''' <summary>
+        ''' Saves the view collection details.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="x">The x.</param>
+        ''' <param name="y">The y.</param>
         Sub SaveViewCollectionDetails(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
             My.Settings.ViewCollectionDetails_Height = height
             My.Settings.ViewCollectionDetails_Width = width
@@ -2393,7 +2408,12 @@ Namespace MGC
             My.Settings.ViewCollectionDetails_Y = y
             My.Settings.Save()
         End Sub
-
+        ''' <summary>
+        ''' Loads the view view picture.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="location">The location.</param>
         Sub LoadViewViewPicture(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
             If My.Settings.ViewPicture_Width.Length > 0 And My.Settings.ViewPicture_Height.Length > 0 Then
                 height = My.Settings.ViewPicture_Height
@@ -2403,6 +2423,13 @@ Namespace MGC
                 location = New System.Drawing.Point(My.Settings.ViewPicture_X, My.Settings.ViewPicture_Y)
             End If
         End Sub
+        ''' <summary>
+        ''' Saves the view picture.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="x">The x.</param>
+        ''' <param name="y">The y.</param>
         Sub SaveViewPicture(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
             My.Settings.ViewPicture_Height = height
             My.Settings.ViewPicture_Width = width
@@ -2410,6 +2437,12 @@ Namespace MGC
             My.Settings.ViewPicture_Y = y
             My.Settings.Save()
         End Sub
+        ''' <summary>
+        ''' Loads the view ammo inv.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="location">The location.</param>
         Sub LoadViewAmmoInv(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
             If My.Settings.ViewAmmoInv_Width.Length > 0 And My.Settings.ViewAmmoInv_Height.Length > 0 Then
                 height = My.Settings.ViewAmmoInv_Height
@@ -2419,6 +2452,13 @@ Namespace MGC
                 location = New System.Drawing.Point(My.Settings.ViewAmmoInv_X, My.Settings.ViewAmmoInv_Y)
             End If
         End Sub
+        ''' <summary>
+        ''' Saves the view ammo inv.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="x">The x.</param>
+        ''' <param name="y">The y.</param>
         Sub SaveViewAmmoInv(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
             My.Settings.ViewAmmoInv_Height = height
             My.Settings.ViewAmmoInv_Width = width
