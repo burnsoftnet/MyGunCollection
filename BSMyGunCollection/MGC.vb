@@ -1411,6 +1411,18 @@ Namespace MGC
             End Try
             Return sAns
         End Function
+        ''' <summary>
+        ''' Buyers the exists.
+        ''' </summary>
+        ''' <param name="strName">Name of the string.</param>
+        ''' <param name="Address1">The address1.</param>
+        ''' <param name="Address2">The address2.</param>
+        ''' <param name="City">The city.</param>
+        ''' <param name="State">The state.</param>
+        ''' <param name="sZipCode">The s zip code.</param>
+        ''' <param name="DOB">The dob.</param>
+        ''' <param name="Dlic">The dlic.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function BuyerExists(ByVal strName As String, ByVal Address1 As String,
                     ByVal Address2 As String, ByVal City As String, ByVal State As String,
                     ByVal sZipCode As String, ByVal DOB As String, ByVal Dlic As String) As Boolean
@@ -1435,6 +1447,11 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Stolens the buyer exists.
+        ''' </summary>
+        ''' <param name="strName">Name of the string.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function StolenBuyerExists(ByVal strName As String) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1454,6 +1471,12 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Catalogs the identifier exists.
+        ''' </summary>
+        ''' <param name="sID">The s identifier.</param>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function CatalogIDExists(ByVal sID As String, Optional ByVal GID As Long = 0) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1475,6 +1498,12 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Catalogs the exists details.
+        ''' </summary>
+        ''' <param name="sID">The s identifier.</param>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns>System.String.</returns>
         Public Function CatalogExistsDetails(ByVal sID As String, Optional ByVal GID As Long = 0) As String
             Dim sAns As String = ""
             Try
@@ -1500,6 +1529,12 @@ Namespace MGC
             End Try
             Return sAns
         End Function
+        ''' <summary>
+        ''' Catalogs the identifier exists.
+        ''' </summary>
+        ''' <param name="iID">The i identifier.</param>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function CatalogIDExists(ByVal iID As Long, Optional ByVal GID As Long = 0) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1520,6 +1555,10 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Catalogs the is numeric.
+        ''' </summary>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function CatalogIsNumeric() As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1547,6 +1586,9 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Converts to numeric.
+        ''' </summary>
         Public Sub SetCatalogValuesToNumeric()
             Try
                 Dim Obj As New BSDatabase
@@ -1569,6 +1611,10 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Gets the catalog next identifier number.
+        ''' </summary>
+        ''' <returns>System.Int64.</returns>
         Public Function GetCatalogNextIDNumber() As Long
             Dim iAns As Long = 0
             Try
@@ -1589,6 +1635,10 @@ Namespace MGC
             End Try
             Return iAns
         End Function
+        ''' <summary>
+        ''' Sets the type of the catalog.
+        ''' </summary>
+        ''' <param name="sType">Type of the s.</param>
         Public Sub SetCatalogType(ByVal sType As String)
             Try
                 Dim Obj As New BSDatabase
@@ -1608,6 +1658,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Sets the type of the catalog ins.
+        ''' </summary>
+        ''' <param name="sValue">The s value.</param>
+        ''' <returns>System.String.</returns>
         Public Function SetCatalogINSType(ByVal sValue As String) As String
             Dim sAns As String = ""
             Try
@@ -1622,11 +1677,21 @@ Namespace MGC
             End Try
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the report SQL.
+        ''' </summary>
+        ''' <param name="RID">The rid.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetReportSQL(ByVal RID As Long) As String
             Dim sAns As String = ""
             sAns = GetName("SELECT * from CR_SavedReports where id=" & RID, "MySQL")
             Return sAns
         End Function
+        ''' <summary>
+        ''' Formats from XML.
+        ''' </summary>
+        ''' <param name="sValue">The s value.</param>
+        ''' <returns>System.String.</returns>
         Function FormatFromXML(ByVal sValue As String) As String
             Dim sAns As String = ""
             sAns = Replace(sValue, "&amp;", "&")
@@ -1634,6 +1699,12 @@ Namespace MGC
             If Len(sAns) = 0 Then sAns = "   "
             Return sAns
         End Function
+        ''' <summary>
+        ''' Determines whether [has default picture] [the specified identifier].
+        ''' </summary>
+        ''' <param name="ID">The identifier.</param>
+        ''' <param name="AddPic">if set to <c>true</c> [add pic].</param>
+        ''' <returns><c>true</c> if [has default picture] [the specified identifier]; otherwise, <c>false</c>.</returns>
         Public Function HasDefaultPicture(ByVal ID As Long, Optional ByVal AddPic As Boolean = False) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1656,6 +1727,10 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Adds the default pic.
+        ''' </summary>
+        ''' <param name="ItemID">The item identifier.</param>
         Sub AddDefaultPic(ByVal ItemID As Long)
             Try
                 Dim sFileName As String = APPLICATION_PATH & "\" & DEFAULT_PIC
@@ -1704,6 +1779,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Fixes the default barrel markers.
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <param name="BDID">The bdid.</param>
         Public Sub FixDefaultBarrelMarkers(ByVal GID As Long, Optional ByRef BDID As Long = 0)
             Try
                 Dim Obj As New BSDatabase
@@ -1725,6 +1805,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Gets the default barrel identifier.
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns>System.Int64.</returns>
         Public Function GetDefaultBarrelID(ByVal GID As Long) As Long
             Dim lAns As Long = 0
             Try
@@ -1752,8 +1837,13 @@ Namespace MGC
             End Try
             Return lAns
         End Function
+        ''' <summary>
+        ''' Swaps the default barrel systems.  This Sub will Swap the current Default barrele for the selected firearm with the the selected barrel.
+        ''' </summary>
+        ''' <param name="DefaultBarrelID">The default barrel identifier.</param>
+        ''' <param name="NewBarrelID">Creates new barrelid.</param>
+        ''' <param name="GID">The gid.</param>
         Public Sub SwapDefaultBarrelSystems(ByVal DefaultBarrelID As Long, ByVal NewBarrelID As Long, ByVal GID As Long)
-            'This Sub will Swap the current Default barrele for the selected firearm with the the selected barrel.
             Try
                 Dim Obj As New BSDatabase
                 Dim SQL As String = ""
@@ -1809,6 +1899,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Determines whether [is currentlyin use barrel] [the specified bid].
+        ''' </summary>
+        ''' <param name="BID">The bid.</param>
+        ''' <returns><c>true</c> if [is currentlyin use barrel] [the specified bid]; otherwise, <c>false</c>.</returns>
         Public Function IsCurrentlyinUseBarrel(ByVal BID As Long) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1829,6 +1924,11 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Deletes the barrel system.
+        ''' </summary>
+        ''' <param name="BID">The bid.</param>
+        ''' <param name="sMsg">The s MSG.</param>
         Public Sub DeleteBarrelSystem(ByVal BID As Long, ByRef sMsg As String)
             Try
                 'Currently in debate on if the gun maintenance section should be
@@ -1850,6 +1950,11 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''' <summary>
+        ''' Determines whether [has multi barrels listed] [the specified gid].
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns><c>true</c> if [has multi barrels listed] [the specified gid]; otherwise, <c>false</c>.</returns>
         Function HasMultiBarrelsListed(ByVal GID As Long) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1875,6 +1980,11 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Determines whether [has documents attached] [the specified gid].
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns><c>true</c> if [has documents attached] [the specified gid]; otherwise, <c>false</c>.</returns>
         Function HasDocumentsAttached(GID As Long) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1896,7 +2006,11 @@ Namespace MGC
             End Try
             Return bAns
         End Function
-
+        ''' <summary>
+        ''' Adds the purchase price accessories.
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns>System.Double.</returns>
         Function AddPurchasePriceAccessories(ByVal GID As Long) As Double
             Dim dAns As Double = 0
             Try
@@ -1920,6 +2034,11 @@ Namespace MGC
             End Try
             Return (dAns)
         End Function
+        ''' <summary>
+        ''' Adds the appriased price accessories.
+        ''' </summary>
+        ''' <param name="GID">The gid.</param>
+        ''' <returns>System.Double.</returns>
         Function AddAppriasedPriceAccessories(ByVal GID As Long) As Double
             Dim dAns As Double = 0
             Try
@@ -1943,6 +2062,10 @@ Namespace MGC
             End Try
             Return (dAns)
         End Function
+        ''' <summary>
+        ''' Databases the version.
+        ''' </summary>
+        ''' <returns>System.Double.</returns>
         Public Function DatabaseVersion() As Double
             Dim dAns As Double = 0
             Try
@@ -1971,6 +2094,10 @@ Namespace MGC
 
             Return dAns
         End Function
+        ''' <summary>
+        ''' Databases the is compliant.
+        ''' </summary>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function DBIsCompliant() As Boolean
             Dim bAns As Boolean = False
             Try
@@ -2019,6 +2146,17 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''' <summary>
+        ''' Gets the user settings database.
+        ''' </summary>
+        ''' <param name="RecID">The record identifier.</param>
+        ''' <param name="sName">Name of the s.</param>
+        ''' <param name="sAddress">The s address.</param>
+        ''' <param name="sCity">The s city.</param>
+        ''' <param name="sState">State of the s.</param>
+        ''' <param name="sZip">The s zip.</param>
+        ''' <param name="sPhone">The s phone.</param>
+        ''' <param name="sCCD">The s CCD.</param>
         Public Sub GetUserSettingsDB(ByRef RecID As Long, ByRef sName As String, ByRef sAddress As String,
                                     ByRef sCity As String, ByRef sState As String, ByRef sZip As String,
                                     ByRef sPhone As String, ByRef sCCD As String)
@@ -2052,93 +2190,187 @@ Namespace MGC
             End Try
         End Sub
     End Class
+    ''' <summary>
+    ''' Class BSFileSystem.
+    ''' </summary>
     Public Class BSFileSystem
+        ''' <summary>
+        ''' Logs the file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <param name="strMessage">The string message.</param>
         Public Sub LogFile(ByVal strPath As String, ByVal strMessage As String)
             Dim SendMessage As String = DateTime.Now & vbTab & strMessage
             Call AppendToFile(strPath, SendMessage)
             MDIParent1.tsslErrorsFound.Visible = True
             MDIParent1.tsslErrorsFound.Enabled = True
         End Sub
+        ''' <summary>
+        ''' Logs the debug file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <param name="strMessage">The string message.</param>
         Public Sub LogDebugFile(ByVal strPath As String, ByVal strMessage As String)
             Dim SendMessage As String = DateTime.Now & vbTab & strMessage
             Call AppendToFile(strPath, SendMessage)
         End Sub
+        ''' <summary>
+        ''' Deletes the file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
         Public Sub DeleteFile(ByVal strPath As String)
             If File.Exists(strPath) Then
                 File.Delete(strPath)
             End If
         End Sub
+        ''' <summary>
+        ''' Files the exists.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <returns>System.Object.</returns>
         Public Function FileExists(ByVal strPath As String)
             Return File.Exists(strPath)
         End Function
+        ''' <summary>
+        ''' Creates the file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
         Private Sub CreateFile(ByVal strPath As String)
             If File.Exists(strPath) = False Then
                 Dim fs As New FileStream(strPath, FileMode.Append, FileAccess.Write, FileShare.Write)
                 fs.Close()
             End If
         End Sub
+        ''' <summary>
+        ''' Converts to file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <param name="strNewLine">Creates new line.</param>
         Private Sub AppendToFile(ByVal strPath As String, ByVal strNewLine As String)
             If File.Exists(strPath) = False Then Call CreateFile(strPath)
             Dim sw As New StreamWriter(strPath, True, Encoding.ASCII)
             sw.WriteLine(strNewLine)
             sw.Close()
         End Sub
+        ''' <summary>
+        ''' Moves the file.
+        ''' </summary>
+        ''' <param name="strFrom">The string from.</param>
+        ''' <param name="strTo">Converts to .</param>
         Public Sub MoveFile(ByVal strFrom As String, ByVal strTo As String)
             If File.Exists(strFrom) Then
                 File.Move(strFrom, strTo)
             End If
         End Sub
+        ''' <summary>
+        ''' Copies the file.
+        ''' </summary>
+        ''' <param name="strFrom">The string from.</param>
+        ''' <param name="strTo">Converts to .</param>
         Public Sub CopyFile(ByVal strFrom As String, ByVal strTo As String)
             If File.Exists(strFrom) Then
                 File.Copy(strFrom, strTo)
             End If
         End Sub
+        ''' <summary>
+        ''' Creates the directory.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
         Public Sub CreateDirectory(ByVal strPath As String)
             If Directory.Exists(strPath) Then
                 Directory.CreateDirectory(strPath)
             End If
         End Sub
+        ''' <summary>
+        ''' Directories the exists.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function DirectoryExists(ByVal strPath As String) As Boolean
             Return Directory.Exists(strPath)
         End Function
+        ''' <summary>
+        ''' Deletes the directory.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
         Public Sub DeleteDirectory(ByVal strPath As String)
             If Directory.Exists(strPath) Then
                 Directory.Delete(strPath)
             End If
         End Sub
+        ''' <summary>
+        ''' Moves the directory.
+        ''' </summary>
+        ''' <param name="strFrom">The string from.</param>
+        ''' <param name="strTo">Converts to .</param>
         Public Sub MoveDirectory(ByVal strFrom As String, ByVal strTo As String)
             If Directory.Exists(strFrom) Then
                 Directory.Move(strFrom, strTo)
             End If
         End Sub
+        ''' <summary>
+        ''' Renames the file.
+        ''' </summary>
+        ''' <param name="strFrom">The string from.</param>
+        ''' <param name="strTo">Converts to .</param>
         Public Sub RenameFile(ByVal strFrom As String, ByVal strTo As String)
             File.Move(strFrom, strTo)
         End Sub
+        ''' <summary>
+        ''' Gets the path of file.
+        ''' </summary>
+        ''' <param name="strFile">The string file.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetPathOfFile(ByVal strFile As String) As String
             Dim sAns As String = ""
             sAns = Path.GetDirectoryName(strFile)
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the ext of file.
+        ''' </summary>
+        ''' <param name="strFile">The string file.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetExtOfFile(ByVal strFile As String) As String
             Dim sAns As String = ""
             sAns = Path.GetExtension(strFile)
             Return sAns
         End Function
+        ''' <summary>
+        ''' Gets the name of file.
+        ''' </summary>
+        ''' <param name="strFile">The string file.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetNameOfFile(ByVal strFile As String) As String
             Dim sAns As String = ""
             sAns = Path.GetFileName(strFile)
             Return sAns
         End Function
+        ''' <summary>
+        ''' Files the has extension.
+        ''' </summary>
+        ''' <param name="strFile">The string file.</param>
+        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function FileHasExtension(ByVal strFile As String) As Boolean
             Dim bAns As Boolean = False
             bAns = Path.HasExtension(strFile)
             Return bAns
         End Function
+        ''' <summary>
+        ''' Gets the name of file wo ext.
+        ''' </summary>
+        ''' <param name="strFile">The string file.</param>
+        ''' <returns>System.String.</returns>
         Public Function GetNameOfFileWOExt(ByVal strFile As String) As String
             Dim sAns As String = ""
             sAns = Path.GetFileNameWithoutExtension(strFile)
             Return sAns
         End Function
+        ''' <summary>
+        ''' Converts to file.
+        ''' </summary>
+        ''' <param name="strPath">The string path.</param>
+        ''' <param name="strNewLine">Creates new line.</param>
         Public Sub OutPutToFile(ByVal strPath As String, ByVal strNewLine As String)
             Call AppendToFile(strPath, strNewLine)
         End Sub
