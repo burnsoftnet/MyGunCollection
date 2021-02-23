@@ -765,9 +765,19 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Call RefreshCollection()
     End Sub
+    ''' <summary>
+    ''' Handles the Resize event of the MDIParent1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub MDIParent1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         If Me.Height <> 0 Then
             ListBox1.Height = Me.Height - 188
@@ -778,6 +788,11 @@ Public Class MDIParent1
             Me.lblTotal.Location = p
         End If
     End Sub
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbView.SelectedIndexChanged
         Call RefreshCollection()
     End Sub
@@ -874,6 +889,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Checks for updates.
+    ''' </summary>
     Sub CheckForUpdates()
         Try
             DoAutoBackup = False
@@ -887,6 +905,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Does the backup.
+    ''' </summary>
     Sub DoBackup()
         Try
             DoAutoBackup = False
@@ -900,6 +921,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Does the restore.
+    ''' </summary>
     Sub DoRestore()
         Try
             DoAutoBackup = False
@@ -1201,43 +1225,71 @@ Public Class MDIParent1
     Private Sub ToolStripButton13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton13.Click
         Call RunSearch()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub FirearmConditionsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmConditionsToolStripMenuItem.Click
         Dim frmNew As New frmEditGunConditions
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub FirearmTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmTypesToolStripMenuItem.Click
         Dim frmNew As New frmEditFirearmType
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem1_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem1.Click
         Dim frmNew As New frmViewReport_Blank_BoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub QuickCollectionReportWNotesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuickCollectionReportWNotesToolStripMenuItem.Click
         Dim frmnew As New frmViewReport_Quickinv_w_DetailNotes
         frmnew.MdiParent = Me
         frmnew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ShootersCardToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem.Click
         Dim frmNew As New frmViewReport_Blank_ShootersCard
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem1_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ShootersCardToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem1.Click
         Dim frmNew As New frmViewReport_Blank_ShootersCard2
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ShowDebugLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowDebugLogToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = "notepad.exe" 'Application.LocalUserAppDataPath.ToString & "\" & DEBUG_FILE
@@ -1245,21 +1297,39 @@ Public Class MDIParent1
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ListedGunsmithsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedGunsmithsToolStripMenuItem.Click
         frmViewGunSmiths.MdiParent = Me
         frmViewGunSmiths.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ListedAppriasersToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedAppriasersToolStripMenuItem.Click
         frmViewAppraisers.MdiParent = Me
         frmViewAppraisers.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DocumentToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentToolStripMenuItem.Click
         Dim frmNew As New frmAddDocument
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton8_buttonclick.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton8_ButtonClick(sender As System.Object, e As System.EventArgs) Handles ToolStripButton8.ButtonClick
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
@@ -1267,7 +1337,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion2ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook2
@@ -1275,7 +1349,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookVersion1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion1ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
@@ -1283,7 +1361,11 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BounfBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BounfBookVersion2ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook2
@@ -1291,41 +1373,77 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClassificationToolStripMenuItem.Click
         Dim frmNew As New EditGunClassications
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AddFirearmClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddFirearmClassificationToolStripMenuItem.Click
         Dim frmNew As New frmAddFirearmClassification
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DocumentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentsToolStripMenuItem.Click
         Call ViewDocuments()
     End Sub
+    ''' <summary>
+    ''' Views the documents.
+    ''' </summary>
     Private Sub ViewDocuments()
         frmViewDocuments.MdiParent = Me
         frmViewDocuments.Show()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton14_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton14_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton14.Click
         Call ViewDocuments()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub PickerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles PickerToolStripMenuItem.Click
         Call ShowFirearmGalleryPicker()
     End Sub
+    ''' <summary>
+    ''' Shows the firearm gallery picker.
+    ''' </summary>
     Sub ShowFirearmGalleryPicker()
         frmFirearmImagePicker.MdiParent = Me
         frmFirearmImagePicker.Show()
     End Sub
+    ''' <summary>
+    ''' Converts to olstripbutton15_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton15_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton15.Click
         Call ShowFirearmGalleryPicker()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBook1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBook1ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
@@ -1333,39 +1451,75 @@ Public Class MDIParent1
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub RedoAllToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RedoAllToolStripMenuItem.Click
         Call ReRunHotFixUpdates()
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix1ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(1)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix2ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(2)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix3ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix3ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(3)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix4ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix4ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(4)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix5ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix5ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(5)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix6ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix6ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(6)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix7ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix7ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(7)
     End Sub
-
+    ''' <summary>
+    ''' Converts to olstripmenuitem_click.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix8ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix8ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(8)
     End Sub
