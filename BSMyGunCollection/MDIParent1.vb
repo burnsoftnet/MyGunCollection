@@ -435,13 +435,14 @@ Public Class MDIParent1
             Call Buggerme("mdiparent1.load", "Checking Registration for App")
             'TODO: Remove this to allow free version
             'Call DoRegistrationProcessForApp()
-
+            '#32 This section was added to change to free version
             RunningRegForm = False
             ToolStripStatusLabel.Text = ""
             RegisterToolStripMenuItem.Enabled = False
             RegisterToolStripMenuItem.Visible = False
             ToolStripSeparator4.Visible = False
             PurchaseToolStripMenuItem.Visible = False
+            '#32 End of mock registration
 
             IsReady = True
             cmbView.Text = ObjR.GetViewSettings("VIEW_FirearmList", "In Stock")
