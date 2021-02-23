@@ -31,7 +31,7 @@ Public Class MDIParent1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
-        Global.System.Windows.Forms.Application.Exit()
+        Application.Exit()
     End Sub
     Private Sub CutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         ' Use My.Computer.Clipboard to insert the selected text or images into the clipboard
@@ -341,53 +341,57 @@ Public Class MDIParent1
     End Sub
 #End Region
 #Region " Form Subs "
+    ''' <summary>
+    ''' Does the registration process for application.
+    ''' </summary>
+    <Obsolete("No Longer Needed for the free version")>
     Private Sub DoRegistrationProcessForApp()
-        Try
-            Dim ObjReg As New RegistrationProcess
-            Dim IsRegistered As Boolean = False
-            Dim MyDaysLeft As String = ""
-            Dim Has2Expired As Boolean = False
-            Dim MyRegTo As String = ""
-            Dim MyregPath As String = ObjReg.DefaultRegPath & "\Settings"
-            Call ObjReg.StartRegistration(MyregPath, IsRegistered, MyDaysLeft, Has2Expired, MyRegTo)
-            If Not IsRegistered Then
-                Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is not Registered")
-                If Not Has2Expired Then
-                    Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Days left before Expire:" & MyDaysLeft)
-                    Select Case MyDaysLeft
-                        Case 0
-                            DaysLeftToTry = "This is your Last Day to register!"
-                            ToolStripStatusLabel.Text = "This is a shareware version that will expire today."
-                        Case 1
-                            DaysLeftToTry = "You have " & MyDaysLeft & " day left to register!"
-                            ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " more day."
-                        Case Else
-                            DaysLeftToTry = "You have " & MyDaysLeft & " days left to register!"
-                            ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " days."
-                    End Select
-                    RunningRegForm = False
-                Else
-                    Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "APPLICATION HAS EXPIRED")
-                    BSRegistration.MainFormUnloaded = True
-                    BSRegistration.StatusMessage = "This Application has Expired!"
-                    BSRegistration.Show()
-                    RunningRegForm = True
-                    Me.Close()
-                End If
-            Else
-                RunningRegForm = False
-                ToolStripStatusLabel.Text = "Registered To: " & MyRegTo
-                RegisterToolStripMenuItem.Enabled = False
-                RegisterToolStripMenuItem.Visible = False
-                ToolStripSeparator4.Visible = False
-                PurchaseToolStripMenuItem.Visible = False
-                Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is registered to:" & MyRegTo)
-            End If
-            If Not Has2Expired Then Call CheckBackup()
-        Catch ex As Exception
-            Dim strProcedure As String = "DoRegistrationProcessForApp"
-            Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
-        End Try
+        'Try
+        '    Dim ObjReg As New RegistrationProcess
+        '    Dim IsRegistered As Boolean = False
+        '    Dim MyDaysLeft As String = ""
+        '    Dim Has2Expired As Boolean = False
+        '    Dim MyRegTo As String = ""
+        '    Dim MyregPath As String = ObjReg.DefaultRegPath & "\Settings"
+        '    Call ObjReg.StartRegistration(MyregPath, IsRegistered, MyDaysLeft, Has2Expired, MyRegTo)
+        '    If Not IsRegistered Then
+        '        Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is not Registered")
+        '        If Not Has2Expired Then
+        '            Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Days left before Expire:" & MyDaysLeft)
+        '            Select Case MyDaysLeft
+        '                Case 0
+        '                    DaysLeftToTry = "This is your Last Day to register!"
+        '                    ToolStripStatusLabel.Text = "This is a shareware version that will expire today."
+        '                Case 1
+        '                    DaysLeftToTry = "You have " & MyDaysLeft & " day left to register!"
+        '                    ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " more day."
+        '                Case Else
+        '                    DaysLeftToTry = "You have " & MyDaysLeft & " days left to register!"
+        '                    ToolStripStatusLabel.Text = "This is a shareware version that will work for " & MyDaysLeft & " days."
+        '            End Select
+        '            RunningRegForm = False
+        '        Else
+        '            Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "APPLICATION HAS EXPIRED")
+        '            BSRegistration.MainFormUnloaded = True
+        '            BSRegistration.StatusMessage = "This Application has Expired!"
+        '            BSRegistration.Show()
+        '            RunningRegForm = True
+        '            Me.Close()
+        '        End If
+        '    Else
+        '        RunningRegForm = False
+        '        ToolStripStatusLabel.Text = "Registered To: " & MyRegTo
+        '        RegisterToolStripMenuItem.Enabled = False
+        '        RegisterToolStripMenuItem.Visible = False
+        '        ToolStripSeparator4.Visible = False
+        '        PurchaseToolStripMenuItem.Visible = False
+        '        Call Buggerme("mdiparent1.DoRegistrationProcessForApp", "Application is registered to:" & MyRegTo)
+        '    End If
+        '    If Not Has2Expired Then Call CheckBackup()
+        'Catch ex As Exception
+        '    Dim strProcedure As String = "DoRegistrationProcessForApp"
+        '    Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
+        'End Try
     End Sub
     ''' <summary>
     ''' Actions to perform when the application closes
@@ -429,7 +433,16 @@ Public Class MDIParent1
             Call Buggerme("mdiparent1.load", "Updating App Details")
             ObjR.UpDateAppDetails()
             Call Buggerme("mdiparent1.load", "Checking Registration for App")
-            Call DoRegistrationProcessForApp()
+            'TODO: Remove this to allow free version
+            'Call DoRegistrationProcessForApp()
+
+            RunningRegForm = False
+            ToolStripStatusLabel.Text = ""
+            RegisterToolStripMenuItem.Enabled = False
+            RegisterToolStripMenuItem.Visible = False
+            ToolStripSeparator4.Visible = False
+            PurchaseToolStripMenuItem.Visible = False
+
             IsReady = True
             cmbView.Text = ObjR.GetViewSettings("VIEW_FirearmList", "In Stock")
             Call Buggerme("mdiparent1.load", "View The Selected Collection: " & cmbView.Text)
