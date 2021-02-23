@@ -17,8 +17,8 @@
     <CleanupOutputPath>true</CleanupOutputPath>
     <HelpFileName>BSMyGunCollection</HelpFileName>
     <HelpFileNamingMethod>MemberName</HelpFileNamingMethod>
-    <ImageFolderPath>..\..\..\..\..\..\..\..\..\..\</ImageFolderPath>
-    <Theme />
+    <ImageFolderPath>..\..\..\..\..\..\..\..\..\</ImageFolderPath>
+    <Theme>FlatMain</Theme>
     <HtmlFormats>
       <HtmlHelp>true</HtmlHelp>
       <MSHelpViewer>false</MSHelpViewer>
@@ -44,13 +44,17 @@
       <CPlusPlus>true</CPlusPlus>
     </SyntaxLanguages>
     <ResolveCrefLinks>true</ResolveCrefLinks>
-    <HeaderText />
-    <FooterText />
+    <HeaderText>My Gun Collection App Details</HeaderText>
+    <FooterText>BurnSoft.Net 2021</FooterText>
     <ConceptualContent>
       <ContentLayout />
       <MediaContent />
     </ConceptualContent>
-    <SelectedProjects />
+    <SelectedProjects>
+      <SelectedProject>BSMGC_HotFixes</SelectedProject>
+      <SelectedProject>BSMyGunCollection</SelectedProject>
+      <SelectedProject>MyGunCollection_DataLoader</SelectedProject>
+    </SelectedProjects>
   </HelpConfiguration>
 </HelpConfigurations>
 <GeneralProperties>
