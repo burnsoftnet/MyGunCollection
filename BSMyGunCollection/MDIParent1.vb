@@ -25,6 +25,11 @@ Public Class MDIParent1
     ''' </summary>
     Public RunningRegForm As Boolean
 #Region " Menu Subs "
+    ''' <summary>
+    ''' Exit the Application
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub ExitToolsStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExitToolStripMenuItem.Click
         Global.System.Windows.Forms.Application.Exit()
     End Sub
@@ -440,6 +445,9 @@ Public Class MDIParent1
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Check when the last time a back was done
+    ''' </summary>
     Sub CheckBackup()
         Try
             Dim ObjR As New BSRegistry
