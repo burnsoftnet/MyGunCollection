@@ -8,16 +8,49 @@ Module GlobalVars
     ''' The Owner ID
     ''' </summary>
     Public OwnerID As String
+    ''' <summary>
+    ''' The owner name
+    ''' </summary>
     Public OwnerName As String
+    ''' <summary>
+    ''' The owner lic
+    ''' </summary>
     Public OwnerLIC As String
+    ''' <summary>
+    ''' The use login
+    ''' </summary>
     Public UseLogin As Boolean
+    ''' <summary>
+    ''' The use my password
+    ''' </summary>
     Public UseMyPWD As String
+    ''' <summary>
+    ''' The use my uid
+    ''' </summary>
     Public UseMyUID As String
+    ''' <summary>
+    ''' The use my forgot word
+    ''' </summary>
     Public UseMyForgotWord As String
+    ''' <summary>
+    ''' The use my forgot phrase
+    ''' </summary>
     Public UseMyForgotPhrase As String
+    ''' <summary>
+    ''' The is logged in
+    ''' </summary>
     Public IsLoggedIN As Boolean
+    ''' <summary>
+    ''' My log file
+    ''' </summary>
     Public MyLogFile As String
+    ''' <summary>
+    ''' The do automatic backup
+    ''' </summary>
     Public DoAutoBackup As Boolean
+    ''' <summary>
+    ''' The do original image
+    ''' </summary>
     Public DoOriginalImage As Boolean
     Public UsePetLoads As Boolean
     Public PersonalMark As Boolean
