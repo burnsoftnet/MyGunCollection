@@ -108,16 +108,35 @@ Module GlobalVars
     ''' The Help file name
     ''' </summary>
     Public Const MY_HELP_FILE = "my_gun_collection_help.chm"
+    ''' <summary>
+    ''' Hot fix exe app
+    ''' </summary>
     Public Const MY_HOTFIX_FILE = "BSMGC_HotFixes.exe"
+    ''' <summary>
+    ''' Data loader app name
+    ''' </summary>
     Public Const MY_DATALOADER = "MyGunCollection_DataLoader.exe"
+    ''' <summary>
+    ''' Application Update
+    ''' </summary>
+    <Obsolete("Removed in version 5")>
     Public Const MY_UPDATER = "BSApplicationUpdater.exe"
+    ''' <summary>
+    ''' back up application
+    ''' </summary>
     Public Const MY_BACKUP = "DBBackup.exe"
+    ''' <summary>
+    ''' restore application
+    ''' </summary>
     Public Const MY_RESTORE = "DBRestore.exe"
+    <Obsolete("Removed in version 5")>
     Public Const MENU_FORUM = "http://mgcforum.burnsoft.net"
     Public Const MENU_WIKI = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
+    <Obsolete("Removed in version 5")>
     Public Const MENU_SHOP = "http://shopping.burnsoft.net"
     Public Const MENU_BUG = "http://bugreport.burnsoft.net"
     Public Const MENU_SUPPORT = "http://support.burnsoft.net"
+    <Obsolete("Removed in version 5")>
     Public Const MENU_SITESEARCH = "http://www.burnsoft.net/Search_Site.aspx"
     Public Const MENU_LINKS = "http://wiki.burnsoft.net/Links_Firearm_reloading.ashx"
     Public Const DEFAULT_DOB = "1/1/1900"
