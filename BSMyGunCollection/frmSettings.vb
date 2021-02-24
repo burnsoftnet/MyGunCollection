@@ -59,20 +59,20 @@ Public Class frmSettings
                 RS.Read()
                 RecID = CInt(RS("ID"))
                 txtName.Text = Trim(RS("name")) 'oEncrypt.DecryptSHA(RS("name"))
-                txtAddress.Text = Trim(oEncrypt.DecryptSHA(RS("address")))
+                txtAddress.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("address")))
                 txtCity.Text = Trim(RS("City"))
                 txtState.Text = Trim(RS("State"))
                 txtZip.Text = Trim(RS("Zip"))
                 txtPhone.Text = Trim(RS("Phone")) ' oEncrypt.DecryptSHA(RS("Phone"))
-                txtCCD.Text = Trim(oEncrypt.DecryptSHA(RS("CCDWL")))
+                txtCCD.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
                 intUsePass = CInt(RS("UsePWD"))
                 If intUsePass = 1 Then
-                    txtPWD.Text = Trim(oEncrypt.DecryptSHA(RS("PWD")))
+                    txtPWD.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("PWD")))
                     txtCPWD.Text = Trim(txtPWD.Text)
                     ChkPassword.Checked = True
-                    txtLogin.Text = Trim(oEncrypt.DecryptSHA(RS("UID")))
-                    txtPhrase.Text = Trim(oEncrypt.DecryptSHA(RS("forgot_phrase")))
-                    txtWord.Text = Trim(oEncrypt.DecryptSHA(RS("forgot_word")))
+                    txtLogin.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("UID")))
+                    txtPhrase.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_phrase")))
+                    txtWord.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_word")))
                 Else
                     ChkPassword.Checked = False
                 End If
@@ -111,16 +111,18 @@ Public Class frmSettings
             DISABLEUNIQUECUSTCATID = chkUnique.Checked
             USESELECTIVEBOUNDBOOK = chkSelectiveBoundBook.Checked
             Dim strName As String = FluffContent(txtName.Text) 'oEncrypt.EncryptSHA(FluffContent(txtName.Text))
-            Dim strAddress As String = oEncrypt.EncryptSHA(FluffContent(txtAddress.Text))
+            'Dim strAddress As String = oEncrypt.EncryptSHA(FluffContent(txtAddress.Text))
+            Dim strAddress As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtAddress.Text))
             Dim strCity As String = FluffContent(txtCity.Text)
             Dim strState As String = FluffContent(txtState.Text)
             Dim strZipCode As String = FluffContent(txtZip.Text)
             Dim strPhone As String = FluffContent(txtPhone.Text) ' oEncrypt.EncryptSHA(FluffContent(txtPhone.Text))
-            Dim strCCD As String = oEncrypt.EncryptSHA(FluffContent(txtCCD.Text))
-            Dim strPWD As String = oEncrypt.EncryptSHA(FluffContent(txtPWD.Text))
-            Dim strCPWD As String = oEncrypt.EncryptSHA(FluffContent(txtCPWD.Text))
-            Dim strPhrase As String = oEncrypt.EncryptSHA(FluffContent(txtPhrase.Text))
-            Dim strWord As String = oEncrypt.EncryptSHA(FluffContent(txtWord.Text))
+            'Dim strCCD As String = oEncrypt.EncryptSHA(FluffContent(txtCCD.Text))
+            Dim strCCD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtCCD.Text))
+            Dim strPWD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtPWD.Text))
+            Dim strCPWD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtCPWD.Text))
+            Dim strPhrase As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtPhrase.Text))
+            Dim strWord As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtWord.Text))
             Dim strUID As String = txtLogin.Text
             OwnerLIC = txtCCD.Text
             If Len(strUID) = 0 Then strUID = "admin"

@@ -319,22 +319,22 @@ Module GlobalVars
                 Dim intUsePWD As Integer = CInt(RS("UsePWD"))
                 If intUsePWD = 1 Then
                     If Not IsDBNull(RS("PWD")) Then
-                        PWD = oEncrypt.DecryptSHA(RS("PWD"))
+                        PWD = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("PWD"))
                     Else
                         PWD = ""
                     End If
                     If Not IsDBNull(RS("UID")) Then
-                        UID = oEncrypt.DecryptSHA(RS("UID"))
+                        UID = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("UID"))
                     Else
                         UID = "admin"
                     End If
                     If Not IsDBNull(RS("forgot_word")) And Len(RS("forgot_word")) > 0 Then
-                        FW = oEncrypt.DecryptSHA(RS("forgot_word"))
+                        FW = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_word"))
                     Else
                         FW = "burnsoft"
                     End If
                     If Not IsDBNull(RS("forgot_phrase")) And Len(RS("forgot_phrase")) > 0 Then
-                        FP = oEncrypt.DecryptSHA(RS("forgot_phrase"))
+                        FP = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_phrase"))
                     Else
                         FP = "The Company that made this App"
                     End If
