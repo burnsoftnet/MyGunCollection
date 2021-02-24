@@ -52,19 +52,61 @@ Module GlobalVars
     ''' The do original image
     ''' </summary>
     Public DoOriginalImage As Boolean
+    ''' <summary>
+    ''' The use pet loads
+    ''' </summary>
     Public UsePetLoads As Boolean
+    ''' <summary>
+    ''' The personal mark
+    ''' </summary>
     Public PersonalMark As Boolean
+    ''' <summary>
+    ''' The use number cat only
+    ''' </summary>
     Public UseNumberCatOnly As Boolean
+    ''' <summary>
+    ''' The auditammo
+    ''' </summary>
     Public AUDITAMMO As Boolean
+    ''' <summary>
+    ''' The useautoassign
+    ''' </summary>
     Public USEAUTOASSIGN As Boolean
+    ''' <summary>
+    ''' The lastviewedfirearm
+    ''' </summary>
     Public LASTVIEWEDFIREARM As Long
+    ''' <summary>
+    ''' The disableuniquecustcatid
+    ''' </summary>
     Public DISABLEUNIQUECUSTCATID As Boolean
+    ''' <summary>
+    ''' The useselectiveboundbook
+    ''' </summary>
     Public USESELECTIVEBOUNDBOOK As Boolean
+    ''' <summary>
+    ''' The application path
+    ''' </summary>
     Public APPLICATION_PATH As String
+    ''' <summary>
+    ''' The application path data
+    ''' </summary>
     Public APPLICATION_PATH_DATA As String
+    ''' <summary>
+    ''' The debug mode
+    ''' </summary>
     Public DEBUG_MODE As Boolean
+    ''' <summary>
+    ''' The show firarm gallery on start
+    ''' </summary>
     Public SHOW_FIRARM_GALLERY_ON_START As Boolean
+    ''' <summary>
+    ''' The Database Version that we are expected for this version
+    ''' </summary>
     Public Const MY_DATABASE_VERSION As Double = 6.0
+    ''' <summary>
+    ''' The Help file name
+    ''' </summary>
     Public Const MY_HELP_FILE = "my_gun_collection_help.chm"
     Public Const MY_HOTFIX_FILE = "BSMGC_HotFixes.exe"
     Public Const MY_DATALOADER = "MyGunCollection_DataLoader.exe"
