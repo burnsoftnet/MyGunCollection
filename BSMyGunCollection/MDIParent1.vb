@@ -328,9 +328,10 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    <Obsolete("This function was removed")>
     Private Sub RegisterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegisterToolStripMenuItem.Click
-        BSRegistration.StatusMessage = ToolStripStatusLabel.Text
-        BSRegistration.Show()
+        'BSRegistration.StatusMessage = ToolStripStatusLabel.Text
+        'BSRegistration.Show()
     End Sub
 #End Region
 #Region " Tool Strip Subs "
