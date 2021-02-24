@@ -131,18 +131,45 @@ Module GlobalVars
     Public Const MY_RESTORE = "DBRestore.exe"
     <Obsolete("Removed in version 5")>
     Public Const MENU_FORUM = "http://mgcforum.burnsoft.net"
+    ''' <summary>
+    ''' Linkk to My Gun Collection Wiji Section
+    ''' </summary>
     Public Const MENU_WIKI = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
     <Obsolete("Removed in version 5")>
     Public Const MENU_SHOP = "http://shopping.burnsoft.net"
+    ''' <summary>
+    ''' Link to bug report
+    ''' </summary>
     Public Const MENU_BUG = "http://bugreport.burnsoft.net"
+    ''' <summary>
+    ''' Link to support section on site
+    ''' </summary>
     Public Const MENU_SUPPORT = "http://support.burnsoft.net"
     <Obsolete("Removed in version 5")>
     Public Const MENU_SITESEARCH = "http://www.burnsoft.net/Search_Site.aspx"
+    ''' <summary>
+    ''' Firearm links
+    ''' </summary>
     Public Const MENU_LINKS = "http://wiki.burnsoft.net/Links_Firearm_reloading.ashx"
+    ''' <summary>
+    ''' Default Date of Birth
+    ''' </summary>
     Public Const DEFAULT_DOB = "1/1/1900"
+    ''' <summary>
+    ''' Name of default firearm picture
+    ''' </summary>
     Public Const DEFAULT_PIC = "mgc_default.jpg"
+    ''' <summary>
+    ''' Test expire marker, might not be needed anymore
+    ''' </summary>
     Public Const TESTEXPIRED = False
+    ''' <summary>
+    ''' default log file name
+    ''' </summary>
     Public Const DEBUG_FILE = "mgc.debug.log"
+    ''' <summary>
+    ''' default database name
+    ''' </summary>
     Public Const DATABASE_NAME = "MGC.mdb"
     ''' <summary>
     ''' format the strings to be database friendly
