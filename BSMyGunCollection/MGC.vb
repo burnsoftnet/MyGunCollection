@@ -2171,12 +2171,12 @@ Namespace MGC
                     RS.Read()
                     RecID = CInt(RS("ID"))
                     sName = Trim(RS("name"))
-                    sAddress = Trim(oEncrypt.DecryptSHA(RS("address")))
+                    sAddress = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("address")))
                     sCity = Trim(RS("City"))
                     sState = Trim(RS("State"))
                     sZip = Trim(RS("Zip"))
                     sPhone = Trim(RS("Phone"))
-                    sCCD = Trim(oEncrypt.DecryptSHA(RS("CCDWL")))
+                    sCCD = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
                 Else
                     RecID = 0
                 End If

@@ -377,7 +377,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataGridPrinter.vb" />
-    <Compile Include="EnCrypt.vb" />
     <Compile Include="ExportModule.vb" />
     <Compile Include="frmAddAccessory.Designer.vb">
       <DependentUpon>frmAddAccessory.vb</DependentUpon>

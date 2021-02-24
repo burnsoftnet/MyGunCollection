@@ -382,7 +382,7 @@ Module GlobalVars
                     iAns = RS("ID")
                     OwnerName = RS("Name")
                     If Not IsDBNull(RS("CCDWL")) Then
-                        OwnerLIC = Trim(oEncrypt.DecryptSHA(RS("CCDWL")))
+                        OwnerLIC = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
                     Else
                         OwnerLIC = ""
                     End If
