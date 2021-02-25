@@ -20,7 +20,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetZone>LocalIntranet</TargetZone>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>CollectCCC.p7s</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -1172,8 +1173,6 @@
     </None>
     <None Include="BurnSoft.Security.RegularEncryption.chm" />
     <None Include="BurnSoft.Universal.chm" />
-    <None Include="CollectCCC.p7s" />
-    <None Include="jm_software.pfx" />
     <None Include="MGCDataSet.xsc">
       <DependentUpon>MGCDataSet.xsd</DependentUpon>
     </None>
