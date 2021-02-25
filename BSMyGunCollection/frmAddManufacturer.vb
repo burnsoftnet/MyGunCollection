@@ -21,7 +21,7 @@ Public Class frmAddManufacturer
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
-            If Not IsRequired(strMan, "Manufacture's Name", Me.Text) Then Exit Sub
+            If Not IsRequired(strMan, "Manufacturer's Name", Me.Text) Then Exit Sub
             Dim ObjGF As New GlobalFunctions
             If Not ObjGF.ObjectExistsinDB(strMan, "Brand", "Gun_Manufacturer") Then
                 Dim Obj As New BSDatabase
@@ -54,7 +54,7 @@ Public Class frmAddManufacturer
         End Try
     End Sub
     ''' <summary>
-    ''' Converts to p_checkedchanged.
+    ''' Converts to check changed box.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
