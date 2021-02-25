@@ -3,7 +3,7 @@
 ''' </summary>
 Module ExportModule
     ''' <summary>
-    ''' Oses the specified word.
+    ''' Uses the specified word.
     ''' </summary>
     ''' <param name="Word">The word.</param>
     ''' <returns>System.String.</returns>

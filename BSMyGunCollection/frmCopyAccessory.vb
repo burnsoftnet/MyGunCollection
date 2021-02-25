@@ -42,7 +42,7 @@ Public Class frmCopyAccessory
         Return sAns
     End Function
     ''' <summary>
-    ''' Perform the Copy Action and copy the accessory back into the same database but accosiated with the selected firearm.
+    ''' Perform the Copy Action and copy the accessory back into the same database but associate with the selected firearm.
     ''' </summary>
     ''' <param name="StrID">The string identifier.</param>
     Sub DoCopy(ByVal StrID As String)

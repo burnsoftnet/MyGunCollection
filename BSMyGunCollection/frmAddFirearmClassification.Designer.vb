@@ -37,8 +37,7 @@ Partial Class frmAddFirearmClassification
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(288, 28)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Add custom firearm classifications ( antique, C&&R, Modern ) to use for your coll" & _
-    "ection."
+        Me.Label1.Text = "Add custom firearm classifications ( antique, C&&R, Modern ) to use for your collection."
         '
         'Label2
         '

@@ -22,7 +22,7 @@
         End If
     End Sub
     ''' <summary>
-    ''' Handles the ListChanged event of the GunManufacturerBindingSource control and update has occured, and mark that there is a update pending.
+    ''' Handles the ListChanged event of the GunManufacturerBindingSource control and update has occurred, and mark that there is a update pending.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
@@ -32,7 +32,7 @@
         End If
     End Sub
     ''' <summary>
-    ''' Handles the Resize event of the frmEditmanufactures control. Size the Datagrid to fit the form
+    ''' Handles the Resize event of the frm Edit manufactures control. Size the Data grid to fit the form
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>

@@ -1,10 +1,12 @@
 Imports BSMyGunCollection.MGC
 ''' <summary>
-''' Class frmAddMaintancePlans.
+''' Class Add Maintenance Plans form.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable InconsistentNaming
 Public Class frmAddMaintancePlans
+' ReSharper restore InconsistentNaming
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
     ''' </summary>
@@ -25,7 +27,7 @@ Public Class frmAddMaintancePlans
                         strName & "','" & strOD & "','" & strIID & "','" & strIIRF & "','" &
                         strNotes & "',Now())"
             Obj.ConnExec(SQL)
-            MsgBox(strName & " was added to the Maintance Plans!", MsgBoxStyle.Information, Me.Text)
+            MsgBox(strName & " was added to the Maintenance Plans!", MsgBoxStyle.Information, Me.Text)
             Me.Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"

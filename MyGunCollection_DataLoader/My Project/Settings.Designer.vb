@@ -60,8 +60,7 @@ Namespace My
          Global.System.Configuration.DefaultSettingValueAttribute("http://www.burnsoft.net/services/bsmgc.asmx")>  _
         Public ReadOnly Property MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update() As String
             Get
-                Return CType(Me("MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_D"& _ 
-                    "atabase_x0020_Update"),String)
+                Return CType(Me("MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update"),String)
             End Get
         End Property
         

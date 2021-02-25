@@ -74,7 +74,7 @@ Public Class frmDownloadUpdates
             If bManufacturer Then Call DownloadDataSet("Downloading Manufacturers", "Gun_Manufacturer", 4)
             If BNationality Then Call DownloadDataSet("Downloading Manufacturers Nationality", "Gun_Nationality", 5)
             If bType Then Call DownloadDataSet("Downloading Firearm Types", "Gun_Type", 6)
-            If BMaintPlan Then DownloadDataSet("Downloading Maintanence Plans", "Maintance_Plans", 7)
+            If BMaintPlan Then DownloadDataSet("Downloading Maintenace Plans", "Maintance_Plans", 7)
             If bModel Then Call DownloadDataSet("Downloading Models", "Gun_Model", 8)
             NoErrors = False
             Me.Cursor = Cursors.Arrow
@@ -88,7 +88,7 @@ Public Class frmDownloadUpdates
             Return Err.Number
         End Try
     End Function
-    'Actions on Form Laod
+    'Actions on Form Load
     Private Sub frmDownloadUpdates_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName

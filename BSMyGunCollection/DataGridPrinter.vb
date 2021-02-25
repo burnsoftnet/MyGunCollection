@@ -278,7 +278,7 @@ Public Class DataGridPrinter
 
 #Region "Shared methods"
     '\\ --[StripDomainFromFullUsername]------------------------------------------------
-    '\\ Returns just the username bit from a username that includes a domain name
+    '\\ Returns just the username bit from a user name that includes a domain name
     '\\ e.g. "DEVELOPMENT\Duncan" -> "Duncan"
     '\\ (c) 2005 - Merrion Computing Ltd
     '\\ -------------------------------------------------------------------------------
@@ -548,7 +548,7 @@ Public Class DataGridPrinter
     End Sub
 
     '\\ --[RoundTo]-----------------------------------------------------------------------------
-    '\\ Rounds the input number tot he nearest modulus of NearsetMultiple
+    '\\ Rounds the input number tot he nearest modulus of Nearest Multiple
     '\\ ----------------------------------------------------------------------------------------
     Private Function RoundTo(ByVal Input As Double, ByVal NearestMultiple As Integer) As Integer
 

@@ -221,7 +221,7 @@ Namespace GlobalFunctions
                 Return bAns
             Catch ex As Exception
                 Dim ObjFS As New BSFileSystem
-                Dim sMessage As String = "Globalunctions.ObjectExistsinDB" & "::" & Err.Number & "::" & ex.Message.ToString()
+                Dim sMessage As String = "GlobalFunctions.ObjectExistsinDB" & "::" & Err.Number & "::" & ex.Message.ToString()
             End Try
         End Function
         Public Function ObjectExistsinDBSQL(ByVal SQL As String) As Boolean
@@ -243,7 +243,7 @@ Namespace GlobalFunctions
                 Return bAns
             Catch ex As Exception
                 Dim ObjFS As New BSFileSystem
-                Dim sMessage As String = "Globalunctions.ObjectExistsinDB" & "::" & Err.Number & "::" & ex.Message.ToString()
+                Dim sMessage As String = "GlobalFunctions.ObjectExistsinDB" & "::" & Err.Number & "::" & ex.Message.ToString()
             End Try
         End Function
         Public Function GetID(ByVal SQL As String) As Long
@@ -267,7 +267,7 @@ Namespace GlobalFunctions
                 Return sAns
             Catch ex As Exception
                 Dim ObjFS As New BSFileSystem
-                Dim sMessage As String = "Globalunctions.GetID" & "::" & Err.Number & "::" & ex.Message.ToString()
+                Dim sMessage As String = "GlobalFunctions.GetID" & "::" & Err.Number & "::" & ex.Message.ToString()
             End Try
         End Function
         Private Function GetName(ByVal SQL As String, ByVal strValue As String) As String

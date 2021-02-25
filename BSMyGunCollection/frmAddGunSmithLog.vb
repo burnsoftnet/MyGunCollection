@@ -33,7 +33,7 @@ Public Class frmAddGunSmithLog
         Me.Close()
     End Sub
     ''' <summary>
-    ''' Smithes the exists.
+    ''' check is a gun Smith the exists.
     ''' </summary>
     ''' <param name="strName">Name of the string.</param>
     ''' <param name="intCount">The int count.</param>

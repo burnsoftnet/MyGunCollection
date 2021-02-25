@@ -62,7 +62,7 @@ Partial Class frmAddBarrelSystem
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Main Reciever:"
+        Me.Label1.Text = "Main Receiver:"
         '
         'Label2
         '

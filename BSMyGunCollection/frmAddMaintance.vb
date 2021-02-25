@@ -4,7 +4,9 @@ Imports BSMyGunCollection.MGC
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable InconsistentNaming
 Public Class frmAddMaintance
+' ReSharper restore InconsistentNaming
     ''' <summary>
     ''' The gun id
     ''' </summary>

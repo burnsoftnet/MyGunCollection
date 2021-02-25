@@ -113,7 +113,7 @@ Public Class frmAddDocument
         Return btAns
     End Function
     ''' <summary>
-    ''' Insert or update the document and detail based on the Editmode switch
+    ''' Insert or update the document and detail based on the Edit mode switch
     ''' </summary>
     ''' <param name="DocPath">The document path.</param>
     Public Sub InsertDoc(DocPath As String)
@@ -175,14 +175,14 @@ Public Class frmAddDocument
 
     End Sub
     ''' <summary>
-    ''' update the document and detail based on the Editmode switch
+    ''' update the document and detail based on the Edit mode switch
     ''' </summary>
     ''' <param name="DocPath">The document path.</param>
     Public Sub UpdateDoc(DocPath As String)
         Dim SQL As String = ""
         Try
             'Might not even you the doc type thumbnail for now.
-            'Note OLEDB is picky About the Order, so you need to add the paramters in the same order as it is in the SQL statement.
+            'Note OLEDB is picky About the Order, so you need to add the parameters in the same order as it is in the SQL statement.
             Dim Obj As New BSDatabase
             Dim Conn As New OleDbConnection(Obj.sConnectOLE)
             ' connect
@@ -283,7 +283,7 @@ Public Class frmAddDocument
         End If
     End Sub
     ''' <summary>
-    ''' Load the data when in edit mode, to mostly prepopulate the fields and the file they selected.
+    ''' Load the data when in edit mode, to mostly repopulate the fields and the file they selected.
     ''' </summary>
     Sub LoadData()
         Try
@@ -320,7 +320,7 @@ Public Class frmAddDocument
         If EditMode Then Call LoadData()
     End Sub
     ''' <summary>
-    ''' Load AUto Fill for texboxes
+    ''' Load AUto Fill for tex boxes
     ''' </summary>
     Sub LoadAutoFill()
         Dim ObjAF As New AutoFillCollections

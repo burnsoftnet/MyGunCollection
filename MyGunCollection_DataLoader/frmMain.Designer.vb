@@ -112,8 +112,7 @@ Partial Class frmMain
         Me.lblWelcomeMsg.Name = "lblWelcomeMsg"
         Me.lblWelcomeMsg.Size = New System.Drawing.Size(313, 93)
         Me.lblWelcomeMsg.TabIndex = 0
-        Me.lblWelcomeMsg.Text = "Welcome to the Application.ProductName.  This program will update the following a" & _
-            "pplication that is installed:"""
+        Me.lblWelcomeMsg.Text = "Welcome to the Application.ProductName.  This program will update the following application that is installed:"""
         '
         'lblTitle
         '
