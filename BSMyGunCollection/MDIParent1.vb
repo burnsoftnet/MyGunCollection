@@ -1083,7 +1083,7 @@ Public Class MDIParent1
         End
     End Sub
     ''' <summary>
-    ''' Res the run this host fixby identifier.
+    ''' Res the run this host fix by identifier.
     ''' </summary>
     ''' <param name="myID">My identifier.</param>
     Sub ReRunThisHostFixbyID(myID As Integer)
@@ -1524,7 +1524,7 @@ Public Class MDIParent1
         Call ReRunThisHostFixbyID(8)
     End Sub
     ''' <summary>
-    ''' Run Hotfix 9 Mnue Link
+    ''' Run Hotfix 9 menu Link
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>

@@ -1,8 +1,7 @@
-﻿Imports System.Data
-Imports ADODB
-Imports System.IO
+﻿Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+' ReSharper disable once InconsistentNaming
 Public Class frmFirearmImagePicker
     Dim PicArray As ArrayList
     Dim FirearmIDArray As ArrayList
@@ -11,7 +10,7 @@ Public Class frmFirearmImagePicker
     Dim RightButtonIndex As Long
     Dim CurrentIndex As Long
     Dim MaxItems As Long
-    'Calculate the Propertional Size of an Image by passing the image size and the MaxSize or Height of the image
+    'Calculate the Proportional Size of an Image by passing the image size and the MaxSize or Height of the image
     'to return the new size.  The Max Width and Height is the parameters of the container
     Public Function ProportionalSize(ByVal imageSize As Size, ByVal MaxW_MaxH As Size) As Size
         Dim multBy As Double = 1.01

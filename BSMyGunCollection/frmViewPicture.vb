@@ -63,14 +63,14 @@ Public Class frmViewPicture
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'strech the windows to the orginal size of the picture
+    'stretch the windows to the original size of the picture
     Private Sub AutoSizeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AutoSizeToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.Normal
         AutoSizeToolStripMenuItem.Checked = True
         StretchToolStripMenuItem.Checked = False
         Call DoInitPicDrawing()
     End Sub
-    'strech the image to the size of the active window
+    'stretch the image to the size of the active window
     Private Sub StretchToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StretchToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         StretchToolStripMenuItem.Checked = True

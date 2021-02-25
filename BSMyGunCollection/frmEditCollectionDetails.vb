@@ -369,7 +369,7 @@ Public Class frmEditCollectionDetails
         End Try
     End Sub
     ''' <summary>
-    ''' Enables the diable cand r.
+    ''' Enables the disable cand r.
     ''' </summary>
     Sub EnableDiableCandR()
         If chkBoxCR.Checked Then

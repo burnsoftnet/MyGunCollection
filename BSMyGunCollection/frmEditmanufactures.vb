@@ -1,6 +1,7 @@
 ''' <summary>
 ''' Edit Manufactures form
 ''' </summary>
+' ReSharper disable once InconsistentNaming
 Public Class frmEditmanufactures
     ''' <summary>
     ''' The update pending

@@ -20,7 +20,7 @@ Public Class frmViewGunSmiths
             Dim SQL As String = ""
             Dim Obj As New BSDatabase
             If bDoesExist Then
-                sMsg = MsgBox(MyValue & " already eists in database.  Do you still wish to Add?", MsgBoxStyle.YesNo, "Gunsmith Exists")
+                sMsg = MsgBox(MyValue & " already exists in database.  Do you still wish to Add?", MsgBoxStyle.YesNo, "Gunsmith Exists")
                 If sMsg = vbYes Then
                     strName = MyValue & " #" & (intShopCount + 1)
                     Call Obj.InsertNewContact(strName, "GunSmith_Contact_Details", "gName")

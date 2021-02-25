@@ -103,7 +103,7 @@ Partial Class frmSold
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(75, 23)
         Me.btnUpdate.TabIndex = 21
-        Me.btnUpdate.Text = "Finsh Sale"
+        Me.btnUpdate.Text = "Finish Sale"
         Me.btnUpdate.UseVisualStyleBackColor = True
         '
         'txteMail

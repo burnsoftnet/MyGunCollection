@@ -409,7 +409,7 @@ Partial Class frmViewBuyerDetails
         'SerialNumberDataGridViewTextBoxColumn
         '
         Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
-        Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Seria lNumber"
+        Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
         Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
         Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = True
         '

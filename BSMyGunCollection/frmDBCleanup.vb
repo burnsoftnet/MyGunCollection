@@ -26,7 +26,7 @@ Public Class frmDBCleanup
         End If
     End Sub
     ''' <summary>
-    ''' Datas the is related.
+    ''' the Data is related.
     ''' </summary>
     ''' <param name="strSQL">The string SQL.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -375,7 +375,7 @@ Public Class frmDBCleanup
         lblStatus.Refresh()
     End Sub
     ''' <summary>
-    ''' Converts to progbar.
+    ''' Converts to progress bar.
     ''' </summary>
     ''' <param name="strMsg">The string MSG.</param>
     Sub AddToProgBar(ByVal strMsg As String)

@@ -65,23 +65,23 @@ Module GlobalVars
     ''' </summary>
     Public UseNumberCatOnly As Boolean
     ''' <summary>
-    ''' The auditammo
+    ''' The audit ammo
     ''' </summary>
     Public AUDITAMMO As Boolean
     ''' <summary>
-    ''' The useautoassign
+    ''' The use auto assign
     ''' </summary>
     Public USEAUTOASSIGN As Boolean
     ''' <summary>
-    ''' The lastviewedfirearm
+    ''' The last viewed firearm
     ''' </summary>
     Public LASTVIEWEDFIREARM As Long
     ''' <summary>
-    ''' The disableuniquecustcatid
+    ''' The disable unique cust cat id
     ''' </summary>
     Public DISABLEUNIQUECUSTCATID As Boolean
     ''' <summary>
-    ''' The useselectiveboundbook
+    ''' The use selective bound book
     ''' </summary>
     Public USESELECTIVEBOUNDBOOK As Boolean
     ''' <summary>
@@ -97,7 +97,7 @@ Module GlobalVars
     ''' </summary>
     Public DEBUG_MODE As Boolean
     ''' <summary>
-    ''' The show firarm gallery on start
+    ''' The show firearm gallery on start
     ''' </summary>
     Public SHOW_FIRARM_GALLERY_ON_START As Boolean
     ''' <summary>
@@ -132,7 +132,7 @@ Module GlobalVars
     <Obsolete("Removed in version 5")>
     Public Const MENU_FORUM = "http://mgcforum.burnsoft.net"
     ''' <summary>
-    ''' Linkk to My Gun Collection Wiji Section
+    ''' Link to My Gun Collection Wiki Section
     ''' </summary>
     Public Const MENU_WIKI = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
     <Obsolete("Removed in version 5")>
@@ -211,7 +211,7 @@ Module GlobalVars
         Return sAns
     End Function
     ''' <summary>
-    ''' format a astring value into a long value
+    ''' format a string value into a long value
     ''' </summary>
     ''' <param name="strContent"></param>
     ''' <param name="lDefault"></param>

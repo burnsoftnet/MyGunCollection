@@ -716,35 +716,35 @@ Namespace MGC
             Return MainCollection("Type", "Gun_Type")
         End Function
         ''' <summary>
-        ''' Ammoes the manufacturer.
+        ''' Ammo's the manufacturer.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Manufacturer() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Ammo")
         End Function
         ''' <summary>
-        ''' Ammoes the name.
+        ''' Ammo's the name.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Name() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Name", "Gun_Collection_Ammo")
         End Function
         ''' <summary>
-        ''' Ammoes the cal.
+        ''' Ammo's the cal.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Cal() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Cal", "Gun_Collection_Ammo")
         End Function
         ''' <summary>
-        ''' Ammoes the grain.
+        ''' Ammo's the grain.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Grain() As AutoCompleteStringCollection
             Return MainCollectionDistinct("Grain", "Gun_Collection_Ammo")
         End Function
         ''' <summary>
-        ''' Ammoes the jacket.
+        ''' Ammo's the jacket.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Ammo_Jacket() As AutoCompleteStringCollection
@@ -787,7 +787,7 @@ Namespace MGC
             Return MainCollectionDistinct("gName", "GunSmith_Contact_Details")
         End Function
         ''' <summary>
-        ''' Appraiserses the name.
+        ''' Appraisers es the name.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
         Public Function Appraisers_Name() As AutoCompleteStringCollection
@@ -898,7 +898,7 @@ Namespace MGC
     ''' </summary>
     Public Class GlobalFunctions
         ''' <summary>
-        ''' Class Name for error file to help locate where the error occured
+        ''' Class Name for error file to help locate where the error occurred
         ''' </summary>
         Private Const MY_CLASS_NAME = "MGC.GlobalFunctions"
         ''' <summary>
@@ -1173,7 +1173,7 @@ Namespace MGC
             Return ObjectExistsinDB(strCaliber, "Cal", "Gun_Cal")
         End Function
         ''' <summary>
-        ''' Converts to talammoselected.
+        ''' Converts to  Total Ammo Selected.
         ''' </summary>
         ''' <param name="strCaliber">The string caliber.</param>
         ''' <param name="strCaliber2">The string caliber2.</param>
@@ -1184,7 +1184,7 @@ Namespace MGC
             Return sAns
         End Function
         ''' <summary>
-        ''' Converts to talammoselected.
+        ''' Converts to Total Ammo Selected.
         ''' </summary>
         ''' <param name="strCaliber">The string caliber.</param>
         ''' <param name="strCaliber2">The string caliber2.</param>
@@ -1196,7 +1196,7 @@ Namespace MGC
             Return sAns
         End Function
         ''' <summary>
-        ''' Converts to talammoselected.
+        ''' Converts to  Total Ammo Selected.
         ''' </summary>
         ''' <param name="strCaliber">The string caliber.</param>
         ''' <returns>System.String.</returns>
@@ -1446,7 +1446,7 @@ Namespace MGC
             Return bAns
         End Function
         ''' <summary>
-        ''' Stolens the buyer exists.
+        ''' Stolen buyer exists.
         ''' </summary>
         ''' <param name="strName">Name of the string.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
@@ -1836,10 +1836,10 @@ Namespace MGC
             Return lAns
         End Function
         ''' <summary>
-        ''' Swaps the default barrel systems.  This Sub will Swap the current Default barrele for the selected firearm with the the selected barrel.
+        ''' Swaps the default barrel systems.  This Sub will Swap the current Default barrel for the selected firearm with the the selected barrel.
         ''' </summary>
         ''' <param name="DefaultBarrelID">The default barrel identifier.</param>
-        ''' <param name="NewBarrelID">Creates new barrelid.</param>
+        ''' <param name="NewBarrelID">Creates new barrel id.</param>
         ''' <param name="GID">The gid.</param>
         Public Sub SwapDefaultBarrelSystems(ByVal DefaultBarrelID As Long, ByVal NewBarrelID As Long, ByVal GID As Long)
             Try
@@ -1898,10 +1898,10 @@ Namespace MGC
             End Try
         End Sub
         ''' <summary>
-        ''' Determines whether [is currentlyin use barrel] [the specified bid].
+        ''' Determines whether [is currently in use barrel] [the specified bid].
         ''' </summary>
         ''' <param name="BID">The bid.</param>
-        ''' <returns><c>true</c> if [is currentlyin use barrel] [the specified bid]; otherwise, <c>false</c>.</returns>
+        ''' <returns><c>true</c> if [is currently in use barrel] [the specified bid]; otherwise, <c>false</c>.</returns>
         Public Function IsCurrentlyinUseBarrel(ByVal BID As Long) As Boolean
             Dim bAns As Boolean = False
             Try
@@ -1930,7 +1930,7 @@ Namespace MGC
         Public Sub DeleteBarrelSystem(ByVal BID As Long, ByRef sMsg As String)
             Try
                 'Currently in debate on if the gun maintenance section should be
-                'effected due to the reciever still having to take the rounds.
+                'effected due to the receiver still having to take the rounds.
                 Dim Obj As New BSDatabase
                 Dim SQL As String = ""
                 sMsg = ""

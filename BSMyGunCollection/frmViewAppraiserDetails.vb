@@ -113,7 +113,7 @@ Public Class frmViewAppraiserDetails
                     strWebsite & "',Lic='" & strLic & "', SIB=" & intSIB & ",sync_lastupdate=Now() where ID=" & ShopID
             Obj.ConnExec(SQL)
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
-                Dim sAns As String = MsgBox("Aprpraisers Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Appraiser Name Change Alert!")
+                Dim sAns As String = MsgBox("Appraisers Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Appraiser Name Change Alert!")
                 If sAns = vbYes Then
                     SQL = "update gun_collection set AppriasedBy='" & strName & "' where AppriasedBy='" & FluffContent(ShopName) & "'"
                     Obj.ConnExec(SQL)

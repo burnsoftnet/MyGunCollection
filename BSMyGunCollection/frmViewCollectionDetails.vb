@@ -63,7 +63,7 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Action to take when the form is double cliecked
+    'Action to take when the form is double clicked
     Private Function Form_IsDoubleTab() As Boolean
         Dim bAns As Boolean = False
         If TabControl1.Width < 1000 Then bAns = True
@@ -76,7 +76,7 @@ Public Class frmViewCollectionDetails
         TabContentsAvgHeight = TabControl1.Height - 69
         TabContentsAvgWidth = TabControl1.Width - 27
     End Sub
-    'Adjust the datagrids on the form according to the form details, tabs footers, etc
+    'Adjust the data grids on the form according to the form details, tabs footers, etc
     'to allow the form to be adjusted as well as the data below the grid to be viewable still.
     Private Sub Form_SetDataGrids(TabContentsAvgHeight As Long, TabContentsAvgWidth As Long)
         Dim DataGridHeightWithFooter As Long = 0
@@ -175,7 +175,7 @@ Public Class frmViewCollectionDetails
             Call Form_FormatNotes(DEFAULT_NOTES, DEFAULT_NOTES_WIDTH)
         End If
     End Sub
-    'Pictures Tab, when a picture tumbnail is double clicked, perform these action and bring up the picture viewer.
+    'Pictures Tab, when a picture thumbnail is double clicked, perform these action and bring up the picture viewer.
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListView1.DoubleClick
         Dim MyIndex As String = ListView1.FocusedItem.Index
         Dim ItemCount As Integer = ListView1.Items.Count
@@ -425,8 +425,8 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Load the maintenace data, also check to see if there are other barrels attached which will affect
-    'the total rounds fired count base on the count from the barrel vs the count form the reciver
+    'Load the maintenance data, also check to see if there are other barrels attached which will affect
+    'the total rounds fired count base on the count from the barrel vs the count form the receiver
     Sub LoadMaintData()
         Dim Obj As New GlobalFunctions
         If Not BS_HASMULTIBARRELS Then
@@ -478,7 +478,7 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Load the Accessories and total up the cost of the accories and the total appriased value
+    'Load the Accessories and total up the cost of the accessories and the total appriased value
     Sub LoadAddAccessories()
         Dim ObjGF As New GlobalFunctions
         lblTPV.Text = ObjGF.AddPurchasePriceAccessories(ItemID)
@@ -486,7 +486,7 @@ Public Class frmViewCollectionDetails
     End Sub
     'When a shotgun is selected, add the ability to put in what choke is in the firearm
     'But in order to do that, there are fields that need to be moved around just to keep things in order 
-    'and try to keep the flow of data input relivant to the user.
+    'and try to keep the flow of data input relevant to the user.
     Sub AddChokeOption()
         Label53.Location = New System.Drawing.Point(Label27.Location.X, Label27.Location.Y)
         txtChoke.Location = New System.Drawing.Point(txtStorage.Location.X, txtStorage.Location.Y)
@@ -1243,7 +1243,7 @@ Public Class frmViewCollectionDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'get the id of the maintenance details ID and pass that ID to the edit Maintence form
+    'get the id of the maintenance details ID and pass that ID to the edit Maintance form
     Sub RunEditMaintenance()
         Try
             Dim RowID As Long = DataGridView3.SelectedCells.Item(0).RowIndex

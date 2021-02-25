@@ -27,7 +27,7 @@
                 Me.Close()
             End If
         Else
-            MsgBox("An Error occured while attempt to link " & docName & " to firearm, Please try again.")
+            MsgBox("An Error occurred while attempt to link " & docName & " to firearm, Please try again.")
         End If
     End Sub
 End Class
