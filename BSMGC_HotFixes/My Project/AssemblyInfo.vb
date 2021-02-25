@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("My Gun Collection Database Updater")> 
-<Assembly: AssemblyDescription("My Gun Collection Hotfix Application - This application will apply any hotfox needed to the database and subcomponets of the My Gun Collection Application, mostly used to help upgrade a person to the latest version.")> 
+<Assembly: AssemblyDescription("My Gun Collection Hotfix Application - This application will apply any hotfix needed to the database and subcomponents of the My Gun Collection Application, mostly used to help upgrade a person to the latest version.")> 
 <Assembly: AssemblyCompany("BurnSoft")> 
 <Assembly: AssemblyProduct("My Gun Collection Hotfix Application")>
 <Assembly: AssemblyCopyright("Copyright © BurnSoft  2007-2020")>

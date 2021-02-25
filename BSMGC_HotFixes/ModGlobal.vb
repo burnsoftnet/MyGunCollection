@@ -9,7 +9,7 @@ Module ModGlobal
     Public Const RegKey = "Software\\BurnSoft\\BSMGC"
     Public Const MyLogFile = "mgchf_err.log"
     Public Const DebugLogFile = "hotfix.debug.log"
-    Public Const ProductName = "My Gun Collecton"
+    Public Const ProductName = "My Gun Collection"
     Public Const HFVer = "6.0"
     Public SUPPRESS_CONSOLE_ERRORS
     Public APPLICATION_PATH_DATA As String
@@ -165,7 +165,7 @@ Module ModGlobal
         dAns = CDbl(NewValue)
         ConvToNum = dAns
     End Function
-    'delete the file that was passed, only the file, it is using the global var curpath for the path
+    'delete the file that was passed, only the file, it is using the global var cur path for the path
     Sub DeleteFile(ByRef strFile As String)
         Try
             Dim ObjFS As New FileIO
@@ -175,7 +175,7 @@ Module ModGlobal
             Call DebugLog("DeleteFile", Err.Number & " - " & Err.Description, "ERROR")
         End Try
     End Sub
-    'rename the selected file, only the file, it is using the global var curpath for the path
+    'rename the selected file, only the file, it is using the global var cur path for the path
     Sub RenameFile(ByRef sFrom As String, ByRef sTo As String)
         Dim ObjFS As New FileIO
         ObjFS.RenameFile(CurPath & "\" & sFrom, CurPath & "\" & sTo)

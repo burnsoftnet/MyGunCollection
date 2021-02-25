@@ -35,7 +35,7 @@ Public Class BSRegistry
         End Try
         Return bAns
     End Function
-    'check to see if reg key existing in the localmachine - pre version 5.5
+    'check to see if reg key existing in the local machine - pre version 5.5
     Public Function RegSubKeyExistsLocalMachine(ByVal strValue As String) As Boolean
         Dim bAns As Boolean = False
         Try
@@ -129,7 +129,7 @@ Public Class BSRegistry
     Public Function CurrentAppPath() As String
         Return GetRegSubKeyValue(DefaultRegPath, "Path")
     End Function
-    'get the application last path and exe form the registy
+    'get the application last path and exe form the registry
     Public Function MainApplication() As String
         Return GetRegSubKeyValue(DefaultRegPath, "AppEXE")
     End Function
@@ -141,7 +141,7 @@ Public Class BSRegistry
     Public Function GetDataPath() As String
         Return GetRegSubKeyValue(DefaultRegPath, "AppDataPath")
     End Function
-    'For version 5.5 we had to move the registry keys from localmachine to currentuser for windows 7,8,10 compliance
+    'For version 5.5 we had to move the registry keys from local machine to current user for windows 7,8,10 compliance
     Public Sub MoveSettingKeys()
         Dim sValue As String = ""
         Dim strKey As String = DefaultRegPath
