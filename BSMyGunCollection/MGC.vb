@@ -260,12 +260,11 @@ Namespace MGC
             Return sAns
         End Function
         Public Sub SetSettingDetails()
-            Dim Obj As New Cyhper.RegistrationProcess
-            If Not SettingsExists() And Not Obj.InstalledBefore_Exists Then
+            If Not SettingsExists() Then
                 Dim MyReg As RegistryKey
                 Dim strValue As String = DefaultRegPath & "\Settings"
                 MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
-                Call Obj.SetRegKeys()
+
                 MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
                 MyReg.SetValue("Successful", Reg_Successful)
                 MyReg.SetValue("SetHistListtb", Reg_SetHistListtb)
@@ -304,7 +303,6 @@ Namespace MGC
                             ByRef UseAACID As Boolean, ByRef UseUniqueCustID As Boolean, ByRef bUSESELECTIVEBOUNDBOOK As Boolean)
             Dim MyReg As RegistryKey
             Dim NumberFormat As String
-            Dim Obj As New Cyhper.RegistrationProcess
             Dim UseProxy As Boolean
             Dim AutoUpdate As Boolean
             Dim strValue As String = DefaultRegPath & "\Settings"
