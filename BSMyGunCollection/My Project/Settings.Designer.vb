@@ -57,9 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\MGC.mdb;Persist Secu"& _ 
-            "rity Info=True;Encrypt Password=False;Mask Password=False;Jet OLEDB:Database Pas"& _ 
-            "sword=14un0t2n0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\MGC.mdb;Persist Security Info=True;Encrypt Password=False;Mask Password=False;Jet OLEDB:Database Password=14un0t2n0")>  _
         Public ReadOnly Property MGCConnectionString() As String
             Get
                 Return CType(Me("MGCConnectionString"),String)

@@ -150,7 +150,7 @@ Public Class frmAddFirearm
         End Try
     End Sub
     ''' <summary>
-    ''' On form Load Will the  some of the dropdown boxes, 
+    ''' On form Load Will the  some of the drop down boxes, 
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
