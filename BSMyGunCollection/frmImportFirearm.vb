@@ -188,7 +188,7 @@ Public Class frmImportFirearm
                         "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
                         "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
                         "ReManDT,POI,SGChoke,sync_lastupdate) VALUES(" & _
-                        OwnerID & "," & ManID & ",'" & FullName & "','" & ModelName & "'," & ModID & ",'" & SerialNumber & "','" & _
+                        OwnerId & "," & ManID & ",'" & FullName & "','" & ModelName & "'," & ModID & ",'" & SerialNumber & "','" & _
                         sType & "','" & Caliber & "','" & Finish & "','" & Condition & "'," & ObjGF.SetCatalogINSType(CustomID) & "," & _
                         lNatID & "," & lGripID & ",1,'" & Weight & "','" & Height & "','" & _
                         GripID & "','" & BarrelLength & "',' ',' ','" & Action & "','" & _

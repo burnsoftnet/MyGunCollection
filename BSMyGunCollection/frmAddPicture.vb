@@ -71,7 +71,7 @@ Public Class frmAddPicture
             Me.Enabled = False
             Me.Cursor = Cursors.WaitCursor
             Dim sFileName As String = OpenFileDialog1.FileName
-            Dim sThumbName As String = APPLICATION_PATH_DATA & "\mgc_thumb.jpg"
+            Dim sThumbName As String = ApplicationPathData & "\mgc_thumb.jpg"
             Dim sName As String = FluffContent(txtName.Text, " ")
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             '---Start Function to convert picture to database format-----

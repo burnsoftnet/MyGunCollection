@@ -160,7 +160,7 @@ Public Class frmAddFirearm
             Me.Gun_Collection_ConditionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Condition)
             If UseNumberCatOnly Then
                 txtCustCatID.Text = 0
-                If USEAUTOASSIGN Then
+                If Useautoassign Then
                     Dim ObjGF As New GlobalFunctions
                     txtCustCatID.Text = ObjGF.GetCatalogNextIDNumber
                 End If
@@ -169,7 +169,7 @@ Public Class frmAddFirearm
             dtpReManDT.Enabled = False
             Label12.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
-            If Not USESELECTIVEBOUNDBOOK Then
+            If Not Useselectiveboundbook Then
                 chkBoundBook.Checked = True
                 chkBoundBook.Enabled = False
             End If
@@ -258,7 +258,7 @@ Public Class frmAddFirearm
             Dim sClassIIIOwner As String = FluffContent(txtClassIIIOwner.Text)
             'If dtpDateofCR.Checked Then sDateOfCR = dtpDateofCR.Value
 
-            If Not DISABLEUNIQUECUSTCATID Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID)) : Exit Sub
+            If Not Disableuniquecustcatid Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID)) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Me.Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Me.Text) Then Exit Sub
             If Not IsRequired(strSerial, "Serial", Me.Text) Then Exit Sub
@@ -284,7 +284,7 @@ Public Class frmAddFirearm
                     "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," &
                     "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," &
                     "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
-                    OwnerID & "," & lngManID & ",'" & strFullName & "','" & strModel & "'," & lngModelID & ",'" & strSerial & "','" &
+                    OwnerId & "," & lngManID & ",'" & strFullName & "','" & strModel & "'," & lngModelID & ",'" & strSerial & "','" &
                     strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & ObjGF.SetCatalogINSType(strCustCatID) & "," &
                     lngNationalityID & "," & lngGripID & "," & strQty & ",'" & strWeight & "','" & strLength & "','" &
                     strGripType & "','" & strBarLen & "','" & strBarWid & "','" & strBarHei & "','" & strAction & "','" &
@@ -323,7 +323,7 @@ Public Class frmAddFirearm
             SQL = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & BID & "," & ItemID & ",Now())"
             Obj.ConnExec(SQL)
             If Not ObjGF.CaliberExists(strCal) Then Obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
-            LASTVIEWEDFIREARM = ObjGF.GetLastFirearmID
+            Lastviewedfirearm = ObjGF.GetLastFirearmID
             MDIParent1.RefreshCollection()
             Me.Close()
         Catch ex As Exception

@@ -1,59 +1,110 @@
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmViewWishList.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class frmViewWishList
-
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
-        Me.Close()
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton3 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
+        Close()
     End Sub
-
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
-        Me.Cursor = Cursors.WaitCursor
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
+        Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_WishList
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
-        Me.Cursor = Cursors.Arrow
+        Cursor = Cursors.Arrow
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         frmAddToWishList.MdiParent = Me.MdiParent
         frmAddToWishList.Show()
     End Sub
+    ''' <summary>
+    ''' Refreshes the data.
+    ''' </summary>
     Public Sub RefreshData()
         Me.WishlistTableAdapter.Fill(Me.MGCDataSet.Wishlist)
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewWishList control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewWishList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Call RefreshData()
     End Sub
+    ''' <summary>
+    ''' Handles the Resize event of the frmViewWishList control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewWishList_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
         If Me.Height <> 0 Then
             DataGridView1.Height = Me.Height - 68
             DataGridView1.Width = Me.Width - 10
         End If
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton4 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
         Call RefreshData()
     End Sub
+    ''' <summary>
+    ''' Does the edit item.
+    ''' </summary>
     Sub DoEditItem()
         Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         frmEditWishlist.MdiParent = Me.MdiParent
         frmEditWishlist.ItemID = ItemID
         frmEditWishlist.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the DoubleClick event of the DataGridView1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DoubleClick
         Call DoEditItem()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the EditToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
         Call DoEditItem()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the DeleteToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
-        Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim Obj As New BSDatabase
-        Dim ObjG As New GlobalFunctions
-        Dim strName As String = ObjG.GetWishListName(ItemID)
+        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+        Dim obj As New BSDatabase
+        Dim objG As New GlobalFunctions
+        Dim strName As String = objG.GetWishListName(itemId)
         Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
-        Dim SQL As String = "DELETE from Wishlist where ID=" & ItemID
-        If strAns = vbYes Then Obj.ConnExec(SQL) : Call RefreshData()
+        Dim sql As String = "DELETE from Wishlist where ID=" & itemId
+        If strAns = vbYes Then obj.ConnExec(sql) : Call RefreshData()
     End Sub
 End Class

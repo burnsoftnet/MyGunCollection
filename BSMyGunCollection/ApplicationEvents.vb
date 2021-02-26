@@ -10,34 +10,34 @@ Namespace My
                 Dim Debug_MSG As String = ""
                 Dim NL As String = vbCrLf
 
-                DEBUG_MODE = System.Configuration.ConfigurationManager.AppSettings("DEBUG_MODE")
+                DebugMode = System.Configuration.ConfigurationManager.AppSettings("DEBUG_MODE")
                 Dim AppDataPath As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
                 Dim APPDATAPATH_EXISTS As Boolean = Objf.DirectoryExists(AppDataPath)
-                APPLICATION_PATH = System.Windows.Forms.Application.StartupPath
-                APPLICATION_PATH_DATA = APPLICATION_PATH
+                ApplicationPath = System.Windows.Forms.Application.StartupPath
+                ApplicationPathData = ApplicationPath
                 Debug_MSG &= NL & "AppDataPath=" & AppDataPath
                 If APPDATAPATH_EXISTS Then
                     Debug_MSG &= NL & "Found Application Data Path"
-                    If Objf.FileExists(AppDataPath & "\" & DATABASE_NAME) Then
+                    If Objf.FileExists(AppDataPath & "\" & DatabaseName) Then
                         Debug_MSG &= NL & "Found Application Data"
-                        APPLICATION_PATH_DATA = AppDataPath
+                        ApplicationPathData = AppDataPath
                     End If
                 End If
-                AppDomain.CurrentDomain.SetData("DataDirectory", APPLICATION_PATH_DATA)
-                Debug_MSG &= NL & "Application Data Path=" & APPLICATION_PATH_DATA
-                Debug_MSG &= NL & "Application Path=" & APPLICATION_PATH
+                AppDomain.CurrentDomain.SetData("DataDirectory", ApplicationPathData)
+                Debug_MSG &= NL & "Application Data Path=" & ApplicationPathData
+                Debug_MSG &= NL & "Application Path=" & ApplicationPath
                 Debug_MSG &= NL & "OS Version=" & Environment.OSVersion.Version.Major
 
-                Dim BATCH_EXISTS As Boolean = Objf.FileExists(APPLICATION_PATH & "\srh.bat")
-                Dim INI_EXISTS As Boolean = Objf.FileExists(APPLICATION_PATH & "\hotfix.ini")
+                Dim BATCH_EXISTS As Boolean = Objf.FileExists(ApplicationPath & "\srh.bat")
+                Dim INI_EXISTS As Boolean = Objf.FileExists(ApplicationPath & "\hotfix.ini")
 
-                MyLogFile = APPLICATION_PATH_DATA & "\err.log"
+                MyLogFile = ApplicationPathData & "\err.log"
 
                 If BATCH_EXISTS Or INI_EXISTS Then
                     If BATCH_EXISTS Then Debug_MSG &= NL & "srh.bat exists"
                     If INI_EXISTS Then Debug_MSG &= NL & "hotfix.ini exists"
                     Dim myProcess As New Process
-                    Dim RunThiSApp As String = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
+                    Dim RunThiSApp As String = ApplicationPath & "\" & MyHotfixFile
                     myProcess.StartInfo.FileName = RunThiSApp
                     myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                     DoAutoBackup = False

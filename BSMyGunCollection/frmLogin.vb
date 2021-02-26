@@ -2,9 +2,9 @@ Public Class frmLogin
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
         Dim strUID As String = LCase(UsernameTextBox.Text)
         Dim strPWD As String = LCase(PasswordTextBox.Text)
-        If strUID = LCase(UseMyUID) Then
-            If strPWD = LCase(UseMyPWD) Then
-                IsLoggedIN = True
+        If strUID = LCase(UseMyUid) Then
+            If strPWD = LCase(UseMyPwd) Then
+                IsLoggedIn = True
                 MDIParent1.Show()
                 Me.Close()
             Else

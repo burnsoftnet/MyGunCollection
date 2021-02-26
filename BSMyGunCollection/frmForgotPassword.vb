@@ -24,7 +24,7 @@ Public Class frmForgotPassword
 ' ReSharper disable once RedundantAssignment
         Dim sMsg As String = ""
         If strword = UseMyForgotWord Then
-            sMsg = "Your password is " & UseMyPWD
+            sMsg = "Your password is " & UseMyPwd
             txtWord.Text = ""
             MsgBox(sMsg)
             frmLogin.TopMost = True

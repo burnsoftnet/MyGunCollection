@@ -7,7 +7,7 @@ Module GlobalVars
     ''' <summary>
     ''' The Owner ID
     ''' </summary>
-    Public OwnerID As String
+    Public OwnerId As String
     ''' <summary>
     ''' The owner name
     ''' </summary>
@@ -15,7 +15,7 @@ Module GlobalVars
     ''' <summary>
     ''' The owner lic
     ''' </summary>
-    Public OwnerLIC As String
+    Public OwnerLic As String
     ''' <summary>
     ''' The use login
     ''' </summary>
@@ -23,11 +23,11 @@ Module GlobalVars
     ''' <summary>
     ''' The use my password
     ''' </summary>
-    Public UseMyPWD As String
+    Public UseMyPwd As String
     ''' <summary>
     ''' The use my uid
     ''' </summary>
-    Public UseMyUID As String
+    Public UseMyUid As String
     ''' <summary>
     ''' The use my forgot word
     ''' </summary>
@@ -39,7 +39,7 @@ Module GlobalVars
     ''' <summary>
     ''' The is logged in
     ''' </summary>
-    Public IsLoggedIN As Boolean
+    Public IsLoggedIn As Boolean
     ''' <summary>
     ''' My log file
     ''' </summary>
@@ -67,110 +67,110 @@ Module GlobalVars
     ''' <summary>
     ''' The audit ammo
     ''' </summary>
-    Public AUDITAMMO As Boolean
+    Public Auditammo As Boolean
     ''' <summary>
     ''' The use auto assign
     ''' </summary>
-    Public USEAUTOASSIGN As Boolean
+    Public Useautoassign As Boolean
     ''' <summary>
     ''' The last viewed firearm
     ''' </summary>
-    Public LASTVIEWEDFIREARM As Long
+    Public Lastviewedfirearm As Long
     ''' <summary>
     ''' The disable unique cust cat id
     ''' </summary>
-    Public DISABLEUNIQUECUSTCATID As Boolean
+    Public Disableuniquecustcatid As Boolean
     ''' <summary>
     ''' The use selective bound book
     ''' </summary>
-    Public USESELECTIVEBOUNDBOOK As Boolean
+    Public Useselectiveboundbook As Boolean
     ''' <summary>
     ''' The application path
     ''' </summary>
-    Public APPLICATION_PATH As String
+    Public ApplicationPath As String
     ''' <summary>
     ''' The application path data
     ''' </summary>
-    Public APPLICATION_PATH_DATA As String
+    Public ApplicationPathData As String
     ''' <summary>
     ''' The debug mode
     ''' </summary>
-    Public DEBUG_MODE As Boolean
+    Public DebugMode As Boolean
     ''' <summary>
     ''' The show firearm gallery on start
     ''' </summary>
-    Public SHOW_FIRARM_GALLERY_ON_START As Boolean
+    Public ShowFirarmGalleryOnStart As Boolean
     ''' <summary>
     ''' The Database Version that we are expected for this version
     ''' </summary>
-    Public Const MY_DATABASE_VERSION As Double = 6.0
+    Public Const MyDatabaseVersion As Double = 6.0
     ''' <summary>
     ''' The Help file name
     ''' </summary>
-    Public Const MY_HELP_FILE = "my_gun_collection_help.chm"
+    Public Const MyHelpFile = "my_gun_collection_help.chm"
     ''' <summary>
     ''' Hot fix exe app
     ''' </summary>
-    Public Const MY_HOTFIX_FILE = "BSMGC_HotFixes.exe"
+    Public Const MyHotfixFile = "BSMGC_HotFixes.exe"
     ''' <summary>
     ''' Data loader app name
     ''' </summary>
-    Public Const MY_DATALOADER = "MyGunCollection_DataLoader.exe"
+    Public Const MyDataloader = "MyGunCollection_DataLoader.exe"
     ''' <summary>
     ''' Application Update
     ''' </summary>
     <Obsolete("Removed in version 5")>
-    Public Const MY_UPDATER = "BSApplicationUpdater.exe"
+    Public Const MyUpdater = "BSApplicationUpdater.exe"
     ''' <summary>
     ''' back up application
     ''' </summary>
-    Public Const MY_BACKUP = "DBBackup.exe"
+    Public Const MyBackup = "DBBackup.exe"
     ''' <summary>
     ''' restore application
     ''' </summary>
-    Public Const MY_RESTORE = "DBRestore.exe"
+    Public Const MyRestore = "DBRestore.exe"
     <Obsolete("Removed in version 5")>
-    Public Const MENU_FORUM = "http://mgcforum.burnsoft.net"
+    Public Const MenuForum = "http://mgcforum.burnsoft.net"
     ''' <summary>
     ''' Link to My Gun Collection Wiki Section
     ''' </summary>
-    Public Const MENU_WIKI = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
+    Public Const MenuWiki = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
     <Obsolete("Removed in version 5")>
-    Public Const MENU_SHOP = "http://shopping.burnsoft.net"
+    Public Const MenuShop = "http://shopping.burnsoft.net"
     ''' <summary>
     ''' Link to bug report
     ''' </summary>
-    Public Const MENU_BUG = "http://bugreport.burnsoft.net"
+    Public Const MenuBug = "http://bugreport.burnsoft.net"
     ''' <summary>
     ''' Link to support section on site
     ''' </summary>
-    Public Const MENU_SUPPORT = "http://support.burnsoft.net"
+    Public Const MenuSupport = "http://support.burnsoft.net"
     <Obsolete("Removed in version 5")>
-    Public Const MENU_SITESEARCH = "http://www.burnsoft.net/Search_Site.aspx"
+    Public Const MenuSitesearch = "http://www.burnsoft.net/Search_Site.aspx"
     ''' <summary>
     ''' Firearm links
     ''' </summary>
-    Public Const MENU_LINKS = "http://wiki.burnsoft.net/Links_Firearm_reloading.ashx"
+    Public Const MenuLinks = "http://wiki.burnsoft.net/Links_Firearm_reloading.ashx"
     ''' <summary>
     ''' Default Date of Birth
     ''' </summary>
-    Public Const DEFAULT_DOB = "1/1/1900"
+    Public Const DefaultDob = "1/1/1900"
     ''' <summary>
     ''' Name of default firearm picture
     ''' </summary>
-    Public Const DEFAULT_PIC = "mgc_default.jpg"
+    Public Const DefaultPic = "mgc_default.jpg"
     ''' <summary>
     ''' Test expire marker, might not be needed anymore
     ''' </summary>
-    Public Const TESTEXPIRED = False
+    Public Const Testexpired = False
     ''' <summary>
     ''' default log file name
     ''' </summary>
-    Public Const DEBUG_FILE = "mgc.debug.log"
+    Public Const DebugFile = "mgc.debug.log"
     ''' <summary>
     ''' default database name
     ''' </summary>
-    Public Const DATABASE_NAME = "MGC.mdb"
+    Public Const DatabaseName = "MGC.mdb"
     ''' <summary>
     ''' format the strings to be database friendly
     ''' </summary>
@@ -235,9 +235,9 @@ Module GlobalVars
     ''' </summary>
     ''' <param name="strValue"></param>
     ''' <param name="strField"></param>
-    ''' <param name="StrTitle"></param>
+    ''' <param name="strTitle"></param>
     ''' <returns></returns>
-    Public Function IsRequired(ByVal strValue As String, ByVal strField As String, ByVal StrTitle As String) As Boolean
+    Public Function IsRequired(ByVal strValue As String, ByVal strField As String, ByVal strTitle As String) As Boolean
         Dim bAns As Boolean = False
         Try
             If Len(Trim(strValue)) = 0 Then
@@ -245,7 +245,7 @@ Module GlobalVars
             Else
                 bAns = True
             End If
-            If bAns = False Then MsgBox("Please put in a value for " & strField & "!", MsgBoxStyle.Critical, StrTitle)
+            If bAns = False Then MsgBox("Please put in a value for " & strField & "!", MsgBoxStyle.Critical, strTitle)
         Catch ex As Exception
             Dim sSubFunc As String = "IsRequired"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
@@ -382,9 +382,9 @@ Module GlobalVars
                     iAns = RS("ID")
                     OwnerName = RS("Name")
                     If Not IsDBNull(RS("CCDWL")) Then
-                        OwnerLIC = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
+                        OwnerLic = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
                     Else
-                        OwnerLIC = ""
+                        OwnerLic = ""
                     End If
                 End While
             Else
@@ -453,10 +453,10 @@ Module GlobalVars
     ''' <param name="sFrom"></param>
     ''' <param name="sMsg"></param>
     Public Sub Buggerme(ByVal sFrom As String, ByVal sMsg As String)
-        If DEBUG_MODE Then
+        If DebugMode Then
             Dim ObjFS As New BSFileSystem
             Dim sMessage As String = Now() & sFrom & " - " & sMsg
-            Dim sPath As String = Application.LocalUserAppDataPath.ToString & "\" & DEBUG_FILE
+            Dim sPath As String = Application.LocalUserAppDataPath.ToString & "\" & DebugFile
             ObjFS.LogDebugFile(sPath, sMessage)
         End If
     End Sub

@@ -35,7 +35,7 @@ Public Class frmViewCollectionDetails
             objS = Nothing
             Label42.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
-            LASTVIEWEDFIREARM = ItemID
+            Lastviewedfirearm = ItemID
             If Len(ItemID) <> 0 Then
                 Call LoadData()
                 If IsSold Or IsStolen Then

@@ -26,7 +26,7 @@ Public Class frmViewBuyerDetails
                 If Not IsDBNull(RS("Lic")) Then txtLic.Text = Trim(RS("Lic"))
                 If Not IsDBNull(RS("DLic")) Then txtDLic.Text = Trim(RS("DLic"))
                 If Not IsDBNull(RS("DOB")) Then
-                    If RS("DOB") = DEFAULT_DOB Then
+                    If RS("DOB") = DefaultDob Then
                         txtDOB.Text = ""
                     Else
                         txtDOB.Text = Trim(RS("DOB"))
@@ -118,7 +118,7 @@ Public Class frmViewBuyerDetails
             If DOBRequired Then
                 If Not IsRequired(strDOB, "Date of Birth", Me.Text) Then Exit Sub
             Else
-                strDOB = DEFAULT_DOB
+                strDOB = DefaultDob
             End If
             If Not IsRequired(strRes, "Residency", Me.Text) Then Exit Sub
             Dim Obj As New BSDatabase

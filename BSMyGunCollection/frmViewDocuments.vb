@@ -45,7 +45,7 @@ Public Class frmViewDocuments
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
             While RS.Read
-                SaveTo = APPLICATION_PATH_DATA & "\mgc_doc_view." & RS("doc_ext")
+                SaveTo = ApplicationPathData & "\mgc_doc_view." & RS("doc_ext")
                 Call SaveDocToDHH(RS("doc_file"), SaveTo)
             End While
             RS.Close()

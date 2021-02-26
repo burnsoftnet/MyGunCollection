@@ -9,7 +9,7 @@ Public Class frmViewReport_BoundBook
             Dim parmList As New Generic.List(Of ReportParameter)
             parmList.Add(New ReportParameter("UserName", OwnerName))
             parmList.Add(New ReportParameter("ReportTitle", ReportTitle))
-            parmList.Add(New ReportParameter("License", OwnerLIC))
+            parmList.Add(New ReportParameter("License", OwnerLic))
             Me.ReportViewer1.LocalReport.SetParameters(parmList)
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Custom Catalog No.")

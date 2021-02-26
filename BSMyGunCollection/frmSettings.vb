@@ -138,11 +138,11 @@ Public Class frmSettings
             DoOriginalImage = chkDoOriginalImage.Checked
             UsePetLoads = chkPetLoads.Checked
             PersonalMark = chkIPer.Checked
-            AUDITAMMO = chkAAP.Checked
+            Auditammo = chkAAP.Checked
             UseNumberCatOnly = chkNCCID.Checked
-            USEAUTOASSIGN = chkAACID.Checked
-            DISABLEUNIQUECUSTCATID = chkUnique.Checked
-            USESELECTIVEBOUNDBOOK = chkSelectiveBoundBook.Checked
+            Useautoassign = chkAACID.Checked
+            Disableuniquecustcatid = chkUnique.Checked
+            Useselectiveboundbook = chkSelectiveBoundBook.Checked
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtAddress.Text))
             Dim strCity As String = FluffContent(txtCity.Text)
@@ -155,7 +155,7 @@ Public Class frmSettings
             Dim strPhrase As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtPhrase.Text))
             Dim strWord As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtWord.Text))
             Dim strUID As String = txtLogin.Text
-            OwnerLIC = txtCCD.Text
+            OwnerLic = txtCCD.Text
             If Len(strUID) = 0 Then strUID = "admin"
             strUID = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(strUID))
             Dim bUsePassword As Boolean = ChkPassword.Checked

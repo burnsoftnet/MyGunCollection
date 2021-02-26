@@ -211,10 +211,10 @@ Namespace MGC
             MyReg.SetValue("Version", Application.ProductVersion)
             MyReg.SetValue("AppName", Application.ProductName)
             MyReg.SetValue("AppEXE", Application.ExecutablePath())
-            MyReg.SetValue("Path", APPLICATION_PATH)
+            MyReg.SetValue("Path", ApplicationPath)
             MyReg.SetValue("LogPath", MyLogFile)
-            MyReg.SetValue("DataBase", APPLICATION_PATH_DATA & "\" & DATABASE_NAME)
-            MyReg.SetValue("AppDataPath", APPLICATION_PATH_DATA)
+            MyReg.SetValue("DataBase", ApplicationPathData & "\" & DatabaseName)
+            MyReg.SetValue("AppDataPath", ApplicationPathData)
             MyReg.Close()
         End Sub
         Public Sub CreateSubKey(ByVal strValue As String)
@@ -434,7 +434,7 @@ Namespace MGC
         ''' <returns>System.String.</returns>
         Public Function sConnect() As String
             Dim sAns As String = ""
-            sAns = "Driver={Microsoft Access Driver (*.mdb)};dbq=" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & ";Pwd=14un0t2n0"
+            sAns = "Driver={Microsoft Access Driver (*.mdb)};dbq=" & ApplicationPathData & "\" & DatabaseName & ";Pwd=14un0t2n0"
             Return sAns
         End Function
         ''' <summary>
@@ -444,7 +444,7 @@ Namespace MGC
         Public Function sConnectOLE() As String
             Dim sAns As String = ""
             'removed ; User Id=
-            sAns = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & APPLICATION_PATH_DATA & "\" & DATABASE_NAME & """;Jet OLEDB:Database Password=14un0t2n0;"
+            sAns = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & ApplicationPathData & "\" & DatabaseName & """;Jet OLEDB:Database Password=14un0t2n0;"
             Return sAns
         End Function
         ''' <summary>
@@ -1731,8 +1731,8 @@ Namespace MGC
         ''' <param name="ItemID">The item identifier.</param>
         Sub AddDefaultPic(ByVal ItemID As Long)
             Try
-                Dim sFileName As String = APPLICATION_PATH & "\" & DEFAULT_PIC
-                Dim sThumbName As String = APPLICATION_PATH & "\mgc_thumb.jpg"
+                Dim sFileName As String = ApplicationPath & "\" & DefaultPic
+                Dim sThumbName As String = ApplicationPath & "\mgc_thumb.jpg"
                 '---Start Function to convert picture to database format-----
                 Dim st As New FileStream(sFileName, FileMode.Open, FileAccess.Read)
                 Dim mbr As BinaryReader = New BinaryReader(st)
@@ -2103,11 +2103,11 @@ Namespace MGC
                 Call Buggerme("MGC.GlobalFunctions.DBIsCompliant", "Current DB Version:" & CurDBVer)
                 Dim sMsg As String = ""
                 Dim ObjFS As New BSFileSystem
-                If CurDBVer < MY_DATABASE_VERSION Then
+                If CurDBVer < MyDatabaseVersion Then
                     sMsg = "This application hasn't been through the proper database updates!" & Chr(10)
                     sMsg &= "Please download the last update package or contact support to get your database up-to-date." & Chr(10)
                     sMsg &= "The Application will still run, but you might notice some errors until you are properly upgraded."
-                    If ObjFS.FileExists(APPLICATION_PATH & "\" & MY_HOTFIX_FILE) Then
+                    If ObjFS.FileExists(ApplicationPath & "\" & MyHotfixFile) Then
                         sMsg &= Chr(10) & "Do you wish to run the hot fix file?"
                         Dim sans As String
                         sans = MsgBox(sMsg, MsgBoxStyle.YesNo)
@@ -2118,7 +2118,7 @@ Namespace MGC
                             'TODO Test to make sure this doesn't happen elsewhere
                             DoAutoBackup = False
                             Dim myProcess As New Process
-                            myProcess.StartInfo.FileName = APPLICATION_PATH & "\" & MY_HOTFIX_FILE
+                            myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
                             myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                             myProcess.Start()
                             Global.System.Windows.Forms.Application.Exit()
@@ -2136,7 +2136,7 @@ Namespace MGC
                 Dim sMsg As String
                 Select Case Err.Number
                     Case 5
-                        sMsg = ex.Message.ToString & " ( " & APPLICATION_PATH & "\" & MY_HOTFIX_FILE & " ) "
+                        sMsg = ex.Message.ToString & " ( " & ApplicationPath & "\" & MyHotfixFile & " ) "
                     Case Else
                         sMsg = ex.Message.ToString
                 End Select

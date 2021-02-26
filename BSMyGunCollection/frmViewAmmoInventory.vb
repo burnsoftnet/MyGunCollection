@@ -31,7 +31,7 @@ Public Class frmViewAmmoInventory
             Dim ObjVS As New ViewSizeSettings
             ObjVS.LoadViewAmmoInv(Me.Height, Me.Width, Me.Location)
             ObjVS = Nothing
-            If AUDITAMMO Then
+            If Auditammo Then
                 ToolStripButton5.Visible = True
                 ToolStripButton6.Visible = True
                 ToolStripButton1.Visible = False

@@ -49,7 +49,7 @@ Public Class frmSold
             If DOBRequired Then
                 If Not IsRequired(strDOB, "Date of Birth", Me.Text) Then Exit Sub
             Else
-                strDOB = DEFAULT_DOB
+                strDOB = DefaultDob
             End If
             If Not IsRequired(strRes, "Residency/Alien ID", Me.Text) Then Exit Sub
             If Not IsRequired(sFinalPrice, "Final Sale Price", Me.Text) Then Exit Sub
@@ -105,7 +105,7 @@ Public Class frmSold
                 If Not IsDBNull(RS("lic")) Then txtLic.Text = Trim(RS("lic"))
                 If Not IsDBNull(RS("Dlic")) Then txtDLic.Text = Trim(RS("Dlic"))
                 If Not IsDBNull(RS("DOB")) Then
-                    If RS("DOB") = DEFAULT_DOB Then
+                    If RS("DOB") = DefaultDob Then
                         txtDOB.Text = ""
                     Else
                         txtDOB.Text = Trim(RS("DOB"))

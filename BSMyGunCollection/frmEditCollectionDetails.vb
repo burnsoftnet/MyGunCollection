@@ -227,7 +227,7 @@ Public Class frmEditCollectionDetails
                 txtAppBy.AutoCompleteCustomSource = ObjAF.Appraisers_Name
                 txtCaliber3.AutoCompleteCustomSource = ObjAF.Gun_Cal
                 txtClassIIIOwner.AutoCompleteCustomSource = ObjAF.Gun_Collection_ClassIIIOwner
-                If Not USESELECTIVEBOUNDBOOK Then
+                If Not Useselectiveboundbook Then
                     chkBoundBook.Checked = True
                     chkBoundBook.Enabled = False
                 End If
@@ -305,7 +305,7 @@ Public Class frmEditCollectionDetails
             If chkClassIII.Checked Then iClassIII = 1
             Dim sClassIIIOwner As String = FluffContent(txtClassIIIOwner.Text)
 
-            If Not DISABLEUNIQUECUSTCATID Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID, CLng(ItemID))) : Exit Sub
+            If Not Disableuniquecustcatid Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID, CLng(ItemID))) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Me.Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Me.Text) Then Exit Sub
             If Not IsRequired(strSerial, "Serial", Me.Text) Then Exit Sub
@@ -322,7 +322,7 @@ Public Class frmEditCollectionDetails
             Dim sReManDT As String = dtpReManDT.Value
             Dim sPOI As String = FluffContent(txtPOI.Text)
 
-            Dim SQL As String = "UPDATE Gun_Collection set oid=" & OwnerID & ", MID=" & lngManID &
+            Dim SQL As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManID &
                     ", ModelName='" & strModel & "', ModelID=" & lngModelID & ", SerialNumber='" &
                     strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" &
                     strCondition & "', CustomID=" & ObjGF.SetCatalogINSType(strCustCatID) & ", NatID=" & lngNationalityID & ", gripid=" & lngGripID &

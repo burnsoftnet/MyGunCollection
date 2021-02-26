@@ -61,7 +61,7 @@ Public Class frmAddCollectionAmmo
                                 strMan & "','" & strName & "','" & strCal & "','" & strGrain & "','" & strJacket & "'," &
                                 strQty & "," & ddValue & "," & lVelocity & ",Now())"
             Obj.ConnExec(SQL)
-            If AUDITAMMO Then
+            If Auditammo Then
                 Dim ObjGF As New GlobalFunctions
                 Dim AID As Long = ObjGF.GetLastAmmoID
                 Dim sValue As String = InputBox("How Much did you pay for this box?", "Ammo Audit", 0)
