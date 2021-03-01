@@ -86,6 +86,27 @@ namespace BurnSoft.Applications.MGC
             }
             return sAns;
         }
+        /// <summary>
+        /// Connections the string.
+        /// </summary>
+        /// <param name="fullDatabasePath">The full database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <param name="password">The password.</param>
+        /// <returns>System.String.</returns>
+        public static string ConnectionString(string fullDatabasePath, out string errOut, string password = "")
+        {
+            string sAns = "";
+            errOut = @"";
+            try
+            {
+                sAns = password?.Length > 0 ? $"Driver={{Microsoft Access Driver (*.mdb)}};dbq={fullDatabasePath};Pwd={password}" : $"Driver={{Microsoft Access Driver (*.mdb)}};dbq={fullDatabasePath}";
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("ConnectionString", e);
+            }
+            return sAns;
+        }
 
         /// <summary>
         /// Connections to the MS Access Database using the string OLE.
@@ -118,8 +139,7 @@ namespace BurnSoft.Applications.MGC
             return sAns;
         }
         #endregion
-
-
+        #region "Base Database Commands"
         /// <summary>
         /// Connects the database using the connection string.
         /// </summary>
@@ -266,5 +286,32 @@ namespace BurnSoft.Applications.MGC
             }
             return table;
         }
+        #endregion
+        #region "Gun Collection Related"        
+        /// <summary>
+        /// Updates the synchronize data tables.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        public bool UpdateSyncDataTables(string databasePath, string table, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"UPDATE {table} set sync_lastupdate = Now()";
+                bAns = ConnExec(ConnectionString(databasePath, out errOut), sql, out errOut);
+                if (errOut?.Length >0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("UpdateSyncDataTables", e);
+            }
+            return bAns;
+        }
+        #endregion
     }
 }
