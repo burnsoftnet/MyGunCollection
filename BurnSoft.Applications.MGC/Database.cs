@@ -72,7 +72,7 @@ namespace BurnSoft.Applications.MGC
         /// <b>Results</b><br/>
         /// Driver={Microsoft Access Driver (*.mdb)};dbq=C:\test\test.mdb
         /// </example>
-        public static string ConnectionString(string databasePath, string databaseName, out string errOut, string password = "")
+        public static string ConnectionString(string databasePath, string databaseName, out string errOut, string password = "14un0t2n0")
         {
             string sAns = "";
             errOut = @"";
@@ -243,6 +243,19 @@ namespace BurnSoft.Applications.MGC
             return bAns;
         }
         /// <summary>
+        /// Executes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="sql">The SQL.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Execute(string databasePath, string sql, out string errOut)
+        {
+            string con = ConnectionString(databasePath, out errOut);
+            Database obj = new Database();
+            return obj.ConnExec(con, sql, out errOut);
+        }
+        /// <summary>
         /// Gets the data.
         /// </summary>
         /// <param name="connectionString">The connection string.</param>
@@ -351,56 +364,7 @@ namespace BurnSoft.Applications.MGC
             }
             return bAns;
         }
-        /// <summary>
-        /// Gets the identifier.
-        /// </summary>
-        /// <param name="databasePath">The database path.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <param name="errOut">The error out.</param>
-        /// <returns>System.Int64.</returns>
-        /// <exception cref="Exception"></exception>
-        public static long GetId(string databasePath, string sql, out string errOut)
-        {
-            long lAns = 0;
-            errOut = @"";
-            try
-            {
-                DataTable dt = GetDataFromTable(databasePath, sql, out errOut);
-                if (errOut?.Length > 0) throw new Exception(errOut);
-                foreach (DataRow d in dt.Rows)
-                {
-                    lAns = Convert.ToInt32(d["id"]);
-                }
-            }
-            catch (Exception e)
-            {
-                errOut = ErrorMessage("GetId", e);
-            }
 
-            return lAns;
-        }
-
-        public static long GetManufacturersID(string databasePath, string strValue, out string errOut)
-        {
-            long lAns = 0;
-            errOut = @"";
-            try
-            {
-                string sql = $"SELECT ID from Gun_Manufacturer where Brand='{strValue}'";
-                DataTable dt = GetDataFromTable(databasePath, sql, out errOut);
-                if (errOut?.Length >0) throw new Exception(errOut);
-                foreach (DataRow d in dt.Rows)
-                {
-                    lAns = Convert.ToInt32(d["id"]);
-                }
-            }
-            catch (Exception e)
-            {
-                errOut = ErrorMessage("GetManufacturersID", e);
-            }
-
-            return lAns;
-        }
         #endregion
     }
 }

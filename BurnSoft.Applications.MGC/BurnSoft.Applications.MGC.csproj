@@ -43,7 +43,12 @@
   <ItemGroup>
     <Compile Include="AutoFillCollections.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Firearms\Manufacturers.cs" />
+    <Compile Include="Global\DatabaseRelated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ammo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
