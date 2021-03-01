@@ -97,5 +97,25 @@ namespace BurnSoft.Applications.MGC
         {
             return MainCollection(databasePath, "Brand", "Gun_Manufacturer", out errOut);
         }
+
+        public static AutoCompleteStringCollection Gun_Cal(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Cal", "Gun_Cal", out errOut);
+        }
+
+        public static AutoCompleteStringCollection Gun_Nationality(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Country", "Gun_Nationality", out errOut);
+        }
+
+        public static AutoCompleteStringCollection Gun_Model(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Model", "Gun_Model", out errOut);
+        }
+
+        public static AutoCompleteStringCollection Gun_Model_ByMan(string databasePath,string strMan, out string errOut)
+        {
+            return MainCollection(databasePath, "Model", "Gun_Model", out errOut);
+        }
     }
 }

@@ -351,6 +351,56 @@ namespace BurnSoft.Applications.MGC
             }
             return bAns;
         }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="sql">The SQL.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        public static long GetId(string databasePath, string sql, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                DataTable dt = GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    lAns = Convert.ToInt32(d["id"]);
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+
+            return lAns;
+        }
+
+        public static long GetManufacturersID(string databasePath, string strValue, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT ID from Gun_Manufacturer where Brand='{strValue}'";
+                DataTable dt = GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length >0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    lAns = Convert.ToInt32(d["id"]);
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetManufacturersID", e);
+            }
+
+            return lAns;
+        }
         #endregion
     }
 }
