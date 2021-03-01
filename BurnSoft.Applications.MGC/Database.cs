@@ -312,6 +312,32 @@ namespace BurnSoft.Applications.MGC
             }
             return bAns;
         }
+        /// <summary>
+        /// Inserts the new contact.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="sValue">The s value.</param>
+        /// <param name="sTable">The s table.</param>
+        /// <param name="sColumn">The s column.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        public bool InsertNewContact(string databasePath, string sValue, string sTable, string sColumn, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"INSERT INTO {sTable}({sColumn},Address1,City,State,Zip,sync_lastupdate) VALUES('{sValue}','N/A','N/A','N/A','N/A',Now())";
+                bAns = ConnExec(ConnectionString(databasePath, out errOut), sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("InsertNewContact", e);
+            }
+            return bAns;
+        }
         #endregion
     }
 }
