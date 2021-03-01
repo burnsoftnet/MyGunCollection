@@ -286,6 +286,19 @@ namespace BurnSoft.Applications.MGC
             }
             return table;
         }
+        /// <summary>
+        /// Gets the data from table.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="sql">The SQL.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>DataTable.</returns>
+        public static DataTable GetDataFromTable(string databasePath, string sql, out string errOut)
+        {
+            string con = ConnectionString(databasePath, out errOut);
+            Database obj = new Database();
+            return obj.GetData(con, sql, out errOut);
+        }
         #endregion
         #region "Gun Collection Related"        
         /// <summary>

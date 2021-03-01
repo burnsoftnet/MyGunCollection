@@ -56,7 +56,7 @@ namespace BurnSoft.Applications.MGC
             errOut = @"";
             try
             {
-
+                string sql = $"SELECT {strColumn} from {strTable} order by {strColumn} ASC";
             }
             catch (Exception e)
             {
