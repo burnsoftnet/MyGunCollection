@@ -51,7 +51,17 @@ namespace BurnSoft.Applications.MGC.Firearms
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion        
+        #endregion                
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static long GetId(string databasePath, string name, out string errOut)
         {
             long lAns = 0;
@@ -79,7 +89,13 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return lAns;
         }
-
+        /// <summary>
+        /// Adds the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Add(string databasePath, string name, out string errOut)
         {
             bool bAns = false;
@@ -96,7 +112,13 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
-
+        /// <summary>
+        /// Deletes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Delete(string databasePath, long id, out string errOut)
         {
             bool bAns = false;
@@ -113,7 +135,14 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
-
+        /// <summary>
+        /// Updates the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Update(string databasePath, long id, string name, out string errOut)
         {
             bool bAns = false;
@@ -130,7 +159,14 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
-
+        /// <summary>
+        /// Existses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
         public static bool Exists(string databasePath, string name, out string errOut)
         {
             bool bAns = false;
