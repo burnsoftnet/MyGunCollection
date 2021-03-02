@@ -181,5 +181,23 @@ namespace BurnSoft.Applications.MGC
             return MainCollection(databasePath, "cat", "", out errOut, sql);
         }
 
+        public static AutoCompleteStringCollection Gun_GripType(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "grip", "Gun_GripType", out errOut);
+        }
+
+        public static AutoCompleteStringCollection Gun_Shop_Details(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Name", "Gun_Shop_Details", out errOut);
+        }
+        public static AutoCompleteStringCollection Gun_Type(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Type", "Gun_Type", out errOut);
+        }
+
+        public static AutoCompleteStringCollection Ammo_Manufacturer(string databasePath, out string errOut)
+        {
+            return MainCollection(databasePath, "Type", "Gun_Type", out errOut);
+        }
     }
 }
