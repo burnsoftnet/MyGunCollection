@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoFillCollections.cs" />
+    <Compile Include="AutoFill\Accessory.cs" />
     <Compile Include="AutoFill\Ammo.cs" />
     <Compile Include="AutoFill\Documents.cs" />
     <Compile Include="AutoFill\General.cs" />
