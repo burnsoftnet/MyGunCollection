@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Windows.Forms.Layout;
+// ReSharper disable UnusedMember.Local
+// ReSharper disable MethodOverloadWithOptionalParameter
+// ReSharper disable FunctionRecursiveOnAllPaths
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
 
-namespace BurnSoft.Applications.MGC
+namespace BurnSoft.Applications.MGC.AutoFill
 {
-    public class AutoFillCollections
+    public class General
     {
         #region "Exception Error Handling"        
         /// <summary>
         /// The class location
         /// </summary>
-        private static string ClassLocation = "BurnSoft.Applications.MGC.AutoFillCollections";
+        private static string ClassLocation = "BurnSoft.Applications.MGC.AutoFill.General";
         /// <summary>
         /// Errors the message for regular Exceptions
         /// </summary>
@@ -62,13 +61,13 @@ namespace BurnSoft.Applications.MGC
         /// <param name="sql">The SQL.</param>
         /// <returns>AutoCompleteStringCollection.</returns>
         /// <exception cref="Exception"></exception>
-        private static AutoCompleteStringCollection MainCollection(string databasePath, string strColumn, string strTable, out string errOut, string sql="")
+        internal static AutoCompleteStringCollection MainCollection(string databasePath, string strColumn, string strTable, out string errOut, string sql = "")
         {
             AutoCompleteStringCollection acscAns = new AutoCompleteStringCollection();
             errOut = @"";
             try
             {
-               if (sql.Length ==0) sql = $"SELECT {strColumn} from {strTable} order by {strColumn} ASC";
+                if (sql.Length == 0) sql = $"SELECT {strColumn} from {strTable} order by {strColumn} ASC";
 
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
@@ -89,27 +88,6 @@ namespace BurnSoft.Applications.MGC
             }
 
             return acscAns;
-        }
-        /// <summary>
-        /// Mains the collection.
-        /// </summary>
-        /// <param name="databasePath">The database path.</param>
-        /// <param name="strColumn">The string column.</param>
-        /// <param name="strTable">The string table.</param>
-        /// <param name="errOut">The error out.</param>
-        /// <returns>AutoCompleteStringCollection.</returns>
-        /// <exception cref="Exception"></exception>
-        private static AutoCompleteStringCollection MainCollection(string databasePath, string strColumn, string strTable, out string errOut)
-        {
-            return MainCollection(databasePath, strColumn, strTable, out errOut);
-        }
-
-
-        
-
-        public static AutoCompleteStringCollection Ammo_Manufacturer(string databasePath, out string errOut)
-        {
-            return MainCollection(databasePath, "Type", "Gun_Type", out errOut);
         }
     }
 }
