@@ -44,9 +44,11 @@
     <Compile Include="AutoFillCollections.cs" />
     <Compile Include="AutoFill\Accessory.cs" />
     <Compile Include="AutoFill\Ammo.cs" />
+    <Compile Include="AutoFill\Appraisers.cs" />
     <Compile Include="AutoFill\Documents.cs" />
     <Compile Include="AutoFill\General.cs" />
     <Compile Include="AutoFill\Gun.cs" />
+    <Compile Include="AutoFill\GunSmith.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Firearms\Manufacturers.cs" />
     <Compile Include="Global\DatabaseRelated.cs" />
