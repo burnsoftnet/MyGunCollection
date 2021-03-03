@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using BurnSoft.Universal;
 // ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Firearms
@@ -66,6 +67,9 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
+
                 if (!Exists(databasePath, name, out errOut))
                 {
                     if (!Add(databasePath, name, out errOut)) throw new Exception(errOut);
@@ -100,6 +104,8 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
                 string sql = $"INSERT INTO Gun_Manufacturer(Brand,sync_lastupdate) VALUES('{name}',Now())";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
@@ -147,6 +153,8 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
                 string sql = $"UPDATE Gun_Manufacturer set name='{name}' where id={id}";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
@@ -171,6 +179,8 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
                 string sql = $"Select * Gun_Manufacturer where Brand='{name}'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);

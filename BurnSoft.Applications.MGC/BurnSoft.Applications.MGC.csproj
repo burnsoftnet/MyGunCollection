@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BurnSoft.Universal, Version=4.0.32.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Universal.4.0.32.2\lib\net40\BurnSoft.Universal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -58,6 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ammo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BurnSoft.Universal.chm" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
