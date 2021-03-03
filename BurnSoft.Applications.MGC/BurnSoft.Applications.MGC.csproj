@@ -57,6 +57,7 @@
     <Compile Include="Database.cs" />
     <Compile Include="Firearms\Manufacturers.cs" />
     <Compile Include="Global\DatabaseRelated.cs" />
+    <Compile Include="PeopleAndPlaces\Shops.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
