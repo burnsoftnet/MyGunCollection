@@ -107,7 +107,30 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             }
             return iAns;
         }
+        /// <summary>
+        /// Adds the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Add(string databasePath, string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"INSERT INTO Gun_Shop_Details (name,Address1,City,State,Zip,sync_lastupdate) VALUES('{name}','N/A','N/A','N/A','N/A',Now())";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Add", e);
+            }
 
+            return bAns;
+        }
         /// <summary>
         /// Deletes the specified database path.
         /// </summary>
