@@ -77,5 +77,66 @@ namespace BurnSoft.Applications.MGC.Global
 
             return lAns;
         }
+        /// <summary>
+        /// Objects the exists in database.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        public static bool ObjectExistsInDb(string databasePath, string table, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from {table}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length >0) throw new Exception(errOut);
+                bAns = dt.Rows.Count > 0;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("ObjectExistsInDb", e);
+            }
+
+            return bAns;
+        }
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="sql">The SQL.</param>
+        /// <param name="column">The column.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="Exception"></exception>
+        public static string GetName(string databasePath, string sql, string column, out string errOut)
+        {
+            string sAns = @"N/A";
+            errOut = @"";
+            try
+            {
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    if (d[column] != null)
+                    {
+                        if (d[column].ToString() != null)
+                        {
+                            sAns = d[column].ToString();
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetName", e);
+            }
+            return sAns;
+        }
     }
 }
