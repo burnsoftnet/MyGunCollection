@@ -1,8 +1,21 @@
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+''' <summary>
+''' Class frmEditShopDetails.  Edit the selected shop
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class frmEditShopDetails
+    ''' <summary>
+    ''' The shop identifier
+    ''' </summary>
     Public ShopID As String
+    ''' <summary>
+    ''' The shop name
+    ''' </summary>
     Public ShopName As String
     Sub PopData()
         Try

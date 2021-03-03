@@ -175,7 +175,31 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
 
             return bAns;
         }
-
+        /// <summary>
+        /// Determines whether [has collection attached] [the specified database path].
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if [has collection attached] [the specified database path]; otherwise, <c>false</c>.</returns>
+        /// <exception cref="Exception"></exception>
+        public static int HasCollectionAttached(string databasePath, long id, out string errOut)
+        {
+            int iAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT Count(*) as Total from Gun_Collection where SID={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                iAns = dt.Rows.Count;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("HasCollectionAttached", e);
+            }
+            return iAns;
+        }
         /// <summary>
         /// Deletes the specified database path.
         /// </summary>
@@ -198,6 +222,62 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             }
 
             return bAns;
+        }
+        /// <summary>
+        /// Gets the name of the shop by the id.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="Exception"></exception>
+        public static string GetName(string databasePath, long id, out string errOut)
+        {
+            string sAns = @"";
+            errOut= @"";
+            try
+            {
+                string sql = $"SELECT name from Gun_Shop_Details where id={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    sAns = d["name"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetName", e);
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the identifier by the shop name.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        public static long GetId(string databasePath, string name, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT id from Gun_Shop_Details where name='{name}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    lAns = Convert.ToInt32(d["id"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+            return lAns;
         }
     }
 }

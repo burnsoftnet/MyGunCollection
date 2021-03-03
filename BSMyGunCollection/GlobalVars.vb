@@ -93,6 +93,10 @@ Module GlobalVars
     ''' </summary>
     Public ApplicationPathData As String
     ''' <summary>
+    ''' The database path
+    ''' </summary>
+    Public DatabasePath as String
+    ''' <summary>
     ''' The debug mode
     ''' </summary>
     Public DebugMode As Boolean

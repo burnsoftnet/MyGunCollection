@@ -23,6 +23,7 @@ Namespace My
                         ApplicationPathData = AppDataPath
                     End If
                 End If
+                DatabasePath = ApplicationPathData & "\" & DatabaseName
                 AppDomain.CurrentDomain.SetData("DataDirectory", ApplicationPathData)
                 Debug_MSG &= NL & "Application Data Path=" & ApplicationPathData
                 Debug_MSG &= NL & "Application Path=" & ApplicationPath

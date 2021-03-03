@@ -1,6 +1,7 @@
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Public Class frmViewShopDetails
     Public ShopID As String
     Public ShopName As String
