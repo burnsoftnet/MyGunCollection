@@ -123,20 +123,20 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
         /// </summary>
         /// <param name="databasePath">The database path.</param>
         /// <param name="name">The name.</param>
-        /// <param name="Address">The address.</param>
-        /// <param name="City">The city.</param>
-        /// <param name="State">The state.</param>
-        /// <param name="ZipCode">The zip code.</param>
+        /// <param name="address">The address.</param>
+        /// <param name="city">The city.</param>
+        /// <param name="state">The state.</param>
+        /// <param name="zipCode">The zip code.</param>
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool Add(string databasePath, string name,string Address, string City, string State, string ZipCode, out string errOut)
+        public static bool Add(string databasePath, string name,string address, string city, string state, string zipCode, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
                 string sql =
-                    $"INSERT INTO Gun_Shop_Details (name,Address1,City,State,Zip,sync_lastupdate) VALUES('{name}','{Address}','{City}','{State}','{ZipCode}',Now())";
+                    $"INSERT INTO Gun_Shop_Details (name,Address1,City,State,Zip,sync_lastupdate) VALUES('{name}','{address}','{city}','{state}','{zipCode}',Now())";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
             catch (Exception e)
@@ -146,6 +146,36 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
 
             return bAns;
         }
+        /// <summary>
+        /// Updates the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="address">The address.</param>
+        /// <param name="city">The city.</param>
+        /// <param name="state">The state.</param>
+        /// <param name="zipCode">The zip code.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Update(string databasePath,int id, string name, string address, string city, string state, string zipCode, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"UPDATE Gun_Shop_Details set name='{name}',Address1='{address}',City='{city}',State='{state}',Zip='{zipCode}',sync_lastupdate=Now() where id={id}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Add", e);
+            }
+
+            return bAns;
+        }
+
         /// <summary>
         /// Deletes the specified database path.
         /// </summary>

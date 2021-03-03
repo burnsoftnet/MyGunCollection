@@ -20,14 +20,16 @@ Public Class frmViewShops
         Dim ObjGF As New GlobalFunctions
         Dim strShopName As String = ObjGF.GetName("SELECT name from Gun_Shop_Details where ID=" & MyValue, "name")
         Dim Obj As New BSDatabase
-        Dim SQL As String = "DELETE from Gun_Shop_Details where ID=" & MyValue
+        ''Dim SQL As String = "DELETE from Gun_Shop_Details where ID=" & MyValue
         Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strShopName & " from the database.", MsgBoxStyle.YesNo, "Delete a Shop")
         Dim intColTotal As Integer = ObjGF.HasCollectionAttached(MyValue, "SID")
         If sMsg = vbYes Then
             If intColTotal <> 0 Then
                 MsgBox("Cannot delete " & strShopName & "! It still has " & intColTotal & " firearms attached to it!", MsgBoxStyle.Critical, "Cannot Delete Shop")
             Else
-                Obj.ConnExec(SQL)
+                ''Obj.ConnExec(SQL)
+                Dim errOut as string
+                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Delete(ApplicationPath & "\" & DatabaseName, MyValue, errOut) Then Call LogError(errOut)
                 Call RefreshList()
             End If
         End If
@@ -47,14 +49,20 @@ Public Class frmViewShops
             Dim strName As String = MyValue
             Dim SQL As String = ""
             Dim Obj As New BSDatabase
+            Dim doAdd As Boolean = False
             If bDoesExist Then
                 sMsg = MsgBox(MyValue & " already exists in database.  Do you still wish to add?", MsgBoxStyle.YesNo, "Shop Exists")
                 If sMsg = vbYes Then
                     strName = MyValue & " #" & (intShopCount + 1)
-                    Call Obj.InsertNewContact(strName, "Gun_Shop_Details", "Name")
+                    ''Call Obj.InsertNewContact(strName, "Gun_Shop_Details", "Name")
+                    doAdd = True
                 End If
             Else
-                Call Obj.InsertNewContact(strName, "Gun_Shop_Details", "Name")
+                ''Call Obj.InsertNewContact(strName, "Gun_Shop_Details", "Name")
+                doAdd = True
+            End If
+            If doAdd Then
+                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Add(ApplicationPath & "\" & DatabaseName, strName, errOut) Then Call LogError(errOut)
             End If
             Call RefreshList()
         End If
