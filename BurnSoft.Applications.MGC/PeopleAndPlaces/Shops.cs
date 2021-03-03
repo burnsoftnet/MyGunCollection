@@ -52,8 +52,15 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion
-
+        #endregion        
+        /// <summary>
+        /// Existses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
         public static bool Exists(string databasePath, string name, out string errOut)
         {
             bool bAns = false;
@@ -72,6 +79,33 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
                 errOut = ErrorMessage("Exists", e);
             }
             return bAns;
+        }
+        /// <summary>
+        /// Counts the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int32.</returns>
+        /// <exception cref="Exception"></exception>
+        public static int Count(string databasePath, string name, out string errOut)
+        {
+            int iAns = 0;
+            errOut = @"";
+            try
+            {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
+                string sql = $"select * from Gun_Shop_Details where name like '{name}%'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                iAns = dt.Rows.Count;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Count", e);
+            }
+            return iAns;
         }
 
         /// <summary>

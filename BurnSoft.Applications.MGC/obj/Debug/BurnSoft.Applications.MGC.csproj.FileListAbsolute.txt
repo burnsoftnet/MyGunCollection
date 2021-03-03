@@ -4,3 +4,6 @@ F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\obj\Debug\BurnSoft.App
 F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\obj\Debug\BurnSoft.Applications.MGC.csproj.CoreCompileInputs.cache
 F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\obj\Debug\BurnSoft.Applications.MGC.dll
 F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\obj\Debug\BurnSoft.Applications.MGC.pdb
+F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\bin\Debug\BurnSoft.Universal.dll
+F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\bin\Debug\BurnSoft.Universal.xml
+F:\Source\Repos\MyGunCollection\BurnSoft.Applications.MGC\obj\Debug\BurnSoft.Applications.MGC.csproj.CopyComplete

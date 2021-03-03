@@ -1303,6 +1303,12 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BurnSoft.Applications.MGC\BurnSoft.Applications.MGC.csproj">
+      <Project>{fbd093a7-f3e7-43a3-a99a-7625d7c0df8b}</Project>
+      <Name>BurnSoft.Applications.MGC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

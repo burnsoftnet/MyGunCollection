@@ -38,7 +38,10 @@ Public Class frmViewShops
         If Len(MyValue) <> 0 Then
             Dim intShopCount As Integer = 0
             Dim ObjGF As New GlobalFunctions
+            Dim errOut = ""
             Dim bDoesExist As Boolean = ObjGF.ContactExists("Gun_Shop_Details", "name", MyValue, intShopCount)
+            ''Dim intShopCount As Integer = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Count(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
+            ''Dim bDoesExist As Boolean = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
             Dim sMsg As String = ""
             Dim strName As String = MyValue
             Dim SQL As String = ""

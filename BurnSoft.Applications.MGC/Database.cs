@@ -93,7 +93,7 @@ namespace BurnSoft.Applications.MGC
         /// <param name="errOut">The error out.</param>
         /// <param name="password">The password.</param>
         /// <returns>System.String.</returns>
-        public static string ConnectionString(string fullDatabasePath, out string errOut, string password = "")
+        public static string ConnectionString(string fullDatabasePath, out string errOut, string password = "14un0t2n0")
         {
             string sAns = "";
             errOut = @"";
