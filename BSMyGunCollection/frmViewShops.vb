@@ -36,12 +36,13 @@ Public Class frmViewShops
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         Dim MyValue As String = FluffContent(InputBox("Please Type in the Shop Name.", "Add a new Shop."))
         If Len(MyValue) <> 0 Then
-            Dim intShopCount As Integer = 0
+            
             Dim ObjGF As New GlobalFunctions
             Dim errOut = ""
-            Dim bDoesExist As Boolean = ObjGF.ContactExists("Gun_Shop_Details", "name", MyValue, intShopCount)
-            ''Dim intShopCount As Integer = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Count(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
-            ''Dim bDoesExist As Boolean = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
+            ''Dim intShopCount As Integer = 0
+            ''Dim bDoesExist As Boolean = ObjGF.ContactExists("Gun_Shop_Details", "name", MyValue, intShopCount)
+            Dim intShopCount As Integer = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Count(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
+            Dim bDoesExist As Boolean = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(ApplicationPathData & "\" & DatabaseName,MyValue,  errOut)
             Dim sMsg As String = ""
             Dim strName As String = MyValue
             Dim SQL As String = ""

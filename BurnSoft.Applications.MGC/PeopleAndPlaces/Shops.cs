@@ -67,8 +67,8 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             errOut = @"";
             try
             {
-                BSOtherObjects obj = new BSOtherObjects();
-                name = obj.FC(name);
+                //BSOtherObjects obj = new BSOtherObjects();
+                //name = obj.FC(name);
                 string sql = $"select * from Gun_Shop_Details where name like '{name}%'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
@@ -94,8 +94,8 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             errOut = @"";
             try
             {
-                BSOtherObjects obj = new BSOtherObjects();
-                name = obj.FC(name);
+                //BSOtherObjects obj = new BSOtherObjects();
+                //name = obj.FC(name);
                 string sql = $"select * from Gun_Shop_Details where name like '{name}%'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
