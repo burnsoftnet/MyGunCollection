@@ -530,12 +530,6 @@
     <Compile Include="frmEditNationality.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditShopDetails.Designer.vb">
-      <DependentUpon>frmEditShopDetails.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmEditShopDetails.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmEditWishlist.Designer.vb">
       <DependentUpon>frmEditWishlist.vb</DependentUpon>
     </Compile>
@@ -1013,10 +1007,6 @@
     <EmbeddedResource Include="frmEditNationality.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmEditNationality.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmEditShopDetails.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>frmEditShopDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditWishlist.resx">
       <SubType>Designer</SubType>
