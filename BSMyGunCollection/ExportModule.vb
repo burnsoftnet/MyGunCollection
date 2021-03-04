@@ -5,103 +5,107 @@ Module ExportModule
     ''' <summary>
     ''' Uses the specified word.
     ''' </summary>
-    ''' <param name="Word">The word.</param>
+    ''' <param name="word">The word.</param>
     ''' <returns>System.String.</returns>
-    Private Function OS(ByVal Word As String) As String
+    Private Function Os(ByVal word As String) As String
         Try
-            Dim i As Integer = Word.IndexOf(".")
+            Dim i As Integer = word.IndexOf(".", StringComparison.Ordinal)
             While i > -1
-                Word = Word.Remove(i, 1)
-                i = Word.IndexOf(".")
+                word = word.Remove(i, 1)
+                i = word.IndexOf(".", StringComparison.Ordinal)
             End While
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "OS"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'TODO #43 Clean up Code
+            'Dim objFs As New MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'objFs.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
-        Return Word
+        Return word
     End Function
     ''' <summary>
     ''' Exports the excel.
     ''' </summary>
-    ''' <param name="Table">The table.</param>
-    ''' <param name="Location">The location.</param>
-    Public Sub ExportExcel(ByVal Table As DataTable, ByVal Location As String)
+    ''' <param name="table">The table.</param>
+    ''' <param name="location">The location.</param>
+    Public Sub ExportExcel(ByVal table As DataTable, ByVal location As String)
         Try
-            If My.Computer.FileSystem.FileExists(Location) Then My.Computer.FileSystem.DeleteFile(Location)
-            Dim CreateString As String = ""
-            Dim Columns As String = ""
-            Dim Mark As String = ""
-            Dim MyTable As String
-            Using Connection As New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & Location & ";Extended Properties=""Excel 8.0;HDR=YES;IMEX=0""")
-                Connection.Open()
-                If Len(Table.TableName) = 0 Then
-                    MyTable = "Table1"
+            If My.Computer.FileSystem.FileExists(location) Then My.Computer.FileSystem.DeleteFile(location)
+' ReSharper disable RedundantAssignment
+            Dim createString As String = ""
+' ReSharper disable once RedundantAssignment
+            Dim columns As String = ""
+            Dim mark As String = ""
+            Dim myTable As String
+            Using connection As New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & location & ";Extended Properties=""Excel 8.0;HDR=YES;IMEX=0""")
+                connection.Open()
+                If Len(table.TableName) = 0 Then
+                    myTable = "Table1"
                 Else
-                    MyTable = Table.TableName
+                    myTable = table.TableName
                 End If
-                CreateString = "CREATE TABLE [" & MyTable & "] ("
-                Columns = "("
-                Mark = "("
-                For Each Column As DataColumn In Table.Columns
-                    CreateString &= OS(Replace(Column.ColumnName, " ", ""))
-                    Select Case Column.DataType.Name
+                createString = "CREATE TABLE [" & myTable & "] ("
+                columns = "("
+                mark = "("
+                For Each column As DataColumn In table.Columns
+                    createString &= Os(Replace(column.ColumnName, " ", ""))
+                    Select Case column.DataType.Name
                         Case "SByte", "Byte", "Int16", "Int32", "Int64", "Decimal", "Double", "Single"
-                            CreateString &= " Number, "
+                            createString &= " Number, "
                         Case "Boolean"
-                            CreateString &= " Bit, "
+                            createString &= " Bit, "
                         Case "Char", "String"
-                            CreateString &= " Memo, "
+                            createString &= " Memo, "
                         Case "DateTime"
-                            CreateString &= " DateTime, "
+                            createString &= " DateTime, "
                         Case Else
-                            CreateString &= " Text, "
+                            createString &= " Text, "
                     End Select
-                    Columns &= OS(Column.ColumnName) & ", "
-                    Mark &= "?,"
+                    columns &= Os(column.ColumnName) & ", "
+                    mark &= "?,"
                 Next
-                CreateString = CreateString.Remove(CreateString.Length - 2, 2)
-                CreateString &= ")"
-                Columns = Columns.Remove(Columns.Length - 2, 2)
-                Columns &= ")"
-                Mark = Mark.Remove(Mark.Length - 1, 1)
-                Mark &= ")"
-                Using Command As New OleDb.OleDbCommand(CreateString.ToString, Connection)
-                    Command.ExecuteNonQuery()
+                createString = createString.Remove(createString.Length - 2, 2)
+                createString &= ")"
+                columns = columns.Remove(columns.Length - 2, 2)
+                columns &= ")"
+                mark = mark.Remove(mark.Length - 1, 1)
+                mark &= ")"
+                Using command As New OleDb.OleDbCommand(createString.ToString, connection)
+                    command.ExecuteNonQuery()
                 End Using
-                Using Adapter As New OleDb.OleDbDataAdapter("SELECT * FROM [" & MyTable & "$]", Connection)
-                    Using ExcelDataset As New DataSet
-                        Adapter.Fill(ExcelDataset, MyTable)
-                        Dim MySQL As String = "INSERT INTO [" & MyTable & "] " & Replace(Columns.ToString, " ", "") & " VALUES " & Mark.ToString
-                        Adapter.InsertCommand = New OleDb.OleDbCommand(MySQL, Connection)
-                        Dim ColName As String = ""
-                        For Each Column As DataColumn In Table.Columns
-                            ColName = Replace(Column.ColumnName, " ", "")
-                            Select Case Column.DataType.Name
+                Using adapter As New OleDb.OleDbDataAdapter("SELECT * FROM [" & myTable & "$]", connection)
+                    Using excelDataset As New DataSet
+                        adapter.Fill(excelDataset, myTable)
+                        Dim mySql As String = "INSERT INTO [" & myTable & "] " & Replace(columns.ToString, " ", "") & " VALUES " & mark.ToString
+                        adapter.InsertCommand = New OleDb.OleDbCommand(mySql, connection)
+                        Dim colName As String = ""
+                        For Each column As DataColumn In table.Columns
+                            colName = Replace(column.ColumnName, " ", "")
+                            Select Case column.DataType.Name
                                 Case "SByte", "Byte", "Int16", "Int32", "Int64", "Decimal", "Double", "Single"
-                                    Adapter.InsertCommand.Parameters.Add("@" & OS(ColName), OleDb.OleDbType.Numeric, 100, OS(ColName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Numeric, 100, Os(colName))
                                 Case "Boolean"
-                                    Adapter.InsertCommand.Parameters.Add("@" & OS(ColName), OleDb.OleDbType.Boolean, 100, OS(ColName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Boolean, 100, Os(colName))
                                 Case "Char", "String"
-                                    Adapter.InsertCommand.Parameters.Add("@" & OS(ColName), OleDb.OleDbType.Char, 65536, OS(ColName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Char, 65536, Os(colName))
                                 Case "DateTime"
-                                    Adapter.InsertCommand.Parameters.Add("@" & OS(ColName), OleDb.OleDbType.DBTimeStamp, 100, OS(ColName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.DBTimeStamp, 100, Os(colName))
                                 Case Else
-                                    Adapter.InsertCommand.Parameters.Add("@" & OS(ColName), OleDb.OleDbType.Char, 65536, OS(ColName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Char, 65536, Os(colName))
                             End Select
                         Next
-                        For Each Row As DataRow In Table.Rows
-                            If Row.RowState <> DataRowState.Deleted Then
-                                Dim ExcelRow As DataRow = ExcelDataset.Tables(MyTable).NewRow
-                                For i As Integer = 0 To Table.Columns.Count - 1
-                                    ExcelRow.Item(i) = Row.Item(i)
+                        For Each row As DataRow In table.Rows
+                            If row.RowState <> DataRowState.Deleted Then
+                                Dim excelRow As DataRow = excelDataset.Tables(myTable).NewRow
+                                For i As Integer = 0 To table.Columns.Count - 1
+                                    excelRow.Item(i) = row.Item(i)
                                 Next
-                                ExcelDataset.Tables(MyTable).Rows.Add(ExcelRow)
+                                excelDataset.Tables(myTable).Rows.Add(excelRow)
                             End If
                         Next
-                        Adapter.Update(ExcelDataset, MyTable)
+                        adapter.Update(excelDataset, myTable)
                     End Using
                 End Using
             End Using
@@ -109,143 +113,148 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportExcel"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'ObjFS.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
     ''' <summary>
     ''' Exports the XML.
     ''' </summary>
-    ''' <param name="Table">The table.</param>
-    ''' <param name="Location">The location.</param>
-    Public Sub ExportXML(ByVal Table As DataTable, ByVal Location As String)
+    ''' <param name="table">The table.</param>
+    ''' <param name="location">The location.</param>
+    Public Sub ExportXml(ByVal table As DataTable, ByVal location As String)
         Try
-            Using Writer As New System.Xml.XmlTextWriter(Location, System.Text.Encoding.UTF8)
-                Writer.WriteStartDocument()
-                Table.WriteXml(Writer, XmlWriteMode.WriteSchema)
-                Writer.WriteEndDocument()
-                Writer.Close()
+            Using writer As New Xml.XmlTextWriter(location, Text.Encoding.UTF8)
+                writer.WriteStartDocument()
+                table.WriteXml(writer, XmlWriteMode.WriteSchema)
+                writer.WriteEndDocument()
+                writer.Close()
             End Using
             MsgBox("The Report was Exported to XML!")
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportXML"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'ObjFS.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
     ''' <summary>
     ''' Exports the HTML.
     ''' </summary>
-    ''' <param name="Table">The table.</param>
-    ''' <param name="Location">The location.</param>
-    Public Sub ExportHTML(ByVal Table As DataTable, ByVal Location As String)
+    ''' <param name="table">The table.</param>
+    ''' <param name="location">The location.</param>
+    Public Sub ExportHtml(ByVal table As DataTable, ByVal location As String)
         Try
-            Using Writer As New System.IO.StreamWriter(Location)
-                Writer.WriteLine("<HTML>")
-                Writer.WriteLine(" <HEAD>")
-                Writer.WriteLine("  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>")
-                Writer.WriteLine(" </HEAD>")
-                Writer.WriteLine(" <BODY>")
-                Writer.WriteLine("<TABLE border='1'>")
-                Writer.WriteLine(" <TR>")
-                For Each Column As DataColumn In Table.Columns
-                    Writer.WriteLine("  <TD>" & Column.ColumnName & "</td>")
+            Using writer As New IO.StreamWriter(location)
+                writer.WriteLine("<HTML>")
+                writer.WriteLine(" <HEAD>")
+                writer.WriteLine("  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>")
+                writer.WriteLine(" </HEAD>")
+                writer.WriteLine(" <BODY>")
+                writer.WriteLine("<TABLE border='1'>")
+                writer.WriteLine(" <TR>")
+                For Each column As DataColumn In table.Columns
+                    writer.WriteLine("  <TD>" & column.ColumnName & "</td>")
                 Next
-                Writer.WriteLine(" </TR>")
-                For Each Row As DataRow In Table.Rows
-                    Writer.WriteLine(" <TR>")
-                    For Each Column As DataColumn In Table.Columns
-                        Writer.WriteLine("  <TD>" & Row.Item(Column).ToString & "</TD>")
+                writer.WriteLine(" </TR>")
+                For Each row As DataRow In table.Rows
+                    writer.WriteLine(" <TR>")
+                    For Each column As DataColumn In table.Columns
+                        writer.WriteLine("  <TD>" & row.Item(column).ToString & "</TD>")
                     Next
-                    Writer.WriteLine(" </TR>")
+                    writer.WriteLine(" </TR>")
                 Next
-                Writer.WriteLine("</TABLE>")
-                Writer.WriteLine(" </BODY>")
-                Writer.WriteLine("</HTML>")
+                writer.WriteLine("</TABLE>")
+                writer.WriteLine(" </BODY>")
+                writer.WriteLine("</HTML>")
             End Using
             MsgBox("The Report was Exported to HTML!")
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportHTML"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'ObjFS.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
     ''' <summary>
     ''' Exports the text.
     ''' </summary>
-    ''' <param name="Table">The table.</param>
-    ''' <param name="Location">The location.</param>
-    Public Sub ExportText(ByVal Table As DataTable, ByVal Location As String)
+    ''' <param name="table">The table.</param>
+    ''' <param name="location">The location.</param>
+    Public Sub ExportText(ByVal table As DataTable, ByVal location As String)
         Try
-            Using Writer As New System.IO.StreamWriter(Location)
-                Writer.WriteLine("Executed: " + DateTime.Now.ToString)
+            Using writer As New IO.StreamWriter(location)
+                writer.WriteLine("Executed: " + DateTime.Now.ToString)
                 For i As Integer = 0 To 99
-                    Writer.Write("*")
+                    writer.Write("*")
                 Next
-                Writer.WriteLine("")
-                For Each Column As DataColumn In Table.Columns
-                    Writer.WriteLine("")
-                    Writer.WriteLine(Column.ColumnName)
+                writer.WriteLine("")
+                For Each column As DataColumn In table.Columns
+                    writer.WriteLine("")
+                    writer.WriteLine(column.ColumnName)
                     For i As Integer = 0 To 99
-                        Writer.Write("-")
+                        writer.Write("-")
                     Next
-                    Writer.WriteLine("")
-                    For Each Row As DataRow In Table.Rows
-                        Writer.WriteLine(Row(Column).ToString)
+                    writer.WriteLine("")
+                    For Each row As DataRow In table.Rows
+                        writer.WriteLine(row(column).ToString)
                     Next
                 Next
                 For i As Integer = 0 To 99
-                    Writer.Write("*")
+                    writer.Write("*")
                 Next
-                Writer.Close()
+                writer.Close()
             End Using
             MsgBox("The Report was Exported to Text!")
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportText"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'ObjFS.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
     ''' <summary>
     ''' Exports the CSV.
     ''' </summary>
-    ''' <param name="Table">The table.</param>
-    ''' <param name="Location">The location.</param>
-    Public Sub ExportCSV(ByVal Table As DataTable, ByVal Location As String)
+    ''' <param name="table">The table.</param>
+    ''' <param name="location">The location.</param>
+    Public Sub ExportCsv(ByVal table As DataTable, ByVal location As String)
         Try
-            Using Writer As New System.IO.StreamWriter(Location)
-                For Each Row As DataRow In Table.Rows
-                    For Each Column As DataColumn In Table.Columns
-                        If Row.Item(Column).GetType Is GetType(DateTime) Then
-                            Writer.Write(CType(Row.Item(Column), DateTime).ToString(My.Computer.Info.InstalledUICulture.DateTimeFormat.SortableDateTimePattern))
+            Using writer As New IO.StreamWriter(location)
+                For Each row As DataRow In table.Rows
+                    For Each column As DataColumn In table.Columns
+                        If row.Item(column).GetType Is GetType(DateTime) Then
+                            writer.Write(CType(row.Item(column), DateTime).ToString(My.Computer.Info.InstalledUICulture.DateTimeFormat.SortableDateTimePattern))
                         Else
-                            Dim Value As String = Row.Item(Column).ToString
-                            If Value.Contains(Chr(13)) Then
-                                Writer.Write(Chr(34) & Row.Item(Column).ToString & Chr(34))
+                            Dim value As String = row.Item(column).ToString
+                            If value.Contains(Chr(13)) Then
+                                writer.Write(Chr(34) & row.Item(column).ToString & Chr(34))
                             Else
-                                Writer.Write(Row.Item(Column).ToString)
+                                writer.Write(row.Item(column).ToString)
                             End If
                         End If
-                        If Column.Ordinal + 1 < Table.Columns.Count Then Writer.Write(";")
+                        If column.Ordinal + 1 < table.Columns.Count Then writer.Write(";")
                     Next
-                    Writer.WriteLine()
+                    writer.WriteLine()
                 Next
-                Writer.Close()
+                writer.Close()
             End Using
             MsgBox("The Report was Exported to CSV!")
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportCSV"
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            ObjFS.LogFile(MyLogFile, sMessage)
+            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
+            'ObjFS.LogFile(MyLogFile, sMessage)
+            Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
 End Module

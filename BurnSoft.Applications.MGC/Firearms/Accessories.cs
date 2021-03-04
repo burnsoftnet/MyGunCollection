@@ -1,21 +1,21 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
-using System.Windows.Forms.Layout;
+using BurnSoft.Universal;
 
-namespace BurnSoft.Applications.MGC
+namespace BurnSoft.Applications.MGC.Firearms
 {
-    public class AutoFillCollections
+    /// <summary>
+    /// Class Accessories that handles firearm accessories database calls
+    /// </summary>
+    public class Accessories
     {
         #region "Exception Error Handling"        
         /// <summary>
         /// The class location
         /// </summary>
-        private static string ClassLocation = "BurnSoft.Applications.MGC.AutoFillCollections";
+        private static string ClassLocation = "BurnSoft.Applications.MGC.Firearms.Accessories";
         /// <summary>
         /// Errors the message for regular Exceptions
         /// </summary>
@@ -51,65 +51,43 @@ namespace BurnSoft.Applications.MGC
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion        
+        #endregion                        
         /// <summary>
-        /// Mains the collection.
+        /// Adds the specified accessory to the database.
         /// </summary>
         /// <param name="databasePath">The database path.</param>
-        /// <param name="strColumn">The string column.</param>
-        /// <param name="strTable">The string table.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="serialNumber">The serial number.</param>
+        /// <param name="condition">The condition.</param>
+        /// <param name="notes">The notes.</param>
+        /// <param name="use">The use.</param>
+        /// <param name="purValue">The pur value.</param>
+        /// <param name="appValue">The application value.</param>
+        /// <param name="civ">if set to <c>true</c> [civ].</param>
+        /// <param name="ic">if set to <c>true</c> [ic].</param>
         /// <param name="errOut">The error out.</param>
-        /// <param name="sql">The SQL.</param>
-        /// <returns>AutoCompleteStringCollection.</returns>
-        /// <exception cref="Exception"></exception>
-        private static AutoCompleteStringCollection MainCollection(string databasePath, string strColumn, string strTable, out string errOut, string sql="")
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Add(string databasePath,long gunId, string manufacturer,string model,string serialNumber, string condition, string notes, string use, double purValue, double appValue, bool civ,bool ic, out string errOut)
         {
-            AutoCompleteStringCollection acscAns = new AutoCompleteStringCollection();
+            bool bAns = false;
             errOut = @"";
             try
             {
-               if (sql.Length ==0) sql = $"SELECT {strColumn} from {strTable} order by {strColumn} ASC";
+                int iCIV = civ ? 1 : 0;
+                int iIC = ic ? 1 : 0;
 
-                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
-                if (errOut?.Length > 0) throw new Exception(errOut);
-
-                foreach (DataRow d in dt.Rows)
-                {
-                    if (d[strColumn].ToString() != null)
-                    {
-                        acscAns.Add(d[strColumn].ToString());
-                    }
-                }
-
-                if (acscAns.Count == 0) acscAns.Add("N/A");
+                string sql = $"INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,AppValue,CIV,IC,sync_lastupdate) VALUES({gunId}," +
+                             $"'{manufacturer}','{model}','{serialNumber}','{condition}','{notes}','{use}',{purValue},{appValue}, {iCIV},{iIC},Now())";
+                bAns = Database.Execute(databasePath, sql, out errOut);
             }
             catch (Exception e)
             {
-                errOut = ErrorMessage("MainCollection", e);
+                errOut = ErrorMessage("Add", e);
             }
 
-            return acscAns;
-        }
-        /// <summary>
-        /// Mains the collection.
-        /// </summary>
-        /// <param name="databasePath">The database path.</param>
-        /// <param name="strColumn">The string column.</param>
-        /// <param name="strTable">The string table.</param>
-        /// <param name="errOut">The error out.</param>
-        /// <returns>AutoCompleteStringCollection.</returns>
-        /// <exception cref="Exception"></exception>
-        private static AutoCompleteStringCollection MainCollection(string databasePath, string strColumn, string strTable, out string errOut)
-        {
-            return MainCollection(databasePath, strColumn, strTable, out errOut);
-        }
-
-
-        
-
-        public static AutoCompleteStringCollection Ammo_Manufacturer(string databasePath, out string errOut)
-        {
-            return MainCollection(databasePath, "Type", "Gun_Type", out errOut);
+            return bAns;
         }
     }
 }

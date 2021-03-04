@@ -473,9 +473,9 @@ Module GlobalVars
     ''' <param name="sErrorDesc"></param>
     Public Sub LogError(ByVal sForm As String, ByVal sProcedure As String, ByVal iErrNo As Long, ByVal sErrorDesc As String)
         Try
-            Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
+            Dim objFs As New BSFileSystem
             Dim sMessage As String = sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
-            ObjFS.LogFile(MyLogFile, sMessage)
+            objFs.LogFile(MyLogFile, sMessage)
         Catch ex As Exception
             Dim sMsg As String = "ERRROR Writing to Log File!" & Chr(13) & sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
             MsgBox(sMsg)

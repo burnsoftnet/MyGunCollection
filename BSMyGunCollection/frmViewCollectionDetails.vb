@@ -253,7 +253,7 @@ Public Class frmViewCollectionDetails
     Private Sub btnAddAccess_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddAccess.Click
         Dim frmNew As New frmAddAccessory
         frmNew.MdiParent = Me.MdiParent
-        frmNew.ItemID = ItemID
+        frmNew.ItemId = ItemID
         frmNew.IsShotGun = IsShotGun
         frmNew.Show()
     End Sub

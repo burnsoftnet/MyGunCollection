@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoFillCollections.cs" />
     <Compile Include="AutoFill\Accessory.cs" />
     <Compile Include="AutoFill\Ammo.cs" />
     <Compile Include="AutoFill\Appraisers.cs" />
@@ -55,6 +54,7 @@
     <Compile Include="AutoFill\GunSmith.cs" />
     <Compile Include="AutoFill\WhisList.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Firearms\Accessories.cs" />
     <Compile Include="Firearms\Manufacturers.cs" />
     <Compile Include="Firearms\MyCollection.cs" />
     <Compile Include="Global\DatabaseRelated.cs" />

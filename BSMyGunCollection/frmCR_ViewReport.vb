@@ -281,7 +281,7 @@ Public Class frmCR_ViewReport
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
-        Call ExportCSV(MyDataTable, strFilePath)
+        Call ExportCsv(MyDataTable, strFilePath)
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -295,7 +295,7 @@ Public Class frmCR_ViewReport
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
-        Call ExportHTML(MyDataTable, strFilePath)
+        Call ExportHtml(MyDataTable, strFilePath)
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -309,7 +309,7 @@ Public Class frmCR_ViewReport
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
-        Call ExportXML(MyDataTable, strFilePath)
+        Call ExportXml(MyDataTable, strFilePath)
     End Sub
     ''' <summary>
     ''' Handles the Resize event of the frmCR_ViewReport control.
