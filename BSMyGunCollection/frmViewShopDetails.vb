@@ -1,6 +1,7 @@
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
@@ -133,24 +134,24 @@ Public Class frmViewShopDetails
             'Dim bInBusiness As Boolean = chkSIB.Checked
             Dim errOut as String = ""
             'Dim intSIB As Integer = 0
-            Dim SQL As String = ""
+            'Dim SQL As String = ""
             If Not IsRequired(strName, "Name", Me.Text) Then Exit Sub
             'If bInBusiness Then intSIB = 1
-            Dim Obj As New BSDatabase
+            'Dim Obj As New BSDatabase
             'SQL = "UPDATE Gun_Shop_Details set Name='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
             '        strAddress2 & "',City='" & strCity & "',State='" & strState & "', Zip='" & _
             '        strZip & "',Phone='" & strPhone & "', Country='" & strCountry & _
             '        "',Fax='" & strFax & "',eMail='" & stremail & "',website='" & _
             '        strWebsite & "',Lic='" & strLic & "', SIB=" & intSIB & ",sync_lastupdate=Now() where ID=" & ShopID
             'Obj.ConnExec(SQL)
-            If Not Shops.Update(DatabasePath, Convert.ToInt32(ShopID), strName, strAddress1, strAddress2, strCity, strState, strZip,strCountry, strPhone, strFax, strWebsite, stremail, strLic,chkSIB.Checked, errOut)
-                Throw New Exception(errOut)
-            End If
+            If Not Shops.Update(DatabasePath, Convert.ToInt32(ShopID), strName, strAddress1, strAddress2, strCity, strState, strZip,strCountry, strPhone, strFax, strWebsite, stremail, strLic,chkSIB.Checked, errOut) Then Throw New Exception(errOut)
+            
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Shop Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "ShopID Name Change Alert!")
                 If sAns = vbYes Then
-                    SQL = "update gun_collection set PurchasedFrom='" & strName & "' where PurchasedFrom='" & FluffContent(ShopName) & "'"
-                    Obj.ConnExec(SQL)
+                    'SQL = "update gun_collection set PurchasedFrom='" & strName & "' where PurchasedFrom='" & FluffContent(ShopName) & "'"
+                    'Obj.ConnExec(SQL)
+                    If Not MyCollection.UpdateShopName(DatabasePath, strName, ShopName, errOut) Then Throw New Exception(errOut)
                 End If
             End If
             Me.Close()
