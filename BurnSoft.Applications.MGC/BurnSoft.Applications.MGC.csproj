@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ammo\GlobalList.cs" />
+    <Compile Include="Ammo\Inventory.cs" />
     <Compile Include="AutoFill\Accessory.cs" />
     <Compile Include="AutoFill\Ammo.cs" />
     <Compile Include="AutoFill\Appraisers.cs" />
@@ -62,9 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Types\GunShopDetails.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Ammo\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="icon.png" />
   </ItemGroup>
