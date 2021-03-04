@@ -18,12 +18,13 @@ Public Class frmViewShops
         Dim myValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewShopDetails
         frmNew.MdiParent = MdiParent
-        frmNew.ShopID = myValue
+        frmNew.ShopId = myValue
         frmNew.Show()
     End Sub
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Dim myValue As Long = ListBox1.SelectedValue
         Dim errOut As String = ""
+        'TODO #43 Removed used code
         ''Dim ObjGF As New GlobalFunctions
         ''Dim strShopName As String = ObjGF.GetName("SELECT name from Gun_Shop_Details where ID=" & MyValue, "name")
         Dim strShopName As String = Shops.GetName(DatabasePath, myValue, errOut)

@@ -222,7 +222,7 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub txtPurchasedFrom_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPurchasedFrom.Click
         Dim NewForm As New frmViewShopDetails
-        NewForm.ShopID = ShopID
+        NewForm.ShopId = ShopID
         NewForm.MdiParent = Me.MdiParent
         NewForm.Show()
     End Sub

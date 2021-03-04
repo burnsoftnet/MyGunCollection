@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using BurnSoft.Applications.MGC.AutoFill;
 using BurnSoft.Applications.MGC.Types;
-using BurnSoft.Universal;
+// ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.PeopleAndPlaces
 {
@@ -167,7 +165,7 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
         /// <param name="fax">Fax, yes people still use them</param>
         /// <param name="website">Website</param>
         /// <param name="email">email</param>
-        /// <param name="license">FFLor drivers license or C&R license</param>
+        /// <param name="license">FFLor drivers license or CR license</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Update(string databasePath,int id, string name, string address, string address2, string city, string state, string zipCode,string country, string phone, string fax, string website, string email,string license, bool isStillInBusiness, out string errOut)
         {

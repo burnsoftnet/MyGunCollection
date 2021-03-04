@@ -1,15 +1,27 @@
-Imports System.Data
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
-
-Public Class frmViewShopDetails
-    Public ShopID As String
+''' <summary>
+''' Class frmViewShopDetails.  This is the main form that will handle the ability to view and edit the gun shope details
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewShopDetails
+    ''' <summary>
+    ''' The shop identifier
+    ''' </summary>
+    Public ShopId As String
+    ''' <summary>
+    ''' The shop name
+    ''' </summary>
     Public ShopName As String
+    ''' <summary>
+    ''' Populates the data.
+    ''' </summary>
+    ''' <exception cref="Exception"></exception>
     Sub PopData()
         Try
+            'TODO #43 Clean up this code
             'Dim Obj As New BSDatabase
             'Dim intSIB As Integer = 0
             'Call Obj.ConnectDB()
@@ -47,7 +59,7 @@ Public Class frmViewShopDetails
             'CMD = Nothing
             'Call Obj.CloseDB()
             Dim errOut as String = ""
-            Dim myList As List(Of GunShopDetails) = Shops.Get(DatabasePath,Convert.ToInt32(ShopID),errOut )
+            Dim myList As List(Of GunShopDetails) = Shops.Get(DatabasePath,Convert.ToInt32(ShopId),errOut )
             If errOut.Length > 0 Then Throw New Exception(errOut)
 
             For Each o As GunShopDetails In myList
@@ -68,13 +80,21 @@ Public Class frmViewShopDetails
 
         Catch ex As Exception
             Dim sSubFunc As String = "PopLoad"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmViewShopDetails_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Me.Gun_CollectionTableAdapter.FillByShop(Me.MGCDataSet.Gun_Collection, ShopID)
+    ''' <summary>
+    ''' Handles the Load event of the frmViewShopDetails control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewShopDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+        Gun_CollectionTableAdapter.FillByShop(MGCDataSet.Gun_Collection, ShopId)
         Call PopData()
     End Sub
+    ''' <summary>
+    ''' Enableds the form.
+    ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False
         txtAddress1.ReadOnly = False
@@ -92,6 +112,9 @@ Public Class frmViewShopDetails
         btnUpdate.Visible = True
         btnEdit.Visible = False
     End Sub
+    ''' <summary>
+    ''' Disables the form.
+    ''' </summary>
     Sub DisableForm()
         txtName.ReadOnly = True
         txtAddress1.ReadOnly = True
@@ -109,15 +132,30 @@ Public Class frmViewShopDetails
         btnEdit.Visible = True
         btnUpdate.Visible = False
     End Sub
-    Private Sub btnEdit_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+    ''' <summary>
+    ''' Handles the 1 event of the btnEdit_Click control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub btnEdit_Click_1(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnEdit.Click
         Call EnabledForm()
     End Sub
-
-    Private Sub btnCancel_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
-        Me.Close()
+    ''' <summary>
+    ''' Handles the 1 event of the btnCancel_Click control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub btnCancel_Click_1(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnCancel.Click
+        Close()
     End Sub
-
-    Private Sub btnUpdate_Click(sender As System.Object, e As System.EventArgs) Handles btnUpdate.Click
+    ''' <summary>
+    ''' Handles the Click event of the btnUpdate control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception"></exception>
+    ''' <exception cref="Exception"></exception>
+    Private Sub btnUpdate_Click(sender As System.Object, e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)
@@ -135,7 +173,7 @@ Public Class frmViewShopDetails
             Dim errOut as String = ""
             'Dim intSIB As Integer = 0
             'Dim SQL As String = ""
-            If Not IsRequired(strName, "Name", Me.Text) Then Exit Sub
+            If Not IsRequired(strName, "Name", Text) Then Exit Sub
             'If bInBusiness Then intSIB = 1
             'Dim Obj As New BSDatabase
             'SQL = "UPDATE Gun_Shop_Details set Name='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
@@ -144,7 +182,7 @@ Public Class frmViewShopDetails
             '        "',Fax='" & strFax & "',eMail='" & stremail & "',website='" & _
             '        strWebsite & "',Lic='" & strLic & "', SIB=" & intSIB & ",sync_lastupdate=Now() where ID=" & ShopID
             'Obj.ConnExec(SQL)
-            If Not Shops.Update(DatabasePath, Convert.ToInt32(ShopID), strName, strAddress1, strAddress2, strCity, strState, strZip,strCountry, strPhone, strFax, strWebsite, stremail, strLic,chkSIB.Checked, errOut) Then Throw New Exception(errOut)
+            If Not Shops.Update(DatabasePath, Convert.ToInt32(ShopId), strName, strAddress1, strAddress2, strCity, strState, strZip,strCountry, strPhone, strFax, strWebsite, stremail, strLic,chkSIB.Checked, errOut) Then Throw New Exception(errOut)
             
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Shop Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "ShopID Name Change Alert!")
@@ -154,10 +192,10 @@ Public Class frmViewShopDetails
                     If Not MyCollection.UpdateShopName(DatabasePath, strName, ShopName, errOut) Then Throw New Exception(errOut)
                 End If
             End If
-            Me.Close()
+            Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
         Call DisableForm()
     End Sub
