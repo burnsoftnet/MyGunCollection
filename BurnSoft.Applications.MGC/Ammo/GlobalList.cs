@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using BurnSoft.Universal;
+// ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Ammo
 {
@@ -94,7 +92,7 @@ namespace BurnSoft.Applications.MGC.Ammo
             {
                 BSOtherObjects obj = new BSOtherObjects();
                 name = obj.FC(name);
-                string sql = $"Select * Gun_Cal where Cal='{name}'";
+                string sql = $"Select * from Gun_Cal where Cal='{name}'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
                 bAns = dt.Rows.Count > 0;
