@@ -59,6 +59,7 @@
     <Compile Include="Global\DatabaseRelated.cs" />
     <Compile Include="PeopleAndPlaces\Shops.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\GunShopDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Ammo\" />

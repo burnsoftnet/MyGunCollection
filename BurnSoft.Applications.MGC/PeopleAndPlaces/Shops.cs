@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using BurnSoft.Applications.MGC.AutoFill;
+using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Universal;
 
 namespace BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -146,6 +148,7 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
 
             return bAns;
         }
+
         /// <summary>
         /// Updates the specified database path.
         /// </summary>
@@ -153,19 +156,28 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
         /// <param name="id">The identifier.</param>
         /// <param name="name">The name.</param>
         /// <param name="address">The address.</param>
+        /// <param name="address2"></param>
         /// <param name="city">The city.</param>
         /// <param name="state">The state.</param>
         /// <param name="zipCode">The zip code.</param>
+        /// <param name="isStillInBusiness">Still in business</param>
         /// <param name="errOut">The error out.</param>
+        /// <param name="country">Country</param>
+        /// <param name="phone">Phone number</param>
+        /// <param name="fax">Fax, yes people still use them</param>
+        /// <param name="website">Website</param>
+        /// <param name="email">email</param>
+        /// <param name="license">FFLor drivers license or C&R license</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool Update(string databasePath,int id, string name, string address, string city, string state, string zipCode, out string errOut)
+        public static bool Update(string databasePath,int id, string name, string address, string address2, string city, string state, string zipCode,string country, string phone, string fax, string website, string email,string license, bool isStillInBusiness, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
+                int sib = isStillInBusiness ? 1 : 0;
                 string sql =
-                    $"UPDATE Gun_Shop_Details set name='{name}',Address1='{address}',City='{city}',State='{state}',Zip='{zipCode}',sync_lastupdate=Now() where id={id}";
+                    $"UPDATE Gun_Shop_Details set name='{name}',Address1='{address}',Address2='{address2}',City='{city}',State='{state}',Zip='{zipCode}',sync_lastupdate=Now(), Country='{country}', phone='{phone}', fax='{fax}', website='{website}', email='{email}', lic='{license}',SIB={sib} where id={id}";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
             catch (Exception e)
@@ -278,6 +290,75 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
                 errOut = ErrorMessage("GetId", e);
             }
             return lAns;
+        }
+        /// <summary>
+        /// Gets the specified shop by id from the database
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunShopDetails&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        public static List<GunShopDetails> Get(string databasePath, int id, out string errOut)
+        {
+            List<GunShopDetails> lst = new List<GunShopDetails>();
+            errOut = @"";
+            try
+            {
+                List<GunShopDetails> tmp = Get(databasePath, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = tmp.Where(s => s.Id == id).ToList();
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Get", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Gets all the shop details in the database
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunShopDetails&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        public static List<GunShopDetails> Get(string databasePath, out string errOut)
+        {
+            List<GunShopDetails> lst = new List<GunShopDetails>();
+            errOut = @"";
+            try
+            {
+                string sql = "select * from Gun_Shop_Details";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new GunShopDetails()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        Name = d["Name"].ToString(),
+                        Address1 = d["Address1"].ToString(),
+                        Address2 = d["Address2"].ToString(),
+                        City = d["City"].ToString(),
+                        State = d["State"].ToString(),
+                        ZipCode = d["Zip"].ToString(),
+                        Phone = d["Phone"].ToString(),
+                        Country = d["Country"].ToString(),
+                        Email = d["Email"].ToString(),
+                        Lic = d["Lic"].ToString(),
+                        WebSite = d["WebSite"].ToString(),
+                        Fax = d["Fax"].ToString(),
+                        StillInBusiness = (Convert.ToInt32(d["SIB"].ToString()) == 1)
+                    });
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Get", e);
+            }
+            return lst;
         }
     }
 }
