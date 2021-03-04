@@ -7,13 +7,26 @@ Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 ''' <seealso cref="System.Windows.Forms.Form" />
 ' ReSharper disable InconsistentNaming
 Public Class frmViewShops
-' ReSharper restore InconsistentNaming
+    ' ReSharper restore InconsistentNaming    
+    ''' <summary>
+    ''' Refreshes the list.
+    ''' </summary>
     Private Sub RefreshList()
         Gun_Shop_DetailsTableAdapter.Fill(MGCDataSet.Gun_Shop_Details)
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewShops control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewShops_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         Call RefreshList()
     End Sub
+    ''' <summary>
+    ''' Handles the DoubleClick event of the ListBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         Dim myValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewShopDetails
@@ -21,6 +34,11 @@ Public Class frmViewShops
         frmNew.ShopId = myValue
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Dim myValue As Long = ListBox1.SelectedValue
         Dim errOut As String = ""
@@ -48,7 +66,11 @@ Public Class frmViewShops
             End If
         End If
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Dim myValue As String = FluffContent(InputBox("Please Type in the Shop Name.", "Add a new Shop."))
         If Len(myValue) <> 0 Then
@@ -81,7 +103,11 @@ Public Class frmViewShops
             Call RefreshList()
         End If
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton3 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton3_Click(sender As System.Object, e As EventArgs) Handles ToolStripButton3.Click
         Call RefreshList()
     End Sub

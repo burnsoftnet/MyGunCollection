@@ -322,14 +322,14 @@ namespace BurnSoft.Applications.MGC
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="Exception"></exception>
-        public bool UpdateSyncDataTables(string databasePath, string table, out string errOut)
+        public static bool UpdateSyncDataTables(string databasePath, string table, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
                 string sql = $"UPDATE {table} set sync_lastupdate = Now()";
-                bAns = ConnExec(ConnectionString(databasePath, out errOut), sql, out errOut);
+                bAns = Execute(ConnectionString(databasePath, out errOut), sql, out errOut);
                 if (errOut?.Length >0) throw new Exception(errOut);
             }
             catch (Exception e)
