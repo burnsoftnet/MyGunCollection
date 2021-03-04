@@ -145,7 +145,7 @@ Public Class frmViewAmmoInventory
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView1.Rows(RowID).Selected = True
             Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            frmNew.AID = ItemID
+            frmNew.Aid = ItemID
             frmNew.CurrentCount = DataGridView1.SelectedRows.Item(0).Cells.Item(7).Value
             frmNew.MdiParent = Me.MdiParent
             frmNew.Show()
