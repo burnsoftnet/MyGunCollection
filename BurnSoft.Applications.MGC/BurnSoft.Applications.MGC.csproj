@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ammo\Audit.cs" />
     <Compile Include="Ammo\GlobalList.cs" />
     <Compile Include="Ammo\Inventory.cs" />
     <Compile Include="AutoFill\Accessory.cs" />
