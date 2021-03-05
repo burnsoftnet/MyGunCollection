@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+// ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Ammo
 {
@@ -50,7 +49,31 @@ namespace BurnSoft.Applications.MGC.Ammo
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion                        
-
+        #endregion        
+        /// <summary>
+        /// Updates the qty.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="ammoId">The ammo identifier.</param>
+        /// <param name="currentQty">The current qty.</param>
+        /// <param name="newQty">The new qty.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool UpdateQty(string databasePath, long ammoId, long currentQty, int newQty, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                long endTotal = currentQty + newQty;
+                string sql = $"UPDATE Gun_Collection_Ammo set Qty={endTotal} where id={ammoId}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("UpdateQty", e);
+            }
+            return bAns;
+        }
     }
 }

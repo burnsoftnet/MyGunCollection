@@ -1,4 +1,6 @@
 ﻿using System;
+// ReSharper disable UnusedMember.Local
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
 
 
 namespace BurnSoft.Applications.MGC.Ammo
@@ -60,19 +62,21 @@ namespace BurnSoft.Applications.MGC.Ammo
         private static string ErrorMessage(string functionName, ArgumentNullException e) =>
             $"{ClassLocation}.{functionName} - {e.Message}";
 
-        #endregion        
+        #endregion
+
         /// <summary>
         /// Adds the specified ammo to the audit table
         /// </summary>
         /// <param name="databasePath">The database path.</param>
         /// <param name="ammoId">The ammo identifier.</param>
         /// <param name="datePurchased">The date purchased.</param>
+        /// <param name="currentQty"></param>
         /// <param name="qty">The qty.</param>
         /// <param name="price">The price.</param>
         /// <param name="store">The store.</param>
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool Add(string databasePath, int ammoId, string datePurchased, int qty, double price,
+        public static bool Add(string databasePath, long ammoId, string datePurchased, long currentQty,  int qty, double price,
             string store,
             out string errOut)
         {
@@ -80,6 +84,8 @@ namespace BurnSoft.Applications.MGC.Ammo
             errOut = @"";
             try
             {
+                if (!Inventory.UpdateQty(databasePath, ammoId, currentQty,qty, out errOut)) throw new Exception(errOut);
+
                 double pricePerBullet = Math.Truncate(price / qty);
                 string sql =
                     $"INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,store,sync_lastupdate) VALUES(" +
@@ -93,6 +99,7 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return bAns;
         }
+
         /// <summary>
         /// Adds the specified ammo to the audit table, over ride if you bought more than one box
         /// </summary>
@@ -103,27 +110,28 @@ namespace BurnSoft.Applications.MGC.Ammo
         /// <param name="price">The price.</param>
         /// <param name="store">The store.</param>
         /// <param name="numberOfBoxes">The number of boxes.</param>
+        /// <param name="currentQty"></param>
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="Exception"></exception>
         /// <exception cref="Exception"></exception>
-        public static bool Add(string databasePath, int ammoId, string datePurchased, int qty, double price, string store,int numberOfBoxes, out string errOut)
+        public static bool Add(string databasePath, long ammoId, string datePurchased, int qty, double price, string store,int numberOfBoxes,long currentQty, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
-                double pricePerBullet = Math.Truncate(price / qty);
                 if (numberOfBoxes == 1)
                 {
-                    bAns = Add(databasePath, ammoId, datePurchased, qty, price, store, out errOut);
+                    bAns = Add(databasePath, ammoId, datePurchased,currentQty, qty, price, store, out errOut);
                     if (errOut?.Length > 0) throw new Exception(errOut);
                 }
                 else if (numberOfBoxes > 1)
                 {
                     for (int i = 1; i > numberOfBoxes; i++)
                     {
-                        bAns = Add(databasePath, ammoId, datePurchased, qty, price, store, out errOut);
+                        bAns = Add(databasePath, ammoId, datePurchased,currentQty, qty, price, store, out errOut);
+                        currentQty += qty;
                         if (errOut?.Length > 0) throw new Exception(errOut);
                     }
                 }
