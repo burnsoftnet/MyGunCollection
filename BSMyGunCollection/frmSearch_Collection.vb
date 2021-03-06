@@ -71,7 +71,7 @@ Public Class frmSearch_Collection
             Me.Cursor = Cursors.WaitCursor
             Dim frmNew As New frmViewCollectionDetails
             frmNew.MdiParent = Me.MdiParent
-            frmNew.ItemID = RowID
+            frmNew.ItemId = RowID
             frmNew.Show()
             Me.Cursor = Cursors.Arrow
         Catch ex As Exception

@@ -2,15 +2,48 @@ Imports System.IO
 Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''' <summary>
+''' Class frmViewCollectionDetails.  Main form to view the firearm details
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class frmViewCollectionDetails
-    Public ItemID As String
-    Public ShopID As String
+    ''' <summary>
+    ''' The item identifier
+    ''' </summary>
+    Public ItemId As String
+    ''' <summary>
+    ''' The shop identifier
+    ''' </summary>
+    Public ShopId As String
+    ''' <summary>
+    ''' The update pending
+    ''' </summary>
     Public UpdatePending As Boolean
+    ''' <summary>
+    ''' The update pedning ass
+    ''' </summary>
     Public UpdatePedningAss As Boolean
+    ''' <summary>
+    ''' The is sold
+    ''' </summary>
     Public IsSold As Boolean
+    ''' <summary>
+    ''' The is stolen
+    ''' </summary>
     Public IsStolen As Boolean
-    Public SellerID As String
+    ''' <summary>
+    ''' The seller identifier
+    ''' </summary>
+    Public SellerId As String
+    ''' <summary>
+    ''' The bs hasmultibarrels
+    ''' </summary>
     Public BS_HASMULTIBARRELS As Boolean
+    ''' <summary>
+    ''' The bs defaultbarrelsystemid
+    ''' </summary>
     Public BS_DEFAULTBARRELSYSTEMID As Long
     Public UpdatePendingMaint As Boolean
     Public IsShotGun As Boolean
@@ -35,8 +68,8 @@ Public Class frmViewCollectionDetails
             objS = Nothing
             Label42.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
-            Lastviewedfirearm = ItemID
-            If Len(ItemID) <> 0 Then
+            Lastviewedfirearm = ItemId
+            If Len(ItemId) <> 0 Then
                 Call LoadData()
                 If IsSold Or IsStolen Then
                     btnSold.Visible = False
@@ -183,7 +216,7 @@ Public Class frmViewCollectionDetails
         Dim frmNew As New frmViewPicture
         frmNew.MdiParent = Me.MdiParent
         frmNew.MyID = CLng(MyText)
-        frmNew.GroupID = CLng(ItemID)
+        frmNew.GroupID = CLng(ItemId)
         frmNew.Show()
     End Sub
     Private Sub FillByToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -197,7 +230,7 @@ Public Class frmViewCollectionDetails
 #End Region
 #Region " General Tab Sub and Functions "
     Private Sub TabPage4_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPage4.Enter
-        Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, ItemID)
+        Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, ItemId)
     End Sub
     Private Sub mnuPicItem_Show_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles mnuPicItem_Show.Click
         Dim MyIndex As String = ListView1.FocusedItem.Index
@@ -222,7 +255,7 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub txtPurchasedFrom_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPurchasedFrom.Click
         Dim NewForm As New frmViewShopDetails
-        NewForm.ShopId = ShopID
+        NewForm.ShopId = ShopId
         NewForm.MdiParent = Me.MdiParent
         NewForm.Show()
     End Sub
@@ -237,7 +270,7 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub TabPage8_Enter(ByVal sender As Object, ByVal e As System.EventArgs) Handles TabPage8.Enter
         Try
-            Me.GunSmith_DetailsTableAdapter.FillBy(Me.MGCDataSet.GunSmith_Details, ItemID)
+            Me.GunSmith_DetailsTableAdapter.FillBy(Me.MGCDataSet.GunSmith_Details, ItemId)
         Catch ex As Exception
             Dim sSubFunc As String = "TabPage8.Enter.Gunsmith.Details"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -246,14 +279,14 @@ Public Class frmViewCollectionDetails
 #End Region
 #Region " Button Subs "
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        frmAddPicture.ItemID = ItemID
+        frmAddPicture.ItemID = ItemId
         frmAddPicture.MdiParent = Me.MdiParent
         frmAddPicture.Show()
     End Sub
     Private Sub btnAddAccess_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddAccess.Click
         Dim frmNew As New frmAddAccessory
         frmNew.MdiParent = Me.MdiParent
-        frmNew.ItemId = ItemID
+        frmNew.ItemId = ItemId
         frmNew.IsShotGun = IsShotGun
         frmNew.Show()
     End Sub
@@ -261,12 +294,12 @@ Public Class frmViewCollectionDetails
         Me.Close()
     End Sub
     Private Sub btnRefresh_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefresh.Click
-        Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, ItemID)
+        Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, ItemId)
         Call LoadAddAccessories()
     End Sub
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
         Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemID = ItemID
+        frmNew.ItemID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
@@ -284,7 +317,7 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub btnAddMain_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAddMain.Click
         frmAddMaintance.MdiParent = Me.MdiParent
-        frmAddMaintance.GID = ItemID
+        frmAddMaintance.GID = ItemId
         frmAddMaintance.BSID = BS_DEFAULTBARRELSYSTEMID
         frmAddMaintance.AmmoType = txtCal.Text
         frmAddMaintance.AmmoTypePet = txtPetLoads.Text
@@ -296,25 +329,25 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub btnGSLog_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGSLog.Click
         frmAddGunSmithLog.MdiParent = Me.MdiParent
-        frmAddGunSmithLog.GID = ItemID
+        frmAddGunSmithLog.GID = ItemId
         frmAddGunSmithLog.Show()
     End Sub
     Private Sub btnGSReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGSReport.Click
         Me.Cursor = Cursors.WaitCursor
         frmViewReport_GunSmith.MdiParent = Me.MdiParent
-        frmViewReport_GunSmith.GID = ItemID
+        frmViewReport_GunSmith.GID = ItemId
         frmViewReport_GunSmith.Title = Me.Text
         frmViewReport_GunSmith.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
     Private Sub btnRefreshGS_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshGS.Click
-        Me.GunSmith_DetailsTableAdapter.FillBy(Me.MGCDataSet.GunSmith_Details, ItemID)
+        Me.GunSmith_DetailsTableAdapter.FillBy(Me.MGCDataSet.GunSmith_Details, ItemId)
     End Sub
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Me.Cursor = Cursors.WaitCursor
         Dim newForm As New frmViewReport_Maintenance
         newForm.MdiParent = Me.MdiParent
-        newForm.MyGID = ItemID
+        newForm.MyGID = ItemId
         newForm.Title = Me.Text
         newForm.Show()
         Me.Cursor = Cursors.Arrow
@@ -322,13 +355,13 @@ Public Class frmViewCollectionDetails
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFlyer.Click
         Dim frmNew As New frmForSale
         frmNew.MdiParent = Me.MdiParent
-        frmNew.MyID = ItemID
+        frmNew.MyID = ItemId
         frmNew.Show()
     End Sub
     Private Sub btnSold_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSold.Click
         Dim frmNew As New frmSold
         frmNew.MdiParent = Me.MdiParent
-        frmNew.ItemID = ItemID
+        frmNew.ItemID = ItemId
         frmNew.Show()
         Me.Close()
     End Sub
@@ -336,7 +369,7 @@ Public Class frmViewCollectionDetails
         Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Me.Text)
         If meAns = vbYes Then
             Dim Obj As New BSDatabase
-            Dim uSQL As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & ItemID
+            Dim uSQL As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & ItemId
             Obj.ConnExec(uSQL)
             MDIParent1.RefreshCollection()
             Me.Close()
@@ -350,7 +383,7 @@ Public Class frmViewCollectionDetails
         Dim iAns As Long = 0
         Try
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT Count(*) as Total from Gun_Collection_Pictures where CID=" & ItemID
+            Dim SQL As String = "SELECT Count(*) as Total from Gun_Collection_Pictures where CID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim rs As OdbcDataReader
             rs = CMD.ExecuteReader
@@ -373,7 +406,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_Pictures where CID=" & ItemID
+            Dim SQL As String = "SELECT * from Gun_Collection_Pictures where CID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             Dim i As Integer
@@ -430,16 +463,16 @@ Public Class frmViewCollectionDetails
     Sub LoadMaintData()
         Dim Obj As New GlobalFunctions
         If Not BS_HASMULTIBARRELS Then
-            Me.Maintance_DetailsTableAdapter.FillBy(Me.MGCDataSet.Maintance_Details, ItemID)
+            Me.Maintance_DetailsTableAdapter.FillBy(Me.MGCDataSet.Maintance_Details, ItemId)
             Label50.Visible = False
             lblTotalFirearm.Visible = False
-            lblTotalRndsFired.Text = Obj.TotalRoundsFired(ItemID)
-            lblAvgRndsFired.Text = Obj.AverageRoundsFired(ItemID)
+            lblTotalRndsFired.Text = Obj.TotalRoundsFired(ItemId)
+            lblAvgRndsFired.Text = Obj.AverageRoundsFired(ItemId)
         Else
-            Me.Maintance_DetailsTableAdapter.FillBy_BSID(Me.MGCDataSet.Maintance_Details, ItemID, BS_DEFAULTBARRELSYSTEMID)
+            Me.Maintance_DetailsTableAdapter.FillBy_BSID(Me.MGCDataSet.Maintance_Details, ItemId, BS_DEFAULTBARRELSYSTEMID)
             Label50.Visible = True
             lblTotalFirearm.Visible = True
-            lblTotalFirearm.Text = Obj.TotalRoundsFired(ItemID)
+            lblTotalFirearm.Text = Obj.TotalRoundsFired(ItemId)
             lblTotalRndsFired.Text = Obj.TotalRoundsFiredBS(BS_DEFAULTBARRELSYSTEMID)
             lblAvgRndsFired.Text = Obj.AverageRoundsFiredBS(BS_DEFAULTBARRELSYSTEMID)
         End If
@@ -449,7 +482,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerID
+            Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
@@ -481,8 +514,8 @@ Public Class frmViewCollectionDetails
     'Load the Accessories and total up the cost of the accessories and the total appriased value
     Sub LoadAddAccessories()
         Dim ObjGF As New GlobalFunctions
-        lblTPV.Text = ObjGF.AddPurchasePriceAccessories(ItemID)
-        lblTAV.Text = ObjGF.AddAppriasedPriceAccessories(ItemID)
+        lblTPV.Text = ObjGF.AddPurchasePriceAccessories(ItemId)
+        lblTAV.Text = ObjGF.AddAppriasedPriceAccessories(ItemId)
     End Sub
     'When a shotgun is selected, add the ability to put in what choke is in the firearm
     'But in order to do that, there are fields that need to be moved around just to keep things in order 
@@ -532,27 +565,27 @@ Public Class frmViewCollectionDetails
             Dim ObjGF As New GlobalFunctions
             Dim ObjDF As New BurnSoft.Universal.BSDateTime
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection where ID=" & ItemID
+            Dim SQL As String = "SELECT * from Gun_Collection where ID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
-            BS_HASMULTIBARRELS = ObjGF.HasMultiBarrelsListed(ItemID)
-            BS_DEFAULTBARRELSYSTEMID = ObjGF.GetDefaultBarrelID(ItemID)
+            BS_HASMULTIBARRELS = ObjGF.HasMultiBarrelsListed(ItemId)
+            BS_DEFAULTBARRELSYSTEMID = ObjGF.GetDefaultBarrelID(ItemId)
             If Not BS_HASMULTIBARRELS Then
                 TabControl1.TabPages.Remove(TabPage10)
             Else
-                Me.Gun_Collection_ExtTableAdapter.FillBy_GID(Me.MGCDataSet.Gun_Collection_Ext, ItemID)
+                Me.Gun_Collection_ExtTableAdapter.FillBy_GID(Me.MGCDataSet.Gun_Collection_Ext, ItemId)
                 DataGridView5.Columns(0).Visible = False
             End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
-            HasDocuments = ObjGF.HasDocumentsAttached(ItemID)
+            HasDocuments = ObjGF.HasDocumentsAttached(ItemId)
             If Not HasDocuments Then
                 TabControl1.TabPages.Remove(TabPage12)
             Else
-                Me.Qry_DocsAndLinksTableAdapter.FillBy_GID(Me.MGCDataSet.qry_DocsAndLinks, ItemID)
+                Me.Qry_DocsAndLinksTableAdapter.FillBy_GID(Me.MGCDataSet.qry_DocsAndLinks, ItemId)
 
             End If
 
@@ -651,7 +684,7 @@ Public Class frmViewCollectionDetails
                     dtpPurchased.Enabled = False
                 End If
                 If Not IsDBNull(RS("AppraisedValue")) Then txtAppValue.Text = RS("AppraisedValue")
-                ShopID = RS("SID")
+                ShopId = RS("SID")
                 If Len(Trim(RS("AppraisalDate"))) <> 0 Then
                     dtpAppDate.Checked = True
                     dtpAppDate.Value = RS("AppraisalDate")
@@ -661,7 +694,7 @@ Public Class frmViewCollectionDetails
                 If Not IsDBNull(RS("InsuredValue")) Then txtInsVal.Text = RS("InsuredValue")
                 If Not IsDBNull(RS("ConditionComments")) Then txtConCom.Text = RS("ConditionComments")
                 If Not IsDBNull(RS("AdditionalNotes")) Then txtAddNotes.Text = RS("AdditionalNotes")
-                If Not IsDBNull(RS("BID")) Then SellerID = RS("BID")
+                If Not IsDBNull(RS("BID")) Then SellerId = RS("BID")
                 If Not IsDBNull(RS("dtSold")) Then lblSold.Text = "on " & RS("dtSold")
                 If CInt(RS("ItemSold")) = 1 Then
                     IsSold = True
@@ -695,7 +728,7 @@ Public Class frmViewCollectionDetails
             Dim i As Long = 0
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT ID from Gun_Collection_Pictures where CID=" & ItemID '& " order by ID DESC"
+            Dim SQL As String = "SELECT ID from Gun_Collection_Pictures where CID=" & ItemId '& " order by ID DESC"
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim rs As OdbcDataReader
             Dim PicID As Long
@@ -944,7 +977,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_Accessories where GID=" & ItemID
+            Dim SQL As String = "SELECT * from Gun_Collection_Accessories where GID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
@@ -980,7 +1013,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Maintance_Details where GID=" & ItemID
+            Dim SQL As String = "SELECT * from Maintance_Details where GID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
@@ -1014,7 +1047,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from GunSmith_Details where GID=" & ItemID
+            Dim SQL As String = "SELECT * from GunSmith_Details where GID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
@@ -1048,7 +1081,7 @@ Public Class frmViewCollectionDetails
         Try
             Dim Obj As New BSDatabase
             Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_Ext where GID=" & ItemID
+            Dim SQL As String = "SELECT * from Gun_Collection_Ext where GID=" & ItemId
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
@@ -1108,7 +1141,7 @@ Public Class frmViewCollectionDetails
 
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemID = ItemID
+        frmNew.ItemID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
@@ -1116,9 +1149,9 @@ Public Class frmViewCollectionDetails
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
         Me.Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ItemID)
+        Call CheckDefaultPic(ItemId)
         Dim frmNew As New frmViewReport_FirearmDetails
-        frmNew.intID = ItemID
+        frmNew.intID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
@@ -1127,9 +1160,9 @@ Public Class frmViewCollectionDetails
 
     Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
         Me.Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ItemID)
+        Call CheckDefaultPic(ItemId)
         Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
-        frmNew.intID = ItemID
+        frmNew.intID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
@@ -1156,7 +1189,7 @@ Public Class frmViewCollectionDetails
 
     Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
         Dim frmNew As New frmAddBarrelSystem
-        frmNew.Gid = ItemID
+        frmNew.Gid = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
@@ -1164,7 +1197,7 @@ Public Class frmViewCollectionDetails
 
     Private Sub btnVwAccessReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVwAccessReport.Click
         Dim frmNew As New frmViewReport_Accessories
-        frmNew.GID = ItemID
+        frmNew.GID = ItemId
         frmNew.Title = Me.Text
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
@@ -1173,7 +1206,7 @@ Public Class frmViewCollectionDetails
     Private Sub SetAsDefaultToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SetAsDefaultToolStripMenuItem.Click
         Dim BID As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
         Dim ObjGF As New GlobalFunctions
-        ObjGF.SwapDefaultBarrelSystems(BS_DEFAULTBARRELSYSTEMID, BID, ItemID)
+        ObjGF.SwapDefaultBarrelSystems(BS_DEFAULTBARRELSYSTEMID, BID, ItemId)
         Call LoadData()
     End Sub
 
@@ -1196,7 +1229,7 @@ Public Class frmViewCollectionDetails
     Private Sub EditToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem1.Click
         Dim BID As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
         Dim frmNew As New frmEditBarrelSystem
-        frmNew.GID = ItemID
+        frmNew.GID = ItemId
         frmNew.BID = BID
         frmNew.Recname = Me.Text
         frmNew.MdiParent = Me.MdiParent
@@ -1211,7 +1244,7 @@ Public Class frmViewCollectionDetails
         Me.Cursor = Cursors.WaitCursor
         Dim newForm As New frmViewReport_Pictures
         newForm.MdiParent = Me.MdiParent
-        newForm.MyGID = ItemID
+        newForm.MyGID = ItemId
         newForm.Title = Me.Text
         newForm.Show()
         Me.Cursor = Cursors.Arrow
@@ -1267,7 +1300,7 @@ Public Class frmViewCollectionDetails
     Private Sub btnStolen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStolen.Click
         Dim frmNew As New frmStolen
         frmNew.MdiParent = Me.MdiParent
-        frmNew.ItemID = ItemID
+        frmNew.ItemID = ItemId
         frmNew.Show()
         Me.Close()
     End Sub
@@ -1275,8 +1308,8 @@ Public Class frmViewCollectionDetails
     Private Sub btnPrintSale_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPrintSale.Click
         Dim frmNew As New frmViewReport_FirearmSaleInvoice
         frmNew.MdiParent = Me.MdiParent
-        frmNew.USER_ID = SellerID
-        frmNew.FIREARM_ID = ItemID
+        frmNew.USER_ID = SellerId
+        frmNew.FIREARM_ID = ItemId
         frmNew.Show()
     End Sub
     'Show appriaser details when the appriaser is clicked
@@ -1296,14 +1329,14 @@ Public Class frmViewCollectionDetails
 
     Private Sub btnAddDocument_Click(sender As System.Object, e As System.EventArgs) Handles btnAddDocument.Click
         Dim frmNew As New frmAddDocument
-        frmNew.GID = ItemID
+        frmNew.GID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
     End Sub
 
     Private Sub btnAddExistingDoc_Click(sender As System.Object, e As System.EventArgs) Handles btnAddExistingDoc.Click
         Dim frmNew As New frmLinkFromExistingDoc
-        frmNew.GID = ItemID
+        frmNew.GID = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
     End Sub

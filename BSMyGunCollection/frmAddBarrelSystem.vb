@@ -137,7 +137,7 @@ Public Class frmAddBarrelSystem
                 Call objGf.SwapDefaultBarrelSystems(defaultBarrelId, barrelId, Gid)
             End If
             Dim frmNew As New frmViewCollectionDetails
-            frmNew.ItemID = Gid
+            frmNew.ItemId = Gid
             frmNew.MdiParent = MdiParent
             frmNew.Show()
             Close()

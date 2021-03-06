@@ -178,7 +178,7 @@ Public Class frmFirearmImagePicker
     'Show the firearm details when the user click on the picture
     Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
         Dim frmNew As New frmViewCollectionDetails
-        frmNew.ItemID = FirearmIDArray(CurrentIndex)
+        frmNew.ItemId = FirearmIDArray(CurrentIndex)
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
     End Sub

@@ -485,7 +485,7 @@ Public Class MDIParent1
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewCollectionDetails
         frmNew.MdiParent = Me
-        frmNew.ItemID = MyValue
+        frmNew.ItemId = MyValue
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -757,7 +757,7 @@ Public Class MDIParent1
             Dim MyValue As Long = ListBox1.SelectedValue
             Dim frmNew As New frmViewCollectionDetails
             frmNew.MdiParent = Me
-            frmNew.ItemID = MyValue
+            frmNew.ItemId = MyValue
             frmNew.Show()
             Me.Cursor = Cursors.Arrow
         Catch ex As Exception
