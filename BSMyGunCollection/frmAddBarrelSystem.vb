@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.AutoFill
 ''' <summary>
 ''' Class frmAddBarrelSystem.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -16,15 +17,25 @@ Public Class frmAddBarrelSystem
     ''' </summary>
     Sub AutoFill()
         Try
-            Dim objAf As New AutoFillCollections
-            txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtFeedSys.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
-            txtSight.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
-            txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
-            txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
-            txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
-            txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
+            Dim errOut As String = ""
+            txtCal.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath,errOut )
+            txtFeedSys.AutoCompleteCustomSource = GunCollection.Feedsystem(DatabasePath,errOut)
+            txtSight.AutoCompleteCustomSource = GunCollection.Sights(DatabasePath,errOut)
+            txtPetLoads.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath,errOut )
+            txtFinish.AutoCompleteCustomSource = GunCollection.Finish(DatabasePath,errOut)
+            txtAction.AutoCompleteCustomSource = GunCollection.Action(DatabasePath,errOut)
+            txtPurFrom.AutoCompleteCustomSource = Gun.ShopDetails(DatabasePath,errOut)
+            txtSysType.AutoCompleteCustomSource = GunCollection.BarrelSysTypes(DatabasePath,errOut)
+
+            'Dim objAf As New AutoFillCollections
+            'txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
+            'txtFeedSys.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
+            'txtSight.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
+            'txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
+            'txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
+            'txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
+            'txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
+            'txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
         Catch ex As Exception
             Dim sSubFunc As String = "AutoFill"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
