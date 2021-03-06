@@ -75,5 +75,18 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
             return bAns;
         }
+        /// <summary>
+        /// Deletes the specified ammo from the database as well as the audit information
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="ammoId">The ammo identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Delete(string databasePath, long ammoId, out string errOut)
+        {
+            Audit.Delete(databasePath, ammoId, out errOut);
+            string sql = $"Delete from Gun_Collection_Ammo where id={ammoId}";
+            return Database.Execute(databasePath, sql, out errOut);
+        }
     }
 }

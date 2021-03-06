@@ -1,6 +1,18 @@
-Imports System.Windows.Forms
+'TODO #43 Remove Unused Code
+'Imports System.Windows.Forms
+'Imports System.Windows.Forms.VisualStyles
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Ammo
+''' <summary>
+''' Class frmViewAmmoInventory. Form to view ammo inventory
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class frmViewAmmoInventory
+    ''' <summary>
+    ''' The update pending
+    ''' </summary>
     Public UpdatePending As Boolean
     'Sub LoadViewSize()
     '    If My.Settings.ViewAmmoInv_Width.Length > 0 And My.Settings.ViewAmmoInv_Height.Length > 0 Then
@@ -17,20 +29,29 @@ Public Class frmViewAmmoInventory
     '    My.Settings.ViewAmmoInv_X = Me.Location.X
     '    My.Settings.ViewAmmoInv_Y = Me.Location.Y
     '    My.Settings.Save()
-    'End Sub
-
-    Private Sub frmViewAmmoInventory_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+    'End Sub    
+    ''' <summary>
+    ''' Handles the Disposed event of the frmViewAmmoInventory control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewAmmoInventory_Disposed(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Disposed
         'Call SaveViewSize()
-        Dim ObjVS As New ViewSizeSettings
-        ObjVS.SaveViewAmmoInv(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
-        ObjVS = Nothing
+        Dim objVs As New ViewSizeSettings
+        objVs.SaveViewAmmoInv(Height, Width, Location.X, Location.Y)
+
     End Sub
-    Private Sub frmViewAmmoInventory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    ''' <summary>
+    ''' Handles the Load event of the frmViewAmmoInventory control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewAmmoInventory_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             'Call LoadViewSize()
-            Dim ObjVS As New ViewSizeSettings
-            ObjVS.LoadViewAmmoInv(Me.Height, Me.Width, Me.Location)
-            ObjVS = Nothing
+            Dim objVs As New ViewSizeSettings
+            objVs.LoadViewAmmoInv(Height, Width, Location)
+
             If Auditammo Then
                 ToolStripButton5.Visible = True
                 ToolStripButton6.Visible = True
@@ -43,131 +64,185 @@ Public Class frmViewAmmoInventory
             Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
-        Me.Gun_Collection_AmmoTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Ammo)
-        Dim ObjGF As New GlobalFunctions
-        tslAmmoTotal.Text = "Total Rounds in Inventory: " & ObjGF.GetTotalAmmoInventory
+        Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
+        Dim objGf As New GlobalFunctions
+' ReSharper disable once LocalizableElement
+        tslAmmoTotal.Text = "Total Rounds in Inventory: " & objGf.GetTotalAmmoInventory
     End Sub
-    Private Sub frmViewAmmoInventory_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    ''' <summary>
+    ''' Handles the Resize event of the frmViewAmmoInventory control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewAmmoInventory_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         Try
-            If Me.Height <> 0 Then
-                DataGridView1.Height = Me.Height - 68
-                DataGridView1.Width = Me.Width - 19
+            If Height <> 0 Then
+                DataGridView1.Height = Height - 68
+                DataGridView1.Width = Width - 19
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "Resize"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
+    ''' <summary>
+    ''' Handles the RowValidated event of the DataGridView1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
+    Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
         Try
-            If Me.UpdatePending Then
-                Me.Gun_Collection_AmmoTableAdapter.Update(Me.MGCDataSet.Gun_Collection_Ammo)
-                Me.UpdatePending = False
+            If UpdatePending Then
+                Gun_Collection_AmmoTableAdapter.Update(MGCDataSet.Gun_Collection_Ammo)
+                UpdatePending = False
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "DataGridView1_RowValidated"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    Private Sub GunCollectionAmmoBindingSource_ListChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles GunCollectionAmmoBindingSource.ListChanged
+    ''' <summary>
+    ''' Handles the ListChanged event of the GunCollectionAmmoBindingSource control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+' ReSharper disable once VBWarnings::BC42309
+    ''' <param name="e">The <see cref="ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
+    Private Sub GunCollectionAmmoBindingSource_ListChanged(ByVal sender As Object, ByVal e As ComponentModel.ListChangedEventArgs) Handles GunCollectionAmmoBindingSource.ListChanged
         Try
-            If Me.MGCDataSet.HasChanges Then
-                Me.UpdatePending = True
+            If MGCDataSet.HasChanges Then
+                UpdatePending = True
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "GunCollectionAmmoBindingSource_ListChanged"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception"></exception>
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Try
-            Dim RowID As Long = DataGridView1.SelectedCells.Item(0).RowIndex
+            Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            DataGridView1.Rows(RowID).Selected = True
-            Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim CurrentCount As String = DataGridView1.SelectedRows.Item(0).Cells.Item(7).Value
-            Dim AddToQty As String = InputBox("Type in the amount to add to the Qty.", "Add to Qty")
-            If Len(AddToQty) > 0 Then
-                Dim lTotal As Long = CLng(CurrentCount) + CLng(AddToQty)
-                Dim SQL As String = "UPDATE Gun_Collection_Ammo set Qty=" & lTotal & " where id=" & ItemID
-                Dim Obj As New BSDatabase
-                Obj.ConnExec(SQL)
+            DataGridView1.Rows(rowId).Selected = True
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim currentCount As String = DataGridView1.SelectedRows.Item(0).Cells.Item(7).Value
+            Dim addToQty As String = InputBox("Type in the amount to add to the Qty.", "Add to Qty")
+            If Len(addToQty) > 0 Then
+                Dim errOut As String=""
+                If Not Inventory.UpdateQty(DatabasePath, CLng(itemId), CLng(currentCount), CInt(addToQty), errOut) Then Throw new Exception(errOut)
+                'Dim lTotal As Long = CLng(CurrentCount) + CLng(AddToQty)
+                'Dim SQL As String = "UPDATE Gun_Collection_Ammo set Qty=" & lTotal & " where id=" & ItemID
+                'Dim Obj As New BSDatabase
+                'Obj.ConnExec(SQL)
             End If
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton1_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Call LoadData()
     End Sub
-
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton3 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Try
-            Dim RowID As Long = DataGridView1.SelectedCells.Item(0).RowIndex
+            Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            DataGridView1.Rows(RowID).Selected = True
-            Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            DataGridView1.Rows(rowId).Selected = True
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim strName As String = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value & " " & DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
-            Dim sAns As String = MsgBox("Are you sre you wish to delete " & strName & " from the inventory?", MsgBoxStyle.YesNo, Me.Text)
+            Dim sAns As String = MsgBox("Are you sre you wish to delete " & strName & " from the inventory?", MsgBoxStyle.YesNo, Text)
             If sAns = vbYes Then
-                Dim SQL As String = "Delete from Gun_Collection_Ammo where id=" & ItemID
-                Dim Obj As New BSDatabase
-                Obj.ConnExec(SQL)
-                SQL = "DELETE from Gun_Collection_Ammo_PriceAudit where AID=" & ItemID
-                Obj.ConnExec(SQL)
+                Dim errOut as String=""
+                if Not Inventory.Delete(DatabasePath, CLng(itemId), errOut) Then Throw New Exception(errOut)
+                'Dim sql As String = "Delete from Gun_Collection_Ammo where id=" & itemId
+                'Dim obj As New BSDatabase
+                'obj.ConnExec(sql)
+                'sql = "DELETE from Gun_Collection_Ammo_PriceAudit where AID=" & itemId
+                'obj.ConnExec(sql)
             End If
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton3_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton4 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
         Dim frmNew As New frmAddCollectionAmmo
-        frmNew.MdiParent = Me.MdiParent
+        frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
-
-    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton5 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Try
             Dim frmNew As New frmAddAmmoAudit
-            Dim RowID As Long = DataGridView1.SelectedCells.Item(0).RowIndex
+            Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-            DataGridView1.Rows(RowID).Selected = True
-            Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            frmNew.Aid = ItemID
+            DataGridView1.Rows(rowId).Selected = True
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            frmNew.Aid = itemId
             frmNew.CurrentCount = DataGridView1.SelectedRows.Item(0).Cells.Item(7).Value
-            frmNew.MdiParent = Me.MdiParent
+            frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton5_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton6 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
         Dim frmNew As New frmViewAmmoAuditList
-        Dim RowID As Long = DataGridView1.SelectedCells.Item(0).RowIndex
+        Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        DataGridView1.Rows(RowID).Selected = True
-        Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        frmNew.AID = ItemID
+        DataGridView1.Rows(rowId).Selected = True
+        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+        frmNew.AID = itemId
         frmNew.sName = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value & " " & DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
-        frmNew.MdiParent = Me.MdiParent
+        frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    ''' <summary>
+    ''' Handles the CellContentClick event of the DataGridView1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
+    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

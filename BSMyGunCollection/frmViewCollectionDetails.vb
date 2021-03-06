@@ -1156,7 +1156,7 @@ Public Class frmViewCollectionDetails
 
     Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
         Dim frmNew As New frmAddBarrelSystem
-        frmNew.GID = ItemID
+        frmNew.Gid = ItemID
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
