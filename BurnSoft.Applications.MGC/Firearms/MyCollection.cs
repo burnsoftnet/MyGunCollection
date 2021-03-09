@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using BurnSoft.Applications.MGC.Types;
 
 namespace BurnSoft.Applications.MGC.Firearms
 {
@@ -70,6 +73,65 @@ namespace BurnSoft.Applications.MGC.Firearms
                 errOut = ErrorMessage("UpdateShopName", e);
             }
             return bAns;
+        }
+
+        public static List<GunCollectionList> GetList(string databasePath, long id, out string errOut)
+        {
+            List<GunCollectionList> lst = new List<GunCollectionList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection where id={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = MyList(dt, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetAll", e);
+            }
+            return lst;
+        }
+
+        private static List<GunCollectionList> MyList(DataTable dt, out string errOut)
+        {
+            List<GunCollectionList> lst = new List<GunCollectionList>();
+            errOut = @"";
+            try
+            {
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new GunCollectionList()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        Oid = Convert.ToInt32(d["oid"]),
+                        Mid = Convert.ToInt32(d["mid"]),
+                        FullName = d["FullName"].ToString(),
+                        ModelName = d["ModelName"].ToString(),
+                        ModelId = Convert.ToInt32(d["ModelID"]),
+                        SerialNumber = d["SerialNumber"].ToString(),
+                        Type = d["Type"].ToString(),
+                        Caliber = d["Caliber"].ToString(),
+                        Caliber3 = d["Caliber3"].ToString(),
+                        PetLoads = d["PetLoads"].ToString(),
+                        Finish = d["Finish"].ToString(),
+                        FeedSystem = d["FeedSystem"].ToString(),
+                        Condition = d["Condition"].ToString(),
+                        CustomId = d["CustomId"].ToString(),
+                        NationalityId = Convert.ToInt32(d["NatId"].ToString()),
+                        BarrelLength = d["BarrelLength"].ToString(),
+                        GripId = Convert.ToInt32(d["GripID"].ToString()),
+                        Qty = Convert.ToInt32(d["Qty"].ToString()),
+                        Weight = d[""].ToString(),
+
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("MyList", e);
+            }
+            return lst;
         }
     }
 }
