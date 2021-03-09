@@ -1,61 +1,100 @@
 Imports BSMyGunCollection.MGC
-Public Class frmViewAmmoAuditList
-    Public AID As Long
-    Public sName As String
+''' <summary>
+''' Class FrmViewAmmoAuditList.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewAmmoAuditList
+    ''' <summary>
+    ''' The aid
+    ''' </summary>
+    Public Aid As Long
+    ''' <summary>
+    ''' The s name
+    ''' </summary>
+    Public SName As String
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
-            Me.Gun_Collection_Ammo_PriceAuditTableAdapter.FillBy_AID(Me.MGCDataSet.Gun_Collection_Ammo_PriceAudit, AID)
+            Gun_Collection_Ammo_PriceAuditTableAdapter.FillBy_AID(MGCDataSet.Gun_Collection_Ammo_PriceAudit, Aid)
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Loads the size of the view.
+    ''' </summary>
     Sub LoadViewSize()
         If My.Settings.ViewAmmoadt_Width.Length > 0 And My.Settings.ViewAmmoadt_Height.Length > 0 Then
-            Me.Height = My.Settings.ViewAmmoadt_Height
-            Me.Width = My.Settings.ViewAmmoadt_Width
+            Height = My.Settings.ViewAmmoadt_Height
+            Width = My.Settings.ViewAmmoadt_Width
         End If
         If My.Settings.ViewAmmoadt_X.Length > 0 And My.Settings.ViewAmmoadt_Y.Length > 0 Then
-            Me.Location = New Point(My.Settings.ViewAmmoadt_X, My.Settings.ViewAmmoadt_Y)
+            Location = New Point(My.Settings.ViewAmmoadt_X, My.Settings.ViewAmmoadt_Y)
         End If
     End Sub
+    ''' <summary>
+    ''' Saves the size of the view.
+    ''' </summary>
     Sub SaveViewSize()
-        My.Settings.ViewAmmoadt_Height = Me.Height
-        My.Settings.ViewAmmoadt_Width = Me.Width
-        My.Settings.ViewAmmoadt_X = Me.Location.X
-        My.Settings.ViewAmmoadt_Y = Me.Location.Y
+        My.Settings.ViewAmmoadt_Height = Height
+        My.Settings.ViewAmmoadt_Width = Width
+        My.Settings.ViewAmmoadt_X = Location.X
+        My.Settings.ViewAmmoadt_Y = Location.Y
         My.Settings.Save()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Disposed event of the frmViewAmmoAuditList control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewAmmoAuditList_Disposed(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Disposed
         Call SaveViewSize()
     End Sub
     Private Sub frmViewAmmoAuditList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        Me.Text = "Ammo Audit - " & sName
+        Text = $"Ammo Audit - " & SName
         Call LoadViewSize()
         Call LoadData()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton3 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
-        Me.Close()
+        Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Call LoadData()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Try
-            Dim ItemID As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim Qty As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
-            Dim Price As Double = DataGridView1.SelectedRows.Item(0).Cells.Item(3).Value
-            Dim PPB As Double = FormatNumber(Price / Qty, 2)
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
-                                PPB & " where ID=" & ItemID
-            Obj.ConnExec(SQL)
-            Obj = Nothing
+            Dim itemId As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim qty As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
+            Dim price As Double = DataGridView1.SelectedRows.Item(0).Cells.Item(3).Value
+' ReSharper disable once LocalVariableHidesMember
+            Dim ppb As Double = FormatNumber(price / qty, 2)
+            Dim obj As New BSDatabase
+            Dim sql As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
+                                ppb & " where ID=" & itemId
+            obj.ConnExec(sql)
             Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton2_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

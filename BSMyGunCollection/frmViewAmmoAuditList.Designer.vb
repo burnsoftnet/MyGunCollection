@@ -4,7 +4,7 @@ Imports DataGridViewAutoFilter
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmViewAmmoAuditList
+Partial Class FrmViewAmmoAuditList
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

@@ -422,7 +422,7 @@ Public Class FrmViewCollectionDetails
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
         Dim frmNew As New frmSold
         frmNew.MdiParent = MdiParent
-        frmNew.ItemID = ItemId
+        frmNew.ItemId = ItemId
         frmNew.Show()
         Close()
     End Sub
@@ -1474,7 +1474,7 @@ Public Class FrmViewCollectionDetails
     Private Sub btnStolen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnStolen.Click
         Dim frmNew As New frmStolen
         frmNew.MdiParent = MdiParent
-        frmNew.ItemID = ItemId
+        frmNew.ItemId = ItemId
         frmNew.Show()
         Close()
     End Sub

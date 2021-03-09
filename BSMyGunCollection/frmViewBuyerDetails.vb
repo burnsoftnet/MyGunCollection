@@ -1,61 +1,84 @@
-Imports System.Data
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
-Public Class frmViewBuyerDetails
-    Public BuyerID As String
+''' <summary>
+''' Class FrmViewBuyerDetails.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewBuyerDetails
+    ''' <summary>
+    ''' The buyer identifier
+    ''' </summary>
+    Public BuyerId As String
+    ''' <summary>
+    ''' Loads the seller data.
+    ''' </summary>
     Sub LoadSellerData()
         Try
-            Dim Obj As New BSDatabase
-            Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where ID=" & BuyerID
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                If Not IsDBNull(RS("Name")) Then txtName.Text = Trim(RS("Name"))
-                If Not IsDBNull(RS("Address1")) Then txtAddress1.Text = Trim(RS("Address1"))
-                If Not IsDBNull(RS("Address2")) Then txtAddress2.Text = Trim(RS("Address2"))
-                If Not IsDBNull(RS("City")) Then txtCity.Text = Trim(RS("City"))
-                If Not IsDBNull(RS("ZipCode")) Then txtZip.Text = Trim(RS("ZipCode"))
-                If Not IsDBNull(RS("State")) Then txtState.Text = Trim(RS("State"))
-                If Not IsDBNull(RS("Phone")) Then txtPhone.Text = Trim(RS("Phone"))
-                If Not IsDBNull(RS("Country")) Then txtCountry.Text = Trim(RS("Country"))
-                If Not IsDBNull(RS("Fax")) Then txtFax.Text = Trim(RS("Fax"))
-                If Not IsDBNull(RS("eMail")) Then txteMail.Text = Trim(RS("eMail"))
-                If Not IsDBNull(RS("WebSite")) Then txtWebSite.Text = Trim(RS("WebSite"))
-                If Not IsDBNull(RS("Lic")) Then txtLic.Text = Trim(RS("Lic"))
-                If Not IsDBNull(RS("DLic")) Then txtDLic.Text = Trim(RS("DLic"))
-                If Not IsDBNull(RS("DOB")) Then
-                    If RS("DOB") = DefaultDob Then
+            Dim obj As New BSDatabase
+            Call obj.ConnectDB()
+            Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & BuyerId
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            While rs.Read
+                If Not IsDBNull(rs("Name")) Then txtName.Text = Trim(rs("Name"))
+                If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = Trim(rs("Address1"))
+                If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = Trim(rs("Address2"))
+                If Not IsDBNull(rs("City")) Then txtCity.Text = Trim(rs("City"))
+                If Not IsDBNull(rs("ZipCode")) Then txtZip.Text = Trim(rs("ZipCode"))
+                If Not IsDBNull(rs("State")) Then txtState.Text = Trim(rs("State"))
+                If Not IsDBNull(rs("Phone")) Then txtPhone.Text = Trim(rs("Phone"))
+                If Not IsDBNull(rs("Country")) Then txtCountry.Text = Trim(rs("Country"))
+                If Not IsDBNull(rs("Fax")) Then txtFax.Text = Trim(rs("Fax"))
+                If Not IsDBNull(rs("eMail")) Then txteMail.Text = Trim(rs("eMail"))
+                If Not IsDBNull(rs("WebSite")) Then txtWebSite.Text = Trim(rs("WebSite"))
+                If Not IsDBNull(rs("Lic")) Then txtLic.Text = Trim(rs("Lic"))
+                If Not IsDBNull(rs("DLic")) Then txtDLic.Text = Trim(rs("DLic"))
+                If Not IsDBNull(rs("DOB")) Then
+                    If rs("DOB") = DefaultDob Then
                         txtDOB.Text = ""
                     Else
-                        txtDOB.Text = Trim(RS("DOB"))
+                        txtDOB.Text = Trim(rs("DOB"))
                     End If
                 End If
-                If Not IsDBNull(RS("ResiDent")) Then txtRes.Text = Trim(RS("ResiDent"))
+                If Not IsDBNull(rs("ResiDent")) Then txtRes.Text = Trim(rs("ResiDent"))
             End While
-            RS.Close()
-            CMD = Nothing
-            Obj.CloseDB()
+            rs.Close()
+
+            obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadSellerData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewBuyerDetails control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewBuyerDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Me.Gun_CollectionTableAdapter.FillByBuyer(Me.MGCDataSet.Gun_Collection, BuyerID)
+            Gun_CollectionTableAdapter.FillByBuyer(MGCDataSet.Gun_Collection, BuyerId)
             Call LoadSellerData()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnCanel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnCanel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCanel.Click
-        Me.Close()
+        Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnEdit control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         txtName.ReadOnly = False
         txtAddress1.ReadOnly = False
@@ -75,7 +98,11 @@ Public Class frmViewBuyerDetails
         btnUpdate.Visible = True
         btnEdit.Visible = False
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnUpdate control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
@@ -91,43 +118,43 @@ Public Class frmViewBuyerDetails
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
             Dim strDLic As String = FluffContent(txtDLic.Text)
-            Dim strDOB As String = FluffContent(txtDOB.Text)
+            Dim strDob As String = FluffContent(txtDOB.Text)
             Dim strRes As String = FluffContent(txtRes.Text)
-            Dim BID As Long = CLng(BuyerID)
-            Dim DOBRequired As Boolean = False
+            Dim bid As Long = CLng(BuyerId)
+            Dim dobRequired As Boolean = False
             Dim sLic As String = ""
-            Dim sLic_type As String = "FFL License or Drivers License/Other"
+            Dim sLicType As String = "FFL License or Drivers License/Other"
             If Len(Trim(strDLic)) > 0 Then
                 sLic = strDLic
-                sLic_type = "Drivers License/Other"
-                DOBRequired = True
+                sLicType = "Drivers License/Other"
+                dobRequired = True
             Else
                 If Len(Trim(strLic)) > 0 Then
                     sLic = strLic
-                    sLic_type = "FFL License"
-                    DOBRequired = False
+                    sLicType = "FFL License"
+                    dobRequired = False
                 End If
             End If
-            If Not IsRequired(strName, "Name", Me.Text) Then Exit Sub
-            If Not IsRequired(strAddress1, "Address", Me.Text) Then Exit Sub
-            If Not IsRequired(strCity, "City", Me.Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Me.Text) Then Exit Sub
-            If Not IsRequired(strZip, "Zip Code", Me.Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Me.Text) Then Exit Sub
-            If Not IsRequired(sLic, sLic_type, Me.Text) Then Exit Sub
-            If DOBRequired Then
-                If Not IsRequired(strDOB, "Date of Birth", Me.Text) Then Exit Sub
+            If Not IsRequired(strName, "Name", Text) Then Exit Sub
+            If Not IsRequired(strAddress1, "Address", Text) Then Exit Sub
+            If Not IsRequired(strCity, "City", Text) Then Exit Sub
+            If Not IsRequired(strState, "State", Text) Then Exit Sub
+            If Not IsRequired(strZip, "Zip Code", Text) Then Exit Sub
+            If Not IsRequired(strState, "State", Text) Then Exit Sub
+            If Not IsRequired(sLic, sLicType, Text) Then Exit Sub
+            If dobRequired Then
+                If Not IsRequired(strDob, "Date of Birth", Text) Then Exit Sub
             Else
-                strDOB = DefaultDob
+                strDob = DefaultDob
             End If
-            If Not IsRequired(strRes, "Residency", Me.Text) Then Exit Sub
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "UPDATE Gun_Collection_SoldTo set Name='" & strName & "',Address1='" & strAddress1 & _
+            If Not IsRequired(strRes, "Residency", Text) Then Exit Sub
+            Dim obj As New BSDatabase
+            Dim sql As String = "UPDATE Gun_Collection_SoldTo set Name='" & strName & "',Address1='" & strAddress1 & _
                                 "',Address2='" & strAddress2 & "',City='" & strCity & "',State='" & strState & "',Country='" & _
                                 strCountry & "',Phone='" & strPhone & "',fax='" & strFax & "',website='" & strWebsite & _
-                                "',email='" & stremail & "',lic='" & strLic & "',DOB='" & strDOB & "',Dlic='" & strDLic & _
-                                "',Resident='" & strRes & "',ZipCode='" & strZip & "' where ID=" & BID
-            Obj.ConnExec(SQL)
+                                "',email='" & stremail & "',lic='" & strLic & "',DOB='" & strDob & "',Dlic='" & strDLic & _
+                                "',Resident='" & strRes & "',ZipCode='" & strZip & "' where ID=" & bid
+            obj.ConnExec(sql)
             txtName.ReadOnly = True
             txtAddress1.ReadOnly = True
             txtAddress2.ReadOnly = True
@@ -147,7 +174,7 @@ Public Class frmViewBuyerDetails
             btnEdit.Visible = True
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

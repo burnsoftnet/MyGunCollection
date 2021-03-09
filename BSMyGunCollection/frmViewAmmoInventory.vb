@@ -1,6 +1,3 @@
-'TODO #43 Remove Unused Code
-'Imports System.Windows.Forms
-'Imports System.Windows.Forms.VisualStyles
 Imports System.ComponentModel
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
@@ -9,35 +6,18 @@ Imports BurnSoft.Applications.MGC.Ammo
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-' ReSharper disable once InconsistentNaming
-Public Class frmViewAmmoInventory
+Public Class FrmViewAmmoInventory
     ''' <summary>
     ''' The update pending
     ''' </summary>
     Public UpdatePending As Boolean
-    'Sub LoadViewSize()
-    '    If My.Settings.ViewAmmoInv_Width.Length > 0 And My.Settings.ViewAmmoInv_Height.Length > 0 Then
-    '        Me.Height = My.Settings.ViewAmmoInv_Height
-    '        Me.Width = My.Settings.ViewAmmoInv_Width
-    '    End If
-    '    If My.Settings.ViewAmmoInv_X.Length > 0 And My.Settings.ViewAmmoInv_Y.Length > 0 Then
-    '        Me.Location = New System.Drawing.Point(My.Settings.ViewAmmoInv_X, My.Settings.ViewAmmoInv_Y)
-    '    End If
-    'End Sub
-    'Sub SaveViewSize()
-    '    My.Settings.ViewAmmoInv_Height = Me.Height
-    '    My.Settings.ViewAmmoInv_Width = Me.Width
-    '    My.Settings.ViewAmmoInv_X = Me.Location.X
-    '    My.Settings.ViewAmmoInv_Y = Me.Location.Y
-    '    My.Settings.Save()
-    'End Sub    
+
     ''' <summary>
     ''' Handles the Disposed event of the frmViewAmmoInventory control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewAmmoInventory_Disposed(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Disposed
-        'Call SaveViewSize()
         Dim objVs As New ViewSizeSettings
         objVs.SaveViewAmmoInv(Height, Width, Location.X, Location.Y)
 
@@ -49,7 +29,6 @@ Public Class frmViewAmmoInventory
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewAmmoInventory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            'Call LoadViewSize()
             Dim objVs As New ViewSizeSettings
             objVs.LoadViewAmmoInv(Height, Width, Location)
 
@@ -142,10 +121,6 @@ Public Class frmViewAmmoInventory
             If Len(addToQty) > 0 Then
                 Dim errOut As String=""
                 If Not Inventory.UpdateQty(DatabasePath, CLng(itemId), CLng(currentCount), CInt(addToQty), errOut) Then Throw new Exception(errOut)
-                'Dim lTotal As Long = CLng(CurrentCount) + CLng(AddToQty)
-                'Dim SQL As String = "UPDATE Gun_Collection_Ammo set Qty=" & lTotal & " where id=" & ItemID
-                'Dim Obj As New BSDatabase
-                'Obj.ConnExec(SQL)
             End If
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
@@ -178,11 +153,6 @@ Public Class frmViewAmmoInventory
             If sAns = vbYes Then
                 Dim errOut as String=""
                 if Not Inventory.Delete(DatabasePath, CLng(itemId), errOut) Then Throw New Exception(errOut)
-                'Dim sql As String = "Delete from Gun_Collection_Ammo where id=" & itemId
-                'Dim obj As New BSDatabase
-                'obj.ConnExec(sql)
-                'sql = "DELETE from Gun_Collection_Ammo_PriceAudit where AID=" & itemId
-                'obj.ConnExec(sql)
             End If
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
@@ -233,17 +203,9 @@ Public Class frmViewAmmoInventory
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Rows(rowId).Selected = True
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        frmNew.AID = itemId
-        frmNew.sName = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value & " " & DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
+        frmNew.Aid = itemId
+        frmNew.SName = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value & " " & DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value
         frmNew.MdiParent = MdiParent
         frmNew.Show()
-    End Sub
-    ''' <summary>
-    ''' Handles the CellContentClick event of the DataGridView1 control.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-
     End Sub
 End Class
