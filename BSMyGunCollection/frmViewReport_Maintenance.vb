@@ -1,50 +1,64 @@
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_Maintenance
-    Public MyGID As String
+''' <summary>
+''' Class frmViewReport_Maintenance.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewReportMaintenance
+    ''' <summary>
+    ''' My gid
+    ''' </summary>
+    Public MyGid As String
+    ''' <summary>
+    ''' The title
+    ''' </summary>
     Public Title As String
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_Maintenance control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_Maintenance_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Me.gryGunMaintanceTableAdapter.FillBy(Me.MGCDataSet.gryGunMaintance, MyGID)
+            gryGunMaintanceTableAdapter.FillBy(MGCDataSet.gryGunMaintance, MyGid)
             If PersonalMark Then
                 Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Maintenance Report for " & Title))
                 parmList.Add(New ReportParameter("Firearm", Title))
-                Me.ReportViewer1.LocalReport.SetParameters(parmList)
+                ReportViewer1.LocalReport.SetParameters(parmList)
             End If
-            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    Private Sub frmViewReport_Maintenance_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
-        '   If Me.Height <> 0 Then
-        ' Me.ReportViewer1.Height = Me.Height - (46 + 15)
-        ' Me.ReportViewer1.Width = Me.Width - 5
-        ' End If
-    End Sub
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ToolStripComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
-            If Len(MyGID) > 0 Then
+            If Len(MyGid) > 0 Then
                 Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                     Case LCase("Operation Performed")
-                        Me.gryGunMaintanceTableAdapter.FillByOperation(Me.MGCDataSet.gryGunMaintance, MyGID)
+                        gryGunMaintanceTableAdapter.FillByOperation(MGCDataSet.gryGunMaintance, MyGid)
                     Case LCase("Operation Date")
-                        Me.gryGunMaintanceTableAdapter.FillByOpDate(Me.MGCDataSet.gryGunMaintance, MyGID)
+                        gryGunMaintanceTableAdapter.FillByOpDate(MGCDataSet.gryGunMaintance, MyGid)
                     Case LCase("Operation Due Date")
-                        Me.gryGunMaintanceTableAdapter.FillByOpDueDate(Me.MGCDataSet.gryGunMaintance, MyGID)
+                        gryGunMaintanceTableAdapter.FillByOpDueDate(MGCDataSet.gryGunMaintance, MyGid)
                     Case LCase("Rounds Fired")
-                        Me.gryGunMaintanceTableAdapter.FillByRndFired(Me.MGCDataSet.gryGunMaintance, MyGID)
+                        gryGunMaintanceTableAdapter.FillByRndFired(MGCDataSet.gryGunMaintance, MyGid)
                     Case Else
-                        Me.gryGunMaintanceTableAdapter.FillBy(Me.MGCDataSet.gryGunMaintance, MyGID)
+                        gryGunMaintanceTableAdapter.FillBy(MGCDataSet.gryGunMaintance, MyGid)
                 End Select
-                Me.ReportViewer1.RefreshReport()
+                ReportViewer1.RefreshReport()
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

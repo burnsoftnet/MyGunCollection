@@ -1,35 +1,54 @@
 Imports BSMyGunCollection.MGC
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_FirearmSaleInvoice
-    Public FIREARM_ID As Long
-    Public USER_ID As Long
+''' <summary>
+''' Class FrmViewReportFirearmSaleInvoice.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewReportFirearmSaleInvoice
+    ''' <summary>
+    ''' The firearm identifier
+    ''' </summary>
+    Public FirearmId As Long
+    ''' <summary>
+    ''' The user identifier
+    ''' </summary>
+    Public UserId As Long
+    ''' <summary>
+    ''' Gets the data.
+    ''' </summary>
     Sub GetData()
-        Dim OWNER_RecID As Long = 0
-        Dim OWNER_Name As String = ""
-        Dim OWNER_Address As String = ""
-        Dim OWNER_City As String = ""
-        Dim OWNER_State As String = ""
-        Dim OWNER_ZIP As String = ""
-        Dim OWNER_Phone As String = ""
-        Dim OWNER_CCD As String = ""
-        Dim Obj As New GlobalFunctions
-        Obj.GetUserSettingsDB(OWNER_RecID, OWNER_Name, OWNER_Address, OWNER_City, OWNER_State, OWNER_ZIP, OWNER_Phone, OWNER_CCD)
+        Dim ownerRecId As Long = 0
+        Dim ownerName As String = ""
+        Dim ownerAddress As String = ""
+        Dim ownerCity As String = ""
+        Dim ownerState As String = ""
+        Dim ownerZip As String = ""
+        Dim ownerPhone As String = ""
+        Dim ownerCcd As String = ""
+        Dim obj As New GlobalFunctions
+        obj.GetUserSettingsDB(ownerRecId, ownerName, ownerAddress, ownerCity, ownerState, ownerZip, ownerPhone, ownerCcd)
         Dim parmList As New List(Of ReportParameter)
-        parmList.Add(New ReportParameter("OWNER_Name", OWNER_Name))
-        parmList.Add(New ReportParameter("OWNER_Address", OWNER_Address))
-        parmList.Add(New ReportParameter("OWNER_City", OWNER_City))
-        parmList.Add(New ReportParameter("OWNER_State", OWNER_State))
-        parmList.Add(New ReportParameter("OWNER_ZIP", OWNER_ZIP))
-        parmList.Add(New ReportParameter("OWNER_Phone", OWNER_Phone))
-        parmList.Add(New ReportParameter("OWNER_CCD", OWNER_CCD))
-        parmList.Add(New ReportParameter("USER_ID", USER_ID))
-        parmList.Add(New ReportParameter("FIREARM_ID", FIREARM_ID))
-        Me.ReportViewer1.LocalReport.SetParameters(parmList)
-        Me.Gun_Collection_SoldToTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_SoldTo)
-        Me.ForSaleDataTableAdapter.Fill(Me.MGCDataSet.ForSaleData)
+        parmList.Add(New ReportParameter("OWNER_Name", ownerName))
+        parmList.Add(New ReportParameter("OWNER_Address", ownerAddress))
+        parmList.Add(New ReportParameter("OWNER_City", ownerCity))
+        parmList.Add(New ReportParameter("OWNER_State", ownerState))
+        parmList.Add(New ReportParameter("OWNER_ZIP", ownerZip))
+        parmList.Add(New ReportParameter("OWNER_Phone", ownerPhone))
+        parmList.Add(New ReportParameter("OWNER_CCD", ownerCcd))
+        parmList.Add(New ReportParameter("USER_ID", UserId))
+        parmList.Add(New ReportParameter("FIREARM_ID", FirearmId))
+        ReportViewer1.LocalReport.SetParameters(parmList)
+        Gun_Collection_SoldToTableAdapter.Fill(MGCDataSet.Gun_Collection_SoldTo)
+        ForSaleDataTableAdapter.Fill(MGCDataSet.ForSaleData)
 
-        Me.ReportViewer1.RefreshReport()
+        ReportViewer1.RefreshReport()
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_FirearmSaleInvoice control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_FirearmSaleInvoice_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Call GetData()
     End Sub

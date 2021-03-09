@@ -338,7 +338,7 @@ Public Class frmViewCollectionDetails
     Private Sub btnGSReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSReport.Click
         Me.Cursor = Cursors.WaitCursor
         frmViewReport_GunSmith.MdiParent = Me.MdiParent
-        frmViewReport_GunSmith.GID = ItemId
+        frmViewReport_GunSmith.Gid = ItemId
         frmViewReport_GunSmith.Title = Me.Text
         frmViewReport_GunSmith.Show()
         Me.Cursor = Cursors.Arrow
@@ -348,9 +348,9 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Me.Cursor = Cursors.WaitCursor
-        Dim newForm As New frmViewReport_Maintenance
+        Dim newForm As New FrmViewReportMaintenance
         newForm.MdiParent = Me.MdiParent
-        newForm.MyGID = ItemId
+        newForm.MyGid = ItemId
         newForm.Title = Me.Text
         newForm.Show()
         Me.Cursor = Cursors.Arrow
@@ -1153,8 +1153,8 @@ Public Class frmViewCollectionDetails
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ItemId)
-        Dim frmNew As New frmViewReport_FirearmDetails
-        frmNew.intID = ItemId
+        Dim frmNew As New FrmViewReportFirearmDetails
+        frmNew.IntId = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
@@ -1164,17 +1164,17 @@ Public Class frmViewCollectionDetails
     Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ItemId)
-        Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
-        frmNew.intID = ItemId
+        Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
+        frmNew.IntId = ItemId
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
     End Sub
     Private Sub btnAmmoReportByCal_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAmmoReportByCal.Click
         Me.Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Ammo_By_Caliber
-        frmNew.CAL = Trim(txtCal.Text)
-        frmNew.PET = Trim(txtPetLoads.Text)
+        Dim frmNew As New FrmViewReportAmmoByCaliber
+        frmNew.Cal = Trim(txtCal.Text)
+        frmNew.Pet = Trim(txtPetLoads.Text)
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Cursor = Cursors.Arrow
@@ -1199,8 +1199,8 @@ Public Class frmViewCollectionDetails
     End Sub
 
     Private Sub btnVwAccessReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnVwAccessReport.Click
-        Dim frmNew As New frmViewReport_Accessories
-        frmNew.GID = ItemId
+        Dim frmNew As New FrmViewReportAccessories
+        frmNew.Gid = ItemId
         frmNew.Title = Me.Text
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
@@ -1245,9 +1245,9 @@ Public Class frmViewCollectionDetails
 
     Private Sub btnGalleryReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGalleryReport.Click
         Me.Cursor = Cursors.WaitCursor
-        Dim newForm As New frmViewReport_Pictures
+        Dim newForm As New FrmViewReportPictures
         newForm.MdiParent = Me.MdiParent
-        newForm.MyGID = ItemId
+        newForm.MyGid = ItemId
         newForm.Title = Me.Text
         newForm.Show()
         Me.Cursor = Cursors.Arrow
@@ -1309,10 +1309,10 @@ Public Class frmViewCollectionDetails
     End Sub
     'Create a report to print when the Print Sale button is clicked
     Private Sub btnPrintSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintSale.Click
-        Dim frmNew As New frmViewReport_FirearmSaleInvoice
+        Dim frmNew As New FrmViewReportFirearmSaleInvoice
         frmNew.MdiParent = Me.MdiParent
-        frmNew.USER_ID = SellerId
-        frmNew.FIREARM_ID = ItemId
+        frmNew.UserId = SellerId
+        frmNew.FirearmId = ItemId
         frmNew.Show()
     End Sub
     'Show appriaser details when the appriaser is clicked

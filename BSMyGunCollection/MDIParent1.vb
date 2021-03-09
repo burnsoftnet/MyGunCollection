@@ -443,7 +443,7 @@ Public Class MdiParent1
         Cursor = Cursors.WaitCursor
         Dim myValue As Long = ListBox1.SelectedValue
         frmViewReport_GunSmith.MdiParent = Me
-        frmViewReport_GunSmith.GID = myValue
+        frmViewReport_GunSmith.Gid = myValue
         frmViewReport_GunSmith.Show()
         Cursor = Cursors.Arrow
     End Sub
@@ -494,7 +494,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub PrintOutWishlistToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PrintOutWishlistToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_WishList
+        Dim frmNew As New FrmViewReportWishList
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -516,7 +516,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByPurchasedValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByPurchasedValueToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance
+        Dim frmNew As New FrmViewReportInsurance
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -528,7 +528,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByInsuredValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByInsuredValueToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance_InsuredValue
+        Dim frmNew As New FrmViewReportInsuranceInsuredValue
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -540,7 +540,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByAppraisedValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByAppraisedValueToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance_ApprisedValue
+        Dim frmNew As New FrmViewReportInsuranceApprisedValue
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -887,7 +887,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
+        Dim frmNew As New FrmViewReportBoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1022,8 +1022,8 @@ Public Class MdiParent1
     Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
-        Dim frmNew As New frmViewReport_FirearmDetails
-        frmNew.intID = ListBox1.SelectedValue
+        Dim frmNew As New FrmViewReportFirearmDetails
+        frmNew.IntId = ListBox1.SelectedValue
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1036,8 +1036,8 @@ Public Class MdiParent1
     Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
-        Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
-        frmNew.intID = ListBox1.SelectedValue
+        Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
+        frmNew.IntId = ListBox1.SelectedValue
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1049,7 +1049,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByPurchasedValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByPurchasedValueToolStripMenuItem1.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance_wTotal
+        Dim frmNew As New FrmViewReportInsuranceWTotal
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1061,7 +1061,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ByInsuredValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByInsuredValueToolStripMenuItem1.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance_InsuredValue_wTotal
+        Dim frmNew As New FrmViewReportInsuranceInsuredValueWTotal
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1073,7 +1073,7 @@ Public Class MdiParent1
     ''' <param name="e"></param>
     Private Sub ByAppraisedValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByAppraisedValueToolStripMenuItem1.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_Insurance_ApprisedValue_wTotal
+        Dim frmNew As New FrmViewReportInsuranceApprisedValueWTotal
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1128,7 +1128,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem1.Click
-        Dim frmNew As New frmViewReport_Blank_BoundBook
+        Dim frmNew As New FrmViewReportBlankBoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -1138,7 +1138,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub QuickCollectionReportWNotesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles QuickCollectionReportWNotesToolStripMenuItem.Click
-        Dim frmnew As New frmViewReport_Quickinv_w_DetailNotes
+        Dim frmnew As New FrmViewReportQuickinvWDetailNotes
         frmnew.MdiParent = Me
         frmnew.Show()
     End Sub
@@ -1148,7 +1148,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ShootersCardToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ShootersCardToolStripMenuItem.Click
-        Dim frmNew As New frmViewReport_Blank_ShootersCard
+        Dim frmNew As New FrmViewReportBlankShootersCard
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -1158,7 +1158,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ShootersCardToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ShootersCardToolStripMenuItem1.Click
-        Dim frmNew As New frmViewReport_Blank_ShootersCard2
+        Dim frmNew As New FrmViewReportBlankShootersCard2
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -1209,7 +1209,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton8_ButtonClick(sender As Object, e As EventArgs) Handles ToolStripButton8.ButtonClick
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
+        Dim frmNew As New FrmViewReportBoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1221,7 +1221,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookVersion2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBookVersion2ToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook2
+        Dim frmNew As New FrmViewReportBoundBook2
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1233,7 +1233,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookVersion1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBookVersion1ToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
+        Dim frmNew As New FrmViewReportBoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1245,7 +1245,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BounfBookVersion2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BounfBookVersion2ToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook2
+        Dim frmNew As New FrmViewReportBoundBook2
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -1323,7 +1323,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBook1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBook1ToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
+        Dim frmNew As New FrmViewReportBoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
         Cursor = Cursors.Arrow

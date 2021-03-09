@@ -1,69 +1,92 @@
-Imports BSMyGunCollection.MGC
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_BoundBook
-    Public BySorting As String
+''' <summary>
+''' Class FrmViewReportBoundBook.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewReportBoundBook
+    ''' <summary>
+    ''' The is first run
+    ''' </summary>
     Public IsFirstRun As Boolean
+    ''' <summary>
+    ''' Loads the data.
+    ''' </summary>
     Sub LoadData()
         Try
-            Dim ReportTitle As String = ToolStripTextBox1.Text
+            Dim reportTitle As String = ToolStripTextBox1.Text
             Dim parmList As New List(Of ReportParameter)
             parmList.Add(New ReportParameter("UserName", OwnerName))
-            parmList.Add(New ReportParameter("ReportTitle", ReportTitle))
+            parmList.Add(New ReportParameter("ReportTitle", reportTitle))
             parmList.Add(New ReportParameter("License", OwnerLic))
-            Me.ReportViewer1.LocalReport.SetParameters(parmList)
+            ReportViewer1.LocalReport.SetParameters(parmList)
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Custom Catalog No.")
-                    Me.BoundBooksTableAdapter.FillByCustomID(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByCustomID(MGCDataSet.BoundBooks)
                 Case LCase("Purchase Date")
-                    Me.BoundBooksTableAdapter.FillByPurchaseDate(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByPurchaseDate(MGCDataSet.BoundBooks)
                 Case LCase("C & R Only")
-                    Me.BoundBooksTableAdapter.FillByCAndR(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByCAndR(MGCDataSet.BoundBooks)
                 Case LCase("Brand")
-                    Me.BoundBooksTableAdapter.FillByBrand(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByBrand(MGCDataSet.BoundBooks)
                 Case LCase("Type")
-                    Me.BoundBooksTableAdapter.FillByType(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByType(MGCDataSet.BoundBooks)
                 Case LCase("Caliber")
-                    Me.BoundBooksTableAdapter.FillByCaliber(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByCaliber(MGCDataSet.BoundBooks)
                 Case LCase("Gun Shop")
-                    Me.BoundBooksTableAdapter.FillByGun_Shop_Name(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillByGun_Shop_Name(MGCDataSet.BoundBooks)
                 Case LCase("Class III")
-                    Me.BoundBooksTableAdapter.FillBy_ClassIII(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.FillBy_ClassIII(MGCDataSet.BoundBooks)
                 Case Else
-                    Me.BoundBooksTableAdapter.Fill(Me.MGCDataSet.BoundBooks)
+                    BoundBooksTableAdapter.Fill(MGCDataSet.BoundBooks)
             End Select
-            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_BoundBook control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_BoundBook_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            ToolStripTextBox1.Text = "Bound Book for " & OwnerName
-            Me.ReportViewer1.RefreshReport()
+            ToolStripTextBox1.Text = $"Bound Book for " & OwnerName
+            ReportViewer1.RefreshReport()
             Call LoadData()
             ReportViewer1.Cursor = Cursors.Arrow
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
         IsFirstRun = False
     End Sub
-
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ToolStripComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             If Not IsFirstRun Then Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Call LoadData()
     End Sub
-
+    ''' <summary>
+    ''' Initializes a new instance of the <see cref="FrmViewReportBoundBook"/> class.
+    ''' </summary>
     Public Sub New()
         IsFirstRun = True
         InitializeComponent()

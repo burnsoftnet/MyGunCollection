@@ -3,7 +3,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmViewReport_Blank_ShootersCard
+Partial Class FrmViewReportBlankShootersCard
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class frmViewReport_Blank_ShootersCard
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Blank_ShootersCard))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportBlankShootersCard))
         Me.ReportViewer1 = New ReportViewer
         Me.SuspendLayout()
         '
@@ -46,7 +46,7 @@ Partial Class frmViewReport_Blank_ShootersCard
         Me.ClientSize = New Size(688, 469)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewReport_Blank_ShootersCard"
+        Me.Name = "FrmViewReportBlankShootersCard"
         Me.Text = "Report - Blank Shooters Card w/ Target"
         Me.ResumeLayout(False)
 

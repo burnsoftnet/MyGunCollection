@@ -1,24 +1,44 @@
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_Accessories
-    Public GID As String
+''' <summary>
+''' Class FrmViewReportAccessories.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewReportAccessories
+    ''' <summary>
+    ''' The gun id
+    ''' </summary>
+    Public Gid As String
+    ''' <summary>
+    ''' The title
+    ''' </summary>
     Public Title As String
-    Dim ReportTitle As String
+    ''' <summary>
+    ''' The report title
+    ''' </summary>
+    Dim _reportTitle As String
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_Accessories control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_Accessories_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            ReportTitle = "Accessories Report"
-            Me.Text = ReportTitle
-            Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, GID)
+
+            _reportTitle = "Accessories Report"
+            Text = _reportTitle
+            Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, Gid)
             If PersonalMark Then
                 Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
-                parmList.Add(New ReportParameter("ReportTitle", ReportTitle & " for " & Title))
+                parmList.Add(New ReportParameter("ReportTitle", _reportTitle & " for " & Title))
                 parmList.Add(New ReportParameter("Firearm", Title))
-                Me.ReportViewer1.LocalReport.SetParameters(parmList)
+                ReportViewer1.LocalReport.SetParameters(parmList)
             End If
-            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

@@ -3,7 +3,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmViewReport_Blank_BoundBook
+Partial Class FrmViewReportBlankBoundBook
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class frmViewReport_Blank_BoundBook
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Blank_BoundBook))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportBlankBoundBook))
         Me.ReportViewer1 = New ReportViewer
         Me.SuspendLayout()
         '
@@ -46,7 +46,7 @@ Partial Class frmViewReport_Blank_BoundBook
         Me.ClientSize = New Size(688, 513)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewReport_Blank_BoundBook"
+        Me.Name = "FrmViewReportBlankBoundBook"
         Me.Text = "Blank Reports - Bound Book"
         Me.ResumeLayout(False)
 

@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmViewReport_Quickinv_w_DetailNotes
+Partial Class FrmViewReportQuickinvWDetailNotes
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class frmViewReport_Quickinv_w_DetailNotes
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Quickinv_w_DetailNotes))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportQuickinvWDetailNotes))
         Me.FullDetailsBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.ToolStrip1 = New ToolStrip
@@ -101,7 +101,7 @@ Partial Class frmViewReport_Quickinv_w_DetailNotes
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewReport_Quickinv_w_DetailNotes"
+        Me.Name = "FrmViewReportQuickinvWDetailNotes"
         Me.Text = "Quick Collection Report w/ Notes"
         CType(Me.FullDetailsBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

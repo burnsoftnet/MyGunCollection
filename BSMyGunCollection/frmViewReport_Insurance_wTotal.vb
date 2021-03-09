@@ -1,51 +1,49 @@
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_Insurance_wTotal
-    ' Sub DoResize()
-    '     If Me.Height <> 0 Then
-    '         Me.ReportViewer1.Height = Me.Height - (46 + 15) 'org 46
-    '         Me.ReportViewer1.Width = Me.Width - 5
-    '     End If
-    ' End Sub
+Public Class FrmViewReportInsuranceWTotal
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_Insurance control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_Insurance_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReport(Me.MGCDataSet.qryGunCollectionDetails)
+            qryGunCollectionDetailsTableAdapter.FillByInsuranceReport(MGCDataSet.qryGunCollectionDetails)
             If PersonalMark Then
                 Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Insurance Report for " & OwnerName))
-                Me.ReportViewer1.LocalReport.SetParameters(parmList)
+                ReportViewer1.LocalReport.SetParameters(parmList)
             End If
-            Me.ReportViewer1.RefreshReport()
-            '        Call DoResize()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    Private Sub frmViewReport_Insurance_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
-        '   Call DoResize()
-    End Sub
-
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ToolStripComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             qryGunCollectionDetailsBindingSource.ResetBindings(True)
             Select Case UCase(ToolStripComboBox1.SelectedItem.ToString)
                 Case UCase("Custom Catalog No.")
-                    Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsByCustomID(Me.MGCDataSet.qryGunCollectionDetails)
+                    qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsByCustomID(MGCDataSet.qryGunCollectionDetails)
                 Case "PRICE"
-                    Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReportByPurchasedPrice(Me.MGCDataSet.qryGunCollectionDetails)
+                    qryGunCollectionDetailsTableAdapter.FillByInsuranceReportByPurchasedPrice(MGCDataSet.qryGunCollectionDetails)
                 Case "CAILBER"
-                    Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsByCailber(Me.MGCDataSet.qryGunCollectionDetails)
+                    qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsByCailber(MGCDataSet.qryGunCollectionDetails)
                 Case "TYPE"
-                    Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsbyType(Me.MGCDataSet.qryGunCollectionDetails)
+                    qryGunCollectionDetailsTableAdapter.FillByInsuranceReportsbyType(MGCDataSet.qryGunCollectionDetails)
                 Case Else
-                    Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReport(Me.MGCDataSet.qryGunCollectionDetails)
+                    qryGunCollectionDetailsTableAdapter.FillByInsuranceReport(MGCDataSet.qryGunCollectionDetails)
             End Select
-            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

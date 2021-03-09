@@ -4,8 +4,7 @@ Imports BSMyGunCollection.MGC
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-' ReSharper disable once InconsistentNaming
-Public Class frmViewWishList
+Public Class FrmViewWishList
     ''' <summary>
     ''' Handles the Click event of the ToolStripButton3 control.
     ''' </summary>
@@ -21,8 +20,8 @@ Public Class frmViewWishList
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_WishList
-        frmNew.MdiParent = Me.MdiParent
+        Dim frmNew As New FrmViewReportWishList
+        frmNew.MdiParent = MdiParent
         frmNew.Show()
         Cursor = Cursors.Arrow
     End Sub
@@ -32,14 +31,14 @@ Public Class frmViewWishList
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
-        frmAddToWishList.MdiParent = Me.MdiParent
+        frmAddToWishList.MdiParent = MdiParent
         frmAddToWishList.Show()
     End Sub
     ''' <summary>
     ''' Refreshes the data.
     ''' </summary>
     Public Sub RefreshData()
-        Me.WishlistTableAdapter.Fill(Me.MGCDataSet.Wishlist)
+        WishlistTableAdapter.Fill(MGCDataSet.Wishlist)
     End Sub
     ''' <summary>
     ''' Handles the Load event of the frmViewWishList control.
@@ -55,9 +54,9 @@ Public Class frmViewWishList
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewWishList_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
-        If Me.Height <> 0 Then
-            DataGridView1.Height = Me.Height - 68
-            DataGridView1.Width = Me.Width - 10
+        If Height <> 0 Then
+            DataGridView1.Height = Height - 68
+            DataGridView1.Width = Width - 10
         End If
     End Sub
     ''' <summary>
@@ -72,9 +71,9 @@ Public Class frmViewWishList
     ''' Does the edit item.
     ''' </summary>
     Sub DoEditItem()
-        Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        frmEditWishlist.MdiParent = Me.MdiParent
-        frmEditWishlist.ItemID = ItemID
+        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+        frmEditWishlist.MdiParent = MdiParent
+        frmEditWishlist.ItemID = itemId
         frmEditWishlist.Show()
     End Sub
     ''' <summary>

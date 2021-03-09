@@ -1,70 +1,83 @@
 Imports Microsoft.Reporting.WinForms
-Public Class frmViewReport_Ammo_By_Caliber
-    Public CAL As String
-    Public PET As String
-    Public BySorting As String
+''' <summary>
+''' Class FrmViewReportAmmoByCaliber.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewReportAmmoByCaliber
+    Public Cal As String
+    Public Pet As String
+    ''' <summary>
+    ''' Handles the Load event of the frmViewReport_Ammo_By_Caliber control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewReport_Ammo_By_Caliber_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim Report_Title As String = "Ammunition Inventory Report for " & CAL
-            Dim Report_UserName As String = "N/A"
-            If PersonalMark Then Report_UserName = OwnerName
-            If Len(PET) > 0 Then Report_Title &= " & " & PET
-            Me.Text = Report_Title
-            If Len(PET) = 0 Then
-                Me.Gun_Collection_AmmoTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+            Dim reportTitle As String = "Ammunition Inventory Report for " & Cal
+            Dim reportUserName As String = "N/A"
+            If PersonalMark Then reportUserName = OwnerName
+            If Len(Pet) > 0 Then reportTitle &= " & " & Pet
+            Text = reportTitle
+            If Len(Pet) = 0 Then
+                Gun_Collection_AmmoTableAdapter.FillBy(MGCDataSet.Gun_Collection_Ammo, Cal)
             Else
-                Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                Gun_Collection_AmmoTableAdapter.FillByCal_wPet(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
             End If
 
             Dim parmList As New List(Of ReportParameter)
-            parmList.Add(New ReportParameter("UserName", Report_UserName))
-            parmList.Add(New ReportParameter("ReportTitle", Report_Title))
-            Me.ReportViewer1.LocalReport.SetParameters(parmList)
-            Me.ReportViewer1.RefreshReport()
+            parmList.Add(New ReportParameter("UserName", reportUserName))
+            parmList.Add(New ReportParameter("ReportTitle", reportTitle))
+            ReportViewer1.LocalReport.SetParameters(parmList)
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the SelectedIndexChanged event of the ToolStripComboBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Manufacturer")
-                    If Len(PET) = 0 Then
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_OrderByManName(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+                    If Len(Pet) = 0 Then
+                        Gun_Collection_AmmoTableAdapter.FillByCal_OrderByManName(MGCDataSet.Gun_Collection_Ammo, Cal)
                     Else
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByManufacturer(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                        Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByManufacturer(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
                     End If
                 Case LCase("Caliber")
-                    If Len(PET) = 0 Then
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_OrderByCaliber(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+                    If Len(Pet) = 0 Then
+                        Gun_Collection_AmmoTableAdapter.FillByCal_OrderByCaliber(MGCDataSet.Gun_Collection_Ammo, Cal)
                     Else
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByCal(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                        Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByCal(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
                     End If
                 Case LCase("Grains")
-                    If Len(PET) = 0 Then
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_OrderByGrain(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+                    If Len(Pet) = 0 Then
+                        Gun_Collection_AmmoTableAdapter.FillByCal_OrderByGrain(MGCDataSet.Gun_Collection_Ammo, Cal)
                     Else
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByGrains(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                        Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByGrains(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
                     End If
                 Case LCase("Qty.")
-                    If Len(PET) = 0 Then
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_OrderByQty(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+                    If Len(Pet) = 0 Then
+                        Gun_Collection_AmmoTableAdapter.FillByCal_OrderByQty(MGCDataSet.Gun_Collection_Ammo, Cal)
                     Else
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByQty(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                        Gun_Collection_AmmoTableAdapter.FillByCal_wPet_OrderByQty(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
                     End If
                 Case Else
-                    If Len(PET) = 0 Then
-                        Me.Gun_Collection_AmmoTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Ammo, CAL)
+                    If Len(Pet) = 0 Then
+                        Gun_Collection_AmmoTableAdapter.FillBy(MGCDataSet.Gun_Collection_Ammo, Cal)
                     Else
-                        Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
+                        Gun_Collection_AmmoTableAdapter.FillByCal_wPet(MGCDataSet.Gun_Collection_Ammo, Cal, Pet)
                     End If
             End Select
-            Me.ReportViewer1.RefreshReport()
+            ReportViewer1.RefreshReport()
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
