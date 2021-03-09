@@ -73,7 +73,7 @@ Public Class FrmViewWishList
     Sub DoEditItem()
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         frmEditWishlist.MdiParent = MdiParent
-        frmEditWishlist.ItemID = itemId
+        frmEditWishlist.ItemId = itemId
         frmEditWishlist.Show()
     End Sub
     ''' <summary>

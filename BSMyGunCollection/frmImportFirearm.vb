@@ -1,432 +1,506 @@
 Imports System.Data.Odbc
-Imports System.IO
 Imports System.Xml
-Imports System.Data
 Imports BSMyGunCollection.MGC
-Public Class frmImportFirearm
-    Public DefaultBarrelID As Long
+''' <summary>
+''' Class FrmImportFirearm.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmImportFirearm
+    ''' <summary>
+    ''' The default barrel identifier
+    ''' </summary>
+    Public DefaultBarrelId As Long
+    ''' <summary>
+    ''' Handles the Click event of the btnOpen control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
         Try
             OpenFileDialog1.FilterIndex = 1
-            OpenFileDialog1.Filter = "XML File(*.xml)|*.xml"
-            OpenFileDialog1.Title = "Import Firearm from XML"
-            OpenFileDialog1.FileName = ""
+            OpenFileDialog1.Filter = $"XML File(*.xml)|*.xml"
+            OpenFileDialog1.Title = $"Import Firearm from XML"
+            OpenFileDialog1.FileName =""
             If OpenFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = OpenFileDialog1.FileName
             lblFile.Text = strFilePath
             If Len(strFilePath) > 0 Then btnImport.Enabled = True
         Catch ex As Exception
             Dim sSubFunc As String = "btnOpen.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Function GetXMLNode(ByVal instance As XmlNode) As String
-        Dim sAns As String = ""
+    ''' <summary>
+    ''' Gets the XML node.
+    ''' </summary>
+    ''' <param name="instance">The instance.</param>
+    ''' <returns>System.String.</returns>
+    Function GetXmlNode(ByVal instance As XmlNode) As String
+        Dim sAns As String
         On Error Resume Next
         sAns = instance.InnerText
         Return sAns
     End Function
+    ''' <summary>
+    ''' Handles the Click event of the btnImport control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnImport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnImport.Click
-        Call ProcessXMLToDB(lblFile.Text)
+        Call ProcessXmlToDb(lblFile.Text)
     End Sub
+    ''' <summary>
+    ''' Updates the status label.
+    ''' </summary>
+    ''' <param name="sValue">The s value.</param>
     Sub UpdateStatusLabel(ByVal sValue As String)
         lblProg.Text = sValue
         lblProg.Refresh()
     End Sub
+    ''' <summary>
+    ''' Updates the progress bar.
+    ''' </summary>
+    ''' <param name="iValue">The i value.</param>
     Sub UpdateProgressBar(ByVal iValue As Long)
         ProgressBar1.Value = iValue
         ProgressBar1.Refresh()
     End Sub
-    Sub ProcessXMLToDB(ByVal strPath As String)
+    ''' <summary>
+    ''' Processes the XML to database.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    Sub ProcessXmlToDb(ByVal strPath As String)
         Try
-            Dim FullName As String = ""
-            Dim FirearmID As Long = 0
-            Dim ObjGF As New GlobalFunctions
-            Dim Obj As New BSDatabase
+            Dim fullName As String 
+            Dim firearmId As Long 
+
             ProgressBar1.Minimum = 0
             ProgressBar1.Maximum = 5
-            Me.UseWaitCursor = True
-            Dim I As Integer = 0
+            UseWaitCursor = True
+            Dim I As Integer 
 
             I += 1
             Call UpdateStatusLabel("Getting Firearm Details")
-            Call ProcessXMLToDB_Details(strPath, "Details", FullName, FirearmID)
+            Call ProcessXMLToDB_Details(strPath, "Details", fullName, firearmId)
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting Accessories List")
-            Call ProcessXMLToDB_Accessories(strPath, "Accessories", FirearmID)
+            Call ProcessXMLToDB_Accessories(strPath, "Accessories", firearmId)
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting Maintance Details")
-            Call ProcessXMLToDB_Maintance_Details(strPath, "Maintance_Details", FirearmID)
+            Call ProcessXMLToDB_Maintance_Details(strPath, "Maintance_Details", firearmId)
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting GunSmith Details")
-            Call ProcessXMLToDB_GunSmith_Details(strPath, "GunSmith_Details", FirearmID)
+            Call ProcessXMLToDB_GunSmith_Details(strPath, "GunSmith_Details", firearmId)
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting Barrel/Conversion Kit details")
-            Call ProcessXMLToDB_BarrelConverstionKit_Details(strPath, "BarrelConverstionKit_Details", FirearmID)
+            Call ProcessXMLToDB_BarrelConverstionKit_Details(strPath, "BarrelConverstionKit_Details", firearmId)
             Call UpdateProgressBar(I)
-            Me.UseWaitCursor = False
-            MsgBox("Import of the " & FullName & " firearm is complete!")
+            UseWaitCursor = False
+            MsgBox("Import of the " & fullName & " firearm is complete!")
             MDIParent1.RefreshCollection()
-            Me.Close()
+            Close()
 
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
-            Me.UseWaitCursor = False
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            UseWaitCursor = False
         End Try
     End Sub
-    Sub ProcessXMLToDB_Details(ByVal strPath As String, ByVal strNodeName As String, ByRef FullName As String, ByRef FirearmID As Long)
+    ''' <summary>
+    ''' Processes the XML to database details.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    ''' <param name="strNodeName">Name of the string node.</param>
+    ''' <param name="fullName">The full name.</param>
+    ''' <param name="firearmId">The firearm identifier.</param>
+    Sub ProcessXMLToDB_Details(ByVal strPath As String, ByVal strNodeName As String, ByRef fullName As String, ByRef firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Dim i As Integer = 0
-            Dim SQL As String = ""
-            Dim Manufacturer As String = ""
-            Dim ModelName As String = ""
-            Dim SerialNumber As String = ""
-            Dim sType As String = ""
-            Dim Caliber As String = ""
-            Dim Finish As String = ""
-            Dim Condition As String = ""
-            Dim CustomID As String = ""
-            Dim NatID As String = ""
-            Dim GripID As String = ""
-            Dim Weight As String = ""
-            Dim Height As String = ""
-            Dim BarrelLength As String = ""
-            Dim Action As String = ""
-            Dim Feedsystem As String = ""
-            Dim Sights As String = ""
-            Dim PurchasedPrice As String = ""
-            Dim PurchasedFrom As String = ""
-            Dim AppraisedValue As String = ""
-            Dim AppraisalDate As String = ""
-            Dim AppraisedBy As String = ""
-            Dim InsuredValue As String = ""
-            Dim StorageLocation As String = ""
-            Dim ConditionComments As String = ""
-            Dim AdditionalNotes As String = ""
-            Dim SGChoke As String = ""
-            Dim Produced As String = ""
-            Dim IsCandR As String = ""
-            Dim PetLoads As String = ""
-            Dim dtp As String = ""
-            Dim Importer As String = ""
-            Dim ReManDT As String = ""
-            Dim POI As String = ""
-            Dim ManID As Long = 0
-            Dim ModID As Long = 0
-            Dim lGripID As Long = 0
-            Dim lNatID As Long = 0
-            Dim BID As Long = 0
-            Dim lIsCandR As Long = 0
-            Dim iBoundBook As Long = 0
-            Dim bBoundBook As Boolean = False
-            Dim sTwist As String = ""
-            Dim sTrigger As String = ""
-            Dim sCaliber3 As String = ""
-            Dim sClassification As String = ""
-            Dim sDateOfCR As String = ""
-
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim i As Integer 
+            Dim sql As String 
+            Dim manufacturer As String 
+            Dim modelName As String 
+            Dim serialNumber As String
+            Dim sType As String 
+            Dim caliber As String 
+            Dim finish As String 
+            Dim condition As String 
+            Dim customId As String 
+            Dim natId As String 
+            Dim gripId As String 
+            Dim weight As String 
+' ReSharper disable LocalVariableHidesMember
+            Dim height As String 
+            Dim barrelLength As String 
+            Dim action As String 
+            Dim feedsystem As String 
+            Dim sights As String 
+            Dim purchasedPrice As String 
+            Dim purchasedFrom As String 
+            Dim appraisedValue As String 
+            Dim appraisalDate As String 
+            Dim appraisedBy As String 
+            Dim insuredValue As String 
+            Dim storageLocation As String 
+            Dim conditionComments As String 
+            Dim additionalNotes As String 
+            Dim sgChoke As String 
+            Dim produced As String 
+            Dim isCandR As String 
+            Dim petLoads As String 
+            Dim dtp As String 
+            Dim importer As String 
+            Dim reManDt As String 
+            Dim poi As String 
+            Dim manId As Long 
+            Dim modId As Long 
+            Dim lGripId As Long 
+            Dim lNatId As Long 
+            Dim bid As Long 
+            Dim lIsCandR As Long 
+' ReSharper disable NotAccessedVariable
+            Dim iBoundBook As Long 
+            Dim bBoundBook As Boolean
+            Dim sTwist As String 
+            Dim sTrigger As String 
+            Dim sCaliber3 As String 
+            Dim sClassification As String 
+            Dim sDateOfCr As String 
+            ' ReSharper restore LocalVariableHidesMember
+            ' ReSharper restore NotAccessedVariable
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                FullName = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("FullName")))
-                Manufacturer = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Manufacturer")))
-                ModelName = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("ModelName")))
-                SerialNumber = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("SerialNumber")))
-                sType = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Type")))
-                Caliber = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Caliber")))
-                Finish = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Finish")))
-                Condition = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Condition")))
-                CustomID = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("CustomID")))
-                NatID = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("NatID")))
-                GripID = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("GripID")))
-                Weight = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Weight")))
-                Height = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Height")))
-                BarrelLength = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("BarrelLength")))
-                Action = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Action")))
-                Feedsystem = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Feedsystem")))
-                Sights = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Sights")))
-                PurchasedPrice = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PurchasedPrice")))
-                PurchasedFrom = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PurchasedFrom")))
-                AppraisedValue = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("AppraisedValue")))
-                AppraisalDate = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("AppraisalDate")))
-                AppraisedBy = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("AppraisedBy")))
-                InsuredValue = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("InsuredValue")))
-                SGChoke = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("SGChoke")))
-                StorageLocation = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("StorageLocation")))
-                ConditionComments = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("ConditionComments")))
-                AdditionalNotes = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("AdditionalNotes ")))
-                Produced = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Produced")))
-                IsCandR = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("IsCandR")))
-                PetLoads = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PetLoads")))
-                dtp = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("dtp")))
-                Importer = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Importer")))
-                ReManDT = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("ReManDT")))
-                bBoundBook = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("BoundBook")))
-                sCaliber3 = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Caliber3")))
-                sTwist = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("TwistOfRate")))
-                sTrigger = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("TriggerPull")))
-                sClassification = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Classification")))
-                sDateOfCR = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("DateofCR")))
+                fullName = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("FullName")))
+                manufacturer = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Manufacturer")))
+                modelName = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("ModelName")))
+                serialNumber = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("SerialNumber")))
+                sType = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Type")))
+                caliber = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Caliber")))
+                finish = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Finish")))
+                condition = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Condition")))
+                customId = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("CustomID")))
+                natId = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("NatID")))
+                gripId = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("GripID")))
+                weight = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Weight")))
+                height = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Height")))
+                barrelLength = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("BarrelLength")))
+                action = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Action")))
+                feedsystem = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Feedsystem")))
+                sights = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Sights")))
+                purchasedPrice = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PurchasedPrice")))
+                purchasedFrom = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PurchasedFrom")))
+                appraisedValue = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("AppraisedValue")))
+                appraisalDate = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("AppraisalDate")))
+                appraisedBy = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("AppraisedBy")))
+                insuredValue = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("InsuredValue")))
+                sgChoke = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("SGChoke")))
+                storageLocation = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("StorageLocation")))
+                conditionComments = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("ConditionComments")))
+                additionalNotes = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("AdditionalNotes ")))
+                produced = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Produced")))
+                isCandR = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("IsCandR")))
+                petLoads = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PetLoads")))
+                dtp = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("dtp")))
+                importer = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Importer")))
+                reManDt = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("ReManDT")))
+                bBoundBook = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("BoundBook")))
+                sCaliber3 = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Caliber3")))
+                sTwist = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("TwistOfRate")))
+                sTrigger = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("TriggerPull")))
+                sClassification = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Classification")))
+                sDateOfCr = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("DateofCR")))
                 If CBool(bBoundBook) Then iBoundBook = 1
-                POI = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("POI")))
-                ManID = ObjGF.GetManufacturersID(Manufacturer)
-                ModID = ObjGF.GetModelID(ModelName, ManID)
-                lGripID = ObjGF.GetGripID(GripID)
-                lNatID = ObjGF.GetNationalityID(NatID)
-                Call ObjGF.UpdateGunType(sType)
-                If CBool(IsCandR) Then lIsCandR = 1
-                SQL = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
+                poi = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("POI")))
+                manId = objGf.GetManufacturersID(manufacturer)
+                modId = objGf.GetModelID(modelName, manId)
+                lGripId = objGf.GetGripID(gripId)
+                lNatId = objGf.GetNationalityID(natId)
+                Call objGf.UpdateGunType(sType)
+                If CBool(isCandR) Then lIsCandR = 1
+                sql = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
                         "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
                         "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
                         "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
                         "ReManDT,POI,SGChoke,sync_lastupdate) VALUES(" & _
-                        OwnerId & "," & ManID & ",'" & FullName & "','" & ModelName & "'," & ModID & ",'" & SerialNumber & "','" & _
-                        sType & "','" & Caliber & "','" & Finish & "','" & Condition & "'," & ObjGF.SetCatalogINSType(CustomID) & "," & _
-                        lNatID & "," & lGripID & ",1,'" & Weight & "','" & Height & "','" & _
-                        GripID & "','" & BarrelLength & "',' ',' ','" & Action & "','" & _
-                        Feedsystem & "','" & Sights & "','" & PurchasedPrice & "','" & PurchasedFrom & "','" & AppraisedValue & "','" & _
-                        AppraisalDate & "','" & AppraisedBy & "','" & InsuredValue & "','" & StorageLocation & "','" & ConditionComments & "','" & AdditionalNotes & _
-                        "','" & Produced & "','" & PetLoads & "','" & dtp & "'," & lIsCandR & ",'" & Importer & _
-                        "','" & ReManDT & "','" & POI & "','" & SGChoke & "',Now())"
-                Obj.ConnExec(SQL)
-                FirearmID = ObjGF.GetLastFirearmID
-                SQL = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
+                        OwnerId & "," & manId & ",'" & fullName & "','" & modelName & "'," & modId & ",'" & serialNumber & "','" & _
+                        sType & "','" & caliber & "','" & finish & "','" & condition & "'," & objGf.SetCatalogINSType(customId) & "," & _
+                        lNatId & "," & lGripId & ",1,'" & weight & "','" & height & "','" & _
+                        gripId & "','" & barrelLength & "',' ',' ','" & action & "','" & _
+                        feedsystem & "','" & sights & "','" & purchasedPrice & "','" & purchasedFrom & "','" & appraisedValue & "','" & _
+                        appraisalDate & "','" & appraisedBy & "','" & insuredValue & "','" & storageLocation & "','" & conditionComments & "','" & additionalNotes & _
+                        "','" & produced & "','" & petLoads & "','" & dtp & "'," & lIsCandR & ",'" & importer & _
+                        "','" & reManDt & "','" & poi & "','" & sgChoke & "',Now())"
+                obj.ConnExec(sql)
+                firearmId = objGf.GetLastFirearmID
+                sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
                     "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
-                    FirearmID & ",'Default Barrel','" & Caliber & "','" & Finish & "','" & BarrelLength & _
-                    "','" & PetLoads & "','" & Action & "','" & Feedsystem & "','" & Sights & "','" & _
-                    "0.00','" & PurchasedFrom & "',DATE(),'" & Height & "','Fixed Barrel" & _
+                    firearmId & ",'Default Barrel','" & caliber & "','" & finish & "','" & barrelLength & _
+                    "','" & petLoads & "','" & action & "','" & feedsystem & "','" & sights & "','" & _
+                    "0.00','" & purchasedFrom & "',DATE(),'" & height & "','Fixed Barrel" & _
                     "',1,Now())"
-                Obj.ConnExec(SQL)
-                BID = ObjGF.GetBarrelID(FirearmID, 1)
-                DefaultBarrelID = BID
-                SQL = "UPDATE Gun_Collection set DBID=" & BID & " where ID=" & FirearmID
-                Obj.ConnExec(SQL)
-                SQL = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & BID & "," & FirearmID & ",Now())"
-                Obj.ConnExec(SQL)
-                If Len(Trim(PurchasedFrom)) <> 0 Then
-                    Dim ObjG As New GlobalFunctions
-                    If Not ObjG.ObjectExistsinDB(PurchasedFrom, "Name", "Gun_Shop_Details") Then
-                        SQL = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & PurchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
-                        Obj.ConnExec(SQL)
+                obj.ConnExec(sql)
+                bid = objGf.GetBarrelID(firearmId, 1)
+                DefaultBarrelId = bid
+                sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & firearmId
+                obj.ConnExec(sql)
+                sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & firearmId & ",Now())"
+                obj.ConnExec(sql)
+                If Len(Trim(purchasedFrom)) <> 0 Then
+                    Dim objG As New GlobalFunctions
+                    If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
+                        sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
+                        obj.ConnExec(sql)
                     End If
-                    Dim GSID As Long = ObjGF.GetGunShopID(PurchasedFrom)
-                    SQL = "UPDATE Gun_Collection set SID=" & GSID & " where ID=" & FirearmID
-                    Obj.ConnExec(SQL)
+                    Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
+                    sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
+                    obj.ConnExec(sql)
                 End If
-                If Not ObjGF.CaliberExists(Caliber) Then Obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & Caliber & "',Now())")
+                If Not objGf.CaliberExists(caliber) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & caliber & "',Now())")
                 MDIParent1.RefreshCollection()
             Next
-            elemlist = Nothing
-            doc = Nothing
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_Details"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmImportFirearm control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmImportFirearm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         lblProg.Text = ""
         lblFile.Text = ""
     End Sub
-    Sub ProcessXMLToDB_Accessories(ByVal strPath As String, ByVal strNodeName As String, ByVal FirearmID As Long)
+    ''' <summary>
+    ''' Processes the XML to database accessories.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    ''' <param name="strNodeName">Name of the string node.</param>
+    ''' <param name="firearmId">The firearm identifier.</param>
+    Sub ProcessXMLToDB_Accessories(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Dim i As Integer = 0
-            Dim SQL As String = ""
-            Dim Manufacturer As String = ""
-            Dim Model As String = ""
-            Dim SerialNumber As String = ""
-            Dim Condition As String = ""
-            Dim Notes As String = ""
-            Dim Use As String = ""
-            Dim PurValue As String = ""
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim i As Integer 
+            Dim sql As String 
+            Dim manufacturer As String 
+            Dim model As String 
+            Dim serialNumber As String 
+            Dim condition As String 
+            Dim notes As String 
+            Dim use As String 
+            Dim purValue As String 
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                Manufacturer = Trim(ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Manufacturer"))))
-                If Len(Manufacturer) > 0 Then
-                    Model = Trim(ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Model"))))
-                    SerialNumber = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("SerialNumber")))
-                    Condition = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Condition")))
-                    Notes = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Notes")))
-                    Use = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Use")))
-                    PurValue = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PurValue")))
+                manufacturer = Trim(objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Manufacturer"))))
+                If Len(manufacturer) > 0 Then
+                    model = Trim(objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Model"))))
+                    serialNumber = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("SerialNumber")))
+                    condition = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Condition")))
+                    notes = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Notes")))
+                    use = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Use")))
+                    purValue = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PurValue")))
 
-                    SQL = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate) VALUES(" & _
-                            FirearmID & ",'" & Manufacturer & "','" & Model & "','" & SerialNumber & "','" & Condition & "','" & _
-                            Notes & "','" & Use & "','" & PurValue & "',Now())"
-                    Obj.ConnExec(SQL)
+                    sql = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate) VALUES(" & _
+                            firearmId & ",'" & manufacturer & "','" & model & "','" & serialNumber & "','" & condition & "','" & _
+                            notes & "','" & use & "','" & purValue & "',Now())"
+                    obj.ConnExec(sql)
                 End If
             Next
-            elemlist = Nothing
-            doc = Nothing
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_Accessories"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Sub ProcessXMLToDB_Maintance_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal FirearmID As Long)
+    ''' <summary>
+    ''' Processes the XML to database maintance details.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    ''' <param name="strNodeName">Name of the string node.</param>
+    ''' <param name="firearmId">The firearm identifier.</param>
+    Sub ProcessXMLToDB_Maintance_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Dim i As Integer = 0
-            Dim MPID As Long = 0
-            Dim SQL As String = ""
-            Dim Name As String = ""
-            Dim OpDate As String = ""
-            Dim OpDueDate As String = ""
-            Dim RndFired As String = ""
-            Dim Notes As String = ""
-            Dim CountInTotal As Integer = 0
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim i As Integer 
+            Dim mpid As Long 
+            Dim sql As String 
+' ReSharper disable LocalVariableHidesMember
+            Dim name As String 
+' ReSharper restore LocalVariableHidesMember
+            Dim opDate As String 
+            Dim opDueDate As String 
+            Dim rndFired As String 
+            Dim notes As String 
+            Dim countInTotal As Integer 
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                Name = Trim(ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Name"))))
-                If Len(Name) > 0 Then
-                    OpDate = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("OpDate")))
-                    OpDueDate = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("OpDueDate")))
-                    RndFired = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("RndFired")))
-                    If CLng(RndFired) > 0 Then
-                        CountInTotal = 1
+                name = Trim(objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Name"))))
+                If Len(name) > 0 Then
+                    opDate = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("OpDate")))
+                    opDueDate = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("OpDueDate")))
+                    rndFired = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("RndFired")))
+                    If CLng(rndFired) > 0 Then
+                        countInTotal = 1
                     Else
-                        CountInTotal = 0
+                        countInTotal = 0
                     End If
-                    Notes = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Notes")))
-                    MPID = ObjGF.GetID("SELECT ID from Maintance_Plans where Name='" & Name & "'")
-                    SQL = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,BSID,DC,sync_lastupdate) VALUES(" & _
-                                FirearmID & "," & MPID & ",'" & Name & "','" & OpDate & "','" & OpDueDate & "','" & _
-                                RndFired & "','" & Notes & "'," & DefaultBarrelID & "," & _
-                                CountInTotal & ",Now())"
-                    Obj.ConnExec(SQL)
+                    notes = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Notes")))
+                    mpid = objGf.GetID("SELECT ID from Maintance_Plans where Name='" & name & "'")
+                    sql = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,BSID,DC,sync_lastupdate) VALUES(" & _
+                                firearmId & "," & mpid & ",'" & name & "','" & opDate & "','" & opDueDate & "','" & _
+                                rndFired & "','" & notes & "'," & DefaultBarrelId & "," & _
+                                countInTotal & ",Now())"
+                    obj.ConnExec(sql)
                 End If
             Next
-            elemlist = Nothing
-            doc = Nothing
+
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_Maintance_Details"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Sub ProcessXMLToDB_GunSmith_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal FirearmID As Long)
+    ''' <summary>
+    ''' Processes the XML to database gun smith details.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    ''' <param name="strNodeName">Name of the string node.</param>
+    ''' <param name="firearmId">The firearm identifier.</param>
+    Sub ProcessXMLToDB_GunSmith_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Dim i As Integer = 0
-            Dim SQL As String = ""
-            Dim gsmith As String = ""
-            Dim sdate As String = ""
-            Dim rdate As String = ""
-            Dim od As String = ""
-            Dim notes As String = ""
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim i As Integer 
+            Dim sql As String 
+            Dim gsmith As String 
+            Dim sdate As String 
+            Dim rdate As String 
+            Dim od As String 
+            Dim notes As String 
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                gsmith = Trim(ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("gsmith"))))
+                gsmith = Trim(objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("gsmith"))))
                 If Len(gsmith) > 0 Then
-                    sdate = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("sdate")))
-                    rdate = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("rdate")))
-                    od = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("od")))
-                    notes = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("notes")))
-                    SQL = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" & _
-                                        FirearmID & ",'" & gsmith & "','" & od & "','" & notes & "','" & _
+                    sdate = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("sdate")))
+                    rdate = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("rdate")))
+                    od = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("od")))
+                    notes = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("notes")))
+                    sql = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" & _
+                                        firearmId & ",'" & gsmith & "','" & od & "','" & notes & "','" & _
                                         sdate & "','" & rdate & "',Now())"
-                    Obj.ConnExec(SQL)
+                    obj.ConnExec(sql)
                 End If
             Next
-            elemlist = Nothing
-            doc = Nothing
+ 
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_GunSmith_Details"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Function BarrelConvoKitExists(ByVal GID As Long, ByVal modelname As String, ByVal caliber As String) As Boolean
+    ''' <summary>
+    ''' Barrels the convo kit exists.
+    ''' </summary>
+    ''' <param name="gid">The gid.</param>
+    ''' <param name="modelname">The modelname.</param>
+    ''' <param name="caliber">The caliber.</param>
+    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+    Function BarrelConvoKitExists(ByVal gid As Long, ByVal modelname As String, ByVal caliber As String) As Boolean
         Dim bAns As Boolean = True
         Try
-            Dim Obj As New BSDatabase
-            Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection_Ext where GID=" & GID & _
+            Dim obj As New BSDatabase
+            Call obj.ConnectDB()
+            Dim sql As String = "SELECT * from Gun_Collection_Ext where GID=" & gid & _
                     " and modelName='" & modelname & "' and caliber='" & caliber & "'"
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            bAns = RS.HasRows
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            bAns = rs.HasRows
+            rs.Close()
+
+            obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "BarrelConvoKitExists"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
         Return bAns
     End Function
-    Sub ProcessXMLToDB_BarrelConverstionKit_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal FirearmID As Long)
+    ''' <summary>
+    ''' Processes the XML to database barrel converstion kit details.
+    ''' </summary>
+    ''' <param name="strPath">The string path.</param>
+    ''' <param name="strNodeName">Name of the string node.</param>
+    ''' <param name="firearmId">The firearm identifier.</param>
+    Sub ProcessXMLToDB_BarrelConverstionKit_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Dim i As Integer = 0
-            Dim SQL As String = ""
-            Dim ModelName As String = ""
-            Dim Caliber As String = ""
-            Dim Finish As String = ""
-            Dim BarrelLength As String = ""
-            Dim PetLoads As String = ""
-            Dim Action As String = ""
-            Dim Feedsystem As String = ""
-            Dim Sights As String = ""
-            Dim PurchasedPrice As String = ""
-            Dim PurchasedFrom As String = ""
-            Dim dtp As String = ""
-            Dim Height As String = ""
-            Dim Type As String = ""
-            Dim IsDefault As Integer = 0
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim i As Integer 
+            Dim sql As String 
+            Dim modelName As String 
+            Dim caliber As String 
+            Dim finish As String 
+            Dim barrelLength As String 
+            Dim petLoads As String 
+            Dim action As String 
+            Dim feedsystem As String 
+            Dim sights As String 
+            Dim purchasedPrice As String 
+            Dim purchasedFrom As String 
+            Dim dtp As String 
+' ReSharper disable LocalVariableHidesMember
+            Dim height As String 
+' ReSharper restore LocalVariableHidesMember
+            Dim type As String 
+            Dim isDefault As Integer 
 
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                ModelName = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("ModelName")))
-                Caliber = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Caliber")))
-                Finish = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Finish")))
-                BarrelLength = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("BarrelLength")))
-                PetLoads = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PetLoads")))
-                Action = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Action")))
-                Feedsystem = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Feedsystem")))
-                Sights = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Sights")))
-                PurchasedPrice = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PurchasedPrice")))
-                PurchasedFrom = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("PurchasedFrom")))
-                dtp = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("dtp")))
-                Height = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Height")))
-                Type = ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("Type")))
-                IsDefault = CInt(ObjGF.FormatFromXML(GetXMLNode(elemlist(i).Item("IsDefault"))))
+                modelName = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("ModelName")))
+                caliber = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Caliber")))
+                finish = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Finish")))
+                barrelLength = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("BarrelLength")))
+                petLoads = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PetLoads")))
+                action = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Action")))
+                feedsystem = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Feedsystem")))
+                sights = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Sights")))
+                purchasedPrice = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PurchasedPrice")))
+                purchasedFrom = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("PurchasedFrom")))
+                dtp = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("dtp")))
+                height = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Height")))
+                type = objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("Type")))
+                isDefault = CInt(objGf.FormatFromXML(GetXmlNode(elemlist(i).Item("IsDefault"))))
 
-                If Not BarrelConvoKitExists(FirearmID, ModelName, Caliber) Then
-                    SQL = "INSERT INTO Gun_Collection_Ext(GID,ModelName,Caliber,Finish,BarrelLength," & _
+                If Not BarrelConvoKitExists(firearmId, modelName, caliber) Then
+                    sql = "INSERT INTO Gun_Collection_Ext(GID,ModelName,Caliber,Finish,BarrelLength," & _
                             "PetLoads,Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height," & _
-                            "Type,IsDefault,sync_lastupdate) VALUES(" & FirearmID & ",'" & ModelName & "','" & Caliber & _
-                            "','" & Finish & "','" & BarrelLength & "','" & PetLoads & "','" & Action & _
-                            "','" & Feedsystem & "','" & Sights & "','" & PurchasedPrice & "','" & _
-                            PurchasedFrom & "','" & dtp & "','" & Height & "','" & Type & "'," & IsDefault & ",Now())"
-                    Obj.ConnExec(SQL)
+                            "Type,IsDefault,sync_lastupdate) VALUES(" & firearmId & ",'" & modelName & "','" & caliber & _
+                            "','" & finish & "','" & barrelLength & "','" & petLoads & "','" & action & _
+                            "','" & feedsystem & "','" & sights & "','" & purchasedPrice & "','" & _
+                            purchasedFrom & "','" & dtp & "','" & height & "','" & type & "'," & isDefault & ",Now())"
+                    obj.ConnExec(sql)
                 End If
             Next
-            elemlist = Nothing
-            doc = Nothing
+
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_BarrelConverstionKit_Details"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

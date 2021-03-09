@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmAddModel
+Partial Class FrmAddModel
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

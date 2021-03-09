@@ -22,10 +22,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "OS"
-            'TODO #43 Clean up Code
-            'Dim objFs As New MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'objFs.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
         Return word
@@ -38,11 +34,9 @@ Module ExportModule
     Public Sub ExportExcel(ByVal table As DataTable, ByVal location As String)
         Try
             If My.Computer.FileSystem.FileExists(location) Then My.Computer.FileSystem.DeleteFile(location)
-' ReSharper disable RedundantAssignment
-            Dim createString As String = ""
-' ReSharper disable once RedundantAssignment
-            Dim columns As String = ""
-            Dim mark As String = ""
+            Dim createString As String
+            Dim columns As String
+            Dim mark As String
             Dim myTable As String
             Using connection As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & location & ";Extended Properties=""Excel 8.0;HDR=YES;IMEX=0""")
                 connection.Open()
@@ -85,7 +79,7 @@ Module ExportModule
                         adapter.Fill(excelDataset, myTable)
                         Dim mySql As String = "INSERT INTO [" & myTable & "] " & Replace(columns.ToString, " ", "") & " VALUES " & mark.ToString
                         adapter.InsertCommand = New OleDbCommand(mySql, connection)
-                        Dim colName As String = ""
+                        Dim colName As String 
                         For Each column As DataColumn In table.Columns
                             colName = Replace(column.ColumnName, " ", "")
                             Select Case column.DataType.Name
@@ -118,9 +112,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportExcel"
-            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'ObjFS.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
@@ -141,9 +132,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportXML"
-            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'ObjFS.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
@@ -181,9 +169,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportHTML"
-            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'ObjFS.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
@@ -196,6 +181,7 @@ Module ExportModule
         Try
             Using writer As New StreamWriter(location)
                 writer.WriteLine("Executed: " + DateTime.Now.ToString)
+' ReSharper disable once RedundantAssignment
                 For i As Integer = 0 To 99
                     writer.Write("*")
                 Next
@@ -203,6 +189,7 @@ Module ExportModule
                 For Each column As DataColumn In table.Columns
                     writer.WriteLine("")
                     writer.WriteLine(column.ColumnName)
+' ReSharper disable once RedundantAssignment
                     For i As Integer = 0 To 99
                         writer.Write("-")
                     Next
@@ -211,6 +198,7 @@ Module ExportModule
                         writer.WriteLine(row(column).ToString)
                     Next
                 Next
+' ReSharper disable once RedundantAssignment
                 For i As Integer = 0 To 99
                     writer.Write("*")
                 Next
@@ -220,9 +208,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportText"
-            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'ObjFS.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub
@@ -256,9 +241,6 @@ Module ExportModule
         Catch ex As Exception
             Dim strform As String = "ExportModule"
             Dim strProcedure As String = "ExportCSV"
-            'Dim ObjFS As New BSMyGunCollection.MGC.BSFileSystem
-            'Dim sMessage As String = strform & "." & strProcedure & "::" & Err.Number & "::" & ex.Message.ToString()
-            'ObjFS.LogFile(MyLogFile, sMessage)
             Call LogError(strform, strProcedure, Err.Number, ex.Message.ToString())
         End Try
     End Sub

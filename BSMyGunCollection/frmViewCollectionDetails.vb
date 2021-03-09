@@ -340,7 +340,7 @@ Public Class FrmViewCollectionDetails
 #End Region
 #Region " Button Subs "
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
-        frmAddPicture.ItemID = ItemId
+        frmAddPicture.ItemId = ItemId
         frmAddPicture.MdiParent = MdiParent
         frmAddPicture.Show()
     End Sub
@@ -360,7 +360,7 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemID = ItemId
+        frmNew.ItemId = ItemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
@@ -378,8 +378,8 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub btnAddMain_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddMain.Click
         frmAddMaintance.MdiParent = MdiParent
-        frmAddMaintance.GID = ItemId
-        frmAddMaintance.BSID = BsDefaultbarrelsystemid
+        frmAddMaintance.Gid = ItemId
+        frmAddMaintance.Bsid = BsDefaultbarrelsystemid
         frmAddMaintance.AmmoType = txtCal.Text
         frmAddMaintance.AmmoTypePet = txtPetLoads.Text
         frmAddMaintance.AmmoTypeCal3 = txtCaliber3.Text
@@ -390,7 +390,7 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub btnGSLog_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSLog.Click
         frmAddGunSmithLog.MdiParent = MdiParent
-        frmAddGunSmithLog.GID = ItemId
+        frmAddGunSmithLog.Gid = ItemId
         frmAddGunSmithLog.Show()
     End Sub
     Private Sub btnGSReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSReport.Click
@@ -416,7 +416,7 @@ Public Class FrmViewCollectionDetails
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFlyer.Click
         Dim frmNew As New frmForSale
         frmNew.MdiParent = MdiParent
-        frmNew.MyID = ItemId
+        frmNew.MyId = ItemId
         frmNew.Show()
     End Sub
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
@@ -1214,7 +1214,7 @@ Public Class FrmViewCollectionDetails
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
 ' ReSharper restore LocalVariableHidesMember
         frmEditAccessory.MdiParent = MdiParent
-        frmEditAccessory.ItemID = itemId
+        frmEditAccessory.ItemId = itemId
         frmEditAccessory.Show()
     End Sub
     ''' <summary>
@@ -1235,7 +1235,7 @@ Public Class FrmViewCollectionDetails
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
 ' ReSharper restore LocalVariableHidesMember
         frmCopyAccessory.MdiParent = MdiParent
-        frmCopyAccessory.ItemID = itemId
+        frmCopyAccessory.ItemId = itemId
         frmCopyAccessory.Show()
     End Sub
     ''' <summary>
@@ -1254,7 +1254,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemID = ItemId
+        frmNew.ItemId = ItemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
@@ -1314,7 +1314,7 @@ Public Class FrmViewCollectionDetails
 ' ReSharper disable once LocalVariableHidesMember
         Dim itemId As String = DataGridView4.SelectedRows.Item(0).Cells.Item(0).Value
         Dim frmNew As New frmEditGunSmithLog
-        frmNew.ID = itemId
+        frmNew.Id = itemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -1379,8 +1379,8 @@ Public Class FrmViewCollectionDetails
     Private Sub EditToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem1.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
         Dim frmNew As New frmEditBarrelSystem
-        frmNew.GID = ItemId
-        frmNew.BID = bid
+        frmNew.Gid = ItemId
+        frmNew.Bid = bid
         frmNew.Recname = Text
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1417,7 +1417,7 @@ Public Class FrmViewCollectionDetails
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
         Dim frmNew As New frmEditPicturedetails
         frmNew.MdiParent = MdiParent
-        frmNew.PID = CLng(myText)
+        frmNew.Pid = CLng(myText)
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -1450,7 +1450,7 @@ Public Class FrmViewCollectionDetails
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
             Dim frmNew As New frmEditMaintenance
-            frmNew.MID = mid
+            frmNew.Mid = mid
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
@@ -1507,7 +1507,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddDocument_Click(sender As Object, e As EventArgs) Handles btnAddDocument.Click
         Dim frmNew As New frmAddDocument
-        frmNew.GID = ItemId
+        frmNew.Gid = ItemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -1531,7 +1531,7 @@ Public Class FrmViewCollectionDetails
         Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
         Dim frmNew As New frmAddDocument
         frmNew.EditMode = True
-        frmNew.DID = did
+        frmNew.Did = did
         frmNew.Show()
     End Sub
     ''' <summary>

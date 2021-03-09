@@ -1,5 +1,4 @@
-Imports System.IO
-Imports System.Data
+
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 ''' <summary>
@@ -7,62 +6,62 @@ Imports BSMyGunCollection.MGC
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmEditCollectionDetails
+Public Class FrmEditCollectionDetails
     ''' <summary>
     ''' The item identifier
     ''' </summary>
-    Public ItemID As String
+    Public ItemId As String
     ''' <summary>
     ''' The is sold
     ''' </summary>
-    Dim IsSold As Boolean
+    Dim _isSold As Boolean
     ''' <summary>
     ''' The barrel identifier
     ''' </summary>
-    Public BarrelID As Long
+    Public BarrelId As Long
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
         Try
-            Dim Obj As New BSDatabase
-            Dim ObjGF As New GlobalFunctions
-            Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Gun_Collection where ID=" & ItemID
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                Me.Text = Trim(RS("fullname"))
-                txtManu.Text = Trim(ObjGF.GetManufacturersName(RS("MID")))
-                If Not IsDBNull(RS("ModelName")) Then txtModel.Text = Trim(RS("ModelName"))
-                If Not IsDBNull(RS("SerialNumber")) Then txtSerial.Text = Trim(RS("SerialNumber"))
-                If Not IsDBNull(RS("Type")) Then txtType.Text = Trim(RS("Type"))
+            Dim obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Call obj.ConnectDB()
+            Dim sql As String = "SELECT * from Gun_Collection where ID=" & ItemId
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            While rs.Read
+                Text = Trim(rs("fullname"))
+                txtManu.Text = Trim(objGf.GetManufacturersName(rs("MID")))
+                If Not IsDBNull(rs("ModelName")) Then txtModel.Text = Trim(rs("ModelName"))
+                If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = Trim(rs("SerialNumber"))
+                If Not IsDBNull(rs("Type")) Then txtType.Text = Trim(rs("Type"))
                 If Found(txtType.Text, "shotgun") Then Call AddChokeOption()
-                If Not IsDBNull(RS("Caliber")) Then txtCal.Text = Trim(RS("Caliber"))
-                If Not IsDBNull(RS("Finish")) Then txtFinish.Text = Trim(RS("Finish"))
-                If Not IsDBNull(RS("Condition")) Then cmdCondition.Text = Trim(RS("Condition"))
-                If Not IsDBNull(RS("Petloads")) Then txtPetLoads.Text = Trim(RS("Petloads"))
-                txtNationality.Text = Trim(ObjGF.GetNationalityName(RS("NatID")))
-                If Not IsDBNull(RS("Weight")) Then txtWeight.Text = Trim(RS("Weight"))
-                If Not IsDBNull(RS("Height")) Then txtLength.Text = Trim(RS("Height"))
-                If Not IsDBNull(RS("BarrelLength")) Then txtBarLen.Text = Trim(RS("BarrelLength"))
-                If Not IsDBNull(RS("BarrelWidth")) Then txtBarWid.Text = Trim(RS("BarrelWidth"))
-                If Not IsDBNull(RS("BarrelHeight")) Then txtBarHei.Text = Trim(RS("BarrelHeight"))
-                If Not IsDBNull(RS("CustomID")) Then txtCustCatID.Text = Trim(RS("CustomID"))
-                txtGripType.Text = Trim(ObjGF.GetGripName(RS("GripID")))
-                If Not IsDBNull(RS("Produced")) Then txtProduced.Text = Trim(RS("Produced"))
-                If Not IsDBNull(RS("Action")) Then txtAction.Text = Trim(RS("Action"))
-                If Not IsDBNull(RS("Feedsystem")) Then txtFeed.Text = Trim(RS("Feedsystem"))
-                If Not IsDBNull(RS("Sights")) Then txtSights.Text = Trim(RS("Sights"))
-                If Not IsDBNull(RS("StorageLocation")) Then txtStorage.Text = Trim(RS("StorageLocation"))
-                If Not IsDBNull(RS("PurchasedFrom")) Then txtPurchasedFrom.Text = Trim(RS("PurchasedFrom"))
-                If Not IsDBNull(RS("PurchasedPrice")) Then txtPurPrice.Text = Trim(RS("PurchasedPrice"))
-                If Not IsDBNull(RS("Importer")) Then txtImporter.Text = Trim(RS("Importer"))
-                If Not IsDBNull(RS("DBID")) Then BarrelID = CLng(RS("DBID"))
-                If Not IsDBNull(RS("SGChoke")) Then txtChoke.Text = Trim(RS("SGChoke"))
-                If Not IsDBNull(RS("IsInBoundBook")) Then
-                    If CInt(RS("IsInBoundBook")) = 0 Then
+                If Not IsDBNull(rs("Caliber")) Then txtCal.Text = Trim(rs("Caliber"))
+                If Not IsDBNull(rs("Finish")) Then txtFinish.Text = Trim(rs("Finish"))
+                If Not IsDBNull(rs("Condition")) Then cmdCondition.Text = Trim(rs("Condition"))
+                If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = Trim(rs("Petloads"))
+                txtNationality.Text = Trim(objGf.GetNationalityName(rs("NatID")))
+                If Not IsDBNull(rs("Weight")) Then txtWeight.Text = Trim(rs("Weight"))
+                If Not IsDBNull(rs("Height")) Then txtLength.Text = Trim(rs("Height"))
+                If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = Trim(rs("BarrelLength"))
+                If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = Trim(rs("BarrelWidth"))
+                If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = Trim(rs("BarrelHeight"))
+                If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = Trim(rs("CustomID"))
+                txtGripType.Text = Trim(objGf.GetGripName(rs("GripID")))
+                If Not IsDBNull(rs("Produced")) Then txtProduced.Text = Trim(rs("Produced"))
+                If Not IsDBNull(rs("Action")) Then txtAction.Text = Trim(rs("Action"))
+                If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = Trim(rs("Feedsystem"))
+                If Not IsDBNull(rs("Sights")) Then txtSights.Text = Trim(rs("Sights"))
+                If Not IsDBNull(rs("StorageLocation")) Then txtStorage.Text = Trim(rs("StorageLocation"))
+                If Not IsDBNull(rs("PurchasedFrom")) Then txtPurchasedFrom.Text = Trim(rs("PurchasedFrom"))
+                If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = Trim(rs("PurchasedPrice"))
+                If Not IsDBNull(rs("Importer")) Then txtImporter.Text = Trim(rs("Importer"))
+                If Not IsDBNull(rs("DBID")) Then BarrelId = CLng(rs("DBID"))
+                If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
+                If Not IsDBNull(rs("IsInBoundBook")) Then
+                    If CInt(rs("IsInBoundBook")) = 0 Then
                         chkBoundBook.Checked = False
                     Else
                         chkBoundBook.Checked = True
@@ -70,29 +69,29 @@ Public Class frmEditCollectionDetails
                 Else
                     chkBoundBook.Checked = True
                 End If
-                If Not IsDBNull(RS("TwistRate")) Then txtTwistOfRate.Text = Trim(RS("TwistRate"))
-                If Not IsDBNull(RS("lbs_trigger")) Then txtTriggerPull.Text = Trim(RS("lbs_trigger"))
-                If Not IsDBNull(RS("Caliber3")) Then txtCaliber3.Text = Trim(RS("Caliber3"))
-                If Not IsDBNull(RS("Classification")) Then cmbClassification.Text = Trim(RS("Classification"))
+                If Not IsDBNull(rs("TwistRate")) Then txtTwistOfRate.Text = Trim(rs("TwistRate"))
+                If Not IsDBNull(rs("lbs_trigger")) Then txtTriggerPull.Text = Trim(rs("lbs_trigger"))
+                If Not IsDBNull(rs("Caliber3")) Then txtCaliber3.Text = Trim(rs("Caliber3"))
+                If Not IsDBNull(rs("Classification")) Then cmbClassification.Text = Trim(rs("Classification"))
 
-                If Not IsDBNull(RS("DateofCR")) Then
+                If Not IsDBNull(rs("DateofCR")) Then
                     dtpDateofCR.Checked = True
-                    dtpDateofCR.Value = RS("DateofCR")
+                    dtpDateofCR.Value = rs("DateofCR")
                     dtpDateofCR.Enabled = True
                 End If
 
 
-                Dim iClassIII As Integer = 0
-                If Not IsDBNull(RS("IsClassIII")) Then iClassIII = RS("IsClassIII")
-                If Not IsDBNull(RS("ClassIII_owner")) Then txtClassIIIOwner.Text = RS("ClassIII_owner")
-                If iClassIII = 0 Then
+                Dim iClassIii As Integer = 0
+                If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
+                If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
+                If iClassIii = 0 Then
                     chkClassIII.Checked = False
                 Else
                     chkClassIII.Checked = True
                 End If
 
-                If Not IsDBNull(RS("IsCandR")) Then
-                    If CInt(RS("IsCandR")) = 0 Then
+                If Not IsDBNull(rs("IsCandR")) Then
+                    If CInt(rs("IsCandR")) = 0 Then
                         chkBoxCR.Checked = False
                     Else
                         chkBoxCR.Checked = True
@@ -100,56 +99,49 @@ Public Class frmEditCollectionDetails
                 Else
                     chkBoxCR.Checked = False
                 End If
-                If Not IsDBNull(RS("ReManDT")) Then
+                If Not IsDBNull(rs("ReManDT")) Then
                     dtpReManDT.Checked = True
-                    dtpReManDT.Value = RS("ReManDT")
+                    dtpReManDT.Value = rs("ReManDT")
                     dtpReManDT.Enabled = True
                 End If
-                If Not IsDBNull(RS("POI")) Then txtPOI.Text = Trim(RS("poi"))
-                'If chkBoxCR.Checked Then
-                'dtpReManDT.Enabled = True
-                'txtPOI.Enabled = True
-                'Else
-                'dtpReManDT.Enabled = False
-                'txtPOI.Enabled = False
-                'End If
+                If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
+
                 Call EnableDiableCandR()
 
-                If Not IsDBNull(RS("dtp")) Then
+                If Not IsDBNull(rs("dtp")) Then
                     dtpPurchased.Checked = True
-                    dtpPurchased.Value = RS("dtp")
+                    dtpPurchased.Value = rs("dtp")
                     dtpPurchased.Enabled = True
                 Else
                     dtpPurchased.Checked = True
-                    dtpPurchased.Value = RS("dt")
+                    dtpPurchased.Value = rs("dt")
                     dtpPurchased.Enabled = True
                 End If
-                If Not IsDBNull(RS("AppraisedValue")) Then txtAppValue.Text = Trim(RS("AppraisedValue"))
-                If Len(Trim(RS("AppraisalDate"))) <> 0 Then
+                If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = Trim(rs("AppraisedValue"))
+                If Len(Trim(rs("AppraisalDate"))) <> 0 Then
                     dtpAppDate.Checked = True
-                    dtpAppDate.Value = Trim(RS("AppraisalDate"))
+                    dtpAppDate.Value = Trim(rs("AppraisalDate"))
                     dtpAppDate.Enabled = True
                 End If
-                If Not IsDBNull(RS("AppraisedBy")) Then txtAppBy.Text = Trim(RS("AppraisedBy"))
-                If Not IsDBNull(RS("InsuredValue")) Then txtInsVal.Text = Trim(RS("InsuredValue"))
-                If Not IsDBNull(RS("ConditionComments")) Then txtConCom.Text = Trim(RS("ConditionComments"))
-                If Not IsDBNull(RS("AdditionalNotes")) Then txtAddNotes.Text = Trim(RS("AdditionalNotes"))
+                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = Trim(rs("AppraisedBy"))
+                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = Trim(rs("InsuredValue"))
+                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = Trim(rs("ConditionComments"))
+                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = Trim(rs("AdditionalNotes"))
 
-                If Not IsDBNull(RS("dtSold")) Then dtpSold.Value = RS("dtSold")
-                If CInt(RS("ItemSold")) = 1 Then
-                    IsSold = True
+                If Not IsDBNull(rs("dtSold")) Then dtpSold.Value = rs("dtSold")
+                If CInt(rs("ItemSold")) = 1 Then
+                    _isSold = True
                 Else
-                    IsSold = False
+                    _isSold = False
                 End If
-                Label34.Visible = IsSold
-                dtpSold.Visible = IsSold
+                Label34.Visible = _isSold
+                dtpSold.Visible = _isSold
             End While
-            RS.Close()
-            CMD = Nothing
-            Obj.CloseDB()
+            rs.Close()
+            obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -157,41 +149,41 @@ Public Class frmEditCollectionDetails
     ''' </summary>
     Sub AddChokeOption()
         If txtChoke.Visible Then Exit Sub
-        Dim MoveDownXPoints As Integer = 26
+        Dim moveDownXPoints As Integer = 26
         Label35.Visible = True
         txtChoke.Visible = True
         txtChoke.Location = New Point(txtStorage.Location.X, txtStorage.Location.Y)
         Label35.Location = New Point(Label27.Location.X, txtStorage.Location.Y)
-        Dim NewY As Integer = txtStorage.Location.Y + MoveDownXPoints
-        Dim OldX As Integer = txtStorage.Location.X
-        txtStorage.Location = New Point(OldX, NewY)
-        OldX = Label27.Location.X
-        Label27.Location = New Point(OldX, NewY)
-        NewY = Label9.Location.Y + MoveDownXPoints
-        OldX = Label9.Location.X
-        Label9.Location = New Point(OldX, NewY)
-        OldX = txtFinish.Location.X
-        txtFinish.Location = New Point(OldX, NewY)
-        NewY = Label6.Location.Y + MoveDownXPoints
-        OldX = Label6.Location.X
-        Label6.Location = New Point(OldX, NewY)
-        OldX = txtNationality.Location.X
-        txtNationality.Location = New Point(OldX, NewY)
-        NewY = Label13.Location.Y + MoveDownXPoints
-        OldX = Label13.Location.X
-        Label13.Location = New Point(OldX, NewY)
-        OldX = txtWeight.Location.X
-        txtWeight.Location = New Point(OldX, NewY)
-        NewY = Label14.Location.Y + MoveDownXPoints
-        OldX = Label14.Location.X
-        Label14.Location = New Point(OldX, NewY)
-        OldX = txtLength.Location.X
-        txtLength.Location = New Point(OldX, NewY)
-        NewY = Label15.Location.Y + MoveDownXPoints
-        OldX = Label15.Location.X
-        Label15.Location = New Point(OldX, NewY)
-        OldX = txtBarLen.Location.X
-        txtBarLen.Location = New Point(OldX, NewY)
+        Dim newY As Integer = txtStorage.Location.Y + moveDownXPoints
+        Dim oldX As Integer = txtStorage.Location.X
+        txtStorage.Location = New Point(oldX, newY)
+        oldX = Label27.Location.X
+        Label27.Location = New Point(oldX, newY)
+        newY = Label9.Location.Y + moveDownXPoints
+        oldX = Label9.Location.X
+        Label9.Location = New Point(oldX, newY)
+        oldX = txtFinish.Location.X
+        txtFinish.Location = New Point(oldX, newY)
+        newY = Label6.Location.Y + moveDownXPoints
+        oldX = Label6.Location.X
+        Label6.Location = New Point(oldX, newY)
+        oldX = txtNationality.Location.X
+        txtNationality.Location = New Point(oldX, newY)
+        newY = Label13.Location.Y + moveDownXPoints
+        oldX = Label13.Location.X
+        Label13.Location = New Point(oldX, newY)
+        oldX = txtWeight.Location.X
+        txtWeight.Location = New Point(oldX, newY)
+        newY = Label14.Location.Y + moveDownXPoints
+        oldX = Label14.Location.X
+        Label14.Location = New Point(oldX, newY)
+        oldX = txtLength.Location.X
+        txtLength.Location = New Point(oldX, newY)
+        newY = Label15.Location.Y + moveDownXPoints
+        oldX = Label15.Location.X
+        Label15.Location = New Point(oldX, newY)
+        oldX = txtBarLen.Location.X
+        txtBarLen.Location = New Point(oldX, newY)
     End Sub
     ''' <summary>
     ''' Handles the Load event of the frmEditCollectionDetails control.
@@ -200,43 +192,43 @@ Public Class frmEditCollectionDetails
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditCollectionDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
-            Me.Gun_Collection_ConditionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Condition)
+            Gun_Collection_ClassificationTableAdapter.Fill(MGCDataSet.Gun_Collection_Classification)
+            Gun_Collection_ConditionTableAdapter.Fill(MGCDataSet.Gun_Collection_Condition)
             If UseNumberCatOnly Then txtCustCatID.Text = 0
             txtPetLoads.Visible = UsePetLoads
             Label12.Visible = UsePetLoads
 
-            If Len(ItemID) <> 0 Then
+            If Len(ItemId) <> 0 Then
                 Call LoadData()
-                Dim ObjAF As New AutoFillCollections
-                txtManu.AutoCompleteCustomSource = ObjAF.Gun_Manufacturer()
-                txtModel.AutoCompleteCustomSource = ObjAF.Gun_Model
-                txtType.AutoCompleteCustomSource = ObjAF.Gun_Type
-                txtCal.AutoCompleteCustomSource = ObjAF.Gun_Cal
-                txtNationality.AutoCompleteCustomSource = ObjAF.Gun_Nationality
-                txtPurchasedFrom.AutoCompleteCustomSource = ObjAF.Gun_Shop_Details
-                txtGripType.AutoCompleteCustomSource = ObjAF.Gun_GripType
-                txtAction.AutoCompleteCustomSource = ObjAF.Gun_Collection_Action
-                txtStorage.AutoCompleteCustomSource = ObjAF.Gun_Collection_StorageLocation
-                txtCustCatID.AutoCompleteCustomSource = ObjAF.Gun_Collection_CustomID
-                txtFeed.AutoCompleteCustomSource = ObjAF.Gun_Collection_FeedSystem
-                txtSights.AutoCompleteCustomSource = ObjAF.Gun_Collection_Sights
-                txtPetLoads.AutoCompleteCustomSource = ObjAF.Gun_Cal
-                txtFinish.AutoCompleteCustomSource = ObjAF.Gun_Collection_Finish
-                txtImporter.AutoCompleteCustomSource = ObjAF.Gun_Collection_Importer
-                txtAppBy.AutoCompleteCustomSource = ObjAF.Appraisers_Name
-                txtCaliber3.AutoCompleteCustomSource = ObjAF.Gun_Cal
-                txtClassIIIOwner.AutoCompleteCustomSource = ObjAF.Gun_Collection_ClassIIIOwner
+                Dim objAf As New AutoFillCollections
+                txtManu.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
+                txtModel.AutoCompleteCustomSource = objAf.Gun_Model
+                txtType.AutoCompleteCustomSource = objAf.Gun_Type
+                txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
+                txtNationality.AutoCompleteCustomSource = objAf.Gun_Nationality
+                txtPurchasedFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
+                txtGripType.AutoCompleteCustomSource = objAf.Gun_GripType
+                txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
+                txtStorage.AutoCompleteCustomSource = objAf.Gun_Collection_StorageLocation
+                txtCustCatID.AutoCompleteCustomSource = objAf.Gun_Collection_CustomID
+                txtFeed.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
+                txtSights.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
+                txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
+                txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
+                txtImporter.AutoCompleteCustomSource = objAf.Gun_Collection_Importer
+                txtAppBy.AutoCompleteCustomSource = objAf.Appraisers_Name
+                txtCaliber3.AutoCompleteCustomSource = objAf.Gun_Cal
+                txtClassIIIOwner.AutoCompleteCustomSource = objAf.Gun_Collection_ClassIIIOwner
                 If Not Useselectiveboundbook Then
                     chkBoundBook.Checked = True
                     chkBoundBook.Enabled = False
                 End If
             Else
-                Me.Close()
+                Close()
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -245,7 +237,7 @@ Public Class frmEditCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnUpdate control.
@@ -254,8 +246,8 @@ Public Class frmEditCollectionDetails
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
-            Dim ObjGF As New GlobalFunctions
-            Dim Obj As New BSDatabase
+            Dim objGf As New GlobalFunctions
+            Dim obj As New BSDatabase
             Dim strManu As String = FluffContent(txtManu.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
             Dim strSerial As String = FluffContent(txtSerial.Text)
@@ -272,9 +264,9 @@ Public Class frmEditCollectionDetails
             Dim strBarLen As String = FluffContent(txtBarLen.Text)
             Dim strBarWid As String = FluffContent(txtBarWid.Text)
             Dim strBarHei As String = FluffContent(txtBarHei.Text)
-            Dim strCustCatID As String = FluffContent(txtCustCatID.Text)
-            Dim CustIDExists As Boolean = False
-            If Len(Trim(strCustCatID)) > 0 Then CustIDExists = ObjGF.CatalogIDExists(strCustCatID, CLng(ItemID))
+            Dim strCustCatId As String = FluffContent(txtCustCatID.Text)
+            Dim custIdExists As Boolean = False
+            If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId, CLng(ItemId))
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim sChoke As String = FluffContent(txtChoke.Text)
             Dim strProduced As String = FluffContent(txtProduced.Text)
@@ -286,9 +278,9 @@ Public Class frmEditCollectionDetails
             Dim strPurPrice As String = FluffContent(txtPurPrice.Text)
             Dim strPurDate As String = dtpPurchased.Value
             Dim strAppValue As String = FluffContent(txtAppValue.Text)
-            Dim IsDateApp As Boolean = dtpAppDate.Checked
+            Dim isDateApp As Boolean = dtpAppDate.Checked
             Dim strAppDate As String = "   "
-            If IsDateApp Then strAppDate = dtpAppDate.Value
+            If isDateApp Then strAppDate = dtpAppDate.Value
             Dim strAppBy As String = FluffContent(txtAppBy.Text)
             Dim strInsVal As String = FluffContent(txtInsVal.Text)
             Dim strConCom As String = FluffContent(txtConCom.Text)
@@ -300,32 +292,32 @@ Public Class frmEditCollectionDetails
             Dim sTwist As String = FluffContent(txtTwistOfRate.Text)
             Dim sTrigger As String = FluffContent(txtTriggerPull.Text)
             Dim sClassification As String = FluffContent(cmbClassification.Text)
-            Dim sDateOfCR As String = dtpDateofCR.Value
-            Dim iClassIII As Integer = 0
-            If chkClassIII.Checked Then iClassIII = 1
-            Dim sClassIIIOwner As String = FluffContent(txtClassIIIOwner.Text)
+            Dim sDateOfCr As String = dtpDateofCR.Value
+            Dim iClassIii As Integer = 0
+            If chkClassIII.Checked Then iClassIii = 1
+            Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
 
-            If Not Disableuniquecustcatid Then If CustIDExists Then MsgBox(ObjGF.CatalogExistsDetails(strCustCatID, CLng(ItemID))) : Exit Sub
-            If Not IsRequired(strManu, "Manufacturer", Me.Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Me.Text) Then Exit Sub
-            If Not IsRequired(strSerial, "Serial", Me.Text) Then Exit Sub
-            If Not IsRequired(strType, "Type", Me.Text) Then Exit Sub
-            If Not IsRequired(strCal, "Caliber Or Gauge", Me.Text) Then Exit Sub
+            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId, CLng(ItemId))) : Exit Sub
+            If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
+            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
+            If Not IsRequired(strSerial, "Serial", Text) Then Exit Sub
+            If Not IsRequired(strType, "Type", Text) Then Exit Sub
+            If Not IsRequired(strCal, "Caliber Or Gauge", Text) Then Exit Sub
 
             If chkBoxCR.Checked Then intIsCandR = 1
-            Dim strFullName As String = strManu & " " & strModel
-            Dim lngManID As Long = ObjGF.GetManufacturersID(strManu)
-            Dim lngModelID As Long = ObjGF.GetModelID(strModel, lngManID)
-            Dim lngNationalityID As Long = ObjGF.GetNationalityID(strRegion)
-            Dim lngGripID As Long = ObjGF.GetGripID(strGripType)
-            Dim intHasAss As Integer = 0
-            Dim sReManDT As String = dtpReManDT.Value
-            Dim sPOI As String = FluffContent(txtPOI.Text)
 
-            Dim SQL As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManID &
-                    ", ModelName='" & strModel & "', ModelID=" & lngModelID & ", SerialNumber='" &
+            Dim lngManId As Long = objGf.GetManufacturersID(strManu)
+            Dim lngModelId As Long = objGf.GetModelID(strModel, lngManId)
+            Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
+            Dim lngGripId As Long = objGf.GetGripID(strGripType)
+
+            Dim sReManDt As String = dtpReManDT.Value
+            Dim sPoi As String = FluffContent(txtPOI.Text)
+
+            Dim sql As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManId &
+                    ", ModelName='" & strModel & "', ModelID=" & lngModelId & ", SerialNumber='" &
                     strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" &
-                    strCondition & "', CustomID=" & ObjGF.SetCatalogINSType(strCustCatID) & ", NatID=" & lngNationalityID & ", gripid=" & lngGripID &
+                    strCondition & "', CustomID=" & objGf.SetCatalogINSType(strCustCatId) & ", NatID=" & lngNationalityId & ", gripid=" & lngGripId &
                     ", Qty=" & strQty & ", Weight='" & strWeight & "', Height='" & strLength & "', StockType='" & strGripType &
                     "', BarrelLength='" & strBarLen & "', BarrelWidth='" & strBarWid & "', BarrelHeight='" &
                     strBarHei & "', Action='" & strAction & "', FeedSystem='" & strfeed & "', Sights='" & strSights &
@@ -334,38 +326,38 @@ Public Class frmEditCollectionDetails
                      strStorage & "', ConditionComments='" & strConCom & "', AdditionalNotes='" & strAddNotes & "', Produced='" &
                      strProduced & "', IsCandR=" & intIsCandR & ", PetLoads='" & strPetLoads &
                     "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " &
-                    "ReManDT='" & sReManDT & "', POI='" & sPOI & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook &
+                    "ReManDT='" & sReManDt & "', POI='" & sPoi & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook &
                     ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 &
-                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCR & "', sync_lastupdate=now(),IsClassIII=" &
-                    iClassIII & ",ClassIII_owner='" & sClassIIIOwner & "'"
-            If IsSold Then SQL &= ", dtsold='" & dtpSold.Value & "'"
-            SQL &= " where ID=" & ItemID
-            Obj.ConnExec(SQL)
-            SQL = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish &
+                    "',Classification='" & sClassification & "',DateofCR='" & sDateOfCr & "', sync_lastupdate=now(),IsClassIII=" &
+                    iClassIii & ",ClassIII_owner='" & sClassIiiOwner & "'"
+            If _isSold Then sql &= ", dtsold='" & dtpSold.Value & "'"
+            sql &= " where ID=" & ItemId
+            obj.ConnExec(sql)
+            sql = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish &
                     "',BarrelLength='" & strBarLen & "',PetLoads='" & strPetLoads & "',Action='" &
                     strAction & "',Feedsystem='" & strAction & "',Sights='" & strSights &
                     "',PurchasedPrice='" & strPurPrice & "',PurchasedFrom='" & strPurchasedFrom &
-                    "',Height='" & strLength & "',Type='" & strType & "', sync_lastupdate=now() where ID=" & BarrelID
-            Obj.ConnExec(SQL)
+                    "',Height='" & strLength & "',Type='" & strType & "', sync_lastupdate=now() where ID=" & BarrelId
+            obj.ConnExec(sql)
             If Len(strPurchasedFrom) <> 0 Then
-                If Not ObjGF.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
-                    Call Obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
+                If Not objGf.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
+                    Call obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
                 End If
-                Dim GSID As Long = ObjGF.GetGunShopID(strPurchasedFrom)
-                SQL = "UPDATE Gun_Collection set SID=" & GSID & ",sync_lastupdate=Now() where ID=" & ItemID
-                Obj.ConnExec(SQL)
+                Dim gsid As Long = objGf.GetGunShopID(strPurchasedFrom)
+                sql = "UPDATE Gun_Collection set SID=" & gsid & ",sync_lastupdate=Now() where ID=" & ItemId
+                obj.ConnExec(sql)
             End If
 
-            If Not ObjGF.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
-                Call Obj.InsertNewContact(strAppBy, "Appriaser_Contact_Details", "aName")
+            If Not objGf.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
+                Call obj.InsertNewContact(strAppBy, "Appriaser_Contact_Details", "aName")
             End If
 
-            If Not ObjGF.CaliberExists(strCal) Then Obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
+            If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
             MDIParent1.RefreshCollection()
-            Me.Close()
+            Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmDBCleanup
+Partial Class FrmDbCleanup
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

@@ -1,5 +1,6 @@
 Imports System.IO
 Imports BSMyGunCollection.MGC
+
 ''' <summary>
 ''' Class AboutBox1. This class cannot be inherited.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -9,22 +10,22 @@ Public NotInheritable Class AboutBox1
     'When the form Loads, populate the fields
     Private Sub AboutBox1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         ' Set the title of the form.
-        Dim ApplicationTitle As String
+        Dim applicationTitle As String
         If My.Application.Info.Title <> "" Then
-            ApplicationTitle = My.Application.Info.Title
+            applicationTitle = My.Application.Info.Title
         Else
-            ApplicationTitle = Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
+            applicationTitle = Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
-        Me.Text = String.Format("About {0}", ApplicationTitle)
-        Me.LabelProductName.Text = My.Application.Info.ProductName
-        Dim ObjGF As New GlobalFunctions
-        Me.LabelVersion.Text = String.Format("App Version {0}", Application.ProductVersion.ToString) & "  ,  " & String.Format("DB Version {0}", ObjGF.DatabaseVersion)
-        Me.LabelCopyright.Text = My.Application.Info.Copyright
-        Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        Text = String.Format("About {0}", applicationTitle)
+        LabelProductName.Text = My.Application.Info.ProductName
+        Dim objGf As New GlobalFunctions
+        LabelVersion.Text = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", objGf.DatabaseVersion)
+        LabelCopyright.Text = My.Application.Info.Copyright
+        LabelCompanyName.Text = My.Application.Info.CompanyName
+        TextBoxDescription.Text = My.Application.Info.Description
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OKButton.Click
-        Me.Close()
+        Close()
     End Sub
 End Class

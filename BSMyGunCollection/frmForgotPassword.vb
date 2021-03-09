@@ -3,8 +3,7 @@
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-' ReSharper disable once InconsistentNaming
-Public Class frmForgotPassword
+Public Class FrmForgotPassword
     ''' <summary>
     ''' Handles the Load event of the frmForgotPassword control.
     ''' </summary>
@@ -21,8 +20,7 @@ Public Class frmForgotPassword
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAnswer_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAnswer.Click
         Dim strword As String = Trim(txtWord.Text)
-' ReSharper disable once RedundantAssignment
-        Dim sMsg As String = ""
+        Dim sMsg As String 
         If strword = UseMyForgotWord Then
             sMsg = "Your password is " & UseMyPwd
             txtWord.Text = ""

@@ -1,17 +1,18 @@
 Imports BSMyGunCollection.MGC
+
 ''' <summary>
 ''' Class frmAddManufacturer.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmAddManufacturer
+Public Class FrmAddManufacturer
     ''' <summary>
     ''' Handles the Click event of the Button2 control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
@@ -21,22 +22,22 @@ Public Class frmAddManufacturer
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
-            If Not IsRequired(strMan, "Manufacturer's Name", Me.Text) Then Exit Sub
-            Dim ObjGF As New GlobalFunctions
-            If Not ObjGF.ObjectExistsinDB(strMan, "Brand", "Gun_Manufacturer") Then
-                Dim Obj As New BSDatabase
-                Dim SQL As String = "INSERT INTO Gun_Manufacturer(Brand,sync_lastupdate) VALUES('" & strMan & "',Now())"
-                Obj.ConnExec(SQL)
-                MsgBox(strMan & " was added to the database!", MsgBoxStyle.Information, Me.Text)
+            If Not IsRequired(strMan, "Manufacturer's Name", Text) Then Exit Sub
+            Dim objGf As New GlobalFunctions
+            If Not objGf.ObjectExistsinDB(strMan, "Brand", "Gun_Manufacturer") Then
+                Dim obj As New BSDatabase
+                Dim sql As String = "INSERT INTO Gun_Manufacturer(Brand,sync_lastupdate) VALUES('" & strMan & "',Now())"
+                obj.ConnExec(sql)
+                MsgBox(strMan & " was added to the database!", MsgBoxStyle.Information, Text)
                 txtMan.Text = ""
-                'Me.Close()
+                'Close()
             Else
-                MsgBox(strMan & " already existed in the database!", MsgBoxStyle.Critical, Me.Text)
+                MsgBox(strMan & " already existed in the database!", MsgBoxStyle.Critical, Text)
                 txtMan.Text = ""
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -46,11 +47,11 @@ Public Class frmAddManufacturer
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddManufacturer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim ObjAF As New AutoFillCollections
-            txtMan.AutoCompleteCustomSource = ObjAF.Gun_Manufacturer()
+            Dim objAf As New AutoFillCollections
+            txtMan.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -59,7 +60,7 @@ Public Class frmAddManufacturer
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub chkKTop_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkKTop.CheckedChanged
-        Me.TopMost = chkKTop.Checked
-        Me.MdiParent = Nothing
+        TopMost = chkKTop.Checked
+        MdiParent = Nothing
     End Sub
 End Class

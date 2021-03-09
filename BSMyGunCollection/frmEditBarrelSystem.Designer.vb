@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmEditBarrelSystem
+Partial Class FrmEditBarrelSystem
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

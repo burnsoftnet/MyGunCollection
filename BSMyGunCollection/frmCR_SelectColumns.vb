@@ -51,9 +51,9 @@ Public Class frmCR_SelectColumns
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGetData.Click
-        Dim frmnew As New frmCR_ViewReport
+        Dim frmnew As New FrmCrViewReport
         If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSQL()
-        frmnew.SQL = txtSQL.Text
+        frmnew.Sql = txtSQL.Text
         frmnew.MdiParent = Me.MdiParent
         frmnew.Show()
     End Sub

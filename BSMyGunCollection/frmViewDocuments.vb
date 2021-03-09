@@ -219,7 +219,7 @@ Public Class FrmViewDocuments
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim frmNew As New frmAddDocument
-        frmNew.DID = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+        frmNew.Did = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         frmNew.EditMode = True
         frmNew.MdiParent = MdiParent
         frmNew.Show()

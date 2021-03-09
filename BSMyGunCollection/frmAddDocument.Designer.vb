@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmAddDocument
+Partial Class FrmAddDocument
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

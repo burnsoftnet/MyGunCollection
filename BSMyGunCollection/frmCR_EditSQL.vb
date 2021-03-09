@@ -54,8 +54,8 @@ Public Class frmCR_EditSQL
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnViewInReport_Click(sender As Object, e As EventArgs) Handles btnViewInReport.Click
-        Dim frmnew As New frmCR_ViewReport
-        frmnew.SQL = txtSQL.Text
+        Dim frmnew As New FrmCrViewReport
+        frmnew.Sql = txtSQL.Text
         frmnew.MdiParent = Me.MdiParent
         frmnew.Show()
     End Sub

@@ -96,8 +96,8 @@ Public Class frmCR_SelectTable
             Dim ReportName As String = ComboBox2.Text
             Dim ObjGF As New GlobalFunctions
             Dim SQL As String = ObjGF.GetReportSQL(SRID)
-            Dim frmnew As New frmCR_ViewReport
-            frmnew.SQL = Replace(SQL, "''", "'")
+            Dim frmnew As New FrmCrViewReport
+            frmnew.Sql = Replace(SQL, "''", "'")
             frmnew.ReportName = ReportName
             frmnew.MdiParent = Me.MdiParent
             frmnew.Show()

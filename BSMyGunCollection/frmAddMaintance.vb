@@ -1,16 +1,15 @@
 Imports BSMyGunCollection.MGC
+
 ''' <summary>
 ''' Class frmAddMaintance.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-' ReSharper disable InconsistentNaming
-Public Class frmAddMaintance
-' ReSharper restore InconsistentNaming
+Public Class FrmAddMaintance
     ''' <summary>
     ''' The gun id
     ''' </summary>
-    Public GID As String
+    Public Gid As String
     ''' <summary>
     ''' The ammo type
     ''' </summary>
@@ -26,7 +25,7 @@ Public Class frmAddMaintance
     ''' <summary>
     ''' The bsid
     ''' </summary>
-    Public BSID As String
+    Public Bsid As String
     ''' <summary>
     ''' Handles the Load event of the frmAddMaintance control.
     ''' </summary>
@@ -34,10 +33,10 @@ Public Class frmAddMaintance
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddMaintance_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Me.Maintance_PlansTableAdapter.Fill(Me.MGCDataSet.Maintance_Plans)
+            Maintance_PlansTableAdapter.Fill(MGCDataSet.Maintance_Plans)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -47,13 +46,13 @@ Public Class frmAddMaintance
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnViewPlans_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnViewPlans.Click
         Try
-            frmViewMaintancePlan.MdiParent = Me.MdiParent
-            Dim strID As String = ComboBox1.SelectedValue
-            frmViewMaintancePlan.Id = strID
+            frmViewMaintancePlan.MdiParent = MdiParent
+            Dim strId As String = ComboBox1.SelectedValue
+            frmViewMaintancePlan.Id = strId
             frmViewMaintancePlan.Show()
         Catch ex As Exception
             Dim sSubFunc As String = "btnViewPlans_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -62,7 +61,7 @@ Public Class frmAddMaintance
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
@@ -71,27 +70,27 @@ Public Class frmAddMaintance
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim strID As String = ComboBox1.SelectedValue
+            Dim strId As String = ComboBox1.SelectedValue
             Dim strName As String = FluffContent(ComboBox1.Text)
-            Dim strOD As String = DateTimePicker1.Value
-            Dim strODDue As String = DateTimePicker2.Value
-            Dim strODRF As String = NumericUpDown1.Value
+            Dim strOd As String = DateTimePicker1.Value
+            Dim strOdDue As String = DateTimePicker2.Value
+            Dim strOdrf As String = NumericUpDown1.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            Dim InAvg As Boolean = chkInAVG.Checked
-            Dim sAU As String = FluffContent(txtAmmoUsed.Text)
+            Dim inAvg As Boolean = chkInAVG.Checked
+            Dim sAu As String = FluffContent(txtAmmoUsed.Text)
             Dim iAvg As Integer = 0
-            If InAvg Then iAvg = 1
-            If Not IsRequired(strName, "Maintenance Plan", Me.Text) Then Exit Sub
-            Dim SQL As String = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,au,BSID,DC,sync_lastupdate) VALUES(" &
-                        GID & "," & strID & ",'" & strName & "','" & strOD & "','" & strODDue & "','" &
-                        strODRF & "','" & strNotes & "','" & sAU & "'," & BSID & "," & iAvg & ",Now())"
-            Dim Obj As New BSDatabase
-            Obj.ConnExec(SQL)
-            MsgBox(strName & " was added!", MsgBoxStyle.Information, Me.Text)
-            Me.Close()
+            If inAvg Then iAvg = 1
+            If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
+            Dim sql As String = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,au,BSID,DC,sync_lastupdate) VALUES(" &
+                        Gid & "," & strId & ",'" & strName & "','" & strOd & "','" & strOdDue & "','" &
+                        strOdrf & "','" & strNotes & "','" & sAu & "'," & Bsid & "," & iAvg & ",Now())"
+            Dim obj As New BSDatabase
+            obj.ConnExec(sql)
+            MsgBox(strName & " was added!", MsgBoxStyle.Information, Text)
+            Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -100,7 +99,7 @@ Public Class frmAddMaintance
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
-        frmAmmoCalc.MdiParent = Me.MdiParent
+        frmAmmoCalc.MdiParent = MdiParent
         frmAmmoCalc.AmmoType = AmmoType
         frmAmmoCalc.AmmoTypePet = AmmoTypePet
         frmAmmoCalc.AmmoTypeCal3 = AmmoTypeCal3

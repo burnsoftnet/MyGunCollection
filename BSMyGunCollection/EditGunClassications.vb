@@ -22,9 +22,6 @@ Public Class EditGunClassications
     Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
         If UpdatePending Then
             Gun_Collection_ClassificationTableAdapter.Update(MGCDataSet.Gun_Collection_Classification)
-            'TODO #43 Delete unused code
-            'Dim Obj As New MGC.BSDatabase
-            'Obj.UpdateSyncDataTables("Gun_Collection_Classification")
             Dim errOut As String = ""
             If Not Database.UpdateSyncDataTables(DatabasePath,"Gun_Collection_Classification",errOut ) Then Throw New Exception(errOut)
             UpdatePending = False

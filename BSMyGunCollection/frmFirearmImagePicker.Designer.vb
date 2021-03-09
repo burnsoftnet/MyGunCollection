@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmFirearmImagePicker
+Partial Class FrmFirearmImagePicker
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

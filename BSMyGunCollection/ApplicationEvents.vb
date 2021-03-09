@@ -1,54 +1,61 @@
 Imports System.Collections.ObjectModel
 Imports BSMyGunCollection.MGC
 Imports System.Configuration
-Imports System.Security.Principal
+''' <summary>
+''' The My namespace.
+''' </summary>
+' ReSharper disable once CheckNamespace
 Namespace My
     Partial Friend Class MyApplication
-        'when the application initialize, setup the running path of the database and where the log file is going to be loaded.
+        'when the application initialize, setup the running path of the database and where the log file is going to be loaded.        
+        ''' <summary>
+        ''' Sets the visual styles, text display styles, and current principal for the main application thread (if the application uses Windows authentication), and initializes the splash screen, if defined.
+        ''' </summary>
+        ''' <param name="commandLineArgs">A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1" /> of <see langword="String" />, containing the command-line arguments as strings for the current application.</param>
+        ''' <returns>A <see cref="T:System.Boolean" /> indicating if application startup should continue.</returns>
+' ReSharper disable once ParameterHidesMember
         Protected Overrides Function OnInitialize(ByVal commandLineArgs As ReadOnlyCollection(Of String)) As Boolean
-            Dim Objf As New BSFileSystem
+            Dim objf As New BSFileSystem
             Try
-                Dim Debug_MSG As String = ""
-                Dim NL As String = vbCrLf
+                Dim debugMsg As String = ""
+                Dim nl As String = vbCrLf
 
                 DebugMode = ConfigurationManager.AppSettings("DEBUG_MODE")
-                Dim AppDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
-                Dim APPDATAPATH_EXISTS As Boolean = Objf.DirectoryExists(AppDataPath)
-                ApplicationPath = System.Windows.Forms.Application.StartupPath
+                Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
+                Dim appdatapathExists As Boolean = objf.DirectoryExists(appDataPath)
+                ApplicationPath = Windows.Forms.Application.StartupPath
                 ApplicationPathData = ApplicationPath
-                Debug_MSG &= NL & "AppDataPath=" & AppDataPath
-                If APPDATAPATH_EXISTS Then
-                    Debug_MSG &= NL & "Found Application Data Path"
-                    If Objf.FileExists(AppDataPath & "\" & DatabaseName) Then
-                        Debug_MSG &= NL & "Found Application Data"
-                        ApplicationPathData = AppDataPath
+                debugMsg &= nl & "AppDataPath=" & appDataPath
+                If appdatapathExists Then
+                    debugMsg &= nl & "Found Application Data Path"
+                    If objf.FileExists(appDataPath & "\" & DatabaseName) Then
+                        debugMsg &= nl & "Found Application Data"
+                        ApplicationPathData = appDataPath
                     End If
                 End If
                 DatabasePath = ApplicationPathData & "\" & DatabaseName
                 AppDomain.CurrentDomain.SetData("DataDirectory", ApplicationPathData)
-                Debug_MSG &= NL & "Application Data Path=" & ApplicationPathData
-                Debug_MSG &= NL & "Application Path=" & ApplicationPath
-                Debug_MSG &= NL & "OS Version=" & Environment.OSVersion.Version.Major
+                debugMsg &= nl & "Application Data Path=" & ApplicationPathData
+                debugMsg &= nl & "Application Path=" & ApplicationPath
+                debugMsg &= nl & "OS Version=" & Environment.OSVersion.Version.Major
 
-                Dim BATCH_EXISTS As Boolean = Objf.FileExists(ApplicationPath & "\srh.bat")
-                Dim INI_EXISTS As Boolean = Objf.FileExists(ApplicationPath & "\hotfix.ini")
+                Dim batchExists As Boolean = objf.FileExists(ApplicationPath & "\srh.bat")
+                Dim iniExists As Boolean = objf.FileExists(ApplicationPath & "\hotfix.ini")
 
                 MyLogFile = ApplicationPathData & "\err.log"
 
-                If BATCH_EXISTS Or INI_EXISTS Then
-                    If BATCH_EXISTS Then Debug_MSG &= NL & "srh.bat exists"
-                    If INI_EXISTS Then Debug_MSG &= NL & "hotfix.ini exists"
+                If batchExists Or iniExists Then
+                    If batchExists Then debugMsg &= nl & "srh.bat exists"
+                    If iniExists Then debugMsg &= nl & "hotfix.ini exists"
                     Dim myProcess As New Process
-                    Dim RunThiSApp As String = ApplicationPath & "\" & MyHotfixFile
-                    myProcess.StartInfo.FileName = RunThiSApp
+                    Dim runThiSApp As String = ApplicationPath & "\" & MyHotfixFile
+                    myProcess.StartInfo.FileName = runThiSApp
                     myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                     DoAutoBackup = False
                     myProcess.Start()
-                    System.Windows.Forms.Application.Exit()
+                    Windows.Forms.Application.Exit()
                 End If
-                Call Buggerme("My.MyApplication.OnInitialize", Debug_MSG)
-                Dim ObjGF As New GlobalFunctions
-                Dim IsComp As Boolean = ObjGF.DBIsCompliant
+                Call Buggerme("My.MyApplication.OnInitialize", debugMsg)
                 Return MyBase.OnInitialize(commandLineArgs)
             Catch ex As Exception
                 Dim strProcedure As String = "OnInitialize"

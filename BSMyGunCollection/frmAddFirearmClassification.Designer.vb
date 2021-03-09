@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmAddFirearmClassification
+Partial Class FrmAddFirearmClassification
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

@@ -401,7 +401,7 @@ Public Class MdiParent1
     Private Sub EditToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim myValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemID = myValue
+        frmNew.ItemId = myValue
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -555,7 +555,7 @@ Public Class MdiParent1
             Dim itemId As Long = ListBox1.SelectedValue
             Dim frmNew As New frmAddFirearm
             frmNew.IsCopy = True
-            frmNew.CopyID = itemId
+            frmNew.CopyId = itemId
             frmNew.MdiParent = Me
             frmNew.Show()
         Catch ex As Exception

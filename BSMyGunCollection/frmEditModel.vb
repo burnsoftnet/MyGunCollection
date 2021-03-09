@@ -79,7 +79,7 @@ Public Class frmEditModel
             Dim Manu As String = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value.ToString
             Dim Model As String = DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value.ToString
             Dim frmNew As New frmEditModelTypes
-            frmNew.ModelID = MyID
+            frmNew.ModelId = MyID
             frmNew.ModelName = Model
             frmNew.ManufacturersName = Manu
             frmNew.MdiParent = Me.MdiParent

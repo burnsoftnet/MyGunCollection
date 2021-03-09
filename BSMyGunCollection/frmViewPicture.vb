@@ -320,7 +320,7 @@ Public Class FrmViewPicture
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditDetailsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditDetailsToolStripMenuItem.Click
         frmEditPicturedetails.MdiParent = MdiParent
-        frmEditPicturedetails.PID = MyId
+        frmEditPicturedetails.Pid = MyId
         frmEditPicturedetails.Show()
         Close()
     End Sub

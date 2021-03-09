@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmForSale
+Partial Class FrmForSale
     Inherits Form
 
     'Form overrides dispose to clean up the component list.

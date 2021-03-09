@@ -6,8 +6,7 @@ Imports BurnSoft.Applications.MGC.AutoFill
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-' ReSharper disable once InconsistentNaming
-Public Class frmAddBarrelSystem
+Public Class FrmAddBarrelSystem
     ''' <summary>
     ''' The gid
     ''' </summary>
@@ -27,15 +26,6 @@ Public Class frmAddBarrelSystem
             txtPurFrom.AutoCompleteCustomSource = Gun.ShopDetails(DatabasePath,errOut)
             txtSysType.AutoCompleteCustomSource = GunCollection.BarrelSysTypes(DatabasePath,errOut)
 
-            'Dim objAf As New AutoFillCollections
-            'txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
-            'txtFeedSys.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
-            'txtSight.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
-            'txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-            'txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
-            'txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
-            'txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
-            'txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
         Catch ex As Exception
             Dim sSubFunc As String = "AutoFill"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -102,8 +92,8 @@ Public Class frmAddBarrelSystem
             Dim petLoads As String = FluffContent(txtPetLoads.Text)
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
-            Dim iDefault As Integer = 0
-            Dim sql As String = ""
+            Dim iDefault As Integer 
+            Dim sql As String 
 
             If Not IsRequired(sName, "Name", Text) Then Exit Sub
             If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
@@ -127,7 +117,7 @@ Public Class frmAddBarrelSystem
 
             obj.ConnExec(sql)
             Dim barrelId As Long = objGf.GetBarrelID(Gid)
-            Dim defaultBarrelId As Long = 0
+            Dim defaultBarrelId As Long
             sql = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & barrelId &
                     "," & Gid & ",Now())"
             obj.ConnExec(sql)
@@ -153,6 +143,6 @@ Public Class frmAddBarrelSystem
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
 End Class
