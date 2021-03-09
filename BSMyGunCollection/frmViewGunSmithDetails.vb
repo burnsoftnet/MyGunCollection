@@ -1,56 +1,78 @@
-﻿Imports System.Data
-Imports System.Data.Odbc
+﻿Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
-Public Class frmViewGunSmithDetails
-    Public ShopID As String
+''' <summary>
+''' Class FrmViewGunSmithDetails.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewGunSmithDetails
+    ''' <summary>
+    ''' The shop identifier
+    ''' </summary>
+    Public ShopId As String
+    ''' <summary>
+    ''' The shop name
+    ''' </summary>
     Public ShopName As String
+    ''' <summary>
+    ''' Pops the data.
+    ''' </summary>
     Sub PopData()
         Try
-            Dim Obj As New BSDatabase
-            Dim intSIB As Integer = 0
-            Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from GunSmith_Contact_Details where ID=" & ShopID
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            If RS.HasRows Then
-                While (RS.Read)
-                    If Not IsDBNull(RS("gName")) Then txtName.Text = RS("gName")
-                    If Not IsDBNull(RS("Address1")) Then txtAddress1.Text = RS("Address1")
-                    If Not IsDBNull(RS("Address2")) Then txtAddress2.Text = RS("Address2")
-                    If Not IsDBNull(RS("City")) Then txtCity.Text = RS("City")
-                    If Not IsDBNull(RS("State")) Then txtState.Text = RS("State")
-                    If Not IsDBNull(RS("Country")) Then txtCountry.Text = RS("Country")
-                    If Not IsDBNull(RS("Phone")) Then txtPhone.Text = RS("Phone")
-                    If Not IsDBNull(RS("fax")) Then txtFax.Text = RS("fax")
-                    If Not IsDBNull(RS("website")) Then txtWebSite.Text = RS("website")
-                    If Not IsDBNull(RS("email")) Then txteMail.Text = RS("email")
-                    If Not IsDBNull(RS("lic")) Then txtLic.Text = RS("lic")
-                    If Not IsDBNull(RS("Zip")) Then txtZip.Text = RS("Zip")
+            Dim obj As New BSDatabase
+' ReSharper disable RedundantAssignment
+            Dim intSib As Integer = 0
+' ReSharper restore RedundantAssignment
+            Call obj.ConnectDB()
+            Dim sql As String = "SELECT * from GunSmith_Contact_Details where ID=" & ShopId
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            If rs.HasRows Then
+                While (rs.Read)
+                    If Not IsDBNull(rs("gName")) Then txtName.Text = rs("gName")
+                    If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
+                    If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
+                    If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
+                    If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
+                    If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
+                    If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
+                    If Not IsDBNull(rs("fax")) Then txtFax.Text = rs("fax")
+                    If Not IsDBNull(rs("website")) Then txtWebSite.Text = rs("website")
+                    If Not IsDBNull(rs("email")) Then txteMail.Text = rs("email")
+                    If Not IsDBNull(rs("lic")) Then txtLic.Text = rs("lic")
+                    If Not IsDBNull(rs("Zip")) Then txtZip.Text = rs("Zip")
                     ShopName = txtName.Text
-                    intSIB = CInt(RS("SIB"))
-                    If intSIB = 1 Then
+                    intSib = CInt(rs("SIB"))
+                    If intSib = 1 Then
                         chkSIB.Checked = True
                     Else
                         chkSIB.Checked = False
                     End If
                 End While
             Else
-                Me.Close()
+                Close()
             End If
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Call Obj.CloseDB()
+            rs.Close()
+
+            Call obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "PopLoad"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewGunSmithDetails control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewGunSmithDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call PopData()
-        Me.Gun_Collection_GunSmithsTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_GunSmiths, txtName.Text)
+        Gun_Collection_GunSmithsTableAdapter.Fill(MGCDataSet.Gun_Collection_GunSmiths, txtName.Text)
     End Sub
+    ''' <summary>
+    ''' Enableds the form.
+    ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False
         txtAddress1.ReadOnly = False
@@ -68,6 +90,9 @@ Public Class frmViewGunSmithDetails
         btnSave.Visible = True
         btnEdit.Visible = False
     End Sub
+    ''' <summary>
+    ''' Disables the form.
+    ''' </summary>
     Sub DisableForm()
         txtName.ReadOnly = True
         txtAddress1.ReadOnly = True
@@ -85,10 +110,19 @@ Public Class frmViewGunSmithDetails
         btnEdit.Visible = True
         btnSave.Visible = False
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnEdit control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         Call EnabledForm()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnSave control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
@@ -104,32 +138,39 @@ Public Class frmViewGunSmithDetails
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
             Dim bInBusiness As Boolean = chkSIB.Checked
-            Dim intSIB As Integer = 0
-            Dim SQL As String = ""
-            If Not IsRequired(strName, "Name", Me.Text) Then Exit Sub
-            If bInBusiness Then intSIB = 1
-            Dim Obj As New BSDatabase
-            SQL = "UPDATE GunSmith_Contact_Details set gName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
+            Dim intSib As Integer = 0
+            Dim sql As String
+' ReSharper disable RedundantAssignment
+            sql = ""
+' ReSharper restore RedundantAssignment
+            If Not IsRequired(strName, "Name", Text) Then Exit Sub
+            If bInBusiness Then intSib = 1
+            Dim obj As New BSDatabase
+            sql = "UPDATE GunSmith_Contact_Details set gName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
                     strAddress2 & "',City='" & strCity & "',State='" & strState & "', Zip='" & _
                     strZip & "',Phone='" & strPhone & "', Country='" & strCountry & _
                     "',Fax='" & strFax & "',eMail='" & stremail & "',website='" & _
-                    strWebsite & "',Lic='" & strLic & "', SIB=" & intSIB & ",sync_lastupdate=Now() where ID=" & ShopID
-            Obj.ConnExec(SQL)
+                    strWebsite & "',Lic='" & strLic & "', SIB=" & intSib & ",sync_lastupdate=Now() where ID=" & ShopId
+            obj.ConnExec(sql)
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Gunsmith Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Gunsmith Name Change Alert!")
                 If sAns = vbYes Then
-                    SQL = "update GunSmith_Details set gsmith='" & strName & "' where gsmith='" & FluffContent(ShopName) & "'"
-                    Obj.ConnExec(SQL)
+                    sql = "update GunSmith_Details set gsmith='" & strName & "' where gsmith='" & FluffContent(ShopName) & "'"
+                    obj.ConnExec(sql)
                 End If
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "btnSave.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
         Call DisableForm()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
 End Class

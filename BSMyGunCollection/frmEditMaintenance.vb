@@ -88,7 +88,7 @@ Public Class frmEditMaintenance
         Try
             frmViewMaintancePlan.MdiParent = Me.MdiParent
             Dim strID As String = ComboBox1.SelectedValue
-            frmViewMaintancePlan.ID = strID
+            frmViewMaintancePlan.Id = strID
             frmViewMaintancePlan.Show()
         Catch ex As Exception
             Dim sSubFunc As String = "btnViewPlans_Click"

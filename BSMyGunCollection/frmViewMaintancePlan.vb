@@ -1,43 +1,68 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
-Public Class frmViewMaintancePlan
-    Public ID As String
+''' <summary>
+''' Class FrmViewMaintancePlan.
+''' Implements the <see cref="System.Windows.Forms.Form" />
+''' </summary>
+''' <seealso cref="System.Windows.Forms.Form" />
+Public Class FrmViewMaintancePlan
+    ''' <summary>
+    ''' The identifier
+    ''' </summary>
+    Public Id As String
+    ''' <summary>
+    ''' Gets the data.
+    ''' </summary>
     Sub GetData()
         Try
-            Dim Obj As New BSDatabase
-            Call Obj.ConnectDB()
-            Dim SQL As String = "SELECT * from Maintance_Plans where ID=" & ID
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While (RS.Read())
-                If Not IsDBNull(RS("Name")) Then txtName.Text = RS("Name")
-                If Not IsDBNull(RS("OD")) Then txtOD.Text = RS("OD")
-                If Not IsDBNull(RS("iid")) Then nudIID.Value = RS("iid")
-                If Not IsDBNull(RS("iirf")) Then nudIIRF.Value = RS("iirf")
-                If Not IsDBNull(RS("Notes")) Then txtNotes.Text = RS("Notes")
+
+            Dim obj As New BSDatabase
+            Call obj.ConnectDB()
+            Dim sql As String = "SELECT * from Maintance_Plans where ID=" & Id
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            While (rs.Read())
+                If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
+                If Not IsDBNull(rs("OD")) Then txtOD.Text = rs("OD")
+                If Not IsDBNull(rs("iid")) Then nudIID.Value = rs("iid")
+                If Not IsDBNull(rs("iirf")) Then nudIIRF.Value = rs("iirf")
+                If Not IsDBNull(rs("Notes")) Then txtNotes.Text = rs("Notes")
             End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
+            rs.Close()
+            obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "GetData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Load event of the frmViewMaintancePlan control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewMaintancePlan_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        If Len(ID) > 0 Then
+        If Len(Id) > 0 Then
             Call GetData()
         Else
-            Me.Close()
+            Close()
         End If
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the brnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub brnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles brnCancel.Click
-        Me.Close()
+        Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnEdit control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
-        Me.Text = "Edit Maintenance Plan"
+        Text = $"Edit Maintenance Plan"
         btnEdit.Visible = False
         btnUpdate.Visible = True
         txtName.ReadOnly = False
@@ -46,18 +71,22 @@ Public Class frmViewMaintancePlan
         nudIIRF.ReadOnly = False
         txtNotes.ReadOnly = False
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnUpdate control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
-            Dim strOD As String = FluffContent(txtOD.Text)
-            Dim IntIID As Integer = nudIID.Value
-            Dim intIIRF As Integer = nudIIRF.Value
+            Dim strOd As String = FluffContent(txtOD.Text)
+            Dim intIid As Integer = nudIID.Value
+            Dim intIirf As Integer = nudIIRF.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            Dim SQL As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOD & _
-                        "',iid=" & IntIID & ",iirf=" & intIIRF & ",Notes='" & strNotes & "' where ID=" & ID
-            Dim Obj As New BSDatabase
-            Obj.ConnExec(SQL)
-            Obj = Nothing
+            Dim sql As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOd & _
+                        "',iid=" & intIid & ",iirf=" & intIirf & ",Notes='" & strNotes & "' where ID=" & Id
+            Dim obj As New BSDatabase
+            obj.ConnExec(sql)
             btnEdit.Visible = True
             btnUpdate.Visible = False
             txtName.ReadOnly = True
@@ -65,10 +94,10 @@ Public Class frmViewMaintancePlan
             nudIID.ReadOnly = True
             nudIIRF.ReadOnly = True
             txtNotes.ReadOnly = True
-            Me.Text = "View Maintenance Plan"
+            Text = $"View Maintenance Plan"
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

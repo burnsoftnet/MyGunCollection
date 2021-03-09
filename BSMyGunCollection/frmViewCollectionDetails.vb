@@ -218,8 +218,8 @@ Public Class frmViewCollectionDetails
         Dim MyText As String = ListView1.Items(CInt(MyIndex)).Text
         Dim frmNew As New frmViewPicture
         frmNew.MdiParent = Me.MdiParent
-        frmNew.MyID = CLng(MyText)
-        frmNew.GroupID = CLng(ItemId)
+        frmNew.MyId = CLng(MyText)
+        frmNew.GroupId = CLng(ItemId)
         frmNew.Show()
     End Sub
     Private Sub FillByToolStripButton_Click(ByVal sender As Object, ByVal e As EventArgs)
@@ -241,7 +241,7 @@ Public Class frmViewCollectionDetails
         Dim MyText As String = ListView1.Items(CInt(MyIndex)).Text
         Dim frmNew As New frmViewPicture
         frmNew.MdiParent = Me.MdiParent
-        frmNew.MyID = CLng(MyText)
+        frmNew.MyId = CLng(MyText)
         frmNew.Show()
     End Sub
     Private Sub mnuPicItem_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnuPicItem_Delete.Click
