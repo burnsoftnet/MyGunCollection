@@ -463,47 +463,7 @@ Public Class FrmViewCollectionDetails
         End Try
         Return iAns
     End Function
-    ''' <summary>
-    ''' Gets the pic identifier listing.
-    ''' </summary>
-    ''' <param name="strIndex">Index of the string.</param>
-    ''' <param name="intTotalImg">The int total img.</param>
-    ''' <returns>System.Int64.</returns>
-    Function GetPicIdListing(ByVal strIndex As String, ByVal intTotalImg As Integer) As Long
-        Dim lAns As Long = 0
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection_Pictures where CID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            Dim i As Integer
-            Dim c As Integer
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                rs.Read()
-                For i = 1 To intTotalImg
-                    If i <> 1 Then
-                        c = intTotalImg - i
-                    Else
-                        c = intTotalImg
-                    End If
-                    If c = CInt(strIndex) Then
-                        lAns = CLng(rs("ID"))
-                    End If
-                    rs.Read()
-                Next i
-            End If
-            rs.Close()
-            rs = Nothing
-            cmd = Nothing
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetPicIDListing"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return lAns
-    End Function
+
 #End Region
 #Region " General Subs "
     ''' <summary>
@@ -873,34 +833,7 @@ Public Class FrmViewCollectionDetails
         ListView1.Items.Add(oitem)
         oitem.ImageIndex = imgindex - 1
     End Sub
-    ''' <summary>
-    ''' Shows the image.
-    ''' </summary>
-    ''' <param name="s">The s.</param>
-    ''' <param name="imgIndex">Index of the img.</param>
-    Private Sub ShowImage(ByVal s As String, ByVal imgIndex As Integer)
-        ListView1.LargeImageList = imgPics
-        ListView1.View = View.LargeIcon
 
-        Dim osItem As ListViewItem.ListViewSubItem
-        Dim oitem As ListViewItem = New ListViewItem
-        oitem.Text = s
-
-        osItem = New ListViewItem.ListViewSubItem
-        osItem.Text = s
-
-        oitem.SubItems.Add(osItem)
-
-        osItem = New ListViewItem.ListViewSubItem
-        osItem.Text = s & s
-        oitem.SubItems.Add(osItem)
-        If imgIndex >= 0 Then
-            With ListView1
-                .Items.Add(oitem)
-            End With
-            oitem.ImageIndex = imgIndex
-        End If
-    End Sub
 #End Region
 #Region " Data Object Subs "
     ''' <summary>
@@ -1427,7 +1360,6 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim bname As String = DataGridView5.SelectedRows.Item(0).Cells.Item(1).Value
         Dim objGf As New GlobalFunctions
         If BsDefaultbarrelsystemid = bid Then
             MsgBox("This is set as the default Barrel/Unit for this firearm!" & Chr(13) & "Please set another item as the default before deleting this one!")
@@ -1482,7 +1414,6 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditNotesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditNotesToolStripMenuItem.Click
         Dim myIndex As String = ListView1.FocusedItem.Index
-        Dim itemCount As Integer = ListView1.Items.Count
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
         Dim frmNew As New frmEditPicturedetails
         frmNew.MdiParent = MdiParent
@@ -1500,7 +1431,6 @@ Public Class FrmViewCollectionDetails
             DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim sAns As String = MsgBox("Are you sure you wish to delete this maintenance record?", MsgBoxStyle.YesNo)
             Dim obj As New BSDatabase
             Dim sql As String = "DELETE from Maintance_Details where ID=" & mid
             obj.ConnExec(sql)
@@ -1560,19 +1490,7 @@ Public Class FrmViewCollectionDetails
         frmNew.FirearmId = ItemId
         frmNew.Show()
     End Sub
-    ''' <summary>
-    ''' Handles the Click event of the txtAppBy control. Show appriaser details when the appriaser is clicked
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub txtAppBy_Click(sender As Object, e As EventArgs)
-        Dim objGf As New GlobalFunctions
-        Dim appraiserId As Long = objGf.GetID("SELECT ID from Appriaser_Contact_Details where aName='" & txtAppBy.Text & "'")
-        Dim newForm As New frmViewAppraiserDetails
-        newForm.ShopID = appraiserId
-        newForm.MdiParent = MdiParent
-        newForm.Show()
-    End Sub
+
     ''' <summary>
     ''' Handles the CellContentDoubleClick event of the DataGridView6 control.
     ''' </summary>
