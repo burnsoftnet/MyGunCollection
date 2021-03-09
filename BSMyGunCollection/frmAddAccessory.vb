@@ -1,6 +1,5 @@
 'TODO #43 Clean Up code
 ''Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 
