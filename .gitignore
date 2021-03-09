@@ -11,3 +11,4 @@ BSMyGunCollection/.vs
 .vs/
 BSMyGunCollection/packages/
 MyGunCollection_DataLoader/obj/
+*.ldb
