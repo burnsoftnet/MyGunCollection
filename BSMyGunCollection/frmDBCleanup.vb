@@ -15,7 +15,7 @@ Public Class frmDBCleanup
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub cbActionList_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbActionList.SelectedIndexChanged
+    Private Sub cbActionList_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cbActionList.SelectedIndexChanged
         If cbActionList.SelectedItem <> Nothing Then
             Dim strList As String = cbActionList.SelectedItem.ToString
             If Len(strList) > 0 Then
@@ -394,7 +394,7 @@ Public Class frmDBCleanup
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
+    Private Sub btnStart_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnStart.Click
         Dim strSelected As String = cbActionList.SelectedItem.ToString
         btnStart.Enabled = False
         Select Case strSelected
@@ -437,7 +437,7 @@ Public Class frmDBCleanup
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmDBCleanup_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmDBCleanup_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

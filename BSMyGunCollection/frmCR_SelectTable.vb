@@ -56,7 +56,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCR_SelectTable_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmCR_SelectTable_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Call LoadData()
         Catch ex As Exception
@@ -69,7 +69,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnNext_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNext.Click
+    Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
         Try
             Dim TID As Long = ComboBox1.SelectedValue
             Dim TName As String = ComboBox1.Text
@@ -90,7 +90,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnLoadSaved_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLoadSaved.Click
+    Private Sub btnLoadSaved_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLoadSaved.Click
         Try
             Dim SRID As Long = ComboBox2.SelectedValue
             Dim ReportName As String = ComboBox2.Text
@@ -112,7 +112,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim selectedName As String = ComboBox2.SelectedText
             Dim selectedValue As String = ComboBox2.SelectedValue
@@ -136,7 +136,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Call editReport()
     End Sub
     ''' <summary>
@@ -154,7 +154,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
         Call ShowSQLEditor()
     End Sub
     ''' <summary>
@@ -174,7 +174,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         Call editReport()
     End Sub
     ''' <summary>
@@ -182,7 +182,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnSQLEditor_Click(sender As System.Object, e As System.EventArgs) Handles btnSQLEditor.Click
+    Private Sub btnSQLEditor_Click(sender As Object, e As EventArgs) Handles btnSQLEditor.Click
         Call ShowSQLEditor()
     End Sub
 End Class

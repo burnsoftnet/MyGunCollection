@@ -1,7 +1,9 @@
+Imports System.IO
+
 Public NotInheritable Class SplashScreen1
 
 
-    Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         'Set up the dialog text at runtime according to the application's assembly information.  
 
  
@@ -10,7 +12,7 @@ Public NotInheritable Class SplashScreen1
             ApplicationTitle.Text = My.Application.Info.Title
         Else
             'If the application title is missing, use the application name, without the extension
-            ApplicationTitle.Text = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
+            ApplicationTitle.Text = Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
 
         'Format the version information using the text set into the Version control at design time as the
@@ -19,14 +21,14 @@ Public NotInheritable Class SplashScreen1
         '  Version control's design time text to "Version {0}.{1:00}.{2}.{3}" or something similar.  See
         '  String.Format() in Help for more information.
         '
-        Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
+        Version.Text = String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Copyright info
         Copyright.Text = My.Application.Info.Copyright
         
     End Sub
 
-    Private Sub ApplicationTitle_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ApplicationTitle.Click
+    Private Sub ApplicationTitle_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ApplicationTitle.Click
 
     End Sub
 End Class

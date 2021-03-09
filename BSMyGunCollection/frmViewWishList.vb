@@ -11,7 +11,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Close()
     End Sub
     ''' <summary>
@@ -19,7 +19,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_WishList
         frmNew.MdiParent = Me.MdiParent
@@ -31,7 +31,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         frmAddToWishList.MdiParent = Me.MdiParent
         frmAddToWishList.Show()
     End Sub
@@ -46,7 +46,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmViewWishList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewWishList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Call RefreshData()
     End Sub
     ''' <summary>
@@ -54,7 +54,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmViewWishList_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmViewWishList_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         If Me.Height <> 0 Then
             DataGridView1.Height = Me.Height - 68
             DataGridView1.Width = Me.Width - 10
@@ -65,7 +65,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
         Call RefreshData()
     End Sub
     ''' <summary>
@@ -82,7 +82,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DataGridView1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DataGridView1.DoubleClick
+    Private Sub DataGridView1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles DataGridView1.DoubleClick
         Call DoEditItem()
     End Sub
     ''' <summary>
@@ -90,7 +90,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem.Click
         Call DoEditItem()
     End Sub
     ''' <summary>
@@ -98,7 +98,7 @@ Public Class frmViewWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         Dim obj As New BSDatabase
         Dim objG As New GlobalFunctions

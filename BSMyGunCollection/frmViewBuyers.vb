@@ -10,7 +10,7 @@ Public Class frmViewBuyers
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmViewBuyers_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewBuyers_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Call RefreshList()
         Catch ex As Exception
@@ -18,7 +18,7 @@ Public Class frmViewBuyers
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
+    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         Try
             Dim MyValue As Long = ListBox1.SelectedValue
             Dim frmNew As New frmViewBuyerDetails
@@ -78,7 +78,7 @@ Public Class frmViewBuyers
         End Try
         Return sAns
     End Function
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Try
             Dim MyValue As Long = ListBox1.SelectedValue
             Dim strName As String = GetBuyerName(MyValue)
@@ -100,7 +100,7 @@ Public Class frmViewBuyers
         End Try
     End Sub
 
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Call RefreshList()
     End Sub
 End Class

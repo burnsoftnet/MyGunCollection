@@ -11,16 +11,21 @@
 Option Strict On
 Option Explicit On
 
+Imports System.CodeDom.Compiler
+Imports System.ComponentModel
+Imports System.ComponentModel.Design
+Imports System.Configuration
+Imports System.Runtime.CompilerServices
 
 Namespace My
     
-    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0"),  _
-     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
+    <CompilerGenerated(),  _
+     GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "10.0.0.0"),  _
+     EditorBrowsable(EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
-        Inherits Global.System.Configuration.ApplicationSettingsBase
+        Inherits ApplicationSettingsBase
         
-        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
+        Private Shared defaultInstance As MySettings = CType(Synchronized(New MySettings()),MySettings)
         
 #Region "My.Settings Auto-Save Functionality"
 #If _MyType = "WindowsForms" Then
@@ -28,10 +33,10 @@ Namespace My
 
     Private Shared addedHandlerLockObject As New Object
 
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
-    Private Shared Sub AutoSaveSettings(ByVal sender As Global.System.Object, ByVal e As Global.System.EventArgs)
-        If My.Application.SaveMySettingsOnExit Then
-            My.Settings.Save()
+    <DebuggerNonUserCode(), EditorBrowsable(EditorBrowsableState.Advanced)> _
+    Private Shared Sub AutoSaveSettings(ByVal sender As Object, ByVal e As EventArgs)
+        If Application.SaveMySettingsOnExit Then
+            Settings.Save()
         End If
     End Sub
 #End If
@@ -44,7 +49,7 @@ Namespace My
                If Not addedHandler Then
                     SyncLock addedHandlerLockObject
                         If Not addedHandler Then
-                            AddHandler My.Application.Shutdown, AddressOf AutoSaveSettings
+                            AddHandler Application.Shutdown, AddressOf AutoSaveSettings
                             addedHandler = True
                         End If
                     End SyncLock
@@ -54,19 +59,19 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://www.burnsoft.net/services/bsmgc.asmx")>  _
+        <ApplicationScopedSetting(),  _
+         DebuggerNonUserCode(),  _
+         SpecialSetting(SpecialSetting.WebServiceUrl),  _
+         DefaultSettingValue("http://www.burnsoft.net/services/bsmgc.asmx")>  _
         Public ReadOnly Property MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update() As String
             Get
                 Return CType(Me("MyGunCollection_DataLoader_Database_Updates_My_x0020_Gun_x0020_Collection_x0020_Database_x0020_Update"),String)
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://www.burnsoft.net/services/bsmgc.asmx")>  _
+        <ApplicationScopedSetting(),  _
+         DebuggerNonUserCode(),  _
+         DefaultSettingValue("http://www.burnsoft.net/services/bsmgc.asmx")>  _
         Public ReadOnly Property MyGunCollection_DataLoader_Database_Updates() As String
             Get
                 Return CType(Me("MyGunCollection_DataLoader_Database_Updates"),String)
@@ -77,15 +82,15 @@ End Namespace
 
 Namespace My
     
-    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
+    <HideModuleName(),  _
+     DebuggerNonUserCode(),  _
+     CompilerGenerated()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.MyGunCollection_DataLoader.My.MySettings
+        <HelpKeyword("My.Settings")>  _
+        Friend ReadOnly Property Settings() As MySettings
             Get
-                Return Global.MyGunCollection_DataLoader.My.MySettings.Default
+                Return MySettings.Default
             End Get
         End Property
     End Module

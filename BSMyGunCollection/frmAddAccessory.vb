@@ -2,6 +2,8 @@
 ''Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
+Imports BurnSoft.Applications.MGC.Firearms
+
 ''' <summary>
 ''' Class frmAddAccessory.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -23,7 +25,7 @@ Public Class frmAddAccessory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Close()
     End Sub
     ''' <summary>
@@ -31,7 +33,7 @@ Public Class frmAddAccessory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
@@ -54,7 +56,7 @@ Public Class frmAddAccessory
             '        strNotes & "','" & strUse & "','" & strPurVal & "'," & dAppValue & "," & iCiv & "," & iIc & ",Now())"
             'Obj.ConnExec(SQL)
             Dim errOut as String = ""
-            If Not Firearms.Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
+            If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
@@ -66,7 +68,7 @@ Public Class frmAddAccessory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddAccessory_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub frmAddAccessory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Label10.Visible = IsShotGun
             chkIsChoke.Visible = IsShotGun

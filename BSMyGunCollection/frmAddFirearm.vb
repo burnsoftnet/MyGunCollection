@@ -154,7 +154,7 @@ Public Class frmAddFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddFirearm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddFirearm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
             Me.Gun_Collection_ConditionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Condition)
@@ -185,7 +185,7 @@ Public Class frmAddFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub txtModel_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs)
+    Private Sub txtModel_GotFocus(ByVal sender As Object, ByVal e As EventArgs)
         Try
             Dim strMan As String = Trim(Replace(txtManu.Text, "'", "''"))
             If Len(strMan) <> 0 Then
@@ -202,7 +202,7 @@ Public Class frmAddFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim ObjGF As New GlobalFunctions
             Dim Obj As New BSDatabase
@@ -336,7 +336,7 @@ Public Class frmAddFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -344,7 +344,7 @@ Public Class frmAddFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub chkBoxCR_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub chkBoxCR_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs)
         If chkBoxCR.Checked Then
             txtPOI.Enabled = True
             dtpReManDT.Enabled = True
@@ -358,48 +358,48 @@ Public Class frmAddFirearm
     ''' </summary>
     Sub AddChokeOption()
         If txtChoke.Visible Then Exit Sub
-        Label34.Location = New System.Drawing.Point(Label27.Location.X, Label27.Location.Y)
-        txtChoke.Location = New System.Drawing.Point(txtStorage.Location.X, txtStorage.Location.Y)
+        Label34.Location = New Point(Label27.Location.X, Label27.Location.Y)
+        txtChoke.Location = New Point(txtStorage.Location.X, txtStorage.Location.Y)
         Label34.Visible = True
         txtChoke.Visible = True
         Dim MoveDownXPoints As Integer = 26
         Dim NewY As Integer = txtStorage.Location.Y + MoveDownXPoints
         Dim OldX As Integer = txtStorage.Location.X
-        txtStorage.Location = New System.Drawing.Point(OldX, NewY)
+        txtStorage.Location = New Point(OldX, NewY)
         OldX = Label27.Location.X
-        Label27.Location = New System.Drawing.Point(OldX, NewY)
+        Label27.Location = New Point(OldX, NewY)
         NewY = Label9.Location.Y + MoveDownXPoints
         OldX = Label9.Location.X
-        Label9.Location = New System.Drawing.Point(OldX, NewY)
+        Label9.Location = New Point(OldX, NewY)
         OldX = txtFinish.Location.X
-        txtFinish.Location = New System.Drawing.Point(OldX, NewY)
+        txtFinish.Location = New Point(OldX, NewY)
         NewY = Label6.Location.Y + MoveDownXPoints
         OldX = Label6.Location.X
-        Label6.Location = New System.Drawing.Point(OldX, NewY)
+        Label6.Location = New Point(OldX, NewY)
         OldX = txtNationality.Location.X
-        txtNationality.Location = New System.Drawing.Point(OldX, NewY)
+        txtNationality.Location = New Point(OldX, NewY)
         NewY = Label13.Location.Y + MoveDownXPoints
         OldX = Label13.Location.X
-        Label13.Location = New System.Drawing.Point(OldX, NewY)
+        Label13.Location = New Point(OldX, NewY)
         OldX = txtWeight.Location.X
-        txtWeight.Location = New System.Drawing.Point(OldX, NewY)
+        txtWeight.Location = New Point(OldX, NewY)
         NewY = Label14.Location.Y + MoveDownXPoints
         OldX = Label14.Location.X
-        Label14.Location = New System.Drawing.Point(OldX, NewY)
+        Label14.Location = New Point(OldX, NewY)
         OldX = txtLength.Location.X
-        txtLength.Location = New System.Drawing.Point(OldX, NewY)
+        txtLength.Location = New Point(OldX, NewY)
         NewY = Label15.Location.Y + MoveDownXPoints
         OldX = Label15.Location.X
-        Label15.Location = New System.Drawing.Point(OldX, NewY)
+        Label15.Location = New Point(OldX, NewY)
         OldX = txtBarLen.Location.X
-        txtBarLen.Location = New System.Drawing.Point(OldX, NewY)
+        txtBarLen.Location = New Point(OldX, NewY)
     End Sub
     ''' <summary>
     ''' Handles the LostFocus1 event of the txtType control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub txtType_LostFocus1(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtType.LostFocus
+    Private Sub txtType_LostFocus1(ByVal sender As Object, ByVal e As EventArgs) Handles txtType.LostFocus
         If Found(txtType.Text, "shotgun") Then Call AddChokeOption()
     End Sub
 

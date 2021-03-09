@@ -1,9 +1,13 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports System.ComponentModel
+Imports BSMyGunCollection.MGCDataSetTableAdapters
+Imports Microsoft.VisualBasic.CompilerServices
+
+<DesignerGenerated()> _
 Partial Class frmViewGrips
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -15,46 +19,46 @@ Partial Class frmViewGrips
     End Sub
 
     'Required by the Windows Form Designer
-    Private components As System.ComponentModel.IContainer
+    Private components As IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewGrips))
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.GripDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.GunGripTypeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet
-        Me.Gun_GripTypeTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_GripTypeTableAdapter
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GunGripTypeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.components = New Container
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewGrips))
+        Me.ToolStrip1 = New ToolStrip
+        Me.DataGridView1 = New DataGridView
+        Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.GripDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.GunGripTypeBindingSource = New BindingSource(Me.components)
+        Me.MGCDataSet = New MGCDataSet
+        Me.Gun_GripTypeTableAdapter = New Gun_GripTypeTableAdapter
+        Me.HelpProvider1 = New HelpProvider
+        CType(Me.DataGridView1, ISupportInitialize).BeginInit()
+        CType(Me.GunGripTypeBindingSource, ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.GripStyle = ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Location = New Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(223, 25)
+        Me.ToolStrip1.Size = New Size(223, 25)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'DataGridView1
         '
         Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.GripDataGridViewTextBoxColumn})
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.GripDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.GunGripTypeBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 29)
+        Me.DataGridView1.Location = New Point(0, 29)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(211, 233)
+        Me.DataGridView1.Size = New Size(211, 233)
         Me.DataGridView1.TabIndex = 1
         '
         'IDDataGridViewTextBoxColumn
@@ -67,7 +71,7 @@ Partial Class frmViewGrips
         '
         'GripDataGridViewTextBoxColumn
         '
-        Me.GripDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.GripDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Me.GripDataGridViewTextBoxColumn.DataPropertyName = "grip"
         Me.GripDataGridViewTextBoxColumn.HeaderText = "Grip Types"
         Me.GripDataGridViewTextBoxColumn.Name = "GripDataGridViewTextBoxColumn"
@@ -81,7 +85,7 @@ Partial Class frmViewGrips
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
         '
         'Gun_GripTypeTableAdapter
         '
@@ -93,31 +97,31 @@ Partial Class frmViewGrips
         '
         'frmViewGrips
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(223, 263)
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.ClientSize = New Size(223, 263)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.HelpProvider1.SetHelpKeyword(Me, "Viewing Grips")
-        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
+        Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Viewing Grips")
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.Name = "frmViewGrips"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Manage Grips"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GunGripTypeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, ISupportInitialize).EndInit()
+        CType(Me.GunGripTypeBindingSource, ISupportInitialize).EndInit()
+        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents MGCDataSet As BSMyGunCollection.MGCDataSet
-    Friend WithEvents GunGripTypeBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents Gun_GripTypeTableAdapter As BSMyGunCollection.MGCDataSetTableAdapters.Gun_GripTypeTableAdapter
-    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents GripDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents MGCDataSet As MGCDataSet
+    Friend WithEvents GunGripTypeBindingSource As BindingSource
+    Friend WithEvents Gun_GripTypeTableAdapter As Gun_GripTypeTableAdapter
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents GripDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

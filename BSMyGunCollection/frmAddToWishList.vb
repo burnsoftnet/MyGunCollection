@@ -25,7 +25,7 @@ Public Class frmAddToWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -33,7 +33,7 @@ Public Class frmAddToWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim ObjGF As New GlobalFunctions
             Dim Obj As New BSDatabase
@@ -66,7 +66,7 @@ Public Class frmAddToWishList
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddToWishList_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmAddToWishList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         Try
             Call DoAutoFill()
         Catch ex As Exception

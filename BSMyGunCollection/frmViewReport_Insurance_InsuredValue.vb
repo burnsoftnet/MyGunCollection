@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_Insurance_InsuredValue
-    Private Sub frmViewReport_Insurance_InsuredValue_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Insurance_InsuredValue_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReport_InsuredValue(Me.MGCDataSet.qryGunCollectionDetails)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Insurance Report for " & OwnerName))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)
@@ -15,7 +15,7 @@ Public Class frmViewReport_Insurance_InsuredValue
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             qryGunCollectionDetailsBindingSource.ResetBindings(True)
             Select Case UCase(ToolStripComboBox1.SelectedItem.ToString)

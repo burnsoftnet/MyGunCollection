@@ -1,3 +1,5 @@
+Imports BSMyGunCollection.MGC
+
 Public Class frmSearch_Collection
     Function BuildSearchString(ByVal sLookin As String)
         Dim sAns As String = ""
@@ -51,11 +53,11 @@ Public Class frmSearch_Collection
         End Select
         Return sAns
     End Function
-    Private Sub btnSearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+    Private Sub btnSearch_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSearch.Click
         Try
             Dim SQL As String = "SELECT ID,FullName as [Full Name],Brand,ModelName as [Model],SerialNumber as [Serial No],Type,Caliber from qryGunCollectionDetails where " & _
                 BuildSearchString(cmbLookIn.Text) & " like'%" & txtLookFor.Text & "%'"
-            Dim Obj As New MGC.BSDatabase
+            Dim Obj As New BSDatabase
             dgvResults.DataSource = Obj.GetData(SQL)
             dgvResults.Columns(0).Visible = False
             lblResults.Text = dgvResults.RowCount
@@ -79,10 +81,10 @@ Public Class frmSearch_Collection
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub dgvResults_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvResults.CellDoubleClick
+    Private Sub dgvResults_CellDoubleClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles dgvResults.CellDoubleClick
         Call ViewCollectionDetails()
     End Sub
-    Private Sub frmSearch_Collection_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmSearch_Collection_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         dgvResults.Width = Me.Width - 25
         dgvResults.Height = Me.Height - 140
     End Sub

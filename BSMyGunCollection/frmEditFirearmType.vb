@@ -1,3 +1,5 @@
+Imports System.ComponentModel
+
 ''' <summary>
 ''' Edit Firearm Types form
 ''' </summary>
@@ -11,7 +13,7 @@ Public Class frmEditFirearmType
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmEditFirearmType_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmEditFirearmType_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Gun_TypeTableAdapter.Fill(Me.MGCDataSet.Gun_Type)
     End Sub
     ''' <summary>
@@ -19,7 +21,7 @@ Public Class frmEditFirearmType
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
-    Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
+    Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
         If Me.UpdatePending Then
             Me.Gun_TypeTableAdapter.Update(Me.MGCDataSet.Gun_Type)
             Me.UpdatePending = False
@@ -30,7 +32,7 @@ Public Class frmEditFirearmType
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
-    Private Sub GunTypeBindingSource_ListChanged(ByVal sender As Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles GunTypeBindingSource.ListChanged
+    Private Sub GunTypeBindingSource_ListChanged(ByVal sender As Object, ByVal e As ListChangedEventArgs) Handles GunTypeBindingSource.ListChanged
         If Me.MGCDataSet.HasChanges Then
             Me.UpdatePending = True
         End If

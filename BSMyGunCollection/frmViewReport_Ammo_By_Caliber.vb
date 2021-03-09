@@ -3,7 +3,7 @@ Public Class frmViewReport_Ammo_By_Caliber
     Public CAL As String
     Public PET As String
     Public BySorting As String
-    Private Sub frmViewReport_Ammo_By_Caliber_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Ammo_By_Caliber_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim Report_Title As String = "Ammunition Inventory Report for " & CAL
             Dim Report_UserName As String = "N/A"
@@ -16,7 +16,7 @@ Public Class frmViewReport_Ammo_By_Caliber
                 Me.Gun_Collection_AmmoTableAdapter.FillByCal_wPet(Me.MGCDataSet.Gun_Collection_Ammo, CAL, PET)
             End If
 
-            Dim parmList As New Generic.List(Of ReportParameter)
+            Dim parmList As New List(Of ReportParameter)
             parmList.Add(New ReportParameter("UserName", Report_UserName))
             parmList.Add(New ReportParameter("ReportTitle", Report_Title))
             Me.ReportViewer1.LocalReport.SetParameters(parmList)
@@ -27,7 +27,7 @@ Public Class frmViewReport_Ammo_By_Caliber
         End Try
     End Sub
 
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Manufacturer")

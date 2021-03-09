@@ -6,7 +6,7 @@ Public Class frmViewReport_BoundBook
     Sub LoadData()
         Try
             Dim ReportTitle As String = ToolStripTextBox1.Text
-            Dim parmList As New Generic.List(Of ReportParameter)
+            Dim parmList As New List(Of ReportParameter)
             parmList.Add(New ReportParameter("UserName", OwnerName))
             parmList.Add(New ReportParameter("ReportTitle", ReportTitle))
             parmList.Add(New ReportParameter("License", OwnerLic))
@@ -38,7 +38,7 @@ Public Class frmViewReport_BoundBook
         End Try
     End Sub
 
-    Private Sub frmViewReport_BoundBook_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_BoundBook_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             ToolStripTextBox1.Text = "Bound Book for " & OwnerName
             Me.ReportViewer1.RefreshReport()
@@ -51,7 +51,7 @@ Public Class frmViewReport_BoundBook
         IsFirstRun = False
     End Sub
 
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             If Not IsFirstRun Then Call LoadData()
         Catch ex As Exception
@@ -60,7 +60,7 @@ Public Class frmViewReport_BoundBook
         End Try
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Call LoadData()
     End Sub
 

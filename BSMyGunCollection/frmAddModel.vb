@@ -10,7 +10,7 @@ Public Class frmAddModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddModel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddModel_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim ObjAF As New AutoFillCollections
             txtManufacturer.AutoCompleteCustomSource = ObjAF.Gun_Manufacturer
@@ -25,7 +25,7 @@ Public Class frmAddModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -33,7 +33,7 @@ Public Class frmAddModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim ObjGF As New GlobalFunctions
             Dim Obj As New BSDatabase
@@ -62,7 +62,7 @@ Public Class frmAddModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub chkKTop_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkKTop.CheckedChanged
+    Private Sub chkKTop_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkKTop.CheckedChanged
         Me.TopMost = chkKTop.Checked
     End Sub
 End Class

@@ -44,7 +44,7 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCR_ViewReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmCR_ViewReport_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If Len(ReportName) > 0 Then TextBox1.Text = ReportName
         Call LoadData()
     End Sub
@@ -53,7 +53,7 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Try
             If GridPrinter Is Nothing Then
                 GridPrinter = New DataGridPrinter(Me.DataGrid1)
@@ -73,7 +73,7 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Try
             If GridPrinter Is Nothing Then
                 GridPrinter = New DataGridPrinter(Me.DataGrid1)
@@ -84,9 +84,9 @@ Public Class frmCR_ViewReport
                 .HeaderHeightPercent = CInt(Me.NumericUpDown_HeaderHeightPercentage.Value)
                 .FooterHeightPercent = CInt(Me.NumericUpDown_FooterHeightPercent.Value)
                 .InterSectionSpacingPercent = CInt(Me.NumericUpDown_InterSectionSpacingPercent.Value)
-                .HeaderPen = New Pen(CType(Me.ComboBox_ColourHeaderLine.SelectedItem, System.Drawing.Color))
-                .FooterPen = New Pen(CType(Me.ComboBox_ColourFooterLine.SelectedItem, System.Drawing.Color))
-                .GridPen = New Pen(CType(Me.ComboBox_ColourBodyline.SelectedItem, System.Drawing.Color))
+                .HeaderPen = New Pen(CType(Me.ComboBox_ColourHeaderLine.SelectedItem, Color))
+                .FooterPen = New Pen(CType(Me.ComboBox_ColourFooterLine.SelectedItem, Color))
+                .GridPen = New Pen(CType(Me.ComboBox_ColourBodyline.SelectedItem, Color))
                 .HeaderBrush = CType(Me.ComboBox_HeaderBrush.SelectedItem, Brush)
                 .EvenRowBrush = CType(Me.ComboBox_EvenBrush.SelectedItem, Brush)
                 .OddRowBrush = CType(Me.ComboBox_OddRowBrush.SelectedItem, Brush)
@@ -131,35 +131,35 @@ Public Class frmCR_ViewReport
     Private Sub PopulateColourList(ByVal combo As ComboBox)
 
         combo.Items.Clear()
-        combo.Items.Add(System.Drawing.Color.AliceBlue)
-        combo.Items.Add(System.Drawing.Color.Aqua)
-        combo.Items.Add(System.Drawing.Color.Azure)
-        combo.Items.Add(System.Drawing.Color.Beige)
-        combo.Items.Add(System.Drawing.Color.Black)
-        combo.Items.Add(System.Drawing.Color.Blue)
-        combo.Items.Add(System.Drawing.Color.Green)
-        combo.Items.Add(System.Drawing.Color.Red)
+        combo.Items.Add(Color.AliceBlue)
+        combo.Items.Add(Color.Aqua)
+        combo.Items.Add(Color.Azure)
+        combo.Items.Add(Color.Beige)
+        combo.Items.Add(Color.Black)
+        combo.Items.Add(Color.Blue)
+        combo.Items.Add(Color.Green)
+        combo.Items.Add(Color.Red)
         combo.SelectedIndex = 0
     End Sub
 
     Private Sub PopulateBrushList(ByVal Combo As ComboBox)
         Combo.Items.Clear()
-        Combo.Items.Add(System.Drawing.Brushes.White)
-        Combo.Items.Add(System.Drawing.Brushes.Beige)
-        Combo.Items.Add(System.Drawing.Brushes.Bisque)
-        Combo.Items.Add(System.Drawing.Brushes.BlanchedAlmond)
-        Combo.Items.Add(System.Drawing.Brushes.Blue)
-        Combo.Items.Add(System.Drawing.Brushes.BlueViolet)
-        Combo.Items.Add(System.Drawing.Brushes.Brown)
-        Combo.Items.Add(System.Drawing.Brushes.BurlyWood)
-        Combo.Items.Add(System.Drawing.Brushes.CadetBlue)
-        Combo.Items.Add(System.Drawing.Brushes.Chartreuse)
-        Combo.Items.Add(System.Drawing.Brushes.Chocolate)
-        Combo.Items.Add(System.Drawing.Brushes.Coral)
-        Combo.Items.Add(System.Drawing.Brushes.CornflowerBlue)
-        Combo.Items.Add(System.Drawing.Brushes.Cornsilk)
-        Combo.Items.Add(System.Drawing.Brushes.Crimson)
-        Combo.Items.Add(System.Drawing.Brushes.Cyan)
+        Combo.Items.Add(Brushes.White)
+        Combo.Items.Add(Brushes.Beige)
+        Combo.Items.Add(Brushes.Bisque)
+        Combo.Items.Add(Brushes.BlanchedAlmond)
+        Combo.Items.Add(Brushes.Blue)
+        Combo.Items.Add(Brushes.BlueViolet)
+        Combo.Items.Add(Brushes.Brown)
+        Combo.Items.Add(Brushes.BurlyWood)
+        Combo.Items.Add(Brushes.CadetBlue)
+        Combo.Items.Add(Brushes.Chartreuse)
+        Combo.Items.Add(Brushes.Chocolate)
+        Combo.Items.Add(Brushes.Coral)
+        Combo.Items.Add(Brushes.CornflowerBlue)
+        Combo.Items.Add(Brushes.Cornsilk)
+        Combo.Items.Add(Brushes.Crimson)
+        Combo.Items.Add(Brushes.Cyan)
         Combo.SelectedIndex = 0
     End Sub
 #End Region
@@ -168,28 +168,28 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox_EvenBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
+    Private Sub ComboBox_EvenBrush_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_EvenBrush.Items(e.Index), Brush), e.Bounds)
-        e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
+        e.Graphics.DrawRectangle(Pens.Black, e.Bounds)
     End Sub
     ''' <summary>
     ''' Handles the DrawItem event of the ComboBox_FooterBrush control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox_FooterBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
+    Private Sub ComboBox_FooterBrush_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_FooterBrush.Items(e.Index), Brush), e.Bounds)
-        e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
+        e.Graphics.DrawRectangle(Pens.Black, e.Bounds)
     End Sub
     ''' <summary>
     ''' Handles the DrawItem event of the ComboBox_OddRowBrush control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox_OddRowBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
+    Private Sub ComboBox_OddRowBrush_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
 
         e.Graphics.FillRectangle(CType(ComboBox_OddRowBrush.Items(e.Index), Brush), e.Bounds)
-        e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
+        e.Graphics.DrawRectangle(Pens.Black, e.Bounds)
 
     End Sub
     ''' <summary>
@@ -197,25 +197,25 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox_HeaderBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
+    Private Sub ComboBox_HeaderBrush_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_HeaderBrush.Items(e.Index), Brush), e.Bounds)
-        e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
+        e.Graphics.DrawRectangle(Pens.Black, e.Bounds)
     End Sub
     ''' <summary>
     ''' Handles the DrawItem event of the ComboBox_ColumnHeaderBrush control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.Windows.Forms.DrawItemEventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox_ColumnHeaderBrush_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs)
+    Private Sub ComboBox_ColumnHeaderBrush_DrawItem(ByVal sender As Object, ByVal e As DrawItemEventArgs)
         e.Graphics.FillRectangle(CType(ComboBox_ColumnHeaderBrush.Items(e.Index), Brush), e.Bounds)
-        e.Graphics.DrawRectangle(System.Drawing.Pens.Black, e.Bounds)
+        e.Graphics.DrawRectangle(Pens.Black, e.Bounds)
     End Sub
     ''' <summary>
     ''' Converts to olstripbutton3_click.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Try
             Dim ReportName As String = TextBox1.Text
             Dim Obj As New BSDatabase
@@ -246,12 +246,12 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ExcelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExcelToolStripMenuItem.Click
+    Private Sub ExcelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExcelToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 1
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
         SaveFileDialog1.Title = "Export Data to Excel"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
-        If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportExcel(MyDataTable, strFilePath)
     End Sub
@@ -260,12 +260,12 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub TXTToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TXTToolStripMenuItem.Click
+    Private Sub TXTToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TXTToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 2
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
         SaveFileDialog1.Title = "Export Data to Text File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
-        If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportText(MyDataTable, strFilePath)
     End Sub
@@ -274,12 +274,12 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CVSToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CVSToolStripMenuItem.Click
+    Private Sub CVSToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CVSToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 5
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
         SaveFileDialog1.Title = "Export Data to CVS File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
-        If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportCsv(MyDataTable, strFilePath)
     End Sub
@@ -288,12 +288,12 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub HTMLToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HTMLToolStripMenuItem.Click
+    Private Sub HTMLToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles HTMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 4
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
         SaveFileDialog1.Title = "Export Data to HTML File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
-        If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportHtml(MyDataTable, strFilePath)
     End Sub
@@ -302,12 +302,12 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub XMLToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles XMLToolStripMenuItem.Click
+    Private Sub XMLToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles XMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 3
         SaveFileDialog1.Filter = "Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
         SaveFileDialog1.Title = "Export Data to XML File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
-        If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+        If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
         Dim strFilePath As String = SaveFileDialog1.FileName
         Call ExportXml(MyDataTable, strFilePath)
     End Sub
@@ -316,7 +316,7 @@ Public Class frmCR_ViewReport
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCR_ViewReport_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmCR_ViewReport_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         DataGrid1.Height = GroupBox5.Location.Y - 31
     End Sub
 End Class

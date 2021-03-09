@@ -1,3 +1,8 @@
+Imports System.Data.OleDb
+Imports System.IO
+Imports System.Text
+Imports System.Xml
+
 ''' <summary>
 ''' Export the results from a report to a files in varies formats
 ''' </summary>
@@ -39,7 +44,7 @@ Module ExportModule
             Dim columns As String = ""
             Dim mark As String = ""
             Dim myTable As String
-            Using connection As New OleDb.OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & location & ";Extended Properties=""Excel 8.0;HDR=YES;IMEX=0""")
+            Using connection As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & location & ";Extended Properties=""Excel 8.0;HDR=YES;IMEX=0""")
                 connection.Open()
                 If Len(table.TableName) = 0 Then
                     myTable = "Table1"
@@ -72,28 +77,28 @@ Module ExportModule
                 columns &= ")"
                 mark = mark.Remove(mark.Length - 1, 1)
                 mark &= ")"
-                Using command As New OleDb.OleDbCommand(createString.ToString, connection)
+                Using command As New OleDbCommand(createString.ToString, connection)
                     command.ExecuteNonQuery()
                 End Using
-                Using adapter As New OleDb.OleDbDataAdapter("SELECT * FROM [" & myTable & "$]", connection)
+                Using adapter As New OleDbDataAdapter("SELECT * FROM [" & myTable & "$]", connection)
                     Using excelDataset As New DataSet
                         adapter.Fill(excelDataset, myTable)
                         Dim mySql As String = "INSERT INTO [" & myTable & "] " & Replace(columns.ToString, " ", "") & " VALUES " & mark.ToString
-                        adapter.InsertCommand = New OleDb.OleDbCommand(mySql, connection)
+                        adapter.InsertCommand = New OleDbCommand(mySql, connection)
                         Dim colName As String = ""
                         For Each column As DataColumn In table.Columns
                             colName = Replace(column.ColumnName, " ", "")
                             Select Case column.DataType.Name
                                 Case "SByte", "Byte", "Int16", "Int32", "Int64", "Decimal", "Double", "Single"
-                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Numeric, 100, Os(colName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDbType.Numeric, 100, Os(colName))
                                 Case "Boolean"
-                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Boolean, 100, Os(colName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDbType.Boolean, 100, Os(colName))
                                 Case "Char", "String"
-                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Char, 65536, Os(colName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDbType.Char, 65536, Os(colName))
                                 Case "DateTime"
-                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.DBTimeStamp, 100, Os(colName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDbType.DBTimeStamp, 100, Os(colName))
                                 Case Else
-                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDb.OleDbType.Char, 65536, Os(colName))
+                                    adapter.InsertCommand.Parameters.Add("@" & Os(colName), OleDbType.Char, 65536, Os(colName))
                             End Select
                         Next
                         For Each row As DataRow In table.Rows
@@ -126,7 +131,7 @@ Module ExportModule
     ''' <param name="location">The location.</param>
     Public Sub ExportXml(ByVal table As DataTable, ByVal location As String)
         Try
-            Using writer As New Xml.XmlTextWriter(location, Text.Encoding.UTF8)
+            Using writer As New XmlTextWriter(location, Encoding.UTF8)
                 writer.WriteStartDocument()
                 table.WriteXml(writer, XmlWriteMode.WriteSchema)
                 writer.WriteEndDocument()
@@ -149,7 +154,7 @@ Module ExportModule
     ''' <param name="location">The location.</param>
     Public Sub ExportHtml(ByVal table As DataTable, ByVal location As String)
         Try
-            Using writer As New IO.StreamWriter(location)
+            Using writer As New StreamWriter(location)
                 writer.WriteLine("<HTML>")
                 writer.WriteLine(" <HEAD>")
                 writer.WriteLine("  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>")
@@ -189,7 +194,7 @@ Module ExportModule
     ''' <param name="location">The location.</param>
     Public Sub ExportText(ByVal table As DataTable, ByVal location As String)
         Try
-            Using writer As New IO.StreamWriter(location)
+            Using writer As New StreamWriter(location)
                 writer.WriteLine("Executed: " + DateTime.Now.ToString)
                 For i As Integer = 0 To 99
                     writer.Write("*")
@@ -228,7 +233,7 @@ Module ExportModule
     ''' <param name="location">The location.</param>
     Public Sub ExportCsv(ByVal table As DataTable, ByVal location As String)
         Try
-            Using writer As New IO.StreamWriter(location)
+            Using writer As New StreamWriter(location)
                 For Each row As DataRow In table.Rows
                     For Each column As DataColumn In table.Columns
                         If row.Item(column).GetType Is GetType(DateTime) Then

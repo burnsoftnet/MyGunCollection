@@ -7,7 +7,7 @@ Partial Public Class MGCDataSet
 
     Partial Class Gun_Collection_AmmoDataTable
 
-        Private Sub Gun_Collection_AmmoDataTable_ColumnChanging(ByVal sender As System.Object, ByVal e As System.Data.DataColumnChangeEventArgs) Handles Me.ColumnChanging
+        Private Sub Gun_Collection_AmmoDataTable_ColumnChanging(ByVal sender As Object, ByVal e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
             If (e.Column.ColumnName = Me.JacketColumn.ColumnName) Then
                 'Add user code here
             End If

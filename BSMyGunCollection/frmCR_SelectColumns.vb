@@ -50,7 +50,7 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGetData.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGetData.Click
         Dim frmnew As New frmCR_ViewReport
         If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSQL()
         frmnew.SQL = txtSQL.Text
@@ -62,7 +62,7 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCR_SelectColumns_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmCR_SelectColumns_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim Obj As New BSDatabase
             Dim SQL As String = "Select * from CR_ColumnList where tid=" & TableID
@@ -123,7 +123,7 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnGSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGSQL.Click
+    Private Sub btnGSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSQL.Click
         txtSQL.Text = GenerateSQL()
     End Sub
     ''' <summary>
@@ -131,7 +131,7 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnHideSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnHideSQL.Click
+    Private Sub btnHideSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnHideSQL.Click
         Me.Height = 191
         Me.Width = 303
         btnShowSQL.Visible = True
@@ -142,7 +142,7 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnShowSQL_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnShowSQL.Click
+    Private Sub btnShowSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnShowSQL.Click
         btnHideSQL.Visible = True
         btnShowSQL.Visible = False
         Me.Height = 355

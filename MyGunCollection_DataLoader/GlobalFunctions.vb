@@ -26,9 +26,9 @@ Namespace GlobalFunctions
         Public Sub UpDateAppDetails()
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             MyReg.SetValue("AppVer", Application.ProductVersion)
             MyReg.SetValue("AppName", Application.ProductName)
@@ -39,9 +39,9 @@ Namespace GlobalFunctions
         Public Sub GetAppDetails(ByRef AppVersion As String, ByRef AppName As String, ByRef AppPath As String)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             AppVersion = MyReg.GetValue("Version", "")
             AppName = MyReg.GetValue("AppName", "")
@@ -51,9 +51,9 @@ Namespace GlobalFunctions
         Public Sub GetSettings(ByRef NumberFormat As String, ByRef TrackHistory As Boolean, ByRef TrackHistoryDays As Integer, ByRef AutoUpdate As Boolean, ByRef UseProxy As Boolean)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
                 MyReg.SetValue("TrackHistoryDays", 30)
                 MyReg.SetValue("TrackHistory", False)
                 MyReg.SetValue("NumberFormat", "0000")
@@ -78,9 +78,9 @@ Namespace GlobalFunctions
         Public Sub SaveSettings(ByVal NumberFormat As String, ByVal TrackHistory As Boolean, ByVal TrackHistoryDays As Integer, ByVal AutoUpdate As Boolean, ByVal UseProxy As Boolean)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             MyReg.SetValue("TrackHistoryDays", TrackHistoryDays)
             MyReg.SetValue("TrackHistory", TrackHistory)
@@ -92,9 +92,9 @@ Namespace GlobalFunctions
         Public Sub SaveLastWorkingDir(ByVal strPath As String)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
+            MyReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             MyReg.SetValue("LastWorkingPath", strPath)
             MyReg.Close()
@@ -103,9 +103,9 @@ Namespace GlobalFunctions
             Dim sAns As String = ""
             Dim myReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            myReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
+            myReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
             If myReg Is Nothing Then
-                myReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                myReg = Registry.CurrentUser.CreateSubKey(strValue)
                 myReg.SetValue("LastWorkingPath", "")
             End If
             sAns = myReg.GetValue("LastWorkingPath", "")

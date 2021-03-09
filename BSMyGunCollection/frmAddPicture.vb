@@ -2,6 +2,7 @@ Imports System.IO
 Imports BSMyGunCollection.MGC
 Imports System.Data
 Imports System.Data.Odbc
+Imports System.Drawing.Imaging
 Imports ADODB
 ''' <summary>
 ''' Class frmAddPicture.
@@ -18,11 +19,11 @@ Public Class frmAddPicture
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnBrowse_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrowse.Click
+    Private Sub btnBrowse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 3
             OpenFileDialog1.Filter = "Bmp Files(*.bmp)|*.bmp|Gif Files(*.gif)|*.gif|Jpg Files(*.jpg)|*.jpg"
-            If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
+            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
         Catch ex As Exception
             Dim sSubFunc As String = "btnBrowse.Click"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -62,7 +63,7 @@ Public Class frmAddPicture
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             If Len(OpenFileDialog1.FileName) = 0 Then
                 MsgBox("You need to select a picture!")
@@ -84,15 +85,15 @@ Public Class frmAddPicture
             '--Start Function to convert picture to thumbnail for database format--
             Dim intPicHeight As Integer = 64
             Dim intPicWidth As Integer = 64
-            Dim myNewPic As System.Drawing.Image
-            Dim myBitmap As System.Drawing.Image
-            myBitmap = System.Drawing.Image.FromFile(OpenFileDialog1.FileName)
-            Dim myPicCallback As System.Drawing.Image.GetThumbnailImageAbort = Nothing
+            Dim myNewPic As Image
+            Dim myBitmap As Image
+            myBitmap = Image.FromFile(OpenFileDialog1.FileName)
+            Dim myPicCallback As Image.GetThumbnailImageAbort = Nothing
             myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
                 IntPtr.Zero)
             myBitmap.Dispose()
-            System.IO.File.Delete(sThumbName)
-            myNewPic.Save(sThumbName, System.Drawing.Imaging.ImageFormat.Jpeg)
+            File.Delete(sThumbName)
+            myNewPic.Save(sThumbName, ImageFormat.Jpeg)
             myNewPic.Dispose()
             Dim st_t As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
             Dim mbr_t As BinaryReader = New BinaryReader(st_t)
@@ -101,9 +102,9 @@ Public Class frmAddPicture
             st_t.Close()
             '--End Function to convert picture to thumbnail for database format--
             Dim Obj As New BSDatabase
-            Dim MyConn As New ADODB.Connection
+            Dim MyConn As New Connection
             MyConn.Open(Obj.sConnect)
-            Dim RS As New ADODB.Recordset
+            Dim RS As New Recordset
             RS.Open("Gun_Collection_Pictures", MyConn, 2, 2)
             RS.AddNew()
             RS("CID").Value = ItemID
@@ -138,7 +139,7 @@ Public Class frmAddPicture
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddPicture_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddPicture_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

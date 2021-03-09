@@ -255,12 +255,12 @@ Public Class frmAddDocument
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnBrowse_Click(sender As System.Object, e As System.EventArgs) Handles btnBrowse.Click
+    Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 1
             OpenFileDialog1.Filter = "PDF Files(*.pdf)|*.pdf|Text Files(*.txt)|*.txt|Jpg Files(*.jpg)|*.jpg|Bitmap(*.bmp)|*.bmp|Microsoft Word(*.doc)|*.doc|Microsoft Word Open XML(*.docx)|*.docx|Portable Network Graphics(*.png)|*.png"
             'If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
-            If OpenFileDialog1.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then
+            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then
                 lblSelectedDoc.Text = OpenFileDialog1.FileName
                 SelectedFileType = OpenFileDialog1.FilterIndex
                 FileWasSelected = True
@@ -275,7 +275,7 @@ Public Class frmAddDocument
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         If Not EditMode Then
             Call InsertDoc(lblSelectedDoc.Text)
         Else
@@ -314,7 +314,7 @@ Public Class frmAddDocument
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddDocument_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddDocument_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call LoadAutoFill()
         FileWasSelected = False
         If EditMode Then Call LoadData()

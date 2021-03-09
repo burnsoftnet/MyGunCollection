@@ -120,7 +120,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AmmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmToolStripMenuItem.Click
+    Private Sub AmmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmToolStripMenuItem.Click
         Dim frmNew As New frmAddAmmo
         frmNew.Show()
     End Sub
@@ -129,7 +129,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AboutToolStripMenuItem.Click
         Dim frmNew As New AboutBox1
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -139,7 +139,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub GunToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GunToolStripMenuItem.Click
+    Private Sub GunToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles GunToolStripMenuItem.Click
         Dim frmNew As New frmAddFirearm
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -149,7 +149,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddModelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddModelToolStripMenuItem.Click
+    Private Sub AddModelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddModelToolStripMenuItem.Click
         Dim frmNew As New frmAddModel
         frmNew.Show()
     End Sub
@@ -158,7 +158,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddManufacturerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddManufacturerToolStripMenuItem.Click
+    Private Sub AddManufacturerToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddManufacturerToolStripMenuItem.Click
         Dim frmNew As New frmAddManufacturer
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -168,7 +168,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddPlaceOfOriginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddPlaceOfOriginToolStripMenuItem.Click
+    Private Sub AddPlaceOfOriginToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddPlaceOfOriginToolStripMenuItem.Click
         Dim frmNew As New frmAddNationality
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -178,7 +178,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub CollectionReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         Dim frmNew As New frmViewReport
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -188,7 +188,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CheckForUpdatesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
+    Private Sub CheckForUpdatesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CheckForUpdatesToolStripMenuItem.Click
         Call CheckForUpdates()
     End Sub
     ''' <summary>
@@ -196,7 +196,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AmmunitionInventroyToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionInventroyToolStripMenuItem.Click
+    Private Sub AmmunitionInventroyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmunitionInventroyToolStripMenuItem.Click
         frmViewAmmoInventory.MdiParent = Me
         frmViewAmmoInventory.Show()
     End Sub
@@ -205,7 +205,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AmmunitionInventoryReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub AmmunitionInventoryReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs)
         frmViewReport_Ammo.MdiParent = Me
         frmViewReport_Ammo.Show()
     End Sub
@@ -214,7 +214,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub QuickCollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuickCollectionReportToolStripMenuItem.Click
+    Private Sub QuickCollectionReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles QuickCollectionReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport
         frmNew.MdiParent = Me
@@ -226,7 +226,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AmmunitionCollectionReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionCollectionReportToolStripMenuItem.Click
+    Private Sub AmmunitionCollectionReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmunitionCollectionReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Ammo
         frmNew.MdiParent = Me
@@ -238,7 +238,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub TechnicalSupportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TechnicalSupportToolStripMenuItem.Click
+    Private Sub TechnicalSupportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TechnicalSupportToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuSupport
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -249,7 +249,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ReportABugToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReportABugToolStripMenuItem.Click
+    Private Sub ReportABugToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ReportABugToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuBug
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -260,7 +260,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub KnowledgeBaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles KnowledgeBaseToolStripMenuItem.Click
+    Private Sub KnowledgeBaseToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles KnowledgeBaseToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuWiki
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -271,7 +271,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PurchaseToolStripMenuItem.Click
+    Private Sub PurchaseToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PurchaseToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuShop
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -282,7 +282,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ListedShopsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListedShopsToolStripMenuItem.Click
+    Private Sub ListedShopsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ListedShopsToolStripMenuItem.Click
         frmViewShops.MdiParent = Me
         frmViewShops.Show()
     End Sub
@@ -291,7 +291,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ListedBuyersToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListedBuyersToolStripMenuItem.Click
+    Private Sub ListedBuyersToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ListedBuyersToolStripMenuItem.Click
         frmViewBuyers.MdiParent = Me
         frmViewBuyers.Show()
     End Sub
@@ -300,7 +300,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub IndexToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IndexToolStripMenuItem.Click
+    Private Sub IndexToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles IndexToolStripMenuItem.Click
         Help.ShowHelpIndex(Me, MyHelpFile)
     End Sub
     ''' <summary>
@@ -308,7 +308,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub SearchToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchToolStripMenuItem.Click
+    Private Sub SearchToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SearchToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuSitesearch
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -319,7 +319,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub PlaceOfOriginToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlaceOfOriginToolStripMenuItem.Click
+    Private Sub PlaceOfOriginToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PlaceOfOriginToolStripMenuItem.Click
         frmEditNationality.MdiParent = Me
         frmEditNationality.Show()
     End Sub
@@ -329,7 +329,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     <Obsolete("This function was removed")>
-    Private Sub RegisterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RegisterToolStripMenuItem.Click
+    Private Sub RegisterToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RegisterToolStripMenuItem.Click
         'BSRegistration.StatusMessage = ToolStripStatusLabel.Text
         'BSRegistration.Show()
     End Sub
@@ -340,7 +340,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Call DoDelete()
         Call RefreshCollection()
     End Sub
@@ -349,7 +349,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Dim frmNew As New frmAddFirearm
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -359,7 +359,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Call CheckForUpdates()
     End Sub
     ''' <summary>
@@ -367,7 +367,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub SaveToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripButton.Click
+    Private Sub SaveToolStripButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveToolStripButton.Click
         Call DoBackup()
     End Sub
     ''' <summary>
@@ -375,7 +375,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub SaveToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+    Private Sub SaveToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SaveToolStripMenuItem.Click
         Call DoBackup()
     End Sub
     ''' <summary>
@@ -383,7 +383,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
         frmViewAmmoInventory.MdiParent = Me
         frmViewAmmoInventory.Show()
     End Sub
@@ -392,7 +392,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub MaintancePlanToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaintancePlanToolStripMenuItem.Click
+    Private Sub MaintancePlanToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MaintancePlanToolStripMenuItem.Click
         frmAddMaintancePlans.MdiParent = Me
         frmAddMaintancePlans.Show()
     End Sub
@@ -401,7 +401,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub MaintancePlanToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MaintancePlanToolStripMenuItem1.Click
+    Private Sub MaintancePlanToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MaintancePlanToolStripMenuItem1.Click
         frmViewMaintancePlanList.MdiParent = Me
         frmViewMaintancePlanList.Show()
     End Sub
@@ -410,7 +410,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton5.Click
+    Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         frmViewMaintancePlanList.MdiParent = Me
         frmViewMaintancePlanList.Show()
     End Sub
@@ -419,7 +419,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ManufacturersToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ManufacturersToolStripMenuItem.Click
+    Private Sub ManufacturersToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ManufacturersToolStripMenuItem.Click
         frmEditmanufactures.MdiParent = Me
         frmEditmanufactures.Show()
     End Sub
@@ -428,7 +428,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AmmunitionTypeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AmmunitionTypeToolStripMenuItem.Click
+    Private Sub AmmunitionTypeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmunitionTypeToolStripMenuItem.Click
         frmEditAmmunitionType.MdiParent = Me
         frmEditAmmunitionType.Show()
     End Sub
@@ -437,7 +437,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ModelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModelToolStripMenuItem.Click
+    Private Sub ModelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ModelToolStripMenuItem.Click
         frmEditModel.MdiParent = Me
         frmEditModel.Show()
     End Sub
@@ -446,7 +446,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ContentsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ContentsToolStripMenuItem.Click
+    Private Sub ContentsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ContentsToolStripMenuItem.Click
         Call DoHelp()
     End Sub
     ''' <summary>
@@ -454,7 +454,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub HelpToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles HelpToolStripButton.Click
+    Private Sub HelpToolStripButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles HelpToolStripButton.Click
         Call DoHelp()
     End Sub
     ''' <summary>
@@ -462,7 +462,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub OptionsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OptionsToolStripMenuItem.Click
+    Private Sub OptionsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OptionsToolStripMenuItem.Click
         frmSettings.MdiParent = Me
         frmSettings.Show()
     End Sub
@@ -471,7 +471,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddMmunitionToMyCollectionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddMmunitionToMyCollectionToolStripMenuItem.Click
+    Private Sub AddMmunitionToMyCollectionToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddMmunitionToMyCollectionToolStripMenuItem.Click
         Dim frmNew As New frmAddCollectionAmmo
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
@@ -481,7 +481,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ViewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewToolStripMenuItem.Click
+    Private Sub ViewToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewToolStripMenuItem.Click
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewCollectionDetails
         frmNew.MdiParent = Me
@@ -493,7 +493,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmEditCollectionDetails
         frmNew.ItemID = MyValue
@@ -505,7 +505,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Call DoDelete()
         Call RefreshCollection()
     End Sub
@@ -514,7 +514,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton6.Click
+    Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
         frmSettings.MdiParent = Me
         frmSettings.Show()
     End Sub
@@ -523,7 +523,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton7.Click
+    Private Sub ToolStripButton7_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton7.Click
         Me.Cursor = Cursors.WaitCursor
         frmViewReport_Ammo.MdiParent = Me
         frmViewReport_Ammo.Show()
@@ -534,7 +534,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ViewGunSmithReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewGunSmithReportToolStripMenuItem.Click
+    Private Sub ViewGunSmithReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewGunSmithReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim MyValue As Long = ListBox1.SelectedValue
         frmViewReport_GunSmith.MdiParent = Me
@@ -547,7 +547,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton9.Click
+    Private Sub ToolStripButton9_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton9.Click
         Dim frmNew As New frmAddCollectionAmmo
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -557,7 +557,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton10.Click
+    Private Sub ToolStripButton10_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton10.Click
         Dim frmNew As New frmViewWishList
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -567,7 +567,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton11_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton11.Click
+    Private Sub ToolStripButton11_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton11.Click
         Dim frmNew As New frmAddToWishList
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -577,7 +577,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddToWishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AddToWishlistToolStripMenuItem.Click
+    Private Sub AddToWishlistToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddToWishlistToolStripMenuItem.Click
         Dim frmNew As New frmAddToWishList
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -587,7 +587,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub PrintOutWishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PrintOutWishlistToolStripMenuItem.Click
+    Private Sub PrintOutWishlistToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PrintOutWishlistToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_WishList
         frmNew.MdiParent = Me
@@ -599,7 +599,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub WishlistToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WishlistToolStripMenuItem.Click
+    Private Sub WishlistToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles WishlistToolStripMenuItem.Click
         Dim frmNew As New frmViewWishList
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -609,7 +609,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ByPurchasedValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByPurchasedValueToolStripMenuItem.Click
+    Private Sub ByPurchasedValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByPurchasedValueToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance
         frmNew.MdiParent = Me
@@ -621,7 +621,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ByInsuredValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByInsuredValueToolStripMenuItem.Click
+    Private Sub ByInsuredValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByInsuredValueToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_InsuredValue
         frmNew.MdiParent = Me
@@ -633,7 +633,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ByAppraisedValueToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByAppraisedValueToolStripMenuItem.Click
+    Private Sub ByAppraisedValueToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByAppraisedValueToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_ApprisedValue
         frmNew.MdiParent = Me
@@ -645,7 +645,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CopyFirearmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CopyFirearmToolStripMenuItem.Click
+    Private Sub CopyFirearmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyFirearmToolStripMenuItem.Click
         Try
             Dim ItemName As String = ListBox1.Text
             Dim ItemID As Long = ListBox1.SelectedValue
@@ -667,7 +667,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub MDIParent1_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+    Private Sub MDIParent1_Disposed(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Disposed
         Try
             If DoAutoBackup Then
                 Dim myProcess As New Process
@@ -676,7 +676,7 @@ Public Class MDIParent1
                 myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                 myProcess.Start()
             End If
-            If Not RunningRegForm Then Global.System.Windows.Forms.Application.Exit()
+            If Not RunningRegForm Then Application.Exit()
         Catch ex As Exception
             Dim strProcedure As String = "Disposed"
             Call LogError(Me.Name, strProcedure, Err.Number, ex.Message.ToString)
@@ -687,7 +687,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub MDIParent1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub MDIParent1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         ShowDebugLogToolStripMenuItem.Visible = DebugMode
         Dim iOS As Integer = Environment.OSVersion.Version.Major
         Try
@@ -751,7 +751,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
+    Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         Try
             Me.Cursor = Cursors.WaitCursor
             Dim MyValue As Long = ListBox1.SelectedValue
@@ -770,7 +770,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs)
         Call RefreshCollection()
     End Sub
     ''' <summary>
@@ -778,7 +778,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub MDIParent1_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub MDIParent1_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         If Me.Height <> 0 Then
             ListBox1.Height = Me.Height - 188
             Dim p As New Point
@@ -793,7 +793,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbView.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles cmbView.SelectedIndexChanged
         Call RefreshCollection()
     End Sub
 #End Region
@@ -804,7 +804,7 @@ Public Class MDIParent1
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewWindowToolStripMenuItem.Click
-        Dim ChildForm As New System.Windows.Forms.Form
+        Dim ChildForm As New Form
         ChildForm.MdiParent = Me
         m_ChildFormNumber += 1
         ChildForm.Text = "Window " & m_ChildFormNumber
@@ -988,7 +988,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub RenameDisplayNameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RenameDisplayNameToolStripMenuItem.Click
+    Private Sub RenameDisplayNameToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles RenameDisplayNameToolStripMenuItem.Click
         Try
             Dim ItemName As String = ListBox1.Text
             Dim ItemID As Long = ListBox1.SelectedValue
@@ -1008,7 +1008,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem.Click
+    Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
         frmNew.MdiParent = Me
@@ -1020,7 +1020,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CleanUpToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CleanUpToolStripMenuItem.Click
+    Private Sub CleanUpToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CleanUpToolStripMenuItem.Click
         Dim frmNew As New frmDBCleanup
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1030,7 +1030,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub GripTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles GripTypesToolStripMenuItem.Click
+    Private Sub GripTypesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles GripTypesToolStripMenuItem.Click
         Dim frmNew As New frmViewGrips
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1040,7 +1040,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub tsslErrorsFound_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsslErrorsFound.Click
+    Private Sub tsslErrorsFound_Click(ByVal sender As Object, ByVal e As EventArgs) Handles tsslErrorsFound.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MyLogFile
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
@@ -1051,7 +1051,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DataPreLoaderToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataPreLoaderToolStripMenuItem.Click
+    Private Sub DataPreLoaderToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DataPreLoaderToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = ApplicationPath & "\" & MyDataloader
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
@@ -1066,7 +1066,7 @@ Public Class MDIParent1
         myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
-        Global.System.Windows.Forms.Application.Exit()
+        Application.Exit()
         End
     End Sub
     ''' <summary>
@@ -1101,7 +1101,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CustomReportToolStripMenuItem.Click
+    Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CustomReportToolStripMenuItem.Click
         Dim frmNew As New frmCR_SelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1111,7 +1111,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub MiscFirearmLinksToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MiscFirearmLinksToolStripMenuItem.Click
+    Private Sub MiscFirearmLinksToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MiscFirearmLinksToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = MenuLinks
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
@@ -1122,7 +1122,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ImportFirearmToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportFirearmToolStripMenuItem.Click
+    Private Sub ImportFirearmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ImportFirearmToolStripMenuItem.Click
         Dim frmNew As New frmImportFirearm
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1132,7 +1132,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton12.Click
+    Private Sub ToolStripButton12_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton12.Click
         Dim frmNew As New frmCR_SelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1142,7 +1142,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
+    Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
         Dim frmNew As New frmViewReport_FirearmDetails
@@ -1156,7 +1156,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
+    Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Call CheckDefaultPic(ListBox1.SelectedValue)
         Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
@@ -1170,7 +1170,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ByPurchasedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByPurchasedValueToolStripMenuItem1.Click
+    Private Sub ByPurchasedValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByPurchasedValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_wTotal
         frmNew.MdiParent = Me
@@ -1182,7 +1182,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ByInsuredValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByInsuredValueToolStripMenuItem1.Click
+    Private Sub ByInsuredValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByInsuredValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_InsuredValue_wTotal
         frmNew.MdiParent = Me
@@ -1194,7 +1194,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub ByAppraisedValueToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ByAppraisedValueToolStripMenuItem1.Click
+    Private Sub ByAppraisedValueToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ByAppraisedValueToolStripMenuItem1.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_Insurance_ApprisedValue_wTotal
         frmNew.MdiParent = Me
@@ -1214,7 +1214,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub SearchCollectionToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchCollectionToolStripMenuItem.Click
+    Private Sub SearchCollectionToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SearchCollectionToolStripMenuItem.Click
         Call RunSearch()
     End Sub
     ''' <summary>
@@ -1222,7 +1222,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub ToolStripButton13_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton13.Click
+    Private Sub ToolStripButton13_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton13.Click
         Call RunSearch()
     End Sub
     ''' <summary>
@@ -1230,7 +1230,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub FirearmConditionsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmConditionsToolStripMenuItem.Click
+    Private Sub FirearmConditionsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles FirearmConditionsToolStripMenuItem.Click
         Dim frmNew As New frmEditGunConditions
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1240,7 +1240,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub FirearmTypesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FirearmTypesToolStripMenuItem.Click
+    Private Sub FirearmTypesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles FirearmTypesToolStripMenuItem.Click
         Dim frmNew As New frmEditFirearmType
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1250,7 +1250,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BoundBookToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BoundBookToolStripMenuItem1.Click
+    Private Sub BoundBookToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem1.Click
         Dim frmNew As New frmViewReport_Blank_BoundBook
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1260,7 +1260,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub QuickCollectionReportWNotesToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles QuickCollectionReportWNotesToolStripMenuItem.Click
+    Private Sub QuickCollectionReportWNotesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles QuickCollectionReportWNotesToolStripMenuItem.Click
         Dim frmnew As New frmViewReport_Quickinv_w_DetailNotes
         frmnew.MdiParent = Me
         frmnew.Show()
@@ -1270,7 +1270,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ShootersCardToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem.Click
+    Private Sub ShootersCardToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ShootersCardToolStripMenuItem.Click
         Dim frmNew As New frmViewReport_Blank_ShootersCard
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1280,7 +1280,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ShootersCardToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShootersCardToolStripMenuItem1.Click
+    Private Sub ShootersCardToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ShootersCardToolStripMenuItem1.Click
         Dim frmNew As New frmViewReport_Blank_ShootersCard2
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1290,7 +1290,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ShowDebugLogToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ShowDebugLogToolStripMenuItem.Click
+    Private Sub ShowDebugLogToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ShowDebugLogToolStripMenuItem.Click
         Dim myProcess As New Process
         myProcess.StartInfo.FileName = "notepad.exe" 'Application.LocalUserAppDataPath.ToString & "\" & DEBUG_FILE
         myProcess.StartInfo.Arguments = Application.LocalUserAppDataPath.ToString & "\" & DebugFile
@@ -1302,7 +1302,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ListedGunsmithsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedGunsmithsToolStripMenuItem.Click
+    Private Sub ListedGunsmithsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListedGunsmithsToolStripMenuItem.Click
         frmViewGunSmiths.MdiParent = Me
         frmViewGunSmiths.Show()
     End Sub
@@ -1311,7 +1311,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ListedAppriasersToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ListedAppriasersToolStripMenuItem.Click
+    Private Sub ListedAppriasersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListedAppriasersToolStripMenuItem.Click
         frmViewAppraisers.MdiParent = Me
         frmViewAppraisers.Show()
     End Sub
@@ -1320,7 +1320,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DocumentToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentToolStripMenuItem.Click
+    Private Sub DocumentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DocumentToolStripMenuItem.Click
         Dim frmNew As New frmAddDocument
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1330,7 +1330,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton8_ButtonClick(sender As System.Object, e As System.EventArgs) Handles ToolStripButton8.ButtonClick
+    Private Sub ToolStripButton8_ButtonClick(sender As Object, e As EventArgs) Handles ToolStripButton8.ButtonClick
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
         frmNew.MdiParent = Me
@@ -1342,7 +1342,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BoundBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion2ToolStripMenuItem.Click
+    Private Sub BoundBookVersion2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBookVersion2ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook2
         frmNew.MdiParent = Me
@@ -1354,7 +1354,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BoundBookVersion1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBookVersion1ToolStripMenuItem.Click
+    Private Sub BoundBookVersion1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBookVersion1ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
         frmNew.MdiParent = Me
@@ -1366,7 +1366,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BounfBookVersion2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BounfBookVersion2ToolStripMenuItem.Click
+    Private Sub BounfBookVersion2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BounfBookVersion2ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook2
         frmNew.MdiParent = Me
@@ -1378,7 +1378,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ClassificationToolStripMenuItem.Click
+    Private Sub ClassificationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClassificationToolStripMenuItem.Click
         Dim frmNew As New EditGunClassications
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1388,7 +1388,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub AddFirearmClassificationToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddFirearmClassificationToolStripMenuItem.Click
+    Private Sub AddFirearmClassificationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddFirearmClassificationToolStripMenuItem.Click
         Dim frmNew As New frmAddFirearmClassification
         frmNew.MdiParent = Me
         frmNew.Show()
@@ -1398,7 +1398,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DocumentsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DocumentsToolStripMenuItem.Click
+    Private Sub DocumentsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DocumentsToolStripMenuItem.Click
         Call ViewDocuments()
     End Sub
     ''' <summary>
@@ -1413,7 +1413,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton14_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton14.Click
+    Private Sub ToolStripButton14_Click(sender As Object, e As EventArgs) Handles ToolStripButton14.Click
         Call ViewDocuments()
     End Sub
     ''' <summary>
@@ -1421,7 +1421,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub PickerToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles PickerToolStripMenuItem.Click
+    Private Sub PickerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PickerToolStripMenuItem.Click
         Call ShowFirearmGalleryPicker()
     End Sub
     ''' <summary>
@@ -1436,7 +1436,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton15_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton15.Click
+    Private Sub ToolStripButton15_Click(sender As Object, e As EventArgs) Handles ToolStripButton15.Click
         Call ShowFirearmGalleryPicker()
     End Sub
     ''' <summary>
@@ -1444,7 +1444,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub BoundBook1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles BoundBook1ToolStripMenuItem.Click
+    Private Sub BoundBook1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoundBook1ToolStripMenuItem.Click
         Me.Cursor = Cursors.WaitCursor
         Dim frmNew As New frmViewReport_BoundBook
         frmNew.MdiParent = Me
@@ -1456,7 +1456,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub RedoAllToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RedoAllToolStripMenuItem.Click
+    Private Sub RedoAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RedoAllToolStripMenuItem.Click
         Call ReRunHotFixUpdates()
     End Sub
     ''' <summary>
@@ -1464,7 +1464,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix1ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix1ToolStripMenuItem.Click
+    Private Sub Hotfix1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix1ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(1)
     End Sub
     ''' <summary>
@@ -1472,7 +1472,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix2ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix2ToolStripMenuItem.Click
+    Private Sub Hotfix2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix2ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(2)
     End Sub
     ''' <summary>
@@ -1480,7 +1480,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix3ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix3ToolStripMenuItem.Click
+    Private Sub Hotfix3ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix3ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(3)
     End Sub
     ''' <summary>
@@ -1488,7 +1488,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix4ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix4ToolStripMenuItem.Click
+    Private Sub Hotfix4ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix4ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(4)
     End Sub
     ''' <summary>
@@ -1496,7 +1496,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix5ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix5ToolStripMenuItem.Click
+    Private Sub Hotfix5ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix5ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(5)
     End Sub
     ''' <summary>
@@ -1504,7 +1504,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix6ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix6ToolStripMenuItem.Click
+    Private Sub Hotfix6ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix6ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(6)
     End Sub
     ''' <summary>
@@ -1512,7 +1512,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix7ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix7ToolStripMenuItem.Click
+    Private Sub Hotfix7ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix7ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(7)
     End Sub
     ''' <summary>
@@ -1520,7 +1520,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Hotfix8ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix8ToolStripMenuItem.Click
+    Private Sub Hotfix8ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix8ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(8)
     End Sub
     ''' <summary>
@@ -1528,7 +1528,7 @@ Public Class MDIParent1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub Hotfix9ToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles Hotfix9ToolStripMenuItem.Click
+    Private Sub Hotfix9ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix9ToolStripMenuItem.Click
         Call ReRunThisHostFixbyID(9)
     End Sub
 End Class

@@ -23,7 +23,7 @@ Public Class frmLinkDocToFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmLinkDocToFirearm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmLinkDocToFirearm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Gun_CollectionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection)
     End Sub
     ''' <summary>
@@ -46,7 +46,7 @@ Public Class frmLinkDocToFirearm
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAttach_Click(sender As System.Object, e As System.EventArgs) Handles btnAttach.Click
+    Private Sub btnAttach_Click(sender As Object, e As EventArgs) Handles btnAttach.Click
         Try
             Dim strFireArmID As String = ComboBox1.SelectedValue.ToString
             Dim strFireArmName As String = ComboBox1.Text

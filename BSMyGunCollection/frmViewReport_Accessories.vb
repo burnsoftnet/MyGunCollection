@@ -3,13 +3,13 @@ Public Class frmViewReport_Accessories
     Public GID As String
     Public Title As String
     Dim ReportTitle As String
-    Private Sub frmViewReport_Accessories_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Accessories_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             ReportTitle = "Accessories Report"
             Me.Text = ReportTitle
             Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, GID)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", ReportTitle & " for " & Title))
                 parmList.Add(New ReportParameter("Firearm", Title))

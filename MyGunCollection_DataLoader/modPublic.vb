@@ -26,10 +26,10 @@ Module modPublic
     'initialize the following global variables, mostly what path to use
     Sub INIT()
         Dim ObjF As New bsfilesystem
-        Dim AppDataPath As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
+        Dim AppDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
         Dim APPDATAPATH_EXISTS As Boolean = Objf.DirectoryExists(AppDataPath)
-        APPLICATION_PATH = System.Windows.Forms.Application.StartupPath
-        APPLICATION_PATH_DATA = System.Windows.Forms.Application.StartupPath
+        APPLICATION_PATH = Application.StartupPath
+        APPLICATION_PATH_DATA = Application.StartupPath
         If APPDATAPATH_EXISTS Then
             If Objf.FileExists(AppDataPath & "\" & DATABASE_NAME) Then
                 APPLICATION_PATH_DATA = AppDataPath
@@ -54,7 +54,7 @@ Module modPublic
     'Throw Errors into log file
     Public Sub LogError(ByVal sForm As String, ByVal sProcedure As String, ByVal iErrNo As Long, ByVal sErrorDesc As String)
         Try
-            Dim ObjFS As New MyGunCollection_DataLoader.GlobalFunctions.BSFileSystem
+            Dim ObjFS As New BSFileSystem
             Dim sMessage As String = sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
             ObjFS.LogFile(MyLogFile, sMessage)
         Catch ex As Exception

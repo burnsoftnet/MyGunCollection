@@ -6,11 +6,11 @@ Public Class frmViewReport_Insurance_ApprisedValue
     '        Me.ReportViewer1.Width = Me.Width - 5
     '    End If
     'End Sub
-    Private Sub frmViewReport_Insurance_ApprisedValue_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Insurance_ApprisedValue_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.qryGunCollectionDetailsTableAdapter.FillByInsuranceReport_AppraisedValue(Me.MGCDataSet.qryGunCollectionDetails)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Insurance Report for " & OwnerName))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)
@@ -23,10 +23,10 @@ Public Class frmViewReport_Insurance_ApprisedValue
         End Try
     End Sub
 
-    Private Sub frmViewReport_Insurance_ApprisedValue_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmViewReport_Insurance_ApprisedValue_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         '  Call DoResize()
     End Sub
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
 
         Try
             qryGunCollectionDetailsBindingSource.ResetBindings(True)

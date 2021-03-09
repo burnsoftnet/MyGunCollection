@@ -6,10 +6,10 @@ Public Class frmViewGunSmiths
         Me.GunSmith_Contact_DetailsTableAdapter.Fill(Me.MGCDataSet.GunSmith_Contact_Details)
     End Sub
 
-    Private Sub frmViewGunSmiths_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewGunSmiths_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RefreshList()
     End Sub
-    Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim MyValue As String = FluffContent(InputBox("Please type in the Gunsmiths name.", "Add a new Gunsmith."))
         If Len(MyValue) <> 0 Then
             Dim intShopCount As Integer = 0
@@ -32,7 +32,7 @@ Public Class frmViewGunSmiths
         End If
     End Sub
 
-    Private Sub ListBox1_DoubleClick(sender As Object, e As System.EventArgs) Handles ListBox1.DoubleClick
+    Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewGunSmithDetails
         frmNew.MdiParent = Me.MdiParent
@@ -40,11 +40,11 @@ Public Class frmViewGunSmiths
         frmNew.Show()
     End Sub
 
-    Private Sub ToolStripButton3_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Call RefreshList()
     End Sub
 
-    Private Sub ToolStripButton2_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim ObjGF As New GlobalFunctions
         Dim strShopName As String = ObjGF.GetName("SELECT gname from GunSmith_Contact_Details where ID=" & MyValue, "gname")
@@ -62,7 +62,7 @@ Public Class frmViewGunSmiths
         End If
     End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
     End Sub
 End Class

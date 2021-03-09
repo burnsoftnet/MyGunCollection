@@ -1,6 +1,6 @@
 ﻿Public Class frmLinkFromExistingDoc
     Public GID As Long
-    Private Sub frmLinkFromExistingDoc_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmLinkFromExistingDoc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RefreshData()
     End Sub
     Sub RefreshData()
@@ -11,11 +11,11 @@
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 
-    Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim docName As String = cmbDoc.SelectedText
         Dim DocID As Long = cmbDoc.SelectedValue
         Dim objAddObject As New frmAddDocument

@@ -2,11 +2,11 @@ Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_Maintenance
     Public MyGID As String
     Public Title As String
-    Private Sub frmViewReport_Maintenance_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Maintenance_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.gryGunMaintanceTableAdapter.FillBy(Me.MGCDataSet.gryGunMaintance, MyGID)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Maintenance Report for " & Title))
                 parmList.Add(New ReportParameter("Firearm", Title))
@@ -19,13 +19,13 @@ Public Class frmViewReport_Maintenance
         End Try
     End Sub
 
-    Private Sub frmViewReport_Maintenance_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmViewReport_Maintenance_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         '   If Me.Height <> 0 Then
         ' Me.ReportViewer1.Height = Me.Height - (46 + 15)
         ' Me.ReportViewer1.Width = Me.Width - 5
         ' End If
     End Sub
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             If Len(MyGID) > 0 Then
                 Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))

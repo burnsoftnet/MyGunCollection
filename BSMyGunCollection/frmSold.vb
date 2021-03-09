@@ -3,10 +3,10 @@ Imports System.Data.Odbc
 Public Class frmSold
     Public ItemID As String
     Public ASKINGPRICE As String
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
-    Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)
@@ -77,11 +77,11 @@ Public Class frmSold
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmSold_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmSold_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Gun_Collection_SoldToTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_SoldTo)
         If Len(ASKINGPRICE) > 0 Then txtPrice.Text = ASKINGPRICE
     End Sub
-    Private Sub btnApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApply.Click
+    Private Sub btnApply_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnApply.Click
         Try
             Dim Obj As New BSDatabase
             Dim SBID As Long = cmbPrevBuyer.SelectedValue
@@ -122,7 +122,7 @@ Public Class frmSold
         End Try
     End Sub
 
-    Private Sub btnNA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNA.Click
+    Private Sub btnNA_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNA.Click
         txtAddress1.Text = "N/A"
         txtAddress2.Text = "N/A"
         txtCity.Text = "N/A"

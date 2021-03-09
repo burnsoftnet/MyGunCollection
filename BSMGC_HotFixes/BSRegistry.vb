@@ -17,14 +17,14 @@ Public Class BSRegistry
     End Property
     'create Registry sub key
     Public Sub CreateSubKey(ByVal strValue As String)
-        Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+        Registry.CurrentUser.CreateSubKey(strValue)
     End Sub
     'check to see if key exists for the current user - post version 5.5
     Public Function RegSubKeyExists(ByVal strValue As String) As Boolean
         Dim bAns As Boolean = False
         Try
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
                 bAns = False
             Else
@@ -40,7 +40,7 @@ Public Class BSRegistry
         Dim bAns As Boolean = False
         Try
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(strValue, True)
+            MyReg = Registry.LocalMachine.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
                 bAns = False
             Else
@@ -55,7 +55,7 @@ Public Class BSRegistry
     Public Sub DeleteRegValue(ByVal sReg As String, ByVal sKey As String)
         Try
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(sReg, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(sReg, True)
             MyReg.DeleteValue(sKey)
             MyReg.Close()
         Catch ex As Exception
@@ -67,7 +67,7 @@ Public Class BSRegistry
     'save the reg value
     Public Sub SaveRegValue(ByVal sReg As String, ByVal sKey As String, ByVal sValue As String)
         Dim MyReg As RegistryKey
-        MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(sReg, True)
+        MyReg = Registry.CurrentUser.OpenSubKey(sReg, True)
         MyReg.SetValue(sKey, sValue)
         MyReg.Close()
     End Sub
@@ -78,7 +78,7 @@ Public Class BSRegistry
         Dim MyReg As RegistryKey
         Try
             If RegSubKeyExists(strKey) Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                 If Len(MyReg.GetValue(strValue)) > 0 Then
                     sAns = MyReg.GetValue(strValue)
                 Else
@@ -87,7 +87,7 @@ Public Class BSRegistry
                 End If
             Else
                 Call CreateSubKey(strKey)
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                 MyReg.SetValue(strValue, strDefault)
                 sAns = strDefault
             End If
@@ -103,7 +103,7 @@ Public Class BSRegistry
         Dim MyReg As RegistryKey
         Try
             If RegSubKeyExistsLocalMachine(strKey) Then
-                MyReg = Microsoft.Win32.Registry.LocalMachine.OpenSubKey(strKey, True)
+                MyReg = Registry.LocalMachine.OpenSubKey(strKey, True)
                 If Len(MyReg.GetValue(strValue)) > 0 Then
                     sAns = MyReg.GetValue(strValue)
                 Else
@@ -112,7 +112,7 @@ Public Class BSRegistry
                 End If
             Else
                 Call CreateSubKey(strKey)
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                 MyReg.SetValue(strValue, strDefault)
                 sAns = strDefault
             End If
@@ -280,7 +280,7 @@ Public Class BSRegistry
             'Remove the old Settings
 
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.LocalMachine.OpenSubKey("Software\\BurnSoft\\", True)
+            MyReg = Registry.LocalMachine.OpenSubKey("Software\\BurnSoft\\", True)
             MyReg.DeleteSubKeyTree("BSMGC")
             MyReg.Close()
         End If

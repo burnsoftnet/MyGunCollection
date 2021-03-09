@@ -12,7 +12,7 @@ Public Class frmAddMaintancePlans
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strOD As String = FluffContent(txtOD.Text)
@@ -39,7 +39,7 @@ Public Class frmAddMaintancePlans
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub brnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles brnCancel.Click
+    Private Sub brnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles brnCancel.Click
         Me.Close()
     End Sub
 End Class

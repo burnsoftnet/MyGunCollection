@@ -2,7 +2,7 @@ Imports BSMyGunCollection.MGC
 Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_Quickinv_w_DetailNotes
 
-    Private Sub frmViewReport_Quickinv_w_DetailNotes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Quickinv_w_DetailNotes_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.FullDetailsTableAdapter.FillBy_QI_All(Me.MGCDataSet.FullDetails)
 
@@ -13,7 +13,7 @@ Public Class frmViewReport_Quickinv_w_DetailNotes
         End Try
     End Sub
 
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Manufacturer")

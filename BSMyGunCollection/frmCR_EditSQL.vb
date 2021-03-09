@@ -41,7 +41,7 @@ Public Class frmCR_EditSQL
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCR_EditSQL_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmCR_EditSQL_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If RID > 0 Then
             Call LoadData()
         Else
@@ -53,7 +53,7 @@ Public Class frmCR_EditSQL
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnViewInReport_Click(sender As System.Object, e As System.EventArgs) Handles btnViewInReport.Click
+    Private Sub btnViewInReport_Click(sender As Object, e As EventArgs) Handles btnViewInReport.Click
         Dim frmnew As New frmCR_ViewReport
         frmnew.SQL = txtSQL.Text
         frmnew.MdiParent = Me.MdiParent
@@ -64,7 +64,7 @@ Public Class frmCR_EditSQL
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnSave_Click(sender As System.Object, e As System.EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Dim Obj As New BSDatabase
             Dim ObjOF As New GlobalFunctions

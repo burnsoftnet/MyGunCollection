@@ -42,7 +42,7 @@ Public Class frmViewBuyerDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmViewBuyerDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewBuyerDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Gun_CollectionTableAdapter.FillByBuyer(Me.MGCDataSet.Gun_Collection, BuyerID)
             Call LoadSellerData()
@@ -52,11 +52,11 @@ Public Class frmViewBuyerDetails
         End Try
     End Sub
 
-    Private Sub btnCanel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCanel.Click
+    Private Sub btnCanel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCanel.Click
         Me.Close()
     End Sub
 
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         txtName.ReadOnly = False
         txtAddress1.ReadOnly = False
         txtAddress2.ReadOnly = False
@@ -76,7 +76,7 @@ Public Class frmViewBuyerDetails
         btnEdit.Visible = False
     End Sub
 
-    Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)

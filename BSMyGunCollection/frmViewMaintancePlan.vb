@@ -26,17 +26,17 @@ Public Class frmViewMaintancePlan
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmViewMaintancePlan_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewMaintancePlan_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If Len(ID) > 0 Then
             Call GetData()
         Else
             Me.Close()
         End If
     End Sub
-    Private Sub brnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles brnCancel.Click
+    Private Sub brnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles brnCancel.Click
         Me.Close()
     End Sub
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         Me.Text = "Edit Maintenance Plan"
         btnEdit.Visible = False
         btnUpdate.Visible = True
@@ -46,7 +46,7 @@ Public Class frmViewMaintancePlan
         nudIIRF.ReadOnly = False
         txtNotes.ReadOnly = False
     End Sub
-    Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strOD As String = FluffContent(txtOD.Text)

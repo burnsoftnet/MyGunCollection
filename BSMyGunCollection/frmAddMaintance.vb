@@ -32,7 +32,7 @@ Public Class frmAddMaintance
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddMaintance_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddMaintance_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Maintance_PlansTableAdapter.Fill(Me.MGCDataSet.Maintance_Plans)
         Catch ex As Exception
@@ -45,7 +45,7 @@ Public Class frmAddMaintance
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnViewPlans_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnViewPlans.Click
+    Private Sub btnViewPlans_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnViewPlans.Click
         Try
             frmViewMaintancePlan.MdiParent = Me.MdiParent
             Dim strID As String = ComboBox1.SelectedValue
@@ -61,7 +61,7 @@ Public Class frmAddMaintance
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -69,7 +69,7 @@ Public Class frmAddMaintance
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strID As String = ComboBox1.SelectedValue
             Dim strName As String = FluffContent(ComboBox1.Text)
@@ -99,7 +99,7 @@ Public Class frmAddMaintance
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         frmAmmoCalc.MdiParent = Me.MdiParent
         frmAmmoCalc.AmmoType = AmmoType
         frmAmmoCalc.AmmoTypePet = AmmoTypePet

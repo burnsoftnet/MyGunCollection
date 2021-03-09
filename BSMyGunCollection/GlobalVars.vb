@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Security.RegularEncryption.SHA
+
 ''' <summary>
 ''' Global Variables and Functions
 ''' </summary>
@@ -323,22 +325,22 @@ Module GlobalVars
                 Dim intUsePWD As Integer = CInt(RS("UsePWD"))
                 If intUsePWD = 1 Then
                     If Not IsDBNull(RS("PWD")) Then
-                        PWD = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("PWD"))
+                        PWD = One.Decrypt(RS("PWD"))
                     Else
                         PWD = ""
                     End If
                     If Not IsDBNull(RS("UID")) Then
-                        UID = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("UID"))
+                        UID = One.Decrypt(RS("UID"))
                     Else
                         UID = "admin"
                     End If
                     If Not IsDBNull(RS("forgot_word")) And Len(RS("forgot_word")) > 0 Then
-                        FW = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_word"))
+                        FW = One.Decrypt(RS("forgot_word"))
                     Else
                         FW = "burnsoft"
                     End If
                     If Not IsDBNull(RS("forgot_phrase")) And Len(RS("forgot_phrase")) > 0 Then
-                        FP = BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_phrase"))
+                        FP = One.Decrypt(RS("forgot_phrase"))
                     Else
                         FP = "The Company that made this App"
                     End If
@@ -386,7 +388,7 @@ Module GlobalVars
                     iAns = RS("ID")
                     OwnerName = RS("Name")
                     If Not IsDBNull(RS("CCDWL")) Then
-                        OwnerLic = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
+                        OwnerLic = Trim(One.Decrypt(RS("CCDWL")))
                     Else
                         OwnerLic = ""
                     End If
@@ -500,7 +502,7 @@ Module GlobalVars
     ''' <param name="ID"></param>
     Sub CheckDefaultPic(ByVal ID As Long)
         Try
-            Dim Obj As New MGC.GlobalFunctions
+            Dim Obj As New GlobalFunctions
             Obj.HasDefaultPicture(ID, True)
         Catch ex As Exception
             Dim sSubFunc As String = "CheckDefaultPic"

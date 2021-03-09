@@ -1,9 +1,13 @@
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Imports System.ComponentModel
+Imports BSMyGunCollection.MGCDataSetTableAdapters
+Imports Microsoft.VisualBasic.CompilerServices
+
+<DesignerGenerated()> _
 Partial Class frmEditModel
-    Inherits System.Windows.Forms.Form
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -15,30 +19,30 @@ Partial Class frmEditModel
     End Sub
 
     'Required by the Windows Form Designer
-    Private components As System.ComponentModel.IContainer
+    Private components As IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditModel))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.BrandDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.GryGunModelToManufacturerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet
-        Me.GryGunModelToManufacturerTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.gryGunModelToManufacturerTableAdapter
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.components = New Container
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditModel))
+        Me.DataGridView1 = New DataGridView
+        Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.BrandDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.ModelDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.ContextMenuStrip1 = New ContextMenuStrip(Me.components)
+        Me.DeleteToolStripMenuItem = New ToolStripMenuItem
+        Me.GryGunModelToManufacturerBindingSource = New BindingSource(Me.components)
+        Me.MGCDataSet = New MGCDataSet
+        Me.GryGunModelToManufacturerTableAdapter = New gryGunModelToManufacturerTableAdapter
+        Me.HelpProvider1 = New HelpProvider
+        Me.EditToolStripMenuItem = New ToolStripMenuItem
+        CType(Me.DataGridView1, ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
-        CType(Me.GryGunModelToManufacturerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GryGunModelToManufacturerBindingSource, ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -47,17 +51,17 @@ Partial Class frmEditModel
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.BrandDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn})
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.BrandDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn})
         Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.DataGridView1.DataSource = Me.GryGunModelToManufacturerBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(-2, 1)
+        Me.DataGridView1.Location = New Point(-2, 1)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.ReadOnly = True
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(271, 264)
+        Me.DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New Size(271, 264)
         Me.DataGridView1.TabIndex = 0
         '
         'IDDataGridViewTextBoxColumn
@@ -87,15 +91,15 @@ Partial Class frmEditModel
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem, Me.EditToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New ToolStripItem() {Me.DeleteToolStripMenuItem, Me.EditToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(117, 48)
+        Me.ContextMenuStrip1.Size = New Size(117, 48)
         '
         'DeleteToolStripMenuItem
         '
-        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), Image)
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
+        Me.DeleteToolStripMenuItem.Size = New Size(116, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'GryGunModelToManufacturerBindingSource
@@ -106,7 +110,7 @@ Partial Class frmEditModel
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
         '
         'GryGunModelToManufacturerTableAdapter
         '
@@ -119,40 +123,40 @@ Partial Class frmEditModel
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EditToolStripMenuItem.Size = New Size(152, 22)
         Me.EditToolStripMenuItem.Text = "Edit"
         '
         'frmEditModel
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(246, 266)
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.ClientSize = New Size(246, 266)
         Me.Controls.Add(Me.DataGridView1)
         Me.HelpProvider1.SetHelpKeyword(Me, "Delete Model Types")
-        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
+        Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Delete Model Types")
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmEditModel"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Manage Models Types"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.GryGunModelToManufacturerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GryGunModelToManufacturerBindingSource, ISupportInitialize).EndInit()
+        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents MGCDataSet As BSMyGunCollection.MGCDataSet
-    Friend WithEvents GryGunModelToManufacturerBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents GryGunModelToManufacturerTableAdapter As BSMyGunCollection.MGCDataSetTableAdapters.gryGunModelToManufacturerTableAdapter
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents IDDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BrandDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ModelDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents HelpProvider1 As System.Windows.Forms.HelpProvider
-    Friend WithEvents EditToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents MGCDataSet As MGCDataSet
+    Friend WithEvents GryGunModelToManufacturerBindingSource As BindingSource
+    Friend WithEvents GryGunModelToManufacturerTableAdapter As gryGunModelToManufacturerTableAdapter
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BrandDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
 End Class

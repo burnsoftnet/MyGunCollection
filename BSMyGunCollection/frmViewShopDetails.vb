@@ -137,7 +137,7 @@ Public Class FrmViewShopDetails
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnEdit_Click_1(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click_1(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         Call EnabledForm()
     End Sub
     ''' <summary>
@@ -145,7 +145,7 @@ Public Class FrmViewShopDetails
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click_1(ByVal sender As System.Object, ByVal e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click_1(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Close()
     End Sub
     ''' <summary>
@@ -155,7 +155,7 @@ Public Class FrmViewShopDetails
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     ''' <exception cref="Exception"></exception>
     ''' <exception cref="Exception"></exception>
-    Private Sub btnUpdate_Click(sender As System.Object, e As EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)

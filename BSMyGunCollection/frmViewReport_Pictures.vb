@@ -2,12 +2,12 @@ Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_Pictures
     Public MyGID As String
     Public Title As String
-    Private Sub frmViewReport_Pictures_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Pictures_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_PicturesTableAdapter.FillBy_CID(Me.MGCDataSet.Gun_Collection_Pictures, MyGID)
             Me.Text = "Gallery List for " & Title
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Gallery List for " & Title))
                 parmList.Add(New ReportParameter("Firearm", Title))

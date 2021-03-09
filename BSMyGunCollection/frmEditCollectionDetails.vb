@@ -160,45 +160,45 @@ Public Class frmEditCollectionDetails
         Dim MoveDownXPoints As Integer = 26
         Label35.Visible = True
         txtChoke.Visible = True
-        txtChoke.Location = New System.Drawing.Point(txtStorage.Location.X, txtStorage.Location.Y)
-        Label35.Location = New System.Drawing.Point(Label27.Location.X, txtStorage.Location.Y)
+        txtChoke.Location = New Point(txtStorage.Location.X, txtStorage.Location.Y)
+        Label35.Location = New Point(Label27.Location.X, txtStorage.Location.Y)
         Dim NewY As Integer = txtStorage.Location.Y + MoveDownXPoints
         Dim OldX As Integer = txtStorage.Location.X
-        txtStorage.Location = New System.Drawing.Point(OldX, NewY)
+        txtStorage.Location = New Point(OldX, NewY)
         OldX = Label27.Location.X
-        Label27.Location = New System.Drawing.Point(OldX, NewY)
+        Label27.Location = New Point(OldX, NewY)
         NewY = Label9.Location.Y + MoveDownXPoints
         OldX = Label9.Location.X
-        Label9.Location = New System.Drawing.Point(OldX, NewY)
+        Label9.Location = New Point(OldX, NewY)
         OldX = txtFinish.Location.X
-        txtFinish.Location = New System.Drawing.Point(OldX, NewY)
+        txtFinish.Location = New Point(OldX, NewY)
         NewY = Label6.Location.Y + MoveDownXPoints
         OldX = Label6.Location.X
-        Label6.Location = New System.Drawing.Point(OldX, NewY)
+        Label6.Location = New Point(OldX, NewY)
         OldX = txtNationality.Location.X
-        txtNationality.Location = New System.Drawing.Point(OldX, NewY)
+        txtNationality.Location = New Point(OldX, NewY)
         NewY = Label13.Location.Y + MoveDownXPoints
         OldX = Label13.Location.X
-        Label13.Location = New System.Drawing.Point(OldX, NewY)
+        Label13.Location = New Point(OldX, NewY)
         OldX = txtWeight.Location.X
-        txtWeight.Location = New System.Drawing.Point(OldX, NewY)
+        txtWeight.Location = New Point(OldX, NewY)
         NewY = Label14.Location.Y + MoveDownXPoints
         OldX = Label14.Location.X
-        Label14.Location = New System.Drawing.Point(OldX, NewY)
+        Label14.Location = New Point(OldX, NewY)
         OldX = txtLength.Location.X
-        txtLength.Location = New System.Drawing.Point(OldX, NewY)
+        txtLength.Location = New Point(OldX, NewY)
         NewY = Label15.Location.Y + MoveDownXPoints
         OldX = Label15.Location.X
-        Label15.Location = New System.Drawing.Point(OldX, NewY)
+        Label15.Location = New Point(OldX, NewY)
         OldX = txtBarLen.Location.X
-        txtBarLen.Location = New System.Drawing.Point(OldX, NewY)
+        txtBarLen.Location = New Point(OldX, NewY)
     End Sub
     ''' <summary>
     ''' Handles the Load event of the frmEditCollectionDetails control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmEditCollectionDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmEditCollectionDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_ClassificationTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Classification)
             Me.Gun_Collection_ConditionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Condition)
@@ -244,7 +244,7 @@ Public Class frmEditCollectionDetails
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -252,7 +252,7 @@ Public Class frmEditCollectionDetails
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnUpdate_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUpdate.Click
+    Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
             Dim ObjGF As New GlobalFunctions
             Dim Obj As New BSDatabase
@@ -385,7 +385,7 @@ Public Class frmEditCollectionDetails
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub chkBoxCR_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles chkBoxCR.CheckedChanged
+    Private Sub chkBoxCR_CheckedChanged(sender As Object, e As EventArgs) Handles chkBoxCR.CheckedChanged
         Call EnableDiableCandR()
     End Sub
 End Class

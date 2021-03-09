@@ -1,3 +1,4 @@
+Imports System.IO
 Imports BSMyGunCollection.MGC
 ''' <summary>
 ''' Class AboutBox1. This class cannot be inherited.
@@ -6,13 +7,13 @@ Imports BSMyGunCollection.MGC
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public NotInheritable Class AboutBox1
     'When the form Loads, populate the fields
-    Private Sub AboutBox1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub AboutBox1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         ' Set the title of the form.
         Dim ApplicationTitle As String
         If My.Application.Info.Title <> "" Then
             ApplicationTitle = My.Application.Info.Title
         Else
-            ApplicationTitle = System.IO.Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
+            ApplicationTitle = Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
         Me.Text = String.Format("About {0}", ApplicationTitle)
         Me.LabelProductName.Text = My.Application.Info.ProductName
@@ -23,7 +24,7 @@ Public NotInheritable Class AboutBox1
         Me.TextBoxDescription.Text = My.Application.Info.Description
     End Sub
 
-    Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click
+    Private Sub OKButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OKButton.Click
         Me.Close()
     End Sub
 End Class

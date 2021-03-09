@@ -1,6 +1,7 @@
 'TODO #43 Remove Unused Code
 'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
+Imports BurnSoft.Applications.MGC.AutoFill
 
 ''' <summary>
 ''' Class frmAddAmmo. Form to Add Ammo to the Main List to select from for inventory and firearms
@@ -14,12 +15,12 @@ Public Class frmAddAmmo
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddAmmo_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub frmAddAmmo_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             'Dim ObjAC As New AutoFillCollections
             'txtAmmo.AutoCompleteCustomSource = ObjAC.Gun_Cal
             Dim errOut As String = ""
-            txtAmmo.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Ammo.Caliber(DatabasePath, errOut)
+            txtAmmo.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath, errOut)
             if (errOut.Length > 0) Then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
@@ -31,7 +32,7 @@ Public Class frmAddAmmo
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         Try
             'Dim ObjGF As New GlobalFunctions
             'Dim Obj As New BSDatabase
@@ -67,7 +68,7 @@ Public Class frmAddAmmo
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         Close()
     End Sub
 End Class

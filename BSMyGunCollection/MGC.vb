@@ -1,6 +1,10 @@
 Imports System.IO
 Imports System.Text
 Imports System.Data.Odbc
+Imports System.Drawing.Imaging
+Imports System.Globalization
+Imports ADODB
+Imports BurnSoft.Security.RegularEncryption.SHA
 Imports Microsoft.Win32
 Namespace MGC
     ''' <summary>
@@ -207,7 +211,7 @@ Namespace MGC
             Dim strValue As String = DefaultRegPath
             If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             MyReg.SetValue("Version", Application.ProductVersion)
             MyReg.SetValue("AppName", Application.ProductName)
             MyReg.SetValue("AppEXE", Application.ExecutablePath())
@@ -218,13 +222,13 @@ Namespace MGC
             MyReg.Close()
         End Sub
         Public Sub CreateSubKey(ByVal strValue As String)
-            Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+            Registry.CurrentUser.CreateSubKey(strValue)
         End Sub
         Public Function RegSubKeyExists(ByVal strValue As String) As Boolean
             Dim bAns As Boolean = False
             Try
                 Dim MyReg As RegistryKey
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
                 If MyReg Is Nothing Then
                     bAns = False
                 Else
@@ -241,7 +245,7 @@ Namespace MGC
             Dim MyReg As RegistryKey
             Try
                 If RegSubKeyExists(strKey) Then
-                    MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                    MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                     If Len(MyReg.GetValue(strValue)) > 0 Then
                         sAns = MyReg.GetValue(strValue)
                     Else
@@ -250,7 +254,7 @@ Namespace MGC
                     End If
                 Else
                     Call CreateSubKey(strKey)
-                    MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strKey, True)
+                    MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
                     MyReg.SetValue(strValue, strDefault)
                     sAns = strDefault
                 End If
@@ -263,9 +267,9 @@ Namespace MGC
             If Not SettingsExists() Then
                 Dim MyReg As RegistryKey
                 Dim strValue As String = DefaultRegPath & "\Settings"
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
 
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
                 MyReg.SetValue("Successful", Reg_Successful)
                 MyReg.SetValue("SetHistListtb", Reg_SetHistListtb)
                 MyReg.SetValue("SetHistListdt", Reg_SetHistListdt)
@@ -288,7 +292,7 @@ Namespace MGC
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
             On Error Resume Next
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
                 bAns = False
             Else
@@ -307,7 +311,7 @@ Namespace MGC
             Dim AutoUpdate As Boolean
             Dim strValue As String = DefaultRegPath & "\Settings"
             Try
-                MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
                 If MyReg Is Nothing Then Call SetSettingDetails()
                 If (Not MyReg Is Nothing) Then
                     TrackHistoryDays = CInt(GetRegSubKeyValue(strValue, "TrackHistoryDays", Reg_TrackHistoryDays)) 'CInt(MyReg.GetValue("TrackHistoryDays", ""))
@@ -357,9 +361,9 @@ Namespace MGC
                                 ByVal UseAACID As Boolean, ByVal UseUniqueCustID As Boolean, ByVal bUSESELECTIVEBOUNDBOOK As Boolean)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             MyReg.SetValue("TrackHistoryDays", TrackHistoryDays)
             MyReg.SetValue("TrackHistory", TrackHistory)
@@ -381,9 +385,9 @@ Namespace MGC
         Public Sub SaveLastWorkingDir(ByVal strPath As String)
             Dim MyReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
+            MyReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
             If MyReg Is Nothing Then
-                MyReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
             MyReg.SetValue("LastWorkingPath", strPath)
             MyReg.Close()
@@ -392,9 +396,9 @@ Namespace MGC
             Dim sAns As String = ""
             Dim myReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            myReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
+            myReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
             If myReg Is Nothing Then
-                myReg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(strValue)
+                myReg = Registry.CurrentUser.CreateSubKey(strValue)
                 myReg.SetValue("LastWorkingPath", "")
             End If
             sAns = myReg.GetValue("LastWorkingPath", "")
@@ -405,7 +409,7 @@ Namespace MGC
             Dim strValue As String = DefaultRegPath & "\Settings"
             If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
             Dim MyReg As RegistryKey
-            MyReg = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(strValue, True)
+            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
             MyReg.SetValue("VIEW_FirearmList", ConfigSort)
             MyReg.Close()
         End Sub
@@ -499,7 +503,7 @@ Namespace MGC
         Public Function GetData(ByVal SQL As String) As DataTable
             Dim Table As New DataTable
             Try
-                Table.Locale = System.Globalization.CultureInfo.InvariantCulture
+                Table.Locale = CultureInfo.InvariantCulture
                 Call ConnectDB()
                 Dim CMD As New OdbcCommand(SQL, Conn)
                 Dim RS As New OdbcDataAdapter
@@ -1743,15 +1747,15 @@ Namespace MGC
                 '--Start Function to convert picture to thumbnail for database format--
                 Dim intPicHeight As Integer = 64
                 Dim intPicWidth As Integer = 64
-                Dim myNewPic As System.Drawing.Image
-                Dim myBitmap As System.Drawing.Image
-                myBitmap = System.Drawing.Image.FromFile(sFileName)
-                Dim myPicCallback As System.Drawing.Image.GetThumbnailImageAbort = Nothing
+                Dim myNewPic As Image
+                Dim myBitmap As Image
+                myBitmap = Image.FromFile(sFileName)
+                Dim myPicCallback As Image.GetThumbnailImageAbort = Nothing
                 myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
                     IntPtr.Zero)
                 myBitmap.Dispose()
-                System.IO.File.Delete(sThumbName)
-                myNewPic.Save(sThumbName, System.Drawing.Imaging.ImageFormat.Jpeg)
+                File.Delete(sThumbName)
+                myNewPic.Save(sThumbName, ImageFormat.Jpeg)
                 myNewPic.Dispose()
                 Dim st_t As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
                 Dim mbr_t As BinaryReader = New BinaryReader(st_t)
@@ -1760,9 +1764,9 @@ Namespace MGC
                 st_t.Close()
                 '--End Function to convert picture to thumbnail for database format--
                 Dim Obj As New BSDatabase
-                Dim MyConn As New ADODB.Connection
+                Dim MyConn As New Connection
                 MyConn.Open(Obj.sConnect)
-                Dim RS As New ADODB.Recordset
+                Dim RS As New Recordset
                 RS.Open("Gun_Collection_Pictures", MyConn, 2, 2)
                 RS.AddNew()
                 RS("CID").Value = ItemID
@@ -2121,7 +2125,7 @@ Namespace MGC
                             myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
                             myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                             myProcess.Start()
-                            Global.System.Windows.Forms.Application.Exit()
+                            Application.Exit()
                             End
                         End If
                     Else
@@ -2162,19 +2166,19 @@ Namespace MGC
                 Dim Obj As New BSDatabase
                 Call Obj.ConnectDB()
                 Dim SQL As String = "SELECT TOP 1 * from Owner_Info"
-                Dim CMD As New Odbc.OdbcCommand(SQL, Obj.Conn)
-                Dim RS As Odbc.OdbcDataReader
+                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+                Dim RS As OdbcDataReader
                 RS = CMD.ExecuteReader
                 If RS.HasRows Then
                     RS.Read()
                     RecID = CInt(RS("ID"))
                     sName = Trim(RS("name"))
-                    sAddress = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("address")))
+                    sAddress = Trim(One.Decrypt(RS("address")))
                     sCity = Trim(RS("City"))
                     sState = Trim(RS("State"))
                     sZip = Trim(RS("Zip"))
                     sPhone = Trim(RS("Phone"))
-                    sCCD = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
+                    sCCD = Trim(One.Decrypt(RS("CCDWL")))
                 Else
                     RecID = 0
                 End If
@@ -2383,13 +2387,13 @@ Namespace MGC
         ''' <param name="height">The height.</param>
         ''' <param name="width">The width.</param>
         ''' <param name="location">The location.</param>
-        Sub LoadViewCollectionDetails(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
+        Sub LoadViewCollectionDetails(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If My.Settings.ViewCollectionDetails_Width.Length > 0 And My.Settings.ViewCollectionDetails_Height.Length > 0 Then
                 height = My.Settings.ViewCollectionDetails_Height
                 width = My.Settings.ViewCollectionDetails_Width
             End If
             If My.Settings.ViewCollectionDetails_X.Length > 0 And My.Settings.ViewCollectionDetails_Y.Length > 0 Then
-                location = New System.Drawing.Point(My.Settings.ViewCollectionDetails_X, My.Settings.ViewCollectionDetails_Y)
+                location = New Point(My.Settings.ViewCollectionDetails_X, My.Settings.ViewCollectionDetails_Y)
             End If
         End Sub
         ''' <summary>
@@ -2412,13 +2416,13 @@ Namespace MGC
         ''' <param name="height">The height.</param>
         ''' <param name="width">The width.</param>
         ''' <param name="location">The location.</param>
-        Sub LoadViewViewPicture(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
+        Sub LoadViewViewPicture(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If My.Settings.ViewPicture_Width.Length > 0 And My.Settings.ViewPicture_Height.Length > 0 Then
                 height = My.Settings.ViewPicture_Height
                 width = My.Settings.ViewPicture_Width
             End If
             If My.Settings.ViewPicture_X.Length > 0 And My.Settings.ViewPicture_Y.Length > 0 Then
-                location = New System.Drawing.Point(My.Settings.ViewPicture_X, My.Settings.ViewPicture_Y)
+                location = New Point(My.Settings.ViewPicture_X, My.Settings.ViewPicture_Y)
             End If
         End Sub
         ''' <summary>
@@ -2441,13 +2445,13 @@ Namespace MGC
         ''' <param name="height">The height.</param>
         ''' <param name="width">The width.</param>
         ''' <param name="location">The location.</param>
-        Sub LoadViewAmmoInv(ByRef height As Long, ByRef width As Long, ByVal location As System.Drawing.Point)
+        Sub LoadViewAmmoInv(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If My.Settings.ViewAmmoInv_Width.Length > 0 And My.Settings.ViewAmmoInv_Height.Length > 0 Then
                 height = My.Settings.ViewAmmoInv_Height
                 width = My.Settings.ViewAmmoInv_Width
             End If
             If My.Settings.ViewAmmoInv_X.Length > 0 And My.Settings.ViewAmmoInv_Y.Length > 0 Then
-                location = New System.Drawing.Point(My.Settings.ViewAmmoInv_X, My.Settings.ViewAmmoInv_Y)
+                location = New Point(My.Settings.ViewAmmoInv_X, My.Settings.ViewAmmoInv_Y)
             End If
         End Sub
         ''' <summary>

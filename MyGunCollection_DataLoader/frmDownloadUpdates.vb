@@ -2,7 +2,7 @@ Imports System.Data
 Imports System.IO
 Imports System.Xml
 Imports System.Xml.XPath
-Imports System.net
+Imports System.Net
 Imports MyGunCollection_DataLoader.Database_Updates
 Public Class frmDownloadUpdates
     Public errMsg As String = ""
@@ -10,8 +10,8 @@ Public Class frmDownloadUpdates
     'Download Data from burnsoft.net web services
     Sub DownloadDataSet(ByVal sMsg As String, ByVal sDataSet As String, ByVal iStatus As Integer)
         Try
-            System.Windows.Forms.Application.DoEvents()
-            Dim Obj As New Database_Updates.MyGunCollectionDatabaseUpdate
+            Application.DoEvents()
+            Dim Obj As New MyGunCollectionDatabaseUpdate
             If LCase(sDataSet) = LCase("Gun_Model") Then
                 Obj.Timeout = WEBSERVICETIMEOUT * 2
                 lblStatusMsg.Text = sMsg & " (this will take awhile)."
@@ -50,7 +50,7 @@ Public Class frmDownloadUpdates
             ProgressBar1.Value = iStatus
             ProgressBar1.Refresh()
             Me.Refresh()
-            System.Windows.Forms.Application.DoEvents()
+            Application.DoEvents()
             RS = Nothing
             Obj = Nothing
         Catch ex As Exception
@@ -89,13 +89,13 @@ Public Class frmDownloadUpdates
         End Try
     End Function
     'Actions on Form Load
-    Private Sub frmDownloadUpdates_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmDownloadUpdates_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName
         Timer1.Enabled = True
     End Sub
     'Set the timer to show the status of the update, or a guestament of it.
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
         If DoUpdates() = 0 Then
             frmApplyUpdates.Show()
             Me.Close()

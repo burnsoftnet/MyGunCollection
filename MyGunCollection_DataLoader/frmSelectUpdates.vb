@@ -1,5 +1,5 @@
 Public Class frmSelectUpdates
-    Private Sub frmSelectUpdates_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmSelectUpdates_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName
         bAmmo = False
@@ -11,11 +11,11 @@ Public Class frmSelectUpdates
         BMaintPlan = False
     End Sub
 
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
-        Global.System.Windows.Forms.Application.Exit()
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
+        Application.Exit()
     End Sub
 
-    Private Sub btnNext_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNext.Click
+    Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
         Dim SelectedItemsText As String = ""
         Dim ItemsText As String = ""
         Dim i As Integer = 0
@@ -40,31 +40,31 @@ Public Class frmSelectUpdates
         Me.Close()
     End Sub
 
-    Private Sub CheckBox2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox2.CheckedChanged
+    Private Sub CheckBox2_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox2.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox3_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox3.CheckedChanged
+    Private Sub CheckBox3_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox3.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox4_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox4.CheckedChanged
+    Private Sub CheckBox4_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox4.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox5_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox5.CheckedChanged
+    Private Sub CheckBox5_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox5.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox7_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox7.CheckedChanged
+    Private Sub CheckBox7_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox7.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox6_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox6.CheckedChanged
+    Private Sub CheckBox6_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox6.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 
-    Private Sub CheckBox8_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBox8.CheckedChanged
+    Private Sub CheckBox8_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles CheckBox8.CheckedChanged
         If CheckBox1.Checked Then CheckBox1.Checked = False
     End Sub
 End Class

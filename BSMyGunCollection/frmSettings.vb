@@ -1,4 +1,7 @@
+Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Security.RegularEncryption.SHA
+
 ''' <summary>
 ''' Class frmSettings.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -18,7 +21,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmSettings_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmSettings_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         FirstRun = True
         Try
             Call GetData()
@@ -41,7 +44,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ChkPassword_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChkPassword.CheckedChanged
+    Private Sub ChkPassword_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ChkPassword.CheckedChanged
         Try
             If Not ChkPassword.Checked Then
                 txtPWD.Enabled = False
@@ -66,7 +69,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExit.Click
+    Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -78,27 +81,27 @@ Public Class frmSettings
             Dim intUsePass As Integer
             Call Obj.ConnectDB()
             Dim SQL As String = "SELECT TOP 1 * from Owner_Info"
-            Dim CMD As New Odbc.OdbcCommand(SQL, Obj.Conn)
-            Dim RS As Odbc.OdbcDataReader
+            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+            Dim RS As OdbcDataReader
             RS = CMD.ExecuteReader
             If RS.HasRows Then
                 RS.Read()
                 RecID = CInt(RS("ID"))
                 txtName.Text = Trim(RS("name"))
-                txtAddress.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("address")))
+                txtAddress.Text = Trim(One.Decrypt(RS("address")))
                 txtCity.Text = Trim(RS("City"))
                 txtState.Text = Trim(RS("State"))
                 txtZip.Text = Trim(RS("Zip"))
                 txtPhone.Text = Trim(RS("Phone"))
-                txtCCD.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("CCDWL")))
+                txtCCD.Text = Trim(One.Decrypt(RS("CCDWL")))
                 intUsePass = CInt(RS("UsePWD"))
                 If intUsePass = 1 Then
-                    txtPWD.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("PWD")))
+                    txtPWD.Text = Trim(One.Decrypt(RS("PWD")))
                     txtCPWD.Text = Trim(txtPWD.Text)
                     ChkPassword.Checked = True
-                    txtLogin.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("UID")))
-                    txtPhrase.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_phrase")))
-                    txtWord.Text = Trim(BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(RS("forgot_word")))
+                    txtLogin.Text = Trim(One.Decrypt(RS("UID")))
+                    txtPhrase.Text = Trim(One.Decrypt(RS("forgot_phrase")))
+                    txtWord.Text = Trim(One.Decrypt(RS("forgot_word")))
                 Else
                     ChkPassword.Checked = False
                 End If
@@ -144,20 +147,20 @@ Public Class frmSettings
             Disableuniquecustcatid = chkUnique.Checked
             Useselectiveboundbook = chkSelectiveBoundBook.Checked
             Dim strName As String = FluffContent(txtName.Text)
-            Dim strAddress As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtAddress.Text))
+            Dim strAddress As String = One.Encrypt(FluffContent(txtAddress.Text))
             Dim strCity As String = FluffContent(txtCity.Text)
             Dim strState As String = FluffContent(txtState.Text)
             Dim strZipCode As String = FluffContent(txtZip.Text)
             Dim strPhone As String = FluffContent(txtPhone.Text)
-            Dim strCCD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtCCD.Text))
-            Dim strPWD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtPWD.Text))
-            Dim strCPWD As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtCPWD.Text))
-            Dim strPhrase As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtPhrase.Text))
-            Dim strWord As String = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(txtWord.Text))
+            Dim strCCD As String = One.Encrypt(FluffContent(txtCCD.Text))
+            Dim strPWD As String = One.Encrypt(FluffContent(txtPWD.Text))
+            Dim strCPWD As String = One.Encrypt(FluffContent(txtCPWD.Text))
+            Dim strPhrase As String = One.Encrypt(FluffContent(txtPhrase.Text))
+            Dim strWord As String = One.Encrypt(FluffContent(txtWord.Text))
             Dim strUID As String = txtLogin.Text
             OwnerLic = txtCCD.Text
             If Len(strUID) = 0 Then strUID = "admin"
-            strUID = BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(FluffContent(strUID))
+            strUID = One.Encrypt(FluffContent(strUID))
             Dim bUsePassword As Boolean = ChkPassword.Checked
             Dim iUsePassword As Integer = 0
             If Not IsRequired(strName, "Name", Me.Text) Then Return 1 : Exit Function
@@ -207,7 +210,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSave.Click
         If SaveData() = 0 Then
             Me.Close()
         End If
@@ -217,7 +220,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApply.Click
+    Private Sub btnApply_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnApply.Click
         Call SaveData()
     End Sub
     ''' <summary>
@@ -225,7 +228,7 @@ Public Class frmSettings
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub chkNCCID_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkNCCID.CheckedChanged
+    Private Sub chkNCCID_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkNCCID.CheckedChanged
         If Not FirstRun Then
             If chkNCCID.Checked Then
                 Dim ObjGF As New GlobalFunctions

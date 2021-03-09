@@ -30,9 +30,9 @@ Public Class DataGridPrinter
     Private _CurrentPageDown As Integer
     Private _CurrentPageAcross As Integer = 1
     '\\ Fonts to use to do the printing...
-    Private _PrintFont As New Font(System.Drawing.FontFamily.GenericSansSerif, 9)
-    Private _HeaderFont As New Font(System.Drawing.FontFamily.GenericSansSerif, 12)
-    Private _FooterFont As New Font(System.Drawing.FontFamily.GenericSansSerif, 10)
+    Private _PrintFont As New Font(FontFamily.GenericSansSerif, 9)
+    Private _HeaderFont As New Font(FontFamily.GenericSansSerif, 12)
+    Private _FooterFont As New Font(FontFamily.GenericSansSerif, 10)
     Private _HeaderRectangle As Rectangle
     Private _FooterRectangle As Rectangle
     Private _PageContentRectangle As Rectangle
@@ -40,7 +40,7 @@ Public Class DataGridPrinter
     '\\ Column widths related
     Private _PagesAcross As Integer = 1
     Private _ColumnBounds As New ColumnBounds
-    Private _Textlayout As System.Drawing.StringFormat
+    Private _Textlayout As StringFormat
     Private _FooterHeightPercent As Integer = 3
     Private _HeaderHeightPercent As Integer = 7
     Private _InterSectionSpacingPercent As Integer = 2
@@ -306,7 +306,7 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "_GridPrintDocument events"
-    Private Sub _GridPrintDocument_BeginPrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs) Handles _GridPrintDocument.BeginPrint
+    Private Sub _GridPrintDocument_BeginPrint(ByVal sender As Object, ByVal e As PrintEventArgs) Handles _GridPrintDocument.BeginPrint
 
         '\\ Initialize the current page and current grid line variables
         _CurrentPrintGridLine = 1
@@ -314,13 +314,13 @@ Public Class DataGridPrinter
         _CurrentPageAcross = 1
 
         If _Textlayout Is Nothing Then
-            _Textlayout = New System.Drawing.StringFormat
+            _Textlayout = New StringFormat
             _Textlayout.Trimming = StringTrimming.EllipsisCharacter
         End If
 
     End Sub
 
-    Private Sub _GridPrintDocument_PrintPage(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintPageEventArgs) Handles _GridPrintDocument.PrintPage
+    Private Sub _GridPrintDocument_PrintPage(ByVal sender As Object, ByVal e As PrintPageEventArgs) Handles _GridPrintDocument.PrintPage
 
         If _CurrentPageDown = 1 And _CurrentPageAcross = 1 Then
             ' _HeaderRectangle -  The top 10% of the page
@@ -393,7 +393,7 @@ Public Class DataGridPrinter
         Call PrintGridHeaderLine(e)
         Dim StartOfpage As Integer = _CurrentPrintGridLine
         'For nextLine = _CurrentPrintGridLine To Min((_CurrentPrintGridLine + RowsPerPage(_PrintFont, e.Graphics)), CType(_DataGrid.DataSource, System.Data.DataTable).DefaultView.Count)
-        For nextLine = _CurrentPrintGridLine To Min((_CurrentPrintGridLine + RowsPerPage(_PrintFont, e.Graphics)), CType(_DataGrid.DataSource, System.Data.DataTable).DefaultView.Count)
+        For nextLine = _CurrentPrintGridLine To Min((_CurrentPrintGridLine + RowsPerPage(_PrintFont, e.Graphics)), CType(_DataGrid.DataSource, DataTable).DefaultView.Count)
             Call PrintGridLine(e, nextLine)
         Next
         _CurrentPrintGridLine = nextLine
@@ -418,7 +418,7 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "Private methods"
-    Private Sub PrintHeader(ByVal e As System.Drawing.Printing.PrintPageEventArgs)
+    Private Sub PrintHeader(ByVal e As PrintPageEventArgs)
 
         If _HeaderRectangle.Height > 0 Then
             e.Graphics.FillRectangle(_HeaderBrush, _HeaderRectangle)
@@ -428,7 +428,7 @@ Public Class DataGridPrinter
 
     End Sub
 
-    Private Sub PrintFooter(ByVal e As System.Drawing.Printing.PrintPageEventArgs)
+    Private Sub PrintFooter(ByVal e As PrintPageEventArgs)
 
         If _FooterRectangle.Height > 0 Then
             e.Graphics.FillRectangle(_FooterBrush, _FooterRectangle)
@@ -440,7 +440,7 @@ Public Class DataGridPrinter
 
     End Sub
 
-    Private Sub PrintGridLine(ByVal e As System.Drawing.Printing.PrintPageEventArgs, ByVal RowNumber As Integer)
+    Private Sub PrintGridLine(ByVal e As PrintPageEventArgs, ByVal RowNumber As Integer)
 
         Dim RowFromTop As Integer = RowNumber + 1 - _CurrentPrintGridLine
         Dim Top As Double = _PageContentRectangle.Top + (RowFromTop * ((_CellGutter * 2) + _Rowheight))
@@ -452,11 +452,11 @@ Public Class DataGridPrinter
         Dim Items() As Object = Nothing
         Try
             If TypeOf _DataGrid.DataSource Is DataTable Then
-                Items = CType(_DataGrid.DataSource, System.Data.DataTable).DefaultView.Item(RowNumber - 1).Row.ItemArray
+                Items = CType(_DataGrid.DataSource, DataTable).DefaultView.Item(RowNumber - 1).Row.ItemArray
             ElseIf TypeOf _DataGrid.DataSource Is DataSet Then
-                Items = CType(_DataGrid.DataSource, System.Data.DataSet).Tables(_DataGrid.DataMember).DefaultView.Item(RowNumber - 1).Row.ItemArray
+                Items = CType(_DataGrid.DataSource, DataSet).Tables(_DataGrid.DataMember).DefaultView.Item(RowNumber - 1).Row.ItemArray
             ElseIf TypeOf _DataGrid.DataSource Is DataView Then
-                Items = CType(_DataGrid.DataSource, System.Data.DataView).Table.DefaultView.Item(RowNumber - 1).Row.ItemArray
+                Items = CType(_DataGrid.DataSource, DataView).Table.DefaultView.Item(RowNumber - 1).Row.ItemArray
             Else
                 'Get the content for the current row ....
             End If
@@ -487,7 +487,7 @@ Public Class DataGridPrinter
 
     End Sub
 
-    Private Sub PrintGridHeaderLine(ByVal e As System.Drawing.Printing.PrintPageEventArgs)
+    Private Sub PrintGridHeaderLine(ByVal e As PrintPageEventArgs)
 
         Dim Top As Double = _PageContentRectangle.Top
         Dim Bottom As Double = Top + _Rowheight + (2 * _CellGutter)
@@ -543,7 +543,7 @@ Public Class DataGridPrinter
 
         Dim BoundingRectF As New RectangleF(BoundingRect.X + _CellGutter, BoundingRect.Y + _CellGutter, BoundingRect.Width - (2 * _CellGutter), BoundingRect.Height - (2 * _CellGutter))
 
-        Target.DrawString(s, PrintFont, System.Drawing.Brushes.Black, BoundingRectF, _Textlayout)
+        Target.DrawString(s, PrintFont, Brushes.Black, BoundingRectF, _Textlayout)
 
     End Sub
 
@@ -647,7 +647,7 @@ Public Class DataGridPrinter
 
         Dim LoggedInuser As New WindowsPrincipal(WindowsIdentity.GetCurrent())
 
-        _LoggedInUsername = DataGridPrinter.StripDomainFromFullUsername(WindowsIdentity.GetCurrent.Name)
+        _LoggedInUsername = StripDomainFromFullUsername(WindowsIdentity.GetCurrent.Name)
 
     End Sub
 #End Region
@@ -707,7 +707,7 @@ End Class
 #Region "ColumnBounds"
 '\\ Type safe collection of "ColumnBound" objects
 Public Class ColumnBounds
-    Inherits System.Collections.ArrayList
+    Inherits ArrayList
 
 #Region "Private properties"
     Private _CurrentPage As Integer = 1

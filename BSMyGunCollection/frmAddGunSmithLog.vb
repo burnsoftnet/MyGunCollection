@@ -15,7 +15,7 @@ Public Class frmAddGunSmithLog
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddGunSmithLog_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddGunSmithLog_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim ObjAF As New AutoFillCollections
             txtGS.AutoCompleteCustomSource = ObjAF.GunSmith_Name
@@ -29,7 +29,7 @@ Public Class frmAddGunSmithLog
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -69,7 +69,7 @@ Public Class frmAddGunSmithLog
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strSmith As String = FluffContent(txtGS.Text)
             Dim strShip As String = DateTimePicker1.Value

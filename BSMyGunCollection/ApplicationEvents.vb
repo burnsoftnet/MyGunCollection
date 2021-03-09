@@ -1,17 +1,18 @@
+Imports System.Collections.ObjectModel
 Imports BSMyGunCollection.MGC
 Imports System.Configuration
 Imports System.Security.Principal
 Namespace My
     Partial Friend Class MyApplication
         'when the application initialize, setup the running path of the database and where the log file is going to be loaded.
-        Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+        Protected Overrides Function OnInitialize(ByVal commandLineArgs As ReadOnlyCollection(Of String)) As Boolean
             Dim Objf As New BSFileSystem
             Try
                 Dim Debug_MSG As String = ""
                 Dim NL As String = vbCrLf
 
-                DebugMode = System.Configuration.ConfigurationManager.AppSettings("DEBUG_MODE")
-                Dim AppDataPath As String = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
+                DebugMode = ConfigurationManager.AppSettings("DEBUG_MODE")
+                Dim AppDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
                 Dim APPDATAPATH_EXISTS As Boolean = Objf.DirectoryExists(AppDataPath)
                 ApplicationPath = System.Windows.Forms.Application.StartupPath
                 ApplicationPathData = ApplicationPath
@@ -43,7 +44,7 @@ Namespace My
                     myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
                     DoAutoBackup = False
                     myProcess.Start()
-                    Global.System.Windows.Forms.Application.Exit()
+                    System.Windows.Forms.Application.Exit()
                 End If
                 Call Buggerme("My.MyApplication.OnInitialize", Debug_MSG)
                 Dim ObjGF As New GlobalFunctions

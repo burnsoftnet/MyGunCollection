@@ -47,7 +47,7 @@ Public Class frmViewGunSmithDetails
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmViewGunSmithDetails_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewGunSmithDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call PopData()
         Me.Gun_Collection_GunSmithsTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_GunSmiths, txtName.Text)
     End Sub
@@ -85,11 +85,11 @@ Public Class frmViewGunSmithDetails
         btnEdit.Visible = True
         btnSave.Visible = False
     End Sub
-    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
         Call EnabledForm()
     End Sub
 
-    Private Sub btnSave_Click(sender As System.Object, e As System.EventArgs) Handles btnSave.Click
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)
@@ -129,7 +129,7 @@ Public Class frmViewGunSmithDetails
         Call DisableForm()
     End Sub
 
-    Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 End Class

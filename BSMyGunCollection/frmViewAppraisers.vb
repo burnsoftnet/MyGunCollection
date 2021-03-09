@@ -5,11 +5,11 @@ Public Class frmViewAppraisers
     Private Sub RefreshList()
         Me.Appriaser_Contact_DetailsTableAdapter.Fill(Me.MGCDataSet.Appriaser_Contact_Details)
     End Sub
-    Private Sub frmViewAppraisers_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewAppraisers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RefreshList()
     End Sub
 
-    Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim MyValue As String = FluffContent(InputBox("Please Type in the Appraisers Name.", "Add a new Appraiser."))
         If Len(MyValue) <> 0 Then
             Dim intShopCount As Integer = 0
@@ -32,14 +32,14 @@ Public Class frmViewAppraisers
         End If
     End Sub
 
-    Private Sub ListBox1_DoubleClick(sender As Object, e As System.EventArgs) Handles ListBox1.DoubleClick
+    Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim frmNew As New frmViewAppraiserDetails
         frmNew.MdiParent = Me.MdiParent
         frmNew.ShopID = MyValue
         frmNew.Show()
     End Sub
-    Private Sub ToolStripButton2_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         Dim MyValue As Long = ListBox1.SelectedValue
         Dim ObjGF As New GlobalFunctions
         Dim strShopName As String = ObjGF.GetName("SELECT aname from Appriaser_Contact_Details where ID=" & MyValue, "aname")
@@ -57,7 +57,7 @@ Public Class frmViewAppraisers
         End If
     End Sub
 
-    Private Sub ToolStripButton3_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Call RefreshList()
     End Sub
 End Class

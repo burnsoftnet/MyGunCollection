@@ -2,7 +2,7 @@ Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_FirearmDetailsFullDetails
     Public intID As String
     Public strName As String
-    Private Sub frmViewReport_FirearmDetailsFullDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_FirearmDetailsFullDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.qryGunSmithDetailsTableAdapter.FillBy(Me.MGCDataSet.qryGunSmithDetails, intID)
             Me.FullDetailsTableAdapter.FillBy_ID(Me.MGCDataSet.FullDetails, intID)
@@ -10,7 +10,7 @@ Public Class frmViewReport_FirearmDetailsFullDetails
             Me.Gun_Collection_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Accessories, intID)
             Me.Gun_Collection_ExtTableAdapter.FillBy_GID(Me.MGCDataSet.Gun_Collection_Ext, intID)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Insurance Report for " & OwnerName))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)

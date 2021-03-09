@@ -16,7 +16,7 @@ Public Class frmViewAmmoAuditList
             Me.Width = My.Settings.ViewAmmoadt_Width
         End If
         If My.Settings.ViewAmmoadt_X.Length > 0 And My.Settings.ViewAmmoadt_Y.Length > 0 Then
-            Me.Location = New System.Drawing.Point(My.Settings.ViewAmmoadt_X, My.Settings.ViewAmmoadt_Y)
+            Me.Location = New Point(My.Settings.ViewAmmoadt_X, My.Settings.ViewAmmoadt_Y)
         End If
     End Sub
     Sub SaveViewSize()
@@ -27,21 +27,21 @@ Public Class frmViewAmmoAuditList
         My.Settings.Save()
     End Sub
 
-    Private Sub frmViewAmmoAuditList_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Disposed
+    Private Sub frmViewAmmoAuditList_Disposed(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Disposed
         Call SaveViewSize()
     End Sub
-    Private Sub frmViewAmmoAuditList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewAmmoAuditList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Me.Text = "Ammo Audit - " & sName
         Call LoadViewSize()
         Call LoadData()
     End Sub
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Me.Close()
     End Sub
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Call LoadData()
     End Sub
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Try
             Dim ItemID As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim Qty As Long = DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value

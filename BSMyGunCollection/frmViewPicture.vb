@@ -1,7 +1,8 @@
 Imports System.Data
 Imports ADODB
-Imports System.io
+Imports System.IO
 Imports System.Data.Odbc
+Imports System.Drawing.Imaging
 Imports BSMyGunCollection.MGC
 Public Class frmViewPicture
     Public MyID As Long
@@ -10,32 +11,32 @@ Public Class frmViewPicture
     Public sName As String = ""
     Public sNote As String = ""
 #Region "Menu Items"
-    Private Sub CloseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseToolStripMenuItem.Click
+    Private Sub CloseToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CloseToolStripMenuItem.Click
         Me.Close()
     End Sub
-    Private Sub ExportPictureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExportPictureToolStripMenuItem.Click
+    Private Sub ExportPictureToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExportPictureToolStripMenuItem.Click
         Try
             SaveFileDialog1.FilterIndex = 3
             SaveFileDialog1.Filter = "Bmp Files(*.bmp)|*.bmp|Gif Files(*.gif)|*.gif|Jpg Files(*.jpg)|*.jpg|Tiff Files(*.tiff)|*.tiff|WMF Files(*.wmf)|*.wmf"
             SaveFileDialog1.FileName = "PictureID_" & MyID '& ".jpg"
             SaveFileDialog1.Title = "Export Image to File"
-            If SaveFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+            If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = SaveFileDialog1.FileName
-            Dim ImgFormat As System.Drawing.Imaging.ImageFormat = Imaging.ImageFormat.Jpeg
-            Dim fs As System.IO.FileStream = CType(SaveFileDialog1.OpenFile(), System.IO.FileStream)
+            Dim ImgFormat As ImageFormat = ImageFormat.Jpeg
+            Dim fs As FileStream = CType(SaveFileDialog1.OpenFile(), FileStream)
             Select Case SaveFileDialog1.FilterIndex
                 Case 1
-                    ImgFormat = Imaging.ImageFormat.Bmp
+                    ImgFormat = ImageFormat.Bmp
                 Case 2
-                    ImgFormat = Imaging.ImageFormat.Gif
+                    ImgFormat = ImageFormat.Gif
                 Case 3
-                    ImgFormat = Imaging.ImageFormat.Jpeg
+                    ImgFormat = ImageFormat.Jpeg
                 Case 4
-                    ImgFormat = Imaging.ImageFormat.Tiff
+                    ImgFormat = ImageFormat.Tiff
                 Case 5
-                    ImgFormat = Imaging.ImageFormat.Wmf
+                    ImgFormat = ImageFormat.Wmf
                 Case Else
-                    ImgFormat = Imaging.ImageFormat.Jpeg
+                    ImgFormat = ImageFormat.Jpeg
             End Select
             Dim bmp As New Bitmap(Me.PictureBox1.Image)
             bmp.Save(fs, ImgFormat)
@@ -49,7 +50,7 @@ Public Class frmViewPicture
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub ChangePictureToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ChangePictureToolStripMenuItem.Click
+    Private Sub ChangePictureToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ChangePictureToolStripMenuItem.Click
         Try
             Dim SQLU As String = "UPDATE Gun_Collection_Pictures set ISMAIN=0 where CID=" & GroupID
             Dim SQL As String = "UPDATE Gun_Collection_Pictures set ISMAIN=1 where ID=" & MyID
@@ -64,14 +65,14 @@ Public Class frmViewPicture
         End Try
     End Sub
     'stretch the windows to the original size of the picture
-    Private Sub AutoSizeToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AutoSizeToolStripMenuItem.Click
+    Private Sub AutoSizeToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AutoSizeToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.Normal
         AutoSizeToolStripMenuItem.Checked = True
         StretchToolStripMenuItem.Checked = False
         Call DoInitPicDrawing()
     End Sub
     'stretch the image to the size of the active window
-    Private Sub StretchToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StretchToolStripMenuItem.Click
+    Private Sub StretchToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles StretchToolStripMenuItem.Click
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         StretchToolStripMenuItem.Checked = True
         AutoSizeToolStripMenuItem.Checked = False
@@ -80,7 +81,7 @@ Public Class frmViewPicture
 #End Region
 #Region "Form Items"
     'When the form closes, save location ending
-    Private Sub frmViewPicture_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Leave
+    Private Sub frmViewPicture_Leave(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Leave
         PictureBox1.Dispose()
 
         If Not DoOriginalImage Then
@@ -89,7 +90,7 @@ Public Class frmViewPicture
             ObjVS = Nothing
         End If
     End Sub
-    Private Sub frmViewPicture_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmViewPicture_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         Call GetPictureInfo(MyID, sName, sNote)
         If Len(sName) = 0 Then sName = "PictureID_" & MyID
 
@@ -112,7 +113,7 @@ Public Class frmViewPicture
         Call DoInitPicDrawing()
         Me.StartPosition = FormStartPosition.CenterParent
     End Sub
-    Private Sub frmViewPicture_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmViewPicture_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         If Me.Height <> 0 Then Call DoResize()
     End Sub
 #End Region
@@ -231,11 +232,11 @@ Public Class frmViewPicture
     End Sub
 #End Region
 
-    Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles PictureBox1.Click
         ToolTip1.Show(sNote, PictureBox1)
     End Sub
 
-    Private Sub EditDetailsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditDetailsToolStripMenuItem.Click
+    Private Sub EditDetailsToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditDetailsToolStripMenuItem.Click
         frmEditPicturedetails.MdiParent = Me.MdiParent
         frmEditPicturedetails.PID = MyID
         frmEditPicturedetails.Show()

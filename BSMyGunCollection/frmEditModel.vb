@@ -14,7 +14,7 @@ Public Class frmEditModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmEditModel_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmEditModel_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Call LoadData()
     End Sub
     ''' <summary>
@@ -33,7 +33,7 @@ Public Class frmEditModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmEditModel_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmEditModel_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         Try
             If Me.Height <> 0 Then
                 DataGridView1.Height = Me.Height - 38
@@ -49,7 +49,7 @@ Public Class frmEditModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim MyID As Integer = CInt(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value.ToString)
             Dim Manu As String = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value.ToString
@@ -73,7 +73,7 @@ Public Class frmEditModel
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub EditToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem.Click
         Try
             Dim MyID As Integer = CInt(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value.ToString)
             Dim Manu As String = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value.ToString

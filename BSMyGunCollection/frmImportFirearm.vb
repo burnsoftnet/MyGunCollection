@@ -5,13 +5,13 @@ Imports System.Data
 Imports BSMyGunCollection.MGC
 Public Class frmImportFirearm
     Public DefaultBarrelID As Long
-    Private Sub btnOpen_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOpen.Click
+    Private Sub btnOpen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnOpen.Click
         Try
             OpenFileDialog1.FilterIndex = 1
             OpenFileDialog1.Filter = "XML File(*.xml)|*.xml"
             OpenFileDialog1.Title = "Import Firearm from XML"
             OpenFileDialog1.FileName = ""
-            If OpenFileDialog1.ShowDialog() = Windows.Forms.DialogResult.Cancel Then Exit Sub
+            If OpenFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = OpenFileDialog1.FileName
             lblFile.Text = strFilePath
             If Len(strFilePath) > 0 Then btnImport.Enabled = True
@@ -26,7 +26,7 @@ Public Class frmImportFirearm
         sAns = instance.InnerText
         Return sAns
     End Function
-    Private Sub btnImport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImport.Click
+    Private Sub btnImport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnImport.Click
         Call ProcessXMLToDB(lblFile.Text)
     End Sub
     Sub UpdateStatusLabel(ByVal sValue As String)
@@ -231,7 +231,7 @@ Public Class frmImportFirearm
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmImportFirearm_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmImportFirearm_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         lblProg.Text = ""
         lblFile.Text = ""
     End Sub

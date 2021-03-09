@@ -1,6 +1,7 @@
 'TODO #43 Remove Unused Code
 'Imports System.Windows.Forms
 'Imports System.Windows.Forms.VisualStyles
+Imports System.ComponentModel
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 ''' <summary>
@@ -46,7 +47,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub frmViewAmmoInventory_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub frmViewAmmoInventory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             'Call LoadViewSize()
             Dim objVs As New ViewSizeSettings
@@ -114,7 +115,7 @@ Public Class frmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
 ' ReSharper disable once VBWarnings::BC42309
     ''' <param name="e">The <see cref="ComponentModel.ListChangedEventArgs"/> instance containing the event data.</param>
-    Private Sub GunCollectionAmmoBindingSource_ListChanged(ByVal sender As Object, ByVal e As ComponentModel.ListChangedEventArgs) Handles GunCollectionAmmoBindingSource.ListChanged
+    Private Sub GunCollectionAmmoBindingSource_ListChanged(ByVal sender As Object, ByVal e As ListChangedEventArgs) Handles GunCollectionAmmoBindingSource.ListChanged
         Try
             If MGCDataSet.HasChanges Then
                 UpdatePending = True
@@ -130,7 +131,7 @@ Public Class frmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     ''' <exception cref="Exception"></exception>
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Try
             Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -158,7 +159,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Call LoadData()
     End Sub
     ''' <summary>
@@ -166,7 +167,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Try
             Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -195,7 +196,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton4_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
+    Private Sub ToolStripButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
         Dim frmNew As New frmAddCollectionAmmo
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -205,7 +206,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton5_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
+    Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Try
             Dim frmNew As New frmAddAmmoAudit
             Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
@@ -226,7 +227,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton6_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
+    Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
         Dim frmNew As New frmViewAmmoAuditList
         Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
@@ -242,7 +243,7 @@ Public Class frmViewAmmoInventory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
-    Private Sub DataGridView1_CellContentClick(sender As System.Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
 
     End Sub
 End Class

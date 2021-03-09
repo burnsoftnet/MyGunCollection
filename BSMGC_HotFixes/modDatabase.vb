@@ -1,18 +1,22 @@
 Imports System.Data.Odbc
+Imports System.Drawing
+Imports System.Drawing.Imaging
 Imports ADODB
 Imports System.IO
+Imports System.Threading
+
 Module modDatabase
     ''' <summary>
     ''' Add the Database Password
     ''' </summary>
     Public Sub AddPassword()
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Open()
             End With
             Dim SQL As String
@@ -35,14 +39,14 @@ Module modDatabase
     ''' Remove the database password
     ''' </summary>
     Public Sub RemovePassword()
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Open()
             End With
             Dim SQL As String
@@ -75,13 +79,13 @@ Module modDatabase
     ''' <returns></returns>
     Public Function TestDBWithNoPWD() As Boolean
         Dim bAns As Boolean = False
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Open()
             End With
             bAns = True
@@ -99,13 +103,13 @@ Module modDatabase
     ''' <returns></returns>
     Function TestDBwithPWD() As Boolean
         Dim bAns As Boolean = False
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -124,13 +128,13 @@ Module modDatabase
     ''' <param name="SQL"></param>
     ''' <param name="RUNASADMIN"></param>
     Sub RunSQL(ByVal SQL As String, Optional ByVal RUNASADMIN As Boolean = True)
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                If RUNASADMIN Then .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                If RUNASADMIN Then .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -207,11 +211,11 @@ Module modDatabase
     'Check to see if value exists in selected table
     Function ValueDoesExist(ByRef strTable As String, ByRef strCol As String, ByRef strValue As String) As Boolean
         Dim bAns As Boolean = False
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
@@ -258,15 +262,15 @@ Module modDatabase
     End Function
     'Swap old values to new in the gun collection, back when we had one value in one section and added another
     Sub SwapGunColPurchaseValues(ByRef strTable As String, ByRef strSourceCol As String, ByRef strDestCol As String)
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -295,15 +299,15 @@ Module modDatabase
     'Get the Main Picture from the pictures collection table
     Function GetMainPictureFirstListing(ByRef strCID As String) As Long
         Dim lAns As Long = 0
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -330,15 +334,15 @@ Module modDatabase
     'Check to see if the selected firearm has a default picture setup
     Function HasDefaultPictureSet(ByRef strCID As String) As Boolean
         Dim bAns As Boolean = False
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -361,15 +365,15 @@ Module modDatabase
     End Function
     'Set the main picture of the firearm collection
     Sub SetMainPictures()
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -500,9 +504,9 @@ Module modDatabase
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
-                Dim bmp As System.Drawing.Image = New System.Drawing.Bitmap(stream)
+                Dim bmp As Image = New Bitmap(stream)
                 Dim sPicName As String = "mgc_org_pic.jpg"
-                bmp.Save(sPicName, System.Drawing.Imaging.ImageFormat.Jpeg)
+                bmp.Save(sPicName, ImageFormat.Jpeg)
                 bmp.Dispose()
                 stream.Close()
                 rPicName = sPicName
@@ -518,20 +522,20 @@ Module modDatabase
     'Save the Thumbnail of the picture by ID and the file name and location or the original
     'to save it to the database as a thumbnail.
     Sub SaveAsThumb(ByVal MyID As Long, ByVal sFileName As String)
-        Dim MyConn As New ADODB.Connection
+        Dim MyConn As New Connection
         Try
             Dim sThumbName As String = "mgc_thumb.jpg"
             Dim intPicHeight As Integer = 64
             Dim intPicWidth As Integer = 64
-            Dim myNewPic As System.Drawing.Image
-            Dim myBitmap As System.Drawing.Image
-            myBitmap = System.Drawing.Image.FromFile(sFileName)
-            Dim myPicCallback As System.Drawing.Image.GetThumbnailImageAbort = Nothing
+            Dim myNewPic As Image
+            Dim myBitmap As Image
+            myBitmap = Image.FromFile(sFileName)
+            Dim myPicCallback As Image.GetThumbnailImageAbort = Nothing
             myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback, _
                 IntPtr.Zero)
             myBitmap.Dispose()
-            System.IO.File.Delete(sThumbName)
-            myNewPic.Save(sThumbName, System.Drawing.Imaging.ImageFormat.Jpeg)
+            File.Delete(sThumbName)
+            myNewPic.Save(sThumbName, ImageFormat.Jpeg)
             myNewPic.Dispose()
             Dim st_t As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
             Dim mbr_t As BinaryReader = New BinaryReader(st_t)
@@ -539,7 +543,7 @@ Module modDatabase
             mbr_t.Read(buffer_t, 0, CInt(st_t.Length))
             st_t.Close()
             MyConn.Open("Driver={Microsoft Access Driver (*.mdb)};dbq=" & strDBPath & ";Pwd=14un0t2n0")
-            Dim RS As New ADODB.Recordset
+            Dim RS As New Recordset
             RS.Open("Gun_Collection_Pictures", MyConn, 2, 2)
             RS.Filter = "ID = " & MyID
             RS("THUMB").AppendChunk(buffer_t)
@@ -598,15 +602,15 @@ Module modDatabase
     End Sub
     'Convert the grains in the ammo inventory to a decimal value
     Sub ConvertAmmoGrainsToNum()
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeShareExclusive
+                .Mode = ConnectModeEnum.adModeShareExclusive
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -683,15 +687,15 @@ Module modDatabase
     End Sub
     'Copy the barrel information form the main collection to t
     Sub CopyBarrelInformation()
-        Dim Conn As ADODB.Connection
-        Conn = New ADODB.Connection
+        Dim Conn As Connection
+        Conn = New Connection
         Try
-            Dim RS As ADODB.Recordset
-            RS = New ADODB.Recordset
+            Dim RS As Recordset
+            RS = New Recordset
             With Conn
                 .Provider = "Microsoft.Jet.OLEDB.4.0"
                 .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ADODB.ConnectModeEnum.adModeReadWrite
+                .Mode = ConnectModeEnum.adModeReadWrite
                 .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
                 .Open()
             End With
@@ -726,7 +730,7 @@ Module modDatabase
                         Conn.Execute(SQL2)
                     End If
                     Console.Write(".")
-                    System.Threading.Thread.Sleep(5000)
+                    Thread.Sleep(5000)
                     DBID = GetBarrelID(GID)
                     SQL2 = "UPDATE Gun_Collection set DBID=" & DBID & ", HasMB=0 where id=" & GID
                     Conn.Execute(SQL2)

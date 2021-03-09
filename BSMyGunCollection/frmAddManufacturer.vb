@@ -10,7 +10,7 @@ Public Class frmAddManufacturer
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -18,7 +18,7 @@ Public Class frmAddManufacturer
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
             If Not IsRequired(strMan, "Manufacturer's Name", Me.Text) Then Exit Sub
@@ -44,7 +44,7 @@ Public Class frmAddManufacturer
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAddManufacturer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAddManufacturer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim ObjAF As New AutoFillCollections
             txtMan.AutoCompleteCustomSource = ObjAF.Gun_Manufacturer()
@@ -58,7 +58,7 @@ Public Class frmAddManufacturer
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub chkKTop_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkKTop.CheckedChanged
+    Private Sub chkKTop_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkKTop.CheckedChanged
         Me.TopMost = chkKTop.Checked
         Me.MdiParent = Nothing
     End Sub

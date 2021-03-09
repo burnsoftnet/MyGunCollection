@@ -1,16 +1,16 @@
 Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_Ammo
     Public BySorting As String
-    Private Sub frmViewReport_Ammo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_Ammo_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.Gun_Collection_AmmoTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Ammo)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Ammunition Inventory Report"))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)
             Else
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", "N/A"))
                 parmList.Add(New ReportParameter("ReportTitle", "Ammunition Inventory Report"))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)
@@ -22,13 +22,13 @@ Public Class frmViewReport_Ammo
         End Try
     End Sub
 
-    Private Sub frmViewReport_Ammo_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
+    Private Sub frmViewReport_Ammo_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
         'If Me.Height <> 0 Then
         ' Me.ReportViewer1.Height = Me.Height - (46 + 15)
         ' Me.ReportViewer1.Width = Me.Width - 5
         'End If
     End Sub
-    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
+    Private Sub ToolStripComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripComboBox1.SelectedIndexChanged
         Try
             Select Case LCase(UCase(ToolStripComboBox1.SelectedItem.ToString))
                 Case LCase("Manufacturer")

@@ -19,7 +19,7 @@ Public Class frmViewShops
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub frmViewShops_Load(ByVal sender As System.Object, ByVal e As EventArgs) Handles MyBase.Load
+    Private Sub frmViewShops_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Call RefreshList()
     End Sub
     ''' <summary>
@@ -39,7 +39,7 @@ Public Class frmViewShops
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Dim myValue As Long = ListBox1.SelectedValue
         Dim errOut As String = ""
         'TODO #43 Removed used code
@@ -71,7 +71,7 @@ Public Class frmViewShops
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Dim myValue As String = FluffContent(InputBox("Please Type in the Shop Name.", "Add a new Shop."))
         If Len(myValue) <> 0 Then
             
@@ -108,7 +108,7 @@ Public Class frmViewShops
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub ToolStripButton3_Click(sender As System.Object, e As EventArgs) Handles ToolStripButton3.Click
+    Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
         Call RefreshList()
     End Sub
 End Class

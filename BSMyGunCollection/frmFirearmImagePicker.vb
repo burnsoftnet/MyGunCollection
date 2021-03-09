@@ -119,13 +119,13 @@ Public Class frmFirearmImagePicker
         txtName.Text = FirearmNameArray(CurrentIndex)
     End Sub
     'When form is closed
-    Private Sub frmFirearmImagePicker_Disposed(sender As Object, e As System.EventArgs) Handles Me.Disposed
+    Private Sub frmFirearmImagePicker_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
         Dim ObjVS As New ViewSizeSettings
         ObjVS.SaveViewPicture(Me.Height, Me.Width, Me.Location.X, Me.Location.Y)
         ObjVS = Nothing
     End Sub
 
-    Private Sub frmFirearmImagePicker_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub frmFirearmImagePicker_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Select Case e.KeyCode
             Case Keys.Right
                 Call UpdateIndexes(RightButtonIndex)
@@ -138,7 +138,7 @@ Public Class frmFirearmImagePicker
         End Select
     End Sub
 
-    Private Sub frmFirearmImagePicker_KeyPress(sender As Object, e As System.Windows.Forms.KeyPressEventArgs) Handles Me.KeyPress
+    Private Sub frmFirearmImagePicker_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Me.KeyPress
         Select Case e.Handled
             Case Keys.Right
                 Call UpdateIndexes(RightButtonIndex)
@@ -151,7 +151,7 @@ Public Class frmFirearmImagePicker
         End Select
     End Sub
     'When form Loads
-    Private Sub frmFirearmImagePicker_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmFirearmImagePicker_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Me.KeyPreview = True
             MaxItems = 0
@@ -168,15 +168,15 @@ Public Class frmFirearmImagePicker
         End Try
     End Sub
     'when the right button ( > ) is clicked
-    Private Sub btnRight_Click(sender As System.Object, e As System.EventArgs) Handles btnRight.Click
+    Private Sub btnRight_Click(sender As Object, e As EventArgs) Handles btnRight.Click
         Call UpdateIndexes(RightButtonIndex)
     End Sub
     'when the left button ( < ) is clicked
-    Private Sub btnLeft_Click(sender As System.Object, e As System.EventArgs) Handles btnLeft.Click
+    Private Sub btnLeft_Click(sender As Object, e As EventArgs) Handles btnLeft.Click
         Call UpdateIndexes(LeftbuttonIndex)
     End Sub
     'Show the firearm details when the user click on the picture
-    Private Sub PictureBox1_Click(sender As System.Object, e As System.EventArgs) Handles PictureBox1.Click
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Dim frmNew As New frmViewCollectionDetails
         frmNew.ItemId = FirearmIDArray(CurrentIndex)
         frmNew.MdiParent = Me.MdiParent
@@ -193,6 +193,6 @@ Public Class frmFirearmImagePicker
         btnRight.Height = WorkspaceHeight
         PictureBox1.Height = WorkspaceHeight - 70
         PictureBox1.Width = WorkspaceWidth - 40
-        btnRight.Location = New System.Drawing.Point(WorkspaceWidth - 40, btnLeft.Location.Y)
+        btnRight.Location = New Point(WorkspaceWidth - 40, btnLeft.Location.Y)
     End Sub
 End Class

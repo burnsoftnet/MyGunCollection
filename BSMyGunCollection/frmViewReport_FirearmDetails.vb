@@ -2,11 +2,11 @@ Imports Microsoft.Reporting.WinForms
 Public Class frmViewReport_FirearmDetails
     Public intID As String
     Public strName As String
-    Private Sub frmViewReport_FirearmDetails_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_FirearmDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.FullDetailsTableAdapter.FillBy_ID(Me.MGCDataSet.FullDetails, intID)
             If PersonalMark Then
-                Dim parmList As New Generic.List(Of ReportParameter)
+                Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
                 parmList.Add(New ReportParameter("ReportTitle", "Insurance Report for " & OwnerName))
                 Me.ReportViewer1.LocalReport.SetParameters(parmList)

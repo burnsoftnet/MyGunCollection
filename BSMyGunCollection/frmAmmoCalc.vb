@@ -27,7 +27,7 @@ Public Class frmAmmoCalc
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinish.Click
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFinish.Click
         If chkbxUI.Checked Then Call UpdateInventory()
         frmAddMaintance.NumericUpDown1.Value = CInt(lblTotal.Text)
         frmAddMaintance.txtAmmoUsed.Text = AmmoUsed
@@ -130,7 +130,7 @@ Public Class frmAmmoCalc
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmAmmoCalc_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmAmmoCalc_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             If Len(AmmoTypePet) = 0 And Len(AmmoTypeCal3) = 0 Then
                 Me.Gun_Collection_AmmoTableAdapter.FillBy(Me.MGCDataSet.Gun_Collection_Ammo, AmmoType)
@@ -150,7 +150,7 @@ Public Class frmAmmoCalc
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
+    Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim intCurInv As Integer = CInt(txtCurQty.Text)
             If intCurInv <> 0 Then
@@ -182,7 +182,7 @@ Public Class frmAmmoCalc
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     ''' <summary>
@@ -190,7 +190,7 @@ Public Class frmAmmoCalc
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         txtCurQty.Text = CStr(CurrentQty(ComboBox1.SelectedValue))
     End Sub
 End Class

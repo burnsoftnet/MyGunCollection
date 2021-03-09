@@ -15,17 +15,17 @@ Public Class frmViewDocuments
         End Try
     End Sub
     'Form Loads
-    Private Sub frmViewDocuments_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewDocuments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RefreshData()
     End Sub
     'Tool Strip Bar - Add new Document to database
-    Private Sub ToolStripButton1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         Dim frmNew As New frmAddDocument
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
     End Sub
     'On double click start the getdocumentfromDB routine
-    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+    Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
         Try
             Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Call GetDocumentfromDB(ItemID)
@@ -62,8 +62,8 @@ Public Class frmViewDocuments
     'You might want to find a way to fix that and warn the user
     Sub OpenFile(sFile As String)
         Try
-            Dim p As New System.Diagnostics.Process
-            Dim s As New System.Diagnostics.ProcessStartInfo(sFile)
+            Dim p As New Process
+            Dim s As New ProcessStartInfo(sFile)
             s.UseShellExecute = True
             s.WindowStyle = ProcessWindowStyle.Normal
             p.StartInfo = s
@@ -93,7 +93,7 @@ Public Class frmViewDocuments
         End Try
     End Sub
     'Context Menu - View Documents
-    Private Sub ViewToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ViewToolStripMenuItem.Click
+    Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         Call GetDocumentfromDB(ItemID)
     End Sub
@@ -122,7 +122,7 @@ Public Class frmViewDocuments
         Return lAns
     End Function
     'Context Menu - Delete selected document
-    Private Sub DeleteToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim SQL As String = "delete from Gun_Collection_Docs where id=" & ItemID
@@ -152,11 +152,11 @@ Public Class frmViewDocuments
         End Try
     End Sub
     'Tool Bar strip -  Refresh data
-    Private Sub ToolStripButton2_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
         Call RefreshData()
     End Sub
     'Context menu Attach document to firearm
-    Private Sub AttachToFirearmToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AttachToFirearmToolStripMenuItem.Click
+    Private Sub AttachToFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AttachToFirearmToolStripMenuItem.Click
         Try
             Dim ItemID As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim frmNew As New frmLinkDocToFirearm
@@ -169,7 +169,7 @@ Public Class frmViewDocuments
         End Try
     End Sub
 
-    Private Sub EditToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles EditToolStripMenuItem.Click
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim frmNew As New frmAddDocument
         frmNew.DID = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         frmNew.EditMode = True

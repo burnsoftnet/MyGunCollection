@@ -93,7 +93,7 @@ Public Class frmCopyAccessory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmCopyAccessory_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmCopyAccessory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Me.QryGunCollectionDetailsTableAdapter.FillBy_Default(Me.MGCDataSet.qryGunCollectionDetails)
             FullName = GetFullName(ItemID)
@@ -108,7 +108,7 @@ Public Class frmCopyAccessory
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub btnCopy_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCopy.Click
+    Private Sub btnCopy_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCopy.Click
         Try
             Dim strFireArmID As String = ComboBox1.SelectedValue.ToString
             Dim strFireArmName As String = ComboBox1.Text

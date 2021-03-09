@@ -85,7 +85,7 @@ Public Class frmApplyUpdates
                 ProgressBar2.Value = i
                 ProgressBar2.Refresh()
                 Me.Refresh()
-                System.Windows.Forms.Application.DoEvents()
+                Application.DoEvents()
             Next i
             doc = Nothing
             elemList = Nothing
@@ -362,7 +362,7 @@ Public Class frmApplyUpdates
         End Try
     End Sub
     'Start the timer to check the updates of the status
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(ByVal sender As Object, ByVal e As EventArgs) Handles Timer1.Tick
         Me.Cursor = Cursors.WaitCursor
         Call DoInserts()
         Timer1.Enabled = False
@@ -371,7 +371,7 @@ Public Class frmApplyUpdates
         Me.Close()
     End Sub
     'Action for when the applied button is clicked
-    Private Sub frmApplyUpdates_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmApplyUpdates_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         lblTitle.Text = Application.ProductName
         Me.Text = Application.ProductName
         Timer1.Enabled = True

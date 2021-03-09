@@ -12,9 +12,9 @@ Public Class frmViewReport_FirearmSaleInvoice
         Dim OWNER_ZIP As String = ""
         Dim OWNER_Phone As String = ""
         Dim OWNER_CCD As String = ""
-        Dim Obj As New MGC.GlobalFunctions
+        Dim Obj As New GlobalFunctions
         Obj.GetUserSettingsDB(OWNER_RecID, OWNER_Name, OWNER_Address, OWNER_City, OWNER_State, OWNER_ZIP, OWNER_Phone, OWNER_CCD)
-        Dim parmList As New Generic.List(Of ReportParameter)
+        Dim parmList As New List(Of ReportParameter)
         parmList.Add(New ReportParameter("OWNER_Name", OWNER_Name))
         parmList.Add(New ReportParameter("OWNER_Address", OWNER_Address))
         parmList.Add(New ReportParameter("OWNER_City", OWNER_City))
@@ -30,7 +30,7 @@ Public Class frmViewReport_FirearmSaleInvoice
 
         Me.ReportViewer1.RefreshReport()
     End Sub
-    Private Sub frmViewReport_FirearmSaleInvoice_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmViewReport_FirearmSaleInvoice_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Call GetData()
     End Sub
 End Class

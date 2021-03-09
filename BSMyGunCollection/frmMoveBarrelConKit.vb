@@ -2,11 +2,11 @@
 Public Class frmMoveBarrelConKit
     Public BarrelID As Long
 
-    Private Sub frmMoveBarrelConKit_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmMoveBarrelConKit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Gun_CollectionTableAdapter.Fill(Me.MGCDataSet.Gun_Collection)
     End Sub
 
-    Private Sub btnAttach_Click(sender As System.Object, e As System.EventArgs) Handles btnAttach.Click
+    Private Sub btnAttach_Click(sender As Object, e As EventArgs) Handles btnAttach.Click
         Try
             Dim GID As Long = cmbFirearm.SelectedValue
             Dim fullName As String = cmbFirearm.SelectedText

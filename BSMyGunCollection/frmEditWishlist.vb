@@ -28,7 +28,7 @@ Public Class frmEditWishlist
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    Private Sub frmEditWishlist_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmEditWishlist_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If Len(ItemID) = 0 Then End
         Dim ObjG As New GlobalFunctions
         strName = ObjG.GetWishListName(ItemID)
@@ -36,11 +36,11 @@ Public Class frmEditWishlist
         Call UpdateData()
     End Sub
 
-    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 
-    Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
+    Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         Try
             Dim ObjGF As New GlobalFunctions
             Dim Obj As New BSDatabase
