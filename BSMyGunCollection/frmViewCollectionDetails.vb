@@ -1518,7 +1518,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddExistingDoc_Click(sender As Object, e As EventArgs) Handles btnAddExistingDoc.Click
         Dim frmNew As New frmLinkFromExistingDoc
-        frmNew.GID = ItemId
+        frmNew.Gid = ItemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -1569,7 +1569,7 @@ Public Class FrmViewCollectionDetails
     Private Sub MoveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToolStripMenuItem.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
         Dim frmNew As New frmMoveBarrelConKit
-        frmNew.BarrelID = bid
+        frmNew.BarrelId = bid
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()

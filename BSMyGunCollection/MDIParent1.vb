@@ -1082,7 +1082,7 @@ Public Class MdiParent1
     ''' Menu Link to run search
     ''' </summary>
     Sub RunSearch()
-        Dim frmNew As New frmSearch_Collection
+        Dim frmNew As New FrmSearchCollection
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub

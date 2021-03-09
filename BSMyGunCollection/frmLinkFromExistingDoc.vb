@@ -1,30 +1,53 @@
-﻿Public Class frmLinkFromExistingDoc
-    Public GID As Long
+﻿''' <summary>
+''' for to link firearm to existing document
+''' </summary>
+Public Class FrmLinkFromExistingDoc
+    ''' <summary>
+    ''' The gun id
+    ''' </summary>
+    Public Gid As Long
+    ''' <summary>
+    ''' Handles the Load event of the frmLinkFromExistingDoc control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmLinkFromExistingDoc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call RefreshData()
     End Sub
+    ''' <summary>
+    ''' Refreshes the data.
+    ''' </summary>
     Sub RefreshData()
         Try
-            Me.Gun_Collection_DocsTableAdapter.Fill(Me.MGCDataSet.Gun_Collection_Docs)
+            Gun_Collection_DocsTableAdapter.Fill(MGCDataSet.Gun_Collection_Docs)
         Catch ex As Exception
             Dim sSubFunc As String = "RefreshData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnCancel control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.Close()
+        Close()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim docName As String = cmbDoc.SelectedText
-        Dim DocID As Long = cmbDoc.SelectedValue
+        Dim docId As Long = cmbDoc.SelectedValue
         Dim objAddObject As New frmAddDocument
-        If objAddObject.PerformDocLink(GID, DocID) Then
+        If objAddObject.PerformDocLink(Gid, docId) Then
             Dim sAns As String = MsgBox(docName & " was linked to this firearm, Do you wish to add another?", MsgBoxStyle.YesNo, "Doc Linked")
             If sAns = vbYes Then
                 Call RefreshData()
             Else
-                Me.Close()
+                Close()
             End If
         Else
             MsgBox("An Error occurred while attempt to link " & docName & " to firearm, Please try again.")

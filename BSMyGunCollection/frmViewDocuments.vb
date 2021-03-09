@@ -204,7 +204,7 @@ Public Class FrmViewDocuments
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim frmNew As New frmLinkDocToFirearm
-            frmNew.DocID = CLng(itemId)
+            frmNew.DocId = CLng(itemId)
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
