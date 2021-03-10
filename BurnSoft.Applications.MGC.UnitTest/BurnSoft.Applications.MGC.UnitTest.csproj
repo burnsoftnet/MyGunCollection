@@ -51,8 +51,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoFill\AccessoryTest.cs" />
     <Compile Include="Firearms\MyGunCollectionTest.cs" />
     <Compile Include="Firearms\ManufacturersTest.cs" />
     <Compile Include="Firearms\AccessoriesTest.cs" />
