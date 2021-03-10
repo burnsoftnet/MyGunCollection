@@ -21,6 +21,10 @@ namespace BurnSoft.Applications.MGC.UnitTest.AutoFill
         /// </summary>
         private string _databasePath;
         /// <summary>
+        /// The model look up
+        /// </summary>
+        private string Model_LookUp;
+        /// <summary>
         /// Initializes this instance.
         /// </summary>
         [TestInitialize]
@@ -29,6 +33,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.AutoFill
             // Vs2019.GetSetting("", TestContext);
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
+            Model_LookUp = Vs2019.GetSetting("Model_LookUp", TestContext);
         }
         /// <summary>
         /// Defines the test method ModelTest.
@@ -114,7 +119,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.AutoFill
         [TestMethod, TestCategory("AutoFill - Gun")]
         public void ModelByManufacturerTest()
         {
-            AutoCompleteStringCollection value = Gun.ModelByManufacturer(_databasePath, "Glock", out _errOut);
+            AutoCompleteStringCollection value = Gun.ModelByManufacturer(_databasePath, Model_LookUp, out _errOut);
             foreach (var a in value)
             {
                 TestContext.WriteLine(a.ToString());
