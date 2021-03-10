@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Universal;
+// ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Firearms
 {
@@ -75,7 +76,38 @@ namespace BurnSoft.Applications.MGC.Firearms
             }
             return bAns;
         }
-
+        /// <summary>
+        /// Gets all the firearms in the database and their details
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunCollectionList&gt;.</returns>
+        /// <exception cref="System.Exception"></exception>
+        public static List<GunCollectionList> GetList(string databasePath,  out string errOut)
+        {
+            List<GunCollectionList> lst = new List<GunCollectionList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = MyList(dt, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Gets a specfic firearm from the database
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunCollectionList&gt;.</returns>
+        /// <exception cref="System.Exception"></exception>
         public static List<GunCollectionList> GetList(string databasePath, long id, out string errOut)
         {
             List<GunCollectionList> lst = new List<GunCollectionList>();
@@ -89,11 +121,16 @@ namespace BurnSoft.Applications.MGC.Firearms
             }
             catch (Exception e)
             {
-                errOut = ErrorMessage("GetAll", e);
+                errOut = ErrorMessage("GetList", e);
             }
             return lst;
         }
-
+        /// <summary>
+        /// Private class to sort the informatimon from a datatable into the Gun Collection List ype
+        /// </summary>
+        /// <param name="dt">The dt.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunCollectionList&gt;.</returns>
         private static List<GunCollectionList> MyList(DataTable dt, out string errOut)
         {
             List<GunCollectionList> lst = new List<GunCollectionList>();
@@ -103,10 +140,10 @@ namespace BurnSoft.Applications.MGC.Firearms
                 BSOtherObjects obj = new BSOtherObjects();
                 foreach (DataRow d in dt.Rows)
                 {
-                    int AppriaserId = 0;
+                    int appriaserId = 0;
                     if (d["AppriaserID"] != null && d["AppriaserID"].ToString().Length > 0)
                     {
-                        AppriaserId = Convert.ToInt32(d["AppriaserID"]);
+                        appriaserId = Convert.ToInt32(d["AppriaserID"]);
                     }
                     
                     lst.Add(new GunCollectionList()
@@ -141,7 +178,7 @@ namespace BurnSoft.Applications.MGC.Firearms
                         PurchaseFrom = d["PurchasedFrom"].ToString(),
                         AppriasedBy = d["AppraisedBy"].ToString(),
                         AppriasedValue = d["AppraisedValue"].ToString(),
-                        AppriaserId = AppriaserId,
+                        AppriaserId = appriaserId,
                         AppraisalDate = d["AppraisalDate"].ToString(),
                         InsuredValue = d["InsuredValue"].ToString(),
                         StorageLocation = d["StorageLocation"].ToString(),

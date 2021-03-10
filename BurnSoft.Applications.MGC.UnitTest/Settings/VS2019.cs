@@ -34,6 +34,8 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             List<Tuple<string, string>> ls = new List<Tuple<string, string>>();
             ls.Add(new Tuple<string, string>("DatabasePath", "data\\mgc.mdb"));
             ls.Add(new Tuple<string, string>("MyGunCollectionID", "3"));
+            ls.Add(new Tuple<string, string>("MyGunCollection_ShopOldName", "Mike's Guns"));
+            ls.Add(new Tuple<string, string>("MyGunCollection_ShopNewName", "Mikes Guns"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }

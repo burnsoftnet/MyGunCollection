@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using BurnSoft.Applications.MGC;
 using BurnSoft.Applications.MGC.Firearms;
 using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Applications.MGC.UnitTest.Settings;
+using BurnSoft.Universal;
 
 namespace BurnSoft.Applications.MGC.UnitTest.Firearms
 {
@@ -19,27 +18,43 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// <summary>
         /// The error out
         /// </summary>
-        private string errOut;
+        private string _errOut;
         /// <summary>
         /// The gun identifier
         /// </summary>
-        private int GunID;
+        private int _gunId;
         /// <summary>
         /// The database path
         /// </summary>
-        private string DatabasePath;
-
+        private string _databasePath;
+        /// <summary>
+        /// The shop old name
+        /// </summary>
+        private string _shopOldName;
+        /// <summary>
+        /// The shop new name
+        /// </summary>
+        private string _shopNewName;
+        /// <summary>
+        /// Initializes this instance.
+        /// </summary>
         [TestInitialize]
         public void Init()
         {
-            errOut = @"";
-            DatabasePath = Vs2019.GetSetting("DatabasePath", TestContext);
-            GunID = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
+            // Vs2019.GetSetting("", TestContext);
+            BSOtherObjects obj = new BSOtherObjects();
+            _errOut = @"";
+            _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
+            _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
+            _shopOldName =obj.FC(Vs2019.GetSetting("MyGunCollection_ShopOldName", TestContext));
+            _shopNewName = obj.FC(Vs2019.GetSetting("MyGunCollection_ShopNewName", TestContext));
         }
-        [TestMethod, TestCategory("")]
-        public void GetList()
+        /// <summary>
+        /// Prints the list.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        private void PrintList(List<GunCollectionList> value)
         {
-            List<GunCollectionList> value = MyCollection.GetList(DatabasePath, GunID, out errOut);
             if (value.Count > 0)
             {
                 foreach (GunCollectionList g in value)
@@ -107,8 +122,43 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
                     TestContext.WriteLine($"");
                 }
             }
-
-            General.HasTrueValue(value.Count > 0, errOut);
+        }
+        /// <summary>
+        /// Defines the test method GetList.
+        /// </summary>
+        [TestMethod, TestCategory("Gun Collection - Get From Table")]
+        public void GetList()
+        {
+            List<GunCollectionList> value = MyCollection.GetList(_databasePath, _gunId, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method GetListAll.
+        /// </summary>
+        [TestMethod, TestCategory("Gun Collection - Get From Table")]
+        public void GetListAll()
+        {
+            List<GunCollectionList> value = MyCollection.GetList(_databasePath, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method UpdateShopNames.
+        /// </summary>
+        [TestMethod, TestCategory("Gun Collection - Update")]
+        public void UpdateShopNames()
+        {
+            bool value = MyCollection.UpdateShopName(_databasePath, _shopNewName, _shopOldName, out _errOut);
+            if (value)
+            {
+                TestContext.WriteLine($"Was able to update database and change name from {_shopOldName} to {_shopNewName}");
+            }
+            else
+            {
+                TestContext.WriteLine($"Was not able to update database and change name from {_shopOldName} to {_shopNewName}");
+            }
+            General.HasTrueValue(value, _errOut);
         }
     }
 }
