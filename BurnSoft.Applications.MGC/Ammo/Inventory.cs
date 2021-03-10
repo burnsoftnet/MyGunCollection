@@ -88,5 +88,6 @@ namespace BurnSoft.Applications.MGC.Ammo
             string sql = $"Delete from Gun_Collection_Ammo where id={ammoId}";
             return Database.Execute(databasePath, sql, out errOut);
         }
+        public static long GetId(string databasePath, )
     }
 }

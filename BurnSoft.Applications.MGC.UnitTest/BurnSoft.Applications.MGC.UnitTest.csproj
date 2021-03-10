@@ -54,6 +54,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ammo\AuditTest.cs" />
     <Compile Include="AutoFill\AccessoryTest.cs" />
     <Compile Include="AutoFill\AmmoTest.cs" />
     <Compile Include="AutoFill\AppraisersTest.cs" />
