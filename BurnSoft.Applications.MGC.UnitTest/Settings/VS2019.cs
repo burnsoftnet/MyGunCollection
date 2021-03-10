@@ -37,6 +37,16 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("MyGunCollection_ShopOldName", "Mike's Guns"));
             ls.Add(new Tuple<string, string>("MyGunCollection_ShopNewName", "Mikes Guns"));
             ls.Add(new Tuple<string, string>("ManufacturersTestName", "OpenGlock"));
+            ls.Add(new Tuple<string, string>("Accessories_Manufacturer", "Glock"));
+            ls.Add(new Tuple<string, string>("Accessories_Name", "21 Round Mag"));
+            ls.Add(new Tuple<string, string>("Accessories_serialNumber", "N/A"));
+            ls.Add(new Tuple<string, string>("Accessories_condition", "New"));
+            ls.Add(new Tuple<string, string>("Accessories_notes", "extra mag's for the gun"));
+            ls.Add(new Tuple<string, string>("Accessories_use", "Extra Mag"));
+            ls.Add(new Tuple<string, string>("Accessories_purValue", "19.95"));
+            ls.Add(new Tuple<string, string>("Accessories_appValue", "10.00"));
+            ls.Add(new Tuple<string, string>("Accessories_civ", "true"));
+            ls.Add(new Tuple<string, string>("Accessories_ic", "true"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
