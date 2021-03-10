@@ -58,6 +58,10 @@
     <Compile Include="AutoFill\AmmoTest.cs" />
     <Compile Include="AutoFill\AppraisersTest.cs" />
     <Compile Include="AutoFill\DocumentsTest.cs" />
+    <Compile Include="AutoFill\GunTest.cs" />
+    <Compile Include="AutoFill\GunCollectionTest.cs" />
+    <Compile Include="AutoFill\GunsmithTest.cs" />
+    <Compile Include="AutoFill\WishlistTest.cs" />
     <Compile Include="Firearms\MyGunCollectionTest.cs" />
     <Compile Include="Firearms\ManufacturersTest.cs" />
     <Compile Include="Firearms\AccessoriesTest.cs" />
