@@ -103,6 +103,12 @@ namespace BurnSoft.Applications.MGC.Firearms
                 BSOtherObjects obj = new BSOtherObjects();
                 foreach (DataRow d in dt.Rows)
                 {
+                    int AppriaserId = 0;
+                    if (d["AppriaserID"] != null && d["AppriaserID"].ToString().Length > 0)
+                    {
+                        AppriaserId = Convert.ToInt32(d["AppriaserID"]);
+                    }
+                    
                     lst.Add(new GunCollectionList()
                     {
                         Id = Convert.ToInt32(d["id"]),
@@ -135,7 +141,7 @@ namespace BurnSoft.Applications.MGC.Firearms
                         PurchaseFrom = d["PurchasedFrom"].ToString(),
                         AppriasedBy = d["AppraisedBy"].ToString(),
                         AppriasedValue = d["AppraisedValue"].ToString(),
-                        AppriaserId = Convert.ToInt32(d["AppriaserID"].ToString()),
+                        AppriaserId = AppriaserId,
                         AppraisalDate = d["AppraisalDate"].ToString(),
                         InsuredValue = d["InsuredValue"].ToString(),
                         StorageLocation = d["StorageLocation"].ToString(),
@@ -163,7 +169,7 @@ namespace BurnSoft.Applications.MGC.Firearms
                         DateOfCAndR = d["DateofCR"].ToString(),
                         LastSyncDate = d["sync_lastupdate"].ToString(),
                         IsClass3Item = obj.ConvertIntToBool(Convert.ToInt32(d["IsClassIII"].ToString())),
-                        Class3Owner = d["ClassIII_owner"].ToString(),
+                        Class3Owner = d["ClassIII_owner"].ToString()
 
                     });
                 }
