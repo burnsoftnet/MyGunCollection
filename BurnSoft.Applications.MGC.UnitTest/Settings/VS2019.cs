@@ -36,6 +36,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("MyGunCollectionID", "3"));
             ls.Add(new Tuple<string, string>("MyGunCollection_ShopOldName", "Mike's Guns"));
             ls.Add(new Tuple<string, string>("MyGunCollection_ShopNewName", "Mikes Guns"));
+            ls.Add(new Tuple<string, string>("ManufacturersTestName", "OpenGlock"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }

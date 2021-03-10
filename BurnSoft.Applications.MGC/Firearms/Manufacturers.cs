@@ -155,8 +155,9 @@ namespace BurnSoft.Applications.MGC.Firearms
             {
                 BSOtherObjects obj = new BSOtherObjects();
                 name = obj.FC(name);
-                string sql = $"UPDATE Gun_Manufacturer set name='{name}' where id={id}";
+                string sql = $"UPDATE Gun_Manufacturer set Brand='{name}' where id={id}";
                 bAns = Database.Execute(databasePath, sql, out errOut);
+                if (errOut?.Length>0) throw new Exception($"{errOut}{Environment.NewLine}SQL - {sql}");
             }
             catch (Exception e)
             {
@@ -181,7 +182,7 @@ namespace BurnSoft.Applications.MGC.Firearms
             {
                 BSOtherObjects obj = new BSOtherObjects();
                 name = obj.FC(name);
-                string sql = $"Select * Gun_Manufacturer where Brand='{name}'";
+                string sql = $"Select * from Gun_Manufacturer where Brand='{name}'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
                 bAns = dt.Rows.Count > 0;
