@@ -14,3 +14,6 @@ MyGunCollection_DataLoader/obj
 *.ldb
 /BurnSoft.Applications.MGC.UnitTest/obj
 /BurnSoft.Applications.MGC.UnitTest/bin
+/packages
+/BurnSoft.Applications.MGC/obj
+/BurnSoft.Applications.MGC/bin
