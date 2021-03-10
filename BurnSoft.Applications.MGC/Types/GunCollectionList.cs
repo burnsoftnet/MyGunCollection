@@ -114,6 +114,10 @@ namespace BurnSoft.Applications.MGC.Types
         /// <value>The height of the barrel.</value>
         public string BarrelHeight { get; set; }
         /// <summary>
+        /// Container for the firearm Sights
+        /// </summary>
+        public string Sights { get; set; }
+        /// <summary>
         /// Gets or sets the action.
         /// </summary>
         /// <value>The action.</value>
@@ -149,6 +153,10 @@ namespace BurnSoft.Applications.MGC.Types
         /// <value>The appriaser identifier.</value>
         public int AppriaserId { get; set; }
         /// <summary>
+        /// Date of Apprisal
+        /// </summary>
+        public string AppraisalDate { get; set; }
+        /// <summary>
         /// Gets or sets the insured value.
         /// </summary>
         /// <value>The insured value.</value>
@@ -174,11 +182,6 @@ namespace BurnSoft.Applications.MGC.Types
         /// <value><c>true</c> if this instance has accessory; otherwise, <c>false</c>.</value>
         public bool HasAccessory { get; set; }
         /// <summary>
-        /// Gets or sets the has accessory database value.
-        /// </summary>
-        /// <value>The has accessory database value.</value>
-        public int HasAccessoryDbValue { get; set; }
-        /// <summary>
         /// Gets or sets the date produced.
         /// </summary>
         /// <value>The date produced.</value>
@@ -193,11 +196,6 @@ namespace BurnSoft.Applications.MGC.Types
         /// </summary>
         /// <value><c>true</c> if [item sold]; otherwise, <c>false</c>.</value>
         public bool ItemSold { get; set; }
-        /// <summary>
-        /// Gets or sets a value indicating whether [item sold database value].
-        /// </summary>
-        /// <value><c>true</c> if [item sold database value]; otherwise, <c>false</c>.</value>
-        public bool ItemSoldDbValue { get; set; }
         /// <summary>
         /// Gets or sets the seller id.
         /// </summary>
@@ -218,11 +216,6 @@ namespace BurnSoft.Applications.MGC.Types
         /// </summary>
         /// <value><c>true</c> if this instance is c and r; otherwise, <c>false</c>.</value>
         public bool IsCAndR { get; set; }
-        /// <summary>
-        /// Gets or sets the is c and r database value.
-        /// </summary>
-        /// <value>The is c and r database value.</value>
-        public int IsCAndRDbValue { get; set; }
         /// <summary>
         /// Gets or sets the pet loads now mostly the second caliber.
         /// </summary>
@@ -277,7 +270,7 @@ namespace BurnSoft.Applications.MGC.Types
         /// Gets or sets the trigger pull in punds.
         /// </summary>
         /// <value>The trigger pull in punds.</value>
-        public string TriggerPullInPunds { get; set; }
+        public string TriggerPullInPounds { get; set; }
         /// <summary>
         /// Gets or sets the caliber3.
         /// </summary>

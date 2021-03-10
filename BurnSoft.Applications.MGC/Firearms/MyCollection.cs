@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using BurnSoft.Applications.MGC.Types;
+using BurnSoft.Universal;
 
 namespace BurnSoft.Applications.MGC.Firearms
 {
@@ -99,6 +100,7 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                BSOtherObjects obj = new BSOtherObjects();
                 foreach (DataRow d in dt.Rows)
                 {
                     lst.Add(new GunCollectionList()
@@ -122,7 +124,46 @@ namespace BurnSoft.Applications.MGC.Firearms
                         BarrelLength = d["BarrelLength"].ToString(),
                         GripId = Convert.ToInt32(d["GripID"].ToString()),
                         Qty = Convert.ToInt32(d["Qty"].ToString()),
-                        Weight = d[""].ToString(),
+                        Weight = d["Weight"].ToString(),
+                        Height = d["Height"].ToString(),
+                        StockType = d["StockType"].ToString(),
+                        BarrelHeight = d["BarrelHeight"].ToString(),
+                        BarrelWidth = d["BarrelWidth"].ToString(),
+                        Action = d["Action"].ToString(),
+                        Sights = d["Sights"].ToString(),
+                        PurchasePrice = d["PurchasedPrice"].ToString(),
+                        PurchaseFrom = d["PurchasedFrom"].ToString(),
+                        AppriasedBy = d["AppraisedBy"].ToString(),
+                        AppriasedValue = d["AppraisedValue"].ToString(),
+                        AppriaserId = Convert.ToInt32(d["AppriaserID"].ToString()),
+                        AppraisalDate = d["AppraisalDate"].ToString(),
+                        InsuredValue = d["InsuredValue"].ToString(),
+                        StorageLocation = d["StorageLocation"].ToString(),
+                        ConditionComments = d["ConditionComments"].ToString(),
+                        AdditionalNotes = d["AdditionalNotes"].ToString(),
+                        HasAccessory = obj.ConvertIntToBool(Convert.ToInt32(d["HasAss"])),
+                        DateProduced = d["Produced"].ToString(),
+                        DateTimeAddedInDb = d["dt"].ToString(),
+                        ItemSold = obj.ConvertIntToBool(Convert.ToInt32(d["ItemSold"].ToString())),
+                        Sid = Convert.ToInt32(d["SID"].ToString()),
+                        Bid = Convert.ToInt32(d["BID"].ToString()),
+                        DateSold = d["dtSold"].ToString(),
+                        IsCAndR = obj.ConvertIntToBool(Convert.ToInt32(d["IsCandR"].ToString())),
+                        DateTimeAdded = d["dtp"].ToString(),
+                        Importer = d["Importer"].ToString(),
+                        RemanufactureDate = d["ReManDT"].ToString(),
+                        Poi = d["POI"].ToString(),
+                        HasMb = obj.ConvertIntToBool(Convert.ToInt32(d["HasMB"].ToString())),
+                        DbId = Convert.ToInt32(d["DBID"].ToString()),
+                        ShotGunChoke = d["SGChoke"].ToString(),
+                        IsInBoundBook = obj.ConvertIntToBool(Convert.ToInt32(d["IsInBoundBook"].ToString())),
+                        TwistRate = d["TwistRate"].ToString(),
+                        TriggerPullInPounds = d["lbs_trigger"].ToString(),
+                        Classification = d["Classification"].ToString(),
+                        DateOfCAndR = d["DateofCR"].ToString(),
+                        LastSyncDate = d["sync_lastupdate"].ToString(),
+                        IsClass3Item = obj.ConvertIntToBool(Convert.ToInt32(d["IsClassIII"].ToString())),
+                        Class3Owner = d["ClassIII_owner"].ToString(),
 
                     });
                 }
