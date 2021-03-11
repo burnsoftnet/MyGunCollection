@@ -25,7 +25,11 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
         /// The database path
         /// </summary>
         private string _databasePath;
-        
+        /// <summary>
+        /// The ammo identifier
+        /// </summary>
+        private int Ammo_Id;
+
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -36,6 +40,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             BSOtherObjects obj = new BSOtherObjects();
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
+            Ammo_Id = Vs2019.IGetSetting("Ammo_Id", TestContext);
         }
         /// <summary>
         /// Verifies the doesnt exist.
@@ -58,7 +63,19 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
         public void AddTest()
         {
             VerifyDoesntExist();
-            bool value = Audit.Add(_databasePath,1,DateTime.Now.ToString(), 50, 20.00, "Home",2, 100, out _errOut )
+            bool value = Audit.Add(_databasePath, Ammo_Id, DateTime.Now.ToString(), 50, 20.00, "Home", 2, 100,
+                out _errOut);
+            General.HasTrueValue(value, _errOut);
+        }
+
+        /// <summary>
+        /// Defines the test method DeleteTest.
+        /// </summary>
+        [TestMethod, TestCategory("Ammo Audit")]
+        public void DeleteTest()
+        {
+            VerifyDoesntExist();
+            bool value = Audit.Delete(_databasePath, Ammo_Id,out _errOut);
             General.HasTrueValue(value, _errOut);
         }
     }

@@ -128,7 +128,7 @@ namespace BurnSoft.Applications.MGC.Ammo
                 }
                 else if (numberOfBoxes > 1)
                 {
-                    for (int i = 1; i > numberOfBoxes; i++)
+                    for (int i = 0; i < numberOfBoxes; i++)
                     {
                         bAns = Add(databasePath, ammoId, datePurchased,currentQty, qty, price, store, out errOut);
                         currentQty += qty;

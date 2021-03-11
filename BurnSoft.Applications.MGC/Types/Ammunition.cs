@@ -43,7 +43,7 @@ namespace BurnSoft.Applications.MGC.Types
         /// <value>The qty.</value>
         public long Qty { get; set; }
         /// <summary>
-        /// Gets or sets the double value of the caliber
+        /// Gets or sets the numeric value of the grains
         /// </summary>
         /// <value>The dcal.</value>
         public double Dcal { get; set; }
