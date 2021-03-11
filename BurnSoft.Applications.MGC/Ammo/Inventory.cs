@@ -92,6 +92,141 @@ namespace BurnSoft.Applications.MGC.Ammo
             return Database.Execute(databasePath, sql, out errOut);
         }
         /// <summary>
+        /// Adds the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="cal">The cal.</param>
+        /// <param name="grain">The grain.</param>
+        /// <param name="jacket">The jacket.</param>
+        /// <param name="qty">The qty.</param>
+        /// <param name="dcal">The dcal.</param>
+        /// <param name="velocityNumber">The velocity number.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Add(string databasePath, string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber , out string errOut)
+        {
+            string sql = $"INSERT INTO Gun_Collection_Ammo(Manufacturer,Name,Cal,Grain,Jacket,Qty,dcal,vel_n,sync_lastupdate) VALUES('{manufacturer}','{name}','{cal}','{grain}','{jacket}',{qty},{dcal},{velocityNumber},Now()";
+            return Database.Execute(databasePath, sql, out errOut);
+        }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="cal">The cal.</param>
+        /// <param name="grain">The grain.</param>
+        /// <param name="jacket">The jacket.</param>
+        /// <param name="qty">The qty.</param>
+        /// <param name="dcal">The dcal.</param>
+        /// <param name="velocityNumber">The velocity number.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        public static long GetId(string databasePath, string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber,out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and Qty={qty} and dcal={dcal} and vel_n={velocityNumber} order by ID DESC";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                List<Ammunition> lst = MyList(dt, out errOut);
+                foreach (Ammunition a in lst)
+                {
+                    lAns = a.Id;
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+            return lAns;
+        }
+        /// <summary>
+        /// Updates the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="cal">The cal.</param>
+        /// <param name="grain">The grain.</param>
+        /// <param name="jacket">The jacket.</param>
+        /// <param name="qty">The qty.</param>
+        /// <param name="dcal">The dcal.</param>
+        /// <param name="velocityNumber">The velocity number.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Update(string databasePath,long id, string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber, out string errOut)
+        {
+            string sql = $"UPDATE Gun_Collection_Ammo set Manufacturer='{manufacturer}', Name='{name}', Cal='{cal}', Grain='{grain}', Jacket='{jacket}', Qty={qty}, dcal={dcal}, vel_n={velocityNumber}, sync_lastupdate=Now() where id={id}";
+            return Database.Execute(databasePath, sql, out errOut);
+        }
+        /// <summary>
+        /// Existses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="cal">The cal.</param>
+        /// <param name="grain">The grain.</param>
+        /// <param name="jacket">The jacket.</param>
+        /// <param name="qty">The qty.</param>
+        /// <param name="dcal">The dcal.</param>
+        /// <param name="velocityNumber">The velocity number.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Exists(string databasePath,  string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and Qty={qty} and dcal={dcal} and vel_n={velocityNumber} order by ID DESC";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                List<Ammunition> lst = MyList(dt, out errOut);
+                bAns = lst.Count > 0;
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Exists", e);
+            }
+            return bAns;
+        }
+
+        /// <summary>
+        /// Gets the last ammo identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        public static long GetLastAmmoId(string databasePath, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo order by ID DESC";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                List<Ammunition> lst = MyList(dt, out errOut);
+                foreach (Ammunition a in lst)
+                {
+                    lAns = a.Id;
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetLastAmmoId", e);
+            }
+            return lAns;
+        }
+
+        /// <summary>
         /// Gets the list.
         /// </summary>
         /// <param name="databasePath">The database path.</param>
