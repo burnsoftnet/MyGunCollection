@@ -31,6 +31,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
         /// <returns>List&lt;Tuple&lt;System.String, System.String&gt;&gt;.</returns>
         private static List<Tuple<string, string>> GeneralSettings()
         {
+            string testCaliber = @"10mm gunny";
             List<Tuple<string, string>> ls = new List<Tuple<string, string>>();
             ls.Add(new Tuple<string, string>("DatabasePath", "data\\mgc.mdb"));
             ls.Add(new Tuple<string, string>("MyGunCollectionID", "3"));
@@ -48,8 +49,16 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("Accessories_civ", "true"));
             ls.Add(new Tuple<string, string>("Accessories_ic", "true"));
             ls.Add(new Tuple<string, string>("Model_LookUp", "Glock"));
+            ls.Add(new Tuple<string, string>("Caliber_Test", testCaliber));
             ls.Add(new Tuple<string, string>("Ammo_Id", "12"));
-            ls.Add(new Tuple<string, string>("Caliber_Test", "10mm gunny"));
+            ls.Add(new Tuple<string, string>("Ammo_Manufacturer", "WildCats"));
+            ls.Add(new Tuple<string, string>("Ammo_Name", "WildCats 10mm gunny"));
+            ls.Add(new Tuple<string, string>("Ammo_Caliber", testCaliber));
+            ls.Add(new Tuple<string, string>("Ammo_Grain", "500"));
+            ls.Add(new Tuple<string, string>("Ammo_Jacket", "FMJ Gold"));
+            ls.Add(new Tuple<string, string>("Ammo_Qty", "100"));
+            ls.Add(new Tuple<string, string>("Ammo_DCal", "500"));
+            ls.Add(new Tuple<string, string>("Ammo_VelocityNumber", "2000"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
