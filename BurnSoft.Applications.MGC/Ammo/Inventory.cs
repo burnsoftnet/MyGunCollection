@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using BurnSoft.Applications.MGC.Types;
 
 // ReSharper disable UnusedMember.Local
 
@@ -88,6 +91,96 @@ namespace BurnSoft.Applications.MGC.Ammo
             string sql = $"Delete from Gun_Collection_Ammo where id={ammoId}";
             return Database.Execute(databasePath, sql, out errOut);
         }
-        public static long GetId(string databasePath, )
+
+        public static List<Ammunition> GetList(string databasePath, string name, string manufacturer, string cal,
+            out string errOut)
+        {
+            List<Ammunition> lst = new List<Ammunition>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Ammo where name='{name}' and Manufacturer='{manufacturer}' and Cal='{cal}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+                lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+
+            return lst;
+        }
+
+        public static List<Ammunition> GetList(string databasePath, int id, out string errOut)
+        {
+            List<Ammunition> lst = new List<Ammunition>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Ammo where id={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+                lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+
+            return lst;
+        }
+
+        public static List<Ammunition> GetList(string databasePath, out string errOut)
+        {
+            List<Ammunition> lst = new List<Ammunition>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Ammo";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+                lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+
+            return lst;
+        }
+        private static List<Ammunition> MyList(DataTable dt, out string errOut)
+        {
+            errOut = @"";
+            List<Ammunition> lst = new List<Ammunition>();
+            try
+            {
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new Ammunition()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        Cal = d["cal"].ToString(),
+                        Dcal = Convert.ToDouble(d["dcal"]),
+                        Grain = d["grain"].ToString(),
+                        Jacket = d["jacket"].ToString(),
+                        Manufacturer = d["Manufacturer"].ToString(),
+                        Name = d["name"].ToString(),
+                        Qty = Convert.ToInt32(d["qty"]),
+                        Sync_lastupdate = d["Sync_lastupdate"].ToString(),
+                        Vel_n = Convert.ToInt32(d["Vel_n"]),
+                        Vel_t = d["Vel_t"].ToString()
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("MyList", e);
+            }
+            return lst;
+        }
     }
 }
