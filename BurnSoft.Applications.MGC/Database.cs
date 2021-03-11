@@ -238,7 +238,7 @@ namespace BurnSoft.Applications.MGC
             }
             catch (Exception e)
             {
-                errOut = ErrorMessage("ConnExec", e);
+                errOut = $"{ErrorMessage("ConnExec", e)}{Environment.NewLine}SQL - {sql}";
             }
             return bAns;
         }

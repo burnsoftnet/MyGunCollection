@@ -78,6 +78,8 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
             return bAns;
         }
+
+
         /// <summary>
         /// Deletes the specified ammo from the database as well as the audit information
         /// </summary>
@@ -107,7 +109,7 @@ namespace BurnSoft.Applications.MGC.Ammo
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Add(string databasePath, string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber , out string errOut)
         {
-            string sql = $"INSERT INTO Gun_Collection_Ammo(Manufacturer,Name,Cal,Grain,Jacket,Qty,dcal,vel_n,sync_lastupdate) VALUES('{manufacturer}','{name}','{cal}','{grain}','{jacket}',{qty},{dcal},{velocityNumber},Now()";
+            string sql = $"INSERT INTO Gun_Collection_Ammo(Manufacturer,Name,Cal,Grain,Jacket,Qty,dcal,vel_n,sync_lastupdate) VALUES('{manufacturer}','{name}','{cal}','{grain}','{jacket}',{qty},{dcal},{velocityNumber},Now())";
             return Database.Execute(databasePath, sql, out errOut);
         }
         /// <summary>
@@ -130,7 +132,7 @@ namespace BurnSoft.Applications.MGC.Ammo
             errOut = @"";
             try
             {
-                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and Qty={qty} and dcal={dcal} and vel_n={velocityNumber} order by ID DESC";
+                string sql = $"SELECT Top 1 * from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and Qty={qty} and dcal={dcal} and vel_n={velocityNumber} order by ID DESC";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 List<Ammunition> lst = MyList(dt, out errOut);
                 foreach (Ammunition a in lst)
@@ -142,6 +144,34 @@ namespace BurnSoft.Applications.MGC.Ammo
             catch (Exception e)
             {
                 errOut = ErrorMessage("GetId", e);
+            }
+            return lAns;
+        }
+        /// <summary>
+        /// Gets the qty.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        public static long GetQty(string databasePath, long id, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT * from Gun_Collection_Ammo where id={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                List<Ammunition> lst = MyList(dt, out errOut);
+                foreach (Ammunition a in lst)
+                {
+                    lAns = a.Qty;
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetQty", e);
             }
             return lAns;
         }
@@ -174,18 +204,17 @@ namespace BurnSoft.Applications.MGC.Ammo
         /// <param name="cal">The cal.</param>
         /// <param name="grain">The grain.</param>
         /// <param name="jacket">The jacket.</param>
-        /// <param name="qty">The qty.</param>
         /// <param name="dcal">The dcal.</param>
         /// <param name="velocityNumber">The velocity number.</param>
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        public static bool Exists(string databasePath,  string manufacturer, string name, string cal, string grain, string jacket, long qty, double dcal, long velocityNumber, out string errOut)
+        public static bool Exists(string databasePath,  string manufacturer, string name, string cal, string grain, string jacket, double dcal, long velocityNumber, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
-                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and Qty={qty} and dcal={dcal} and vel_n={velocityNumber} order by ID DESC";
+                string sql = $"SELECT Top 1 * from Gun_Collection_Ammo where Manufacturer='{manufacturer}' and Name='{name}' and Cal='{cal}' and Grain='{grain}' and Jacket='{jacket}' and dcal={dcal} and vel_n={velocityNumber}";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 List<Ammunition> lst = MyList(dt, out errOut);
                 bAns = lst.Count > 0;
@@ -210,7 +239,7 @@ namespace BurnSoft.Applications.MGC.Ammo
             errOut = @"";
             try
             {
-                string sql = $"SELECT Top 1 ID from Gun_Collection_Ammo order by ID DESC";
+                string sql = $"SELECT Top 1 * from Gun_Collection_Ammo order by id desc";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 List<Ammunition> lst = MyList(dt, out errOut);
                 foreach (Ammunition a in lst)
@@ -266,7 +295,7 @@ namespace BurnSoft.Applications.MGC.Ammo
         /// <returns>List&lt;Ammunition&gt;.</returns>
         /// <exception cref="Exception"></exception>
         /// <exception cref="Exception"></exception>
-        public static List<Ammunition> GetList(string databasePath, int id, out string errOut)
+        public static List<Ammunition> GetList(string databasePath, long id, out string errOut)
         {
             List<Ammunition> lst = new List<Ammunition>();
             errOut = @"";
