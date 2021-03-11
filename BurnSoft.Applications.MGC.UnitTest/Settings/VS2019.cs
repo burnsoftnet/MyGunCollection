@@ -49,6 +49,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("Accessories_ic", "true"));
             ls.Add(new Tuple<string, string>("Model_LookUp", "Glock"));
             ls.Add(new Tuple<string, string>("Ammo_Id", "12"));
+            ls.Add(new Tuple<string, string>("Caliber_Test", "10mm gunny"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }

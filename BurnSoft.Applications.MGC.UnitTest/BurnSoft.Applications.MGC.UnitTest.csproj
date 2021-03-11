@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ammo\AuditTest.cs" />
+    <Compile Include="Ammo\GlobalListTest.cs" />
     <Compile Include="AutoFill\AccessoryTest.cs" />
     <Compile Include="AutoFill\AmmoTest.cs" />
     <Compile Include="AutoFill\AppraisersTest.cs" />
