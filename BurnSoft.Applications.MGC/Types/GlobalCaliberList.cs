@@ -16,5 +16,10 @@ namespace BurnSoft.Applications.MGC.Types
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
+        /// <summary>
+        /// Gets or sets the synchronize lastupdate.
+        /// </summary>
+        /// <value>The synchronize lastupdate.</value>
+        public string SyncLastupdate { get; set; }
     }
 }

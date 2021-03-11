@@ -107,6 +107,42 @@ namespace BurnSoft.Applications.MGC.Ammo
             return bAns;
         }
 
+        public static bool Update(string databasePath, long id, string name, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
+                string sql = $"UPDATE Gun_Cal set Cal='{name}',sync_lastupdate=Now() where id={id}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Update", e);
+            }
+
+            return bAns;
+        }
+
+        public static bool Delete(string databasePath, long id, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"DELETE from Gun_Cal where id={id}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Deletee", e);
+            }
+
+            return bAns;
+        }
+
         public static long GetId(string databaseName, string name, out string errOut)
         {
             long lAns = 0;
@@ -179,7 +215,8 @@ namespace BurnSoft.Applications.MGC.Ammo
                     lst.Add(new GlobalCaliberList()
                     {
                         Id = Convert.ToInt32(d["id"]),
-                        Name = d["name"].ToString()
+                        Name = d["Cal"].ToString(),
+                        SyncLastupdate = d["sync_lastupdate"].ToString()
                     });
                 }
             }
