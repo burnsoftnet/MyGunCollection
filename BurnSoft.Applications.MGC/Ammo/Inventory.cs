@@ -91,7 +91,17 @@ namespace BurnSoft.Applications.MGC.Ammo
             string sql = $"Delete from Gun_Collection_Ammo where id={ammoId}";
             return Database.Execute(databasePath, sql, out errOut);
         }
-
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="manufacturer">The manufacturer.</param>
+        /// <param name="cal">The cal.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;Ammunition&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static List<Ammunition> GetList(string databasePath, string name, string manufacturer, string cal,
             out string errOut)
         {
@@ -112,7 +122,15 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return lst;
         }
-
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;Ammunition&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static List<Ammunition> GetList(string databasePath, int id, out string errOut)
         {
             List<Ammunition> lst = new List<Ammunition>();
@@ -132,7 +150,14 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return lst;
         }
-
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;Ammunition&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static List<Ammunition> GetList(string databasePath, out string errOut)
         {
             List<Ammunition> lst = new List<Ammunition>();
@@ -152,6 +177,12 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return lst;
         }
+        /// <summary>
+        /// Mies the list.
+        /// </summary>
+        /// <param name="dt">The dt.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;Ammunition&gt;.</returns>
         private static List<Ammunition> MyList(DataTable dt, out string errOut)
         {
             errOut = @"";
