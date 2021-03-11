@@ -106,7 +106,14 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return bAns;
         }
-
+        /// <summary>
+        /// Updates the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Update(string databasePath, long id, string name, out string errOut)
         {
             bool bAns = false;
@@ -125,7 +132,13 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return bAns;
         }
-
+        /// <summary>
+        /// Deletes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public static bool Delete(string databasePath, long id, out string errOut)
         {
             bool bAns = false;
@@ -142,7 +155,14 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return bAns;
         }
-
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databaseName">Name of the database.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
         public static long GetId(string databaseName, string name, out string errOut)
         {
             long lAns = 0;
@@ -165,7 +185,14 @@ namespace BurnSoft.Applications.MGC.Ammo
 
             return lAns;
         }
-
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GlobalCaliberList&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static List<GlobalCaliberList> GetList(string databasePath,  out string errOut)
         {
             List<GlobalCaliberList> lst = new List<GlobalCaliberList>();
@@ -184,7 +211,15 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
             return lst;
         }
-
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GlobalCaliberList&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static List<GlobalCaliberList> GetList(string databasePath, string name, out string errOut)
         {
             List<GlobalCaliberList> lst = new List<GlobalCaliberList>();
@@ -203,7 +238,12 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
             return lst;
         }
-
+        /// <summary>
+        /// Mies the list.
+        /// </summary>
+        /// <param name="dt">The dt.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GlobalCaliberList&gt;.</returns>
         private static List<GlobalCaliberList> MyList(DataTable dt, out string errOut)
         {
             errOut = @"";
