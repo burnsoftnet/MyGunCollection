@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BurnSoft.Applications.MGC.Ammo;
+using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Applications.MGC.UnitTest.Settings;
 using BurnSoft.Universal;
 // ReSharper disable UnusedVariable
@@ -81,7 +83,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             General.HasTrueValue(value, _errOut);
         }
 
-        
+        /// <summary>
+        /// Defines the test method ExistsTest.
+        /// </summary>
         [TestMethod, TestCategory("Caliber Global Listt")]
         public void ExistsTest()
         {
@@ -89,7 +93,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             bool value = GlobalList.Exists(_databasePath, _caliberTest, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method GetIdTest.
+        /// </summary>
         [TestMethod, TestCategory("Caliber Global Listt")]
         public void GetIdTest()
         {
@@ -98,7 +104,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             TestContext.WriteLine($"IS: {id}");
             General.HasTrueValue(id > 0, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method UpdateTest.
+        /// </summary>
         [TestMethod, TestCategory("Caliber Global Listt")]
         public void UpdateTest()
         {
@@ -108,7 +116,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             bool value = GlobalList.Update(_databasePath,id, _caliberTestUpdate, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method DeleteTest.
+        /// </summary>
         [TestMethod, TestCategory("Caliber Global Listt")]
         public void DeleteTest()
         {
@@ -117,6 +127,47 @@ namespace BurnSoft.Applications.MGC.UnitTest.Ammo
             long id = GlobalList.GetId(_databasePath, _caliberTest, out _errOut);
             bool value = GlobalList.Delete(_databasePath, id, out _errOut);
             General.HasTrueValue(value, _errOut);
+        }
+        /// <summary>
+        /// Prints the list.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        private void PrintList(List<GlobalCaliberList> value)
+        {
+            if (value.Count > 0)
+            {
+                foreach (GlobalCaliberList g in value)
+                {
+                    TestContext.WriteLine($"id: {g.Id}");
+                    TestContext.WriteLine($"Name: {g.Name}");
+                    TestContext.WriteLine($"Last Sync Date: {g.SyncLastupdate}");
+                    TestContext.WriteLine($"");
+                    TestContext.WriteLine($"-----------------------------------");
+                    TestContext.WriteLine($"");
+                }
+            }
+        }
+        /// <summary>
+        /// Defines the test method ListByNameTest.
+        /// </summary>
+        [TestMethod, TestCategory("Caliber Global Listt")]
+        public void ListByNameTest()
+        {
+            VerifyExists();
+            List<GlobalCaliberList> value = GlobalList.GetList(_databasePath, _caliberTest, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method ListAllTest.
+        /// </summary>
+        [TestMethod, TestCategory("Caliber Global Listt")]
+        public void ListAllTest()
+        {
+            VerifyExists();
+            List<GlobalCaliberList> value = GlobalList.GetList(_databasePath, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
         }
     }
 }
