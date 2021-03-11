@@ -70,7 +70,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
                     TestContext.WriteLine($"Caliber: {g.Caliber}");
                     TestContext.WriteLine($"Caliber 2: {g.PetLoads}");
                     TestContext.WriteLine($"Caliber 3: {g.Caliber3}");
-                    TestContext.WriteLine($"Finish: {g.FeedSystem}");
+                    TestContext.WriteLine($"Feed System: {g.FeedSystem}");
                     TestContext.WriteLine($"Finish: {g.Finish}");
                     TestContext.WriteLine($"Condition: {g.Condition}");
                     TestContext.WriteLine($"CustomId: {g.CustomId}");

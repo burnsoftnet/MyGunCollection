@@ -131,7 +131,7 @@ namespace BurnSoft.Applications.MGC.Firearms
         /// <param name="dt">The dt.</param>
         /// <param name="errOut">The error out.</param>
         /// <returns>List&lt;GunCollectionList&gt;.</returns>
-        private static List<GunCollectionList> MyList(DataTable dt, out string errOut)
+        internal static List<GunCollectionList> MyList(DataTable dt, out string errOut)
         {
             List<GunCollectionList> lst = new List<GunCollectionList>();
             errOut = @"";

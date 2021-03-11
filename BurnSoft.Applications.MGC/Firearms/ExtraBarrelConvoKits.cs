@@ -54,66 +54,38 @@ namespace BurnSoft.Applications.MGC.Firearms
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
         #endregion
 
-        public static List<BarrelSystems> GetAll(string databasePath, out string errOut)
+        /// <summary>
+        /// Ges the current barrel detailst list.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;BarrelSystems&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        public static List<BarrelSystems> GeCurrentBarrelDetailstList(string databasePath,long id, out string errOut)
         {
             List<BarrelSystems> lst = new List<BarrelSystems>();
             errOut = @"";
             try
             {
-                string sql = $"select * from Gun_Collection";
-                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                List<GunCollectionList> gunList = MyCollection.GetList(databasePath, id, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
 
-                foreach (DataRow d in  dt.Rows)
+                foreach (GunCollectionList d in gunList)
                 {
                     lst.Add(new BarrelSystems()
                     {
-                        Id = Convert.ToInt32(d["id"]),
-                        FullName = d["FullName"].ToString(),
-                        BarrelLength = d["BarrelLength"].ToString(),
-                        Finish = d["Finish"].ToString(),
-                        Height = d["Height"].ToString(),
-                        Action = d["Action"].ToString(),
-                        FeedSystem = d["FeedSystem"].ToString(),
-                        Sights = d["Sights"].ToString(),
-                        PetLoads = d["PetLoads"].ToString(),
-                        PurchasedFrom = d["PurchasedFrom"].ToString(),
-                        PurchasedPrice = d["PurchasedPrice"].ToString()
-                    });
-                }
-            }
-            catch (Exception e)
-            {
-                errOut = ErrorMessage("GetAll", e);
-            }
-            return lst;
-        }
-
-        public static List<BarrelSystems> GetList(string databasePath,long id, out string errOut)
-        {
-            List<BarrelSystems> lst = new List<BarrelSystems>();
-            errOut = @"";
-            try
-            {
-                string sql = $"select * from Gun_Collection";
-                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
-                if (errOut?.Length > 0) throw new Exception(errOut);
-
-                foreach (DataRow d in dt.Rows)
-                {
-                    lst.Add(new BarrelSystems()
-                    {
-                        Id = Convert.ToInt32(d["id"]),
-                        FullName = d["FullName"].ToString(),
-                        BarrelLength = d["BarrelLength"].ToString(),
-                        Finish = d["Finish"].ToString(),
-                        Height = d["Height"].ToString(),
-                        Action = d["Action"].ToString(),
-                        FeedSystem = d["FeedSystem"].ToString(),
-                        Sights = d["Sights"].ToString(),
-                        PetLoads = d["PetLoads"].ToString(),
-                        PurchasedFrom = d["PurchasedFrom"].ToString(),
-                        PurchasedPrice = d["PurchasedPrice"].ToString()
+                        Id = d.Id,
+                        FullName = d.FullName,
+                        BarrelLength = d.BarrelLength,
+                        Finish = d.Finish,
+                        Height = d.Height,
+                        Action = d.Action,
+                        FeedSystem = d.FeedSystem,
+                        Sights = d.Sights,
+                        PetLoads = d.PetLoads,
+                        PurchasedFrom = d.PurchaseFrom,
+                        PurchasedPrice = d.PurchasePrice,
                     });
                 }
             }

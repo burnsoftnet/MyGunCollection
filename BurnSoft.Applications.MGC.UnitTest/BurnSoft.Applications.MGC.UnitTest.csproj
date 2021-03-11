@@ -68,6 +68,7 @@
     <Compile Include="Firearms\MyGunCollectionTest.cs" />
     <Compile Include="Firearms\ManufacturersTest.cs" />
     <Compile Include="Firearms\AccessoriesTest.cs" />
+    <Compile Include="Firearms\ExtraBarrelConvoKitsTest.cs" />
     <Compile Include="General.cs" />
     <Compile Include="Settings\VS2019.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
