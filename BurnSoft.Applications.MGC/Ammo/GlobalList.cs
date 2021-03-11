@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Universal;
 // ReSharper disable UnusedMember.Local
 
@@ -103,6 +105,89 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
 
             return bAns;
+        }
+
+        public static long GetId(string databaseName, string name, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                BSOtherObjects obj = new BSOtherObjects();
+                name = obj.FC(name);
+                List<GlobalCaliberList> lst = GetList(databaseName, name, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}");
+                foreach (GlobalCaliberList g in lst)
+                {
+                    lAns = g.Id;
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+
+            return lAns;
+        }
+
+        public static List<GlobalCaliberList> GetList(string databasePath,  out string errOut)
+        {
+            List<GlobalCaliberList> lst = new List<GlobalCaliberList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"Select * from Gun_Cal";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+                lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+            return lst;
+        }
+
+        public static List<GlobalCaliberList> GetList(string databasePath, string name, out string errOut)
+        {
+            List<GlobalCaliberList> lst = new List<GlobalCaliberList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"Select * from Gun_Cal where Cal='{name}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+                lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception($"{errOut}{Environment.NewLine}SQL = {sql}");
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+            return lst;
+        }
+
+        private static List<GlobalCaliberList> MyList(DataTable dt, out string errOut)
+        {
+            errOut = @"";
+            List<GlobalCaliberList> lst = new List<GlobalCaliberList>();
+            try
+            {
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new GlobalCaliberList()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        Name = d["name"].ToString()
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("MyList", e);
+            }
+            return lst;
         }
 
     }
