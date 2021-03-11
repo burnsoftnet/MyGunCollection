@@ -94,8 +94,6 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             errOut = @"";
             try
             {
-                //BSOtherObjects obj = new BSOtherObjects();
-                //name = obj.FC(name);
                 string sql = $"select * from Gun_Shop_Details where name like '{name}%'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
@@ -297,7 +295,7 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
         /// <param name="errOut">The error out.</param>
         /// <returns>List&lt;GunShopDetails&gt;.</returns>
         /// <exception cref="Exception"></exception>
-        public static List<GunShopDetails> Get(string databasePath, int id, out string errOut)
+        public static List<GunShopDetails> Get(string databasePath, long id, out string errOut)
         {
             List<GunShopDetails> lst = new List<GunShopDetails>();
             errOut = @"";

@@ -69,7 +69,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// <summary>
         /// Defines the test method GetList.
         /// </summary>
-        [TestMethod, TestCategory("Gun Collection - Get From Table")]
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void GeCurrentBarrelDetailstListTest()
         {
             List<BarrelSystems> value = ExtraBarrelConvoKits.GeCurrentBarrelDetailstList(_databasePath, _gunId, out _errOut);
