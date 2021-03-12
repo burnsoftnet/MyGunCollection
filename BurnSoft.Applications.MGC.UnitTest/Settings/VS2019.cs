@@ -61,7 +61,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("Ammo_VelocityNumber", "2000"));
             ls.Add(new Tuple<string, string>("Shops_Name", "Gunny's Big Ass Guns"));
             ls.Add(new Tuple<string, string>("Shops_Name_Existing", "Mike's Guns"));
-            
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_DefaultId", "1"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }

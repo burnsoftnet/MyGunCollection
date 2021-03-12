@@ -258,12 +258,21 @@ namespace BurnSoft.Applications.MGC.Firearms
             {
                 foreach (DataRow d in dt.Rows)
                 {
+                    string fullName = @"";
+                    try
+                    {
+                        fullName = d["FullName"].ToString();
+                    }
+                    catch
+                    {
+
+                    }
                     lst.Add(new BarrelSystems()
                     {
                         Id = Convert.ToInt32(d["id"]),
                         GunId = Convert.ToInt32(d["gid"]),
-                        IsDefault = Convert.ToInt32(d["mid"]) == 1,
-                        FullName = d["FullName"].ToString(),
+                        IsDefault = Convert.ToInt32(d["IsDefault"]) == 1,
+                        FullName = fullName,
                         ModelName = d["ModelName"].ToString(),
                         Caliber = d["Caliber"].ToString(),
                         PetLoads = d["PetLoads"].ToString(),

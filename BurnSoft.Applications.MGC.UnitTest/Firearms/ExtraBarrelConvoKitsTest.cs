@@ -25,6 +25,10 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private int _gunId;
         /// <summary>
+        /// The barrel convo kit default identifier
+        /// </summary>
+        private long BarrelConvoKit_DefaultId;
+        /// <summary>
         /// The database path
         /// </summary>
         private string _databasePath;
@@ -39,7 +43,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
             _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
-
+            BarrelConvoKit_DefaultId = Vs2019.IGetSetting("BarrelConvoKit_DefaultId", TestContext);
         }
         /// <summary>
         /// Prints the list.
@@ -61,6 +65,12 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
                     TestContext.WriteLine($"PurchasePrice: {g.PurchasedPrice}");
                     TestContext.WriteLine($"PurchaseFrom: {g.PurchasedFrom}");
                     TestContext.WriteLine($"Petloads/Caliber2: {g.PetLoads}");
+                    TestContext.WriteLine($"Gun Id: {g.GunId}");
+                    TestContext.WriteLine($"Model Name: {g.ModelName}");
+                    TestContext.WriteLine($"Caliber: {g.Caliber}");
+                    TestContext.WriteLine($"Is Default: {g.IsDefault}");
+                    TestContext.WriteLine($"Last Updated: {g.LastUpdated}");
+                    TestContext.WriteLine($"");
                     TestContext.WriteLine($"--------------------------------------");
                     TestContext.WriteLine($"");
                 }
@@ -73,6 +83,30 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         public void GeCurrentBarrelDetailstListTest()
         {
             List<BarrelSystems> value = ExtraBarrelConvoKits.GetCurrentBarrelDetailstList(_databasePath, _gunId, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
+        public void GetBarrelIdTest()
+        {
+            long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, out _errOut, true);
+            TestContext.WriteLine($"Barrel Id: {value}");
+            General.HasTrueValue(value == BarrelConvoKit_DefaultId, _errOut);
+        }
+
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
+        public void GetListAllTest()
+        {
+            List<BarrelSystems> value = ExtraBarrelConvoKits.GetList(_databasePath, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
+        public void GetListByBarrelIdTest()
+        {
+            List<BarrelSystems> value = ExtraBarrelConvoKits.GetList(_databasePath, BarrelConvoKit_DefaultId, out _errOut);
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }
