@@ -265,7 +265,8 @@ namespace BurnSoft.Applications.MGC.Firearms
                     }
                     catch
                     {
-
+                        //Do nothing, just in case we use this functions to get
+                        //from the gun collection or the barrel table, but it shouldn't be a deal breaker
                     }
                     lst.Add(new BarrelSystems()
                     {
