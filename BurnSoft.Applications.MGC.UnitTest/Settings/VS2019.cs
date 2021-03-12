@@ -62,6 +62,20 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("Shops_Name", "Gunny's Big Ass Guns"));
             ls.Add(new Tuple<string, string>("Shops_Name_Existing", "Mike's Guns"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_DefaultId", "1"));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_ModelName", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Caliber", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Finish", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_BarrelLength", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_PetLoads", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Action", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Feedsystem", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Sights", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_PurchasedPrice", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_PurchasedFrom", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_", ""));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_", ""));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
