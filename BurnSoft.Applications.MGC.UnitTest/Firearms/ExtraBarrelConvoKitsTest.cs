@@ -33,6 +33,62 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private string _databasePath;
         /// <summary>
+        /// The barrel convo kit add model name
+        /// </summary>
+        private string BarrelConvoKit_Add_ModelName;
+        /// <summary>
+        /// The barrel convo kit add caliber
+        /// </summary>
+        private string BarrelConvoKit_Add_Caliber;
+        /// <summary>
+        /// The barrel convo kit add finish
+        /// </summary>
+        private string BarrelConvoKit_Add_Finish;
+        /// <summary>
+        /// The barrel convo kit add barrel length
+        /// </summary>
+        private string BarrelConvoKit_Add_BarrelLength;
+        /// <summary>
+        /// The barrel convo kit add pet loads
+        /// </summary>
+        private string BarrelConvoKit_Add_PetLoads;
+        /// <summary>
+        /// The barrel convo kit add action
+        /// </summary>
+        private string BarrelConvoKit_Add_Action;
+        /// <summary>
+        /// The barrel convo kit add feedsystem
+        /// </summary>
+        private string BarrelConvoKit_Add_Feedsystem;
+        /// <summary>
+        /// The barrel convo kit add sights
+        /// </summary>
+        private string BarrelConvoKit_Add_Sights;
+        /// <summary>
+        /// The barrel convo kit add purchased price
+        /// </summary>
+        private string BarrelConvoKit_Add_PurchasedPrice;
+        /// <summary>
+        /// The barrel convo kit add purchased from
+        /// </summary>
+        private string BarrelConvoKit_Add_PurchasedFrom;
+        /// <summary>
+        /// The barrel convo kit add dta
+        /// </summary>
+        private string BarrelConvoKit_Add_dta;
+        /// <summary>
+        /// The barrel convo kit add height
+        /// </summary>
+        private string BarrelConvoKit_Add_Height;
+        /// <summary>
+        /// The barrel convo kit add type
+        /// </summary>
+        private string BarrelConvoKit_Add_Type;
+        /// <summary>
+        /// The barrel convo kit add is default
+        /// </summary>
+        private int BarrelConvoKit_Add_IsDefault;
+        /// <summary>
         /// Initializes this instance.
         /// </summary>
         [TestInitialize]
@@ -44,6 +100,20 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
             _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
             BarrelConvoKit_DefaultId = Vs2019.IGetSetting("BarrelConvoKit_DefaultId", TestContext);
+            BarrelConvoKit_Add_ModelName = Vs2019.GetSetting("BarrelConvoKit_Add_ModelName", TestContext);
+            BarrelConvoKit_Add_Caliber = Vs2019.GetSetting("BarrelConvoKit_Add_Caliber", TestContext);
+            BarrelConvoKit_Add_Finish = Vs2019.GetSetting("BarrelConvoKit_Add_Finish", TestContext);
+            BarrelConvoKit_Add_BarrelLength = Vs2019.GetSetting("BarrelConvoKit_Add_BarrelLength", TestContext);
+            BarrelConvoKit_Add_PetLoads = Vs2019.GetSetting("BarrelConvoKit_Add_PetLoads", TestContext);
+            BarrelConvoKit_Add_Action = Vs2019.GetSetting("BarrelConvoKit_Add_Action", TestContext);
+            BarrelConvoKit_Add_Feedsystem = Vs2019.GetSetting("BarrelConvoKit_Add_Feedsystem", TestContext);
+            BarrelConvoKit_Add_Sights = Vs2019.GetSetting("BarrelConvoKit_Add_Sights", TestContext);
+            BarrelConvoKit_Add_PurchasedPrice = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedPrice", TestContext);
+            BarrelConvoKit_Add_PurchasedFrom = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedFrom", TestContext);
+            BarrelConvoKit_Add_dta = Vs2019.GetSetting("BarrelConvoKit_Add_dta", TestContext);
+            BarrelConvoKit_Add_Height = Vs2019.GetSetting("BarrelConvoKit_Add_Height", TestContext);
+            BarrelConvoKit_Add_Type = Vs2019.GetSetting("BarrelConvoKit_Add_Type", TestContext);
+            BarrelConvoKit_Add_IsDefault = Vs2019.IGetSetting("BarrelConvoKit_Add_IsDefault", TestContext);
         }
         /// <summary>
         /// Prints the list.
