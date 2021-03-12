@@ -122,7 +122,7 @@ namespace BurnSoft.Applications.MGC.Firearms
             try
             {
                 int lDefault = useDefault ? 1 : 0;
-                string sql = $"SELECT TOP 1 ID from Gun_Collection_Ext where GID={gunId} and IsDefault={lDefault}";
+                string sql = $"SELECT TOP 1 * from Gun_Collection_Ext where GID={gunId} and IsDefault={lDefault}";
                 if (barrelId > 0) sql += $" and id={barrelId}";
                 List<BarrelSystems> lst = GetList(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
@@ -144,7 +144,26 @@ namespace BurnSoft.Applications.MGC.Firearms
             errOut = @"";
             try
             {
+                string sql = $"select * from Gun_Collection_Ext where id={barrelId}";
+                lst = GetList(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+            return lst;
+        }
 
+        public static List<BarrelSystems> GetList(string databasePath, out string errOut)
+        {
+            List<BarrelSystems> lst = new List<BarrelSystems>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Ext";
+                lst = GetList(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
             }
             catch (Exception e)
             {
