@@ -10,7 +10,7 @@ namespace BurnSoft.Applications.MGC.Types
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public long Id { get; set; }
         /// <summary>
         /// Gets or sets the full name.
         /// </summary>
@@ -61,6 +61,31 @@ namespace BurnSoft.Applications.MGC.Types
         /// </summary>
         /// <value>The finish.</value>
         public string Finish { get; set; }
+        /// <summary>
+        /// Gets or sets the gun identifier.
+        /// </summary>
+        /// <value>The gun identifier.</value>
+        public long GunId { get; set; }
+        /// <summary>
+        /// Gets or sets the name of the model.
+        /// </summary>
+        /// <value>The name of the model.</value>
+        public string ModelName { get; set; }
+        /// <summary>
+        /// Gets or sets the caliber.
+        /// </summary>
+        /// <value>The caliber.</value>
+        public string Caliber { get; set; }
+        /// <summary>
+        /// Gets or sets a value indicating whether this instance is default.
+        /// </summary>
+        /// <value><c>true</c> if this instance is default; otherwise, <c>false</c>.</value>
+        public bool IsDefault { get; set; }
+        /// <summary>
+        /// Gets or sets the last updated.
+        /// </summary>
+        /// <value>The last updated.</value>
+        public string LastUpdated { get; set; }
 
     }
 }

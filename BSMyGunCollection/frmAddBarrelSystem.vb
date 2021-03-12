@@ -1,6 +1,10 @@
+''TODO #43 Clean up unused code 
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.AutoFill
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class frmAddBarrelSystem.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -18,14 +22,21 @@ Public Class FrmAddBarrelSystem
         Try
             Dim errOut As String = ""
             txtCal.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath,errOut )
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtFeedSys.AutoCompleteCustomSource = GunCollection.Feedsystem(DatabasePath,errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtSight.AutoCompleteCustomSource = GunCollection.Sights(DatabasePath,errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtPetLoads.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath,errOut )
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtFinish.AutoCompleteCustomSource = GunCollection.Finish(DatabasePath,errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtAction.AutoCompleteCustomSource = GunCollection.Action(DatabasePath,errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtPurFrom.AutoCompleteCustomSource = Gun.ShopDetails(DatabasePath,errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
             txtSysType.AutoCompleteCustomSource = GunCollection.BarrelSysTypes(DatabasePath,errOut)
-
+            If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "AutoFill"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -36,27 +47,42 @@ Public Class FrmAddBarrelSystem
     ''' </summary>
     Sub LoadData()
         Try
-            Dim sql As String = "SELECT * from Gun_Collection where ID=" & Gid
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                If Not IsDBNull(rs("Fullname")) Then txtRecieverName.Text = rs("Fullname")
-                If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
-                If Not IsDBNull(rs("Height")) Then txtOvLen.Text = rs("Height")
-                If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
-                If Not IsDBNull(rs("Feedsystem")) Then txtFeedSys.Text = rs("Feedsystem")
-                If Not IsDBNull(rs("Sights")) Then txtSight.Text = rs("Sights")
-                If Not IsDBNull(rs("PetLoads")) Then txtPetLoads.Text = rs("PetLoads")
-                If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = rs("PurchasedPrice")
-                If Not IsDBNull(rs("PurchasedFrom")) Then txtPurFrom.Text = rs("PurchasedFrom")
-                If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
-            End While
-            rs.Close()
+            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & Gid
+            'Dim obj As New BSDatabase
+            'Call obj.ConnectDB()
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'While rs.Read
+            '    If Not IsDBNull(rs("Fullname")) Then txtRecieverName.Text = rs("Fullname")
+            '    If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
+            '    If Not IsDBNull(rs("Height")) Then txtOvLen.Text = rs("Height")
+            '    If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
+            '    If Not IsDBNull(rs("Feedsystem")) Then txtFeedSys.Text = rs("Feedsystem")
+            '    If Not IsDBNull(rs("Sights")) Then txtSight.Text = rs("Sights")
+            '    If Not IsDBNull(rs("PetLoads")) Then txtPetLoads.Text = rs("PetLoads")
+            '    If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = rs("PurchasedPrice")
+            '    If Not IsDBNull(rs("PurchasedFrom")) Then txtPurFrom.Text = rs("PurchasedFrom")
+            '    If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
+            'End While
+            'rs.Close()
+            'obj.CloseDB()
+            Dim errOut as String = ""
+            Dim lst as List(Of BarrelSystems) = ExtraBarrelConvoKits.GetCurrentBarrelDetailstList(DatabasePath, Gid, errOut)
 
-            obj.CloseDB()
+            For Each o As BarrelSystems In lst
+                txtRecieverName.Text = o.FullName
+                txtBarLen.Text = o.BarrelLength
+                txtOvLen.Text = o.Height
+                txtAction.Text = o.Action
+                txtFeedSys.Text = o.FeedSystem
+                txtSight.Text = o.Sights
+                txtPetLoads.Text = o.PetLoads
+                txtPurPrice.Text = o.PurchasedPrice
+                txtPurFrom.Text = o.PurchasedFrom
+                txtFinish.Text = o.Finish
+            Next
+
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)

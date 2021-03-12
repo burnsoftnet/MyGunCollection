@@ -72,7 +72,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void GeCurrentBarrelDetailstListTest()
         {
-            List<BarrelSystems> value = ExtraBarrelConvoKits.GeCurrentBarrelDetailstList(_databasePath, _gunId, out _errOut);
+            List<BarrelSystems> value = ExtraBarrelConvoKits.GetCurrentBarrelDetailstList(_databasePath, _gunId, out _errOut);
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }
