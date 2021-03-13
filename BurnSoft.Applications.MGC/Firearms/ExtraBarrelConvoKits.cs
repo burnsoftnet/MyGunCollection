@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms.VisualStyles;
 using BurnSoft.Applications.MGC.Types;
 
 // ReSharper disable UnusedMember.Local
@@ -10,7 +11,7 @@ namespace BurnSoft.Applications.MGC.Firearms
     /// <summary>
     /// Class ExtraBarrelConvoKits functions to manage the barrels or conversion kits for a firearm.
     /// </summary>
-    public class ExtraBarrelConvoKits
+    public class ExtraBarrelConvoKits : IDisposable
     {
         #region "Exception Error Handling"        
         /// <summary>
@@ -341,6 +342,61 @@ namespace BurnSoft.Applications.MGC.Firearms
                 errOut = ErrorMessage("MyList", e);
             }
             return lst;
+        }
+        /// <summary>
+        /// Swaps the default barrel systems.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="defaultBarrelId">The default barrel identifier.</param>
+        /// <param name="newBarrelId">The new barrel identifier.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        public static bool SwapDefaultBarrelSystems(string databasePath, long defaultBarrelId, long newBarrelId,
+            long gunId, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"UPDATE Gun_Collection_Ext set IsDefault=0,sync_lastupdate=Now() where ID={defaultBarrelId}";
+                if (! Database.Execute(databasePath, sql, out errOut)) throw new Exception(errOut);
+                sql = $"UPDATE Gun_Collection_Ext set IsDefault=1,sync_lastupdate=Now() where ID={newBarrelId}";
+                if (!Database.Execute(databasePath, sql, out errOut)) throw new Exception(errOut);
+                sql = $"SELECT * from Gun_Collection_Ext where ID={newBarrelId} and gid={gunId}";
+
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                List<BarrelSystems> collection = ExtraBarrelConvoKits.MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+
+                foreach (BarrelSystems b in collection)
+                {
+                    sql = $"UPDATE Gun_Collection set BarrelLength='{b.BarrelLength}', Caliber='{b.Caliber}', " +
+                          $"Action='{b.Action}',Feedsystem='{b.FeedSystem}',PetLoads='{b.PetLoads}',HasMB=1,DBID={newBarrelId}," +
+                          $"Height='{b.Height}',Sights='{b.Sights}',sync_lastupdate=Now() where ID={gunId}";
+                    bAns = Database.Execute(databasePath, sql, out errOut);
+                    if (errOut.Length > 0) throw new Exception(errOut);
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("SwapDefaultBarrelSystems", e);
+            }
+            return bAns;
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
         }
     }
 }

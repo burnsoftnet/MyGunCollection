@@ -119,8 +119,8 @@ Public Class FrmAddBarrelSystem
             Dim petLoads As String = FluffContent(txtPetLoads.Text)
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
-            Dim iDefault As Integer 
-            Dim sql As String 
+            'Dim iDefault As Integer 
+            'Dim sql As String 
 
             If Not IsRequired(sName, "Name", Text) Then Exit Sub
             If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
