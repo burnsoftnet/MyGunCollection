@@ -27,7 +27,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// <summary>
         /// The barrel convo kit default identifier
         /// </summary>
-        private long BarrelConvoKit_DefaultId;
+        private long _barrelConvoKitDefaultId;
         /// <summary>
         /// The database path
         /// </summary>
@@ -35,59 +35,55 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// <summary>
         /// The barrel convo kit add model name
         /// </summary>
-        private string BarrelConvoKit_Add_ModelName;
+        private string _barrelConvoKitAddModelName;
         /// <summary>
         /// The barrel convo kit add caliber
         /// </summary>
-        private string BarrelConvoKit_Add_Caliber;
+        private string _barrelConvoKitAddCaliber;
         /// <summary>
         /// The barrel convo kit add finish
         /// </summary>
-        private string BarrelConvoKit_Add_Finish;
+        private string _barrelConvoKitAddFinish;
         /// <summary>
         /// The barrel convo kit add barrel length
         /// </summary>
-        private string BarrelConvoKit_Add_BarrelLength;
+        private string _barrelConvoKitAddBarrelLength;
         /// <summary>
         /// The barrel convo kit add pet loads
         /// </summary>
-        private string BarrelConvoKit_Add_PetLoads;
+        private string _barrelConvoKitAddPetLoads;
         /// <summary>
         /// The barrel convo kit add action
         /// </summary>
-        private string BarrelConvoKit_Add_Action;
+        private string _barrelConvoKitAddAction;
         /// <summary>
         /// The barrel convo kit add feedsystem
         /// </summary>
-        private string BarrelConvoKit_Add_Feedsystem;
+        private string _barrelConvoKitAddFeedsystem;
         /// <summary>
         /// The barrel convo kit add sights
         /// </summary>
-        private string BarrelConvoKit_Add_Sights;
+        private string _barrelConvoKitAddSights;
         /// <summary>
         /// The barrel convo kit add purchased price
         /// </summary>
-        private string BarrelConvoKit_Add_PurchasedPrice;
+        private string _barrelConvoKitAddPurchasedPrice;
         /// <summary>
         /// The barrel convo kit add purchased from
         /// </summary>
-        private string BarrelConvoKit_Add_PurchasedFrom;
-        /// <summary>
-        /// The barrel convo kit add dta
-        /// </summary>
-        private string BarrelConvoKit_Add_dta;
+        private string _barrelConvoKitAddPurchasedFrom;
         /// <summary>
         /// The barrel convo kit add height
         /// </summary>
-        private string BarrelConvoKit_Add_Height;
+        private string _barrelConvoKitAddHeight;
         /// <summary>
         /// The barrel convo kit add type
         /// </summary>
-        private string BarrelConvoKit_Add_Type;
+        private string _barrelConvoKitAddType;
         /// <summary>
         /// The barrel convo kit add is default
         /// </summary>
-        private int BarrelConvoKit_Add_IsDefault;
+        private bool _barrelConvoKitAddIsDefault;
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -99,21 +95,20 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
             _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
-            BarrelConvoKit_DefaultId = Vs2019.IGetSetting("BarrelConvoKit_DefaultId", TestContext);
-            BarrelConvoKit_Add_ModelName = Vs2019.GetSetting("BarrelConvoKit_Add_ModelName", TestContext);
-            BarrelConvoKit_Add_Caliber = Vs2019.GetSetting("BarrelConvoKit_Add_Caliber", TestContext);
-            BarrelConvoKit_Add_Finish = Vs2019.GetSetting("BarrelConvoKit_Add_Finish", TestContext);
-            BarrelConvoKit_Add_BarrelLength = Vs2019.GetSetting("BarrelConvoKit_Add_BarrelLength", TestContext);
-            BarrelConvoKit_Add_PetLoads = Vs2019.GetSetting("BarrelConvoKit_Add_PetLoads", TestContext);
-            BarrelConvoKit_Add_Action = Vs2019.GetSetting("BarrelConvoKit_Add_Action", TestContext);
-            BarrelConvoKit_Add_Feedsystem = Vs2019.GetSetting("BarrelConvoKit_Add_Feedsystem", TestContext);
-            BarrelConvoKit_Add_Sights = Vs2019.GetSetting("BarrelConvoKit_Add_Sights", TestContext);
-            BarrelConvoKit_Add_PurchasedPrice = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedPrice", TestContext);
-            BarrelConvoKit_Add_PurchasedFrom = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedFrom", TestContext);
-            BarrelConvoKit_Add_dta = Vs2019.GetSetting("BarrelConvoKit_Add_dta", TestContext);
-            BarrelConvoKit_Add_Height = Vs2019.GetSetting("BarrelConvoKit_Add_Height", TestContext);
-            BarrelConvoKit_Add_Type = Vs2019.GetSetting("BarrelConvoKit_Add_Type", TestContext);
-            BarrelConvoKit_Add_IsDefault = Vs2019.IGetSetting("BarrelConvoKit_Add_IsDefault", TestContext);
+            _barrelConvoKitDefaultId = Vs2019.IGetSetting("BarrelConvoKit_DefaultId", TestContext);
+            _barrelConvoKitAddModelName = Vs2019.GetSetting("BarrelConvoKit_Add_ModelName", TestContext);
+            _barrelConvoKitAddCaliber = Vs2019.GetSetting("BarrelConvoKit_Add_Caliber", TestContext);
+            _barrelConvoKitAddFinish = Vs2019.GetSetting("BarrelConvoKit_Add_Finish", TestContext);
+            _barrelConvoKitAddBarrelLength = Vs2019.GetSetting("BarrelConvoKit_Add_BarrelLength", TestContext);
+            _barrelConvoKitAddPetLoads = Vs2019.GetSetting("BarrelConvoKit_Add_PetLoads", TestContext);
+            _barrelConvoKitAddAction = Vs2019.GetSetting("BarrelConvoKit_Add_Action", TestContext);
+            _barrelConvoKitAddFeedsystem = Vs2019.GetSetting("BarrelConvoKit_Add_Feedsystem", TestContext);
+            _barrelConvoKitAddSights = Vs2019.GetSetting("BarrelConvoKit_Add_Sights", TestContext);
+            _barrelConvoKitAddPurchasedPrice = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedPrice", TestContext);
+            _barrelConvoKitAddPurchasedFrom = obj.FC(Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedFrom", TestContext));
+            _barrelConvoKitAddHeight = Vs2019.GetSetting("BarrelConvoKit_Add_Height", TestContext);
+            _barrelConvoKitAddType = Vs2019.GetSetting("BarrelConvoKit_Add_Type", TestContext);
+            _barrelConvoKitAddIsDefault = Vs2019.BGetSetting("BarrelConvoKit_Add_IsDefault", TestContext);
         }
         /// <summary>
         /// Prints the list.
@@ -156,15 +151,42 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method AddTest.
+        /// </summary>
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
+        public void AddTest()
+        {
+            bool value = ExtraBarrelConvoKits.Add(_databasePath, _gunId, _barrelConvoKitAddModelName,
+                _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
+                _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
+                _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
+                _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut);
+            General.HasTrueValue(value, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method AddLinkTest.
+        /// </summary>
+        [TestMethod, TestCategory("Barrel/Conversion Kits")]
+        public void AddLinkTest()
+        {
+            long barrelId = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, out _errOut);
+            bool value = ExtraBarrelConvoKits.AddLink(_databasePath, barrelId,_gunId, out _errOut);
+            General.HasTrueValue(value, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method GetBarrelIdTest.
+        /// </summary>
         [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void GetBarrelIdTest()
         {
             long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, out _errOut, true);
             TestContext.WriteLine($"Barrel Id: {value}");
-            General.HasTrueValue(value == BarrelConvoKit_DefaultId, _errOut);
+            General.HasTrueValue(value == _barrelConvoKitDefaultId, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method GetListAllTest.
+        /// </summary>
         [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void GetListAllTest()
         {
@@ -172,11 +194,13 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method GetListByBarrelIdTest.
+        /// </summary>
         [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void GetListByBarrelIdTest()
         {
-            List<BarrelSystems> value = ExtraBarrelConvoKits.GetList(_databasePath, BarrelConvoKit_DefaultId, out _errOut);
+            List<BarrelSystems> value = ExtraBarrelConvoKits.GetList(_databasePath, _barrelConvoKitDefaultId, out _errOut);
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }

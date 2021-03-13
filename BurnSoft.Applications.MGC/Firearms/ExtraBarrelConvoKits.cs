@@ -121,8 +121,8 @@ namespace BurnSoft.Applications.MGC.Firearms
         {
             int iDefault = isDefault ? 1 : 0;
             string sql = $"INSERT INTO Gun_Collection_Ext(GID, ModelName, Caliber, Finish, BarrelLength, PetLoads, Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" +
-                $"{gunId},'{modelName}',','{caliber}','{finish}','{barrelLength}','{petLoads}','{action}','{feedSystem}','{sights}'," +
-                $"'{purchasePrice}','{purchasedFrom}',DATE().'{height}','{type}',{iDefault},Now())";
+                $"{gunId},'{modelName}','{caliber}','{finish}','{barrelLength}','{petLoads}','{action}','{feedSystem}','{sights}'," +
+                $"'{purchasePrice}','{purchasedFrom}',DATE(),'{height}','{type}',{iDefault},Now())";
             return Database.Execute(databasePath, sql, out errOut);
         }
         /// <summary>
@@ -158,6 +158,7 @@ namespace BurnSoft.Applications.MGC.Firearms
                 int lDefault = useDefault ? 1 : 0;
                 string sql = $"SELECT TOP 1 * from Gun_Collection_Ext where GID={gunId} and IsDefault={lDefault}";
                 if (barrelId > 0) sql += $" and id={barrelId}";
+                sql += " order by id desc";
                 List<BarrelSystems> lst = GetList(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
                 foreach (BarrelSystems b in lst)

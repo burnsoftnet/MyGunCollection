@@ -72,10 +72,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Sights", "Fixed front and rear"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_PurchasedPrice", "299.99"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_PurchasedFrom", "Bud's Police Supply"));
-            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_dta", "7/5/2012"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Height", "7.32 in."));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Type", "22LR Conversion Kit G17/22"));
-            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_IsDefault", "0"));
+            ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_IsDefault", "false"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
