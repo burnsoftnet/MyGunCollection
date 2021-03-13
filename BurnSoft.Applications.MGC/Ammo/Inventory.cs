@@ -10,7 +10,7 @@ namespace BurnSoft.Applications.MGC.Ammo
     /// <summary>
     /// Class Inventory contains all the functions used to manage the ammo in the database
     /// </summary>
-    public class Inventory
+    public class Inventory : IDisposable
     {
         #region "Exception Error Handling"        
         /// <summary>
@@ -376,6 +376,12 @@ namespace BurnSoft.Applications.MGC.Ammo
                 errOut = ErrorMessage("MyList", e);
             }
             return lst;
+        }
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
         }
     }
 }

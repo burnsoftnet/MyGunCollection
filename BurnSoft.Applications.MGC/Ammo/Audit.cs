@@ -8,7 +8,7 @@ namespace BurnSoft.Applications.MGC.Ammo
     /// <summary>
     /// Class Audit that contains the functions for the ammo audit section
     /// </summary>
-    public class Audit
+    public class Audit : IDisposable
     {
         #region "Exception Error Handling"
 
@@ -156,6 +156,12 @@ namespace BurnSoft.Applications.MGC.Ammo
         {
             string sql = $"DELETE from Gun_Collection_Ammo_PriceAudit where AID={ammoId}";
             return Database.Execute(databasePath, sql, out errOut);
+        }
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
         }
     }
 }

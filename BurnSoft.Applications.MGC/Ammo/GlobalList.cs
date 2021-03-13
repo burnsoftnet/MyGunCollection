@@ -10,7 +10,7 @@ namespace BurnSoft.Applications.MGC.Ammo
     /// <summary>
     /// Class General functions for ammo handling from the global list gun_cal table
     /// </summary>
-    public class GlobalList
+    public class GlobalList : IDisposable
     {
         #region "Exception Error Handling"        
         /// <summary>
@@ -266,7 +266,13 @@ namespace BurnSoft.Applications.MGC.Ammo
             }
             return lst;
         }
-
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            
+        }
     }
 
 

@@ -1,9 +1,12 @@
 ﻿
+using System;
+
 namespace BurnSoft.Applications.MGC.Types
 {
     /// <summary>
     /// Class to hold the information about the Barrel System and Conversion kits for a firearm
     /// </summary>
+    [Serializable]
     public class BarrelSystems
     {
         /// <summary>

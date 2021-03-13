@@ -1,9 +1,12 @@
 ﻿
+using System;
+
 namespace BurnSoft.Applications.MGC.Types
 {
     /// <summary>
     /// Class Global Caliber List.
     /// </summary>
+    [Serializable]
     public class GlobalCaliberList
     {
         /// <summary>

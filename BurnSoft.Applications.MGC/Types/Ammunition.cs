@@ -1,10 +1,13 @@
 ﻿
 
+using System;
+
 namespace BurnSoft.Applications.MGC.Types
 {
     /// <summary>
     /// Class Ammunition list container for the Gun_Collection_Ammo table
     /// </summary>
+    [Serializable]
     public class Ammunition
     {
         /// <summary>
