@@ -1,6 +1,7 @@
 ''TODO #43 Clean up unused code 
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
@@ -127,26 +128,31 @@ Public Class FrmAddBarrelSystem
             If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
             If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
 
-            If chkSetDefault.Checked Then
-                iDefault = 1
-            Else
-                iDefault = 0
-            End If
+            Dim errOut as String = ""
 
-            sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
-                    Gid & ",'" & sName & "','" & cal & "','" & stockFinish & "','" & barLen &
-                    "','" & petLoads & "','" & fAction & "','" & feedSys & "','" & sights & "','" &
-                    purPrice & "','" & purFrom & "',DATE(),'" & ovalLen & "','" & sysType &
-                    "'," & iDefault & ",Now())"
+            if Not ExtraBarrelConvoKits.Add(DatabasePath, Gid, sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom,ovalLen, sysType, chkSetDefault.Checked, errOut) Then Throw New Exception(errOut)
+            Dim barrelId As Long = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut)
+            If Not ExtraBarrelConvoKits.AddLink(DatabasePath, barrelId, Gid, errOut) Then Throw New Exception(errOut)
+            'If chkSetDefault.Checked Then
+            '    iDefault = 1
+            'Else
+            '    iDefault = 0
+            'End If
+
+            'sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
+            '        "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
+            '        Gid & ",'" & sName & "','" & cal & "','" & stockFinish & "','" & barLen &
+            '        "','" & petLoads & "','" & fAction & "','" & feedSys & "','" & sights & "','" &
+            '        purPrice & "','" & purFrom & "',DATE(),'" & ovalLen & "','" & sysType &
+            '        "'," & iDefault & ",Now())"
 
 
-            obj.ConnExec(sql)
-            Dim barrelId As Long = objGf.GetBarrelID(Gid)
+            'obj.ConnExec(sql)
+            'Dim barrelId As Long = objGf.GetBarrelID(Gid)
             Dim defaultBarrelId As Long
-            sql = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & barrelId &
-                    "," & Gid & ",Now())"
-            obj.ConnExec(sql)
+            'sql = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & barrelId &
+            '        "," & Gid & ",Now())"
+            'obj.ConnExec(sql)
 
             If chkSetDefault.Checked Then
                 defaultBarrelId = objGf.GetBarrelID(Gid, 1)
