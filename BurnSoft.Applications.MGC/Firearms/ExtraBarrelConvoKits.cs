@@ -126,6 +126,53 @@ namespace BurnSoft.Applications.MGC.Firearms
             return Database.Execute(databasePath, sql, out errOut);
         }
         /// <summary>
+        /// Existses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="modelName">Name of the model.</param>
+        /// <param name="caliber">The caliber.</param>
+        /// <param name="finish">The finish.</param>
+        /// <param name="barrelLength">Length of the barrel.</param>
+        /// <param name="petLoads">The pet loads.</param>
+        /// <param name="action">The action.</param>
+        /// <param name="feedSystem">The feed system.</param>
+        /// <param name="sights">The sights.</param>
+        /// <param name="purchasePrice">The purchase price.</param>
+        /// <param name="purchasedFrom">The purchased from.</param>
+        /// <param name="height">The height.</param>
+        /// <param name="type">The type.</param>
+        /// <param name="isDefault">if set to <c>true</c> [is default].</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        public static bool Exists(string databasePath, long gunId, string modelName, string caliber, string finish,
+            string barrelLength, string petLoads, string action, string feedSystem, string sights, string purchasePrice,
+            string purchasedFrom, string height, string type, bool isDefault, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+
+            try
+            {
+                int iDefault = isDefault ? 1 : 0;
+                string sql = $"select * from  Gun_Collection_Ext where GID={gunId} and ModelName='{modelName}' and " +
+                             $"Caliber='{caliber}' and Finish='{finish}' and BarrelLength='{barrelLength}' and" +
+                             $" PetLoads='{petLoads}' and Action='{action}' and Feedsystem='{feedSystem}' and " +
+                             $"Sights='{sights}' and PurchasedPrice='{purchasePrice}' and " +
+                             $" PurchasedFrom='{purchasedFrom}'and Height='{height}' and " +
+                             $"Type='{type}' and IsDefault={iDefault}";
+                List<BarrelSystems> lst = GetList(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                bAns = lst.Count > 0;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Exists", e);
+            }
+            return bAns;
+        }
+        /// <summary>
         /// Adds the link.
         /// </summary>
         /// <param name="databasePath">The database path.</param>
