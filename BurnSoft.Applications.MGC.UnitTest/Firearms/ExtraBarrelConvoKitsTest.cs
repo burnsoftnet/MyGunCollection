@@ -4,6 +4,7 @@ using BurnSoft.Applications.MGC.Firearms;
 using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Applications.MGC.UnitTest.Settings;
 using BurnSoft.Universal;
+// ReSharper disable UnusedMember.Local
 
 
 namespace BurnSoft.Applications.MGC.UnitTest.Firearms
@@ -153,7 +154,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
                 _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
                 _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut))
             {
-                bool value = ExtraBarrelConvoKits.Add(_databasePath, _gunId, _barrelConvoKitAddModelName,
+                ExtraBarrelConvoKits.Add(_databasePath, _gunId, _barrelConvoKitAddModelName,
                     _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
                     _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
                     _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
