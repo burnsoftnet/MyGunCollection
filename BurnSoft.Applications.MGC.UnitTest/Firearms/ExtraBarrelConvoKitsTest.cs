@@ -171,7 +171,8 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
                 _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
                 _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut))
             {
-                long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, out _errOut, true);
+                long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, _barrelConvoKitAddModelName, out _errOut);
+                ExtraBarrelConvoKits.Delete(_databasePath, value, out _errOut);
             }
         }
         /// <summary>
