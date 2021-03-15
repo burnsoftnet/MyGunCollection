@@ -52,8 +52,15 @@ namespace BurnSoft.Applications.MGC.Firearms
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion
-
+        #endregion        
+        /// <summary>
+        /// Gets the last identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
         public static long GetLastId(string databasePath, out string errOut)
         {
             long lAns = 0;
@@ -61,6 +68,14 @@ namespace BurnSoft.Applications.MGC.Firearms
             try
             {
                 string sql = "select top 1 id from Gun_Collection_Docs order by ID DESC";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw  new Exception(errOut);
+                List<DocumentList> lst = MyList(dt, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                foreach (DocumentList d in lst)
+                {
+                    lAns = d.Id;
+                }
 
             }
             catch (Exception e)
