@@ -1,4 +1,7 @@
+''TODO: #43 Clean up unused code
 Imports BSMyGunCollection.MGC
+'Imports BurnSoft.Applications.MGC
+Imports BurnSoft.Applications.MGC.Ammo
 
 ''' <summary>
 ''' Class frmAddCollectionAmmo.
@@ -13,12 +16,23 @@ Public Class FrmAddCollectionAmmo
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddCollectionAmmo_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim objAf As New AutoFillCollections
-            txtMan.AutoCompleteCustomSource = objAf.Ammo_Manufacturer
-            txtCal.AutoCompleteCustomSource = objAf.Ammo_Cal
-            txtName.AutoCompleteCustomSource = objAf.Ammo_Name
-            txtGrain.AutoCompleteCustomSource = objAf.Ammo_Grain
-            txtJacket.AutoCompleteCustomSource = objAf.Ammo_Jacket
+            'Dim objAf As New AutoFillCollections
+            'txtMan.AutoCompleteCustomSource = objAf.Ammo_Manufacturer
+            'txtCal.AutoCompleteCustomSource = objAf.Ammo_Cal
+            'txtName.AutoCompleteCustomSource = objAf.Ammo_Name
+            'txtGrain.AutoCompleteCustomSource = objAf.Ammo_Grain
+            'txtJacket.AutoCompleteCustomSource = objAf.Ammo_Jacket
+            Dim errOut as String = ""
+            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Ammo.Manufacturer(DatabaseName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            txtCal.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Caliber(DatabaseName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            txtName.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Name(DatabaseName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            txtGrain.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Grain(DatabaseName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            txtJacket.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Jacket(DatabaseName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -62,14 +76,18 @@ Public Class FrmAddCollectionAmmo
                                 strMan & "','" & strName & "','" & strCal & "','" & strGrain & "','" & strJacket & "'," &
                                 strQty & "," & ddValue & "," & lVelocity & ",Now())"
             obj.ConnExec(sql)
+            Dim errOut As String = ""
+            If Not Inventory.Add(DatabasePath, strMan, strName, strCal, strGrain, strJacket, Convert.ToInt32(strQty), ddValue, lVelocity, errOut) Then Throw New Exception(errOut)
             If Auditammo Then
                 Dim objGf As New GlobalFunctions
-                Dim aid As Long = objGf.GetLastAmmoID
+                'Dim aid As Long = objGf.GetLastAmmoID
+                Dim aid As Long = Inventory.GetLastAmmoId(DatabasePath, errOut)
                 Dim sValue As String = InputBox("How Much did you pay for this box?", "Ammo Audit", 0)
                 If Len(sValue) = 0 Then sValue = 0
                 Dim ppb As Double = CDbl(sValue) / CLng(strQty)
-                obj.ConnExec("INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,sync_lastupdate) " &
-                            "VALUES(" & aid & ",'" & Now & "'," & strQty & "," & CDbl(sValue) & "," & ppb & ",Now())")
+                'obj.ConnExec("INSERT INTO Gun_Collection_Ammo_PriceAudit (AID,DTA,Qty,PricePaid,PPB,sync_lastupdate) " &
+                '            "VALUES(" & aid & ",'" & Now & "'," & strQty & "," & CDbl(sValue) & "," & ppb & ",Now())")
+                If Not Audit.Add(DatabasePath, aid, Now,Convert.ToInt32(strQty),Convert.ToInt32(strQty), ppb, "", errOut  ) then Throw New Exception(errOut)
             End If
             MsgBox(strMan & " " & strName & " was added to the database!", MsgBoxStyle.Information, Text)
             Close()
