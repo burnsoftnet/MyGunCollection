@@ -1,7 +1,7 @@
 ''TODO #43 Clean up unused code 
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
-Imports BurnSoft.Applications.MGC
+'Imports BSMyGunCollection.MGC
+'Imports System.Data.Odbc
+'Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
@@ -105,8 +105,8 @@ Public Class FrmAddBarrelSystem
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim sName As String = FluffContent(txtName.Text)
             Dim sysType As String = FluffContent(txtSysType.Text)
             Dim cal As String = FluffContent(txtCal.Text)
@@ -155,8 +155,10 @@ Public Class FrmAddBarrelSystem
             'obj.ConnExec(sql)
 
             If chkSetDefault.Checked Then
-                defaultBarrelId = objGf.GetBarrelID(Gid, 1)
-                Call objGf.SwapDefaultBarrelSystems(defaultBarrelId, barrelId, Gid)
+                'defaultBarrelId = objGf.GetBarrelID(Gid, 1)
+                defaultBarrelId = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut, true)
+                'Call objGf.SwapDefaultBarrelSystems(defaultBarrelId, barrelId, Gid)
+                If Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, defaultBarrelId, barrelId, Gid, errOut) then Throw New Exception(errOut)
             End If
             Dim frmNew As New frmViewCollectionDetails
             frmNew.ItemId = Gid
