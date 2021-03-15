@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms.VisualStyles;
 using BurnSoft.Applications.MGC.Types;
 
 // ReSharper disable UnusedMember.Local
