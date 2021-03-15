@@ -187,6 +187,31 @@ namespace BurnSoft.Applications.MGC.Firearms
             return Database.Execute(databasePath, sql, out errOut);
         }
         /// <summary>
+        /// Delete a barrel/conversion system from the database in the main table and the extended links table.
+        /// </summary>
+        /// <param name="databasePath"></param>
+        /// <param name="id"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public static bool Delete(string databasePath, long id, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+
+            try
+            {
+                string sql = $"delete from Gun_Collection_Ext_Links where BSID={id}";
+               if(!Database.Execute(databasePath, sql, out errOut)) throw  new Exception(errOut);
+               sql = $"delete from Gun_Collection_Ext where id={id}";
+               bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Delete", e);
+            }
+            return bAns;
+        }
+        /// <summary>
         /// Gets the barrel identifier.
         /// </summary>
         /// <param name="databasePath">The database path.</param>

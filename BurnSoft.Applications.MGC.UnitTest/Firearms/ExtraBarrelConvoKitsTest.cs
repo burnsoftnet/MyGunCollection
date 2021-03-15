@@ -243,7 +243,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method SwapDefaultBarrelSystemsTests.
+        /// </summary>
         [TestMethod, TestCategory("Barrel/Conversion Kits")]
         public void SwapDefaultBarrelSystemsTests()
         {
