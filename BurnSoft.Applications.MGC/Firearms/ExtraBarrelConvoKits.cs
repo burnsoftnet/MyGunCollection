@@ -211,6 +211,9 @@ namespace BurnSoft.Applications.MGC.Firearms
             }
             return bAns;
         }
+
+
+
         /// <summary>
         /// Gets the barrel identifier.
         /// </summary>
@@ -237,6 +240,37 @@ namespace BurnSoft.Applications.MGC.Firearms
                 foreach (BarrelSystems b in lst)
                 {
                     lAns = b.Id;
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetBarrelId", e);
+            }
+            return lAns;
+        }
+        /// <summary>
+        /// Gets the barrel identifier.
+        /// </summary>
+        /// <param name="databasePath"></param>
+        /// <param name="gunId"></param>
+        /// <param name="name"></param>
+        /// <param name="errOut"></param>
+        /// <returns></returns>
+        public static long GetBarrelId(string databasePath, long gunId, string name, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT TOP 1 * from Gun_Collection_Ext where GID={gunId} and ModelName='{name}' order by id desc";
+                List<BarrelSystems> lst = GetList(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (BarrelSystems b in lst)
+                {
+                    if (b.ModelName.Equals(name))
+                    {
+                        lAns = b.Id;
+                    }
                 }
             }
             catch (Exception e)

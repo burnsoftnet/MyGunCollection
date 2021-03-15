@@ -165,7 +165,14 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private void VerifyDoesntExist()
         {
-
+            if (ExtraBarrelConvoKits.Exists(_databasePath, _gunId, _barrelConvoKitAddModelName,
+                _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
+                _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
+                _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
+                _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut))
+            {
+                long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, out _errOut, true);
+            }
         }
         /// <summary>
         /// Defines the test method GetList.
