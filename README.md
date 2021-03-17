@@ -6,6 +6,8 @@ Print out reports such as: BATFE C&R (Curio and Relic) Bound Book Report, Quick 
 
 Over all, whether or not you have a huge gun collection or just a few firearms on hand, this application can help you keep track of useful information for your own personal gain, and even BATFE standards for reports and record keeping. 
 
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JSW8XEMQVH4BE)]
+
 ## Release Notes:
 
 v6.5  March 2021
