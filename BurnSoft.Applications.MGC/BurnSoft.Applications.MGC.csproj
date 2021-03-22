@@ -58,6 +58,7 @@
     <Compile Include="AutoFill\WhisList.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Firearms\Accessories.cs" />
+    <Compile Include="Firearms\Classification.cs" />
     <Compile Include="Firearms\Documents.cs" />
     <Compile Include="Firearms\ExtraBarrelConvoKits.cs" />
     <Compile Include="Firearms\Manufacturers.cs" />
