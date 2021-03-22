@@ -20,6 +20,7 @@ Public Class FrmAddFirearm
     ''' </summary>
     Sub LoadData()
         Try
+            ''TODO #43 Conver to library use list to return information
             Dim obj As New BSDatabase
             Dim objGf As New GlobalFunctions
             Call obj.ConnectDB()
@@ -113,6 +114,7 @@ Public Class FrmAddFirearm
     ''' </summary>
     Private Sub DoAutoFill()
         Try
+            ''TODO #43 Conver to library
             Dim objAf As New AutoFillCollections
             txtType.DataSource = objAf.Gun_Type
             txtType.AutoCompleteCustomSource = objAf.Gun_Type
@@ -259,6 +261,7 @@ Public Class FrmAddFirearm
             Dim itemId As Long
             Dim bid As Long
 
+            ''TODO #43 Conver to library
 
             Dim sql As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," &
                     "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," &
