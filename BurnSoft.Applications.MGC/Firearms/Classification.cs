@@ -89,5 +89,47 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
+
+        public static bool Update(string databasePath, long id, string className, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"Update Gun_Collection_Classification set myclass='{className}' where id={id};";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Update", e);
+            }
+
+            return bAns;
+        }
+
+        public static long GetId(string databasePath, string className, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"SELECT * from  Gun_Collection_Classification where myclass='{className}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    lAns = Convert.ToInt32(d["id"]);
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+
+            return lAns;
+        }
+
     }
 }
