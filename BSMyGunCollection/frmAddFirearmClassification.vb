@@ -23,19 +23,27 @@ Public Class FrmAddFirearmClassification
         Try
             Dim strClass As String = FluffContent(txtClass.Text)
             If Not IsRequired(strClass, "Classification Type", Text) Then Exit Sub
-            Dim objGf As New GlobalFunctions
-            If Not objGf.ObjectExistsinDB(strClass, "myclass", "Gun_Collection_Classification") Then
-                Dim obj As New BSDatabase
-                Dim sql As String = "INSERT INTO Gun_Collection_Classification(myclass,sync_lastupdate) VALUES('" & strClass & "',Now())"
-                obj.ConnExec(sql)
-                MsgBox(strClass & " was added to the database!", MsgBoxStyle.Information, Text)
-                txtClass.Text = ""
-                If Not chkKeepOpen.Checked Then
-                    Close()
-                End If
-            Else
-                MsgBox(strClass & " already existed in the database!", MsgBoxStyle.Critical, Text)
-                txtClass.Text = ""
+            'Dim objGf As New GlobalFunctions
+            'If Not objGf.ObjectExistsinDB(strClass, "myclass", "Gun_Collection_Classification") Then
+            '    Dim obj As New BSDatabase
+            '    Dim sql As String = "INSERT INTO Gun_Collection_Classification(myclass,sync_lastupdate) VALUES('" & strClass & "',Now())"
+            '    obj.ConnExec(sql)
+            '    MsgBox(strClass & " was added to the database!", MsgBoxStyle.Information, Text)
+            '    txtClass.Text = ""
+            '    If Not chkKeepOpen.Checked Then
+            '        Close()
+            '    End If
+            'Else
+            '    MsgBox(strClass & " already existed in the database!", MsgBoxStyle.Critical, Text)
+            '    txtClass.Text = ""
+            'End If
+            '' TODO: #43 Clean up old code
+            Dim errOut as String
+            If Not BurnSoft.Applications.MGC.Firearms.Classification.Exists(DatabasePath, strClass, errOut) Then
+                If Not BurnSoft.Applications.MGC.Firearms.Classification.Add(DatabasePath, strClass, errOut) Then Throw New Exception(errOut)
+                Else 
+                    MsgBox(strClass & " already existed in the database!", MsgBoxStyle.Critical, Text)
+                    txtClass.Text = ""
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
