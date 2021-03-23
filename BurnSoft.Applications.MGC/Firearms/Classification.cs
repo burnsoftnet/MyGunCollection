@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using BurnSoft.Applications.MGC.Types;
+// ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Firearms
 {
@@ -115,7 +118,7 @@ namespace BurnSoft.Applications.MGC.Firearms
             try
             {
                 string sql =
-                    $"Update Gun_Collection_Classification set myclass='{className}' where id={id};";
+                    $"Update Gun_Collection_Classification set myclass='{className}', sync_lastupdate=Now() where id={id};";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
             catch (Exception e)
@@ -155,6 +158,82 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return lAns;
         }
-
+        /// <summary>
+        /// Listses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;ClassificationList&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        public static List<ClassificationList> Lists(string databasePath, out string errOut)
+        {
+            List<ClassificationList> lst = new List<ClassificationList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Classification";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw  new Exception(errOut);
+                lst = GetList(dt, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Lists", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Listses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="className">Name of the class.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;ClassificationList&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        public static List<ClassificationList> Lists(string databasePath,string className, out string errOut)
+        {
+            List<ClassificationList> lst = new List<ClassificationList>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from Gun_Collection_Classification where myclass='{className}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                lst = GetList(dt, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Lists", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Gets the list.
+        /// </summary>
+        /// <param name="dt">The dt.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;ClassificationList&gt;.</returns>
+        private static List<ClassificationList> GetList(DataTable dt, out string errOut)
+        {
+            List<ClassificationList> lst = new List<ClassificationList>();
+            errOut = @"";
+            try
+            {
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new ClassificationList()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        Name = d["myclass"].ToString(),
+                        LastSync = d["sync_lastupdate"].ToString()
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetList", e);
+            }
+            return lst;
+        }
     }
 }
