@@ -75,6 +75,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Height", "7.32 in."));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Type", "22LR Conversion Kit G17/22"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_IsDefault", "false"));
+            ls.Add(new Tuple<string, string>("Classification_Name", "R&D"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
