@@ -169,5 +169,109 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
 
             return bAns;
         }
+        /// <summary>
+        /// Determines whether [has work ordersn attached] [the specified database path].
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int32.</returns>
+        /// <exception cref="Exception"></exception>
+        public static int HasWorkOrdersnAttached(string databasePath, long id, out string errOut)
+        {
+            int iAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT Count(*) as Total from GunSmith_Details where GSID={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                iAns = dt.Rows.Count;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("HasWorkOrdersnAttached", e);
+            }
+            return iAns;
+        }
+        /// <summary>
+        /// Deletes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Delete(string databasePath, long id, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql = $"Delete from GunSmith_Contact_Details where id={id}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Delete", e);
+            }
+
+            return bAns;
+        }
+        /// <summary>
+        /// Gets the name.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="Exception"></exception>
+        public static string GetName(string databasePath, long id, out string errOut)
+        {
+            string sAns = @"";
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT gname from GunSmith_Contact_Details where id={id}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    sAns = d["gname"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetName", e);
+            }
+            return sAns;
+        }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="name">The name.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        public static long GetId(string databasePath, string name, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"SELECT id from GunSmith_Contact_Details where gname='{name}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (DataRow d in dt.Rows)
+                {
+                    lAns = Convert.ToInt32(d["id"].ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+            return lAns;
+        }
     }
 }
