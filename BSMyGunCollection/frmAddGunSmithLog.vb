@@ -12,14 +12,19 @@ Public Class FrmAddGunSmithLog
     ''' </summary>
     Public Gid As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Private errOut As String
+    ''' <summary>
     ''' Handles the Load event of the frmAddGunSmithLog control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddGunSmithLog_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim objAf As New AutoFillCollections
-            txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
+            'Dim objAf As New AutoFillCollections
+            'txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
+            txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
