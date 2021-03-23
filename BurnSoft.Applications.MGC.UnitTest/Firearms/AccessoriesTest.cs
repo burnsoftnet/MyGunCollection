@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 using BurnSoft.Applications.MGC.Firearms;
-using BurnSoft.Applications.MGC.Types;
 using BurnSoft.Applications.MGC.UnitTest.Settings;
 using BurnSoft.Universal;
 
@@ -30,43 +28,43 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// <summary>
         /// The accessories manufacturer
         /// </summary>
-        private string Accessories_Manufacturer;
+        private string _accessoriesManufacturer;
         /// <summary>
         /// The accessories name
         /// </summary>
-        private string Accessories_Name;
+        private string _accessoriesName;
         /// <summary>
         /// The accessories serial number
         /// </summary>
-        private string Accessories_serialNumber;
+        private string _accessoriesSerialNumber;
         /// <summary>
         /// The accessories condition
         /// </summary>
-        private string Accessories_condition;
+        private string _accessoriesCondition;
         /// <summary>
         /// The accessories notes
         /// </summary>
-        private string Accessories_notes;
+        private string _accessoriesNotes;
         /// <summary>
         /// The accessories use
         /// </summary>
-        private string Accessories_use;
+        private string _accessoriesUse;
         /// <summary>
         /// The accessories pur value
         /// </summary>
-        private double Accessories_purValue;
+        private double _accessoriesPurValue;
         /// <summary>
         /// The accessories application value
         /// </summary>
-        private double Accessories_appValue;
+        private double _accessoriesAppValue;
         /// <summary>
         /// The accessories civ
         /// </summary>
-        private bool Accessories_civ;
+        private bool _accessoriesCiv;
         /// <summary>
         /// The accessories ic
         /// </summary>
-        private bool Accessories_ic;
+        private bool _accessoriesIc;
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -78,29 +76,29 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
             _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
-            Accessories_Manufacturer = obj.FC(Vs2019.GetSetting("Accessories_Manufacturer", TestContext));
-            Accessories_Name = obj.FC(Vs2019.GetSetting("Accessories_Name", TestContext));
-            Accessories_serialNumber = obj.FC(Vs2019.GetSetting("Accessories_serialNumber", TestContext));
-            Accessories_condition = obj.FC(Vs2019.GetSetting("Accessories_condition", TestContext));
-            Accessories_notes = obj.FC(Vs2019.GetSetting("Accessories_notes", TestContext));
-            Accessories_use = obj.FC(Vs2019.GetSetting("Accessories_use", TestContext));
-            Accessories_purValue =Vs2019.DGetSetting("Accessories_purValue", TestContext);
-            Accessories_appValue = Vs2019.DGetSetting("Accessories_appValue", TestContext);
-            Accessories_civ = Vs2019.BGetSetting("Accessories_civ", TestContext);
-            Accessories_ic = Vs2019.BGetSetting("Accessories_ic", TestContext);
+            _accessoriesManufacturer = obj.FC(Vs2019.GetSetting("Accessories_Manufacturer", TestContext));
+            _accessoriesName = obj.FC(Vs2019.GetSetting("Accessories_Name", TestContext));
+            _accessoriesSerialNumber = obj.FC(Vs2019.GetSetting("Accessories_serialNumber", TestContext));
+            _accessoriesCondition = obj.FC(Vs2019.GetSetting("Accessories_condition", TestContext));
+            _accessoriesNotes = obj.FC(Vs2019.GetSetting("Accessories_notes", TestContext));
+            _accessoriesUse = obj.FC(Vs2019.GetSetting("Accessories_use", TestContext));
+            _accessoriesPurValue =Vs2019.DGetSetting("Accessories_purValue", TestContext);
+            _accessoriesAppValue = Vs2019.DGetSetting("Accessories_appValue", TestContext);
+            _accessoriesCiv = Vs2019.BGetSetting("Accessories_civ", TestContext);
+            _accessoriesIc = Vs2019.BGetSetting("Accessories_ic", TestContext);
         }
         /// <summary>
         /// Verifies the doesnt exist.
         /// </summary>
         private void VerifyDoesntExist()
         {
-            if (Accessories.Exists(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut))
+            if (Accessories.Exists(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut))
             {
-                long id = Accessories.GetId(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                    Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                    Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+                long id = Accessories.GetId(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                    _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                    _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
                 Accessories.Delete(_databasePath, id, out _errOut);
             }
         }
@@ -109,13 +107,13 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private void VerifyExists()
         {
-            if (!Accessories.Exists(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut))
+            if (!Accessories.Exists(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut))
             {
-                Accessories.Add(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                    Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                    Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+                Accessories.Add(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                    _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                    _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
             }
         }
         /// <summary>
@@ -125,9 +123,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         public void AddTest()
         {
             VerifyDoesntExist();
-            bool value = Accessories.Add(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+            bool value = Accessories.Add(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
         /// <summary>
@@ -137,9 +135,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         public void ExistsTest()
         {
             VerifyExists();
-            bool value = Accessories.Exists(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+            bool value = Accessories.Exists(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
         /// <summary>
@@ -149,9 +147,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         public void GetId()
         {
             VerifyExists();
-            long value = Accessories.GetId(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+            long value = Accessories.GetId(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
             TestContext.WriteLine($"ID = {value}");
             General.HasTrueValue(value > 0, _errOut);
         }
@@ -162,9 +160,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         public void DeleteTest()
         {
             VerifyExists();
-            long id = Accessories.GetId(_databasePath, _gunId, Accessories_Manufacturer, Accessories_Name,
-                Accessories_serialNumber, Accessories_condition, Accessories_notes, Accessories_use,
-                Accessories_purValue, Accessories_appValue, Accessories_civ, Accessories_ic, out _errOut);
+            long id = Accessories.GetId(_databasePath, _gunId, _accessoriesManufacturer, _accessoriesName,
+                _accessoriesSerialNumber, _accessoriesCondition, _accessoriesNotes, _accessoriesUse,
+                _accessoriesPurValue, _accessoriesAppValue, _accessoriesCiv, _accessoriesIc, out _errOut);
             bool value = Accessories.Delete(_databasePath, id, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
