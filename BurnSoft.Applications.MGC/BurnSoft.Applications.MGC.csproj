@@ -75,6 +75,7 @@
     <Compile Include="Types\GunCollectionList.cs" />
     <Compile Include="Types\GunShopDetails.cs" />
     <Compile Include="Types\GunSmithContacts.cs" />
+    <Compile Include="Types\GunSmithWorkDone.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
