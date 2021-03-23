@@ -607,6 +607,7 @@ Public Class MdiParent1
             objR.UpDateAppDetails()
             Call Buggerme("mdiparent1.load", "Checking Registration for App")
             'This section was added to change to free version
+            Call CheckBackup()
             RunningRegForm = False
             ToolStripStatusLabel.Text = ""
             ToolStripSeparator4.Visible = False
