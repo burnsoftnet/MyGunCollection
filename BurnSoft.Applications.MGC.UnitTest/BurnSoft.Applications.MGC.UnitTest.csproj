@@ -69,6 +69,7 @@
     <Compile Include="Firearms\ManufacturersTest.cs" />
     <Compile Include="Firearms\AccessoriesTest.cs" />
     <Compile Include="Firearms\ExtraBarrelConvoKitsTest.cs" />
+    <Compile Include="Firearms\ClassifcationTest.cs" />
     <Compile Include="General.cs" />
     <Compile Include="PeopleAndPlaces\ShopsTest.cs" />
     <Compile Include="Settings\VS2019.cs" />
