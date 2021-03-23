@@ -76,6 +76,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_Type", "22LR Conversion Kit G17/22"));
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_IsDefault", "false"));
             ls.Add(new Tuple<string, string>("Classification_Name", "R&D"));
+            ls.Add(new Tuple<string, string>("GunSmith_Name", "Gunny's Hack Shop"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }
