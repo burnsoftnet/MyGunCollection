@@ -66,7 +66,7 @@ namespace BurnSoft.Applications.MGC.Firearms
             try
             {
                 string sql =
-                    $"INSERT INTO Gun_Collection_Classification(myclass,sync_lastupdate) VALUES('{className}',,Now());";
+                    $"INSERT INTO Gun_Collection_Classification(myclass,sync_lastupdate) VALUES('{className}',Now());";
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
             catch (Exception e)
