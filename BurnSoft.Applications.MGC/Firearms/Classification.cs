@@ -129,6 +129,58 @@ namespace BurnSoft.Applications.MGC.Firearms
             return bAns;
         }
         /// <summary>
+        /// Determines whether [is not in use] in the gun collection table.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="className">Name of the class.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if [is not in use] [the specified database path]; otherwise, <c>false</c>.</returns>
+        /// <exception cref="Exception"></exception>
+        public static bool IsNotInUse(string databasePath, string className, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"SELECT * from  Gun_Collection where Classification='{className}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                bAns = dt.Rows.Count == 0;
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("IsNotInUse", e);
+            }
+
+            return bAns;
+
+        }
+        /// <summary>
+        /// Deletes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        public static bool Delete(string databasePath, long id, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"Delete from Gun_Collection_Classification where id={id};";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Delete", e);
+            }
+
+            return bAns;
+        }
+        /// <summary>
         /// Gets the identifier.
         /// </summary>
         /// <param name="databasePath">The database path.</param>
