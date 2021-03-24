@@ -61,6 +61,7 @@
     <Compile Include="Firearms\Classification.cs" />
     <Compile Include="Firearms\Documents.cs" />
     <Compile Include="Firearms\ExtraBarrelConvoKits.cs" />
+    <Compile Include="Firearms\GunSmithDetails.cs" />
     <Compile Include="Firearms\Manufacturers.cs" />
     <Compile Include="Firearms\MyCollection.cs" />
     <Compile Include="Global\DatabaseRelated.cs" />
