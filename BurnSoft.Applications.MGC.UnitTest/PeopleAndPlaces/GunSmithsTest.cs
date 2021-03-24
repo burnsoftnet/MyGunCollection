@@ -79,7 +79,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             bool value = GunSmiths.Add(_databasePath, GunSmith_Name, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method EditTest.
+        /// </summary>
         [TestMethod, TestCategory("Gunsmith Contact list")]
         public void EditTest()
         {
@@ -88,7 +90,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             bool value = GunSmiths.Update(_databasePath,id, GunSmith_Name,"222 here","","myCity","ky","N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",true, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method HasWorkOrdersnAttachedTest.
+        /// </summary>
         [TestMethod, TestCategory("Gunsmith Contact list")]
         public void HasWorkOrdersnAttachedTest()
         {
@@ -97,7 +101,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             int value = GunSmiths.HasWorkOrdersnAttached(_databasePath, id,  out _errOut);
             General.HasTrueValue(value == 0, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method DeleteTest.
+        /// </summary>
         [TestMethod, TestCategory("Gunsmith Contact list")]
         public void DeleteTest()
         {
@@ -106,7 +112,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             bool value = GunSmiths.Delete(_databasePath, id, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method GetNameTest.
+        /// </summary>
         [TestMethod, TestCategory("Gunsmith Contact list")]
         public void GetNameTest()
         {
@@ -116,7 +124,9 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             TestContext.WriteLine($"Name: {value}");
             General.HasValue(value, _errOut);
         }
-
+        /// <summary>
+        /// Defines the test method GetIdTest.
+        /// </summary>
         [TestMethod, TestCategory("Gunsmith Contact list")]
         public void GetIdTest()
         {
@@ -124,6 +134,57 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             long value = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
             TestContext.WriteLine($"Id: {value}");
             General.HasTrueValue(value > 0, _errOut);
+        }
+        /// <summary>
+        /// Prints the list.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public void PrintList(List<GunSmithContacts> value)
+        {
+            if (value.Count > 0)
+            {
+                foreach (GunSmithContacts g in value)
+                {
+                    TestContext.WriteLine($"id: {g.Id}");
+                    TestContext.WriteLine($"Name: {g.Name}");
+                    TestContext.WriteLine($"Address: {g.Address1}");
+                    TestContext.WriteLine($"Address2: {g.Address2}");
+                    TestContext.WriteLine($"City: {g.City}");
+                    TestContext.WriteLine($"State: {g.State}");
+                    TestContext.WriteLine($"Zip Code: {g.ZipCode}");
+                    TestContext.WriteLine($"Country: {g.Country}");
+                    TestContext.WriteLine($"Phone: {g.Phone}");
+                    TestContext.WriteLine($"Website: {g.WebSite}");
+                    TestContext.WriteLine($"License: {g.Lic}");
+                    TestContext.WriteLine($"Fax: {g.Fax}");
+                    TestContext.WriteLine($"Still in Business: {g.StillInBusiness}");
+                    TestContext.WriteLine($"");
+                    TestContext.WriteLine($"-------------------------------------");
+                    TestContext.WriteLine($"");
+                }
+            }
+        }
+        /// <summary>
+        /// Defines the test method GetByIdTest.
+        /// </summary>
+        [TestMethod, TestCategory("Shops")]
+        public void GetByIdTest()
+        {
+            VerifyExists();
+            long id = Shops.GetId(_databasePath, GunSmith_Name, out _errOut);
+            List<GunSmithContacts> value = GunSmiths.Get(_databasePath, id, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
+        }
+        /// <summary>
+        /// Defines the test method GetTest.
+        /// </summary>
+        [TestMethod, TestCategory("Shops")]
+        public void GetTest()
+        {
+            List<GunSmithContacts> value = GunSmiths.Get(_databasePath, out _errOut);
+            PrintList(value);
+            General.HasTrueValue(value.Count > 0, _errOut);
         }
     }
 }
