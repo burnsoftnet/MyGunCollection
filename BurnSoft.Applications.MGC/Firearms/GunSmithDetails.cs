@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using BurnSoft.Applications.MGC.Types;
+
 // ReSharper disable UnusedMember.Local
 
 namespace BurnSoft.Applications.MGC.Firearms
@@ -52,8 +54,16 @@ namespace BurnSoft.Applications.MGC.Firearms
         /// <param name="e">The e.</param>
         /// <returns>System.String.</returns>
         private static string ErrorMessage(string functionName, ArgumentNullException e) => $"{ClassLocation}.{functionName} - {e.Message}";
-        #endregion
-
+        #endregion        
+        /// <summary>
+        /// Existses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="smithName">Name of the smith.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
         public static bool Exists(string databasePath,long gunId,string smithName, out string errOut)
         {
             bool bAns = false;
@@ -72,7 +82,20 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
-
+        /// <summary>
+        /// Adds the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="smithName">Name of the smith.</param>
+        /// <param name="gunSmithId">The gun smith identifier.</param>
+        /// <param name="orderDetails">The order details.</param>
+        /// <param name="notes">The notes.</param>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="returnDate">The return date.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
         public static bool Add(string databasePath, long gunId, string smithName, long gunSmithId, string orderDetails, string notes, string startDate, string returnDate, out string errOut)
         {
             bool bAns = false;
@@ -91,6 +114,49 @@ namespace BurnSoft.Applications.MGC.Firearms
 
             return bAns;
         }
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="gunSmithId">The gun smith identifier.</param>
+        /// <param name="orderDetails">The order details.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>System.Int64.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        public static long GetId(string databasePath, long gunId, long gunSmithId, string orderDetails, out string errOut)
+        {
+            long lAns = 0;
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from  GunSmith_Details where GID={gunId} and gsid={gunSmithId} and od={orderDetails}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                List<GunSmithWorkDone> lst = GetData(dt, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                foreach (GunSmithWorkDone l in lst)
+                {
+                    lAns = l.Id;
+                }
+
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetId", e);
+            }
+
+            return lAns;
+        }
+        /// <summary>
+        /// Deletes the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
         public static bool Delete(string databasePath, long id, out string errOut)
         {
             bool bAns = false;
@@ -107,6 +173,39 @@ namespace BurnSoft.Applications.MGC.Firearms
             }
 
             return bAns;
+        }
+        /// <summary>
+        /// Gets the data.
+        /// </summary>
+        /// <param name="dt">The dt.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunSmithWorkDone&gt;.</returns>
+        private static List<GunSmithWorkDone> GetData(DataTable dt, out string errOut)
+        {
+            List<GunSmithWorkDone> lst = new List<GunSmithWorkDone>();
+            errOut = @"";
+            try
+            {
+                foreach (DataRow d in dt.Rows)
+                {
+                    lst.Add(new GunSmithWorkDone()
+                    {
+                        Id = Convert.ToInt32(d["id"]),
+                        GunId = Convert.ToInt32(d["gid"]),
+                        GunSmithId = Convert.ToInt32(d["gsid"]),
+                        OtherWorkDone = d["od"].ToString(),
+                        ReturnDate = d["rdate"].ToString(),
+                        StartDate = d["sdate"].ToString(),
+                        Notes = d["notes"].ToString(),
+                        GunSmithName = d["gsmith"].ToString()
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("GetData", e);
+            }
+            return lst;
         }
     }
 }
