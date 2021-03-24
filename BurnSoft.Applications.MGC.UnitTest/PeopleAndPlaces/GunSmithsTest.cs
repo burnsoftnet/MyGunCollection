@@ -79,5 +79,51 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
             bool value = GunSmiths.Add(_databasePath, GunSmith_Name, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
+
+        [TestMethod, TestCategory("Gunsmith Contact list")]
+        public void EditTest()
+        {
+            VerifyExists();
+            long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+            bool value = GunSmiths.Update(_databasePath,id, GunSmith_Name,"222 here","","myCity","ky","N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",true, out _errOut);
+            General.HasTrueValue(value, _errOut);
+        }
+
+        [TestMethod, TestCategory("Gunsmith Contact list")]
+        public void HasWorkOrdersnAttachedTest()
+        {
+            VerifyExists();
+            long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+            int value = GunSmiths.HasWorkOrdersnAttached(_databasePath, id,  out _errOut);
+            General.HasTrueValue(value == 0, _errOut);
+        }
+
+        [TestMethod, TestCategory("Gunsmith Contact list")]
+        public void DeleteTest()
+        {
+            VerifyExists();
+            long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+            bool value = GunSmiths.Delete(_databasePath, id, out _errOut);
+            General.HasTrueValue(value, _errOut);
+        }
+
+        [TestMethod, TestCategory("Gunsmith Contact list")]
+        public void GetNameTest()
+        {
+            VerifyExists();
+            long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+            string value = GunSmiths.GetName(_databasePath, id, out _errOut);
+            TestContext.WriteLine($"Name: {value}");
+            General.HasValue(value, _errOut);
+        }
+
+        [TestMethod, TestCategory("Gunsmith Contact list")]
+        public void GetIdTest()
+        {
+            VerifyExists();
+            long value = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+            TestContext.WriteLine($"Id: {value}");
+            General.HasTrueValue(value > 0, _errOut);
+        }
     }
 }
