@@ -209,6 +209,86 @@ namespace BurnSoft.Applications.MGC.Firearms
             return bAns;
         }
         /// <summary>
+        /// Listses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunSmithWorkDone&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        public static List<GunSmithWorkDone> Lists(string databasePath, long gunId, out string errOut)
+        {
+            List<GunSmithWorkDone> lst = new List<GunSmithWorkDone>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from GunSmith_Details where gid={gunId}";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = GetData(dt, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Lists", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Listses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="gunSmithName">Name of the gun smith.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunSmithWorkDone&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        public static List<GunSmithWorkDone> Lists(string databasePath, string gunSmithName, out string errOut)
+        {
+            List<GunSmithWorkDone> lst = new List<GunSmithWorkDone>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from GunSmith_Details where gsmith='{gunSmithName}'";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = GetData(dt, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Lists", e);
+            }
+            return lst;
+        }
+        /// <summary>
+        /// Listses the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns>List&lt;GunSmithWorkDone&gt;.</returns>
+        /// <exception cref="Exception"></exception>
+        /// <exception cref="Exception"></exception>
+        public static List<GunSmithWorkDone> Lists(string databasePath,  out string errOut)
+        {
+            List<GunSmithWorkDone> lst = new List<GunSmithWorkDone>();
+            errOut = @"";
+            try
+            {
+                string sql = $"select * from GunSmith_Details";
+                DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+                lst = GetData(dt, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Lists", e);
+            }
+            return lst;
+        }
+        /// <summary>
         /// Gets the data.
         /// </summary>
         /// <param name="dt">The dt.</param>
