@@ -179,7 +179,7 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
                 string sql =
                     $"Update GunSmith_Contact_Details set gname='{name}',Address1='{address}', Address2='{address2}',City='{city}'," +
                     $"State='{state}',Zip='{zipCode}',country='{country}', phone='{phone}', fax='{fax}', website='{webSite}'" +
-                    $",email={eMail}', lic='{license}',sib={sib},sync_lastupdate)=Now() where id={id};";
+                    $",email='{eMail}', lic='{license}',sib={sib},sync_lastupdate=Now() where id={id};";
 
                 bAns = Database.Execute(databasePath, sql, out errOut);
             }
@@ -205,7 +205,7 @@ namespace BurnSoft.Applications.MGC.PeopleAndPlaces
             errOut = @"";
             try
             {
-                string sql = $"SELECT Count(*) as Total from GunSmith_Details where GSID={id}";
+                string sql = $"SELECT * from GunSmith_Details where GSID={id}";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
                 iAns = dt.Rows.Count;

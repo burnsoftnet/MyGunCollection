@@ -87,7 +87,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
         {
             VerifyExists();
             long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
-            bool value = GunSmiths.Update(_databasePath,id, GunSmith_Name,"222 here","","myCity","ky","N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",true, out _errOut);
+            bool value = GunSmiths.Update(_databasePath,id, GunSmith_Name,"222 here","N/A","myCity","ky","N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A",true, out _errOut);
             General.HasTrueValue(value, _errOut);
         }
         /// <summary>
@@ -171,7 +171,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
         public void GetByIdTest()
         {
             VerifyExists();
-            long id = Shops.GetId(_databasePath, GunSmith_Name, out _errOut);
+            long id = GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
             List<GunSmithContacts> value = GunSmiths.Get(_databasePath, id, out _errOut);
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
@@ -182,6 +182,7 @@ namespace BurnSoft.Applications.MGC.UnitTest.PeopleAndPlaces
         [TestMethod, TestCategory("Shops")]
         public void GetTest()
         {
+            VerifyExists();
             List<GunSmithContacts> value = GunSmiths.Get(_databasePath, out _errOut);
             PrintList(value);
             General.HasTrueValue(value.Count > 0, _errOut);
