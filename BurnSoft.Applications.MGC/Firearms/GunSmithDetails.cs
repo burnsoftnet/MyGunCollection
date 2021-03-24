@@ -115,6 +115,40 @@ namespace BurnSoft.Applications.MGC.Firearms
             return bAns;
         }
         /// <summary>
+        /// Updates the specified database path.
+        /// </summary>
+        /// <param name="databasePath">The database path.</param>
+        /// <param name="id">The identifier.</param>
+        /// <param name="gunId">The gun identifier.</param>
+        /// <param name="smithName">Name of the smith.</param>
+        /// <param name="gunSmithId">The gun smith identifier.</param>
+        /// <param name="orderDetails">The order details.</param>
+        /// <param name="notes">The notes.</param>
+        /// <param name="startDate">The start date.</param>
+        /// <param name="returnDate">The return date.</param>
+        /// <param name="errOut">The error out.</param>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        /// <exception cref="Exception"></exception>
+        public static bool Update(string databasePath,long id, long gunId, string smithName, long gunSmithId, string orderDetails, string notes, string startDate, string returnDate, out string errOut)
+        {
+            bool bAns = false;
+            errOut = @"";
+            try
+            {
+                string sql =
+                    $"UPDATE GunSmith_Details set GID={gunId},gsmith='{smithName}',gsid={gunSmithId},od='{orderDetails}'" +
+                    $",notes='{notes}',sdate='{startDate}',rdate='{returnDate}',sync_lastupdate=Now() where id={id}";
+                bAns = Database.Execute(databasePath, sql, out errOut);
+                if (errOut?.Length > 0) throw new Exception(errOut);
+            }
+            catch (Exception e)
+            {
+                errOut = ErrorMessage("Update", e);
+            }
+
+            return bAns;
+        }
+        /// <summary>
         /// Gets the identifier.
         /// </summary>
         /// <param name="databasePath">The database path.</param>
