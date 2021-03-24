@@ -64,13 +64,13 @@ namespace BurnSoft.Applications.MGC.Firearms
         /// <param name="errOut">The error out.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         /// <exception cref="Exception"></exception>
-        public static bool Exists(string databasePath,long gunId,string smithName, out string errOut)
+        public static bool Exists(string databasePath,long gunId,string smithName, string orderDetails, out string errOut)
         {
             bool bAns = false;
             errOut = @"";
             try
             {
-                string sql = $"SELECT * from GunSmith_Details where  like '{smithName}%'";
+                string sql = $"SELECT * from GunSmith_Details where gsmith like '{smithName}%' and gid={gunId} and od='{orderDetails}'";
                 DataTable dt = Database.GetDataFromTable(databasePath, sql, out errOut);
                 if (errOut?.Length > 0) throw new Exception(errOut);
                 bAns = dt.Rows.Count > 0;
