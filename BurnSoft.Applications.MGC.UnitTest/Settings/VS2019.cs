@@ -77,6 +77,10 @@ namespace BurnSoft.Applications.MGC.UnitTest.Settings
             ls.Add(new Tuple<string, string>("BarrelConvoKit_Add_IsDefault", "false"));
             ls.Add(new Tuple<string, string>("Classification_Name", "R&D"));
             ls.Add(new Tuple<string, string>("GunSmith_Name", "Gunny's Hack Shop"));
+            ls.Add(new Tuple<string, string>("GunDetails_OrderDetails", "Make it fast"));
+            ls.Add(new Tuple<string, string>("GunDetails_Notes", "Did some stuff to it, it didn't blow up so it's good"));
+            ls.Add(new Tuple<string, string>("GunDetails_StartDate", "1/1/2021"));
+            ls.Add(new Tuple<string, string>("GunDetails_ReturnDate", "2/1/2021"));
             //ls.Add(new Tuple<string, string>("", ""));
             return ls;
         }

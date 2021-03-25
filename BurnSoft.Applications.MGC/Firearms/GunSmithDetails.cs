@@ -307,11 +307,12 @@ namespace BurnSoft.Applications.MGC.Firearms
                         Id = Convert.ToInt32(d["id"]),
                         GunId = Convert.ToInt32(d["gid"]),
                         GunSmithId = Convert.ToInt32(d["gsid"]),
-                        OtherWorkDone = d["od"].ToString(),
+                        OrderDetails = d["od"].ToString(),
                         ReturnDate = d["rdate"].ToString(),
                         StartDate = d["sdate"].ToString(),
                         Notes = d["notes"].ToString(),
-                        GunSmithName = d["gsmith"].ToString()
+                        GunSmithName = d["gsmith"].ToString(),
+                        LastSync = d["sync_lastupdate"].ToString()
                     });
                 }
             }

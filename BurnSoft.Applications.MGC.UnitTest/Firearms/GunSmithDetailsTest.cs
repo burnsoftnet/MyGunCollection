@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BurnSoft.Applications.MGC.AutoFill;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BurnSoft.Applications.MGC.Firearms;
 using BurnSoft.Applications.MGC.Types;
@@ -26,65 +27,30 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private int _gunId;
         /// <summary>
-        /// The barrel convo kit default identifier
+        /// The gun smith name
         /// </summary>
-        private long _barrelConvoKitDefaultId;
+        private string GunSmith_Name;
+        /// <summary>
+        /// The gun details order details
+        /// </summary>
+        private string GunDetails_OrderDetails;
+        /// <summary>
+        /// The gun details notes
+        /// </summary>
+        private string GunDetails_Notes;
+        /// <summary>
+        /// The gun details start date
+        /// </summary>
+        private string GunDetails_StartDate;
+        /// <summary>
+        /// The gun details return date
+        /// </summary>
+        private string GunDetails_ReturnDate;
         /// <summary>
         /// The database path
         /// </summary>
         private string _databasePath;
-        /// <summary>
-        /// The barrel convo kit add model name
-        /// </summary>
-        private string _barrelConvoKitAddModelName;
-        /// <summary>
-        /// The barrel convo kit add caliber
-        /// </summary>
-        private string _barrelConvoKitAddCaliber;
-        /// <summary>
-        /// The barrel convo kit add finish
-        /// </summary>
-        private string _barrelConvoKitAddFinish;
-        /// <summary>
-        /// The barrel convo kit add barrel length
-        /// </summary>
-        private string _barrelConvoKitAddBarrelLength;
-        /// <summary>
-        /// The barrel convo kit add pet loads
-        /// </summary>
-        private string _barrelConvoKitAddPetLoads;
-        /// <summary>
-        /// The barrel convo kit add action
-        /// </summary>
-        private string _barrelConvoKitAddAction;
-        /// <summary>
-        /// The barrel convo kit add feedsystem
-        /// </summary>
-        private string _barrelConvoKitAddFeedsystem;
-        /// <summary>
-        /// The barrel convo kit add sights
-        /// </summary>
-        private string _barrelConvoKitAddSights;
-        /// <summary>
-        /// The barrel convo kit add purchased price
-        /// </summary>
-        private string _barrelConvoKitAddPurchasedPrice;
-        /// <summary>
-        /// The barrel convo kit add purchased from
-        /// </summary>
-        private string _barrelConvoKitAddPurchasedFrom;
-        /// <summary>
-        /// The barrel convo kit add height
-        /// </summary>
-        private string _barrelConvoKitAddHeight;
-        /// <summary>
-        /// The barrel convo kit add type
-        /// </summary>
-        private string _barrelConvoKitAddType;
-        /// <summary>
-        /// The barrel convo kit add is default
-        /// </summary>
-        private bool _barrelConvoKitAddIsDefault;
+        
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -96,46 +62,31 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
             _errOut = @"";
             _databasePath = Vs2019.GetSetting("DatabasePath", TestContext);
             _gunId = Vs2019.IGetSetting("MyGunCollectionID", TestContext);
-            _barrelConvoKitDefaultId = Vs2019.IGetSetting("BarrelConvoKit_DefaultId", TestContext);
-            _barrelConvoKitAddModelName = Vs2019.GetSetting("BarrelConvoKit_Add_ModelName", TestContext);
-            _barrelConvoKitAddCaliber = Vs2019.GetSetting("BarrelConvoKit_Add_Caliber", TestContext);
-            _barrelConvoKitAddFinish = Vs2019.GetSetting("BarrelConvoKit_Add_Finish", TestContext);
-            _barrelConvoKitAddBarrelLength = Vs2019.GetSetting("BarrelConvoKit_Add_BarrelLength", TestContext);
-            _barrelConvoKitAddPetLoads = Vs2019.GetSetting("BarrelConvoKit_Add_PetLoads", TestContext);
-            _barrelConvoKitAddAction = Vs2019.GetSetting("BarrelConvoKit_Add_Action", TestContext);
-            _barrelConvoKitAddFeedsystem = Vs2019.GetSetting("BarrelConvoKit_Add_Feedsystem", TestContext);
-            _barrelConvoKitAddSights = Vs2019.GetSetting("BarrelConvoKit_Add_Sights", TestContext);
-            _barrelConvoKitAddPurchasedPrice = Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedPrice", TestContext);
-            _barrelConvoKitAddPurchasedFrom = obj.FC(Vs2019.GetSetting("BarrelConvoKit_Add_PurchasedFrom", TestContext));
-            _barrelConvoKitAddHeight = Vs2019.GetSetting("BarrelConvoKit_Add_Height", TestContext);
-            _barrelConvoKitAddType = Vs2019.GetSetting("BarrelConvoKit_Add_Type", TestContext);
-            _barrelConvoKitAddIsDefault = Vs2019.BGetSetting("BarrelConvoKit_Add_IsDefault", TestContext);
+            GunSmith_Name = Vs2019.GetSetting("GunSmith_Name", TestContext);
+            GunDetails_OrderDetails = Vs2019.GetSetting("GunDetails_OrderDetails", TestContext);
+            GunDetails_Notes = Vs2019.GetSetting("GunDetails_Notes", TestContext);
+            GunDetails_StartDate = Vs2019.GetSetting("GunDetails_StartDate", TestContext);
+            GunDetails_ReturnDate = Vs2019.GetSetting("GunDetails_ReturnDate", TestContext);
         }
         /// <summary>
         /// Prints the list.
         /// </summary>
         /// <param name="value">The value.</param>
-        private void PrintList(List<BarrelSystems> value)
+        private void PrintList(List<GunSmithWorkDone> value)
         {
             if (value.Count > 0)
             {
-                foreach (BarrelSystems g in value)
+                foreach (GunSmithWorkDone g in value)
                 {
                     TestContext.WriteLine($"id : {g.Id}");
-                    TestContext.WriteLine($"Full Name: {g.FullName}");
-                    TestContext.WriteLine($"Finish: {g.Finish}");
-                    TestContext.WriteLine($"BarrelLength: {g.BarrelLength}");
-                    TestContext.WriteLine($"Height: {g.Height}");
-                    TestContext.WriteLine($"Action: {g.Action}");
-                    TestContext.WriteLine($"Sights: {g.Sights}");
-                    TestContext.WriteLine($"PurchasePrice: {g.PurchasedPrice}");
-                    TestContext.WriteLine($"PurchaseFrom: {g.PurchasedFrom}");
-                    TestContext.WriteLine($"Petloads/Caliber2: {g.PetLoads}");
+                    TestContext.WriteLine($"Smith Name: {g.GunSmithName}");
+                    TestContext.WriteLine($"Smith ID: {g.GunSmithId}");
                     TestContext.WriteLine($"Gun Id: {g.GunId}");
-                    TestContext.WriteLine($"Model Name: {g.ModelName}");
-                    TestContext.WriteLine($"Caliber: {g.Caliber}");
-                    TestContext.WriteLine($"Is Default: {g.IsDefault}");
-                    TestContext.WriteLine($"Last Updated: {g.LastUpdated}");
+                    TestContext.WriteLine($"OrderDetails: {g.OrderDetails}");
+                    TestContext.WriteLine($"Notes: {g.Notes}");
+                    TestContext.WriteLine($"Return Date: {g.ReturnDate}");
+                    TestContext.WriteLine($"Start Date: {g.StartDate}");
+                    TestContext.WriteLine($"Last Updated: {g.LastSync}");
                     TestContext.WriteLine($"");
                     TestContext.WriteLine($"--------------------------------------");
                     TestContext.WriteLine($"");
@@ -148,17 +99,18 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         private void VerifyExists()
         {
 
-            if (!ExtraBarrelConvoKits.Exists(_databasePath, _gunId, _barrelConvoKitAddModelName,
-                _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
-                _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
-                _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
-                _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut))
+            if (!GunSmithDetails.Exists(_databasePath, _gunId, GunSmith_Name, GunDetails_OrderDetails, out _errOut))
             {
-                ExtraBarrelConvoKits.Add(_databasePath, _gunId, _barrelConvoKitAddModelName,
-                    _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
-                    _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
-                    _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
-                    _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut);
+                if (!BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(_databasePath, GunSmith_Name,
+                    out _errOut))
+                {
+                    MGC.PeopleAndPlaces.GunSmiths.Add(_databasePath, GunSmith_Name,out _errOut);
+                }
+
+                long gsid = MGC.PeopleAndPlaces.GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+
+                GunSmithDetails.Add(_databasePath, _gunId, GunSmith_Name, gsid, GunDetails_OrderDetails, GunDetails_Notes, GunDetails_StartDate, GunDetails_ReturnDate, out _errOut);
+
             }
         }
         /// <summary>
@@ -166,14 +118,18 @@ namespace BurnSoft.Applications.MGC.UnitTest.Firearms
         /// </summary>
         private void VerifyDoesntExist()
         {
-            if (ExtraBarrelConvoKits.Exists(_databasePath, _gunId, _barrelConvoKitAddModelName,
-                _barrelConvoKitAddCaliber, _barrelConvoKitAddFinish, _barrelConvoKitAddBarrelLength,
-                _barrelConvoKitAddPetLoads, _barrelConvoKitAddAction, _barrelConvoKitAddFeedsystem,
-                _barrelConvoKitAddSights, _barrelConvoKitAddPurchasedPrice, _barrelConvoKitAddPurchasedFrom,
-                _barrelConvoKitAddHeight, _barrelConvoKitAddType, _barrelConvoKitAddIsDefault, out _errOut))
+            if (GunSmithDetails.Exists(_databasePath, _gunId, GunSmith_Name, GunDetails_OrderDetails, out _errOut))
             {
-                long value = ExtraBarrelConvoKits.GetBarrelId(_databasePath, _gunId, _barrelConvoKitAddModelName, out _errOut);
-                ExtraBarrelConvoKits.Delete(_databasePath, value, out _errOut);
+
+                if (!BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(_databasePath, GunSmith_Name,
+                    out _errOut))
+                {
+                    MGC.PeopleAndPlaces.GunSmiths.Add(_databasePath, GunSmith_Name, out _errOut);
+                }
+
+                long gsid = MGC.PeopleAndPlaces.GunSmiths.GetId(_databasePath, GunSmith_Name, out _errOut);
+                long value = GunSmithDetails.GetId(_databasePath, _gunId, gsid, GunDetails_OrderDetails, out _errOut);
+                GunSmithDetails.Delete(_databasePath, value, out _errOut);
             }
         }
         [TestMethod]

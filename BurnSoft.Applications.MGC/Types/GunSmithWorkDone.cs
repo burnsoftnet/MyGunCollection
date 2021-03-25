@@ -29,10 +29,10 @@ namespace BurnSoft.Applications.MGC.Types
         /// <value>The gun smith identifier.</value>
         public long GunSmithId { get; set; }
         /// <summary>
-        /// Gets or sets the other work done.  od in the database
+        /// Gets or sets the Order details.  od in the database
         /// </summary>
         /// <value>The other work done.</value>
-        public string OtherWorkDone { get; set; }
+        public string OrderDetails { get; set; }
         /// <summary>
         /// Gets or sets the notes.
         /// </summary>
