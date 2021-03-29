@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
 
+''TODO: Convert code from FrmCrViewReport #15
+
 ''' <summary>
 ''' Class frmCR_ViewReport.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

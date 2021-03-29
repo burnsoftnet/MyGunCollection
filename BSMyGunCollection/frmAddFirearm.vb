@@ -1,6 +1,8 @@
 
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''TODO: Convert code from FrmAddFirearm #13
+
 ''' <summary>
 ''' Class frmAddFirearm.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

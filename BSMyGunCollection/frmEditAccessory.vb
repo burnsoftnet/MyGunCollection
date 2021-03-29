@@ -1,5 +1,8 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+
+''TODO:  Convert code from FrmEditAccessory #17
+
 ''' <summary>
 ''' Class frmEditAccessory.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

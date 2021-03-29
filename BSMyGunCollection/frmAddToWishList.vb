@@ -1,5 +1,5 @@
 Imports BSMyGunCollection.MGC
-
+'' TODO: Convert code from FrmAddToWishList #9 
 ''' <summary>
 ''' Class frmAddToWishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

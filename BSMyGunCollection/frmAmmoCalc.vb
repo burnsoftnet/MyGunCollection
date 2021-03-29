@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+''TODO: Convert code from FrmAmmoCalc #10
 
 ''' <summary>
 ''' Class frmAmmoCalc.

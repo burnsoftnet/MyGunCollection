@@ -1,6 +1,8 @@
 ﻿Imports BSMyGunCollection.MGC
 Imports System.Data
 Imports System.Data.Odbc
+''TODO: Convert code from frmCR_EditSQL #12
+
 ''' <summary>
 ''' Class frmCR_EditSQL.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

@@ -1,5 +1,7 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+''TODO: Convert code from frmCR_SelectColumns #14
+
 ''' <summary>
 ''' Class frmCR_SelectColumns.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
