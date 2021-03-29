@@ -1,6 +1,8 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 
+''TODO: Convert code from FrmEditBarrelSystem #18
+
 ''' <summary>
 ''' Class frmEditBarrelSystem.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

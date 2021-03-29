@@ -1,6 +1,8 @@
 Imports System.ComponentModel
 Imports BSMyGunCollection.MGC
 
+''TODO: Convert FrmEditGunConditions #20
+
 ''' <summary>
 ''' Edit gun conditions
 ''' </summary>
