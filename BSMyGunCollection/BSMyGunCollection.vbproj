@@ -127,6 +127,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.0.0-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\BurnSoft.MsgBox.dll</HintPath>
@@ -1160,6 +1163,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="BurnSoft.Applications.MGC.chm" />
     <None Include="BurnSoft.Security.RegularEncryption.chm" />
     <None Include="BurnSoft.Universal.chm" />
     <None Include="MGCDataSet.xsc">
@@ -1220,6 +1224,7 @@
     <Content Include="adodb.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="bswtsicon.png" />
     <Content Include="BurnSoft.MsgBox.dll" />
     <Content Include="Config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1292,12 +1297,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BurnSoft.Applications.MGC\BurnSoft.Applications.MGC.csproj">
-      <Project>{fbd093a7-f3e7-43a3-a99a-7625d7c0df8b}</Project>
-      <Name>BurnSoft.Applications.MGC</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
