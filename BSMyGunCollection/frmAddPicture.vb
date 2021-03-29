@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports ADODB
-
+''TODO: Convert code from FrmAddPicture #7
 ''' <summary>
 ''' Class frmAddPicture.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

@@ -1,4 +1,6 @@
 Imports BSMyGunCollection.MGC
+''TODO:  Replace code from FrmAddNationality #6
+
 
 ''' <summary>
 ''' Class frmAddNationality.

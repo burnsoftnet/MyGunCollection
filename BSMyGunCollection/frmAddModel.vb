@@ -36,6 +36,7 @@ Public Class FrmAddModel
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
+            ''TODO: Replace code from FrmAddModel #5
             Dim objGf As New GlobalFunctions
             Dim obj As New BSDatabase
             Dim strTableName As String = "Gun_Model"
