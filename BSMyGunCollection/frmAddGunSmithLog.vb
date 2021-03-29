@@ -24,7 +24,7 @@ Public Class FrmAddGunSmithLog
         Try
             'Dim objAf As New AutoFillCollections
             'txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
-            ''TODO #2 Convert Code
+            ''TODO #43 Clean up code
             txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
@@ -45,31 +45,31 @@ Public Class FrmAddGunSmithLog
     ''' <param name="strName">Name of the string.</param>
     ''' <param name="intCount">The int count.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-    Private Function SmithExists(ByVal strName As String, Optional ByRef intCount As Integer = 0) As Boolean
-        Dim bAns As Boolean = False
-        Dim sql As String = "SELECT Count(*) as Total from GunSmith_Contact_Details where gname like '" & strName & "%'"
-        Try
-            intCount = 0
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While (rs.Read)
-                    intCount = rs("Total")
-                End While
-            End If
-            If intCount <> 0 Then bAns = True
-            rs.Close()
+    'Private Function SmithExists(ByVal strName As String, Optional ByRef intCount As Integer = 0) As Boolean
+    '    Dim bAns As Boolean = False
+    '    Dim sql As String = "SELECT Count(*) as Total from GunSmith_Contact_Details where gname like '" & strName & "%'"
+    '    Try
+    '        intCount = 0
+    '        Dim obj As New BSDatabase
+    '        Call obj.ConnectDB()
+    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
+    '        Dim rs As OdbcDataReader
+    '        rs = cmd.ExecuteReader
+    '        If rs.HasRows Then
+    '            While (rs.Read)
+    '                intCount = rs("Total")
+    '            End While
+    '        End If
+    '        If intCount <> 0 Then bAns = True
+    '        rs.Close()
 
-            Call obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "SmithExists"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
+    '        Call obj.CloseDB()
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "SmithExists"
+    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return bAns
+    'End Function
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
     ''' </summary>
@@ -88,13 +88,21 @@ Public Class FrmAddGunSmithLog
 
             Dim obj As New BSDatabase
             Call obj.ConnectDB()
-            If Not SmithExists(strSmith) Then
-                Call obj.InsertNewContact(strSmith, "GunSmith_Contact_Details", "gName")
+            Dim errOut As String =""
+            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(DatabasePath, strSmith, errOut) Then 
+                BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath, strSmith, errOut)
             End If
-            Dim sql As String = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" &
-                                Gid & ",'" & strSmith & "','" & strOd & "','" & strNotes & "','" &
-                                strShip & "','" & strReturn & "',Now())"
-            obj.ConnExec(sql)
+            Dim gsid As Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, errOut)
+            'If Not SmithExists(strSmith) Then
+            '    Call obj.InsertNewContact(strSmith, "GunSmith_Contact_Details", "gName")
+            'End If
+            'Dim sql As String = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" &
+            '                    Gid & ",'" & strSmith & "','" & strOd & "','" & strNotes & "','" &
+            '                    strShip & "','" & strReturn & "',Now())"
+            'obj.ConnExec(sql)
+            If Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Add(DatabasePath, Gid, strSmith, gsid, strOd, strNotes, strShip, strReturn, errOut) Then
+                Throw New Exception(errOut)
+            End If
             MsgBox("Details where added to the Gun Smith Log", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
