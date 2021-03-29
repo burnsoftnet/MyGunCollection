@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
 
+''TODO: Replace code from FrmAddManufacturer #4
+
 ''' <summary>
 ''' Class frmAddManufacturer.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
