@@ -75,13 +75,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_32CD51CDDE6C8034BBDF2BF368C5DF0F"
+        "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
         "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_32CD51CDDE6C8034BBDF2BF368C5DF0F"
+        "MsmKey" = "8:_3030A34192A528D682681084E6C746E2"
         "OwnerKey" = "8:_FA6DEE83374E40DAA7EF8943708450B4"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -316,7 +316,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_32CD51CDDE6C8034BBDF2BF368C5DF0F"
+        "OwnerKey" = "8:_3030A34192A528D682681084E6C746E2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -738,20 +738,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_32CD51CDDE6C8034BBDF2BF368C5DF0F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3030A34192A528D682681084E6C746E2"
             {
             "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyIsInGAC" = "11:TRUE"
             "AssemblyAsmDisplayName" = "8:ADODB, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_32CD51CDDE6C8034BBDF2BF368C5DF0F"
+                    "_3030A34192A528D682681084E6C746E2"
                     {
-                    "Name" = "8:ADODB.DLL"
+                    "Name" = "8:ADODB.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:ADODB.DLL"
+            "SourcePath" = "8:ADODB.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
@@ -1534,15 +1534,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{AA8C322B-95CD-45E8-85F4-363EC576DEA5}"
-        "PackageCode" = "8:{0A207BF8-910E-4FE5-92B4-5E242E8084CF}"
+        "ProductCode" = "8:{58CAD421-5ED3-4624-B8D2-AD4AC08A1B74}"
+        "PackageCode" = "8:{D28F1307-6FFD-459F-8563-EB6EFAF16045}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:6.5.0"
+        "ProductVersion" = "8:6.5.1"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://support.burnsoft.net"
