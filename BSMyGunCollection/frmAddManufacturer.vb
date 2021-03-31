@@ -8,6 +8,7 @@ Imports BSMyGunCollection.MGC
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddManufacturer
+    Dim errOut as String = ""
     ''' <summary>
     ''' Handles the Click event of the Button2 control.
     ''' </summary>
@@ -25,7 +26,7 @@ Public Class FrmAddManufacturer
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
             If Not IsRequired(strMan, "Manufacturer's Name", Text) Then Exit Sub
-            Dim errOut as String = ""
+
             If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Exists(DatabasePath, strMan, errOut) Then
                 If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Add(DatabasePath, strMan, errOut) Then Throw New Exception(errOut)
                 MsgBox(strMan & " was added to the database!", MsgBoxStyle.Information, Text)
@@ -59,7 +60,7 @@ Public Class FrmAddManufacturer
         Try
             'Dim objAf As New AutoFillCollections
             'txtMan.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
-            Dim errOut as String = ""
+
             txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Manufacturer(DatabasePath, errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
