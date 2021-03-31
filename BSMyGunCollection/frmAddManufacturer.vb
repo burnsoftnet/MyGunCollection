@@ -27,16 +27,12 @@ Public Class FrmAddManufacturer
             If Not IsRequired(strMan, "Manufacturer's Name", Text) Then Exit Sub
             Dim errOut as String = ""
             If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Exists(DatabasePath, strMan, errOut) Then
-                If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Add(DatabasePath, strMan, errOut) Then 
-                    Throw New Exception(errOut)
-                End If
+                If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Add(DatabasePath, strMan, errOut) Then Throw New Exception(errOut)
                 MsgBox(strMan & " was added to the database!", MsgBoxStyle.Information, Text)
-                txtMan.Text = ""
             Else 
                 MsgBox(strMan & " already existed in the database!", MsgBoxStyle.Critical, Text)
-                txtMan.Text = ""
             End If
-
+            txtMan.Text = ""
             'Dim objGf As New GlobalFunctions
             'If Not objGf.ObjectExistsinDB(strMan, "Brand", "Gun_Manufacturer") Then
             '    Dim obj As New BSDatabase
