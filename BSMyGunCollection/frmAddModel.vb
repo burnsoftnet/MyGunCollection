@@ -1,4 +1,5 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.AutoFill
 
 ''' <summary>
 ''' Class frmAddModel.
@@ -7,15 +8,22 @@ Imports BSMyGunCollection.MGC
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddModel
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String = ""
+    ''' <summary>
     ''' Handles the Load event of the frmAddModel control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddModel_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim objAf As New AutoFillCollections
-            txtManufacturer.AutoCompleteCustomSource = objAf.Gun_Manufacturer
-            txtModel.AutoCompleteCustomSource = objAf.Gun_Model
+            'Dim objAf As New AutoFillCollections
+            'txtManufacturer.AutoCompleteCustomSource = objAf.Gun_Manufacturer
+            'txtModel.AutoCompleteCustomSource = objAf.Gun_Model
+
+            txtManufacturer.AutoCompleteCustomSource = Gun.Manufacturer(DatabasePath, _errOut)
+            txtModel.AutoCompleteCustomSource = Gun.Model(DatabasePath, _errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
