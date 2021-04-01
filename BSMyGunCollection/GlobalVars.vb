@@ -129,19 +129,11 @@ Module GlobalVars
     ''' <summary>
     ''' Link to My Gun Collection Wiki Section
     ''' </summary>
-    Public Const MenuWiki = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
+    Public Const MenuWiki = "https://github.com/burnsoftnet/MyGunCollection/wiki"
     ''' <summary>
     ''' Link to bug report
     ''' </summary>
     Public Const MenuBug = "http://bugreport.burnsoft.net"
-    ''' <summary>
-    ''' Link to support section on site
-    ''' </summary>
-    Public Const MenuSupport = "http://support.burnsoft.net"
-    ''' <summary>
-    ''' Firearm links
-    ''' </summary>
-    Public Const MenuLinks = "http://wiki.burnsoft.net/Links_Firearm_reloading.ashx"
     ''' <summary>
     ''' Default Date of Birth
     ''' </summary>

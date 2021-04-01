@@ -974,17 +974,7 @@ Public Class MdiParent1
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
-    ''' <summary>
-    ''' Converts to olstripmenuitem_click.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub MiscFirearmLinksToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles MiscFirearmLinksToolStripMenuItem.Click
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = MenuLinks
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Maximized
-        myProcess.Start()
-    End Sub
+
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
     ''' </summary>

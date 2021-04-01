@@ -72,7 +72,7 @@ Public Class FrmImportFirearm
     ''' <param name="strPath">The string path.</param>
     Sub ProcessXmlToDb(ByVal strPath As String)
         Try
-            Dim fullName As String 
+            Dim fullName As String = ""
             Dim firearmId As Long 
 
             ProgressBar1.Minimum = 0
