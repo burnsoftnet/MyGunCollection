@@ -924,17 +924,7 @@ Public Class MdiParent1
         myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
         myProcess.Start()
     End Sub
-    ''' <summary>
-    ''' Converts to olstripmenuitem_click.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub DataPreLoaderToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DataPreLoaderToolStripMenuItem.Click
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = ApplicationPath & "\" & MyDataloader
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
-        myProcess.Start()
-    End Sub
+
     ''' <summary>
     ''' Runs the hot fix.
     ''' </summary>

@@ -119,15 +119,6 @@ Module GlobalVars
     ''' </summary>
     Public Const MyHotfixFile = "BSMGC_HotFixes.exe"
     ''' <summary>
-    ''' Data loader app name
-    ''' </summary>
-    Public Const MyDataloader = "MyGunCollection_DataLoader.exe"
-    ''' <summary>
-    ''' Application Update
-    ''' </summary>
-    <Obsolete("Removed in version 5")>
-    Public Const MyUpdater = "BSApplicationUpdater.exe"
-    ''' <summary>
     ''' back up application
     ''' </summary>
     Public Const MyBackup = "DBBackup.exe"
