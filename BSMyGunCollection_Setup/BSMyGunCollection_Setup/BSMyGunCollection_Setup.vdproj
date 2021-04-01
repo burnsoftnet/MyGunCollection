@@ -27,14 +27,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_19BFB7D69BBB5EB3522F02630155B129"
-        "OwnerKey" = "8:_AED9BD026F824379880246D6B43683DF"
+        "MsmKey" = "8:_1ACA440B138441A081842C4F3CFA43DD"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1ACA440B138441A081842C4F3CFA43DD"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_1E840CDCF9578A5F7E9C531253961F7F"
+        "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -53,6 +53,12 @@
         {
         "MsmKey" = "8:_264C46B11976FAEFDFA10C859B3152AC"
         "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_264C46B11976FAEFDFA10C859B3152AC"
+        "OwnerKey" = "8:_1E840CDCF9578A5F7E9C531253961F7F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,12 +94,6 @@
         "Entry"
         {
         "MsmKey" = "8:_3A8C0F9590BB4ACA91B66A1765A71108"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4B7895518B4049648E851EA318D08C08"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -161,12 +161,6 @@
         {
         "MsmKey" = "8:_9E55DD20AF1124CD44ED1C67566B66A5"
         "OwnerKey" = "8:_BB8978C612174B058E01C2BCB831D740"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AED9BD026F824379880246D6B43683DF"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -239,6 +233,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_07109DA4010E41AB8749DC4746F88A09"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1E840CDCF9578A5F7E9C531253961F7F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -323,24 +323,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B4A3EA5B21C74C88A880D939A490236D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AED9BD026F824379880246D6B43683DF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_19BFB7D69BBB5EB3522F02630155B129"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4B7895518B4049648E851EA318D08C08"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -554,37 +536,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_19BFB7D69BBB5EB3522F02630155B129"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_19BFB7D69BBB5EB3522F02630155B129"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.EXE"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MyGunCollection_DataLoader.EXE"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1ACA440B138441A081842C4F3CFA43DD"
             {
             "SourcePath" = "8:images\\Update.ico"
@@ -603,6 +554,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1E840CDCF9578A5F7E9C531253961F7F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1E840CDCF9578A5F7E9C531253961F7F"
+                    {
+                    "Name" = "8:BurnSoft.Applications.MGC.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BurnSoft.Applications.MGC.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2073F511E7284FE79BEC65A67A6AE4D0"
@@ -773,37 +755,6 @@
             {
             "SourcePath" = "8:images\\Setup_Banner.jpg"
             "TargetName" = "8:Setup_Banner.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4B7895518B4049648E851EA318D08C08"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader, Version=3.1.0.1, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_4B7895518B4049648E851EA318D08C08"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.exe"
-            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
             "Condition" = "8:"
@@ -1084,37 +1035,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AED9BD026F824379880246D6B43683DF"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MyGunCollection_DataLoader.XmlSerializers, Version=3.1.0.1, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_AED9BD026F824379880246D6B43683DF"
-                    {
-                    "Name" = "8:MyGunCollection_DataLoader.XmlSerializers.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\BSMyGunCollection\\bin\\Release\\MyGunCollection_DataLoader.XmlSerializers.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_3C38667A64BC495DAE41A114E62D0B8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B4A3EA5B21C74C88A880D939A490236D"
             {
             "AssemblyRegister" = "3:1"
@@ -1150,7 +1070,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.5.0.34268, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.5.1.33355, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_BB8978C612174B058E01C2BCB831D740"
@@ -1535,7 +1455,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
         "ProductCode" = "8:{58CAD421-5ED3-4624-B8D2-AD4AC08A1B74}"
-        "PackageCode" = "8:{D28F1307-6FFD-459F-8563-EB6EFAF16045}"
+        "PackageCode" = "8:{43036A6B-3D43-488B-96B7-636BDDFF1734}"
         "UpgradeCode" = "8:{612B4A5C-435C-441B-BF53-BB2BA8998886}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
