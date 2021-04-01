@@ -126,14 +126,10 @@ Module GlobalVars
     ''' restore application
     ''' </summary>
     Public Const MyRestore = "DBRestore.exe"
-    <Obsolete("Removed in version 5")>
-    Public Const MenuForum = "http://mgcforum.burnsoft.net"
     ''' <summary>
     ''' Link to My Gun Collection Wiki Section
     ''' </summary>
     Public Const MenuWiki = "http://wiki.burnsoft.net/AllPages.aspx?Cat=My%20Gun%20Collection"
-    <Obsolete("Removed in version 5")>
-    Public Const MenuShop = "http://shopping.burnsoft.net"
     ''' <summary>
     ''' Link to bug report
     ''' </summary>
@@ -142,8 +138,6 @@ Module GlobalVars
     ''' Link to support section on site
     ''' </summary>
     Public Const MenuSupport = "http://support.burnsoft.net"
-    <Obsolete("Removed in version 5")>
-    Public Const MenuSitesearch = "http://www.burnsoft.net/Search_Site.aspx"
     ''' <summary>
     ''' Firearm links
     ''' </summary>
