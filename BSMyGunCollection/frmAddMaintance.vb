@@ -1,4 +1,4 @@
-Imports BSMyGunCollection.MGC
+
 Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
@@ -84,12 +84,6 @@ Public Class FrmAddMaintance
             If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
             Dim errOut As String = ""
             If Not MaintanceDetails.Add(DatabasePath, strName, Gid, strId, strOd, strOdDue, strOdrf, strNotes, sAu,Bsid, iAvg, errOut) Then Throw New Exception(errOut)
-
-            'Dim sql As String = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,au,BSID,DC,sync_lastupdate) VALUES(" &
-            '            Gid & "," & strId & ",'" & strName & "','" & strOd & "','" & strOdDue & "','" &
-            '            strOdrf & "','" & strNotes & "','" & sAu & "'," & Bsid & "," & iAvg & ",Now())"
-            'Dim obj As New BSDatabase
-            'obj.ConnExec(sql)
             MsgBox(strName & " was added!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
