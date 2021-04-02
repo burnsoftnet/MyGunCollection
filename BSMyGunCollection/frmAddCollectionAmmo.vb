@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 
 ''' <summary>
@@ -63,11 +62,7 @@ Public Class FrmAddCollectionAmmo
             If Not IsRequired(strJacket, "Jacket", Text) Then Exit Sub
             If Not IsRequired(strQty, "Qty", Text) Then Exit Sub
             Dim ddValue As Double = ConvToNum(strGrain)
-            Dim obj As New BSDatabase
-            Dim sql As String = "INSERT INTO Gun_Collection_Ammo(Manufacturer,Name,Cal,Grain,Jacket,Qty,dcal,vel_n,sync_lastupdate) VALUES('" &
-                                strMan & "','" & strName & "','" & strCal & "','" & strGrain & "','" & strJacket & "'," &
-                                strQty & "," & ddValue & "," & lVelocity & ",Now())"
-            obj.ConnExec(sql)
+            
             Dim errOut As String = ""
             If Not Inventory.Add(DatabasePath, strMan, strName, strCal, strGrain, strJacket, Convert.ToInt32(strQty), ddValue, lVelocity, errOut) Then Throw New Exception(errOut)
             If Auditammo Then
