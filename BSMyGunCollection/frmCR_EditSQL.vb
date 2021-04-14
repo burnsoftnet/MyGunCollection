@@ -10,7 +10,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmCR_EditSQL
+Public Class FrmCrEditSql
     ''' <summary>
     ''' The rid
     ''' </summary>
@@ -66,7 +66,7 @@ Public Class frmCR_EditSQL
     Private Sub btnViewInReport_Click(sender As Object, e As EventArgs) Handles btnViewInReport.Click
         Dim frmnew As New FrmCrViewReport
         frmnew.Sql = txtSQL.Text
-        frmnew.MdiParent = Me.MdiParent
+        frmnew.MdiParent = MdiParent
         frmnew.Show()
     End Sub
     ''' <summary>

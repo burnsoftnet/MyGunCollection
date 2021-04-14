@@ -143,7 +143,7 @@ Public Class frmCR_SelectTable
     ''' Bring up the SQL editor window
     ''' </summary>
     Sub ShowSQLEditor()
-        Dim frmNew As New frmCR_EditSQL
+        Dim frmNew As New FrmCrEditSql
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
@@ -162,7 +162,7 @@ Public Class frmCR_SelectTable
     ''' </summary>
     Sub editReport()
         Dim RID As Long = ComboBox2.SelectedValue
-        Dim frmNew As New frmCR_EditSQL
+        Dim frmNew As New FrmCrEditSql
         frmNew.Rid = RID
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
