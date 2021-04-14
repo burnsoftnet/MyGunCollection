@@ -141,3 +141,14 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddCollectionAmmo.btnAdd_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddCollectionAmmo.btnCancel_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddCollectionAmmo.frmAddCollectionAmmo_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnEdit_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnLoadSaved_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnLoadSaved_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnNext_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnNext_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.btnSQLEditor_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.editReport")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.editReport")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.frmCR_SelectTable_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_SelectTable.ShowSQLEditor")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmCR_SelectTable")>

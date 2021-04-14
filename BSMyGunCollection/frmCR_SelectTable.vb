@@ -163,7 +163,7 @@ Public Class frmCR_SelectTable
     Sub editReport()
         Dim RID As Long = ComboBox2.SelectedValue
         Dim frmNew As New frmCR_EditSQL
-        frmNew.RID = RID
+        frmNew.Rid = RID
         frmNew.MdiParent = Me.MdiParent
         frmNew.Show()
         Me.Close()
