@@ -1,4 +1,3 @@
-'Imports BSMyGunCollection.MGC
 
 ''' <summary>
 ''' Class frmAddToWishList.
@@ -41,15 +40,13 @@ Public Class FrmAddToWishList
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            'Dim objGf As New GlobalFunctions
-            'Dim obj As New BSDatabase
             Dim strManu As String = FluffContent(txtManu.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
             Dim strSs As String = FluffContent(txtSS.Text)
             Dim strQty As String = txtQty.Text
             Dim strValue As String = FluffContent(txtValue.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            'Dim sql As String 
+
             If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Text) Then Exit Sub
             If Not IsRequired(strQty, "Qty", Text) Then Exit Sub
@@ -59,13 +56,6 @@ Public Class FrmAddToWishList
             If Not BurnSoft.Applications.MGC.Other.WishList.Exists(DatabasePath, strManu, strModel, _errOut) Then
                 If Not BurnSoft.Applications.MGC.Other.WishList.Add(DatabasePath, strManu, strModel, strSs, strQty, strValue, strNotes, _errOut) Then Throw new Exception(_errOut)
             End If
-
-            'If Not objGf.ObjectExistsinDB(strModel, "Model", "Wishlist") Then
-            '    sql = "INSERT INTO Wishlist (Manufacturer,Model,PlacetoBuy,Qty,[Value],Notes,sync_lastupdate) VALUES('" &
-            '            strManu & "','" & strModel & "','" & strSs & "','" & strQty & "','" &
-            '            strValue & "','" & strNotes & "',Now())"
-            '    obj.ConnExec(sql)
-            'End If
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
