@@ -29,7 +29,7 @@ Public Class frmCR_SelectTable
             Obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "GetTableName"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -38,17 +38,17 @@ Public Class frmCR_SelectTable
     ''' </summary>
     Sub LoadData()
         Try
-            Me.CR_SavedReportsTableAdapter.Fill(Me.MGCDataSet.CR_SavedReports)
-            Me.CR_TableListTableAdapter.Fill(Me.MGCDataSet.CR_TableList)
+            CR_SavedReportsTableAdapter.Fill(MGCDataSet.CR_SavedReports)
+            CR_TableListTableAdapter.Fill(MGCDataSet.CR_TableList)
             Dim ObjGF As New GlobalFunctions
             If ObjGF.ObjectExistsinDB("CR_SavedReports") Then
-                Me.Height = 157
+                Height = 157
             Else
-                Me.Height = 102
+                Height = 102
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -61,7 +61,7 @@ Public Class frmCR_SelectTable
             Call LoadData()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -77,12 +77,12 @@ Public Class frmCR_SelectTable
             frmNew.TableId = TID
             frmNew.TableName = TName
             frmNew.TableRealName = GetTableName(TID)
-            frmNew.MdiParent = Me.MdiParent
+            frmNew.MdiParent = MdiParent
             frmNew.Show()
-            Me.Close()
+            Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnNext.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -99,11 +99,11 @@ Public Class frmCR_SelectTable
             Dim frmnew As New FrmCrViewReport
             frmnew.Sql = Replace(SQL, "''", "'")
             frmnew.ReportName = ReportName
-            frmnew.MdiParent = Me.MdiParent
+            frmnew.MdiParent = MdiParent
             frmnew.Show()
         Catch ex As Exception
             Dim sSubFunc As String = "btnLoadSaved.Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -127,7 +127,7 @@ Public Class frmCR_SelectTable
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "DeleteToolStripMenuItem_Click"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -137,16 +137,16 @@ Public Class frmCR_SelectTable
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
-        Call editReport()
+        Call EditReport()
     End Sub
     ''' <summary>
     ''' Bring up the SQL editor window
     ''' </summary>
-    Sub ShowSQLEditor()
+    Sub ShowSqlEditor()
         Dim frmNew As New FrmCrEditSql
-        frmNew.MdiParent = Me.MdiParent
+        frmNew.MdiParent = MdiParent
         frmNew.Show()
-        Me.Close()
+        Close()
     End Sub
     ''' <summary>
     ''' when the user right clicks on the Next button, this is one of the context menu
@@ -155,18 +155,18 @@ Public Class frmCR_SelectTable
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        Call ShowSQLEditor()
+        Call ShowSqlEditor()
     End Sub
     ''' <summary>
     ''' options that appears that allows the user to edit the custom report.
     ''' </summary>
-    Sub editReport()
-        Dim RID As Long = ComboBox2.SelectedValue
+    Sub EditReport()
+        Dim rid As Long = ComboBox2.SelectedValue
         Dim frmNew As New FrmCrEditSql
-        frmNew.Rid = RID
-        frmNew.MdiParent = Me.MdiParent
+        frmNew.Rid = rid
+        frmNew.MdiParent = MdiParent
         frmNew.Show()
-        Me.Close()
+        Close()
     End Sub
     ''' <summary>
     ''' when the user clicks on the Edit button
@@ -175,7 +175,7 @@ Public Class frmCR_SelectTable
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        Call editReport()
+        Call EditReport()
     End Sub
     ''' <summary>
     ''' when the user click on the sql editor button
@@ -183,6 +183,6 @@ Public Class frmCR_SelectTable
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnSQLEditor_Click(sender As Object, e As EventArgs) Handles btnSQLEditor.Click
-        Call ShowSQLEditor()
+        Call ShowSqlEditor()
     End Sub
 End Class
