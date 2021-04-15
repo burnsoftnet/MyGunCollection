@@ -1,6 +1,6 @@
 Imports BSMyGunCollection.MGC
-
-''TODO: Convert code from FrmCrViewReport #15
+Imports BurnSoft.Universal
+Imports BurnSoft.Applications.MGC.Reports
 
 ''' <summary>
 ''' Class frmCR_ViewReport.
@@ -8,6 +8,10 @@ Imports BSMyGunCollection.MGC
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmCrViewReport
+    ''' <summary>
+    ''' The error out'
+    ''' </summary>
+    Dim _errOut as String
     ''' <summary>
     ''' The SQL
     ''' </summary>
@@ -109,7 +113,9 @@ Public Class FrmCrViewReport
         End Try
     End Sub
 #Region " Windows Form Designer generated code "
-
+    ''' <summary>
+    ''' Initializes a new instance of the <see cref="FrmCrViewReport"/> class.
+    ''' </summary>
     Public Sub New()
         MyBase.New()
 
@@ -130,6 +136,10 @@ Public Class FrmCrViewReport
     End Sub
 #End Region
 #Region "Private methods"
+    ''' <summary>
+    ''' Populates the colour list.
+    ''' </summary>
+    ''' <param name="combo">The combo.</param>
     Private Sub PopulateColourList(ByVal combo As ComboBox)
 
         combo.Items.Clear()
@@ -143,7 +153,10 @@ Public Class FrmCrViewReport
         combo.Items.Add(Color.Red)
         combo.SelectedIndex = 0
     End Sub
-
+    ''' <summary>
+    ''' Populates the brush list.
+    ''' </summary>
+    ''' <param name="combo">The combo.</param>
     Private Sub PopulateBrushList(ByVal combo As ComboBox)
         combo.Items.Clear()
         combo.Items.Add(Brushes.White)
@@ -176,24 +189,40 @@ Public Class FrmCrViewReport
 ' ReSharper disable LocalVariableHidesMember
             Dim reportName As String = TextBox1.Text
 ' ReSharper restore LocalVariableHidesMember
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
-            Dim mySql As String 
-            If objGf.ObjectExistsinDB(reportName, "ReportName", "CR_SavedReports") Then
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
+            'Dim mySql As String 
+            Dim  objF as BSOtherObjects = New BSOtherObjects()
+
+            If CustomReports.Exists(DatabasePath, reportName, _errOut) Then
                 Dim sAns As String = MsgBox("Report Name """ & reportName & """ already exists in the database!" & Chr(10) & "Do you wish to overwrite existing report?", MsgBoxStyle.YesNo, Text)
                 If sAns = vbYes Then
-                    mySql = "UPDATE CR_SavedReports set MySQL='" & Replace(Sql, "'", "''") & "',sync_lastupdate=Now() where ReportName='" & reportName & "'"
-                    obj.ConnExec(mySql)
+                    Dim id as  Long = CustomReports.GetId(DatabasePath, reportName, _errOut)
+                    If Not CustomReports.Update(DatabasePath,id, reportName,objF.FC(Sql), _errOut ) Then Throw New Exception(_errOut)
                     MsgBox("The Report was Updated!")
                 Else
                     MsgBox("Save Aborted!")
                 End If
-            Else
-                mySql = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & reportName & "','" &
-                            Replace(Sql, "'", "''") & "','" & Now & "',Now())"
-                obj.ConnExec(mySql)
+            Else 
+                If Not CustomReports.Add(DatabasePath, reportName, objF.FC(sql), _errOut) Then Throw New Exception(_errOut)
                 MsgBox("The Report was Saved!")
             End If
+
+            'If objGf.ObjectExistsinDB(reportName, "ReportName", "CR_SavedReports") Then
+            '    Dim sAns As String = MsgBox("Report Name """ & reportName & """ already exists in the database!" & Chr(10) & "Do you wish to overwrite existing report?", MsgBoxStyle.YesNo, Text)
+            '    If sAns = vbYes Then
+            '        mySql = "UPDATE CR_SavedReports set MySQL='" & Replace(Sql, "'", "''") & "',sync_lastupdate=Now() where ReportName='" & reportName & "'"
+            '        obj.ConnExec(mySql)
+            '        MsgBox("The Report was Updated!")
+            '    Else
+            '        MsgBox("Save Aborted!")
+            '    End If
+            'Else
+            '    mySql = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & reportName & "','" &
+            '                Replace(Sql, "'", "''") & "','" & Now & "',Now())"
+            '    obj.ConnExec(mySql)
+            '    MsgBox("The Report was Saved!")
+            'End If
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton3.Click"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -206,7 +235,7 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ExcelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ExcelToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 1
-        SaveFileDialog1.Filter = $"Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
+        SaveFileDialog1.Filter = CustomReports.FileTypes
         SaveFileDialog1.Title = $"Export Data to Excel"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
@@ -220,7 +249,7 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub TXTToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles TXTToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 2
-        SaveFileDialog1.Filter = $"Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CVS File(*.cvs)|*.cvs"
+        SaveFileDialog1.Filter =CustomReports.FileTypes
         SaveFileDialog1.Title = $"Export Data to Text File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
@@ -234,7 +263,7 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub CVSToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CVSToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 5
-        SaveFileDialog1.Filter = $"Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
+        SaveFileDialog1.Filter =CustomReports.FileTypes
         SaveFileDialog1.Title = $"Export Data to CVS File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
@@ -248,7 +277,7 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub HTMLToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles HTMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 4
-        SaveFileDialog1.Filter = $"Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
+        SaveFileDialog1.Filter = CustomReports.FileTypes
         SaveFileDialog1.Title = $"Export Data to HTML File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
@@ -262,7 +291,7 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub XMLToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles XMLToolStripMenuItem.Click
         SaveFileDialog1.FilterIndex = 3
-        SaveFileDialog1.Filter = $"Excel File(*.xls)|*.xls|Text File(*.txt)|*.txt|XML File(*.xml)|*.xml|HTML File(*.html)|*.html|CSV File(*.csv)|*.csv"
+        SaveFileDialog1.Filter = CustomReports.FileTypes
         SaveFileDialog1.Title = $"Export Data to XML File"
         SaveFileDialog1.FileName = Replace(ReportName, " ", "_")
         If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
