@@ -1,5 +1,6 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Types
 ''TODO: Convert code from frmCR_SelectColumns #14
 
 ''' <summary>
@@ -8,6 +9,7 @@ Imports BSMyGunCollection.MGC
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_SelectColumns
+    Dim errOut as String
     ''' <summary>
     ''' The table name
     ''' </summary>
@@ -25,28 +27,28 @@ Public Class frmCR_SelectColumns
     ''' </summary>
     ''' <param name="DN">The dn.</param>
     ''' <returns>System.String.</returns>
-    Function GetColumnName(ByVal DN As String) As String
-        Dim sAns As String = ""
-        Try
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "SELECT col from CR_ColumnList where tid=" & TableID & " and DN='" & DN & "'"
-            Call Obj.ConnectDB()
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                sAns = RS("col")
-            End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetColumnName"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
+    'Function GetColumnName(ByVal DN As String) As String
+    '    Dim sAns As String = ""
+    '    Try
+    '        Dim Obj As New BSDatabase
+    '        Dim SQL As String = "SELECT col from CR_ColumnList where tid=" & TableID & " and DN='" & DN & "'"
+    '        Call Obj.ConnectDB()
+    '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+    '        Dim RS As OdbcDataReader
+    '        RS = CMD.ExecuteReader
+    '        While RS.Read
+    '            sAns = RS("col")
+    '        End While
+    '        RS.Close()
+    '        RS = Nothing
+    '        CMD = Nothing
+    '        Obj.CloseDB()
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "GetColumnName"
+    '        Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return sAns
+    'End Function
     ''' <summary>
     ''' Handles the Click event of the Button1 control.
     ''' </summary>
@@ -66,19 +68,25 @@ Public Class frmCR_SelectColumns
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_SelectColumns_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "Select * from CR_ColumnList where tid=" & TableID
-            Call Obj.ConnectDB()
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                CheckedListBox1.Items.Add(RS("DN"))
-            End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
+            'Dim Obj As New BSDatabase
+            'Dim SQL As String = "Select * from CR_ColumnList where tid=" & TableID
+            'Call Obj.ConnectDB()
+            'Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+            'Dim RS As OdbcDataReader
+            'RS = CMD.ExecuteReader
+            'While RS.Read
+            '    CheckedListBox1.Items.Add(RS("DN"))
+            'End While
+            'RS.Close()
+            'RS = Nothing
+            'CMD = Nothing
+            'Obj.CloseDB()
+
+            dim myList as List(Of ColumnLists) = BurnSoft.Applications.MGC.Reports.ColumnList.GetList(DatabasePath, TableID, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            For Each o As ColumnLists In myList
+                CheckedListBox1.Items.Add(o.DisplayName)
+            Next
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -97,7 +105,9 @@ Public Class frmCR_SelectColumns
             Dim i As Integer = 0
             For i = 0 To CheckedListBox1.CheckedItems.Count - 1
                 DisplayName = CheckedListBox1.CheckedItems(i)
-                strColumn = GetColumnName(DisplayName)
+                'strColumn = GetColumnName(DisplayName)
+                strColumn = BurnSoft.Applications.MGC.Reports.ColumnList.GetColumnName(DatabasePath, TableID, DisplayName, errOut)
+                If errOut.Length > 0 Then Throw New Exception(errOut)
                 If i = 0 Then
                     If DisplayName = strColumn Then
                         sAns &= strColumn & " "
