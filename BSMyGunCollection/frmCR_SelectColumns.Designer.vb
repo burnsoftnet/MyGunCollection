@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmCR_SelectColumns
+Partial Class FrmCrSelectColumns
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class frmCR_SelectColumns
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmCR_SelectColumns))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmCrSelectColumns))
         Me.txtSQL = New TextBox
         Me.btnGetData = New Button
         Me.CheckedListBox1 = New CheckedListBox
@@ -125,7 +125,7 @@ Partial Class frmCR_SelectColumns
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmCR_SelectColumns"
+        Me.Name = "FrmCrSelectColumns"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Custom Report Builder - Select Columns"
         CType(Me.BindingSource1, ISupportInitialize).EndInit()
