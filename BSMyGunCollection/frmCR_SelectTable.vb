@@ -1,11 +1,12 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Reports
 ''' <summary>
 ''' Class frmCR_SelectTable.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmCR_SelectTable
+Public Class FrmCrSelectTable
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -13,13 +14,13 @@ Public Class frmCR_SelectTable
     ''' <summary>
     ''' Gets the name of the table.
     ''' </summary>
-    ''' <param name="TID">The tid.</param>
+    ''' <param name="tid">The tid.</param>
     ''' <returns>System.String.</returns>
-    Function GetTableName(ByVal TID As Long) As String
+    Function GetTableName(ByVal tid As Long) As String
         Dim sAns As String = ""
         Try
             Dim Obj As New BSDatabase
-            Dim SQL As String = "SELECT * from CR_TableList where id=" & TID
+            Dim SQL As String = "SELECT * from CR_TableList where id=" & tid
             Call Obj.ConnectDB()
             Dim CMD As New OdbcCommand(SQL, Obj.Conn)
             Dim RS As OdbcDataReader
@@ -44,8 +45,8 @@ Public Class frmCR_SelectTable
         Try
             CR_SavedReportsTableAdapter.Fill(MGCDataSet.CR_SavedReports)
             CR_TableListTableAdapter.Fill(MGCDataSet.CR_TableList)
-            Dim ObjGF As New GlobalFunctions
-            If ObjGF.ObjectExistsinDB("CR_SavedReports") Then
+            Dim objGf As New GlobalFunctions
+            If objGf.ObjectExistsinDB("CR_SavedReports") Then
                 Height = 157
             Else
                 Height = 102
@@ -75,12 +76,13 @@ Public Class frmCR_SelectTable
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnNext_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNext.Click
         Try
-            Dim TID As Long = ComboBox1.SelectedValue
-            Dim TName As String = ComboBox1.Text
+            Dim tid As Long = ComboBox1.SelectedValue
+' ReSharper disable once LocalVariableHidesMember
+            Dim name As String = ComboBox1.Text
             Dim frmNew As New FrmCrSelectColumns
-            frmNew.TableId = TID
-            frmNew.TableName = TName
-            frmNew.TableRealName = GetTableName(TID)
+            frmNew.TableId = tid
+            frmNew.TableName = name
+            frmNew.TableRealName = GetTableName(tid)
             frmNew.MdiParent = MdiParent
             frmNew.Show()
             Close()
@@ -96,13 +98,13 @@ Public Class frmCR_SelectTable
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnLoadSaved_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLoadSaved.Click
         Try
-            Dim SRID As Long = ComboBox2.SelectedValue
-            Dim ReportName As String = ComboBox2.Text
-            Dim ObjGF As New GlobalFunctions
-            Dim SQL As String = ObjGF.GetReportSQL(SRID)
+            Dim srid As Long = ComboBox2.SelectedValue
+            Dim reportName As String = ComboBox2.Text
+            Dim objGf As New GlobalFunctions
+            Dim sql As String = objGf.GetReportSQL(srid)
             Dim frmnew As New FrmCrViewReport
-            frmnew.Sql = Replace(SQL, "''", "'")
-            frmnew.ReportName = ReportName
+            frmnew.Sql = Replace(sql, "''", "'")
+            frmnew.ReportName = reportName
             frmnew.MdiParent = MdiParent
             frmnew.Show()
         Catch ex As Exception
@@ -126,7 +128,7 @@ Public Class frmCR_SelectTable
                 'Dim Obj As New BSDatabase
                 'Obj.ConnExec(SQL)
                 'Obj = Nothing
-                If Not BurnSoft.Applications.MGC.Reports.CustomReports.Delete(DatabasePath, Convert.ToInt32(selectedValue), errOut) Then Throw New Exception(errOut)
+                If Not CustomReports.Delete(DatabasePath, Convert.ToInt32(selectedValue), errOut) Then Throw New Exception(errOut)
                 MsgBox("Report was deleted")
                 Call LoadData()
             End If

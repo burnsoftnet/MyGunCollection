@@ -970,7 +970,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub CustomReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CustomReportToolStripMenuItem.Click
-        Dim frmNew As New frmCR_SelectTable
+        Dim frmNew As New FrmCrSelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -991,7 +991,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton12_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton12.Click
-        Dim frmNew As New frmCR_SelectTable
+        Dim frmNew As New FrmCrSelectTable
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
