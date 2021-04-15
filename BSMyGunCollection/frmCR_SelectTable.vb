@@ -74,7 +74,7 @@ Public Class frmCR_SelectTable
             Dim TID As Long = ComboBox1.SelectedValue
             Dim TName As String = ComboBox1.Text
             Dim frmNew As New frmCR_SelectColumns
-            frmNew.TableID = TID
+            frmNew.TableId = TID
             frmNew.TableName = TName
             frmNew.TableRealName = GetTableName(TID)
             frmNew.MdiParent = Me.MdiParent
