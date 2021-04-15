@@ -186,12 +186,8 @@ Public Class FrmCrViewReport
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton3.Click
         Try
-' ReSharper disable LocalVariableHidesMember
+' ReSharper disable once LocalVariableHidesMember
             Dim reportName As String = TextBox1.Text
-' ReSharper restore LocalVariableHidesMember
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
-            'Dim mySql As String 
             Dim  objF as BSOtherObjects = New BSOtherObjects()
 
             If CustomReports.Exists(DatabasePath, reportName, _errOut) Then
@@ -207,22 +203,6 @@ Public Class FrmCrViewReport
                 If Not CustomReports.Add(DatabasePath, reportName, objF.FC(sql), _errOut) Then Throw New Exception(_errOut)
                 MsgBox("The Report was Saved!")
             End If
-
-            'If objGf.ObjectExistsinDB(reportName, "ReportName", "CR_SavedReports") Then
-            '    Dim sAns As String = MsgBox("Report Name """ & reportName & """ already exists in the database!" & Chr(10) & "Do you wish to overwrite existing report?", MsgBoxStyle.YesNo, Text)
-            '    If sAns = vbYes Then
-            '        mySql = "UPDATE CR_SavedReports set MySQL='" & Replace(Sql, "'", "''") & "',sync_lastupdate=Now() where ReportName='" & reportName & "'"
-            '        obj.ConnExec(mySql)
-            '        MsgBox("The Report was Updated!")
-            '    Else
-            '        MsgBox("Save Aborted!")
-            '    End If
-            'Else
-            '    mySql = "INSERT INTO CR_SavedReports (ReportName,MySQL,DTC,sync_lastupdate) VALUES('" & reportName & "','" &
-            '                Replace(Sql, "'", "''") & "','" & Now & "',Now())"
-            '    obj.ConnExec(mySql)
-            '    MsgBox("The Report was Saved!")
-            'End If
         Catch ex As Exception
             Dim sSubFunc As String = "ToolStripButton3.Click"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
