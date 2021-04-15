@@ -7,6 +7,10 @@ Imports System.Data.Odbc
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_SelectTable
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut As String
+    ''' <summary>
     ''' Gets the name of the table.
     ''' </summary>
     ''' <param name="TID">The tid.</param>
@@ -118,10 +122,11 @@ Public Class frmCR_SelectTable
             Dim selectedValue As String = ComboBox2.SelectedValue
             Dim sAns As String = MsgBox("Are you sure you want to delete " & selectedName & " Report?", MsgBoxStyle.YesNo, "Delete Custom Report")
             If sAns = vbYes Then
-                Dim SQL As String = "delete from CR_SavedReports where ID=" & selectedValue
-                Dim Obj As New BSDatabase
-                Obj.ConnExec(SQL)
-                Obj = Nothing
+                'Dim SQL As String = "delete from CR_SavedReports where ID=" & selectedValue
+                'Dim Obj As New BSDatabase
+                'Obj.ConnExec(SQL)
+                'Obj = Nothing
+                If Not BurnSoft.Applications.MGC.Reports.CustomReports.Delete(DatabasePath, Convert.ToInt32(selectedValue), errOut) Then Throw New Exception(errOut)
                 MsgBox("Report was deleted")
                 Call LoadData()
             End If
