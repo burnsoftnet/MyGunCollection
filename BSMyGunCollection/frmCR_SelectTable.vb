@@ -1,5 +1,4 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Reports
 ''' <summary>
 ''' Class frmCR_SelectTable.
@@ -10,34 +9,8 @@ Public Class FrmCrSelectTable
     ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim errOut As String
-    ''' <summary>
-    ''' Gets the name of the table.
-    ''' </summary>
-    ''' <param name="tid">The tid.</param>
-    ''' <returns>System.String.</returns>
-    Function GetTableName(ByVal tid As Long) As String
-        Dim sAns As String = ""
-        Try
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "SELECT * from CR_TableList where id=" & tid
-            Call Obj.ConnectDB()
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                sAns = RS("Tables")
-            End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetTableName"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
+    Dim _errOut As String
+
     ''' <summary>
     ''' Load the combo boxes from the datasets and resize the for if it does or doesn't have any saved reports.
     ''' </summary>
@@ -45,8 +18,7 @@ Public Class FrmCrSelectTable
         Try
             CR_SavedReportsTableAdapter.Fill(MGCDataSet.CR_SavedReports)
             CR_TableListTableAdapter.Fill(MGCDataSet.CR_TableList)
-            Dim objGf As New GlobalFunctions
-            If objGf.ObjectExistsinDB("CR_SavedReports") Then
+            If CustomReports.HasSavedReports(DatabasePath, _errOut) Then
                 Height = 157
             Else
                 Height = 102
@@ -82,7 +54,7 @@ Public Class FrmCrSelectTable
             Dim frmNew As New FrmCrSelectColumns
             frmNew.TableId = tid
             frmNew.TableName = name
-            frmNew.TableRealName = GetTableName(tid)
+            frmNew.TableRealName = TableList.GetTableName(DatabasePath, tid, _errOut)
             frmNew.MdiParent = MdiParent
             frmNew.Show()
             Close()
@@ -120,15 +92,12 @@ Public Class FrmCrSelectTable
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
+            ''TODO Is this still relevant?
             Dim selectedName As String = ComboBox2.SelectedText
             Dim selectedValue As String = ComboBox2.SelectedValue
             Dim sAns As String = MsgBox("Are you sure you want to delete " & selectedName & " Report?", MsgBoxStyle.YesNo, "Delete Custom Report")
             If sAns = vbYes Then
-                'Dim SQL As String = "delete from CR_SavedReports where ID=" & selectedValue
-                'Dim Obj As New BSDatabase
-                'Obj.ConnExec(SQL)
-                'Obj = Nothing
-                If Not CustomReports.Delete(DatabasePath, Convert.ToInt32(selectedValue), errOut) Then Throw New Exception(errOut)
+                If Not CustomReports.Delete(DatabasePath, Convert.ToInt32(selectedValue), _errOut) Then Throw New Exception(_errOut)
                 MsgBox("Report was deleted")
                 Call LoadData()
             End If
