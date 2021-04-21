@@ -1,8 +1,4 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC
-
-''TODO: Clean up code
 
 ''' <summary>
 ''' Class frmDBCleanup.
@@ -15,9 +11,9 @@ Public Class FrmDbCleanup
     ''' </summary>
     Public I As Integer = 0
     ''' <summary>
-    ''' 
+    ''' The err container
     ''' </summary>
-    Dim errOut as String = ""
+    Dim _errOut as String = ""
     ''' <summary>
     ''' Handles the SelectedIndexChanged event of the cbActionList control.
     ''' </summary>
@@ -33,103 +29,25 @@ Public Class FrmDbCleanup
             End If
         End If
     End Sub
-    ''' <summary>
-    ''' the Data is related.
-    ''' </summary>
-    ''' <param name="strSql">The string SQL.</param>
-    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-    'Function DataIsRelated(ByVal strSql As String) As Boolean
-    '    Dim bAns As Boolean = False
-    '    Try
-    '        Dim obj As New BSDatabase
-    '        Call obj.ConnectDB()
-    '        Dim cmd As New OdbcCommand(strSql, obj.Conn)
-    '        Dim rs As OdbcDataReader
-    '        rs = cmd.ExecuteReader
-    '        bAns = rs.HasRows
-    '        rs.Close()
-
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "DataIsRelated"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    '    Return bAns
-    'End Function
+   
     ''' <summary>
     ''' Kills the data.
     ''' </summary>
     ''' <param name="strTable">The string table.</param>
     Sub KillData(ByVal strTable As String)
-        'Dim obj As New BSDatabase
-        'Dim sql As String = "DELETE from " & strTable
-        'Call obj.ConnExec(sql)Try  
         Try 
-            If Not BurnSoft.Applications.MGC.DatabaseCleanUp.KillData(DatabasePath, strTable, errOut ) Then Throw New Exception(errOut)
+            If Not DatabaseCleanUp.KillData(DatabasePath, strTable, _errOut ) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "KillData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
-    ''' Existsins the collection.
-    ''' </summary>
-    ''' <param name="strId">The string identifier.</param>
-    ''' <param name="strColumn">The string column.</param>
-    ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-    'Function ExistsinCollection(ByVal strId As String, ByVal strColumn As String) As Boolean
-    '    Dim bAns As Boolean = False
-    '    Try
-    '        Dim sql As String = "SELECT * from Gun_Collection where " & strColumn & "=" & strId
-    '        Dim obj As New BSDatabase
-    '        Call obj.ConnectDB()
-    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
-    '        Dim rs As OdbcDataReader
-    '        rs = cmd.ExecuteReader
-    '        bAns = rs.HasRows
-    '        rs.Close()
-    '        obj.CloseDB()
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "ExistsinCollection"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    '    Return bAns
-    'End Function
-    ''' <summary>
-    ''' Deletes the record.
-    ''' </summary>
-    ''' <param name="strTable">The string table.</param>
-    ''' <param name="strId">The string identifier.</param>
-    'Sub DELETE_RECORD(ByVal strTable As String, ByVal strId As String)
-    '    Dim sql As String = "DELETE from " & strTable & " where ID=" & strId
-    '    Dim obj As New BSDatabase
-    '    obj.ConnExec(sql)
-    'End Sub
-    ''' <summary>
     ''' Clears the grip types.
     ''' </summary>
     Sub ClearGripTypes()
         Try
-            If Not DatabaseCleanUp.ClearGripTypes(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_GripType"
-            'Dim strCollectionId As String = "GripID"
-            'Dim strId As String 
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearGripTypes(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearGripTypes"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -140,27 +58,7 @@ Public Class FrmDbCleanup
     ''' </summary>
     Sub ClearBuyerList()
         Try
-            If Not DatabaseCleanUp.ClearBuyerList(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_Collection_SoldTo"
-            'Dim strCollectionId As String = "BID"
-            'Dim strId As String 
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearBuyerList(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearBuyerList"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -171,27 +69,7 @@ Public Class FrmDbCleanup
     ''' </summary>
     Sub ClearGunShopList()
         Try
-            If Not DatabaseCleanUp.ClearGunShopList(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_Shop_Details"
-            'Dim strCollectionId As String = "SID"
-            'Dim strId As String 
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearGunShopList(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearGunShopList"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -202,27 +80,7 @@ Public Class FrmDbCleanup
     ''' </summary>
     Sub ClearNationality()
         Try
-            If Not DatabaseCleanUp.ClearNationality(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_Nationality"
-            'Dim strCollectionId As String = "NatID"
-            'Dim strId As String 
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearNationality(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearNationality"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -233,27 +91,7 @@ Public Class FrmDbCleanup
     ''' </summary>
     Sub ClearModels()
         Try
-            If Not DatabaseCleanUp.ClearModels(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_Model"
-            'Dim strCollectionId As String = "ModelID"
-            'Dim strId As String
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearModels(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearModels"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -264,27 +102,7 @@ Public Class FrmDbCleanup
     ''' </summary>
     Sub ClearManufacturers()
         Try
-            If Not DatabaseCleanUp.ClearManufacturers(DatabasePath, errOut) Then Throw New Exception(errOut)
-            'Dim strTable As String = "Gun_Manufacturer"
-            'Dim strCollectionId As String = "MID"
-            'Dim strId As String 
-            'Dim sql As String = "SELECT " & strTable & ".*  from " & strTable & " Inner Join Gun_Collection on Gun_Collection." & strCollectionId & " =" & strTable & ".ID"
-            'If DataIsRelated(sql) Then
-            '    Dim obj As New BSDatabase
-            '    Call obj.ConnectDB()
-            '    sql = "SELECT ID from " & strTable
-            '    Dim cmd As New OdbcCommand(sql, obj.Conn)
-            '    Dim rs As OdbcDataReader
-            '    rs = cmd.ExecuteReader
-            '    While rs.Read()
-            '        strId = CStr(rs("ID"))
-            '        If Not ExistsinCollection(strId, strCollectionId) Then Call DELETE_RECORD(strTable, strId)
-            '    End While
-            '    rs.Close()
-            '    obj.CloseDB()
-            'Else
-            '    Call KillData(strTable)
-            'End If
+            If Not DatabaseCleanUp.ClearManufacturers(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "ClearManufacturers"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -294,7 +112,7 @@ Public Class FrmDbCleanup
     ''' Clears the collection.
     ''' </summary>
     Sub ClearCollection()
-        DatabaseCleanUp.ClearCollection(DatabasePath, errOut)
+        DatabaseCleanUp.ClearCollection(DatabasePath, _errOut)
         Call MDIParent1.RefreshCollection()
     End Sub
     ''' <summary>
@@ -384,15 +202,11 @@ Public Class FrmDbCleanup
     ''' </summary>
     ''' <param name="strMsg">The string MSG.</param>
     Sub AddToProgBar(ByVal strMsg As String)
-        'Try
         lblStatus.Text = strMsg
         lblStatus.Refresh()
         I = I + 1
         ProgressBar1.Value = I
         ProgressBar1.Refresh()
-        'Catch ex As Exception
-
-        'End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnStart control.
