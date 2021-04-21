@@ -242,7 +242,7 @@ Public Class FrmFirearmImagePicker
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Dim frmNew As New frmViewCollectionDetails
-        frmNew.ItemId = _firearmIdArray(_currentIndex)
+        frmNew.GunId = _firearmIdArray(_currentIndex)
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub

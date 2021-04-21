@@ -90,7 +90,7 @@ Public Class FrmSearchCollection
             Cursor = Cursors.WaitCursor
             Dim frmNew As New frmViewCollectionDetails
             frmNew.MdiParent = MdiParent
-            frmNew.ItemId = rowId
+            frmNew.GunId = rowId
             frmNew.Show()
             Cursor = Cursors.Arrow
         Catch ex As Exception
