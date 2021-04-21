@@ -2,7 +2,7 @@ Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC
 
-''TODO: 
+''TODO: Clean up code
 
 ''' <summary>
 ''' Class frmDBCleanup.
