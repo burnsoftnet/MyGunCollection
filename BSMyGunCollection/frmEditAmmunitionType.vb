@@ -1,5 +1,5 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 
 ''' <summary>
 ''' Edit the Ammunition Type
@@ -31,8 +31,9 @@ Public Class FrmEditAmmunitionType
         Try
             If UpdatePending Then
                 Gun_CalTableAdapter.Update(MGCDataSet.Gun_Cal)
-                Dim obj As New BSDatabase
-                obj.UpdateSyncDataTables("Gun_Cal")
+                Dim errOut As String = ""
+                Database.UpdateSyncDataTables(DatabasePath,"Gun_Cal", errOut)
+                If errOut.Length > 0 Then Throw New Exception(errOut)
                 UpdatePending = False
             End If
         Catch ex As Exception
