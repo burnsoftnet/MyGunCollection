@@ -1,8 +1,7 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
+'Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
-''TODO: Convert code from FrmEditBarrelSystem #18
 
 ''' <summary>
 ''' Class frmEditBarrelSystem.
@@ -25,7 +24,7 @@ Public Class FrmEditBarrelSystem
     ''' <summary>
     ''' Error container string
     ''' </summary>
-    Dim errOut as String
+    Dim _errOut as String
     ''' <summary>
     ''' Automatics the fill.
     ''' </summary>
@@ -40,6 +39,23 @@ Public Class FrmEditBarrelSystem
             'txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
             'txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
             'txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
+            txtCal.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.Gun.Cal(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtFeedSys.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.Feedsystem(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtSight.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.Sights(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtPetLoads.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.PetLoads(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtFinish.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.Finish(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtAction.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.Action(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtPurFrom.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.Gun.ShopDetails(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            txtSysType.AutoCompleteCustomSource =  BurnSoft.Applications.MGC.AutoFill.GunCollection.BarrelSysTypes(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
         Catch ex As Exception
             Dim sSubFunc As String = "AutoFill"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -51,7 +67,7 @@ Public Class FrmEditBarrelSystem
     Sub LoadData()
         txtRecieverName.Text = Recname
         Try
-            Dim lst As List(Of BarrelSystems) = BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.GetList(DatabasePath, Bid, errOut)
+            Dim lst As List(Of BarrelSystems) = BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.GetList(DatabasePath, Bid, _errOut)
 
             For Each o As BarrelSystems In lst
                 txtName.Text = Trim(o.ModelName)
