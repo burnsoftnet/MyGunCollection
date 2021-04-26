@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Types
 
 ''TODO: Convert code from FrmEditBarrelSystem #18
 
@@ -22,19 +23,23 @@ Public Class FrmEditBarrelSystem
     ''' </summary>
     Public Bid As Long
     ''' <summary>
+    ''' Error container string
+    ''' </summary>
+    Dim errOut as String
+    ''' <summary>
     ''' Automatics the fill.
     ''' </summary>
     Sub AutoFill()
         Try
-            Dim objAf As New AutoFillCollections
-            txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtFeedSys.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
-            txtSight.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
-            txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
-            txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
-            txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
-            txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
+            'Dim objAf As New AutoFillCollections
+            'txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
+            'txtFeedSys.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
+            'txtSight.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
+            'txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
+            'txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
+            'txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
+            'txtPurFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
+            'txtSysType.AutoCompleteCustomSource = objAf.Gun_Collection_BarrelSysTypes
         Catch ex As Exception
             Dim sSubFunc As String = "AutoFill"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -46,28 +51,45 @@ Public Class FrmEditBarrelSystem
     Sub LoadData()
         txtRecieverName.Text = Recname
         Try
-            Dim sql As String = "SELECT * from Gun_Collection_Ext where ID=" & Bid
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                txtName.Text = Trim(rs("ModelName"))
-                txtSysType.Text = Trim(rs("Type"))
-                txtCal.Text = Trim(rs("Caliber"))
-                txtBarLen.Text = Trim(rs("BarrelLength"))
-                txtOvLen.Text = Trim(rs("Height"))
-                txtFinish.Text = Trim(rs("Finish"))
-                txtAction.Text = Trim(rs("Action"))
-                txtFeedSys.Text = Trim(rs("Feedsystem"))
-                txtSight.Text = Trim(rs("Sights"))
-                txtPetLoads.Text = Trim(rs("PetLoads"))
-                txtPurPrice.Text = Trim(rs("PurchasedPrice"))
-                txtPurFrom.Text = Trim(rs("PurchasedFrom"))
-            End While
-            rs.Close()
-            obj.CloseDB()
+            Dim lst As List(Of BarrelSystems) = BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.GetList(DatabasePath, Bid, errOut)
+
+            For Each o As BarrelSystems In lst
+                txtName.Text = Trim(o.ModelName)
+                txtSysType.Text = Trim(o.ExtType)
+                txtCal.Text = Trim(o.Caliber)
+                txtBarLen.Text = Trim(o.BarrelLength)
+                txtOvLen.Text = Trim(o.Height)
+                txtFinish.Text = Trim(o.Finish)
+                txtAction.Text = Trim(o.Action)
+                txtFeedSys.Text = Trim(o.FeedSystem)
+                txtSight.Text = Trim(o.Sights)
+                txtPetLoads.Text = Trim(o.PetLoads)
+                txtPurPrice.Text = Trim(o.PurchasedPrice)
+                txtPurFrom.Text = Trim(o.PurchasedFrom)
+            Next
+
+            'Dim sql As String = "SELECT * from Gun_Collection_Ext where ID=" & Bid
+            'Dim obj As New BSDatabase
+            'Call obj.ConnectDB()
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'While rs.Read
+            '    txtName.Text = Trim(rs("ModelName"))
+            '    txtSysType.Text = Trim(rs("Type"))
+            '    txtCal.Text = Trim(rs("Caliber"))
+            '    txtBarLen.Text = Trim(rs("BarrelLength"))
+            '    txtOvLen.Text = Trim(rs("Height"))
+            '    txtFinish.Text = Trim(rs("Finish"))
+            '    txtAction.Text = Trim(rs("Action"))
+            '    txtFeedSys.Text = Trim(rs("Feedsystem"))
+            '    txtSight.Text = Trim(rs("Sights"))
+            '    txtPetLoads.Text = Trim(rs("PetLoads"))
+            '    txtPurPrice.Text = Trim(rs("PurchasedPrice"))
+            '    txtPurFrom.Text = Trim(rs("PurchasedFrom"))
+            'End While
+            'rs.Close()
+            'obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
