@@ -1,4 +1,4 @@
-Imports BSMyGunCollection.MGC
+'Imports BSMyGunCollection.MGC
 'Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
@@ -124,7 +124,7 @@ Public Class FrmEditBarrelSystem
     ''' </summary>
     Sub SaveData()
         Try
-            Dim obj As New BSDatabase
+            'Dim obj As New BSDatabase
             Dim sName As String = FluffContent(txtName.Text)
             Dim sysType As String = FluffContent(txtSysType.Text)
             Dim cal As String = FluffContent(txtCal.Text)
@@ -137,7 +137,7 @@ Public Class FrmEditBarrelSystem
             Dim petLoads As String = FluffContent(txtPetLoads.Text)
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
-            Dim sql As String 
+            'Dim sql As String 
 
             If Not IsRequired(sName, "Name", Text) Then Exit Sub
             If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
@@ -145,7 +145,7 @@ Public Class FrmEditBarrelSystem
             If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
             If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
 
-            'If Not BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits
+            If Not BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.Update(DatabasePath, Bid,Gid,sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom, ovalLen, sysType, _errOut ) Then Throw New Exception(_errOut)
 
             'sql = "UPDATE Gun_Collection_Ext set ModelName='" & sName & "',Caliber='" & cal &
             '        "',Finish='" & stockFinish & "',BarrelLength='" & barLen & "',PetLoads='" &
