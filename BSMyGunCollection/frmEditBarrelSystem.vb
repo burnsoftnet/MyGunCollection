@@ -145,13 +145,15 @@ Public Class FrmEditBarrelSystem
             If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
             If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
 
-            sql = "UPDATE Gun_Collection_Ext set ModelName='" & sName & "',Caliber='" & cal &
-                    "',Finish='" & stockFinish & "',BarrelLength='" & barLen & "',PetLoads='" &
-                    petLoads & "',Action='" & fAction & "',Feedsystem='" & feedSys & "',Sights='" &
-                    sights & "',PurchasedPrice='" & purPrice & "',PurchasedFrom='" & purFrom &
-                    "',Height='" & ovalLen & "',Type='" & sysType & "',sync_lastupdate=Now() where ID=" & Bid
+            'If Not BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits
 
-            obj.ConnExec(sql)
+            'sql = "UPDATE Gun_Collection_Ext set ModelName='" & sName & "',Caliber='" & cal &
+            '        "',Finish='" & stockFinish & "',BarrelLength='" & barLen & "',PetLoads='" &
+            '        petLoads & "',Action='" & fAction & "',Feedsystem='" & feedSys & "',Sights='" &
+            '        sights & "',PurchasedPrice='" & purPrice & "',PurchasedFrom='" & purFrom &
+            '        "',Height='" & ovalLen & "',Type='" & sysType & "',sync_lastupdate=Now() where ID=" & Bid
+
+            'obj.ConnExec(sql)
             MdiParent.Refresh()
             Close()
         Catch ex As Exception
