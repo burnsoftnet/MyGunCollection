@@ -1,5 +1,3 @@
-'Imports BSMyGunCollection.MGC
-'Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
 
