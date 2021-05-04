@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
 ''' Class frmEditMaintenance.
@@ -28,37 +29,48 @@ Public Class FrmEditMaintenance
     ''' </summary>
     Public Mid As Long
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut as String = ""
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
         Try
-            Dim obj As New BSDatabase
-            obj.ConnectDB()
-            Dim sql As String = "SELECT * from Maintance_Details where ID=" & Mid
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            Dim dc As Integer = 0
+            'Dim obj As New BSDatabase
+            'obj.ConnectDB()
+            'Dim sql As String = "SELECT * from Maintance_Details where ID=" & Mid
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'Dim dc As Integer = 0
             Dim maintId As Long
-            While rs.Read
-                maintId = rs("mpid")
-                Gid = rs("gid")
-                ComboBox1.SelectedValue = maintId
-                DateTimePicker1.Value = rs("opDate")
-                DateTimePicker2.Value = rs("OpDueDate")
-                NumericUpDown1.Value = rs("RndFired")
-                txtNotes.Text = rs("notes")
-                If Not IsDBNull(rs("au")) Then txtAmmoUsed.Text = rs("au")
-                If Not IsDBNull(rs("bsid")) Then Bsid = rs("bsid")
-                If Not IsDBNull(rs("dc")) Then dc = rs("dc")
-                If dc = 1 Then
-                    chkInAVG.Checked = True
-                Else
-                    chkInAVG.Checked = False
-                End If
-            End While
-            rs.Close()
-            obj.CloseDB()
+            'While rs.Read
+            '    maintId = rs("mpid")
+            '    Gid = rs("gid")
+            '    ComboBox1.SelectedValue = maintId
+            '    DateTimePicker1.Value = rs("opDate")
+            '    DateTimePicker2.Value = rs("OpDueDate")
+            '    NumericUpDown1.Value = rs("RndFired")
+            '    txtNotes.Text = rs("notes")
+            '    If Not IsDBNull(rs("au")) Then txtAmmoUsed.Text = rs("au")
+            '    If Not IsDBNull(rs("bsid")) Then Bsid = rs("bsid")
+            '    If Not IsDBNull(rs("dc")) Then dc = rs("dc")
+            '    If dc = 1 Then
+            '        chkInAVG.Checked = True
+            '    Else
+            '        chkInAVG.Checked = False
+            '    End If
+            'End While
+            'rs.Close()
+            'obj.CloseDB()
+            Dim lst As List(Of MaintanceDetailsList) = BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Lists(DatabasePath, Mid, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            For Each o As MaintanceDetailsList In lst 
+                maintId = o.Id
+                Gid = o.GunId
+                'ComboBox1.SelectedValue =
+            Next
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
