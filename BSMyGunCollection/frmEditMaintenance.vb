@@ -1,5 +1,5 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
+'Imports BSMyGunCollection.MGC
+'Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -31,7 +31,7 @@ Public Class FrmEditMaintenance
     ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim errOut as String = ""
+    Dim _errOut as String = ""
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
@@ -64,12 +64,19 @@ Public Class FrmEditMaintenance
             'End While
             'rs.Close()
             'obj.CloseDB()
-            Dim lst As List(Of MaintanceDetailsList) = BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Lists(DatabasePath, Mid, errOut)
-            If errOut.Length > 0 Then Throw New Exception(errOut)
+            Dim lst As List(Of MaintanceDetailsList) = BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Lists(DatabasePath, Mid, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each o As MaintanceDetailsList In lst 
-                maintId = o.Id
+                maintId = o.PlanId
                 Gid = o.GunId
-                'ComboBox1.SelectedValue =
+                ComboBox1.SelectedValue = maintId
+                DateTimePicker1.Value = o.OperationStartDate
+                DateTimePicker2.Value = o.OperationDueDate
+                NumericUpDown1.Value = o.RoundsFired
+                txtNotes.Text = o.Notes
+                txtAmmoUsed.Text = o.AmmoUsed
+                Bsid = o.BarrelSystemId
+                chkInAVG.Checked = o.DoesCount
             Next
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
@@ -128,18 +135,19 @@ Public Class FrmEditMaintenance
             Dim strOdDue As String = DateTimePicker2.Value
             Dim strOdrf As String = NumericUpDown1.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            Dim inAvg As Boolean = chkInAVG.Checked
+            'Dim inAvg As Boolean = chkInAVG.Checked
             Dim sAu As String = FluffContent(txtAmmoUsed.Text)
-            Dim iAvg As Integer = 0
-            If inAvg Then iAvg = 1
-            If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
-            Dim sql As String = "UPDATE Maintance_Details set gid=" & Gid & ",mpid=" & strId &
-                                ",Name='" & strName & "',OpDate='" & strOd & "',OpDueDate='" &
-                                strOdDue & "',RndFired='" & strOdrf & "',Notes='" & strNotes &
-                                "',au='" & sAu & "',BSID=" & Bsid & ",DC=" & iAvg & ",sync_lastupdate=Now() where ID=" &
-                                Mid
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
+            'Dim iAvg As Integer = 0
+            'If inAvg Then iAvg = 1
+            'If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
+            'Dim sql As String = "UPDATE Maintance_Details set gid=" & Gid & ",mpid=" & strId &
+            '                    ",Name='" & strName & "',OpDate='" & strOd & "',OpDueDate='" &
+            '                    strOdDue & "',RndFired='" & strOdrf & "',Notes='" & strNotes &
+            '                    "',au='" & sAu & "',BSID=" & Bsid & ",DC=" & iAvg & ",sync_lastupdate=Now() where ID=" &
+            '                    Mid
+            'Dim obj As New BSDatabase
+            'obj.ConnExec(sql)
+            If Not BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Update(DatabasePath, Mid, strName, Gid, strId, strOd,strOdDue, strOdrf, strNotes, sAu,Bsid, chkInAVG.Checked, _errOut) Then Throw New Exception(_errOut)
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
