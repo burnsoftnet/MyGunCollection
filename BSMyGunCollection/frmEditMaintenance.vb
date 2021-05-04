@@ -64,7 +64,7 @@ Public Class FrmEditMaintenance
             'End While
             'rs.Close()
             'obj.CloseDB()
-            Dim lst As List(Of MaintanceDetailsList) = BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Lists(DatabasePath, Mid, _errOut)
+            Dim lst As List(Of MaintanceDetailsList) = BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Lists(DatabasePath, CInt(Mid), _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each o As MaintanceDetailsList In lst 
                 maintId = o.PlanId
