@@ -1,5 +1,6 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
+
 ''' <summary>
 ''' Class FrmEditNationality.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -61,8 +62,8 @@ Public Class FrmEditNationality
         Try
             If UpdatePending Then
                 Gun_NationalityTableAdapter.Update(MGCDataSet.Gun_Nationality)
-                Dim obj As New BSDatabase
-                obj.UpdateSyncDataTables("Gun_Nationality")
+                Dim errOut As String = ""
+                Database.UpdateSyncDataTables(DatabasePath,"Gun_Nationality", errOut)
                 UpdatePending = False
             End If
         Catch ex As Exception

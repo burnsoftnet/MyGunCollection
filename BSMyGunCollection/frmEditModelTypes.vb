@@ -47,13 +47,10 @@ Public Class FrmEditModelTypes
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim manu As String = txtManufacturer.Text
-            Dim model As String = txtModel.Text
-            Dim objDb As New BSDatabase
-            Dim sql As String = "UPDATE Gun_Model set [Model]='" & model & "',sync_lastupdate=Now() where ID=" & ModelId
-            objDb.ConnExec(sql)
-            sql = "UPDATE Gun_Manufacturer set Brand='" & manu & "',sync_lastupdate=Now() where ID=" & ManufacturersId
-            objDb.ConnExec(sql)
+            Dim errOut as String = ""
+            If Not BurnSoft.Applications.MGC.Firearms.Models.Update(DatabasePath, ModelId, txtModel.Text, errOut) Then Throw New Exception(errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Update(DatabaseName, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
+
             frmEditModel.LoadData()
             Close()
         Catch ex As Exception

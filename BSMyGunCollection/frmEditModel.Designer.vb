@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmEditModel
+Partial Class FrmEditModel
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
