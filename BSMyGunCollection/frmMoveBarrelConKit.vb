@@ -1,5 +1,4 @@
-﻿Imports BSMyGunCollection.MGC
-''' <summary>
+﻿''' <summary>
 ''' Class FrmMoveBarrelConKit.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>

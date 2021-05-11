@@ -1,4 +1,6 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
+
 ''' <summary>
 ''' Class FrmSearchCollection.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -71,8 +73,8 @@ Public Class FrmSearchCollection
         Try
             Dim sql As String = "SELECT ID,FullName as [Full Name],Brand,ModelName as [Model],SerialNumber as [Serial No],Type,Caliber from qryGunCollectionDetails where " & _
                 BuildSearchString(cmbLookIn.Text) & " like'%" & txtLookFor.Text & "%'"
-            Dim obj As New BSDatabase
-            dgvResults.DataSource = obj.GetData(sql)
+            Dim errOut As String = ""
+            dgvResults.DataSource = Database.GetDataFromTable(DatabasePath, sql, errOut)
             dgvResults.Columns(0).Visible = False
             lblResults.Text = dgvResults.RowCount
             If dgvResults.RowCount = 1 Then Call ViewCollectionDetails()
