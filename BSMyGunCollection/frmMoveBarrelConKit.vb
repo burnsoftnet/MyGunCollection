@@ -26,13 +26,8 @@ Public Class FrmMoveBarrelConKit
         Try
             Dim gid As Long = cmbFirearm.SelectedValue
             Dim fullName As String = cmbFirearm.SelectedText
-            Dim obj As New BSDatabase
-            Dim sql As String = "Update Gun_Collection_Ext set GID=" & gid & " where id=" & BarrelId
-            obj.ConnExec(sql)
-            sql = "update Gun_Collection_Ext_Links set gid=" & gid & " where bsid=" & BarrelId
-            obj.ConnExec(sql)
-            sql = "UPDATE Maintance_Details set GID=" & gid & " where BSID=" & BarrelId
-            obj.ConnExec(sql)
+            Dim errOut As String = ""
+            If Not BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.Move(DatabasePath, GID, BarrelId, errOut) Then Throw New Exception(errOut)
             MsgBox("Barrel/Conversion Kit was moved to " & fullName)
             Close()
         Catch ex As Exception
