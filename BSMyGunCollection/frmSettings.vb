@@ -1,4 +1,3 @@
-Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Types
 Imports BurnSoft.Security.RegularEncryption.SHA
@@ -82,39 +81,6 @@ Public Class FrmSettings
     ''' </summary>
     Sub GetData()
         Try
-            'Dim obj As New BSDatabase
-            'Dim intUsePass As Integer
-            'Call obj.ConnectDB()
-            'Dim sql As String = "SELECT TOP 1 * from Owner_Info"
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'If rs.HasRows Then
-            '    rs.Read()
-            '    _recId = CInt(rs("ID"))
-            '    txtName.Text = Trim(rs("name"))
-            '    txtAddress.Text = Trim(One.Decrypt(rs("address")))
-            '    txtCity.Text = Trim(rs("City"))
-            '    txtState.Text = Trim(rs("State"))
-            '    txtZip.Text = Trim(rs("Zip"))
-            '    txtPhone.Text = Trim(rs("Phone"))
-            '    txtCCD.Text = Trim(One.Decrypt(rs("CCDWL")))
-            '    intUsePass = CInt(rs("UsePWD"))
-            '    If intUsePass = 1 Then
-            '        txtPWD.Text = Trim(One.Decrypt(rs("PWD")))
-            '        txtCPWD.Text = Trim(txtPWD.Text)
-            '        ChkPassword.Checked = True
-            '        txtLogin.Text = Trim(One.Decrypt(rs("UID")))
-            '        txtPhrase.Text = Trim(One.Decrypt(rs("forgot_phrase")))
-            '        txtWord.Text = Trim(One.Decrypt(rs("forgot_word")))
-            '    Else
-            '        ChkPassword.Checked = False
-            '    End If
-            'Else
-            '    _recId = 0
-            'End If
-            'rs.Close()
-            'obj.CloseDB()
             Dim lst as List(Of OwnerInfo) = BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.GetOwnerInfo(DatabasePath, _errOut)
             If _errOut.Length > 0 then Throw New Exception(_errOut)
             For Each o As OwnerInfo In lst
