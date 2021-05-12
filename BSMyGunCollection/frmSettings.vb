@@ -1,5 +1,6 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Types
 Imports BurnSoft.Security.RegularEncryption.SHA
 
 ''' <summary>
@@ -19,7 +20,7 @@ Public Class FrmSettings
     ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim errOut as String = ""
+    Dim _errOut as String = ""
     ''' <summary>
     ''' Handles the Load event of the frmSettings control.
     ''' </summary>
@@ -81,39 +82,59 @@ Public Class FrmSettings
     ''' </summary>
     Sub GetData()
         Try
-            Dim obj As New BSDatabase
-            Dim intUsePass As Integer
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT TOP 1 * from Owner_Info"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                rs.Read()
-                _recId = CInt(rs("ID"))
-                txtName.Text = Trim(rs("name"))
-                txtAddress.Text = Trim(One.Decrypt(rs("address")))
-                txtCity.Text = Trim(rs("City"))
-                txtState.Text = Trim(rs("State"))
-                txtZip.Text = Trim(rs("Zip"))
-                txtPhone.Text = Trim(rs("Phone"))
-                txtCCD.Text = Trim(One.Decrypt(rs("CCDWL")))
-                intUsePass = CInt(rs("UsePWD"))
-                If intUsePass = 1 Then
-                    txtPWD.Text = Trim(One.Decrypt(rs("PWD")))
-                    txtCPWD.Text = Trim(txtPWD.Text)
-                    ChkPassword.Checked = True
-                    txtLogin.Text = Trim(One.Decrypt(rs("UID")))
-                    txtPhrase.Text = Trim(One.Decrypt(rs("forgot_phrase")))
-                    txtWord.Text = Trim(One.Decrypt(rs("forgot_word")))
-                Else
-                    ChkPassword.Checked = False
+            'Dim obj As New BSDatabase
+            'Dim intUsePass As Integer
+            'Call obj.ConnectDB()
+            'Dim sql As String = "SELECT TOP 1 * from Owner_Info"
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'If rs.HasRows Then
+            '    rs.Read()
+            '    _recId = CInt(rs("ID"))
+            '    txtName.Text = Trim(rs("name"))
+            '    txtAddress.Text = Trim(One.Decrypt(rs("address")))
+            '    txtCity.Text = Trim(rs("City"))
+            '    txtState.Text = Trim(rs("State"))
+            '    txtZip.Text = Trim(rs("Zip"))
+            '    txtPhone.Text = Trim(rs("Phone"))
+            '    txtCCD.Text = Trim(One.Decrypt(rs("CCDWL")))
+            '    intUsePass = CInt(rs("UsePWD"))
+            '    If intUsePass = 1 Then
+            '        txtPWD.Text = Trim(One.Decrypt(rs("PWD")))
+            '        txtCPWD.Text = Trim(txtPWD.Text)
+            '        ChkPassword.Checked = True
+            '        txtLogin.Text = Trim(One.Decrypt(rs("UID")))
+            '        txtPhrase.Text = Trim(One.Decrypt(rs("forgot_phrase")))
+            '        txtWord.Text = Trim(One.Decrypt(rs("forgot_word")))
+            '    Else
+            '        ChkPassword.Checked = False
+            '    End If
+            'Else
+            '    _recId = 0
+            'End If
+            'rs.Close()
+            'obj.CloseDB()
+            Dim lst as List(Of OwnerInfo) = BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.GetOwnerInfo(DatabasePath, _errOut)
+            If _errOut.Length > 0 then Throw New Exception(_errOut)
+            For Each o As OwnerInfo In lst
+                _recId = o.Id
+                txtName.Text = o.Name
+                txtAddress.Text = o.Address
+                txtCity.Text = o.City
+                txtState.Text = o.State
+                txtZip.Text = o.ZipCode
+                txtPhone.Text = o.Phone
+                txtCCD.Text = One.Decrypt(o.Ccdwl)
+                ChkPassword.Checked = o.UsePassword
+                If o.UsePassword Then
+                    txtPWD.Text = One.Decrypt(o.Password)
+                    txtCPWD.Text = txtPWD.Text
+                    txtLogin.Text = One.Decrypt(o.UserName)
+                    txtPhrase.Text = One.Decrypt(o.ForgotPhrase)
+                    txtWord.Text = One.Decrypt(o.ForgotWord)
                 End If
-            Else
-                _recId = 0
-            End If
-            rs.Close()
-            obj.CloseDB()
+            Next
         Catch ex As Exception
             Dim sSubFunc As String = "GetData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -163,8 +184,6 @@ Public Class FrmSettings
             OwnerLic = txtCCD.Text
             If Len(strUid) = 0 Then strUid = "admin"
             strUid = One.Encrypt(FluffContent(strUid))
-            'Dim bUsePassword As Boolean = ChkPassword.Checked
-            'Dim iUsePassword As Integer = 0
 ' ReSharper disable VbUnreachableCode
             If Not IsRequired(strName, "Name", Text) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
@@ -180,24 +199,8 @@ Public Class FrmSettings
                     Exit Function
                 End If
             End If
-            ' ReSharper restore VbUnreachableCode
-            'If bUsePassword Then iUsePassword = 1
-            'Dim obj As New BSDatabase
-            'Dim sql As String
-            'If _recId = 0 Then
-            '    sql = "INSERT INTO Owner_Info(name,address,City,State,Zip,Phone,CCDWL,UsePWD,PWD,UID,forgot_word,forgot_phrase,sync_lastupdate) VALUES('" &
-            '                strName & "','" & strAddress & "','" & strCity & "','" & strState & "','" & strZipCode & "','" &
-            '                strPhone & "','" & strCcd & "'," & iUsePassword & ",'" & strPwd & "','" & strUid & "','" &
-            '                strWord & "','" & strPhrase & "',Now())"
-            'Else
-            '    sql = "UPDATE Owner_Info set Name='" & strName & "',address='" & strAddress & "',City='" &
-            '            strCity & "',Zip='" & strZipCode & "',State='" & strState & "',Phone='" & strPhone & "',CCDWL='" & strCcd &
-            '            "',UsePWD=" & iUsePassword & ",PWD='" & strPwd & "', UID='" & strUid & "', forgot_word='" &
-            '            strWord & "', forgot_phrase='" & strPhrase & "',sync_lastupdate=Now() where ID=" & _recId
-            'End If
-            'obj.ConnExec(sql)
             
-            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, errOut) Then Throw New Exception(errOut)
+            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
             Dim objGf As New GlobalFunctions
             If UseNumberCatOnly Then
                 Call objGf.SetCatalogType("num")
