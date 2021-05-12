@@ -120,7 +120,7 @@ Public Class FrmSettings
             For Each o As OwnerInfo In lst
                 _recId = o.Id
                 txtName.Text = o.Name
-                txtAddress.Text = o.Address
+                txtAddress.Text = One.Decrypt(o.Address)
                 txtCity.Text = o.City
                 txtState.Text = o.State
                 txtZip.Text = o.ZipCode
@@ -199,7 +199,6 @@ Public Class FrmSettings
                     Exit Function
                 End If
             End If
-            
             If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
             Dim objGf As New GlobalFunctions
             If UseNumberCatOnly Then
