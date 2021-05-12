@@ -17,6 +17,10 @@ Public Class FrmSettings
     ''' </summary>
     Dim _firstRun As Boolean
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut as String = ""
+    ''' <summary>
     ''' Handles the Load event of the frmSettings control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -159,8 +163,8 @@ Public Class FrmSettings
             OwnerLic = txtCCD.Text
             If Len(strUid) = 0 Then strUid = "admin"
             strUid = One.Encrypt(FluffContent(strUid))
-            Dim bUsePassword As Boolean = ChkPassword.Checked
-            Dim iUsePassword As Integer = 0
+            'Dim bUsePassword As Boolean = ChkPassword.Checked
+            'Dim iUsePassword As Integer = 0
 ' ReSharper disable VbUnreachableCode
             If Not IsRequired(strName, "Name", Text) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
@@ -169,7 +173,7 @@ Public Class FrmSettings
                 If Not IsRequired(txtPhrase.Text, "Forgot Phrase", Text) Then Return 1 : Exit Function
                 If Not IsRequired(txtWord.Text, "Forgot Key Word", Text) Then Return 1 : Exit Function
             End If
-            If bUsePassword Then
+            If ChkPassword.Checked Then
                 If InStr(strPwd, strCpwd, CompareMethod.Text) = 0 Then
                     MsgBox("Passwords do not match!", MsgBoxStyle.Critical, Text)
                     Return 1
@@ -177,21 +181,23 @@ Public Class FrmSettings
                 End If
             End If
             ' ReSharper restore VbUnreachableCode
-            If bUsePassword Then iUsePassword = 1
-            Dim obj As New BSDatabase
-            Dim sql As String
-            If _recId = 0 Then
-                sql = "INSERT INTO Owner_Info(name,address,City,State,Zip,Phone,CCDWL,UsePWD,PWD,UID,forgot_word,forgot_phrase,sync_lastupdate) VALUES('" &
-                            strName & "','" & strAddress & "','" & strCity & "','" & strState & "','" & strZipCode & "','" &
-                            strPhone & "','" & strCcd & "'," & iUsePassword & ",'" & strPwd & "','" & strUid & "','" &
-                            strWord & "','" & strPhrase & "',Now())"
-            Else
-                sql = "UPDATE Owner_Info set Name='" & strName & "',address='" & strAddress & "',City='" &
-                        strCity & "',Zip='" & strZipCode & "',State='" & strState & "',Phone='" & strPhone & "',CCDWL='" & strCcd &
-                        "',UsePWD=" & iUsePassword & ",PWD='" & strPwd & "', UID='" & strUid & "', forgot_word='" &
-                        strWord & "', forgot_phrase='" & strPhrase & "',sync_lastupdate=Now() where ID=" & _recId
-            End If
-            obj.ConnExec(sql)
+            'If bUsePassword Then iUsePassword = 1
+            'Dim obj As New BSDatabase
+            'Dim sql As String
+            'If _recId = 0 Then
+            '    sql = "INSERT INTO Owner_Info(name,address,City,State,Zip,Phone,CCDWL,UsePWD,PWD,UID,forgot_word,forgot_phrase,sync_lastupdate) VALUES('" &
+            '                strName & "','" & strAddress & "','" & strCity & "','" & strState & "','" & strZipCode & "','" &
+            '                strPhone & "','" & strCcd & "'," & iUsePassword & ",'" & strPwd & "','" & strUid & "','" &
+            '                strWord & "','" & strPhrase & "',Now())"
+            'Else
+            '    sql = "UPDATE Owner_Info set Name='" & strName & "',address='" & strAddress & "',City='" &
+            '            strCity & "',Zip='" & strZipCode & "',State='" & strState & "',Phone='" & strPhone & "',CCDWL='" & strCcd &
+            '            "',UsePWD=" & iUsePassword & ",PWD='" & strPwd & "', UID='" & strUid & "', forgot_word='" &
+            '            strWord & "', forgot_phrase='" & strPhrase & "',sync_lastupdate=Now() where ID=" & _recId
+            'End If
+            'obj.ConnExec(sql)
+            
+            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, errOut) Then Throw New Exception(errOut)
             Dim objGf As New GlobalFunctions
             If UseNumberCatOnly Then
                 Call objGf.SetCatalogType("num")
