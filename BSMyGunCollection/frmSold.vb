@@ -88,6 +88,7 @@ Public Class FrmSold
                                     strRes & "','" & strZip & "',Now())"
                 obj.ConnExec(sql)
             End If
+
             bid = objo.GetID("SELECT ID from Gun_Collection_SoldTo where Name='" & strName & "'")
             Dim uSql As String = "UPDATE Gun_Collection set ItemSold=1,BID=" & bid & ",dtSold='" & dtpSale.Value & "',AppraisedValue='" & sFinalPrice & "',sync_lastupdate=Now() where ID=" & ItemId
             obj.ConnExec(uSql)
