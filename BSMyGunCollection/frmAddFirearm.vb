@@ -1,6 +1,7 @@
 
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.AutoFill
 ''TODO: Convert code from FrmAddFirearm #13
 
 ''' <summary>
@@ -9,6 +10,10 @@ Imports BSMyGunCollection.MGC
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddFirearm
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    Dim _errOut as String
     ''' <summary>
     ''' The is copy
     ''' </summary>
@@ -116,31 +121,29 @@ Public Class FrmAddFirearm
     ''' </summary>
     Private Sub DoAutoFill()
         Try
-            ''TODO #43 Conver to library
-            Dim objAf As New AutoFillCollections
-            txtType.DataSource = objAf.Gun_Type
-            txtType.AutoCompleteCustomSource = objAf.Gun_Type
-            txtManu.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
-            txtModel.AutoCompleteCustomSource = objAf.Gun_Model
-            txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtNationality.AutoCompleteCustomSource = objAf.Gun_Nationality
-            txtPurchasedFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
-            txtGripType.AutoCompleteCustomSource = objAf.Gun_GripType
-            txtAction.DataSource = objAf.Gun_Collection_Action
-            txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
-            txtStorage.DataSource = objAf.Gun_Collection_StorageLocation
-            txtStorage.AutoCompleteCustomSource = objAf.Gun_Collection_StorageLocation
-            txtCustCatID.AutoCompleteCustomSource = objAf.Gun_Collection_CustomID
-            txtFeed.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
-            txtSights.DataSource = objAf.Gun_Collection_Sights
-            txtSights.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
-            txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
-            txtImporter.AutoCompleteCustomSource = objAf.Gun_Collection_Importer
-            txtAppBy.AutoCompleteCustomSource = objAf.Appraisers_Name
-            txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtCaliber3.AutoCompleteCustomSource = objAf.Gun_Cal
-            txtClassIIIOwner.AutoCompleteCustomSource = objAf.Gun_Collection_ClassIIIOwner
+            txtType.DataSource = Gun.Type(DatabasePath, _errOut)
+            txtType.AutoCompleteCustomSource = Gun.Type(DatabasePath, _errOut)
+            txtManu.AutoCompleteCustomSource = Gun.Manufacturer(DatabasePath, _errOut)
+            txtModel.AutoCompleteCustomSource = Gun.Model(DatabasePath, _errOut)
+            txtCal.AutoCompleteCustomSource = Gun.Cal(DatabasePath, _errOut)
+            txtNationality.AutoCompleteCustomSource = Gun.Nationality(DatabasePath, _errOut)
+            txtPurchasedFrom.AutoCompleteCustomSource = Gun.ShopDetails(DatabasePath, _errOut)
+            txtGripType.AutoCompleteCustomSource = Gun.GripType(DatabasePath, _errOut)
+            txtAction.DataSource = GunCollection.Action(DatabasePath, _errOut)
+            txtAction.AutoCompleteCustomSource = GunCollection.Action(DatabasePath, _errOut)
+            txtStorage.DataSource = GunCollection.StorageLocation(DatabasePath, _errOut)
+            txtStorage.AutoCompleteCustomSource = GunCollection.StorageLocation(DatabasePath, _errOut)
+            txtCustCatID.AutoCompleteCustomSource = GunCollection.CustomId(DatabasePath, _errOut)
+            txtFeed.AutoCompleteCustomSource = GunCollection.Feedsystem(DatabasePath, _errOut)
+            txtSights.DataSource = GunCollection.Sights(DatabasePath, _errOut)
+            txtSights.AutoCompleteCustomSource = GunCollection.Sights(DatabasePath, _errOut)
+            txtPetLoads.AutoCompleteCustomSource = Gun.Cal(DatabasePath, _errOut)
+            txtFinish.AutoCompleteCustomSource = GunCollection.Finish(DatabasePath, _errOut)
+            txtImporter.AutoCompleteCustomSource = GunCollection.Importer(DatabasePath, _errOut)
+            txtAppBy.AutoCompleteCustomSource = Appraisers.Name(DatabasePath, _errOut)
+            txtPetLoads.AutoCompleteCustomSource = Gun.Cal(DatabasePath, _errOut)
+            txtCaliber3.AutoCompleteCustomSource = Gun.Cal(DatabasePath, _errOut)
+            txtClassIIIOwner.AutoCompleteCustomSource = GunCollection.ClassIII_owner(DatabasePath, _errOut)
 
             txtType.Text = ""
             txtAction.Text = ""
