@@ -516,14 +516,15 @@ Namespace MGC
             End Try
             Return Table
         End Function
-        ''' <summary>
-        ''' Updates the synchronize data tables.
-        ''' </summary>
-        ''' <param name="sTable">The s table.</param>
-        Public Sub UpdateSyncDataTables(ByVal sTable As String)
-            Dim SQL As String = "UPDATE " & sTable & " set sync_lastupdate=Now()"
-            If Len(sTable) > 0 Then Call ConnExec(SQL)
-        End Sub
+        ''TODO #48 Clean up Code
+        '''' <summary>
+        '''' Updates the synchronize data tables.
+        '''' </summary>
+        '''' <param name="sTable">The s table.</param>
+        'Public Sub UpdateSyncDataTables(ByVal sTable As String)
+        '    Dim SQL As String = "UPDATE " & sTable & " set sync_lastupdate=Now()"
+        '    If Len(sTable) > 0 Then Call ConnExec(SQL)
+        'End Sub
         ''' <summary>
         ''' Creates new contact.
         ''' </summary>
@@ -637,40 +638,42 @@ Namespace MGC
         Public Function Gun_Model() As AutoCompleteStringCollection
             Return MainCollection("Model", "Gun_Model")
         End Function
+
+        ''TODO #48 Clean up Code
         ''' <summary>
         ''' Guns the model by man.
         ''' </summary>
         ''' <param name="strMan">The string man.</param>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Model_ByMan(ByVal strMan As String) As AutoCompleteStringCollection
-            Dim iCol As New AutoCompleteStringCollection
-            Try
-                'Dim ArrList As New ArrayList
-                Dim ObjGF As New GlobalFunctions
-                Dim ManID As Long = ObjGF.GetManufacturersID(strMan)
-                Dim SQL As String = "SELECT Model from Gun_Model where GMID=" & ManID & " order by Model ASC"
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                iCol.Clear()
-                If RS.HasRows Then
-                    While (RS.Read())
-                        If Not IsDBNull(RS("Model")) Then iCol.Add(RS("Model"))
-                    End While
-                Else
-                    iCol.Add("N/A")
-                End If
-                RS.Close()
-                CMD = Nothing
-                Call Obj.CloseDB()
-            Catch ex As Exception
-                Dim sSubFunc As String = "Gun_Model_ByMan"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return iCol
-        End Function
+        'Public Function Gun_Model_ByMan(ByVal strMan As String) As AutoCompleteStringCollection
+        '    Dim iCol As New AutoCompleteStringCollection
+        '    Try
+        '        'Dim ArrList As New ArrayList
+        '        Dim ObjGF As New GlobalFunctions
+        '        Dim ManID As Long = ObjGF.GetManufacturersID(strMan)
+        '        Dim SQL As String = "SELECT Model from Gun_Model where GMID=" & ManID & " order by Model ASC"
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        iCol.Clear()
+        '        If RS.HasRows Then
+        '            While (RS.Read())
+        '                If Not IsDBNull(RS("Model")) Then iCol.Add(RS("Model"))
+        '            End While
+        '        Else
+        '            iCol.Add("N/A")
+        '        End If
+        '        RS.Close()
+        '        CMD = Nothing
+        '        Call Obj.CloseDB()
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "Gun_Model_ByMan"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return iCol
+        'End Function
         ''' <summary>
         ''' Documents the category.
         ''' </summary>
@@ -719,48 +722,49 @@ Namespace MGC
         Public Function Gun_Type() As AutoCompleteStringCollection
             Return MainCollection("Type", "Gun_Type")
         End Function
+        ''TODO #48 Clean up Code
         ''' <summary>
         ''' Ammo's the manufacturer.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Ammo_Manufacturer() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Ammo")
-        End Function
+        'Public Function Ammo_Manufacturer() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Ammo")
+        'End Function
         ''' <summary>
         ''' Ammo's the name.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Ammo_Name() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Name", "Gun_Collection_Ammo")
-        End Function
+        'Public Function Ammo_Name() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Name", "Gun_Collection_Ammo")
+        'End Function
         ''' <summary>
         ''' Ammo's the cal.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Ammo_Cal() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Cal", "Gun_Collection_Ammo")
-        End Function
+        'Public Function Ammo_Cal() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Cal", "Gun_Collection_Ammo")
+        'End Function
         ''' <summary>
         ''' Ammo's the grain.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Ammo_Grain() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Grain", "Gun_Collection_Ammo")
-        End Function
+        'Public Function Ammo_Grain() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Grain", "Gun_Collection_Ammo")
+        'End Function
         ''' <summary>
         ''' Ammo's the jacket.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Ammo_Jacket() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Jacket", "Gun_Collection_Ammo")
-        End Function
+        'Public Function Ammo_Jacket() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Jacket", "Gun_Collection_Ammo")
+        'End Function
         ''' <summary>
         ''' Accessories the manufacturer.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Accessory_Manufacturer() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Accessories")
-        End Function
+        'Public Function Accessory_Manufacturer() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Manufacturer", "Gun_Collection_Accessories")
+        'End Function
         ''' <summary>
         ''' Accessories the model.
         ''' </summary>
