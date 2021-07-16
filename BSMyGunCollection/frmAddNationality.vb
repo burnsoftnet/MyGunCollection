@@ -1,7 +1,3 @@
-Imports BSMyGunCollection.MGC
-''TODO:  Replace code from FrmAddNationality #6
-
-
 ''' <summary>
 ''' Class frmAddNationality.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -29,11 +25,9 @@ Public Class FrmAddNationality
         Try
             Dim strName As String = FluffContent(txtName.Text)
             If Not IsRequired(strName, "Region", Text) Then Exit Sub
-            Dim objGf As New GlobalFunctions
-            If Not objGf.ObjectExistsinDB(strName, "Country", "Gun_Nationality") Then
-                Dim obj As New BSDatabase
-                Dim sql As String = "INSERT INTO Gun_Nationality(Country,sync_lastupdate) VALUES('" & strName & "',Now())"
-                obj.ConnExec(sql)
+            
+            If Not BurnSoft.Applications.MGC.Database.DataExists(DatabasePath, $"Select * from Gun_Nationality where Country='{strName}'", _errOut) Then
+                If Not BurnSoft.Applications.MGC.Firearms.Nationality.Add(DatabasePath,strName, _errOut ) Then Throw New Exception(_errOut)
                 lblMsg.Text = strName & $" was added to the database!"
             Else
                 lblMsg.Text = strName & $" already exists in the database!"
