@@ -23,17 +23,17 @@ Public Class FrmEditGunSmithLog
     ''' <summary>
     ''' Pres the load.
     ''' </summary>
-    Sub PreLoad()
-        Try
-            ''TODO #48 Clean up Code
-            'Dim objAf As New AutoFillCollections
-            'txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
-            txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, errOut)
-        Catch ex As Exception
-            Dim sSubFunc As String = "PreLoad"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-    End Sub
+    'Sub PreLoad()
+    '    Try
+    '        ''TODO #48 Clean up Code
+    '        'Dim objAf As New AutoFillCollections
+    '        'txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
+    '        txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, errOut)
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "PreLoad"
+    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    'End Sub
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
