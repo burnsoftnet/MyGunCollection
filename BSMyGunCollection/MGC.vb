@@ -1693,18 +1693,18 @@ Namespace MGC
             sAns = GetName("SELECT * from CR_SavedReports where id=" & RID, "MySQL")
             Return sAns
         End Function
-        ''' <summary>
-        ''' Formats from XML.
-        ''' </summary>
-        ''' <param name="sValue">The s value.</param>
-        ''' <returns>System.String.</returns>
-        Function FormatFromXML(ByVal sValue As String) As String
-            Dim sAns As String = ""
-            sAns = Replace(sValue, "&amp;", "&")
-            sAns = Replace(sAns, "'", "''")
-            If Len(sAns) = 0 Then sAns = "   "
-            Return sAns
-        End Function
+        '''' <summary>
+        '''' Formats from XML.
+        '''' </summary>
+        '''' <param name="sValue">The s value.</param>
+        '''' <returns>System.String.</returns>
+        'Function FormatFromXML(ByVal sValue As String) As String
+        '    Dim sAns As String = ""
+        '    sAns = Replace(sValue, "&amp;", "&")
+        '    sAns = Replace(sAns, "'", "''")
+        '    If Len(sAns) = 0 Then sAns = "   "
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Determines whether [has default picture] [the specified identifier].
         ''' </summary>
