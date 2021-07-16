@@ -9,6 +9,10 @@ Imports BSMyGunCollection.MGC
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddNationality
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String = ""
+    ''' <summary>
     ''' Handles the Click event of the btnCancel control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -47,8 +51,7 @@ Public Class FrmAddNationality
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddNationality_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         Try
-            Dim objAf As New AutoFillCollections
-            txtName.AutoCompleteCustomSource = objAf.Gun_Nationality
+            txtName.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Nationality(DatabasePath, _errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)

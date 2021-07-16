@@ -23,6 +23,10 @@ Public Class FrmEditCollectionDetails
     ''' </summary>
     Public BarrelId As Long
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String = ""
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
@@ -203,25 +207,26 @@ Public Class FrmEditCollectionDetails
 
             If Len(ItemId) <> 0 Then
                 Call LoadData()
-                Dim objAf As New AutoFillCollections
-                txtManu.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
-                txtModel.AutoCompleteCustomSource = objAf.Gun_Model
-                txtType.AutoCompleteCustomSource = objAf.Gun_Type
-                txtCal.AutoCompleteCustomSource = objAf.Gun_Cal
-                txtNationality.AutoCompleteCustomSource = objAf.Gun_Nationality
-                txtPurchasedFrom.AutoCompleteCustomSource = objAf.Gun_Shop_Details
-                txtGripType.AutoCompleteCustomSource = objAf.Gun_GripType
-                txtAction.AutoCompleteCustomSource = objAf.Gun_Collection_Action
-                txtStorage.AutoCompleteCustomSource = objAf.Gun_Collection_StorageLocation
-                txtCustCatID.AutoCompleteCustomSource = objAf.Gun_Collection_CustomID
-                txtFeed.AutoCompleteCustomSource = objAf.Gun_Collection_FeedSystem
-                txtSights.AutoCompleteCustomSource = objAf.Gun_Collection_Sights
-                txtPetLoads.AutoCompleteCustomSource = objAf.Gun_Cal
-                txtFinish.AutoCompleteCustomSource = objAf.Gun_Collection_Finish
-                txtImporter.AutoCompleteCustomSource = objAf.Gun_Collection_Importer
-                txtAppBy.AutoCompleteCustomSource = objAf.Appraisers_Name
-                txtCaliber3.AutoCompleteCustomSource = objAf.Gun_Cal
-                txtClassIIIOwner.AutoCompleteCustomSource = objAf.Gun_Collection_ClassIIIOwner
+                
+                txtManu.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Manufacturer(DatabasePath, _errOut)
+                txtModel.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Model(DatabasePath, _errOut)
+                txtType.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Type(DatabasePath, _errOut)
+                txtCal.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Cal(DatabasePath, _errOut)
+                txtNationality.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Nationality(DatabasePath, _errOut)
+                txtPurchasedFrom.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.ShopDetails(DatabasePath, _errOut)
+                txtGripType.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.GripType(DatabasePath, _errOut)
+                txtAction.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.Action(DatabasePath, _errOut)
+                txtStorage.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.StorageLocation(DatabasePath, _errOut)
+                txtCustCatID.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.CustomId(DatabasePath, _errOut)
+                txtFeed.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.Feedsystem(DatabasePath, _errOut)
+                txtSights.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.Sights(DatabasePath, _errOut)
+                txtPetLoads.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Cal(DatabasePath, _errOut)
+                txtFinish.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.Finish(DatabasePath, _errOut)
+                txtImporter.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.Importer(DatabasePath, _errOut)
+                txtAppBy.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Appraisers.Name(DatabasePath, _errOut)
+                txtCaliber3.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Cal(DatabasePath, _errOut)
+                txtClassIIIOwner.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunCollection.ClassIII_owner(DatabasePath, _errOut)
+
                 If Not Useselectiveboundbook Then
                     chkBoundBook.Checked = True
                     chkBoundBook.Enabled = False

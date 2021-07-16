@@ -610,34 +610,34 @@ Namespace MGC
             End Try
             Return iCol
         End Function
-        ''' <summary>
-        ''' Guns the manufacturer.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Manufacturer() As AutoCompleteStringCollection
-            Return MainCollection("Brand", "Gun_Manufacturer")
-        End Function
-        ''' <summary>
-        ''' Guns the cal.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Cal() As AutoCompleteStringCollection
-            Return MainCollection("Cal", "Gun_Cal")
-        End Function
-        ''' <summary>
-        ''' Guns the nationality.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Nationality() As AutoCompleteStringCollection
-            Return MainCollection("Country", "Gun_Nationality")
-        End Function
-        ''' <summary>
-        ''' Guns the model.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Model() As AutoCompleteStringCollection
-            Return MainCollection("Model", "Gun_Model")
-        End Function
+        '''' <summary>
+        '''' Guns the manufacturer.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Manufacturer() As AutoCompleteStringCollection
+        '    Return MainCollection("Brand", "Gun_Manufacturer")
+        'End Function
+        '''' <summary>
+        '''' Guns the cal.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Cal() As AutoCompleteStringCollection
+        '    Return MainCollection("Cal", "Gun_Cal")
+        'End Function
+        '''' <summary>
+        '''' Guns the nationality.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Nationality() As AutoCompleteStringCollection
+        '    Return MainCollection("Country", "Gun_Nationality")
+        'End Function
+        '''' <summary>
+        '''' Guns the model.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Model() As AutoCompleteStringCollection
+        '    Return MainCollection("Model", "Gun_Model")
+        'End Function
 
         ''TODO #48 Clean up Code
         ''' <summary>
@@ -712,16 +712,16 @@ Namespace MGC
         ''' Guns the shop details.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Shop_Details() As AutoCompleteStringCollection
-            Return MainCollection("Name", "Gun_Shop_Details")
-        End Function
-        ''' <summary>
-        ''' Guns the type.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Type() As AutoCompleteStringCollection
-            Return MainCollection("Type", "Gun_Type")
-        End Function
+        'Public Function Gun_Shop_Details() As AutoCompleteStringCollection
+        '    Return MainCollection("Name", "Gun_Shop_Details")
+        'End Function
+        '''' <summary>
+        '''' Guns the type.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Type() As AutoCompleteStringCollection
+        '    Return MainCollection("Type", "Gun_Type")
+        'End Function
         ''TODO #48 Clean up Code
         ''' <summary>
         ''' Ammo's the manufacturer.
@@ -769,137 +769,137 @@ Namespace MGC
         ''' Accessories the model.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Accessory_Model() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Model", "Gun_Collection_Accessories")
-        End Function
+        'Public Function Accessory_Model() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Model", "Gun_Collection_Accessories")
+        'End Function
         ''' <summary>
         ''' Accessories the use.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Accessory_Use() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Use", "Gun_Collection_Accessories")
-        End Function
+        'Public Function Accessory_Use() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Use", "Gun_Collection_Accessories")
+        'End Function
         ''' <summary>
         ''' Accessories the pur value.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Accessory_PurValue() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("PurValue", "Gun_Collection_Accessories")
-        End Function
+        'Public Function Accessory_PurValue() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("PurValue", "Gun_Collection_Accessories")
+        'End Function
         ''' <summary>
         ''' Guns the name of the smith.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function GunSmith_Name() As AutoCompleteStringCollection
-            'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
-            Return MainCollectionDistinct("gName", "GunSmith_Contact_Details")
-        End Function
+        'Public Function GunSmith_Name() As AutoCompleteStringCollection
+        '    'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
+        '    Return MainCollectionDistinct("gName", "GunSmith_Contact_Details")
+        'End Function
         ''' <summary>
         ''' Appraisers es the name.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Appraisers_Name() As AutoCompleteStringCollection
-            'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
-            Return MainCollectionDistinct("aName", "Appriaser_Contact_Details")
-        End Function
+        'Public Function Appraisers_Name() As AutoCompleteStringCollection
+        '    'Return MainCollectionDistinct("gsmith", "GunSmith_Details")
+        '    Return MainCollectionDistinct("aName", "Appriaser_Contact_Details")
+        'End Function
         ''' <summary>
         ''' Wishlists the manufacturer.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Wishlist_Manufacturer() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Manufacturer", "Wishlist")
-        End Function
+        'Public Function Wishlist_Manufacturer() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Manufacturer", "Wishlist")
+        'End Function
         ''' <summary>
         ''' Wishlists the model.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Wishlist_Model() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Model", "Wishlist")
-        End Function
+        'Public Function Wishlist_Model() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Model", "Wishlist")
+        'End Function
         ''' <summary>
         ''' Wishlists the shop.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Wishlist_Shop() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("PlacetoBuy", "Wishlist")
-        End Function
+        'Public Function Wishlist_Shop() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("PlacetoBuy", "Wishlist")
+        'End Function
         ''' <summary>
         ''' Wishlists the price.
         ''' </summary>
         ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Wishlist_Price() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Value", "Wishlist")
-        End Function
-        ''' <summary>
-        ''' Guns the collection action.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_Action() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Action", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection storage location.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_StorageLocation() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("StorageLocation", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection custom identifier.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_CustomID() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("CustomID", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection feed system.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_FeedSystem() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Feedsystem", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection finish.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_Finish() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Finish", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection sights.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_Sights() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Sights", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection pet loads.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_PetLoads() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("PetLoads", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection importer.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_Importer() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Importer", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection class iii owner.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_ClassIIIOwner() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("ClassIII_owner", "Gun_Collection")
-        End Function
-        ''' <summary>
-        ''' Guns the collection barrel system types.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Gun_Collection_BarrelSysTypes() As AutoCompleteStringCollection
-            Return MainCollectionDistinct("Name", "Gun_Collection_BarrelSysTypes")
-        End Function
+        'Public Function Wishlist_Price() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Value", "Wishlist")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection action.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_Action() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Action", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection storage location.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_StorageLocation() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("StorageLocation", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection custom identifier.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_CustomID() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("CustomID", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection feed system.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_FeedSystem() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Feedsystem", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection finish.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_Finish() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Finish", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection sights.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_Sights() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Sights", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection pet loads.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_PetLoads() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("PetLoads", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection importer.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_Importer() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Importer", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection class iii owner.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_ClassIIIOwner() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("ClassIII_owner", "Gun_Collection")
+        'End Function
+        '''' <summary>
+        '''' Guns the collection barrel system types.
+        '''' </summary>
+        '''' <returns>AutoCompleteStringCollection.</returns>
+        'Public Function Gun_Collection_BarrelSysTypes() As AutoCompleteStringCollection
+        '    Return MainCollectionDistinct("Name", "Gun_Collection_BarrelSysTypes")
+        'End Function
     End Class
     ''' <summary>
     ''' Class GlobalFunctions. General Functions that is used through out the program
@@ -944,29 +944,29 @@ Namespace MGC
         ''' </summary>
         ''' <param name="strTable">The string table.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function ObjectExistsinDB(ByVal strTable As String) As Boolean
-            Try
-                Dim bAns As Boolean = False
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT * from " & strTable
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    bAns = True
-                Else
-                    bAns = False
-                End If
-                RS.Close()
-                CMD = Nothing
-                Call Obj.CloseDB()
-                Return bAns
-            Catch ex As Exception
-                Dim sSubFunc As String = "ObjectExistsinDB"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Function
+        'Public Function ObjectExistsinDB(ByVal strTable As String) As Boolean
+        '    Try
+        '        Dim bAns As Boolean = False
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim SQL As String = "SELECT * from " & strTable
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        If RS.HasRows Then
+        '            bAns = True
+        '        Else
+        '            bAns = False
+        '        End If
+        '        RS.Close()
+        '        CMD = Nothing
+        '        Call Obj.CloseDB()
+        '        Return bAns
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "ObjectExistsinDB"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Function
         ''' <summary>
         ''' Gets the identifier.
         ''' </summary>
@@ -1071,30 +1071,30 @@ Namespace MGC
         ''' <param name="strColumnName">Name of the string column.</param>
         ''' <param name="strTableName">Name of the string table.</param>
         ''' <returns>System.Int32.</returns>
-        Public Function HasCollectionAttached(ByVal iID As Long, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
-            Dim iAns As Integer = 0
-            Dim SQL As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "=" & iID
-            Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While (RS.Read)
-                        iAns = RS("Total")
-                    End While
-                End If
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Call Obj.CloseDB()
-            Catch ex As Exception
-                Dim sSubFunc As String = "HasCollectionAttached"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return iAns
-        End Function
+        'Public Function HasCollectionAttached(ByVal iID As Long, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
+        '    Dim iAns As Integer = 0
+        '    Dim SQL As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "=" & iID
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        If RS.HasRows Then
+        '            While (RS.Read)
+        '                iAns = RS("Total")
+        '            End While
+        '        End If
+        '        RS.Close()
+        '        RS = Nothing
+        '        CMD = Nothing
+        '        Call Obj.CloseDB()
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "HasCollectionAttached"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return iAns
+        'End Function
         ''' <summary>
         ''' Determines whether [has collection attached] [the specified string name].
         ''' </summary>
@@ -1367,16 +1367,16 @@ Namespace MGC
         ''' Gets the last ammo identifier.
         ''' </summary>
         ''' <returns>System.Int64.</returns>
-        Public Function GetLastAmmoID() As Long
-            Try
-                Dim SQL As String = "SELECT Top 1 ID from Gun_Collection_Ammo order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
-                Dim iAns As Long = GetID(SQL)
-                Return iAns
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetLastAmmoID"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Function
+        'Public Function GetLastAmmoID() As Long
+        '    Try
+        '        Dim SQL As String = "SELECT Top 1 ID from Gun_Collection_Ammo order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
+        '        Dim iAns As Long = GetID(SQL)
+        '        Return iAns
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "GetLastAmmoID"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Function
         Public Sub UpdateGunType(ByVal strType As String)
             Try
                 If Not ObjectExistsinDB(strType, "Type", "Gun_Type") Then
@@ -1429,30 +1429,30 @@ Namespace MGC
         ''' <param name="DOB">The dob.</param>
         ''' <param name="Dlic">The dlic.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function BuyerExists(ByVal strName As String, ByVal Address1 As String,
-                    ByVal Address2 As String, ByVal City As String, ByVal State As String,
-                    ByVal sZipCode As String, ByVal DOB As String, ByVal Dlic As String) As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim Obj As New BSDatabase
-                Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where Name='" & strName &
-                                "' and Address1='" & Address1 & "' and Address2='" & Address2 & "' and City='" &
-                                City & "' and State='" & State & "' and ZipCode='" & sZipCode & "' and DOB='" &
-                                DOB & "' and DLic='" & Dlic & "'"
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                bAns = RS.HasRows
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "BuyerExists"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
+        'Public Function BuyerExists(ByVal strName As String, ByVal Address1 As String,
+        '            ByVal Address2 As String, ByVal City As String, ByVal State As String,
+        '            ByVal sZipCode As String, ByVal DOB As String, ByVal Dlic As String) As Boolean
+        '    Dim bAns As Boolean = False
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where Name='" & strName &
+        '                        "' and Address1='" & Address1 & "' and Address2='" & Address2 & "' and City='" &
+        '                        City & "' and State='" & State & "' and ZipCode='" & sZipCode & "' and DOB='" &
+        '                        DOB & "' and DLic='" & Dlic & "'"
+        '        Call Obj.ConnectDB()
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        bAns = RS.HasRows
+        '        RS.Close()
+        '        RS = Nothing
+        '        CMD = Nothing
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "BuyerExists"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return bAns
+        'End Function
         ''' <summary>
         ''' Stolen buyer exists.
         ''' </summary>
@@ -1541,26 +1541,26 @@ Namespace MGC
         ''' <param name="iID">The i identifier.</param>
         ''' <param name="GID">The gid.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function CatalogIDExists(ByVal iID As Long, Optional ByVal GID As Long = 0) As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQl As String = "SELECT CustomID from Gun_Collection where CustomID=" & iID
-                If GID > 0 Then SQl &= " and ID <> " & GID
-                Dim CMD As New OdbcCommand(SQl, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then bAns = True
-                RS.Close()
-                RS = Nothing
-                Obj.CloseDB()
-            Catch ex As Exception
-                Dim sSubFunc As String = "CatalogIDExists(Long)"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
+        'Public Function CatalogIDExists(ByVal iID As Long, Optional ByVal GID As Long = 0) As Boolean
+        '    Dim bAns As Boolean = False
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim SQl As String = "SELECT CustomID from Gun_Collection where CustomID=" & iID
+        '        If GID > 0 Then SQl &= " and ID <> " & GID
+        '        Dim CMD As New OdbcCommand(SQl, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        If RS.HasRows Then bAns = True
+        '        RS.Close()
+        '        RS = Nothing
+        '        Obj.CloseDB()
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "CatalogIDExists(Long)"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return bAns
+        'End Function
         ''' <summary>
         ''' Catalogs the is numeric.
         ''' </summary>
