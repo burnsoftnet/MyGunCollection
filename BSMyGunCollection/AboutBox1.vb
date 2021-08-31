@@ -7,7 +7,11 @@ Imports BSMyGunCollection.MGC
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public NotInheritable Class AboutBox1
-    'When the form Loads, populate the fields
+    ''' <summary>
+    ''' Handles the Load event of the AboutBox1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub AboutBox1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         ' Set the title of the form.
         Dim applicationTitle As String
@@ -24,7 +28,11 @@ Public NotInheritable Class AboutBox1
         LabelCompanyName.Text = My.Application.Info.CompanyName
         TextBoxDescription.Text = My.Application.Info.Description
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the OKButton control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub OKButton_Click(ByVal sender As Object, ByVal e As EventArgs) Handles OKButton.Click
         Close()
     End Sub

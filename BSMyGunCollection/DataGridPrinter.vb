@@ -1,46 +1,104 @@
 Imports System.Drawing.Printing
 Imports System.Security.Principal
+' ReSharper disable once UnusedParameter.Local
 
 #Region "DataGridPrinter"
-'\\ --[DataGridPrinter]----------------------------------------------
-'\\ Provides a way to print a nicely formatted page from a data grid
-'\\ control.
-'\\ -----------------------------------------------------------------
+''' <summary>
+''' Provides a way to print a nicely formatted page from a data grid control
+''' </summary>
 Public Class DataGridPrinter
 #Region "Private enumerated types"
+    ''' <summary>
+    ''' Enum CellTextHorizontalAlignment
+    ''' </summary>
     Public Enum CellTextHorizontalAlignment
         LeftAlign = 1
         CentreAlign = 2
         RightAlign = 3
     End Enum
+    ''' <summary>
+    ''' Enum CellTextVerticalAlignment
+    ''' </summary>
     Public Enum CellTextVerticalAlignment
+' ReSharper disable once UnusedMember.Global
         TopAlign = 1
         MiddleAlign = 2
         BottomAlign = 3
     End Enum
 #End Region
 #Region "Private properties"
-    '\\ Printing the report related
+    ''' <summary>
+    ''' The grid print document
+    ''' </summary>
     Private WithEvents _gridPrintDocument As PrintDocument
+    ''' <summary>
+    ''' The data grid
+    ''' </summary>
     Private _dataGrid As DataGrid
-    '\\ Print progress variables
+    ''' <summary>
+    ''' The current print grid line
+    ''' </summary>
     Private _currentPrintGridLine As Integer
+    ''' <summary>
+    ''' The current page down
+    ''' </summary>
     Private _currentPageDown As Integer
+    ''' <summary>
+    ''' The current page across
+    ''' </summary>
     Private _currentPageAcross As Integer = 1
-    '\\ Fonts to use to do the printing...
+    ''' <summary>
+    ''' Fonts to use to do the printing... 
+    ''' </summary>
     Private _printFont As New Font(FontFamily.GenericSansSerif, 9)
+    ''' <summary>
+    ''' The header font
+    ''' </summary>
     Private _headerFont As New Font(FontFamily.GenericSansSerif, 12)
+    ''' <summary>
+    ''' The footer font
+    ''' </summary>
     Private _footerFont As New Font(FontFamily.GenericSansSerif, 10)
+    ''' <summary>
+    ''' The header rectangle
+    ''' </summary>
     Private _headerRectangle As Rectangle
+    ''' <summary>
+    ''' The footer rectangle
+    ''' </summary>
     Private _footerRectangle As Rectangle
+    ''' <summary>
+    ''' The page content rectangle
+    ''' </summary>
     Private _pageContentRectangle As Rectangle
+    ''' <summary>
+    ''' The rowheight
+    ''' </summary>
     Private _rowheight As Double
-    '\\ Column widths related
+    ''' <summary>
+    ''' Column widths related 
+    ''' </summary>
     Private _pagesAcross As Integer = 1
+    ' ReSharper disable once FieldCanBeMadeReadOnly.Local    
+    ''' <summary>
+    ''' The column bounds
+    ''' </summary>
     Private _columnBounds As New ColumnBounds
+    ''' <summary>
+    ''' The textlayout
+    ''' </summary>
     Private _textlayout As StringFormat
+    ''' <summary>
+    ''' The footer height percent
+    ''' </summary>
     Private _footerHeightPercent As Integer = 3
+    ''' <summary>
+    ''' The header height percent
+    ''' </summary>
     Private _headerHeightPercent As Integer = 7
+    ''' <summary>
+    ''' The inter section spacing percent
+    ''' </summary>
     Private _interSectionSpacingPercent As Integer = 2
     Private _cellGutter As Integer = 5
     '\\ Pens to draw the sections with
@@ -545,7 +603,6 @@ Public Class DataGridPrinter
     ''' <param name="gridLineFont">The grid line font.</param>
     ''' <param name="e">The e.</param>
     ''' <returns>System.Int32.</returns>
-' ReSharper disable once UnusedParameter.Local
     Private Function RowsPerPage(ByVal gridLineFont As Font, ByVal e As Graphics) As Integer
 
         Return CInt((_pageContentRectangle.Height / ((_cellGutter * 2) + _rowheight)) - 2)
@@ -562,6 +619,7 @@ Public Class DataGridPrinter
     ''' <param name="target">The target.</param>
     ''' <param name="printFont">The print font.</param>
     ''' <param name="fillColour">The fill colour.</param>
+' ReSharper disable once ParameterHidesMember
 ' ReSharper disable once ParameterHidesMember
     Public Sub DrawCellString(ByVal s As String, _
                                     ByVal horizontalAlignment As CellTextHorizontalAlignment, _
