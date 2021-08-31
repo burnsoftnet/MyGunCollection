@@ -1,6 +1,5 @@
 Imports BurnSoft.Applications.MGC.Ammo
 
-
 ''' <summary>
 ''' Class frmAddAmmoAudit.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
