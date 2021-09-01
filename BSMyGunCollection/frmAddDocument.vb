@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports ADODB
 Imports System.Data.OleDb
-'' TODO #40 Need to Convert this seciont to the library
+'' TODO #40 Need to Convert this section to the library
 ''' <summary>
 ''' Class frmAddDocument.
 ''' Implements the <see cref="System.Windows.Forms.Form" />

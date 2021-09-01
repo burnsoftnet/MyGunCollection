@@ -59,7 +59,7 @@ Public Class FrmViewAppraiserDetails
         End Try
     End Sub
     ''' <summary>
-    ''' Enableds the form.
+    ''' Enables the form.
     ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False

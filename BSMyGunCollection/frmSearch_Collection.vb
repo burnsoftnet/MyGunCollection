@@ -9,7 +9,7 @@ Public Class FrmSearchCollection
     ''' <summary>
     ''' Builds the search string.
     ''' </summary>
-    ''' <param name="sLookin">The s lookin.</param>
+    ''' <param name="sLookin">The s look in.</param>
     ''' <returns>System.Object.</returns>
     Function BuildSearchString(ByVal sLookin As String)
         Dim sAns As String = ""

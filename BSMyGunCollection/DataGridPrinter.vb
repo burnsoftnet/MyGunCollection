@@ -72,7 +72,7 @@ Public Class DataGridPrinter
     ''' </summary>
     Private _pageContentRectangle As Rectangle
     ''' <summary>
-    ''' The rowheight
+    ''' The row height
     ''' </summary>
     Private _rowheight As Double
     ''' <summary>
@@ -85,7 +85,7 @@ Public Class DataGridPrinter
     ''' </summary>
     Private _columnBounds As New ColumnBounds
     ''' <summary>
-    ''' The textlayout
+    ''' The text layout
     ''' </summary>
     Private _textlayout As StringFormat
     ''' <summary>
@@ -711,7 +711,7 @@ Public Class DataGridPrinter
 
     End Sub
     ''' <summary>
-    ''' Rowses the per page.
+    ''' Rows the per page.
     ''' </summary>
     ''' <param name="gridLineFont">The grid line font.</param>
     ''' <param name="e">The e.</param>
@@ -854,7 +854,7 @@ Public Class DataGridPrinter
         Return sAns
     End Function
     ''' <summary>
-    ''' Mappeds the column to base column.
+    ''' Mapped the column to base column.
     ''' </summary>
     ''' <param name="mappedColumn">The mapped column.</param>
     ''' <returns>System.Int32.</returns>
@@ -1001,7 +1001,7 @@ Public Class ColumnBounds
         MyBase.Clear()
     End Sub
     ''' <summary>
-    ''' Nexts the page.
+    ''' Next the page.
     ''' </summary>
     Public Sub NextPage()
         _currentPage += 1

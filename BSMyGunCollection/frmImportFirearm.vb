@@ -416,7 +416,7 @@ Public Class FrmImportFirearm
     ''' Barrels the convo kit exists.
     ''' </summary>
     ''' <param name="gid">The gid.</param>
-    ''' <param name="modelname">The modelname.</param>
+    ''' <param name="modelname">The model name.</param>
     ''' <param name="caliber">The caliber.</param>
     ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     Function BarrelConvoKitExists(ByVal gid As Long, ByVal modelname As String, ByVal caliber As String) As Boolean

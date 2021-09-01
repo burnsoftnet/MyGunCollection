@@ -11,7 +11,7 @@ Public Class FrmSold
     ''' </summary>
     Public ItemId As String
     ''' <summary>
-    ''' The askingprice
+    ''' The asking price
     ''' </summary>
     Public Askingprice As String
     ''' <summary>

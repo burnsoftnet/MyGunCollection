@@ -461,7 +461,7 @@ Module GlobalVars
         End Try
     End Sub
     ''' <summary>
-    ''' A simplier Log File Dump mostly to handle errors from the main library that was created in c#
+    ''' A simpler Log File Dump mostly to handle errors from the main library that was created in c#
     ''' </summary>
     ''' <param name="message">The message.</param>
     Public Sub LogError(ByVal message As String )

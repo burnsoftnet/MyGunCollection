@@ -2,7 +2,7 @@ Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 ''' <summary>
-''' Class frmViewShopDetails.  This is the main form that will handle the ability to view and edit the gun shope details
+''' Class frmViewShopDetails.  This is the main form that will handle the ability to view and edit the gun shop details
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
@@ -56,7 +56,7 @@ Public Class FrmViewShopDetails
         Call PopData()
     End Sub
     ''' <summary>
-    ''' Enableds the form.
+    ''' Enables the form.
     ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False

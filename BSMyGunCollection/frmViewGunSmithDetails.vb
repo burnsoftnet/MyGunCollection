@@ -71,7 +71,7 @@ Public Class FrmViewGunSmithDetails
         Gun_Collection_GunSmithsTableAdapter.Fill(MGCDataSet.Gun_Collection_GunSmiths, txtName.Text)
     End Sub
     ''' <summary>
-    ''' Enableds the form.
+    ''' Enables the form.
     ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False

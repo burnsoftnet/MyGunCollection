@@ -126,7 +126,7 @@ Public Class FrmViewDocuments
         Call GetDocumentfromDb(itemId)
     End Sub
     ''' <summary>
-    ''' Linkeds the docs. Return the number of firearms that are linked to the selected document
+    ''' Linked the docs. Return the number of firearms that are linked to the selected document
     ''' </summary>
     ''' <param name="docId">The document identifier.</param>
     ''' <returns>System.Int64.</returns>

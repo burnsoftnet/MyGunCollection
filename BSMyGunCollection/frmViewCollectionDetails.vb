@@ -23,7 +23,7 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public UpdatePending As Boolean
     ''' <summary>
-    ''' The update pedning ass
+    ''' The update pending ass
     ''' </summary>
     Public UpdatePedningAss As Boolean
     ''' <summary>
@@ -39,11 +39,11 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public SellerId As String
     ''' <summary>
-    ''' The bs hasmultibarrels
+    ''' The bs has multi barrels
     ''' </summary>
     Public BsHasmultibarrels As Boolean
     ''' <summary>
-    ''' The bs defaultbarrelsystemid
+    ''' The bs default barrel system id
     ''' </summary>
     Public BsDefaultbarrelsystemid As Long
     ''' <summary>
@@ -122,7 +122,7 @@ Public Class FrmViewCollectionDetails
         Return bAns
     End Function
     ''' <summary>
-    ''' Forms the set tab contol. Set the size of the tab control 
+    ''' Forms the set tab control. Set the size of the tab control 
     ''' </summary>
     ''' <param name="tabContentsAvgHeight">Average height of the tab contents.</param>
     ''' <param name="tabContentsAvgWidth">Average width of the tab contents.</param>
@@ -155,7 +155,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format accessories. set the size and form of the accessories tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatAccessories(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -173,7 +173,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format ammo. format the size and format of the Ammunition Tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatAmmo(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -187,7 +187,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format maintenance. format the size and format of the Maintenance Tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatMaintenance(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -815,7 +815,7 @@ Public Class FrmViewCollectionDetails
     ''' Draws to scale.
     ''' </summary>
     ''' <param name="bmp">The BMP.</param>
-    ''' <param name="imgindex">The imgindex.</param>
+    ''' <param name="imgindex">The img index.</param>
     ''' <param name="imgId">The img identifier.</param>
     Private Sub DrawToScale(ByVal bmp As Image, ByVal imgindex As Integer, ByVal imgId As Long)
         PictureBox1.Image = New Bitmap(bmp)

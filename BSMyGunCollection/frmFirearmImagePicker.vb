@@ -20,7 +20,7 @@ Public Class FrmFirearmImagePicker
     ''' </summary>
     Dim _firearmNameArray As ArrayList
     ''' <summary>
-    ''' The leftbutton index
+    ''' The left button index
     ''' </summary>
     Dim _leftbuttonIndex As Long
     ''' <summary>
@@ -72,7 +72,7 @@ Public Class FrmFirearmImagePicker
     ''' <summary>
     ''' Gets the picture. Get the image from the database based on the Picture ID
     ''' </summary>
-    ''' <param name="picit">The picit.</param>
+    ''' <param name="picit">The pict.</param>
     Sub GetPicture(picit As Long)
         Try
 

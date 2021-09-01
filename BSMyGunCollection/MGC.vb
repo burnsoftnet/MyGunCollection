@@ -2101,58 +2101,6 @@ Namespace MGC
             Return dAns
         End Function
         ''' <summary>
-        ''' Databases the is compliant.
-        ''' </summary>
-        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        'Public Function DBIsCompliant() As Boolean
-        '    Dim bAns As Boolean = False
-        '    Try
-        '        Dim CurDBVer As Double = DatabaseVersion()
-        '        Call Buggerme("MGC.GlobalFunctions.DBIsCompliant", "Current DB Version:" & CurDBVer)
-        '        Dim sMsg As String = ""
-        '        Dim ObjFS As New BSFileSystem
-        '        If CurDBVer < MyDatabaseVersion Then
-        '            sMsg = "This application hasn't been through the proper database updates!" & Chr(10)
-        '            sMsg &= "Please download the last update package or contact support to get your database up-to-date." & Chr(10)
-        '            sMsg &= "The Application will still run, but you might notice some errors until you are properly upgraded."
-        '            If ObjFS.FileExists(ApplicationPath & "\" & MyHotfixFile) Then
-        '                sMsg &= Chr(10) & "Do you wish to run the hot fix file?"
-        '                Dim sans As String
-        '                sans = MsgBox(sMsg, MsgBoxStyle.YesNo)
-        '                If sans = vbYes Then
-        '                    'The midparent1.run hot fix would also active the load on the form, which caused an error
-        '                    'Call MDIParent1.RunHotFix()
-        '                    'TODO  I don't like the error that appears when this occurs
-        '                    'TODO Test to make sure this doesn't happen elsewhere
-        '                    DoAutoBackup = False
-        '                    Dim myProcess As New Process
-        '                    myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
-        '                    myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
-        '                    myProcess.Start()
-        '                    Application.Exit()
-        '                    End
-        '                End If
-        '            Else
-        '                MsgBox(sMsg)
-        '            End If
-        '            bAns = False
-        '        Else
-        '            bAns = True
-        '        End If
-        '    Catch ex As Exception
-        '        Dim sSubFunc As String = "DBIsCompliant"
-        '        Dim sMsg As String
-        '        Select Case Err.Number
-        '            Case 5
-        '                sMsg = ex.Message.ToString & " ( " & ApplicationPath & "\" & MyHotfixFile & " ) "
-        '            Case Else
-        '                sMsg = ex.Message.ToString
-        '        End Select
-        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, sMsg)
-        '    End Try
-        '    Return bAns
-        'End Function
-        ''' <summary>
         ''' Gets the user settings database.
         ''' </summary>
         ''' <param name="RecID">The record identifier.</param>
