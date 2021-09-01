@@ -2,6 +2,7 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
+Imports BurnSoft.Applications.MGC.Types
 ''TODO: Convert code from FrmAddFirearm #13
 
 ''' <summary>
@@ -23,11 +24,22 @@ Public Class FrmAddFirearm
     ''' </summary>
     Public CopyId As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut as String 
+    ''' <summary>
     ''' Load the data on the form from start or refresh is available.
     ''' </summary>
     Sub LoadData()
         Try
             ''TODO #43 Conver to library use list to return information
+            Dim myData as List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(DatabasePath, Convert.ToInt32(CopyId), errOut)
+            
+            For Each o As GunCollectionList In myData
+                Text = o.FullName
+                txtManu.Text = 
+            Next
+            
             Dim obj As New BSDatabase
             Dim objGf As New GlobalFunctions
             Call obj.ConnectDB()
