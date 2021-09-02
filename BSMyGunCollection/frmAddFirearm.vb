@@ -37,7 +37,20 @@ Public Class FrmAddFirearm
             
             For Each o As GunCollectionList In myData
                 Text = o.FullName
-                txtManu.Text = 
+                txtManu.Text = o.Manufacturer
+                txtModel.Text = o.ModelName
+                txtType.Text = o.Type
+                txtCal.Text = o.Caliber
+                txtFinish.Text = o.Finish
+                cmdCondition.Text = o.Condition
+                txtPetLoads.Text = o.PetLoads
+                txtNationality.Text = o.Nationality
+                txtWeight.Text = o.Weight
+                txtLength.Text = o.Height
+                txtBarLen.Text = o.BarrelLength
+                txtBarWid.Text = o.BarrelWidth
+                txtBarHei.Text = o.BarrelHeight
+                txtCustCatID.Text = o.CustomId
             Next
             
             Dim obj As New BSDatabase
@@ -48,21 +61,21 @@ Public Class FrmAddFirearm
             Dim rs As OdbcDataReader
             rs = cmd.ExecuteReader
             While rs.Read
-                Text = Trim(rs("fullname"))
-                txtManu.Text = Trim(objGf.GetManufacturersName(rs("MID")))
-                txtModel.Text = Trim(rs("ModelName"))
-                txtType.Text = Trim(rs("Type"))
-                txtCal.Text = Trim(rs("Caliber"))
-                txtFinish.Text = Trim(rs("Finish"))
-                cmdCondition.Text = Trim(rs("Condition"))
-                If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                txtNationality.Text = Trim(objGf.GetNationalityName(rs("NatID")))
-                txtWeight.Text = Trim(rs("Weight"))
-                txtLength.Text = Trim(rs("Height"))
-                txtBarLen.Text = Trim(rs("BarrelLength"))
-                txtBarWid.Text = Trim(rs("BarrelWidth"))
-                txtBarHei.Text = Trim(rs("BarrelHeight"))
-                txtCustCatID.Text = Trim(rs("CustomID"))
+                'Text = Trim(rs("fullname"))
+                'txtManu.Text = Trim(objGf.GetManufacturersName(rs("MID")))
+                'txtModel.Text = Trim(rs("ModelName"))
+                'txtType.Text = Trim(rs("Type"))
+                'txtCal.Text = Trim(rs("Caliber"))
+                'txtFinish.Text = Trim(rs("Finish"))
+                'cmdCondition.Text = Trim(rs("Condition"))
+                'If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
+                'txtNationality.Text = Trim(objGf.GetNationalityName(rs("NatID")))
+                'txtWeight.Text = Trim(rs("Weight"))
+                'txtLength.Text = Trim(rs("Height"))
+                'txtBarLen.Text = Trim(rs("BarrelLength"))
+                'txtBarWid.Text = Trim(rs("BarrelWidth"))
+                'txtBarHei.Text = Trim(rs("BarrelHeight"))
+                'txtCustCatID.Text = Trim(rs("CustomID"))
                 txtGripType.Text = Trim(objGf.GetGripName(rs("GripID")))
                 txtProduced.Text = Trim(rs("Produced"))
                 txtAction.Text = Trim(rs("Action"))
