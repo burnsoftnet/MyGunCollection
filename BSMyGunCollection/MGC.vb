@@ -1621,26 +1621,26 @@ Namespace MGC
         ''' Gets the catalog next identifier number.
         ''' </summary>
         ''' <returns>System.Int64.</returns>
-        Public Function GetCatalogNextIDNumber() As Long
-            Dim iAns As Long = 0
-            Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT Max(CustomID) as CID from Gun_Collection"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While RS.Read
-                        iAns = CLng(RS("CID")) + 1
-                    End While
-                End If
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetCatalogNextIDNumber"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return iAns
-        End Function
+        'Public Function GetCatalogNextIDNumber() As Long
+        '    Dim iAns As Long = 0
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim SQL As String = "SELECT Max(CustomID) as CID from Gun_Collection"
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        If RS.HasRows Then
+        '            While RS.Read
+        '                iAns = CLng(RS("CID")) + 1
+        '            End While
+        '        End If
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "GetCatalogNextIDNumber"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return iAns
+        'End Function
         ''' <summary>
         ''' Sets the type of the catalog.
         ''' </summary>

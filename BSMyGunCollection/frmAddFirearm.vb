@@ -28,7 +28,7 @@ Public Class FrmAddFirearm
     ''' </summary>
     Dim errOut as String 
     ''' <summary>
-    ''' Load the data on the form from start or refresh is available.
+    ''' Load the data on the form from start or refresh is available. when you select the copy firearm option to load everything except the importer and the serial number
     ''' </summary>
     Sub LoadData()
         Try
@@ -137,8 +137,10 @@ Public Class FrmAddFirearm
             If UseNumberCatOnly Then
                 txtCustCatID.Text = 0
                 If Useautoassign Then
-                    Dim objGf As New GlobalFunctions
-                    txtCustCatID.Text = objGf.GetCatalogNextIDNumber
+                    'Dim objGf As New GlobalFunctions
+                    'txtCustCatID.Text = objGf.GetCatalogNextIDNumber
+                    txtCustCatID.Text = BurnSoft.Applications.MGC.Firearms.MyCollection.GetCatalogNextIdNumber(DatabasePath, errOut)
+                    If errOut.Length > 0 Then Throw New Exception(errOut)
                 End If
             End If
             txtPOI.Enabled = False
