@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BSRegistry.vb" />
+    <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="modDatabase.vb" />
     <Compile Include="ModGlobal.vb" />
     <Compile Include="modHotFixes.vb" />
