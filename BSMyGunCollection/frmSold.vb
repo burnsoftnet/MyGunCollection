@@ -106,7 +106,6 @@ Public Class FrmSold
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnApply_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnApply.Click
         Try
-            'Dim obj As New BSDatabase
             Dim sbid As Long = cmbPrevBuyer.SelectedValue
             Dim errOut as String = ""
             Dim lst As List(Of BuyersList) = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Get(DatabasePath, sbid, errOut)
