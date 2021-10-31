@@ -245,7 +245,8 @@ Public Class FrmAddFirearm
                     "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," &
                     "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," &
                     "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," &
-                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold,BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
+                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold," &
+                    "BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
                     OwnerId & "," & lngManId & ",'" & strFullName & "','" & strModel & "'," & lngModelId & ",'" & strSerial & "','" &
                     strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & objGf.SetCatalogINSType(strCustCatId) & "," &
                     lngNationalityId & "," & lngGripId & "," & strQty & ",'" & strWeight & "','" & strLength & "','" &
