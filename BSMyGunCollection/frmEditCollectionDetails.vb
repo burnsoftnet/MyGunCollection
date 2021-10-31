@@ -33,7 +33,8 @@ Public Class FrmEditCollectionDetails
     Sub LoadData()
         Try
             Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(ApplicationPath, ItemId, _errOut)
-            
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
             For Each o As GunCollectionList In lst
                 Text = o.FullName
                 txtManu.Text = o.Manufacturer
@@ -57,104 +58,77 @@ Public Class FrmEditCollectionDetails
                 txtAction.Text = o.Action
                 txtFeed.Text = o.FeedSystem
                 txtSights.Text = o.Sights
-
-            Next
-            
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection where ID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                Text = Trim(rs("fullname"))
-                
-                If Not IsDBNull(rs("StorageLocation")) Then txtStorage.Text = Trim(rs("StorageLocation"))
-                If Not IsDBNull(rs("PurchasedFrom")) Then txtPurchasedFrom.Text = Trim(rs("PurchasedFrom"))
-                If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = Trim(rs("PurchasedPrice"))
-                If Not IsDBNull(rs("Importer")) Then txtImporter.Text = Trim(rs("Importer"))
-                If Not IsDBNull(rs("DBID")) Then BarrelId = CLng(rs("DBID"))
-                If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
-                If Not IsDBNull(rs("IsInBoundBook")) Then
-                    If CInt(rs("IsInBoundBook")) = 0 Then
-                        chkBoundBook.Checked = False
-                    Else
-                        chkBoundBook.Checked = True
-                    End If
-                Else
-                    chkBoundBook.Checked = True
-                End If
-                If Not IsDBNull(rs("TwistRate")) Then txtTwistOfRate.Text = Trim(rs("TwistRate"))
-                If Not IsDBNull(rs("lbs_trigger")) Then txtTriggerPull.Text = Trim(rs("lbs_trigger"))
-                If Not IsDBNull(rs("Caliber3")) Then txtCaliber3.Text = Trim(rs("Caliber3"))
-                If Not IsDBNull(rs("Classification")) Then cmbClassification.Text = Trim(rs("Classification"))
-
-                If Not IsDBNull(rs("DateofCR")) Then
+                txtStorage.Text = o.StorageLocation
+                txtPurchasedFrom.Text = o.PurchaseFrom
+                txtPurPrice.Text = o.PurchasePrice
+                txtImporter.Text = o.Importer
+                BarrelId = BarrelId
+                txtChoke.Text = o.ShotGunChoke
+                chkBoundBook.Checked = o.IsInBoundBook
+                txtTwistOfRate.Text = o.TwistRate
+                txtTriggerPull.Text = o.TriggerPullInPounds
+                txtCaliber3.Text = o.Caliber3
+                cmbClassification.Text = o.Classification
+                If o.DateOfCAndR.Length > 0 Then
                     dtpDateofCR.Checked = True
-                    dtpDateofCR.Value = rs("DateofCR")
+                    dtpDateofCR.Value = o.DateOfCAndR
                     dtpDateofCR.Enabled = True
                 End If
-
-
-                Dim iClassIii As Integer = 0
-                If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
-                If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
-                If iClassIii = 0 Then
-                    chkClassIII.Checked = False
-                Else
-                    chkClassIII.Checked = True
-                End If
-
-                If Not IsDBNull(rs("IsCandR")) Then
-                    If CInt(rs("IsCandR")) = 0 Then
-                        chkBoxCR.Checked = False
-                    Else
-                        chkBoxCR.Checked = True
-                    End If
-                Else
-                    chkBoxCR.Checked = False
-                End If
-                If Not IsDBNull(rs("ReManDT")) Then
+                txtClassIIIOwner.Text = o.Class3Owner
+                chkClassIII.Checked = o.IsClass3Item
+                chkBoxCR.Checked = o.IsCAndR
+                If o.RemanufactureDate.Length > 0 Then
                     dtpReManDT.Checked = True
-                    dtpReManDT.Value = rs("ReManDT")
+                    dtpReManDT.Value = o.RemanufactureDate
                     dtpReManDT.Enabled = True
                 End If
-                If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
-
+                txtPOI.Text = o.Poi
                 Call EnableDiableCandR()
-
-                If Not IsDBNull(rs("dtp")) Then
+                If o.DateTimeAdded.Length > 0 Then
                     dtpPurchased.Checked = True
-                    dtpPurchased.Value = rs("dtp")
-                    dtpPurchased.Enabled = True
-                Else
-                    dtpPurchased.Checked = True
-                    dtpPurchased.Value = rs("dt")
+                    dtpPurchased.Value = o.DateTimeAdded
                     dtpPurchased.Enabled = True
                 End If
-                If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = Trim(rs("AppraisedValue"))
-                If Len(Trim(rs("AppraisalDate"))) <> 0 Then
+                txtAppValue.Text = o.AppriasedValue
+                If o.AppraisalDate.Length > 0 Then
                     dtpAppDate.Checked = True
-                    dtpAppDate.Value = Trim(rs("AppraisalDate"))
+                    dtpAppDate.Value = o.AppraisalDate
                     dtpAppDate.Enabled = True
                 End If
-                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = Trim(rs("AppraisedBy"))
-                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = Trim(rs("InsuredValue"))
-                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = Trim(rs("ConditionComments"))
-                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = Trim(rs("AdditionalNotes"))
+                txtAppBy.Text = o.AppriasedBy
+                txtInsVal.Text = o.InsuredValue
+                txtConCom.Text = o.ConditionComments
+                txtAddNotes.Text = o.AdditionalNotes
+                dtpSold.Value = o.DateSold
+                Label34.Visible = o.ItemSold
+                dtpSold.Visible = o.ItemSold
+            Next
+            
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
+            'Call obj.ConnectDB()
+            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & ItemId
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'While rs.Read
+            '    Text = Trim(rs("fullname"))
 
-                If Not IsDBNull(rs("dtSold")) Then dtpSold.Value = rs("dtSold")
-                If CInt(rs("ItemSold")) = 1 Then
-                    _isSold = True
-                Else
-                    _isSold = False
-                End If
-                Label34.Visible = _isSold
-                dtpSold.Visible = _isSold
-            End While
-            rs.Close()
-            obj.CloseDB()
+            '    If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = Trim(rs("InsuredValue"))
+            '    If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = Trim(rs("ConditionComments"))
+            '    If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = Trim(rs("AdditionalNotes"))
+
+            '    If Not IsDBNull(rs("dtSold")) Then dtpSold.Value = rs("dtSold")
+            '    If CInt(rs("ItemSold")) = 1 Then
+            '        _isSold = True
+            '    Else
+            '        _isSold = False
+            '    End If
+            '    Label34.Visible = _isSold
+            '    dtpSold.Visible = _isSold
+            'End While
+            'rs.Close()
+            'obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
