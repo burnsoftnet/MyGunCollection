@@ -1,9 +1,6 @@
-
-Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Types
 
-''TODO: Convert code from FrmEditCollectionDetails #19
 
 ''' <summary>
 ''' Class frmEditCollectionDetails.
@@ -18,6 +15,7 @@ Public Class FrmEditCollectionDetails
     ''' <summary>
     ''' The is sold
     ''' </summary>
+' ReSharper disable once UnassignedField.Local
     Dim _isSold As Boolean
     ''' <summary>
     ''' The barrel identifier
@@ -27,6 +25,7 @@ Public Class FrmEditCollectionDetails
     ''' The error out
     ''' </summary>
     Dim _errOut as String = ""
+
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
@@ -279,6 +278,8 @@ Public Class FrmEditCollectionDetails
 
             Dim sReManDt As String = dtpReManDT.Value
             Dim sPoi As String = FluffContent(txtPOI.Text)
+
+            ''' TODO: #43  #19  Convert this section
 
             Dim sql As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManId &
                     ", ModelName='" & strModel & "', ModelID=" & lngModelId & ", SerialNumber='" &
