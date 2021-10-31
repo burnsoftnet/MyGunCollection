@@ -34,7 +34,31 @@ Public Class FrmEditCollectionDetails
         Try
             Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(ApplicationPath, ItemId, _errOut)
             
+            For Each o As GunCollectionList In lst
+                Text = o.FullName
+                txtManu.Text = o.Manufacturer
+                txtModel.Text = o.ModelName
+                txtSerial.Text = o.SerialNumber
+                txtType.Text = o.Type
+                If txtType.Text.Contains("shotgun") Then Call AddChokeOption()
+                txtCal.Text = o.Caliber
+                txtFinish.Text = o.Finish
+                cmdCondition.Text = o.Condition
+                txtPetLoads.Text = o.PetLoads
+                txtNationality.Text = o.Nationality
+                txtWeight.Text = o.Weight
+                txtLength.Text = o.Height
+                txtBarLen.Text = o.BarrelLength
+                txtBarWid.Text  = o.BarrelWidth
+                txtBarHei.Text = o.BarrelHeight
+                txtCustCatID.Text = o.CustomId
+                txtGripType.Text = o.GripType
+                txtProduced.Text = o.DateProduced
+                txtAction.Text = o.Action
+                txtFeed.Text = o.FeedSystem
+                txtSights.Text = o.Sights
 
+            Next
             
             Dim obj As New BSDatabase
             Dim objGf As New GlobalFunctions
@@ -45,27 +69,7 @@ Public Class FrmEditCollectionDetails
             rs = cmd.ExecuteReader
             While rs.Read
                 Text = Trim(rs("fullname"))
-                txtManu.Text = Trim(objGf.GetManufacturersName(rs("MID")))
-                If Not IsDBNull(rs("ModelName")) Then txtModel.Text = Trim(rs("ModelName"))
-                If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = Trim(rs("SerialNumber"))
-                If Not IsDBNull(rs("Type")) Then txtType.Text = Trim(rs("Type"))
-                If Found(txtType.Text, "shotgun") Then Call AddChokeOption()
-                If Not IsDBNull(rs("Caliber")) Then txtCal.Text = Trim(rs("Caliber"))
-                If Not IsDBNull(rs("Finish")) Then txtFinish.Text = Trim(rs("Finish"))
-                If Not IsDBNull(rs("Condition")) Then cmdCondition.Text = Trim(rs("Condition"))
-                If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = Trim(rs("Petloads"))
-                txtNationality.Text = Trim(objGf.GetNationalityName(rs("NatID")))
-                If Not IsDBNull(rs("Weight")) Then txtWeight.Text = Trim(rs("Weight"))
-                If Not IsDBNull(rs("Height")) Then txtLength.Text = Trim(rs("Height"))
-                If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = Trim(rs("BarrelLength"))
-                If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = Trim(rs("BarrelWidth"))
-                If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = Trim(rs("BarrelHeight"))
-                If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = Trim(rs("CustomID"))
-                txtGripType.Text = Trim(objGf.GetGripName(rs("GripID")))
-                If Not IsDBNull(rs("Produced")) Then txtProduced.Text = Trim(rs("Produced"))
-                If Not IsDBNull(rs("Action")) Then txtAction.Text = Trim(rs("Action"))
-                If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = Trim(rs("Feedsystem"))
-                If Not IsDBNull(rs("Sights")) Then txtSights.Text = Trim(rs("Sights"))
+                
                 If Not IsDBNull(rs("StorageLocation")) Then txtStorage.Text = Trim(rs("StorageLocation"))
                 If Not IsDBNull(rs("PurchasedFrom")) Then txtPurchasedFrom.Text = Trim(rs("PurchasedFrom"))
                 If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = Trim(rs("PurchasedPrice"))
