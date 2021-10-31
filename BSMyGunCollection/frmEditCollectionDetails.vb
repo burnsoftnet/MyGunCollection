@@ -1,6 +1,7 @@
 
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Types
 
 ''TODO: Convert code from FrmEditCollectionDetails #19
 
@@ -31,6 +32,10 @@ Public Class FrmEditCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
+            Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(ApplicationPath, ItemId, _errOut)
+            
+
+            
             Dim obj As New BSDatabase
             Dim objGf As New GlobalFunctions
             Call obj.ConnectDB()
