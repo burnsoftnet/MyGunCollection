@@ -32,7 +32,7 @@ Public Class FrmEditCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(ApplicationPath, ItemId, _errOut)
+            Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(DatabasePath, ItemId, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             For Each o As GunCollectionList In lst
@@ -99,36 +99,11 @@ Public Class FrmEditCollectionDetails
                 txtInsVal.Text = o.InsuredValue
                 txtConCom.Text = o.ConditionComments
                 txtAddNotes.Text = o.AdditionalNotes
-                dtpSold.Value = o.DateSold
+                if o.ItemSold Then  dtpSold.Value = o.DateSold
                 Label34.Visible = o.ItemSold
                 dtpSold.Visible = o.ItemSold
             Next
-            
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
-            'Call obj.ConnectDB()
-            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & ItemId
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    Text = Trim(rs("fullname"))
 
-            '    If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = Trim(rs("InsuredValue"))
-            '    If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = Trim(rs("ConditionComments"))
-            '    If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = Trim(rs("AdditionalNotes"))
-
-            '    If Not IsDBNull(rs("dtSold")) Then dtpSold.Value = rs("dtSold")
-            '    If CInt(rs("ItemSold")) = 1 Then
-            '        _isSold = True
-            '    Else
-            '        _isSold = False
-            '    End If
-            '    Label34.Visible = _isSold
-            '    dtpSold.Visible = _isSold
-            'End While
-            'rs.Close()
-            'obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
