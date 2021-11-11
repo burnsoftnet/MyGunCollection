@@ -230,11 +230,18 @@ Public Class FrmAddFirearm
             'If chkBoxCR.Checked Then intIsCandR = 1
             If Len(Trim(strPurPrice)) > 0 And Len(Trim(strAppValue)) = 0 Then strAppValue = strPurPrice
             Dim strFullName As String = strManu & " " & strModel
-            Dim lngManId As Long = objGf.GetManufacturersID(strManu)
-            Dim lngModelId As Long = objGf.GetModelID(strModel, lngManId)
-            Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
-            Dim lngGripId As Long = objGf.GetGripID(strGripType)
+            'Dim lngManId As Long = objGf.GetManufacturersID(strManu)
+            'Dim lngModelId As Long = objGf.GetModelID(strModel, lngManId)
+            'Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
+            'Dim lngGripId As Long = objGf.GetGripID(strGripType)
+            'Call objGf.UpdateGunType(strType)
+
+            Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, errOut)
+            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, errOut)
+            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, errOut)
+            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, errOut)
             Call objGf.UpdateGunType(strType)
+            'BurnSoft.Applications.MGC.Firearms.MyCollection.
             'Dim itemId As Long
             'Dim bid As Long
 
