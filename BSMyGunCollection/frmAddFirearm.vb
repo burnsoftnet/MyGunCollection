@@ -167,7 +167,7 @@ Public Class FrmAddFirearm
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim objGf As New GlobalFunctions
-            Dim obj As New BSDatabase
+            'Dim obj As New BSDatabase
             Dim strManu As String = FluffContent(txtManu.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
             Dim strSerial As String = FluffContent(txtSerial.Text)
@@ -175,9 +175,9 @@ Public Class FrmAddFirearm
             Dim strCal As String = FluffContent(txtCal.Text)
             Dim strFinish As String = FluffContent(txtFinish.Text)
             Dim strCondition As String = FluffContent(cmdCondition.SelectedValue)
-            Dim strQty As Double = 1
+            'Dim strQty As Double = 1
             Dim strPetLoads As String = FluffContent(txtPetLoads.Text)
-            Dim intIsCandR As Integer = 0
+            'Dim intIsCandR As Integer = 0
             Dim strRegion As String = FluffContent(txtNationality.Text)
             Dim strWeight As String = FluffContent(txtWeight.Text)
             Dim strLength As String = FluffContent(txtLength.Text)
@@ -209,16 +209,15 @@ Public Class FrmAddFirearm
             Dim sReManDt As String = dtpReManDT.Value
             Dim sPoi As String = FluffContent(txtPOI.Text)
             Dim sCaliber3 As String = FluffContent(txtCaliber3.Text)
-            Dim iBoundBook As Integer = 0
-            If chkBoundBook.Checked Then iBoundBook = 1
+            'Dim iBoundBook As Integer = 0
+            'If chkBoundBook.Checked Then iBoundBook = 1
             Dim sTwist As String = FluffContent(txtTwistOfRate.Text)
             Dim sTrigger As String = FluffContent(txtTriggerPull.Text)
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCr As String = dtpDateofCR.Value
-            Dim iClassIii As Integer = 0
-            If chkClassIII.Checked Then iClassIii = 1
+            'Dim iClassIii As Integer = 0
+            'If chkClassIII.Checked Then iClassIii = 1
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
-            'If dtpDateofCR.Checked Then sDateOfCR = dtpDateofCR.Value
 
             If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId)) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
@@ -228,7 +227,7 @@ Public Class FrmAddFirearm
             If Not IsRequired(strCal, "Caliber Or Gauge", Text) Then Exit Sub
             If Not IsRequired(strPurchasedFrom, "Purchased From", Text) Then Exit Sub
 
-            If chkBoxCR.Checked Then intIsCandR = 1
+            'If chkBoxCR.Checked Then intIsCandR = 1
             If Len(Trim(strPurPrice)) > 0 And Len(Trim(strAppValue)) = 0 Then strAppValue = strPurPrice
             Dim strFullName As String = strManu & " " & strModel
             Dim lngManId As Long = objGf.GetManufacturersID(strManu)
@@ -236,57 +235,67 @@ Public Class FrmAddFirearm
             Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
             Dim lngGripId As Long = objGf.GetGripID(strGripType)
             Call objGf.UpdateGunType(strType)
-            Dim itemId As Long
-            Dim bid As Long
+            'Dim itemId As Long
+            'Dim bid As Long
 
             ''TODO #43 Conver to library
 
-            Dim sql As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," &
-                    "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," &
-                    "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," &
-                    "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," &
-                    "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold," &
-                    "BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
-                    OwnerId & "," & lngManId & ",'" & strFullName & "','" & strModel & "'," & lngModelId & ",'" & strSerial & "','" &
-                    strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & objGf.SetCatalogINSType(strCustCatId) & "," &
-                    lngNationalityId & "," & lngGripId & "," & strQty & ",'" & strWeight & "','" & strLength & "','" &
-                    strGripType & "','" & strBarLen & "','" & strBarWid & "','" & strBarHei & "','" & strAction & "','" &
-                    strfeed & "','" & strSights & "','" & strPurPrice & "','" & strPurchasedFrom & "','" & strAppValue & "','" &
-                    strAppDate & "','" & strAppBy & "','" & strInsVal & "','" & strStorage & "','" & strConCom & "','" & strAddNotes &
-                    "','" & strProduced & "','" & strPetLoads & "','" & strPurDate & "'," & intIsCandR & ",'" & strImporter &
-                    "','" & sReManDt & "','" & sPoi & "',0,0,'" & sChoke & "'," & iBoundBook & ",'" & sTwist & "','" & sTrigger &
-                    "','" & sCaliber3 & "','" & sClassification & "','" & sDateOfCr & "',0,2,Now()," & iClassIii & ",'" & sClassIiiOwner & "')"
+            if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Add(DatabasePath, UseNumberCatOnly, OwnerId, lngManId, strFullName, strModel, lngModelId, strSerial,
+                                                                       strType,strCal, strFinish, strCondition, strCustCatId, lngNationalityId, lngGripId, strWeight,
+                                                                       strLength, strGripType, strBarLen, strBarWid, strBarHei, strAction, strfeed, strSights, strPurPrice,
+                                                                       strPurchasedFrom, strAppValue, strAppDate, strAppBy, strInsVal, strStorage, strConCom, strAddNotes,
+                                                                       strProduced, strPetLoads, strPurDate, chkBoxCR.Checked, strImporter, sReManDt, sPoi, 
+                                                                       sChoke, chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
+                                                                       chkClassIII.Checked,sClassIiiOwner, errOut) Then Throw New Exception(errOut)
 
-            obj.ConnExec(sql)
-            Dim objG As New GlobalFunctions
-            itemId = objGf.GetLastFirearmID
-            If Len(Trim(strPurchasedFrom)) <> 0 Then
-                If Not objG.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
-                    Call obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
-                End If
-                Dim gsid As Long = objGf.GetGunShopID(strPurchasedFrom)
-                sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & itemId
-                obj.ConnExec(sql)
-            End If
 
-            If Not objG.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
-                Call obj.InsertNewContact(strPurchasedFrom, "Appriaser_Contact_Details", "aName")
-            End If
+            'Dim sql As String = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," &
+            '        "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," &
+            '        "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," &
+            '        "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," &
+            '        "ReManDT,POI,HasMB,DBID,SGChoke,IsInBoundBook,TwistRate,lbs_trigger,Caliber3,Classification,DateofCR,ItemSold," &
+            '        "BID,sync_lastupdate,IsClassIII,ClassIII_owner) VALUES(" &
+            '        OwnerId & "," & lngManId & ",'" & strFullName & "','" & strModel & "'," & lngModelId & ",'" & strSerial & "','" &
+            '        strType & "','" & strCal & "','" & strFinish & "','" & strCondition & "'," & objGf.SetCatalogINSType(strCustCatId) & "," &
+            '        lngNationalityId & "," & lngGripId & "," & strQty & ",'" & strWeight & "','" & strLength & "','" &
+            '        strGripType & "','" & strBarLen & "','" & strBarWid & "','" & strBarHei & "','" & strAction & "','" &
+            '        strfeed & "','" & strSights & "','" & strPurPrice & "','" & strPurchasedFrom & "','" & strAppValue & "','" &
+            '        strAppDate & "','" & strAppBy & "','" & strInsVal & "','" & strStorage & "','" & strConCom & "','" & strAddNotes &
+            '        "','" & strProduced & "','" & strPetLoads & "','" & strPurDate & "'," & intIsCandR & ",'" & strImporter &
+            '        "','" & sReManDt & "','" & sPoi & "',0,0,'" & sChoke & "'," & iBoundBook & ",'" & sTwist & "','" & sTrigger &
+            '        "','" & sCaliber3 & "','" & sClassification & "','" & sDateOfCr & "',0,2,Now()," & iClassIii & ",'" & sClassIiiOwner & "')"
 
-            sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
-                    itemId & ",'Default Barrel','" & strCal & "','" & strFinish & "','" & strBarLen &
-                    "','" & strPetLoads & "','" & strAction & "','" & strfeed & "','" & strSights & "','" &
-                    "0.00','" & strPurchasedFrom & "',DATE(),'" & strLength & "','Fixed Barrel" &
-                    "',1,Now())"
-            obj.ConnExec(sql)
-            bid = objGf.GetBarrelID(itemId, 1)
-            sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & itemId
-            obj.ConnExec(sql)
-            sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & itemId & ",Now())"
-            obj.ConnExec(sql)
-            If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
-            Lastviewedfirearm = objGf.GetLastFirearmID
+            'obj.ConnExec(sql)
+            'Dim objG As New GlobalFunctions
+            'itemId = objGf.GetLastFirearmID
+            'If Len(Trim(strPurchasedFrom)) <> 0 Then
+            '    If Not objG.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
+            '        Call obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
+            '    End If
+            '    Dim gsid As Long = objGf.GetGunShopID(strPurchasedFrom)
+            '    sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & itemId
+            '    obj.ConnExec(sql)
+            'End If
+
+            'If Not objG.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
+            '    Call obj.InsertNewContact(strPurchasedFrom, "Appriaser_Contact_Details", "aName")
+            'End If
+
+            'sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
+            '        "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
+            '        itemId & ",'Default Barrel','" & strCal & "','" & strFinish & "','" & strBarLen &
+            '        "','" & strPetLoads & "','" & strAction & "','" & strfeed & "','" & strSights & "','" &
+            '        "0.00','" & strPurchasedFrom & "',DATE(),'" & strLength & "','Fixed Barrel" &
+            '        "',1,Now())"
+            'obj.ConnExec(sql)
+            'bid = objGf.GetBarrelID(itemId, 1)
+            'sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & itemId
+            'obj.ConnExec(sql)
+            'sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & itemId & ",Now())"
+            'obj.ConnExec(sql)
+            'If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
+            'Lastviewedfirearm = objGf.GetLastFirearmID
+            Lastviewedfirearm = BurnSoft.Applications.MGC.Firearms.MyCollection.GetLastId(DatabasePath, errOut)
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
