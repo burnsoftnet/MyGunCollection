@@ -1,9 +1,8 @@
 
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
+'Imports System.Data.Odbc
+'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Types
-''TODO: Convert code from FrmAddFirearm #13
 
 ''' <summary>
 ''' Class frmAddFirearm.
@@ -166,7 +165,7 @@ Public Class FrmAddFirearm
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim objGf As New GlobalFunctions
+            'Dim objGf As New GlobalFunctions
             'Dim obj As New BSDatabase
             Dim strManu As String = FluffContent(txtManu.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
@@ -187,7 +186,8 @@ Public Class FrmAddFirearm
             Dim strCustCatId As String = FluffContent(txtCustCatID.Text)
             Dim sChoke As String = FluffContent(txtChoke.Text)
             Dim custIdExists As Boolean = False
-            If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId)
+            'If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId)
+            If Len(Trim(strCustCatId)) > 0 Then custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, errOut)
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim strProduced As String = FluffContent(txtProduced.Text)
             Dim strAction As String = FluffContent(txtAction.Text)
