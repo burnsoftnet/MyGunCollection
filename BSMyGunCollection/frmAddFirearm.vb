@@ -219,7 +219,8 @@ Public Class FrmAddFirearm
             'If chkClassIII.Checked Then iClassIii = 1
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
 
-            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId)) : Exit Sub
+            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, errOut)) : Exit Sub
+            'If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId)) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Text) Then Exit Sub
             If Not IsRequired(strSerial, "Serial", Text) Then Exit Sub
@@ -240,7 +241,7 @@ Public Class FrmAddFirearm
             Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, errOut)
             Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, errOut)
             Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, errOut)
-            Call objGf.UpdateGunType(strType)
+            Call BurnSoft.Applications.MGC.Firearms.GunTypes.UpdateGunType(DatabasePath, strType, errOut)
             'BurnSoft.Applications.MGC.Firearms.MyCollection.
             'Dim itemId As Long
             'Dim bid As Long
