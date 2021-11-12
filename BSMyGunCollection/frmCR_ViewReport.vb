@@ -33,8 +33,8 @@ Public Class FrmCrViewReport
     ''' </summary>
     Sub LoadData()
         Try
-            Dim obj As New BSDatabase
-            _myDataTable = obj.GetData(Sql)
+            Dim errOut As String = ""
+            _myDataTable = BurnSoft.Applications.MGC.Database.GetDataFromTable(DatabasePath, Sql, errOut)
             _myDataTable.TableName = "MyCustomReport"
             With DataGrid1
                 .DataSource = _myDataTable
