@@ -188,6 +188,7 @@ Public Class FrmAddFirearm
             Dim custIdExists As Boolean = False
             'If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId)
             If Len(Trim(strCustCatId)) > 0 Then custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim strProduced As String = FluffContent(txtProduced.Text)
             Dim strAction As String = FluffContent(txtAction.Text)
@@ -221,6 +222,7 @@ Public Class FrmAddFirearm
 
             If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, errOut)) : Exit Sub
             'If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId)) : Exit Sub
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Text) Then Exit Sub
             If Not IsRequired(strSerial, "Serial", Text) Then Exit Sub
@@ -238,10 +240,15 @@ Public Class FrmAddFirearm
             'Call objGf.UpdateGunType(strType)
 
             Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Call BurnSoft.Applications.MGC.Firearms.GunTypes.UpdateGunType(DatabasePath, strType, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             'BurnSoft.Applications.MGC.Firearms.MyCollection.
             'Dim itemId As Long
             'Dim bid As Long
@@ -304,6 +311,7 @@ Public Class FrmAddFirearm
             'If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
             'Lastviewedfirearm = objGf.GetLastFirearmID
             Lastviewedfirearm = BurnSoft.Applications.MGC.Firearms.MyCollection.GetLastId(DatabasePath, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
