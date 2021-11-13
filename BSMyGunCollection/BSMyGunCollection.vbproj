@@ -127,8 +127,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.0.1.34, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.0.1.34-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.0.1.35, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.0.1.35-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -137,8 +137,8 @@
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Universal, Version=4.0.32.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Universal.4.0.32.2\lib\net461\BurnSoft.Universal.dll</HintPath>
+    <Reference Include="BurnSoft.Universal, Version=4.0.32.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Universal.4.0.32.3\lib\net472\BurnSoft.Universal.dll</HintPath>
     </Reference>
     <Reference Include="DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

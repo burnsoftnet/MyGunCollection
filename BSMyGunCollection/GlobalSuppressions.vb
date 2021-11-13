@@ -329,3 +329,4 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewShopDetails.frmViewShopDetails_Load(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~P:BSMyGunCollection.DataGridPrinter._gridPrintDocument")>
 <Assembly: SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification:="<Pending>", Scope:="member", Target:="~F:BSMyGunCollection.FrmEditCollectionDetails._isSold")>
+<Assembly: SuppressMessage("Style", "IDE0140:Object creation can be simplified", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmCrViewReport.ToolStripButton3_Click(System.Object,System.EventArgs)")>
