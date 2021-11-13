@@ -29,6 +29,11 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
+v7.x TBD
+
+- Optimize functions by converting alot of the code to use a seperate library
+- FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
+
 v6.5  March 2021
 
 - Release as 100% Free, no longer a pay app
