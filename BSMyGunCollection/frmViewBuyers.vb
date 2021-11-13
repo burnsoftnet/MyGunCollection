@@ -1,11 +1,18 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
+'Imports BSMyGunCollection.MGC
+'Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+
 ''' <summary>
 ''' Class FrmViewBuyers.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmViewBuyers
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
     ''' <summary>
     ''' Refreshes the list.
     ''' </summary>
@@ -47,60 +54,51 @@ Public Class FrmViewBuyers
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    ''' <summary>
-    ''' Determines whether [has collection attached] [the specified string identifier].
-    ''' </summary>
-    ''' <param name="strId">The string identifier.</param>
-    ''' <returns>System.Int32.</returns>
-    Private Function HasCollectionAttached(ByVal strId As String) As Integer
-        Dim iAns As Integer = 0
-        Dim sql As String = "SELECT Count(*) as Total from Gun_Collection where ItemSold=1 and BID=" & strId
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While (rs.Read)
-                    iAns = rs("Total")
-                End While
-            End If
-            rs.Close()
-            Call obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "HasCollectionAttached"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return iAns
-    End Function
-    ''' <summary>
-    ''' Gets the name of the buyer.
-    ''' </summary>
-    ''' <param name="strId">The string identifier.</param>
-    ''' <returns>System.String.</returns>
-    Private Function GetBuyerName(ByVal strId As String) As String
-        Dim sAns As String = ""
-        Dim sql As String = "SELECT name from Gun_Collection_SoldTo where ID=" & strId
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While (rs.Read)
-                    sAns = rs("name")
-                End While
-            End If
-            rs.Close()
-            Call obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetBuyerName"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
+
+    'Private Function HasCollectionAttached(ByVal strId As String) As Integer
+    '    Dim iAns As Integer = 0
+    '    Dim sql As String = "SELECT Count(*) as Total from Gun_Collection where ItemSold=1 and BID=" & strId
+    '    Try
+    '        Dim obj As New BSDatabase
+    '        Call obj.ConnectDB()
+    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
+    '        Dim rs As OdbcDataReader
+    '        rs = cmd.ExecuteReader
+    '        If rs.HasRows Then
+    '            While (rs.Read)
+    '                iAns = rs("Total")
+    '            End While
+    '        End If
+    '        rs.Close()
+    '        Call obj.CloseDB()
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "HasCollectionAttached"
+    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return iAns
+    'End Function
+    'Private Function GetBuyerName(ByVal strId As String) As String
+    '    Dim sAns As String = ""
+    '    Dim sql As String = "SELECT name from Gun_Collection_SoldTo where ID=" & strId
+    '    Try
+    '        Dim obj As New BSDatabase
+    '        Call obj.ConnectDB()
+    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
+    '        Dim rs As OdbcDataReader
+    '        rs = cmd.ExecuteReader
+    '        If rs.HasRows Then
+    '            While (rs.Read)
+    '                sAns = rs("name")
+    '            End While
+    '        End If
+    '        rs.Close()
+    '        Call obj.CloseDB()
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "GetBuyerName"
+    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return sAns
+    'End Function
     ''' <summary>
     ''' Handles the Click event of the ToolStripButton1 control.
     ''' </summary>
@@ -109,17 +107,19 @@ Public Class FrmViewBuyers
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
         Try
             Dim myValue As Long = ListBox1.SelectedValue
-            Dim strName As String = GetBuyerName(myValue)
-            'Dim strName As String = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.GetId()
-            Dim obj As New BSDatabase
-            Dim sql As String = "DELETE from Gun_Collection_SoldTo where ID=" & myValue
+            'Dim strName As String = GetBuyerName(myValue)
+            Dim strName As String = Buyers.GetName(DatabasePath, Convert.ToInt32(myValue), _errOut)
+            'Dim obj As New BSDatabase
+            'Dim sql As String = "DELETE from Gun_Collection_SoldTo where ID=" & myValue
             Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strName & " from the database.", MsgBoxStyle.YesNo, "Delete a Buyer")
-            Dim intColTotal As Integer = HasCollectionAttached(myValue)
+            'Dim intColTotal As Integer = HasCollectionAttached(myValue)
+            Dim intColTotal As Integer = MyCollection.HasCollectionAttached(DatabasePath, Convert.ToInt32(myValue), _errOut)
             If sMsg = vbYes Then
                 If intColTotal <> 0 Then
                     MsgBox("Cannot delete " & strName & "! It still has " & intColTotal & " firearms attached to it!", MsgBoxStyle.Critical, "Cannot Delete Buyer")
                 Else
-                    obj.ConnExec(sql)
+                    'obj.ConnExec(sql)
+                    If Not Buyers.Delete(DatabasePath, Convert.ToInt32(myValue), _errOut) Then Throw New Exception(_errOut)
                     Call RefreshList()
                 End If
             End If
