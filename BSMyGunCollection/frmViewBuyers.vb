@@ -110,6 +110,7 @@ Public Class FrmViewBuyers
         Try
             Dim myValue As Long = ListBox1.SelectedValue
             Dim strName As String = GetBuyerName(myValue)
+            'Dim strName As String = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.GetId()
             Dim obj As New BSDatabase
             Dim sql As String = "DELETE from Gun_Collection_SoldTo where ID=" & myValue
             Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strName & " from the database.", MsgBoxStyle.YesNo, "Delete a Buyer")

@@ -1,6 +1,4 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Types
-
 
 ''' <summary>
 ''' Class frmEditGunSmithLog.
@@ -16,11 +14,6 @@ Public Class FrmEditGunSmithLog
     ''' The error out
     ''' </summary>
     Dim _errOut as String = ""
-    ''' <summary>
-    ''' The error out
-    ''' </summary>
-    Dim errOut as String = ""
-
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
