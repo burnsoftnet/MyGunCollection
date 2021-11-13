@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 
 ''' <summary>
 ''' Class frmAddGunSmithLog.
@@ -52,8 +51,6 @@ Public Class FrmAddGunSmithLog
             If Not IsRequired(strSmith, "Gun Smith Name", Text) Then Exit Sub
             If Not IsRequired(strOd, "Operation Details", Text) Then Exit Sub
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
             Dim errOut As String =""
             If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(DatabasePath, strSmith, errOut) Then 
                 BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath, strSmith, errOut)

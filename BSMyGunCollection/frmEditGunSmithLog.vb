@@ -20,26 +20,12 @@ Public Class FrmEditGunSmithLog
     ''' The error out
     ''' </summary>
     Dim errOut as String = ""
-    ''' <summary>
-    ''' Pres the load.
-    ''' </summary>
-    'Sub PreLoad()
-    '    Try
-    '        ''TODO #48 Clean up Code
-    '        'Dim objAf As New AutoFillCollections
-    '        'txtGS.AutoCompleteCustomSource = objAf.GunSmith_Name
-    '        txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, errOut)
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "PreLoad"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    'End Sub
+
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
+    ''' <exception cref="System.Exception"></exception>
     Sub LoadData()
-        Dim obj As New BSDatabase
-        obj.ConnectDB()
         Try
             Dim lst As List(Of GunSmithWorkDone) = BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Lists(DatabasePath, id, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
