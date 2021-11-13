@@ -109,17 +109,20 @@ Public Class FrmViewBuyers
             Dim myValue As Long = ListBox1.SelectedValue
             'Dim strName As String = GetBuyerName(myValue)
             Dim strName As String = Buyers.GetName(DatabasePath, Convert.ToInt32(myValue), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             'Dim obj As New BSDatabase
             'Dim sql As String = "DELETE from Gun_Collection_SoldTo where ID=" & myValue
             Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strName & " from the database.", MsgBoxStyle.YesNo, "Delete a Buyer")
             'Dim intColTotal As Integer = HasCollectionAttached(myValue)
             Dim intColTotal As Integer = MyCollection.HasCollectionAttached(DatabasePath, Convert.ToInt32(myValue), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             If sMsg = vbYes Then
                 If intColTotal <> 0 Then
                     MsgBox("Cannot delete " & strName & "! It still has " & intColTotal & " firearms attached to it!", MsgBoxStyle.Critical, "Cannot Delete Buyer")
                 Else
                     'obj.ConnExec(sql)
                     If Not Buyers.Delete(DatabasePath, Convert.ToInt32(myValue), _errOut) Then Throw New Exception(_errOut)
+                    If _errOut.Length > 0 Then Throw New Exception(_errOut)
                     Call RefreshList()
                 End If
             End If
