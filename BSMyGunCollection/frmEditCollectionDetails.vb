@@ -1,4 +1,5 @@
-Imports BSMyGunCollection.MGC
+'Imports System.Windows.Forms.VisualStyles
+'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Types
 
 
@@ -211,8 +212,8 @@ Public Class FrmEditCollectionDetails
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
-            Dim objGf As New GlobalFunctions
-            Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
             Dim strManu As String = FluffContent(txtManu.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
             Dim strSerial As String = FluffContent(txtSerial.Text)
@@ -220,8 +221,8 @@ Public Class FrmEditCollectionDetails
             Dim strCal As String = FluffContent(txtCal.Text)
             Dim strFinish As String = FluffContent(txtFinish.Text)
             Dim strCondition As String = FluffContent(cmdCondition.SelectedValue)
-            Dim strQty As Double = 1
-            Dim intIsCandR As Integer = 0
+            'Dim strQty As Double = 1
+            'Dim intIsCandR As Integer = 0
             Dim strPetLoads As String = FluffContent(txtPetLoads.Text)
             Dim strRegion As String = FluffContent(txtNationality.Text)
             Dim strWeight As String = FluffContent(txtWeight.Text)
@@ -231,7 +232,9 @@ Public Class FrmEditCollectionDetails
             Dim strBarHei As String = FluffContent(txtBarHei.Text)
             Dim strCustCatId As String = FluffContent(txtCustCatID.Text)
             Dim custIdExists As Boolean = False
-            If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId, CLng(ItemId))
+            If Len(Trim(strCustCatId)) > 0 Then custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            'If Len(Trim(strCustCatId)) > 0 Then custIdExists = objGf.CatalogIDExists(strCustCatId, CLng(ItemId))
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim sChoke As String = FluffContent(txtChoke.Text)
             Dim strProduced As String = FluffContent(txtProduced.Text)
@@ -252,77 +255,98 @@ Public Class FrmEditCollectionDetails
             Dim strAddNotes As String = FluffContent(txtAddNotes.Text)
             Dim strImporter As String = FluffContent(txtImporter.Text)
             Dim sCaliber3 As String = FluffContent(txtCaliber3.Text)
-            Dim iBoundBook As Integer = 0
-            If chkBoundBook.Checked Then iBoundBook = 1
+            'Dim iBoundBook As Integer = 0
+            'If chkBoundBook.Checked Then iBoundBook = 1
             Dim sTwist As String = FluffContent(txtTwistOfRate.Text)
             Dim sTrigger As String = FluffContent(txtTriggerPull.Text)
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCr As String = dtpDateofCR.Value
-            Dim iClassIii As Integer = 0
-            If chkClassIII.Checked Then iClassIii = 1
+            'Dim iClassIii As Integer = 0
+            'If chkClassIII.Checked Then iClassIii = 1
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
+            
+            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut)) : Exit Sub
 
-            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId, CLng(ItemId))) : Exit Sub
+            'If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(objGf.CatalogExistsDetails(strCustCatId, CLng(ItemId))) : Exit Sub
             If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
             If Not IsRequired(strModel, "Model", Text) Then Exit Sub
             If Not IsRequired(strSerial, "Serial", Text) Then Exit Sub
             If Not IsRequired(strType, "Type", Text) Then Exit Sub
             If Not IsRequired(strCal, "Caliber Or Gauge", Text) Then Exit Sub
 
-            If chkBoxCR.Checked Then intIsCandR = 1
+            'If chkBoxCR.Checked Then intIsCandR = 1
 
-            Dim lngManId As Long = objGf.GetManufacturersID(strManu)
-            Dim lngModelId As Long = objGf.GetModelID(strModel, lngManId)
-            Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
-            Dim lngGripId As Long = objGf.GetGripID(strGripType)
+            'Dim lngManId As Long = objGf.GetManufacturersID(strManu)
+            'Dim lngModelId As Long = objGf.GetModelID(strModel, lngManId)
+            'Dim lngNationalityId As Long = objGf.GetNationalityID(strRegion)
+            'Dim lngGripId As Long = objGf.GetGripID(strGripType)
+
+            Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             Dim sReManDt As String = dtpReManDT.Value
             Dim sPoi As String = FluffContent(txtPOI.Text)
 
             ''' TODO: #43  #19  Convert this section
+            if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Update(DatabasePath, Convert.ToInt32(ItemId), UseNumberCatOnly,
+                                                                          Convert.ToInt32(OwnerId), lngManId, strModel, lngModelId,
+                                                                          strSerial, strType, strCal, strFinish, strCondition,strCustCatId,
+                                                                          lngNationalityId, lngGripId, strWeight, strLength, strGripType,
+                                                                          strBarLen, strBarWid, strBarHei, strAction, strfeed, strSights,
+                                                                          strPurPrice,strPurchasedFrom, strAppValue, strAppDate, strAppBy,
+                                                                          strInsVal, strStorage, strConCom, strAddNotes, strProduced, strPetLoads,
+                                                                          strPurDate, chkBoxCR.Checked, strImporter, sReManDt, sPoi, sChoke, 
+                                                                          chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification,
+                                                                          sDateOfCr, chkClassIII.Checked, _isSold, dtpSold.Value,sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
 
-            'Dim sql As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManId &
-            '        ", ModelName='" & strModel & "', ModelID=" & lngModelId & ", SerialNumber='" &
-            '        strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" &
-            '        strCondition & "', CustomID=" & objGf.SetCatalogINSType(strCustCatId) & ", NatID=" & lngNationalityId & ", gripid=" & lngGripId &
-            '        ", Qty=" & strQty & ", Weight='" & strWeight & "', Height='" & strLength & "', StockType='" & strGripType &
-            '        "', BarrelLength='" & strBarLen & "', BarrelWidth='" & strBarWid & "', BarrelHeight='" &
-            '        strBarHei & "', Action='" & strAction & "', FeedSystem='" & strfeed & "', Sights='" & strSights &
-            '        "', PurchasedPrice='" & strPurPrice & "', PurchasedFrom='" & strPurchasedFrom & "', AppraisedValue='" & strAppValue &
-            '         "', AppraisalDate='" & strAppDate & "', AppraisedBy='" & strAppBy & "', InsuredValue='" & strInsVal & "', StorageLocation='" &
-            '         strStorage & "', ConditionComments='" & strConCom & "', AdditionalNotes='" & strAddNotes & "', Produced='" &
-            '         strProduced & "', IsCandR=" & intIsCandR & ", PetLoads='" & strPetLoads &
-            '        "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " &
-            '        "ReManDT='" & sReManDt & "', POI='" & sPoi & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook &
-            '        ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 &
-            '        "',Classification='" & sClassification & "',DateofCR='" & sDateOfCr & "', sync_lastupdate=now(),IsClassIII=" &
-            '        iClassIii & ",ClassIII_owner='" & sClassIiiOwner & "'"
-            'If _isSold Then sql &= ", dtsold='" & dtpSold.Value & "'"
-            'sql &= " where ID=" & ItemId
-            'obj.ConnExec(sql)
-            'sql = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish &
-            '        "',BarrelLength='" & strBarLen & "',PetLoads='" & strPetLoads & "',Action='" &
-            '        strAction & "',Feedsystem='" & strAction & "',Sights='" & strSights &
-            '        "',PurchasedPrice='" & strPurPrice & "',PurchasedFrom='" & strPurchasedFrom &
-            '        "',Height='" & strLength & "',Type='" & strType & "', sync_lastupdate=now() where ID=" & BarrelId
-            'obj.ConnExec(sql)
-            'If Len(strPurchasedFrom) <> 0 Then
-            '    If Not objGf.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
-            '        Call obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
-            '    End If
-            '    Dim gsid As Long = objGf.GetGunShopID(strPurchasedFrom)
-            '    sql = "UPDATE Gun_Collection set SID=" & gsid & ",sync_lastupdate=Now() where ID=" & ItemId
-            '    obj.ConnExec(sql)
-            'End If
+                'Dim sql As String = "UPDATE Gun_Collection set oid=" & OwnerId & ", MID=" & lngManId &
+                '        ", ModelName='" & strModel & "', ModelID=" & lngModelId & ", SerialNumber='" &
+                '        strSerial & "', Type='" & strType & "', Caliber='" & strCal & "', Finish='" & strFinish & "', Condition='" &
+                '        strCondition & "', CustomID=" & objGf.SetCatalogINSType(strCustCatId) & ", NatID=" & lngNationalityId & ", gripid=" & lngGripId &
+                '        ", Qty=" & strQty & ", Weight='" & strWeight & "', Height='" & strLength & "', StockType='" & strGripType &
+                '        "', BarrelLength='" & strBarLen & "', BarrelWidth='" & strBarWid & "', BarrelHeight='" &
+                '        strBarHei & "', Action='" & strAction & "', FeedSystem='" & strfeed & "', Sights='" & strSights &
+                '        "', PurchasedPrice='" & strPurPrice & "', PurchasedFrom='" & strPurchasedFrom & "', AppraisedValue='" & strAppValue &
+                '         "', AppraisalDate='" & strAppDate & "', AppraisedBy='" & strAppBy & "', InsuredValue='" & strInsVal & "', StorageLocation='" &
+                '         strStorage & "', ConditionComments='" & strConCom & "', AdditionalNotes='" & strAddNotes & "', Produced='" &
+                '         strProduced & "', IsCandR=" & intIsCandR & ", PetLoads='" & strPetLoads &
+                '        "', dtp='" & strPurDate & "', Importer='" & strImporter & "', " &
+                '        "ReManDT='" & sReManDt & "', POI='" & sPoi & "', SGChoke='" & sChoke & "',IsInBoundBook=" & iBoundBook &
+                '        ",lbs_trigger='" & sTrigger & "',TwistRate='" & sTwist & "',Caliber3='" & sCaliber3 &
+                '        "',Classification='" & sClassification & "',DateofCR='" & sDateOfCr & "', sync_lastupdate=now(),IsClassIII=" &
+                '        iClassIii & ",ClassIII_owner='" & sClassIiiOwner & "'"
+                'If _isSold Then sql &= ", dtsold='" & dtpSold.Value & "'"
+                'sql &= " where ID=" & ItemId
+                'obj.ConnExec(sql)
+                'sql = "UPDATE Gun_Collection_Ext set Caliber='" & strCal & "',Finish='" & strFinish &
+                '        "',BarrelLength='" & strBarLen & "',PetLoads='" & strPetLoads & "',Action='" &
+                '        strAction & "',Feedsystem='" & strAction & "',Sights='" & strSights &
+                '        "',PurchasedPrice='" & strPurPrice & "',PurchasedFrom='" & strPurchasedFrom &
+                '        "',Height='" & strLength & "',Type='" & strType & "', sync_lastupdate=now() where ID=" & BarrelId
+                'obj.ConnExec(sql)
+                'If Len(strPurchasedFrom) <> 0 Then
+                '    If Not objGf.ObjectExistsinDB(strPurchasedFrom, "Name", "Gun_Shop_Details") Then
+                '        Call obj.InsertNewContact(strPurchasedFrom, "Gun_Shop_Details", "Name")
+                '    End If
+                '    Dim gsid As Long = objGf.GetGunShopID(strPurchasedFrom)
+                '    sql = "UPDATE Gun_Collection set SID=" & gsid & ",sync_lastupdate=Now() where ID=" & ItemId
+                '    obj.ConnExec(sql)
+                'End If
 
-            'If Not objGf.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
-            '    Call obj.InsertNewContact(strAppBy, "Appriaser_Contact_Details", "aName")
-            'End If
+                'If Not objGf.ObjectExistsinDB(strAppBy, "aName", "Appriaser_Contact_Details") And Len(strAppBy) > 0 Then
+                '    Call obj.InsertNewContact(strAppBy, "Appriaser_Contact_Details", "aName")
+                'End If
 
 
-            'If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
-            
-            MDIParent1.RefreshCollection()
+                'If Not objGf.CaliberExists(strCal) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & strCal & "',Now())")
+
+                MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate.Click"
