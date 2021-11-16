@@ -1078,6 +1078,13 @@ Public Class FrmViewCollectionDetails
                     sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
                     sAns &= "       <Use>" & rs("Use") & "</Use>" & nl
                     sAns &= "       <PurValue>" & rs("PurValue") & "</PurValue>" & nl
+                    sAns &= "       <appValue>" & rs("appValue") & "</appValue>" & nl
+                    Dim civ as Boolean = False
+                    If rs("civ") = 1 Then civ = True
+                    sAns &= "       <civ>" & civ & "</civ>" & nl
+                    Dim ic as Boolean = False
+                    If rs("ic") = 1 Then civ = True
+                    sAns &= "       <ic>" & ic & "</ic>" & nl
                     sAns &= "    </Accessories>" & nl
                 End While
             Else

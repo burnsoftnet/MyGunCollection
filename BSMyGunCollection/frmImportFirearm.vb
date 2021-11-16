@@ -327,10 +327,10 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Accessories(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            Dim sql As String 
+            'Dim sql As String 
             Dim manufacturer As String 
             Dim model As String 
             Dim serialNumber As String 
@@ -349,11 +349,17 @@ Public Class FrmImportFirearm
                     notes = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Notes")))
                     use = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Use")))
                     purValue = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("PurValue")))
+                    Dim appValue As Double = Convert.ToDouble(BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("appValue"))))
+                    Dim civ As Boolean = CBool(BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("civ"))))
+                    Dim ic As Boolean = CBool(BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("ic"))))
 
-                    sql = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate) VALUES(" & _
-                            firearmId & ",'" & manufacturer & "','" & model & "','" & serialNumber & "','" & condition & "','" & _
-                            notes & "','" & use & "','" & purValue & "',Now())"
-                    obj.ConnExec(sql)
+                    If Not BurnSoft.Applications.MGC.Firearms.Accessories.Add(DatabasePath, firearmId, manufacturer, model, serialNumber, condition,
+                                                                              notes, use, purValue, appValue, civ,ic, _errOut) Then Throw New Exception(_errOut)
+
+                    'sql = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate) VALUES(" & _
+                    '        firearmId & ",'" & manufacturer & "','" & model & "','" & serialNumber & "','" & condition & "','" & _
+                    '        notes & "','" & use & "','" & purValue & "',Now())"
+                    'obj.ConnExec(sql)
                 End If
             Next
         Catch ex As Exception
