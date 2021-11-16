@@ -1021,6 +1021,8 @@ Public Class FrmViewCollectionDetails
         sAns &= "       <Weight>" & txtWeight.Text & "</Weight>" & nl
         sAns &= "       <Height>" & txtLength.Text & "</Height>" & nl
         sAns &= "       <BarrelLength>" & txtBarLen.Text & "</BarrelLength>" & nl
+        sAns &= "       <BarWid>" & txtBarWid.Text & "</BarWid>" & nl
+        sAns &= "       <BarHei>" & txtBarHei.Text & "</BarHei>" & nl
         sAns &= "       <Action>" & txtAction.Text & "</Action>" & nl
         sAns &= "       <Feedsystem>" & txtFeed.Text & "</Feedsystem>" & nl
         sAns &= "       <Sights>" & txtSights.Text & "</Sights>" & nl
@@ -1047,6 +1049,8 @@ Public Class FrmViewCollectionDetails
         sAns &= "       <BoundBook>" & chkBoundBook.Checked & "</BoundBook>" & nl
         sAns &= "       <Classification>" & txtClassification.Text & "</Classification>" & nl
         sAns &= "       <DateofCR>" & dtpDateofCR.Value & "</DateofCR>" & nl
+        sAns &= "       <IsClassIII>" & chkClassIII.Checked & "</IsClassIII>" & nl
+        sAns &= "       <ClassIiiOwner>" & txtClassIIIOwner.Text  & "</ClassIiiOwner>" & nl
         sAns &= "    </Details>" & nl
         Return sAns
     End Function

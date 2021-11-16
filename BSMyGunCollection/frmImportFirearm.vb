@@ -125,10 +125,10 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Details(ByVal strPath As String, ByVal strNodeName As String, ByRef fullName As String, ByRef firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            Dim sql As String 
+            'Dim sql As String 
             Dim manufacturer As String 
             Dim modelName As String 
             Dim serialNumber As String
@@ -167,16 +167,18 @@ Public Class FrmImportFirearm
             Dim modId As Long 
             Dim lGripId As Long 
             Dim lNatId As Long 
-            Dim bid As Long 
-            Dim lIsCandR As Long 
+            'Dim bid As Long 
+            'Dim lIsCandR As Long 
 ' ReSharper disable NotAccessedVariable
-            Dim iBoundBook As Long 
+            'Dim iBoundBook As Long 
             Dim bBoundBook As Boolean
             Dim sTwist As String 
             Dim sTrigger As String 
             Dim sCaliber3 As String 
             Dim sClassification As String 
             Dim sDateOfCr As String 
+            dim strBarWid As String
+            Dim strBarHei as string
             ' ReSharper restore LocalVariableHidesMember
             ' ReSharper restore NotAccessedVariable
             doc.Load(strPath)
@@ -221,70 +223,85 @@ Public Class FrmImportFirearm
                 sTrigger = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("TriggerPull")))
                 sClassification = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Classification")))
                 sDateOfCr = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("DateofCR")))
-                If CBool(bBoundBook) Then iBoundBook = 1
+                strBarWid = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("BarWid")))
+                strBarHei= BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("BarHei")))
+                Dim sClassIiiOwner as String = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("ClassIiiOwner")))
+                dim isClassIii as Boolean = CBool(BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("IsClassIII"))))
+
+                'If CBool(bBoundBook) Then iBoundBook = 1
                 poi = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("POI")))
-                manId = objGf.GetManufacturersID(manufacturer)
-                modId = objGf.GetModelID(modelName, manId)
-                lGripId = objGf.GetGripID(gripId)
-                lNatId = objGf.GetNationalityID(natId)
-                Call objGf.UpdateGunType(sType)
-                If CBool(isCandR) Then lIsCandR = 1
+                manId = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,manufacturer, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                'modId = objGf.GetModelID(modelName, manId)
+                modId = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,modelName, manId, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                'lGripId = objGf.GetGripID(gripId)
+                lGripId =  BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,gripId, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                'lNatId = objGf.GetNationalityID(natId)
+                lNatId = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, natId, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                'Call objGf.UpdateGunType(sType)
+                'If CBool(isCandR) Then lIsCandR = 1
+                Call BurnSoft.Applications.MGC.Firearms.GunTypes.UpdateGunType(DatabasePath, sType, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
 
                 if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Add(DatabasePath, UseNumberCatOnly, OwnerId, manId, fullName, modelName, modId, serialNumber,
-                                                                           sType,caliber, finish, condition, objGf.SetCatalogINSType(customId), lNatId, lGripId, weight,
+                                                                           sType, caliber, finish, condition, customId, lNatId, lGripId, weight,
                                                                            height, gripId, barrelLength, strBarWid, strBarHei, action, feedsystem, sights, purchasedPrice,
                                                                            purchasedFrom, appraisedValue, appraisalDate, appraisedBy, insuredValue, storageLocation, conditionComments, additionalNotes,
-                                                                           produced, petLoads, dtp, CBool(isCandR) , importer, reManDt, poi, 
-                                                                           sgChoke, chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
-                                                                           chkClassIII.Checked,sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
+                                                                           produced, petLoads, dtp, CBool(isCandR), importer, reManDt, poi,
+                                                                           sgChoke, CBool(bBoundBook), sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
+                                                                           isClassIii, sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
 
 
-                sql = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
-                        "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
-                        "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
-                        "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
-                        "ReManDT,POI,SGChoke,sync_lastupdate) VALUES(" & _
-                        OwnerId & "," & manId & ",'" & fullName & "','" & modelName & "'," & modId & ",'" & serialNumber & "','" & _
-                        sType & "','" & caliber & "','" & finish & "','" & condition & "'," & objGf.SetCatalogINSType(customId) & "," & _
-                        lNatId & "," & lGripId & ",1,'" & weight & "','" & height & "','" & _
-                        gripId & "','" & barrelLength & "',' ',' ','" & action & "','" & _
-                        feedsystem & "','" & sights & "','" & purchasedPrice & "','" & purchasedFrom & "','" & appraisedValue & "','" & _
-                        appraisalDate & "','" & appraisedBy & "','" & insuredValue & "','" & storageLocation & "','" & conditionComments & "','" & additionalNotes & _
-                        "','" & produced & "','" & petLoads & "','" & dtp & "'," & lIsCandR & ",'" & importer & _
-                        "','" & reManDt & "','" & poi & "','" & sgChoke & "',Now())"
-                obj.ConnExec(sql)
-                firearmId = objGf.GetLastFirearmID
-                sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
-                    firearmId & ",'Default Barrel','" & caliber & "','" & finish & "','" & barrelLength & _
-                    "','" & petLoads & "','" & action & "','" & feedsystem & "','" & sights & "','" & _
-                    "0.00','" & purchasedFrom & "',DATE(),'" & height & "','Fixed Barrel" & _
-                    "',1,Now())"
-                obj.ConnExec(sql)
-                bid = objGf.GetBarrelID(firearmId, 1)
-                DefaultBarrelId = bid
-                sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & firearmId
-                obj.ConnExec(sql)
-                sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & firearmId & ",Now())"
-                obj.ConnExec(sql)
-                If Len(Trim(purchasedFrom)) <> 0 Then
-                    'Dim objG As New GlobalFunctions
-                    'If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
-                    '    sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
-                    '    obj.ConnExec(sql)
-                    'End If
-                    'Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
-                    If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(DatabasePath, purchasedFrom, _errOut) Then
-                        If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Add(DatabasePath, purchasedFrom, _errOut) Then Throw New Exception(_errOut)
-                    End If
-                    If _errOut.Length > 0  Then Throw new Exception(_errOut)
-                    dim gsid as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.GetId(DatabasePath, purchasedFrom, _errOut)
-                    If _errOut.Length > 0  Then Throw new Exception(_errOut)
-                    'sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
-                    'obj.ConnExec(sql)
-                    if Not BurnSoft.Applications.MGC.Firearms.MyCollection.UpdateSellerId(DatabasePath, gsid, firearmId, _errOut) Then Throw new Exception(_errOut)
-                End If
-                If Not objGf.CaliberExists(caliber) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & caliber & "',Now())")
+                'sql = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
+                '        "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
+                '        "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
+                '        "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
+                '        "ReManDT,POI,SGChoke,sync_lastupdate) VALUES(" & _
+                '        OwnerId & "," & manId & ",'" & fullName & "','" & modelName & "'," & modId & ",'" & serialNumber & "','" & _
+                '        sType & "','" & caliber & "','" & finish & "','" & condition & "'," & objGf.SetCatalogINSType(customId) & "," & _
+                '        lNatId & "," & lGripId & ",1,'" & weight & "','" & height & "','" & _
+                '        gripId & "','" & barrelLength & "',' ',' ','" & action & "','" & _
+                '        feedsystem & "','" & sights & "','" & purchasedPrice & "','" & purchasedFrom & "','" & appraisedValue & "','" & _
+                '        appraisalDate & "','" & appraisedBy & "','" & insuredValue & "','" & storageLocation & "','" & conditionComments & "','" & additionalNotes & _
+                '        "','" & produced & "','" & petLoads & "','" & dtp & "'," & lIsCandR & ",'" & importer & _
+                '        "','" & reManDt & "','" & poi & "','" & sgChoke & "',Now())"
+                'obj.ConnExec(sql)
+                'firearmId = objGf.GetLastFirearmID
+                'sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
+                '    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
+                '    firearmId & ",'Default Barrel','" & caliber & "','" & finish & "','" & barrelLength & _
+                '    "','" & petLoads & "','" & action & "','" & feedsystem & "','" & sights & "','" & _
+                '    "0.00','" & purchasedFrom & "',DATE(),'" & height & "','Fixed Barrel" & _
+                '    "',1,Now())"
+                'obj.ConnExec(sql)
+                'bid = objGf.GetBarrelID(firearmId, 1)
+                'DefaultBarrelId = bid
+                'sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & firearmId
+                'obj.ConnExec(sql)
+                'sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & firearmId & ",Now())"
+                'obj.ConnExec(sql)
+                'If Len(Trim(purchasedFrom)) <> 0 Then
+                '    'Dim objG As New GlobalFunctions
+                '    'If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
+                '    '    sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
+                '    '    obj.ConnExec(sql)
+                '    'End If
+                '    'Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
+                '    If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(DatabasePath, purchasedFrom, _errOut) Then
+                '        If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Add(DatabasePath, purchasedFrom, _errOut) Then Throw New Exception(_errOut)
+                '    End If
+                '    If _errOut.Length > 0  Then Throw new Exception(_errOut)
+                '    dim gsid as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.GetId(DatabasePath, purchasedFrom, _errOut)
+                '    If _errOut.Length > 0  Then Throw new Exception(_errOut)
+                '    'sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
+                '    'obj.ConnExec(sql)
+                '    if Not BurnSoft.Applications.MGC.Firearms.MyCollection.UpdateSellerId(DatabasePath, gsid, firearmId, _errOut) Then Throw new Exception(_errOut)
+                'End If
+                'If Not objGf.CaliberExists(caliber) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & caliber & "',Now())")
                 MDIParent1.RefreshCollection()
             Next
         Catch ex As Exception
