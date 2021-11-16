@@ -1739,8 +1739,8 @@ Namespace MGC
         ''' <param name="strPath">The string path.</param>
         ''' <param name="strMessage">The string message.</param>
         Public Sub LogFile(ByVal strPath As String, ByVal strMessage As String)
-            Dim SendMessage As String = DateTime.Now & vbTab & strMessage
-            Call AppendToFile(strPath, SendMessage)
+            Dim sendMessage As String = DateTime.Now & vbTab & strMessage
+            Call AppendToFile(strPath, sendMessage)
             MDIParent1.tsslErrorsFound.Visible = True
             MDIParent1.tsslErrorsFound.Enabled = True
         End Sub
@@ -1750,8 +1750,8 @@ Namespace MGC
         ''' <param name="strPath">The string path.</param>
         ''' <param name="strMessage">The string message.</param>
         Public Sub LogDebugFile(ByVal strPath As String, ByVal strMessage As String)
-            Dim SendMessage As String = DateTime.Now & vbTab & strMessage
-            Call AppendToFile(strPath, SendMessage)
+            Dim sendMessage As String = DateTime.Now & vbTab & strMessage
+            Call AppendToFile(strPath, sendMessage)
         End Sub
         ''' <summary>
         ''' Deletes the file.
@@ -1804,21 +1804,21 @@ Namespace MGC
         ''' </summary>
         ''' <param name="strFile">The string file.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetPathOfFile(ByVal strFile As String) As String
-            Dim sAns As String = ""
-            sAns = Path.GetDirectoryName(strFile)
-            Return sAns
-        End Function
+        'Public Function GetPathOfFile(ByVal strFile As String) As String
+        '    Dim sAns As String = ""
+        '    sAns = Path.GetDirectoryName(strFile)
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Gets the ext of file.
         ''' </summary>
         ''' <param name="strFile">The string file.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetExtOfFile(ByVal strFile As String) As String
-            Dim sAns As String = ""
-            sAns = Path.GetExtension(strFile)
-            Return sAns
-        End Function
+        'Public Function GetExtOfFile(ByVal strFile As String) As String
+        '    Dim sAns As String = ""
+        '    sAns = Path.GetExtension(strFile)
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Gets the name of file.
         ''' </summary>
@@ -1834,21 +1834,21 @@ Namespace MGC
         ''' </summary>
         ''' <param name="strFile">The string file.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function FileHasExtension(ByVal strFile As String) As Boolean
-            Dim bAns As Boolean = False
-            bAns = Path.HasExtension(strFile)
-            Return bAns
-        End Function
+        'Public Function FileHasExtension(ByVal strFile As String) As Boolean
+        '    Dim bAns As Boolean = False
+        '    bAns = Path.HasExtension(strFile)
+        '    Return bAns
+        'End Function
         ''' <summary>
         ''' Gets the name of file wo ext.
         ''' </summary>
         ''' <param name="strFile">The string file.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetNameOfFileWOExt(ByVal strFile As String) As String
-            Dim sAns As String = ""
-            sAns = Path.GetFileNameWithoutExtension(strFile)
-            Return sAns
-        End Function
+        'Public Function GetNameOfFileWOExt(ByVal strFile As String) As String
+        '    Dim sAns As String = ""
+        '    sAns = Path.GetFileNameWithoutExtension(strFile)
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Converts to file.
         ''' </summary>

@@ -12,6 +12,10 @@ Public Class FrmImportFirearm
     ''' </summary>
     Public DefaultBarrelId As Long
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut As String = ""
+    ''' <summary>
     ''' Handles the Click event of the btnOpen control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -225,6 +229,16 @@ Public Class FrmImportFirearm
                 lNatId = objGf.GetNationalityID(natId)
                 Call objGf.UpdateGunType(sType)
                 If CBool(isCandR) Then lIsCandR = 1
+
+                if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Add(DatabasePath, UseNumberCatOnly, OwnerId, manId, fullName, modelName, modId, serialNumber,
+                                                                           sType,caliber, finish, condition, objGf.SetCatalogINSType(customId), lNatId, lGripId, weight,
+                                                                           height, gripId, barrelLength, strBarWid, strBarHei, action, feedsystem, sights, purchasedPrice,
+                                                                           purchasedFrom, appraisedValue, appraisalDate, appraisedBy, insuredValue, storageLocation, conditionComments, additionalNotes,
+                                                                           produced, petLoads, dtp, CBool(isCandR) , importer, reManDt, poi, 
+                                                                           sgChoke, chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
+                                                                           chkClassIII.Checked,sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
+
+
                 sql = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
                         "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
                         "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
@@ -254,14 +268,21 @@ Public Class FrmImportFirearm
                 sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & firearmId & ",Now())"
                 obj.ConnExec(sql)
                 If Len(Trim(purchasedFrom)) <> 0 Then
-                    Dim objG As New GlobalFunctions
-                    If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
-                        sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
-                        obj.ConnExec(sql)
+                    'Dim objG As New GlobalFunctions
+                    'If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
+                    '    sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
+                    '    obj.ConnExec(sql)
+                    'End If
+                    'Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
+                    If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(DatabasePath, purchasedFrom, _errOut) Then
+                        If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Add(DatabasePath, purchasedFrom, _errOut) Then Throw New Exception(_errOut)
                     End If
-                    Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
-                    sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
-                    obj.ConnExec(sql)
+                    If _errOut.Length > 0  Then Throw new Exception(_errOut)
+                    dim gsid as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.GetId(DatabasePath, purchasedFrom, _errOut)
+                    If _errOut.Length > 0  Then Throw new Exception(_errOut)
+                    'sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
+                    'obj.ConnExec(sql)
+                    if Not BurnSoft.Applications.MGC.Firearms.MyCollection.UpdateSellerId(DatabasePath, gsid, firearmId, _errOut) Then Throw new Exception(_errOut)
                 End If
                 If Not objGf.CaliberExists(caliber) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & caliber & "',Now())")
                 MDIParent1.RefreshCollection()
