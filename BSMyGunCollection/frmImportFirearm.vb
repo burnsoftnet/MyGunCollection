@@ -47,8 +47,17 @@ Public Class FrmImportFirearm
     ''' <returns>System.String.</returns>
     Function GetXmlNode(ByVal instance As XmlNode) As String
         Dim sAns As String
-        On Error Resume Next
-        sAns = instance.InnerText
+        'On Error Resume Next
+        Try 
+            If IsDBNull(instance) Then
+                sAns = ""
+            Else 
+                sAns = instance.InnerText
+            End If
+        Catch ex As Exception
+            sAns = ""
+        End Try
+        
         Return sAns
     End Function
     ''' <summary>

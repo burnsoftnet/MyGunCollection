@@ -650,6 +650,7 @@ Public Class FrmViewCollectionDetails
                 If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
                 If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
                 txtGripType.Text = objGf.GetGripName(rs("GripID"))
+
                 If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
                 If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
                 If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")

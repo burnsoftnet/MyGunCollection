@@ -913,27 +913,23 @@ Namespace MGC
             Dim sAns As String = GetName(SQL, "grip")
             Return sAns
         End Function
-        ''' <summary>
-        ''' Gets the gun shop identifier.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetGunShopID(ByVal strValue As String) As Long
-            Try
-                Dim SQL As String = "SELECT ID from Gun_Shop_Details where Name='" & strValue & "'"
-                Dim iAns As Long = GetID(SQL)
-                If iAns = 0 Then
-                    Dim Obj As New BSDatabase
-                    Obj.ConnExec("INSERT INTO Gun_Shop_Details(Name,sync_lastupdate) VALUES('" & strValue & "',Now())")
-                    iAns = GetID(SQL)
-                End If
-                Return iAns
 
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetGunShopID"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Function
+        'Public Function GetGunShopID(ByVal strValue As String) As Long
+        '    Try
+        '        Dim SQL As String = "SELECT ID from Gun_Shop_Details where Name='" & strValue & "'"
+        '        Dim iAns As Long = GetID(SQL)
+        '        If iAns = 0 Then
+        '            Dim Obj As New BSDatabase
+        '            Obj.ConnExec("INSERT INTO Gun_Shop_Details(Name,sync_lastupdate) VALUES('" & strValue & "',Now())")
+        '            iAns = GetID(SQL)
+        '        End If
+        '        Return iAns
+
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "GetGunShopID"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Function
         ''' <summary>
         ''' Gets the last firearm identifier.
         ''' </summary>

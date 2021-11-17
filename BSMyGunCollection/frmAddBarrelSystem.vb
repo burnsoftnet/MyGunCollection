@@ -102,7 +102,7 @@ Public Class FrmAddBarrelSystem
 
             Dim errOut as String = ""
 
-            if Not ExtraBarrelConvoKits.Add(DatabasePath, Gid, sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom,ovalLen, sysType, chkSetDefault.Checked, errOut) Then Throw New Exception(errOut)
+            if Not ExtraBarrelConvoKits.Add(DatabasePath, Gid, sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom,ovalLen, sysType, chkSetDefault.Checked, DateTime.Now, errOut) Then Throw New Exception(errOut)
             Dim barrelId As Long = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut)
             If Not ExtraBarrelConvoKits.AddLink(DatabasePath, barrelId, Gid, errOut) Then Throw New Exception(errOut)
             Dim defaultBarrelId As Long
