@@ -55,11 +55,14 @@ Public Class FrmViewAmmoInventory
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
-        Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
-        Dim objGf As New GlobalFunctions
-' ReSharper disable once LocalizableElement
-        tslAmmoTotal.Text = "Total Rounds in Inventory: " & BurnSoft.Applications.MGC.Ammo.Inventory.GetTotalInventory(DatabasePath, _errOut)
-        'tslAmmoTotal.Text = "Total Rounds in Inventory: " & objGf.GetTotalAmmoInventory
+        Try
+            Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
+            tslAmmoTotal.Text = $"Total Rounds in Inventory: " & Inventory.GetTotalInventory(DatabasePath, _errOut)
+            if _errOut.Length > 0 Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Dim sSubFunc As String = "LoadData"
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Resize event of the frmViewAmmoInventory control.
