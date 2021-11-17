@@ -1,7 +1,4 @@
-'Imports System.Data.Odbc
-'Imports System.Web.UI.WebControls.Expressions
 Imports System.Xml
-'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -139,10 +136,7 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Details(ByVal strPath As String, ByVal strNodeName As String, ByRef fullName As String, ByRef firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            'Dim sql As String 
             Dim manufacturer As String 
             Dim modelName As String 
             Dim serialNumber As String
@@ -153,9 +147,7 @@ Public Class FrmImportFirearm
             Dim customId As String 
             Dim natId As String 
             Dim gripId As String 
-            Dim weight As String 
-' ReSharper disable LocalVariableHidesMember
-            Dim height As String 
+            Dim weight As String
             Dim barrelLength As String 
             Dim action As String 
             Dim feedsystem As String 
@@ -181,10 +173,6 @@ Public Class FrmImportFirearm
             Dim modId As Long 
             Dim lGripId As Long 
             Dim lNatId As Long 
-            'Dim bid As Long 
-            'Dim lIsCandR As Long 
-' ReSharper disable NotAccessedVariable
-            'Dim iBoundBook As Long 
             Dim bBoundBook As Boolean
             Dim sTwist As String 
             Dim sTrigger As String 
@@ -193,8 +181,6 @@ Public Class FrmImportFirearm
             Dim sDateOfCr As String 
             dim strBarWid As String
             Dim strBarHei as string
-            ' ReSharper restore LocalVariableHidesMember
-            ' ReSharper restore NotAccessedVariable
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
@@ -210,7 +196,8 @@ Public Class FrmImportFirearm
                 natId = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("NatID")))
                 gripId = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("GripID")))
                 weight = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Weight")))
-                height = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Height")))
+' ReSharper disable once LocalVariableHidesMember
+                Dim height As String = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Height")))
                 barrelLength = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("BarrelLength")))
                 action = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Action")))
                 feedsystem = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Feedsystem")))
@@ -242,21 +229,19 @@ Public Class FrmImportFirearm
                 Dim sClassIiiOwner as String = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("ClassIiiOwner")))
                 dim isClassIii as Boolean = CBool(Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("IsClassIII"))))
 
-                'If CBool(bBoundBook) Then iBoundBook = 1
                 poi = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("POI")))
                 manId = Manufacturers.GetId(DatabasePath,manufacturer, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
-                'modId = objGf.GetModelID(modelName, manId)
+
                 modId = Models.GetId(DatabasePath,modelName, manId, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
-                'lGripId = objGf.GetGripID(gripId)
+
                 lGripId =  Grips.GetId(DatabasePath,gripId, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
-                'lNatId = objGf.GetNationalityID(natId)
+    
                 lNatId = Nationality.GetId(DatabasePath, natId, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
-                'Call objGf.UpdateGunType(sType)
-                'If CBool(isCandR) Then lIsCandR = 1
+
                 Call GunTypes.UpdateGunType(DatabasePath, sType, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
@@ -269,54 +254,7 @@ Public Class FrmImportFirearm
                                                                            sgChoke, CBool(bBoundBook), sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
                                                                            isClassIii, sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
 
-
-                'sql = "INSERT INTO Gun_Collection(OID,MID,FullName,ModelName,ModelID,SerialNumber,Type,Caliber,Finish,Condition," & _
-                '        "CustomID,NatID,GripID,Qty,Weight,Height,StockType,BarrelLength,BarrelWidth,BarrelHeight," & _
-                '        "Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,AppraisedValue,AppraisalDate,AppraisedBy," & _
-                '        "InsuredValue,StorageLocation,ConditionComments,AdditionalNotes,Produced,PetLoads,dtp,IsCandR,Importer," & _
-                '        "ReManDT,POI,SGChoke,sync_lastupdate) VALUES(" & _
-                '        OwnerId & "," & manId & ",'" & fullName & "','" & modelName & "'," & modId & ",'" & serialNumber & "','" & _
-                '        sType & "','" & caliber & "','" & finish & "','" & condition & "'," & objGf.SetCatalogINSType(customId) & "," & _
-                '        lNatId & "," & lGripId & ",1,'" & weight & "','" & height & "','" & _
-                '        gripId & "','" & barrelLength & "',' ',' ','" & action & "','" & _
-                '        feedsystem & "','" & sights & "','" & purchasedPrice & "','" & purchasedFrom & "','" & appraisedValue & "','" & _
-                '        appraisalDate & "','" & appraisedBy & "','" & insuredValue & "','" & storageLocation & "','" & conditionComments & "','" & additionalNotes & _
-                '        "','" & produced & "','" & petLoads & "','" & dtp & "'," & lIsCandR & ",'" & importer & _
-                '        "','" & reManDt & "','" & poi & "','" & sgChoke & "',Now())"
-                'obj.ConnExec(sql)
-                'firearmId = objGf.GetLastFirearmID
-                'sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," & _
-                '    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" & _
-                '    firearmId & ",'Default Barrel','" & caliber & "','" & finish & "','" & barrelLength & _
-                '    "','" & petLoads & "','" & action & "','" & feedsystem & "','" & sights & "','" & _
-                '    "0.00','" & purchasedFrom & "',DATE(),'" & height & "','Fixed Barrel" & _
-                '    "',1,Now())"
-                'obj.ConnExec(sql)
-                'bid = objGf.GetBarrelID(firearmId, 1)
-                'DefaultBarrelId = bid
-                'sql = "UPDATE Gun_Collection set DBID=" & bid & " where ID=" & firearmId
-                'obj.ConnExec(sql)
-                'sql = "INSERT INTO Gun_Collection_Ext_Links (BSID,GID,sync_lastupdate) VALUES(" & bid & "," & firearmId & ",Now())"
-                'obj.ConnExec(sql)
-                'If Len(Trim(purchasedFrom)) <> 0 Then
-                '    'Dim objG As New GlobalFunctions
-                '    'If Not objG.ObjectExistsinDB(purchasedFrom, "Name", "Gun_Shop_Details") Then
-                '    '    sql = "INSERT INTO Gun_Shop_Details(Name,Address1,City,State,Zip,sync_lastupdate) VALUES('" & purchasedFrom & "','N/A','N/A','N/A','N/A',Now())"
-                '    '    obj.ConnExec(sql)
-                '    'End If
-                '    'Dim gsid As Long = objGf.GetGunShopID(purchasedFrom)
-                '    If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Exists(DatabasePath, purchasedFrom, _errOut) Then
-                '        If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.Add(DatabasePath, purchasedFrom, _errOut) Then Throw New Exception(_errOut)
-                '    End If
-                '    If _errOut.Length > 0  Then Throw new Exception(_errOut)
-                '    dim gsid as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.Shops.GetId(DatabasePath, purchasedFrom, _errOut)
-                '    If _errOut.Length > 0  Then Throw new Exception(_errOut)
-                '    'sql = "UPDATE Gun_Collection set SID=" & gsid & " where ID=" & firearmId
-                '    'obj.ConnExec(sql)
-                '    if Not BurnSoft.Applications.MGC.Firearms.MyCollection.UpdateSellerId(DatabasePath, gsid, firearmId, _errOut) Then Throw new Exception(_errOut)
-                'End If
-                'If Not objGf.CaliberExists(caliber) Then obj.ConnExec("INSERT INTO Gun_Cal (Cal,sync_lastupdate) VALUES('" & caliber & "',Now())")
-                MDIParent1.RefreshCollection()
+                 MDIParent1.RefreshCollection()
             Next
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB_Details"
@@ -341,10 +279,7 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Accessories(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            'Dim sql As String 
             Dim manufacturer As String 
             Dim model As String 
             Dim serialNumber As String 
@@ -370,10 +305,6 @@ Public Class FrmImportFirearm
                     If Not Accessories.Add(DatabasePath, firearmId, manufacturer, model, serialNumber, condition,
                                                                               notes, use, purValue, appValue, civ,ic, _errOut) Then Throw New Exception(_errOut)
 
-                    'sql = "INSERT INTO Gun_Collection_Accessories(GID,Manufacturer,Model,SerialNumber,Condition,Notes,Use,PurValue,sync_lastupdate) VALUES(" & _
-                    '        firearmId & ",'" & manufacturer & "','" & model & "','" & serialNumber & "','" & condition & "','" & _
-                    '        notes & "','" & use & "','" & purValue & "',Now())"
-                    'obj.ConnExec(sql)
                 End If
             Next
         Catch ex As Exception
@@ -390,45 +321,30 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Maintance_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            Dim mpid As Long 
-            'Dim sql As String 
-' ReSharper disable LocalVariableHidesMember
-            Dim name As String 
-' ReSharper restore LocalVariableHidesMember
+            Dim mpid As Long
             Dim opDate As String 
             Dim opDueDate As String 
             Dim rndFired As String 
             Dim notes As String 
-            'Dim countInTotal As Integer 
+
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
-                name = Trim(Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Name"))))
+' ReSharper disable once LocalVariableHidesMember
+                Dim name As String = Trim(Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Name"))))
                 If Len(name) > 0 Then
                     opDate = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("OpDate")))
                     opDueDate = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("OpDueDate")))
                     rndFired = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("RndFired")))
                     Dim ammoUsed As String = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("ammoUsed")))
-                    'If CLng(rndFired) > 0 Then
-                    '    countInTotal = 1
-                    'Else
-                    '    countInTotal = 0
-                    'End If
+
                     notes = Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Notes")))
-                    'mpid = objGf.GetID("SELECT ID from Maintance_Plans where Name='" & name & "'")
                     mpid = MaintancePlans.GetId(DatabasePath, name, _errOut)
                     If _errOut.Length > 0 Then Throw New Exception(_errOut)
                     If Not MaintanceDetails.Add(DatabasePath, name, firearmId, mpid, opDate, 
                                                                                    opDueDate, rndFired, notes, ammoUsed, DefaultBarrelId, CLng(rndFired) > 0, _errOut) Then Throw New Exception(_errOut)
 
-                    'sql = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,BSID,DC,sync_lastupdate) VALUES(" & _
-                    '            firearmId & "," & mpid & ",'" & name & "','" & opDate & "','" & opDueDate & "','" & _
-                    '            rndFired & "','" & notes & "'," & DefaultBarrelId & "," & _
-                    '            countInTotal & ",Now())"
-                    'obj.ConnExec(sql)
                 End If
             Next
 
@@ -446,10 +362,7 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_GunSmith_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            'Dim sql As String 
             Dim gsmith As String 
             Dim sdate As String 
             Dim rdate As String 
@@ -472,10 +385,6 @@ Public Class FrmImportFirearm
 
                     If Not GunSmithDetails.Add(DatabasePath, firearmId, gsmith,gid , od,notes, sdate, rdate, _errOut) Then Throw New Exception(_errOut)
 
-                    'sql = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" & _
-                    '                    firearmId & ",'" & gsmith & "','" & od & "','" & notes & "','" & _
-                    '                    sdate & "','" & rdate & "',Now())"
-                    'obj.ConnExec(sql)
                 End If
             Next
  
@@ -485,26 +394,6 @@ Public Class FrmImportFirearm
         End Try
     End Sub
  
-    'Function BarrelConvoKitExists(ByVal gid As Long, ByVal modelname As String, ByVal caliber As String) As Boolean
-    '    Dim bAns As Boolean = True
-    '    Try
-    '        Dim obj As New BSDatabase
-    '        Call obj.ConnectDB()
-    '        Dim sql As String = "SELECT * from Gun_Collection_Ext where GID=" & gid & _
-    '                " and modelName='" & modelname & "' and caliber='" & caliber & "'"
-    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
-    '        Dim rs As OdbcDataReader
-    '        rs = cmd.ExecuteReader
-    '        bAns = rs.HasRows
-    '        rs.Close()
-
-    '        obj.CloseDB()
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "BarrelConvoKitExists"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    '    Return bAns
-    'End Function
     ''' <summary>
     ''' Processes the XML to database barrel converstion kit details.
     ''' </summary>
@@ -514,10 +403,7 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_BarrelConverstionKit_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            'Dim sql As String 
             Dim modelName As String 
             Dim caliber As String 
             Dim finish As String 
@@ -561,15 +447,6 @@ Public Class FrmImportFirearm
                                                     purchasedFrom, height, type, (isDefault = 1),dtp, _errOut) Then Throw New Exception(_errOut)
                 End If
 
-                'If Not BarrelConvoKitExists(firearmId, modelName, caliber) Then
-                '    sql = "INSERT INTO Gun_Collection_Ext(GID,ModelName,Caliber,Finish,BarrelLength," & _
-                '            "PetLoads,Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height," & _
-                '            "Type,IsDefault,sync_lastupdate) VALUES(" & firearmId & ",'" & modelName & "','" & caliber & _
-                '            "','" & finish & "','" & barrelLength & "','" & petLoads & "','" & action & _
-                '            "','" & feedsystem & "','" & sights & "','" & purchasedPrice & "','" & _
-                '            purchasedFrom & "','" & dtp & "','" & height & "','" & type & "'," & isDefault & ",Now())"
-                '    obj.ConnExec(sql)
-                'End If
             Next
 
         Catch ex As Exception
