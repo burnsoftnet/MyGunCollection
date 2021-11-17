@@ -376,11 +376,11 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_Maintance_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
             Dim mpid As Long 
-            Dim sql As String 
+            'Dim sql As String 
 ' ReSharper disable LocalVariableHidesMember
             Dim name As String 
 ' ReSharper restore LocalVariableHidesMember
@@ -388,7 +388,7 @@ Public Class FrmImportFirearm
             Dim opDueDate As String 
             Dim rndFired As String 
             Dim notes As String 
-            Dim countInTotal As Integer 
+            'Dim countInTotal As Integer 
             doc.Load(strPath)
             Dim elemlist As XmlNodeList = doc.GetElementsByTagName(strNodeName)
             For i = 0 To elemlist.Count - 1
@@ -397,18 +397,24 @@ Public Class FrmImportFirearm
                     opDate = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("OpDate")))
                     opDueDate = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("OpDueDate")))
                     rndFired = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("RndFired")))
-                    If CLng(rndFired) > 0 Then
-                        countInTotal = 1
-                    Else
-                        countInTotal = 0
-                    End If
+                    Dim ammoUsed As String = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("ammoUsed")))
+                    'If CLng(rndFired) > 0 Then
+                    '    countInTotal = 1
+                    'Else
+                    '    countInTotal = 0
+                    'End If
                     notes = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Notes")))
-                    mpid = objGf.GetID("SELECT ID from Maintance_Plans where Name='" & name & "'")
-                    sql = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,BSID,DC,sync_lastupdate) VALUES(" & _
-                                firearmId & "," & mpid & ",'" & name & "','" & opDate & "','" & opDueDate & "','" & _
-                                rndFired & "','" & notes & "'," & DefaultBarrelId & "," & _
-                                countInTotal & ",Now())"
-                    obj.ConnExec(sql)
+                    'mpid = objGf.GetID("SELECT ID from Maintance_Plans where Name='" & name & "'")
+                    mpid = BurnSoft.Applications.MGC.Firearms.MaintancePlans.GetId(DatabasePath, name, _errOut)
+                    If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                    If Not BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Add(DatabasePath, name, firearmId, mpid, opDate, 
+                                                                                   opDueDate, rndFired, notes, ammoUsed, DefaultBarrelId, CLng(rndFired) > 0, _errOut) Then Throw New Exception(_errOut)
+
+                    'sql = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,BSID,DC,sync_lastupdate) VALUES(" & _
+                    '            firearmId & "," & mpid & ",'" & name & "','" & opDate & "','" & opDueDate & "','" & _
+                    '            rndFired & "','" & notes & "'," & DefaultBarrelId & "," & _
+                    '            countInTotal & ",Now())"
+                    'obj.ConnExec(sql)
                 End If
             Next
 

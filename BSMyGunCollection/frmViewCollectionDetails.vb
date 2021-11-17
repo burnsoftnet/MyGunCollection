@@ -1121,6 +1121,7 @@ Public Class FrmViewCollectionDetails
                     sAns &= "       <OpDueDate>" & rs("OpDueDate") & "</OpDueDate>" & nl
                     sAns &= "       <RndFired>" & rs("RndFired") & "</RndFired>" & nl
                     sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
+                    sAns &= "       <ammoUsed>" & rs("au") & "</ammoUsed>" & nl
                     sAns &= "    </Maintance_Details>" & nl
                 End While
             Else
