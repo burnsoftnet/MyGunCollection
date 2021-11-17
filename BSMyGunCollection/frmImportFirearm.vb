@@ -1,4 +1,5 @@
 Imports System.Data.Odbc
+Imports System.Web.UI.WebControls.Expressions
 Imports System.Xml
 Imports BSMyGunCollection.MGC
 ''' <summary>
@@ -432,10 +433,10 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_GunSmith_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            Dim sql As String 
+            'Dim sql As String 
             Dim gsmith As String 
             Dim sdate As String 
             Dim rdate As String 
@@ -450,10 +451,18 @@ Public Class FrmImportFirearm
                     rdate = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("rdate")))
                     od = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("od")))
                     notes = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("notes")))
-                    sql = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" & _
-                                        firearmId & ",'" & gsmith & "','" & od & "','" & notes & "','" & _
-                                        sdate & "','" & rdate & "',Now())"
-                    obj.ConnExec(sql)
+
+                    If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(DatabasePath, gsmith, _errOut) Then
+                        If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath, gsmith, _errOut) Then Throw New Exception(_errOut)
+                    End If
+                    Dim gid As Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, gsmith, _errOut)
+
+                    If Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Add(DatabasePath, firearmId, gsmith,gid , od,notes, sdate, rdate, _errOut) Then Throw New Exception(_errOut)
+
+                    'sql = "INSERT INTO GunSmith_Details(GID,gsmith,od,notes,sdate,rdate,sync_lastupdate) VALUES(" & _
+                    '                    firearmId & ",'" & gsmith & "','" & od & "','" & notes & "','" & _
+                    '                    sdate & "','" & rdate & "',Now())"
+                    'obj.ConnExec(sql)
                 End If
             Next
  
