@@ -647,7 +647,8 @@ Public Class FrmViewCollectionDetails
             'Start populating the fields on the details for from the database
             While rs.Read
                 Text = rs("fullname")
-                txtManu.Text = objGf.GetManufacturersName(rs("MID"))
+                'txtManu.Text = objGf.GetManufacturersName(rs("MID"))
+                txtManu.Text = Manufacturers.GetName(DatabasePath, Convert.ToInt32(rs("MID")), _errOut)
                 txtModel.Text = rs("ModelName")
                 If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
                 If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")

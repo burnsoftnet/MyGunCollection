@@ -711,27 +711,21 @@ Namespace MGC
             End Try
             Return iAns
         End Function
-        ''' <summary>
-        ''' Gets the barrel identifier.
-        ''' </summary>
-        ''' <param name="FirearmID">The firearm identifier.</param>
-        ''' <param name="UseDefault">The use default.</param>
-        ''' <param name="BLID">The blid.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetBarrelID(ByVal FirearmID As Long, Optional ByVal UseDefault As Integer = 0, Optional ByVal BLID As Long = 0) As Long
-            'Pretty Much gets the last barrel that was added
-            Dim lAns As Long = 0
-            Try
-                Dim SQL As String = "SELECT TOP 1 ID from Gun_Collection_Ext where GID=" & FirearmID & " and IsDefault=" & UseDefault
-                If BLID <> 0 Then SQL += " and ID=" & BLID
-                SQL += " order by ID DESC"
-                lAns = GetID(SQL)
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetBarrelID"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return lAns
-        End Function
+ 
+        'Public Function GetBarrelID(ByVal FirearmID As Long, Optional ByVal UseDefault As Integer = 0, Optional ByVal BLID As Long = 0) As Long
+        '    'Pretty Much gets the last barrel that was added
+        '    Dim lAns As Long = 0
+        '    Try
+        '        Dim SQL As String = "SELECT TOP 1 ID from Gun_Collection_Ext where GID=" & FirearmID & " and IsDefault=" & UseDefault
+        '        If BLID <> 0 Then SQL += " and ID=" & BLID
+        '        SQL += " order by ID DESC"
+        '        lAns = GetID(SQL)
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "GetBarrelID"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return lAns
+        'End Function
         ''' <summary>
         ''' Gets the manufacturers identifier.
         ''' </summary>
@@ -747,57 +741,34 @@ Namespace MGC
             End If
             Return iAns
         End Function
-        ''' <summary>
-        ''' Gets the name of the manufacturers.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetManufacturersName(ByVal strValue As String) As String
-            Dim SQL As String = "SELECT Brand from Gun_Manufacturer where ID=" & strValue
-            Dim sAns As String = GetName(SQL, "Brand")
-            Return sAns
-        End Function
-        ''' <summary>
-        ''' Calibers the exists.
-        ''' </summary>
-        ''' <param name="strCaliber">The string caliber.</param>
-        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function CaliberExists(ByVal strCaliber As String) As Boolean
-            Return ObjectExistsinDB(strCaliber, "Cal", "Gun_Cal")
-        End Function
-        ''' <summary>
-        ''' Converts to  Total Ammo Selected.
-        ''' </summary>
-        ''' <param name="strCaliber">The string caliber.</param>
-        ''' <param name="strCaliber2">The string caliber2.</param>
-        ''' <returns>System.String.</returns>
-        Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String) As String
-            Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "'"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
-        ''' <summary>
-        ''' Converts to Total Ammo Selected.
-        ''' </summary>
-        ''' <param name="strCaliber">The string caliber.</param>
-        ''' <param name="strCaliber2">The string caliber2.</param>
-        ''' <param name="strCaliber3">The string caliber3.</param>
-        ''' <returns>System.String.</returns>
-        Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String, strCaliber3 As String) As String
-            Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "' or Cal='" & strCaliber3 & "'"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
-        ''' <summary>
-        ''' Converts to  Total Ammo Selected.
-        ''' </summary>
-        ''' <param name="strCaliber">The string caliber.</param>
-        ''' <returns>System.String.</returns>
-        Public Function TotalAmmoSelected(ByVal strCaliber As String) As String
-            Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "'"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
+
+        'Public Function GetManufacturersName(ByVal strValue As String) As String
+        '    Dim SQL As String = "SELECT Brand from Gun_Manufacturer where ID=" & strValue
+        '    Dim sAns As String = GetName(SQL, "Brand")
+        '    Return sAns
+        'End Function
+
+        'Public Function CaliberExists(ByVal strCaliber As String) As Boolean
+        '    Return ObjectExistsinDB(strCaliber, "Cal", "Gun_Cal")
+        'End Function
+
+        'Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String) As String
+        '    Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "'"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
+
+        'Public Function TotalAmmoSelected(ByVal strCaliber As String, ByVal strCaliber2 As String, strCaliber3 As String) As String
+        '    Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "' or Cal='" & strCaliber2 & "' or Cal='" & strCaliber3 & "'"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
+  
+        'Public Function TotalAmmoSelected(ByVal strCaliber As String) As String
+        '    Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo where Cal='" & strCaliber & "'"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Converts to talroundsfired.
         ''' </summary>
