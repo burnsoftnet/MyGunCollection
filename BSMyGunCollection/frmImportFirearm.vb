@@ -2,6 +2,8 @@ Imports System.Data.Odbc
 Imports System.Web.UI.WebControls.Expressions
 Imports System.Xml
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+
 ''' <summary>
 ''' Class FrmImportFirearm.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -507,10 +509,10 @@ Public Class FrmImportFirearm
     Sub ProcessXMLToDB_BarrelConverstionKit_Details(ByVal strPath As String, ByVal strNodeName As String, ByVal firearmId As Long)
         Try
             Dim doc As New XmlDocument
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
             Dim i As Integer 
-            Dim sql As String 
+            'Dim sql As String 
             Dim modelName As String 
             Dim caliber As String 
             Dim finish As String 
@@ -546,15 +548,23 @@ Public Class FrmImportFirearm
                 type = BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("Type")))
                 isDefault = CInt(BurnSoft.Applications.MGC.Global.Helpers.FormatFromXml(GetXmlNode(elemlist(i).Item("IsDefault"))))
 
-                If Not BarrelConvoKitExists(firearmId, modelName, caliber) Then
-                    sql = "INSERT INTO Gun_Collection_Ext(GID,ModelName,Caliber,Finish,BarrelLength," & _
-                            "PetLoads,Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height," & _
-                            "Type,IsDefault,sync_lastupdate) VALUES(" & firearmId & ",'" & modelName & "','" & caliber & _
-                            "','" & finish & "','" & barrelLength & "','" & petLoads & "','" & action & _
-                            "','" & feedsystem & "','" & sights & "','" & purchasedPrice & "','" & _
-                            purchasedFrom & "','" & dtp & "','" & height & "','" & type & "'," & isDefault & ",Now())"
-                    obj.ConnExec(sql)
+                If Not ExtraBarrelConvoKits.Exists(DatabasePath, firearmId, modelName, caliber, finish,
+                                                                                      barrelLength, petLoads,action, feedsystem, sights, purchasedPrice, 
+                                                                                      purchasedFrom, height, type, (isDefault = 1), _errOut) Then
+                    If Not ExtraBarrelConvoKits.Add(DatabasePath, firearmId, modelName, caliber, finish,
+                                                    barrelLength, petLoads,action, feedsystem, sights, purchasedPrice, 
+                                                    purchasedFrom, height, type, (isDefault = 1), _errOut) Then Throw New Exception(_errOut)
                 End If
+
+                'If Not BarrelConvoKitExists(firearmId, modelName, caliber) Then
+                '    sql = "INSERT INTO Gun_Collection_Ext(GID,ModelName,Caliber,Finish,BarrelLength," & _
+                '            "PetLoads,Action,Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height," & _
+                '            "Type,IsDefault,sync_lastupdate) VALUES(" & firearmId & ",'" & modelName & "','" & caliber & _
+                '            "','" & finish & "','" & barrelLength & "','" & petLoads & "','" & action & _
+                '            "','" & feedsystem & "','" & sights & "','" & purchasedPrice & "','" & _
+                '            purchasedFrom & "','" & dtp & "','" & height & "','" & type & "'," & isDefault & ",Now())"
+                '    obj.ConnExec(sql)
+                'End If
             Next
 
         Catch ex As Exception
