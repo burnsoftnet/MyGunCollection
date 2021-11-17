@@ -803,50 +803,50 @@ Namespace MGC
         ''' </summary>
         ''' <param name="strID">The string identifier.</param>
         ''' <returns>System.String.</returns>
-        Public Function TotalRoundsFired(ByVal strID As String) As String
-            Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
+        'Public Function TotalRoundsFired(ByVal strID As String) As String
+        '    Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Converts to talroundsfiredbs.
         ''' </summary>
         ''' <param name="strID">The string identifier.</param>
         ''' <returns>System.String.</returns>
-        Public Function TotalRoundsFiredBS(ByVal strID As String) As String
-            Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
+        'Public Function TotalRoundsFiredBS(ByVal strID As String) As String
+        '    Dim SQL As String = "SELECT SUM(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Averages the rounds fired.
         ''' </summary>
         ''' <param name="strID">The string identifier.</param>
         ''' <returns>System.String.</returns>
-        Public Function AverageRoundsFired(ByVal strID As String) As String
-            Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
+        'Public Function AverageRoundsFired(ByVal strID As String) As String
+        '    Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where GID=" & strID & " and DC=1"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Averages the rounds fired bs.
         ''' </summary>
         ''' <param name="strID">The string identifier.</param>
         ''' <returns>System.String.</returns>
-        Public Function AverageRoundsFiredBS(ByVal strID As String) As String
-            Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
-            Dim sAns As Integer = GetName(SQL, "T")
-            Return sAns
-        End Function
+        'Public Function AverageRoundsFiredBS(ByVal strID As String) As String
+        '    Dim SQL As String = "SELECT AVG(cInt(RndFired)) as T from Maintance_Details where BSID=" & strID & " and DC=1"
+        '    Dim sAns As Integer = GetName(SQL, "T")
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Converts to talammoinventory.
         ''' </summary>
         ''' <returns>System.Int64.</returns>
-        Public Function GetTotalAmmoInventory() As Long
-            Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo"
-            Dim sAns As Long = CLng(GetName(SQL, "T"))
-            Return sAns
-        End Function
+        'Public Function GetTotalAmmoInventory() As Long
+        '    Dim SQL As String = "SELECT SUM(QTY) as T from Gun_Collection_Ammo"
+        '    Dim sAns As Long = CLng(GetName(SQL, "T"))
+        '    Return sAns
+        'End Function
 
         'Public Function GetModelID(ByVal strValue As String, ByVal StrValueID As Long) As Long
         '    Dim SQL As String = "SELECT ID from Gun_Model where Model='" & strValue & "' and GMID=" & StrValueID
@@ -913,16 +913,16 @@ Namespace MGC
         ''' Gets the last firearm identifier.
         ''' </summary>
         ''' <returns>System.Int64.</returns>
-        Public Function GetLastFirearmID() As Long
-            Try
-                Dim SQL As String = "SELECT Top 1 ID from Gun_Collection order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
-                Dim iAns As Long = GetID(SQL)
-                Return iAns
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetLastFirearmID"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Function
+        'Public Function GetLastFirearmID() As Long
+        '    Try
+        '        Dim SQL As String = "SELECT Top 1 ID from Gun_Collection order by ID DESC" '"SELECT MAX(ID) as ID from Gun_Collection"
+        '        Dim iAns As Long = GetID(SQL)
+        '        Return iAns
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "GetLastFirearmID"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Function
         ''' <summary>
         ''' Gets the last ammo identifier.
         ''' </summary>
@@ -937,19 +937,19 @@ Namespace MGC
         '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
         '    End Try
         'End Function
-        Public Sub UpdateGunType(ByVal strType As String)
-            Try
-                If Not ObjectExistsinDB(strType, "Type", "Gun_Type") Then
-                    Dim Obj As New BSDatabase
-                    Dim SQL As String = "INSERT INTO Gun_Type(Type,sync_lastupdate) VALUES('" & strType & "',Now())"
-                    Obj.ConnExec(SQL)
-                    Obj = Nothing
-                End If
-            Catch ex As Exception
-                Dim sSubFunc As String = "UpdateGunType"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
+        'Public Sub UpdateGunType(ByVal strType As String)
+        '    Try
+        '        If Not ObjectExistsinDB(strType, "Type", "Gun_Type") Then
+        '            Dim Obj As New BSDatabase
+        '            Dim SQL As String = "INSERT INTO Gun_Type(Type,sync_lastupdate) VALUES('" & strType & "',Now())"
+        '            Obj.ConnExec(SQL)
+        '            Obj = Nothing
+        '        End If
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "UpdateGunType"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Sub
         ''' <summary>
         ''' Gets the name of the wish list.
         ''' </summary>
@@ -1043,58 +1043,58 @@ Namespace MGC
         ''' <param name="sID">The s identifier.</param>
         ''' <param name="GID">The gid.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function CatalogIDExists(ByVal sID As String, Optional ByVal GID As Long = 0) As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQl As String = "SELECT CustomID from Gun_Collection where CustomID='" & sID & "'"
-                If GID > 0 Then SQl &= " and ID <> " & GID
-                Dim CMD As New OdbcCommand(SQl, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then bAns = True
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
-            Catch ex As Exception
-                Dim sSubFunc As String = "CatalogIDExists(String)"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
+        'Public Function CatalogIDExists(ByVal sID As String, Optional ByVal GID As Long = 0) As Boolean
+        '    Dim bAns As Boolean = False
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim SQl As String = "SELECT CustomID from Gun_Collection where CustomID='" & sID & "'"
+        '        If GID > 0 Then SQl &= " and ID <> " & GID
+        '        Dim CMD As New OdbcCommand(SQl, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        If RS.HasRows Then bAns = True
+        '        RS.Close()
+        '        RS = Nothing
+        '        CMD = Nothing
+        '        Obj.CloseDB()
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "CatalogIDExists(String)"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return bAns
+        'End Function
         ''' <summary>
         ''' Catalogs the exists details.
         ''' </summary>
         ''' <param name="sID">The s identifier.</param>
         ''' <param name="GID">The gid.</param>
         ''' <returns>System.String.</returns>
-        Public Function CatalogExistsDetails(ByVal sID As String, Optional ByVal GID As Long = 0) As String
-            Dim sAns As String = ""
-            Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT * from Gun_Collection where CustomID='" & sID & "'"
-                If GID > 0 Then SQL &= " and ID <> " & GID
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                Dim NL As String = Chr(10) & Chr(13)
-                RS = CMD.ExecuteReader
-                sAns = "The following firearms have been found" & NL & "with the same Catalog ID(" & sID & "):" & NL
-                While RS.Read
-                    sAns &= RS("FullName") & NL
-                End While
-                RS.Close()
-                RS = Nothing
-                Obj.CloseDB()
-                CMD = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "CatalogExistsDetails"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return sAns
-        End Function
+        'Public Function CatalogExistsDetails(ByVal sID As String, Optional ByVal GID As Long = 0) As String
+        '    Dim sAns As String = ""
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Call Obj.ConnectDB()
+        '        Dim SQL As String = "SELECT * from Gun_Collection where CustomID='" & sID & "'"
+        '        If GID > 0 Then SQL &= " and ID <> " & GID
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        Dim NL As String = Chr(10) & Chr(13)
+        '        RS = CMD.ExecuteReader
+        '        sAns = "The following firearms have been found" & NL & "with the same Catalog ID(" & sID & "):" & NL
+        '        While RS.Read
+        '            sAns &= RS("FullName") & NL
+        '        End While
+        '        RS.Close()
+        '        RS = Nothing
+        '        Obj.CloseDB()
+        '        CMD = Nothing
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "CatalogExistsDetails"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Catalogs the identifier exists.
         ''' </summary>
@@ -1229,20 +1229,20 @@ Namespace MGC
         ''' </summary>
         ''' <param name="sValue">The s value.</param>
         ''' <returns>System.String.</returns>
-        Public Function SetCatalogINSType(ByVal sValue As String) As String
-            Dim sAns As String = ""
-            Try
-                If UseNumberCatOnly Then
-                    sAns = sValue
-                Else
-                    sAns = "'" & sValue & "'"
-                End If
-            Catch ex As Exception
-                Dim sSubFunc As String = "SetCatalogINSType"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return sAns
-        End Function
+        'Public Function SetCatalogINSType(ByVal sValue As String) As String
+        '    Dim sAns As String = ""
+        '    Try
+        '        If UseNumberCatOnly Then
+        '            sAns = sValue
+        '        Else
+        '            sAns = "'" & sValue & "'"
+        '        End If
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "SetCatalogINSType"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        '    Return sAns
+        'End Function
         ''' <summary>
         ''' Gets the report SQL.
         ''' </summary>

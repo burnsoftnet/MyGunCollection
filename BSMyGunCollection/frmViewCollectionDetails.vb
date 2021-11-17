@@ -2,6 +2,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Universal
 
 ''' <summary>
@@ -497,21 +498,31 @@ Public Class FrmViewCollectionDetails
     ''' the total rounds fired count base on the count from the barrel vs the count form the receiver
     ''' </summary>
     Sub LoadMaintData()
-        Dim obj As New GlobalFunctions
-        If Not BsHasmultibarrels Then
-            Maintance_DetailsTableAdapter.FillBy(MGCDataSet.Maintance_Details, GunId)
-            Label50.Visible = False
-            lblTotalFirearm.Visible = False
-            lblTotalRndsFired.Text = obj.TotalRoundsFired(GunId)
-            lblAvgRndsFired.Text = obj.AverageRoundsFired(GunId)
-        Else
-            Maintance_DetailsTableAdapter.FillBy_BSID(MGCDataSet.Maintance_Details, GunId, BsDefaultbarrelsystemid)
-            Label50.Visible = True
-            lblTotalFirearm.Visible = True
-            lblTotalFirearm.Text = obj.TotalRoundsFired(GunId)
-            lblTotalRndsFired.Text = obj.TotalRoundsFiredBS(BsDefaultbarrelsystemid)
-            lblAvgRndsFired.Text = obj.AverageRoundsFiredBS(BsDefaultbarrelsystemid)
-        End If
+        Try
+            If Not BsHasmultibarrels Then
+                Maintance_DetailsTableAdapter.FillBy(MGCDataSet.Maintance_Details, GunId)
+                Label50.Visible = False
+                lblTotalFirearm.Visible = False
+                lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFired(DatabasePath, GunId, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Else
+                Maintance_DetailsTableAdapter.FillBy_BSID(MGCDataSet.Maintance_Details, GunId, BsDefaultbarrelsystemid)
+                Label50.Visible = True
+                lblTotalFirearm.Visible = True
+
+                lblTotalFirearm.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)  
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            End If
+        Catch ex As Exception
+            Dim sSubFunc As String = "LoadMaintData"
+            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     'Populate the selling information in the disposition tab.
     Sub LoadSellerData()
@@ -646,16 +657,14 @@ Public Class FrmViewCollectionDetails
                 If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
                 If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
                 If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                'txtNationality.Text = objGf.GetNationalityName(rs("NatID"))
-                txtNationality.Text = BurnSoft.Applications.MGC.Firearms.Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
+                txtNationality.Text = Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
                 If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
                 If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
                 If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
                 If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
                 If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
                 If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
-                'txtGripType.Text = objGf.GetGripName(rs("GripID"))
-                txtGripType.Text = BurnSoft.Applications.MGC.Firearms.Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
+                txtGripType.Text = Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
                 If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
                 If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
                 If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")
