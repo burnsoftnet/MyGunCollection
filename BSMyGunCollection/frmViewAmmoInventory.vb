@@ -11,6 +11,10 @@ Public Class FrmViewAmmoInventory
     ''' The update pending
     ''' </summary>
     Public UpdatePending As Boolean
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 
     ''' <summary>
     ''' Handles the Disposed event of the frmViewAmmoInventory control.
@@ -54,7 +58,8 @@ Public Class FrmViewAmmoInventory
         Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
         Dim objGf As New GlobalFunctions
 ' ReSharper disable once LocalizableElement
-        tslAmmoTotal.Text = "Total Rounds in Inventory: " & objGf.GetTotalAmmoInventory
+        tslAmmoTotal.Text = "Total Rounds in Inventory: " & BurnSoft.Applications.MGC.Ammo.Inventory.GetTotalInventory(DatabasePath, _errOut)
+        'tslAmmoTotal.Text = "Total Rounds in Inventory: " & objGf.GetTotalAmmoInventory
     End Sub
     ''' <summary>
     ''' Handles the Resize event of the frmViewAmmoInventory control.
