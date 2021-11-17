@@ -553,7 +553,7 @@ Public Class FrmImportFirearm
                                                                                       purchasedFrom, height, type, (isDefault = 1), _errOut) Then
                     If Not ExtraBarrelConvoKits.Add(DatabasePath, firearmId, modelName, caliber, finish,
                                                     barrelLength, petLoads,action, feedsystem, sights, purchasedPrice, 
-                                                    purchasedFrom, height, type, (isDefault = 1), _errOut) Then Throw New Exception(_errOut)
+                                                    purchasedFrom, height, type, (isDefault = 1),dtp, _errOut) Then Throw New Exception(_errOut)
                 End If
 
                 'If Not BarrelConvoKitExists(firearmId, modelName, caliber) Then

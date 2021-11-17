@@ -332,3 +332,8 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE0140:Object creation can be simplified", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmCrViewReport.ToolStripButton3_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewBuyers.frmViewBuyers_Load(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewBuyers.ListBox1_DoubleClick(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("CodeQuality", "IDE0076:Invalid global 'SuppressMessageAttribute'", Justification:="<Pending>")>
+<Assembly: SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmImportFirearm.ProcessXMLToDB_Details(System.String,System.String,System.String@,System.Int64@)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmLinkFromExistingDoc.btnAdd_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmLinkFromExistingDoc.btnCancel_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmLinkFromExistingDoc.frmLinkFromExistingDoc_Load(System.Object,System.EventArgs)")>
