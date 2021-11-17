@@ -58,6 +58,10 @@ Public Class FrmViewCollectionDetails
     ''' The has documents
     ''' </summary>
     Public HasDocuments As Boolean
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 #Region " General Form Subs "
     ''' <summary>
     ''' Handles the Disposed event of the frmViewCollectionDetails control. Save the form size to the config file so that it will be the same size when the user opens it back up
@@ -642,15 +646,16 @@ Public Class FrmViewCollectionDetails
                 If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
                 If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
                 If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                txtNationality.Text = objGf.GetNationalityName(rs("NatID"))
+                'txtNationality.Text = objGf.GetNationalityName(rs("NatID"))
+                txtNationality.Text = BurnSoft.Applications.MGC.Firearms.Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
                 If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
                 If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
                 If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
                 If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
                 If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
                 If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
-                txtGripType.Text = objGf.GetGripName(rs("GripID"))
-
+                'txtGripType.Text = objGf.GetGripName(rs("GripID"))
+                txtGripType.Text = BurnSoft.Applications.MGC.Firearms.Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
                 If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
                 If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
                 If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")

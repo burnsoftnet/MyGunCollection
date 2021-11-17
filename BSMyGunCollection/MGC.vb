@@ -847,72 +847,51 @@ Namespace MGC
             Dim sAns As Long = CLng(GetName(SQL, "T"))
             Return sAns
         End Function
-        ''' <summary>
-        ''' Gets the model identifier.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <param name="StrValueID">The string value identifier.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetModelID(ByVal strValue As String, ByVal StrValueID As Long) As Long
-            Dim SQL As String = "SELECT ID from Gun_Model where Model='" & strValue & "' and GMID=" & StrValueID
-            Dim iAns As Long = GetID(SQL)
-            If iAns = 0 Then
-                Dim Obj As New BSDatabase
-                Obj.ConnExec("INSERT INTO Gun_Model(Model,GMID,sync_lastupdate) VALUES('" & strValue & "'," & StrValueID & ",Now())")
-                iAns = GetID(SQL)
-            End If
-            Return iAns
-        End Function
-        ''' <summary>
-        ''' Gets the nationality identifier.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.Object.</returns>
-        Public Function GetNationalityID(ByVal strValue As String)
-            Dim SQL As String = "SELECT ID from Gun_Nationality where Country='" & strValue & "'"
-            Dim iAns As Long = GetID(SQL)
-            If iAns = 0 Then
-                Dim Obj As New BSDatabase
-                Obj.ConnExec("INSERT INTO Gun_Nationality(Country,sync_lastupdate) VALUES('" & strValue & "',Now())")
-                iAns = GetID(SQL)
-            End If
-            Return iAns
-        End Function
-        ''' <summary>
-        ''' Gets the name of the nationality.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetNationalityName(ByVal strValue As String) As String
-            Dim SQL As String = "SELECT Country from Gun_Nationality where ID=" & strValue
-            Dim sAns As String = GetName(SQL, "Country")
-            Return sAns
-        End Function
-        ''' <summary>
-        ''' Gets the grip identifier.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetGripID(ByVal strValue As String) As Long
-            Dim SQL As String = "SELECT ID from Gun_GripType where grip='" & strValue & "'"
-            Dim iAns As Long = GetID(SQL)
-            If iAns = 0 Then
-                Dim Obj As New BSDatabase
-                Obj.ConnExec("INSERT INTO Gun_GripType(grip,sync_lastupdate) VALUES('" & strValue & "',Now())")
-                iAns = GetID(SQL)
-            End If
-            Return iAns
-        End Function
-        ''' <summary>
-        ''' Gets the name of the grip.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetGripName(ByVal strValue As String) As String
-            Dim SQL As String = "SELECT grip from Gun_GripType where ID=" & strValue
-            Dim sAns As String = GetName(SQL, "grip")
-            Return sAns
-        End Function
+
+        'Public Function GetModelID(ByVal strValue As String, ByVal StrValueID As Long) As Long
+        '    Dim SQL As String = "SELECT ID from Gun_Model where Model='" & strValue & "' and GMID=" & StrValueID
+        '    Dim iAns As Long = GetID(SQL)
+        '    If iAns = 0 Then
+        '        Dim Obj As New BSDatabase
+        '        Obj.ConnExec("INSERT INTO Gun_Model(Model,GMID,sync_lastupdate) VALUES('" & strValue & "'," & StrValueID & ",Now())")
+        '        iAns = GetID(SQL)
+        '    End If
+        '    Return iAns
+        'End Function
+
+        'Public Function GetNationalityID(ByVal strValue As String)
+        '    Dim SQL As String = "SELECT ID from Gun_Nationality where Country='" & strValue & "'"
+        '    Dim iAns As Long = GetID(SQL)
+        '    If iAns = 0 Then
+        '        Dim Obj As New BSDatabase
+        '        Obj.ConnExec("INSERT INTO Gun_Nationality(Country,sync_lastupdate) VALUES('" & strValue & "',Now())")
+        '        iAns = GetID(SQL)
+        '    End If
+        '    Return iAns
+        'End Function
+
+        'Public Function GetNationalityName(ByVal strValue As String) As String
+        '    Dim SQL As String = "SELECT Country from Gun_Nationality where ID=" & strValue
+        '    Dim sAns As String = GetName(SQL, "Country")
+        '    Return sAns
+        'End Function
+
+        'Public Function GetGripID(ByVal strValue As String) As Long
+        '    Dim SQL As String = "SELECT ID from Gun_GripType where grip='" & strValue & "'"
+        '    Dim iAns As Long = GetID(SQL)
+        '    If iAns = 0 Then
+        '        Dim Obj As New BSDatabase
+        '        Obj.ConnExec("INSERT INTO Gun_GripType(grip,sync_lastupdate) VALUES('" & strValue & "',Now())")
+        '        iAns = GetID(SQL)
+        '    End If
+        '    Return iAns
+        'End Function
+
+        'Public Function GetGripName(ByVal strValue As String) As String
+        '    Dim SQL As String = "SELECT grip from Gun_GripType where ID=" & strValue
+        '    Dim sAns As String = GetName(SQL, "grip")
+        '    Return sAns
+        'End Function
 
         'Public Function GetGunShopID(ByVal strValue As String) As Long
         '    Try
