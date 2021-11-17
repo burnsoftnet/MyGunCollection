@@ -1224,11 +1224,7 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
-        ''' <summary>
-        ''' Sets the type of the catalog ins.
-        ''' </summary>
-        ''' <param name="sValue">The s value.</param>
-        ''' <returns>System.String.</returns>
+
         'Public Function SetCatalogINSType(ByVal sValue As String) As String
         '    Dim sAns As String = ""
         '    Try

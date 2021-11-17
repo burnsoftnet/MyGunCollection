@@ -480,13 +480,16 @@ Public Class FrmViewCollectionDetails
 
             If Len(txtPetLoads.Text) = 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillBy(MGCDataSet.Gun_Collection_Ammo, txtCal.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text)
+                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text, txtPetLoads.Text)
+                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) > 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet3(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text, txtCaliber3.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text, txtPetLoads.Text, txtCaliber3.Text)
+                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text,txtCaliber3.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
             Dim sSubFunc As String = "LoadAmmoData"
