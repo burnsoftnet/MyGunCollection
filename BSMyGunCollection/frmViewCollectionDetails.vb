@@ -1383,9 +1383,6 @@ Public Class FrmViewCollectionDetails
     Private Sub SetAsDefaultToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SetAsDefaultToolStripMenuItem.Click
        Try
            Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-           'TODO #50 Converted swap barrel conversion
-           'Dim objGf As New GlobalFunctions
-           'objGf.SwapDefaultBarrelSystems(BsDefaultbarrelsystemid, bid, GunId)
            if Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, BsDefaultbarrelsystemid, bid, GunId, _errOut) Then Throw New Exception(_errOut)
        Catch ex As Exception
            Dim sSubFunc As String = "SetAsDefaultToolStripMenuItem_Click"
