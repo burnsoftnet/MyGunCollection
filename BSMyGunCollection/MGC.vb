@@ -1338,11 +1338,7 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
-        ''' <summary>
-        ''' Gets the default barrel identifier.
-        ''' </summary>
-        ''' <param name="GID">The gid.</param>
-        ''' <returns>System.Int64.</returns>
+
         Public Function GetDefaultBarrelID(ByVal GID As Long) As Long
             Dim lAns As Long = 0
             Try
@@ -1370,68 +1366,63 @@ Namespace MGC
             End Try
             Return lAns
         End Function
-        ''' <summary>
-        ''' Swaps the default barrel systems.  This Sub will Swap the current Default barrel for the selected firearm with the the selected barrel.
-        ''' </summary>
-        ''' <param name="DefaultBarrelID">The default barrel identifier.</param>
-        ''' <param name="NewBarrelID">Creates new barrel id.</param>
-        ''' <param name="GID">The gid.</param>
-        Public Sub SwapDefaultBarrelSystems(ByVal DefaultBarrelID As Long, ByVal NewBarrelID As Long, ByVal GID As Long)
-            Try
-                Dim Obj As New BSDatabase
-                Dim SQL As String = ""
-                SQL = "UPDATE Gun_Collection_Ext set IsDefault=0,sync_lastupdate=Now() where ID=" & DefaultBarrelID
-                Obj.ConnExec(SQL)
-                SQL = "UPDATE Gun_Collection_Ext set IsDefault=1,sync_lastupdate=Now() where ID=" & NewBarrelID
-                Obj.ConnExec(SQL)
-                SQL = "SELECT * from Gun_Collection_Ext where ID=" & NewBarrelID & " and GID=" & GID
-                Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                Dim ModelName As String = ""
-                Dim Caliber As String = ""
-                Dim Finish As String = ""
-                Dim BarrelLength As String = ""
-                Dim PetLoads As String = ""
-                Dim Action As String = ""
-                Dim Feedsystem As String = ""
-                Dim Sights As String = ""
-                Dim PurchasedPrice As String = ""
-                Dim PurchasedFrom As String = ""
-                Dim dtp As String = ""
-                Dim Height As String = ""
-                Dim Type As String = ""
 
-                While RS.Read()
-                    ModelName = RS("ModelName")
-                    Caliber = RS("Caliber")
-                    Finish = RS("Finish")
-                    BarrelLength = RS("BarrelLength")
-                    PetLoads = RS("PetLoads")
-                    Action = RS("Action")
-                    Feedsystem = RS("Feedsystem")
-                    Sights = RS("Sights")
-                    PurchasedPrice = RS("PurchasedPrice")
-                    PurchasedFrom = RS("PurchasedFrom")
-                    dtp = RS("dtp")
-                    Height = RS("Height")
-                    Type = RS("Type")
-                    SQL = "UPDATE Gun_Collection set BarrelLength='" & BarrelLength &
-                            "', Caliber='" & Caliber & "', Action='" & Action & "',Feedsystem='" &
-                            Feedsystem & "',PetLoads='" & PetLoads & "',HasMB=1,DBID=" &
-                            NewBarrelID & ",Height='" & Height & "',Sights='" & Sights & "',sync_lastupdate=Now() where ID=" & GID
-                    Obj.ConnExec(SQL)
+        'Public Sub SwapDefaultBarrelSystems(ByVal DefaultBarrelID As Long, ByVal NewBarrelID As Long, ByVal GID As Long)
+        '    Try
+        '        Dim Obj As New BSDatabase
+        '        Dim SQL As String = ""
+        '        SQL = "UPDATE Gun_Collection_Ext set IsDefault=0,sync_lastupdate=Now() where ID=" & DefaultBarrelID
+        '        Obj.ConnExec(SQL)
+        '        SQL = "UPDATE Gun_Collection_Ext set IsDefault=1,sync_lastupdate=Now() where ID=" & NewBarrelID
+        '        Obj.ConnExec(SQL)
+        '        SQL = "SELECT * from Gun_Collection_Ext where ID=" & NewBarrelID & " and GID=" & GID
+        '        Obj.ConnectDB()
+        '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+        '        Dim RS As OdbcDataReader
+        '        RS = CMD.ExecuteReader
+        '        Dim ModelName As String = ""
+        '        Dim Caliber As String = ""
+        '        Dim Finish As String = ""
+        '        Dim BarrelLength As String = ""
+        '        Dim PetLoads As String = ""
+        '        Dim Action As String = ""
+        '        Dim Feedsystem As String = ""
+        '        Dim Sights As String = ""
+        '        Dim PurchasedPrice As String = ""
+        '        Dim PurchasedFrom As String = ""
+        '        Dim dtp As String = ""
+        '        Dim Height As String = ""
+        '        Dim Type As String = ""
 
-                End While
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "SwapDefaultBarrelSystems"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
+        '        While RS.Read()
+        '            ModelName = RS("ModelName")
+        '            Caliber = RS("Caliber")
+        '            Finish = RS("Finish")
+        '            BarrelLength = RS("BarrelLength")
+        '            PetLoads = RS("PetLoads")
+        '            Action = RS("Action")
+        '            Feedsystem = RS("Feedsystem")
+        '            Sights = RS("Sights")
+        '            PurchasedPrice = RS("PurchasedPrice")
+        '            PurchasedFrom = RS("PurchasedFrom")
+        '            dtp = RS("dtp")
+        '            Height = RS("Height")
+        '            Type = RS("Type")
+        '            SQL = "UPDATE Gun_Collection set BarrelLength='" & BarrelLength &
+        '                    "', Caliber='" & Caliber & "', Action='" & Action & "',Feedsystem='" &
+        '                    Feedsystem & "',PetLoads='" & PetLoads & "',HasMB=1,DBID=" &
+        '                    NewBarrelID & ",Height='" & Height & "',Sights='" & Sights & "',sync_lastupdate=Now() where ID=" & GID
+        '            Obj.ConnExec(SQL)
+
+        '        End While
+        '        RS.Close()
+        '        RS = Nothing
+        '        CMD = Nothing
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "SwapDefaultBarrelSystems"
+        '        Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+        '    End Try
+        'End Sub
         ''' <summary>
         ''' Determines whether [is currently in use barrel] [the specified bid].
         ''' </summary>
@@ -1493,6 +1484,7 @@ Namespace MGC
         Function HasMultiBarrelsListed(ByVal GID As Long) As Boolean
             Dim bAns As Boolean = False
             Try
+                'TODO #50 Updated from main Library once updated to the next version
                 Dim Obj As New BSDatabase
                 Obj.ConnectDB()
                 Dim SQL As String = "SELECT Count(*) as Total from Gun_Collection_Ext where GID=" & GID

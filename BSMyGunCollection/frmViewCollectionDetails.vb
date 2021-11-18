@@ -628,8 +628,15 @@ Public Class FrmViewCollectionDetails
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
+            'TODO: #50 Convert section from new library
             BsHasmultibarrels = objGf.HasMultiBarrelsListed(GunId)
-            BsDefaultbarrelsystemid = objGf.GetDefaultBarrelID(GunId)
+            'BsDefaultbarrelsystemid = objGf.GetDefaultBarrelID(GunId)
+
+            'BsHasmultibarrels = ExtraBarrelConvoKits
+
+            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
+
             If Not BsHasmultibarrels Then
                 TabControl1.TabPages.Remove(TabPage10)
             Else
