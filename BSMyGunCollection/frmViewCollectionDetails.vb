@@ -2,6 +2,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Universal
 
@@ -1380,9 +1381,16 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub SetAsDefaultToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SetAsDefaultToolStripMenuItem.Click
-        Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim objGf As New GlobalFunctions
-        objGf.SwapDefaultBarrelSystems(BsDefaultbarrelsystemid, bid, GunId)
+       Try
+           Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
+           'TODO #50 Converted swap barrel conversion
+           'Dim objGf As New GlobalFunctions
+           'objGf.SwapDefaultBarrelSystems(BsDefaultbarrelsystemid, bid, GunId)
+           if Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, BsDefaultbarrelsystemid, bid, GunId, _errOut) Then Throw New Exception(_errOut)
+       Catch ex As Exception
+           Dim sSubFunc As String = "SetAsDefaultToolStripMenuItem_Click"
+           Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+       End Try
         Call LoadData()
     End Sub
     ''' <summary>
