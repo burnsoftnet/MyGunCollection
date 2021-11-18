@@ -1438,6 +1438,7 @@ Namespace MGC
         ''' <param name="BID">The bid.</param>
         ''' <returns><c>true</c> if [is currently in use barrel] [the specified bid]; otherwise, <c>false</c>.</returns>
         Public Function IsCurrentlyinUseBarrel(ByVal BID As Long) As Boolean
+            'TODO: #50 Convert this to use new library
             Dim bAns As Boolean = False
             Try
                 Dim Obj As New BSDatabase
@@ -1464,6 +1465,7 @@ Namespace MGC
         ''' <param name="sMsg">The s MSG.</param>
         Public Sub DeleteBarrelSystem(ByVal BID As Long, ByRef sMsg As String)
             Try
+                'TODO: #50 Convert this to use new library
                 'Currently in debate on if the gun maintenance section should be
                 'effected due to the receiver still having to take the rounds.
                 Dim Obj As New BSDatabase
