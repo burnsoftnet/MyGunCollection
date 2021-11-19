@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
+Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
 ''' Class frmAddModel.
@@ -45,22 +46,32 @@ Public Class FrmAddModel
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             ''TODO: Replace code from FrmAddModel #5
-            Dim objGf As New GlobalFunctions
-            Dim obj As New BSDatabase
-            Dim strTableName As String = "Gun_Model"
-            Dim strFieldName As String = "Model"
+            'Dim objGf As New GlobalFunctions
+            'Dim obj As New BSDatabase
+            'Dim strTableName As String = "Gun_Model"
+            'Dim strFieldName As String = "Model"
             Dim strMan As String = Trim(Replace(txtManufacturer.Text, "'", "''"))
             Dim strModel As String = Trim(Replace(txtModel.Text, "'", "''"))
             If Len(strMan) = 0 Then MsgBox("Please Fill in the Manufacturer!", MsgBoxStyle.Critical, Text) : Exit Sub
             If Len(strModel) = 0 Then MsgBox("Please Fill in the Model!", MsgBoxStyle.Critical, Text) : Exit Sub
-            If Not objGf.ObjectExistsinDB(strMan, strFieldName, strTableName) Then
-                Dim manId As Long = objGf.GetManufacturersID(strMan)
-                Dim sql As String = "INSERT INTO Gun_Model(GMID,Model,sync_lastupdate) VALUES(" & manId & ",'" & strModel & "',Now())"
-                obj.ConnExec(sql)
+            Dim manId As Long = Manufacturers.GetId(DatabasePath, strMan, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
+            If Not Models.Exists(DatabasePath,strModel, Convert.ToInt32(manId), _errOut) Then
+                If Not Models.Add(DatabasePath, strModel, manId, _errOut) Then Throw New Exception(_errOut)
                 lblMsg.Text = strMan & $" " & strModel & $" was added!"
-            Else
+            Else 
                 lblMsg.Text = strMan & $" " & strModel & $" already exists!"
             End If
+
+            'If Not objGf.ObjectExistsinDB(strMan, strFieldName, strTableName) Then
+            '    Dim manId As Long = objGf.GetManufacturersID(strMan)
+            '    Dim sql As String = "INSERT INTO Gun_Model(GMID,Model,sync_lastupdate) VALUES(" & manId & ",'" & strModel & "',Now())"
+            '    obj.ConnExec(sql)
+            '    lblMsg.Text = strMan & $" " & strModel & $" was added!"
+            'Else
+            '    lblMsg.Text = strMan & $" " & strModel & $" already exists!"
+            'End If
             txtModel.Text = ""
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
