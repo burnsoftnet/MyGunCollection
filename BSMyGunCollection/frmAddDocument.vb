@@ -11,6 +11,10 @@ Imports System.Data.OleDb
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddDocument
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
+    ''' <summary>
     ''' The selected file type
     ''' </summary>
     Dim _selectedFileType As Integer
@@ -282,6 +286,8 @@ Public Class FrmAddDocument
     ''' </summary>
     Sub LoadData()
         Try
+            'TODO #50 Replace with List from Main Library on next version
+
             Dim obj As New BSDatabase
             Dim sql As String = "Select * from Gun_Collection_Docs where ID=" & Did
             obj.ConnectDB()
@@ -297,8 +303,7 @@ Public Class FrmAddDocument
             rs.Close()
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -315,7 +320,11 @@ Public Class FrmAddDocument
     ''' Load AUto Fill for tex boxes
     ''' </summary>
     Sub LoadAutoFill()
-        Dim objAf As New AutoFillCollections
-        txtCat.AutoCompleteCustomSource = objAf.Document_Category
+        Try
+            txtCat.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Documents.Category(DatabasePath, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "LoadAutoFill", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 End Class

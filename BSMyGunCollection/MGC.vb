@@ -495,56 +495,8 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, 0, "ConnExec.strSQL=" & strSQL)
             End Try
         End Sub
-
-        ''' <summary>
-        ''' Creates new contact.
-        ''' </summary>
-        ''' <param name="sValue">The s value.</param>
-        ''' <param name="sTable">The s table.</param>
-        ''' <param name="sColumn">The s column.</param>
-        Public Sub InsertNewContact(sValue As String, sTable As String, sColumn As String)
-            Dim Sql As String = "INSERT INTO " & sTable & "(" & sColumn & ",Address1,City,State,Zip,sync_lastupdate) VALUES('" & sValue & "','N/A','N/A','N/A','N/A',Now())"
-            ConnExec(Sql)
-        End Sub
     End Class
-    ''' <summary>
-    ''' Class AutoFillCollections.
-    ''' </summary>
-    Public Class AutoFillCollections
-        ''' <summary>
-        ''' Class name for the error log file
-        ''' </summary>
-        Private Const MY_CLASS_NAME = "MGC.AutoFillCollections"
 
-        ''' <summary>
-        ''' Documents the category.
-        ''' </summary>
-        ''' <returns>AutoCompleteStringCollection.</returns>
-        Public Function Document_Category() As AutoCompleteStringCollection
-            Dim iCol As New AutoCompleteStringCollection
-            Try
-                Dim SQL As String = "select distinct(doc_cat) as cat from Gun_Collection_Docs order by doc_cat asc"
-                Dim Obj As New BSDatabase
-                Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                While RS.Read
-                    iCol.Add(RS("cat"))
-                End While
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
-                Obj = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "Document_Category"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return iCol
-        End Function
-        
-    End Class
     ''' <summary>
     ''' Class GlobalFunctions. General Functions that is used through out the program
     ''' </summary>
