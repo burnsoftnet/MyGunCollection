@@ -765,23 +765,7 @@ Public Class MdiParent1
             If bIsNotOld Then strMsg = "BATFE recommends that you keep a record of the firearm for over 5 years of sale." & Chr(10) & strMsg
             Dim myAns As String = MsgBox(strMsg, MsgBoxStyle.YesNo, "Delete Firearm from Collection")
             If myAns = vbYes Then
-                Dim obj As New BSDatabase
-                Dim sql As String = "DELETE from Gun_Collection where ID=" & itemId
-                obj.ConnExec(sql)
                 If Not MyCollection.Delete(DatabasePath, itemId, _errOut) Then Throw New Exception(_errOut)
-                'TODO Clean UP this unused code
-                'sql = "DELETE from Maintance_Details where GID=" & itemId
-                'obj.ConnExec(sql)
-                'sql = "DELETE from Gun_Collection_Pictures where CID=" & itemId
-                'obj.ConnExec(sql)
-                'sql = "DELETE from Gun_Collection_Accessories where GID=" & itemId
-                'obj.ConnExec(sql)
-                'sql = "DELETE from GunSmith_Details where GID=" & itemId
-                'obj.ConnExec(sql)
-                'sql = "DELETE from Gun_Collection_Ext where GID=" & itemId
-                'obj.ConnExec(sql)
-                'sql = "DELETE FROM Gun_Collection_Ext_Links where GID=" & itemId
-                'obj.ConnExec(sql)
                 MsgBox(itemName & " was removed from your collection.", MsgBoxStyle.Information, "Deleted Item")
             End If
         Catch ex As Exception

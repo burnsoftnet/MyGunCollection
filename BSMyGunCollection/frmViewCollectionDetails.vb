@@ -628,12 +628,8 @@ Public Class FrmViewCollectionDetails
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
-            'TODO: #50 Convert section from new library
-            BsHasmultibarrels = objGf.HasMultiBarrelsListed(GunId)
-            'BsDefaultbarrelsystemid = objGf.GetDefaultBarrelID(GunId)
-
-            'BsHasmultibarrels = ExtraBarrelConvoKits
-
+            BsHasmultibarrels = ExtraBarrelConvoKits.HasMultiBarrelsListed(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
             BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
             if _errOut.Length >0 Then Throw New Exception(_errOut)
 
@@ -644,6 +640,7 @@ Public Class FrmViewCollectionDetails
                 DataGridView5.Columns(0).Visible = False
             End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
+            'TODO Add Has DocumentsAttched Function to Main Library
             HasDocuments = objGf.HasDocumentsAttached(GunId)
             If Not HasDocuments Then
                 TabControl1.TabPages.Remove(TabPage12)
@@ -1403,17 +1400,20 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
-        Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim objGf As New GlobalFunctions
-        If BsDefaultbarrelsystemid = bid Then
-            MsgBox("This is set as the default Barrel/Unit for this firearm!" & Chr(13) & "Please set another item as the default before deleting this one!")
-            Exit Sub
-        Else
-            Dim sMsg As String = ""
-            objGf.DeleteBarrelSystem(bid, sMsg)
-            MsgBox(sMsg)
-            Call LoadData()
-        End If
+        Try     
+            Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
+            If BsDefaultbarrelsystemid = bid Then
+                MsgBox("This is set as the default Barrel/Unit for this firearm!" & Chr(13) & "Please set another item as the default before deleting this one!")
+                Exit Sub
+            Else
+                Dim sMsg As String = ""
+                If Not ExtraBarrelConvoKits.DeleteBarrelSystem(DatabasePath, BID,sMsg, _errOut) Then Throw New Exception(_errOut)
+                MsgBox(sMsg)
+                Call LoadData()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the EditToolStripMenuItem1 control.
