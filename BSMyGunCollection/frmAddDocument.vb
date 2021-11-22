@@ -302,23 +302,6 @@ Public Class FrmAddDocument
     ''' </summary>
     Sub LoadData()
         Try
-            'TODO #50 Replace with List from Main Library on next version
-
-            'Dim obj As New BSDatabase
-            'Dim sql As String = "Select * from Gun_Collection_Docs where ID=" & Did
-            'obj.ConnectDB()
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    txtTitle.Text = rs("doc_name")
-            '    txtDescription.Text = rs("doc_description")
-            '    txtCat.Text = rs("doc_cat")
-            '    lblSelectedDoc.Text = rs("doc_filename")
-            'End While
-            'rs.Close()
-            'obj.CloseDB()
-
             Dim lst As List(Of DocumentList) = Documents.GetList(DatabasePath, Did, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each o As DocumentList In lst
