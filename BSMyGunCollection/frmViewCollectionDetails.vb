@@ -1541,8 +1541,12 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
-        Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        frmViewDocuments.GetDocumentfromDb(did)
+        Try
+            Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAddDocument control.
@@ -1584,8 +1588,12 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
-        Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        frmViewDocuments.GetDocumentfromDb(did)
+        Try
+            Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the UnLinkToolStripMenuItem control.
