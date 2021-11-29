@@ -56,6 +56,7 @@ Public Class FrmViewDocuments
     ''' <param name="itemId">The item identifier.</param>
     Public Sub GetDocumentfromDb(itemId As String)
         Try
+            'TODO #50 Replace this function with one from library once updated.
             Dim obj As New BSDatabase
             obj.ConnectDB()
             Dim sql As String = "select doc_file,doc_ext from Gun_Collection_Docs where id=" & itemId
