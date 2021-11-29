@@ -1,8 +1,8 @@
-﻿Imports System.IO
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
-Imports ADODB
-Imports System.Data.OleDb
+﻿'Imports System.IO
+'Imports BSMyGunCollection.MGC
+'Imports System.Data.Odbc
+'Imports ADODB
+'Imports System.Data.OleDb
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 '' TODO #40 Need to Convert this section to the library
