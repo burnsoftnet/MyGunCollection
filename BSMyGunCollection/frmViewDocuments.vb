@@ -1,7 +1,4 @@
-﻿'Imports System.IO
-'Imports BSMyGunCollection.MGC
-'Imports System.Data.Odbc
-Imports BurnSoft.Applications.MGC.Firearms
+﻿Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
 ''' Class FrmViewDocuments.
@@ -50,77 +47,11 @@ Public Class FrmViewDocuments
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, itemId, _errOut) Then Throw New Exception(_errOut)
-            'Call GetDocumentfromDb(itemId)
         Catch ex As Exception
             Call LogError(Name, "DataGridView1_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    ''' <summary>
-    ''' Gets the documentfrom database.  get the document from the database and store it to the Hard Drive
-    ''' </summary>
-    ''' <param name="itemId">The item identifier.</param>
-'    Public Sub GetDocumentfromDb(itemId As String)
-'        Try
-'            'TODO #50 Replace this function with one from library once updated.
-'            Dim obj As New BSDatabase
-'            obj.ConnectDB()
-'            Dim sql As String = "select doc_file,doc_ext from Gun_Collection_Docs where id=" & itemId
-'            Dim cmd As New OdbcCommand(sql, obj.Conn)
-'' ReSharper disable once RedundantAssignment
-'            Dim saveTo As String = ""
-'            Dim rs As OdbcDataReader
-'            rs = cmd.ExecuteReader
-'            While rs.Read
-'                saveTo = ApplicationPathData & "\mgc_doc_view." & rs("doc_ext")
-'                Call SaveDocToDhh(rs("doc_file"), saveTo)
-'            End While
-'            rs.Close()
-'            obj.CloseDB()
-'        Catch ex As Exception
-'            Dim sSubFunc As String = "GetDocumentfromDB"
-'            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-'        End Try
-'    End Sub
-    ''' <summary>
-    ''' Opens the file. After the file was saved the the hdd, open it with it's default program
-    ''' if the default program is not installed, it will do nothing
-    ''' You might want to find a way to fix that and warn the user
-    ''' </summary>
-    ''' <param name="sFile">The s file.</param>
-    'Sub OpenFile(sFile As String)
-    '    Try
-    '        Dim p As New Process
-    '        Dim s As New ProcessStartInfo(sFile)
-    '        s.UseShellExecute = True
-    '        s.WindowStyle = ProcessWindowStyle.Normal
-    '        p.StartInfo = s
-    '        p.Start()
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "OpenFile"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    'End Sub
-    ''' <summary>
-    ''' Saves the document to DHH. Dump the blob form the database to this sub to save it to the file and path that is passed
-    ''' Once the file has been saved, open it with it's default program
-    ''' </summary>
-    ''' <param name="buffer">The buffer.</param>
-    ''' <param name="pathAndFileName">Name of the path and file.</param>
-    'Private Sub SaveDocToDhh(buffer As Byte(), pathAndFileName As String)
-    '    Try
-    '        Dim obj As New BSFileSystem
-    '        Call obj.DeleteFile(pathAndFileName)
-
-    '        Dim fs As FileStream = New FileStream(pathAndFileName, FileMode.Create, FileAccess.ReadWrite)
-    '        Dim bw As New BinaryWriter(fs)
-    '        bw.Write(buffer)
-    '        bw.Close()
-
-    '        Call OpenFile(pathAndFileName)
-    '    Catch ex As Exception
-    '        Call LogError(Name, "SaveDocToDHH", Err.Number, ex.Message.ToString)
-    '    End Try
-    'End Sub
+   
     ''' <summary>
     ''' Handles the Click event of the ViewToolStripMenuItem control. Context Menu - View Documents
     ''' </summary>
@@ -134,32 +65,7 @@ Public Class FrmViewDocuments
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    ''' <summary>
-    ''' Linked the docs. Return the number of firearms that are linked to the selected document
-    ''' </summary>
-    ''' <param name="docId">The document identifier.</param>
-    ''' <returns>System.Int64.</returns>
-    'Function LinkedDocs(docId As Long) As Long
-    '    Dim lAns As Long = 0
-    '    Try
-    '        Dim obj As New BSDatabase
-    '        obj.ConnectDB()
-    '        Dim sQl As String = "select count(*) as total from Gun_Collection_Docs_Links where did=" & docId
-    '        Dim cmd As New OdbcCommand(sQl, obj.Conn)
-    '        Dim rs As OdbcDataReader
-    '        rs = cmd.ExecuteReader
-    '        While rs.Read
-    '            lAns = rs("total")
-    '        End While
-    '        rs.Close()
-    '        obj.CloseDB()
-
-    '    Catch ex As Exception
-    '        Dim sSubFunc As String = "LinkedDocs"
-    '        Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-    '    End Try
-    '    Return lAns
-    'End Function
+   
     ''' <summary>
     ''' Handles the Click event of the DeleteToolStripMenuItem control. Context Menu - Delete selected document
     ''' </summary>
@@ -168,9 +74,7 @@ Public Class FrmViewDocuments
     Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            'Dim sql As String = "delete from Gun_Collection_Docs where id=" & itemId
             Dim sMessage As String = "Are you sure you wish to delete this document?"
-            'Dim lLinked As Long = LinkedDocs(itemId)
             Dim lLinked As Long = Documents.CountLinkedDocs(DatabasePath, itemId, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
@@ -181,10 +85,7 @@ Public Class FrmViewDocuments
             Dim sAns As String = MsgBox(sMessage, MsgBoxStyle.YesNo, "Confirm")
 
             If sAns = vbYes Then
-                'Dim obj As New BSDatabase
-                'obj.ConnExec(sql)
                 If lLinked > 0 Then
-                    'obj.ConnExec("delete from Gun_Collection_Docs_Links where did=" & itemId)
                     If Not Documents.Delete(DatabasePath, itemId, _errOut) Then Throw New Exception(_errOut)
                 End If
 
