@@ -4,6 +4,7 @@ Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Types
 Imports BurnSoft.Universal
 
 ''' <summary>
@@ -649,14 +650,26 @@ Public Class FrmViewCollectionDetails
 
             End If
 
+            Dim lst as List(Of GunCollectionList) = MyCollection.GetList(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
+
+            For Each l As GunCollectionList In lst
+                Text = l.FullName
+                txtManu.Text = l.Manufacturer
+                txtModel.Text  = l.ModelName
+                txtSerial.Text = l.SerialNumber
+                txtType.Text = l.Type
+
+            Next
+
             'Start populating the fields on the details for from the database
             While rs.Read
-                Text = rs("fullname")
-                'txtManu.Text = objGf.GetManufacturersName(rs("MID"))
-                txtManu.Text = Manufacturers.GetName(DatabasePath, Convert.ToInt32(rs("MID")), _errOut)
-                txtModel.Text = rs("ModelName")
-                If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
-                If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")
+                'Text = rs("fullname")
+                ''txtManu.Text = objGf.GetManufacturersName(rs("MID"))
+                'txtManu.Text = Manufacturers.GetName(DatabasePath, Convert.ToInt32(rs("MID")), _errOut)
+                'txtModel.Text = rs("ModelName")
+                'If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
+                'If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")
                 If Found(txtType.Text, "shotgun") Then IsShotGun = True
                 If IsShotGun Then
                     If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
