@@ -677,66 +677,41 @@ Public Class FrmViewCollectionDetails
                 txtCustCatID.Text = l.CustomId
                 txtGripType.Text = l.GripType
                 txtProduced.Text = l.DateProduced
+                txtAction.Text = l.Action
+                txtFeed.Text = l.FeedSystem
+                txtSights.Text = l.Sights
+                txtStorage.Text = l.StorageLocation
+                txtPurchasedFrom.Text = l.PurchaseFrom
+                txtPurPrice.Text = l.PurchasePrice
+                txtImporter.Text = l.Importer
+                txtChoke.Text =l.ShotGunChoke
+                chkBoundBook.Checked = l.IsInBoundBook
+                txtTwistOfRate.Text = l.TwistRate
+                txtTriggerPull.Text = l.TriggerPullInPounds
+                txtCaliber3.Text = l.Caliber3
+                txtClassification.Text = l.Classification
+
+                If l.DateOfCAndR.Length > 0 Then
+                    dtpDateofCR.Checked = True
+                    dtpDateofCR.Value = l.DateOfCAndR
+                    dtpDateofCR.Enabled = True
+                Else 
+                    dtpDateofCR.Enabled = False
+                End If
+
+
             Next
 
             'Start populating the fields on the details for from the database
             While rs.Read
-                'Text = rs("fullname")
-                ''txtManu.Text = objGf.GetManufacturersName(rs("MID"))
-                'txtManu.Text = Manufacturers.GetName(DatabasePath, Convert.ToInt32(rs("MID")), _errOut)
-                'txtModel.Text = rs("ModelName")
-                'If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
-                'If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")
-                'If Found(txtType.Text, "shotgun") Then IsShotGun = True
-                'If IsShotGun Then
-                '    If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
-                '    Call AddChokeOption()
+                
+                ''Date of C & R
+                'If Not IsDBNull(rs("DateofCR")) Then
+                '    dtpDateofCR.Checked = True
+                '    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
+                '    dtpDateofCR.Enabled = True
                 'End If
-                'If Not IsDBNull(rs("Caliber")) Then txtCal.Text = rs("Caliber")
-                'If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
-                'If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
-                'If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                'txtNationality.Text = Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
-                'If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
-                'If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
-                'If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
-                'If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
-                'If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
-                'If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
-                'txtGripType.Text = Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
-                'If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
-                If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
-                If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")
-                If Not IsDBNull(rs("Sights")) Then txtSights.Text = rs("Sights")
-                If Not IsDBNull(rs("StorageLocation")) Then txtStorage.Text = rs("StorageLocation")
-                If Not IsDBNull(rs("PurchasedFrom")) Then txtPurchasedFrom.Text = rs("PurchasedFrom")
-                If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = rs("PurchasedPrice")
-                If Not IsDBNull(rs("Importer")) Then txtImporter.Text = Trim(rs("Importer"))
-                If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
-
-
-                If Not IsDBNull(rs("IsInBoundBook")) Then
-                    If CInt(rs("IsInBoundBook")) = 0 Then
-                        chkBoundBook.Checked = False
-                    Else
-                        chkBoundBook.Checked = True
-                    End If
-                Else
-                    chkBoundBook.Checked = True
-                End If
-
-                If Not IsDBNull(rs("TwistRate")) Then txtTwistOfRate.Text = Trim(rs("TwistRate"))
-                If Not IsDBNull(rs("lbs_trigger")) Then txtTriggerPull.Text = Trim(rs("lbs_trigger"))
-                If Not IsDBNull(rs("Caliber3")) Then txtCaliber3.Text = Trim(rs("Caliber3"))
-                If Not IsDBNull(rs("Classification")) Then txtClassification.Text = Trim(rs("Classification"))
-
-                'Date of C & R
-                If Not IsDBNull(rs("DateofCR")) Then
-                    dtpDateofCR.Checked = True
-                    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
-                    dtpDateofCR.Enabled = True
-                End If
-                dtpDateofCR.Enabled = False
+                'dtpDateofCR.Enabled = False
 
                 Dim iClassIii As Integer = 0
                 If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
