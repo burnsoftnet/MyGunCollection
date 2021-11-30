@@ -659,7 +659,24 @@ Public Class FrmViewCollectionDetails
                 txtModel.Text  = l.ModelName
                 txtSerial.Text = l.SerialNumber
                 txtType.Text = l.Type
-
+                IsShotGun = txtType.Text.ToLower().Contains("shotgun")
+                If IsShotGun Then
+                    txtChoke.Text = l.ShotGunChoke
+                    Call AddChokeOption()
+                End If
+                txtCal.Text = l.Caliber
+                txtFinish.Text = l.Finish
+                txtCondition.Text = l.Condition
+                txtPetLoads.Text = l.PetLoads
+                txtNationality.Text = l.Nationality
+                txtWeight.Text = l.Weight
+                txtLength.Text = l.Height
+                txtBarLen.Text = l.BarrelLength
+                txtBarWid.Text = l.BarrelWidth
+                txtBarHei.Text = l.BarrelHeight
+                txtCustCatID.Text = l.CustomId
+                txtGripType.Text = l.GripType
+                txtProduced.Text = l.DateProduced
             Next
 
             'Start populating the fields on the details for from the database
@@ -670,24 +687,24 @@ Public Class FrmViewCollectionDetails
                 'txtModel.Text = rs("ModelName")
                 'If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
                 'If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")
-                If Found(txtType.Text, "shotgun") Then IsShotGun = True
-                If IsShotGun Then
-                    If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
-                    Call AddChokeOption()
-                End If
-                If Not IsDBNull(rs("Caliber")) Then txtCal.Text = rs("Caliber")
-                If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
-                If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
-                If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                txtNationality.Text = Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
-                If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
-                If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
-                If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
-                If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
-                If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
-                If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
-                txtGripType.Text = Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
-                If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
+                'If Found(txtType.Text, "shotgun") Then IsShotGun = True
+                'If IsShotGun Then
+                '    If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
+                '    Call AddChokeOption()
+                'End If
+                'If Not IsDBNull(rs("Caliber")) Then txtCal.Text = rs("Caliber")
+                'If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
+                'If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
+                'If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
+                'txtNationality.Text = Nationality.GetName(DatabasePath, Convert.ToInt32(rs("NatID")), _errOut)
+                'If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
+                'If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
+                'If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
+                'If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
+                'If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
+                'If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
+                'txtGripType.Text = Grips.GetName(DatabasePath, Convert.ToInt32(rs("GripID")), _errOut)
+                'If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
                 If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
                 If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")
                 If Not IsDBNull(rs("Sights")) Then txtSights.Text = rs("Sights")
