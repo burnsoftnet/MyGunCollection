@@ -1601,9 +1601,6 @@ Public Class FrmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            'Dim sql As String = "delete from Gun_Collection_Docs_Links where id=" & did
-            'Dim obj As New BSDatabase
-            'obj.ConnExec(sql)
             If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
