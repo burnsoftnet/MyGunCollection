@@ -1475,14 +1475,13 @@ Public Class FrmViewCollectionDetails
             DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim obj As New BSDatabase
-            Dim sql As String = "DELETE from Maintance_Details where ID=" & mid
-            obj.ConnExec(sql)
-            Call LoadMaintData()
+
+            If Not MaintanceDetails.Delete(DatabasePath, mid, _errOut) Then Throw New Exception(_errOut)
+            
         Catch ex As Exception
-            Dim sSubFunc As String = "DeleteToolStripMenuItem1_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DeleteToolStripMenuItem1_Click", Err.Number, ex.Message.ToString)
         End Try
+        Call LoadMaintData()
     End Sub
     ''' <summary>
     ''' Runs the edit maintenance. get the id of the maintenance details ID and pass that ID to the edit Maintance form
@@ -1498,8 +1497,7 @@ Public Class FrmViewCollectionDetails
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "RunEditMaintenance"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "RunEditMaintenance", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
