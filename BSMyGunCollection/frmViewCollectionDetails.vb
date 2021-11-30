@@ -1118,8 +1118,7 @@ Public Class FrmViewCollectionDetails
             rs.Close()
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "GenerateAss"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GenerateAss", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -1155,8 +1154,7 @@ Public Class FrmViewCollectionDetails
             rs.Close()
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateMaint"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "XML_GenerateMaint", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -1191,8 +1189,7 @@ Public Class FrmViewCollectionDetails
             rs.Close()
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateGSmith"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "XML_GenerateGSmith", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -1236,8 +1233,7 @@ Public Class FrmViewCollectionDetails
             rs.Close()
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateBarrelConversKit"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "XML_GenerateBarrelConversKit", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -1605,8 +1601,7 @@ Public Class FrmViewCollectionDetails
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "UnLinkToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "UnLinkToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
