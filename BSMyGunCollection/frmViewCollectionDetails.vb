@@ -2,10 +2,9 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC
+Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
-Imports BurnSoft.Universal
 
 ''' <summary>
 ''' Class frmViewCollectionDetails.  Main form to view the firearm details
@@ -478,19 +477,17 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadAmmoData()
         Try
-            Dim obj As New GlobalFunctions
-
             If Len(txtPetLoads.Text) = 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillBy(MGCDataSet.Gun_Collection_Ammo, txtCal.Text)
-                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text, _errOut)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text)
-                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text, _errOut)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) > 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet3(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text, txtCaliber3.Text)
-                lblAmmoTotal.Text = BurnSoft.Applications.MGC.Ammo.Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text,txtCaliber3.Text, _errOut)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text,txtCaliber3.Text, _errOut)
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
@@ -618,14 +615,6 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
-            'Dim obj As New BSDatabase
-            'Dim objGf As New GlobalFunctions
-            'Dim objDf As New BSDateTime
-            'Call obj.ConnectDB()
-            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & GunId
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
@@ -641,8 +630,6 @@ Public Class FrmViewCollectionDetails
                 DataGridView5.Columns(0).Visible = False
             End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
-            'TODO Add Has DocumentsAttched Function to Main Library
-            'HasDocuments = objGf.HasDocumentsAttached(GunId)
             HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
             BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
 
@@ -734,91 +721,14 @@ Public Class FrmViewCollectionDetails
                 txtConCom.Text = l.ConditionComments
                 txtAddNotes.Text = l.AdditionalNotes
                 SellerId = l.Bid
-                lblSold.Text = "on " & l.DateSold
+                lblSold.Text = $"on {l.DateSold}"
                 IsSold = l.WasSold
                 IsStolen = l.WasStolen
             Next
 
-'            'Start populating the fields on the details for from the database
-'            While rs.Read
-                
-'                ''Date of C & R
-'                'If Not IsDBNull(rs("DateofCR")) Then
-'                '    dtpDateofCR.Checked = True
-'                '    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
-'                '    dtpDateofCR.Enabled = True
-'                'End If
-'                'dtpDateofCR.Enabled = False
-
-'                'Dim iClassIii As Integer = 0
-'                'If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
-'                'If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
-'                'If iClassIii = 0 Then
-'                '    chkClassIII.Checked = False
-'                'Else
-'                '    chkClassIII.Checked = True
-'                'End If
-
-'                'If Not IsDBNull(rs("IsCandR")) Then
-'                '    If CInt(rs("IsCandR")) = 0 Then
-'                '        chkBoxCR.Checked = False
-'                '    Else
-'                '        chkBoxCR.Checked = True
-'                '    End If
-'                'Else
-'                '    chkBoxCR.Checked = False
-'                'End If
-'                'If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
-
-'                'If Not IsDBNull(rs("ReManDT")) Then
-'                '    dtpReManDT.Checked = True
-'                '    dtpReManDT.Value = rs("ReManDT")
-'                '    dtpReManDT.Enabled = True
-'                'End If
-'                'dtpReManDT.Enabled = False
-
-'                'If Not IsDBNull(rs("dtp")) Then
-'                '    dtpPurchased.Checked = False
-'                '    dtpPurchased.Value = rs("dtp")
-'                '    dtpPurchased.Enabled = False
-'                'Else
-'                '    dtpPurchased.Checked = False
-'                '    dtpPurchased.Value = rs("dt")
-'                '    dtpPurchased.Enabled = False
-'                'End If
-'                'If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
-'                'ShopId = rs("SID")
-'                'If Len(Trim(rs("AppraisalDate"))) <> 0 Then
-'                '    dtpAppDate.Checked = True
-'                '    dtpAppDate.Value = rs("AppraisalDate")
-'                '    dtpAppDate.Enabled = False
-'                'End If
-''                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
-''                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
-''                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
-''                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
-''                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
-''' ReSharper disable LocalizableElement
-''                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
-''' ReSharper restore LocalizableElement
-'                'If CInt(rs("ItemSold")) = 1 Then
-'                '    IsSold = True
-'                '    IsStolen = False
-'                'ElseIf CInt(rs("ItemSold")) = 2 Then
-'                '    IsSold = False
-'                '    IsStolen = True
-'                'Else
-'                '    IsSold = False
-'                '    IsStolen = False
-'                'End If
-
-'            End While
-'            rs.Close()
-'            obj.CloseDB()
             Refresh()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -849,8 +759,7 @@ Public Class FrmViewCollectionDetails
             obj.CloseDB()
 
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPics"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPics", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -873,8 +782,7 @@ Public Class FrmViewCollectionDetails
             End If
             obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicsID"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPicsID", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -1149,7 +1057,7 @@ Public Class FrmViewCollectionDetails
                     If rs("civ") = 1 Then civ = True
                     sAns &= "       <civ>" & civ & "</civ>" & nl
                     Dim ic as Boolean = False
-                    If rs("ic") = 1 Then civ = True
+                    If rs("ic") = 1 Then ic = True
                     sAns &= "       <ic>" & ic & "</ic>" & nl
                     sAns &= "    </Accessories>" & nl
                 End While
