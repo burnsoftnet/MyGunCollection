@@ -127,8 +127,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.0.1.48, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.0.1.48-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.0.1.49, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.0.1.49-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
