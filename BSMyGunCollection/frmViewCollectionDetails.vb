@@ -75,8 +75,7 @@ Public Class FrmViewCollectionDetails
             Dim objS As New ViewSizeSettings
             objS.SaveViewCollectionDetails(Height, Width, Location.X, Location.Y)
         Catch ex As Exception
-            Dim sSubFunc As String = "frmViewCollectionDetails_Disposed"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmViewCollectionDetails_Disposed", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -114,8 +113,7 @@ Public Class FrmViewCollectionDetails
                 Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "frmViewCollectionDetails_Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmViewCollectionDetails_Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -300,15 +298,21 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub mnuPicItem_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnuPicItem_Delete.Click
-        Dim msgAns As String = MsgBox("Are you sure you want to delete this picture?", MsgBoxStyle.YesNo, "Delete Picture")
-        If msgAns = vbYes Then
-            Dim myIndex As String = ListView1.FocusedItem.Index
-            Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-            Dim sql As String = "DELETE from Gun_Collection_Pictures where ID=" & myText
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
-            Call GetPics()
-        End If
+        Try 
+            Dim msgAns As String = MsgBox("Are you sure you want to delete this picture?", MsgBoxStyle.YesNo, "Delete Picture")
+            If msgAns = vbYes Then
+                Dim myIndex As String = ListView1.FocusedItem.Index
+                Dim myText As String = ListView1.Items(CInt(myIndex)).Text
+                'TODO: #50 Replace function below with one from library
+                Dim sql As String = "DELETE from Gun_Collection_Pictures where ID=" & myText
+                Dim obj As New BSDatabase
+                obj.ConnExec(sql)
+                
+                Call GetPics()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "mnuPicItem_Delete_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the txtPurchasedFrom control.
