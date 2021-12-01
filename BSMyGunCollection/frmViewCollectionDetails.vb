@@ -695,11 +695,44 @@ Public Class FrmViewCollectionDetails
                     dtpDateofCR.Checked = True
                     dtpDateofCR.Value = l.DateOfCAndR
                     dtpDateofCR.Enabled = True
+                End If
+                dtpDateofCR.Enabled = False
+
+                chkClassIII.Checked = l.IsClass3Item
+                chkBoxCR.Checked = l.IsCAndR
+
+                if l.RemanufactureDate.Length > 0 Then
+                    dtpReManDT.Checked = True
+                    dtpReManDT.Value = l.RemanufactureDate
+                    dtpReManDT.Enabled = True
+                End If
+                dtpReManDT.Enabled = False
+
+                If l.DateTimeAdded.Length > 0 Then
+                    dtpPurchased.Checked = False
+                    dtpPurchased.Value = l.DateTimeAdded
+                    dtpPurchased.Enabled = False
                 Else 
-                    dtpDateofCR.Enabled = False
+                    dtpPurchased.Checked = False
+                    dtpPurchased.Value = l.DateTimeAddedInDb
+                    dtpPurchased.Enabled = False
                 End If
 
+                txtAppValue.Text = l.AppriasedValue
+                ShopId = l.Sid
+                If l.AppraisalDate.Length > 0 Then
+                    dtpAppDate.Checked = True
+                    dtpAppDate.Value = l.AppraisalDate
+                    dtpAppDate.Enabled = False
+                End If
 
+                txtAppBy.Text = l.AppriasedBy
+                txtInsVal.Text = l.InsuredValue
+                txtConCom.Text = l.ConditionComments
+                txtAddNotes.Text = l.AdditionalNotes
+                SellerId = l.Bid
+                lblSold.Text = "on " & l.DateSold
+                
             Next
 
             'Start populating the fields on the details for from the database
@@ -713,57 +746,57 @@ Public Class FrmViewCollectionDetails
                 'End If
                 'dtpDateofCR.Enabled = False
 
-                Dim iClassIii As Integer = 0
-                If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
-                If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
-                If iClassIii = 0 Then
-                    chkClassIII.Checked = False
-                Else
-                    chkClassIII.Checked = True
-                End If
+                'Dim iClassIii As Integer = 0
+                'If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
+                'If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
+                'If iClassIii = 0 Then
+                '    chkClassIII.Checked = False
+                'Else
+                '    chkClassIII.Checked = True
+                'End If
 
-                If Not IsDBNull(rs("IsCandR")) Then
-                    If CInt(rs("IsCandR")) = 0 Then
-                        chkBoxCR.Checked = False
-                    Else
-                        chkBoxCR.Checked = True
-                    End If
-                Else
-                    chkBoxCR.Checked = False
-                End If
-                If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
+                'If Not IsDBNull(rs("IsCandR")) Then
+                '    If CInt(rs("IsCandR")) = 0 Then
+                '        chkBoxCR.Checked = False
+                '    Else
+                '        chkBoxCR.Checked = True
+                '    End If
+                'Else
+                '    chkBoxCR.Checked = False
+                'End If
+                'If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
 
-                If Not IsDBNull(rs("ReManDT")) Then
-                    dtpReManDT.Checked = True
-                    dtpReManDT.Value = rs("ReManDT")
-                    dtpReManDT.Enabled = True
-                End If
-                dtpReManDT.Enabled = False
+                'If Not IsDBNull(rs("ReManDT")) Then
+                '    dtpReManDT.Checked = True
+                '    dtpReManDT.Value = rs("ReManDT")
+                '    dtpReManDT.Enabled = True
+                'End If
+                'dtpReManDT.Enabled = False
 
-                If Not IsDBNull(rs("dtp")) Then
-                    dtpPurchased.Checked = False
-                    dtpPurchased.Value = rs("dtp")
-                    dtpPurchased.Enabled = False
-                Else
-                    dtpPurchased.Checked = False
-                    dtpPurchased.Value = rs("dt")
-                    dtpPurchased.Enabled = False
-                End If
-                If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
-                ShopId = rs("SID")
-                If Len(Trim(rs("AppraisalDate"))) <> 0 Then
-                    dtpAppDate.Checked = True
-                    dtpAppDate.Value = rs("AppraisalDate")
-                    dtpAppDate.Enabled = False
-                End If
-                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
-                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
-                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
-                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
-                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
-' ReSharper disable LocalizableElement
-                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
-' ReSharper restore LocalizableElement
+                'If Not IsDBNull(rs("dtp")) Then
+                '    dtpPurchased.Checked = False
+                '    dtpPurchased.Value = rs("dtp")
+                '    dtpPurchased.Enabled = False
+                'Else
+                '    dtpPurchased.Checked = False
+                '    dtpPurchased.Value = rs("dt")
+                '    dtpPurchased.Enabled = False
+                'End If
+                'If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
+                'ShopId = rs("SID")
+                'If Len(Trim(rs("AppraisalDate"))) <> 0 Then
+                '    dtpAppDate.Checked = True
+                '    dtpAppDate.Value = rs("AppraisalDate")
+                '    dtpAppDate.Enabled = False
+                'End If
+'                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
+'                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
+'                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
+'                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
+'                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
+'' ReSharper disable LocalizableElement
+'                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
+'' ReSharper restore LocalizableElement
                 If CInt(rs("ItemSold")) = 1 Then
                     IsSold = True
                     IsStolen = False
