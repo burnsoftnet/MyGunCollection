@@ -618,14 +618,14 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
-            Dim objDf As New BSDateTime
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection where ID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
+            'Dim obj As New BSDatabase
+            'Dim objGf As New GlobalFunctions
+            'Dim objDf As New BSDateTime
+            'Call obj.ConnectDB()
+            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & GunId
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
@@ -642,7 +642,10 @@ Public Class FrmViewCollectionDetails
             End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
             'TODO Add Has DocumentsAttched Function to Main Library
-            HasDocuments = objGf.HasDocumentsAttached(GunId)
+            'HasDocuments = objGf.HasDocumentsAttached(GunId)
+            HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
+            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+
             If Not HasDocuments Then
                 TabControl1.TabPages.Remove(TabPage12)
             Else
@@ -659,7 +662,7 @@ Public Class FrmViewCollectionDetails
                 txtModel.Text  = l.ModelName
                 txtSerial.Text = l.SerialNumber
                 txtType.Text = l.Type
-                IsShotGun = txtType.Text.ToLower().Contains("shotgun")
+                IsShotGun = l.IsShotGun
                 If IsShotGun Then
                     txtChoke.Text = l.ShotGunChoke
                     Call AddChokeOption()
@@ -732,85 +735,86 @@ Public Class FrmViewCollectionDetails
                 txtAddNotes.Text = l.AdditionalNotes
                 SellerId = l.Bid
                 lblSold.Text = "on " & l.DateSold
-                
+                IsSold = l.WasSold
+                IsStolen = l.WasStolen
             Next
 
-            'Start populating the fields on the details for from the database
-            While rs.Read
+'            'Start populating the fields on the details for from the database
+'            While rs.Read
                 
-                ''Date of C & R
-                'If Not IsDBNull(rs("DateofCR")) Then
-                '    dtpDateofCR.Checked = True
-                '    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
-                '    dtpDateofCR.Enabled = True
-                'End If
-                'dtpDateofCR.Enabled = False
+'                ''Date of C & R
+'                'If Not IsDBNull(rs("DateofCR")) Then
+'                '    dtpDateofCR.Checked = True
+'                '    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
+'                '    dtpDateofCR.Enabled = True
+'                'End If
+'                'dtpDateofCR.Enabled = False
 
-                'Dim iClassIii As Integer = 0
-                'If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
-                'If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
-                'If iClassIii = 0 Then
-                '    chkClassIII.Checked = False
-                'Else
-                '    chkClassIII.Checked = True
-                'End If
+'                'Dim iClassIii As Integer = 0
+'                'If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
+'                'If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
+'                'If iClassIii = 0 Then
+'                '    chkClassIII.Checked = False
+'                'Else
+'                '    chkClassIII.Checked = True
+'                'End If
 
-                'If Not IsDBNull(rs("IsCandR")) Then
-                '    If CInt(rs("IsCandR")) = 0 Then
-                '        chkBoxCR.Checked = False
-                '    Else
-                '        chkBoxCR.Checked = True
-                '    End If
-                'Else
-                '    chkBoxCR.Checked = False
-                'End If
-                'If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
+'                'If Not IsDBNull(rs("IsCandR")) Then
+'                '    If CInt(rs("IsCandR")) = 0 Then
+'                '        chkBoxCR.Checked = False
+'                '    Else
+'                '        chkBoxCR.Checked = True
+'                '    End If
+'                'Else
+'                '    chkBoxCR.Checked = False
+'                'End If
+'                'If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
 
-                'If Not IsDBNull(rs("ReManDT")) Then
-                '    dtpReManDT.Checked = True
-                '    dtpReManDT.Value = rs("ReManDT")
-                '    dtpReManDT.Enabled = True
-                'End If
-                'dtpReManDT.Enabled = False
+'                'If Not IsDBNull(rs("ReManDT")) Then
+'                '    dtpReManDT.Checked = True
+'                '    dtpReManDT.Value = rs("ReManDT")
+'                '    dtpReManDT.Enabled = True
+'                'End If
+'                'dtpReManDT.Enabled = False
 
-                'If Not IsDBNull(rs("dtp")) Then
-                '    dtpPurchased.Checked = False
-                '    dtpPurchased.Value = rs("dtp")
-                '    dtpPurchased.Enabled = False
-                'Else
-                '    dtpPurchased.Checked = False
-                '    dtpPurchased.Value = rs("dt")
-                '    dtpPurchased.Enabled = False
-                'End If
-                'If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
-                'ShopId = rs("SID")
-                'If Len(Trim(rs("AppraisalDate"))) <> 0 Then
-                '    dtpAppDate.Checked = True
-                '    dtpAppDate.Value = rs("AppraisalDate")
-                '    dtpAppDate.Enabled = False
-                'End If
-'                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
-'                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
-'                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
-'                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
-'                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
-'' ReSharper disable LocalizableElement
-'                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
-'' ReSharper restore LocalizableElement
-                If CInt(rs("ItemSold")) = 1 Then
-                    IsSold = True
-                    IsStolen = False
-                ElseIf CInt(rs("ItemSold")) = 2 Then
-                    IsSold = False
-                    IsStolen = True
-                Else
-                    IsSold = False
-                    IsStolen = False
-                End If
+'                'If Not IsDBNull(rs("dtp")) Then
+'                '    dtpPurchased.Checked = False
+'                '    dtpPurchased.Value = rs("dtp")
+'                '    dtpPurchased.Enabled = False
+'                'Else
+'                '    dtpPurchased.Checked = False
+'                '    dtpPurchased.Value = rs("dt")
+'                '    dtpPurchased.Enabled = False
+'                'End If
+'                'If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
+'                'ShopId = rs("SID")
+'                'If Len(Trim(rs("AppraisalDate"))) <> 0 Then
+'                '    dtpAppDate.Checked = True
+'                '    dtpAppDate.Value = rs("AppraisalDate")
+'                '    dtpAppDate.Enabled = False
+'                'End If
+''                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
+''                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
+''                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
+''                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
+''                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
+''' ReSharper disable LocalizableElement
+''                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
+''' ReSharper restore LocalizableElement
+'                'If CInt(rs("ItemSold")) = 1 Then
+'                '    IsSold = True
+'                '    IsStolen = False
+'                'ElseIf CInt(rs("ItemSold")) = 2 Then
+'                '    IsSold = False
+'                '    IsStolen = True
+'                'Else
+'                '    IsSold = False
+'                '    IsStolen = False
+'                'End If
 
-            End While
-            rs.Close()
-            obj.CloseDB()
+'            End While
+'            rs.Close()
+'            obj.CloseDB()
             Refresh()
         Catch ex As Exception
             Dim sSubFunc As String = "Load"
