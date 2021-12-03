@@ -876,8 +876,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePendingMaint = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView3_Validated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "DataGridView3_Validated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -891,8 +890,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePendingMaint = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "MaintanceDetailsBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "MaintanceDetailsBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -907,8 +905,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView4_Validated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView4_Validated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -922,8 +919,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunSmithDetailsBindingSource_CurrentChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunSmithDetailsBindingSource_CurrentChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 #End Region
