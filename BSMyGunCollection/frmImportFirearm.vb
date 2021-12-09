@@ -47,12 +47,12 @@ Public Class FrmImportFirearm
         'On Error Resume Next
         Try 
             If IsDBNull(instance) Then
-                sAns = ""
+                sAns = " "
             Else 
                 sAns = instance.InnerText
             End If
         Catch ex As Exception
-            sAns = ""
+            sAns = " "
         End Try
         
         Return sAns
