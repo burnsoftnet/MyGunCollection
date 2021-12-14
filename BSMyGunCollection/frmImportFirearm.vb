@@ -97,34 +97,48 @@ Public Class FrmImportFirearm
 
             I += 1
             Call UpdateStatusLabel("Getting Firearm Details")
-            Call ProcessXMLToDB_Details(strPath, "Details", fullName, firearmId)
+            'Call ProcessXMLToDB_Details(strPath, "Details", fullName, firearmId)
+            if Not XmlImport.Details(DatabasePath, strPath, OwnerId,UseNumberCatOnly, _errOut) Then Throw New Exception(_errOut)
+            firearmId = MyCollection.GetLastId(DatabasePath, _errOut)
+            
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting Accessories List")
-            Call ProcessXMLToDB_Accessories(strPath, "Accessories", firearmId)
-            Call UpdateProgressBar(I)
-            I += 1
-            Call UpdateStatusLabel("Getting Maintance Details")
-            Call ProcessXMLToDB_Maintance_Details(strPath, "Maintance_Details", firearmId)
-            Call UpdateProgressBar(I)
-            I += 1
-            Call UpdateStatusLabel("Getting GunSmith Details")
-            Call ProcessXMLToDB_GunSmith_Details(strPath, "GunSmith_Details", firearmId)
+            'Call ProcessXMLToDB_Accessories(strPath, "Accessories", firearmId)
+            if Not XmlImport.Accessories(DatabasePath, strPath, firearmId, _errOut) Then Throw New Exception(_errOut)
             Call UpdateProgressBar(I)
             I += 1
             Call UpdateStatusLabel("Getting Barrel/Conversion Kit details")
-            Call ProcessXMLToDB_BarrelConverstionKit_Details(strPath, "BarrelConverstionKit_Details", firearmId)
+            'Call ProcessXMLToDB_BarrelConverstionKit_Details(strPath, "BarrelConverstionKit_Details", firearmId)
+            if Not XmlImport.BarrelConverstionKitDetails(DatabasePath, strPath, firearmId, _errOut) Then Throw New Exception(_errOut)
             Call UpdateProgressBar(I)
+            I += 1
+            Call UpdateStatusLabel("Getting Maintance Details")
+            'Call ProcessXMLToDB_Maintance_Details(strPath, "Maintance_Details", firearmId)
+            if Not XmlImport.MaintanceDetails(DatabasePath, strPath, firearmId, _errOut) Then Throw New Exception(_errOut)
+            Call UpdateProgressBar(I)
+            I += 1
+            Call UpdateStatusLabel("Getting GunSmith Details")
+            'Call ProcessXMLToDB_GunSmith_Details(strPath, "GunSmith_Details", firearmId)
+            if Not XmlImport.GunSmithDetails(DatabasePath, strPath, firearmId, _errOut) Then Throw New Exception(_errOut)
+            Call UpdateProgressBar(I)
+            'I += 1
+            'Call UpdateStatusLabel("Getting Barrel/Conversion Kit details")
+            ''Call ProcessXMLToDB_BarrelConverstionKit_Details(strPath, "BarrelConverstionKit_Details", firearmId)
+            'if Not BurnSoft.Applications.MGC.Firearms.XmlImport.BarrelConverstionKitDetails(DatabasePath, strPath, firearmId, _errOut) Then Throw New Exception(_errOut)
+            'Call UpdateProgressBar(I)
             UseWaitCursor = False
             MsgBox("Import of the " & fullName & " firearm is complete!")
-            MDIParent1.RefreshCollection()
-            Close()
+            
 
         Catch ex As Exception
             Dim sSubFunc As String = "ProcessXMLToDB"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
             UseWaitCursor = False
+            MsgBox("Error occured while attempting to import file. See log for details.")
         End Try
+        MDIParent1.RefreshCollection()
+        Close()
     End Sub
     ''' <summary>
     ''' Processes the XML to database details.
