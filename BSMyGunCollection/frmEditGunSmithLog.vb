@@ -66,7 +66,7 @@ Public Class FrmEditGunSmithLog
             'Dim gsId as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
             'if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, gsId, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
             'TODO: #57 Delete code below when the field is avilable
-            if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
+            if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id,  strSmith, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
 
             Close()
         Catch ex As Exception
