@@ -62,9 +62,12 @@ Public Class FrmEditGunSmithLog
 
             If Not IsRequired(strSmith, "Gun Smith Name", Text) Then Exit Sub
             If Not IsRequired(strOd, "Operation Details", Text) Then Exit Sub
+            'TODO: #57 UnComment code below when the field is avilable
+            'Dim gsId as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
+            'if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, gsId, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
+            'TODO: #57 Delete code below when the field is avilable
+            if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
 
-            Dim gsId as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
-            if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, gsId, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnUpdate_Click"
