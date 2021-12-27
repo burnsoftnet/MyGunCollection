@@ -12,7 +12,7 @@ Public Class FrmImportFirearm
     ''' <summary>
     ''' The default barrel identifier
     ''' </summary>
-    Public DefaultBarrelId As Long
+    'Public DefaultBarrelId As Long
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -42,21 +42,21 @@ Public Class FrmImportFirearm
     ''' </summary>
     ''' <param name="instance">The instance.</param>
     ''' <returns>System.String.</returns>
-    Function GetXmlNode(ByVal instance As XmlNode) As String
-        Dim sAns As String
-        'On Error Resume Next
-        Try 
-            If IsDBNull(instance) Then
-                sAns = " "
-            Else 
-                sAns = instance.InnerText
-            End If
-        Catch ex As Exception
-            sAns = " "
-        End Try
+    'Function GetXmlNode(ByVal instance As XmlNode) As String
+    '    Dim sAns As String
+    '    'On Error Resume Next
+    '    Try 
+    '        If IsDBNull(instance) Then
+    '            sAns = " "
+    '        Else 
+    '            sAns = instance.InnerText
+    '        End If
+    '    Catch ex As Exception
+    '        sAns = " "
+    '    End Try
         
-        Return sAns
-    End Function
+    '    Return sAns
+    'End Function
     ''' <summary>
     ''' Handles the Click event of the btnImport control.
     ''' </summary>
