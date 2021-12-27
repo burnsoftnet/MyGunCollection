@@ -218,6 +218,7 @@ Module GlobalVars
     ''' <returns></returns>
     Public Function IsRequired(ByVal strValue As String, ByVal strField As String, ByVal strTitle As String) As Boolean
         Dim bAns As Boolean = False
+        ''TODO #51 Convert this code to use helpers.isrequired
         Try
             If Len(Trim(strValue)) = 0 Then
                 bAns = False
