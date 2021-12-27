@@ -1,6 +1,8 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.MsgBox
 ''' <summary>
 ''' Class MDIParent1.
@@ -606,7 +608,9 @@ Public Class MdiParent1
             End If
             Lastviewedfirearm = 0
             Dim objR As New BSRegistry
-            OwnerId = GetOwnerID()
+            OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)
+            if _errOut.Length > 0 Then Throw New Exception(_errOut)
+
             Call Buggerme("mdiparent1.load", "Owner ID=" & OwnerId)
             Call Buggerme("mdiparent1.load", "Updating App Details")
             objR.UpDateAppDetails()
