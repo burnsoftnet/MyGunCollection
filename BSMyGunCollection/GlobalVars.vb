@@ -133,7 +133,7 @@ Module GlobalVars
     ''' <summary>
     ''' Link to bug report
     ''' </summary>
-    Public Const MenuBug = "http://bugreport.burnsoft.net"
+    Public Const MenuBug = "https://github.com/burnsoftnet/MyGunCollection/issues"
     ''' <summary>
     ''' Default Date of Birth
     ''' </summary>
@@ -142,10 +142,6 @@ Module GlobalVars
     ''' Name of default firearm picture
     ''' </summary>
     Public Const DefaultPic = "mgc_default.jpg"
-    ''' <summary>
-    ''' Test expire marker, might not be needed anymore
-    ''' </summary>
-    Public Const Testexpired = False
     ''' <summary>
     ''' default log file name
     ''' </summary>
@@ -486,26 +482,4 @@ Module GlobalVars
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    ''' <summary>
-    ''' Search string for text value
-    ''' </summary>
-    ''' <param name="sTxt"></param>
-    ''' <param name="sSearch"></param>
-    ''' <returns></returns>
-    Public Function Found(ByVal sTxt As String, ByVal sSearch As String) As Boolean
-        Dim POS As Long = 0
-        Dim bAns As Boolean = False
-        If sSearch = "*" Then
-            bAns = True
-            Return bAns
-        End If
-
-        POS = InStr(1, sTxt, sSearch, CompareMethod.Text)
-        If POS <> 0 Then
-            bAns = True
-        Else
-            bAns = False
-        End If
-        Return bAns
-    End Function
 End Module

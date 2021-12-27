@@ -302,7 +302,7 @@ Public Class FrmAddFirearm
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub txtType_LostFocus1(ByVal sender As Object, ByVal e As EventArgs) Handles txtType.LostFocus
-        If Found(txtType.Text, "shotgun") Then Call AddChokeOption()
+        If txtType.Text.Contains("shotgun") Then Call AddChokeOption()
     End Sub
 
 End Class
