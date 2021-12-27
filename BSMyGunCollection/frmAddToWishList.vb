@@ -1,4 +1,6 @@
 
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class frmAddToWishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -47,10 +49,10 @@ Public Class FrmAddToWishList
             Dim strValue As String = FluffContent(txtValue.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
 
-            If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
-            If Not IsRequired(strQty, "Qty", Text) Then Exit Sub
-            If Not IsRequired(strValue, "Value", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strQty, "Qty", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strValue, "Value", Text, _errOut) Then Exit Sub
 
 
             If Not BurnSoft.Applications.MGC.Other.WishList.Exists(DatabasePath, strManu, strModel, _errOut) Then

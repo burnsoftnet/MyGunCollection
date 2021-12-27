@@ -1,3 +1,4 @@
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -60,8 +61,8 @@ Public Class FrmEditGunSmithLog
             Dim strOd As String = FluffContent(txtOD.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
 
-            If Not IsRequired(strSmith, "Gun Smith Name", Text) Then Exit Sub
-            If Not IsRequired(strOd, "Operation Details", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strSmith, "Gun Smith Name", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strOd, "Operation Details", Text, _errOut) Then Exit Sub
             'TODO: #57 UnComment code below when the field is avilable
             'Dim gsId as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
             'if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, gsId, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)

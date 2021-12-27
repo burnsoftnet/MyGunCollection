@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class FrmViewAppraiserDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -129,7 +131,9 @@ Public Class FrmViewAppraiserDetails
             Dim bInBusiness As Boolean = chkSIB.Checked
             Dim intSib As Integer = 0
             Dim sql As String
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
+            Dim errOut As String = ""
+            ''TODO #50 Conver this section
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
             If bInBusiness Then intSib = 1
             Dim obj As New BSDatabase
             sql = "UPDATE Appriaser_Contact_Details set aName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _

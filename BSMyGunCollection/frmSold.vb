@@ -1,3 +1,4 @@
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -60,22 +61,22 @@ Public Class FrmSold
                     dobRequired = False
                 End If
             End If
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strAddress1, "Address", Text) Then Exit Sub
-            If Not IsRequired(strCity, "City", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(strZip, "Zip Code", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(sLic, sLicType, Text) Then Exit Sub
+            Dim errOut as String = ""
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strAddress1, "Address", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strCity, "City", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strZip, "Zip Code", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sLic, sLicType, Text, errOut) Then Exit Sub
             If dobRequired Then
-                If Not IsRequired(strDob, "Date of Birth", Text) Then Exit Sub
+                If Not Helpers.IsRequired(strDob, "Date of Birth", Text, errOut) Then Exit Sub
             Else
                 strDob = DefaultDob
             End If
-            If Not IsRequired(strRes, "Residency/Alien ID", Text) Then Exit Sub
-            If Not IsRequired(sFinalPrice, "Final Sale Price", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strRes, "Residency/Alien ID", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sFinalPrice, "Final Sale Price", Text, errOut) Then Exit Sub
 
-            Dim errOut as String = ""
             if Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Exists(DatabasePath,strName, strAddress1, strAddress2, strCity, strState, strZip, strDob, strDLic, errOut) Then
                 If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Add(DatabasePath, strName, strAddress1, strAddress2, strCity, strState, strZip, strPhone, strCountry, stremail, strLic, strWebsite, strFax, strDob, strDLic, strRes, errOut) then Throw New Exception(errOut)
             End If

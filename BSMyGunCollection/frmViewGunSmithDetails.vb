@@ -1,5 +1,7 @@
 ﻿Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class FrmViewGunSmithDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -143,7 +145,9 @@ Public Class FrmViewGunSmithDetails
 ' ReSharper disable RedundantAssignment
             sql = ""
 ' ReSharper restore RedundantAssignment
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
+            Dim errOut as String 
+            ''TODO #50 Convert this Section
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
             If bInBusiness Then intSib = 1
             Dim obj As New BSDatabase
             sql = "UPDATE GunSmith_Contact_Details set gName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _

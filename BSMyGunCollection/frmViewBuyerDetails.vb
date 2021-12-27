@@ -1,11 +1,14 @@
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class FrmViewBuyerDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmViewBuyerDetails
+    ''TODO: #50 Convert This Section
     ''' <summary>
     ''' The buyer identifier
     ''' </summary>
@@ -15,6 +18,7 @@ Public Class FrmViewBuyerDetails
     ''' </summary>
     Sub LoadSellerData()
         Try
+            Dim errOut as String = ""
             Dim obj As New BSDatabase
             Call obj.ConnectDB()
             Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & BuyerId
@@ -105,6 +109,7 @@ Public Class FrmViewBuyerDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnUpdate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdate.Click
         Try
+            Dim errOut As String = ""
             Dim strName As String = FluffContent(txtName.Text)
             Dim strAddress1 As String = FluffContent(txtAddress1.Text)
             Dim strAddress2 As String = FluffContent(txtAddress2.Text)
@@ -135,19 +140,19 @@ Public Class FrmViewBuyerDetails
                     dobRequired = False
                 End If
             End If
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strAddress1, "Address", Text) Then Exit Sub
-            If Not IsRequired(strCity, "City", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(strZip, "Zip Code", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(sLic, sLicType, Text) Then Exit Sub
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strAddress1, "Address", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strCity, "City", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strZip, "Zip Code", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sLic, sLicType, Text, errOut) Then Exit Sub
             If dobRequired Then
-                If Not IsRequired(strDob, "Date of Birth", Text) Then Exit Sub
+                If Not Helpers.IsRequired(strDob, "Date of Birth", Text, errOut) Then Exit Sub
             Else
                 strDob = DefaultDob
             End If
-            If Not IsRequired(strRes, "Residency", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strRes, "Residency", Text, errOut) Then Exit Sub
             Dim obj As New BSDatabase
             Dim sql As String = "UPDATE Gun_Collection_SoldTo set Name='" & strName & "',Address1='" & strAddress1 & _
                                 "',Address2='" & strAddress2 & "',City='" & strCity & "',State='" & strState & "',Country='" & _

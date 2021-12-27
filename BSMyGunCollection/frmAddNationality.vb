@@ -1,3 +1,5 @@
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class frmAddNationality.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -24,7 +26,7 @@ Public Class FrmAddNationality
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strName As String = FluffContent(txtName.Text)
-            If Not IsRequired(strName, "Region", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strName, "Region", Text, _errOut) Then Exit Sub
             
             If Not BurnSoft.Applications.MGC.Database.DataExists(DatabasePath, $"Select * from Gun_Nationality where Country='{strName}'", _errOut) Then
                 If Not BurnSoft.Applications.MGC.Firearms.Nationality.Add(DatabasePath,strName, _errOut ) Then Throw New Exception(_errOut)

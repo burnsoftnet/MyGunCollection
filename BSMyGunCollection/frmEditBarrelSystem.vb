@@ -1,3 +1,4 @@
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 
@@ -103,11 +104,11 @@ Public Class FrmEditBarrelSystem
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
 
-            If Not IsRequired(sName, "Name", Text) Then Exit Sub
-            If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
-            If Not IsRequired(cal, "Caliber", Text) Then Exit Sub
-            If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
-            If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
+            If Not Helpers.IsRequired(sName, "Name", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sysType, "System Type", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(cal, "Caliber", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purPrice, "Purchase Price", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purFrom, "Purchased From", Text, _errOut) Then Exit Sub
 
             If Not BurnSoft.Applications.MGC.Firearms.ExtraBarrelConvoKits.Update(DatabasePath, Bid,Gid,sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom, ovalLen, sysType, _errOut ) Then Throw New Exception(_errOut)
             MdiParent.Refresh()

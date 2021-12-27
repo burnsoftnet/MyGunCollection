@@ -1,4 +1,6 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class FrmStolen.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -22,6 +24,7 @@ Public Class FrmStolen
     ''' </summary>
     Sub SaveData()
         Try
+            ''TODO #50 Convert This section
             Dim strName As String = FluffContent("CASE ID:" & txtCaseNo.Text)
             Dim strAddress1 As String = FluffContent("N/A")
             Dim strAddress2 As String = FluffContent("N/A")
@@ -41,7 +44,8 @@ Public Class FrmStolen
             Dim bid As Long
             Dim obj As New BSDatabase
             Dim objo As New GlobalFunctions
-            If Not IsRequired(strDLic, "Case Number", Text) Then Exit Sub
+            Dim errOut as String = ""
+            If Not Helpers.IsRequired(strDLic, "Case Number", Text,errOut ) Then Exit Sub
             If Not objo.StolenBuyerExists(strName) Then
                 Dim sql As String = "INSERT INTO Gun_Collection_SoldTo(Name,Address1," & _
                                     "Address2,City,State,Country,Phone,fax,website,email," & _

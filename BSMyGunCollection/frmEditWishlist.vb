@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class FrmEditWishlist.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -73,12 +75,13 @@ Public Class FrmEditWishlist
             Dim strQty As String = txtQty.Text
             Dim strValue As String = FluffContent(txtValue.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
-
-            If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
-            If Not IsRequired(strQty, "Qty", Text) Then Exit Sub
-            If Not IsRequired(strValue, "Value", Text) Then Exit Sub
             Dim errOut As String = ""
+
+            If Not Helpers.IsRequired(strManu, "Manufacturer", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strQty, "Qty", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strValue, "Value", Text, errOut) Then Exit Sub
+            
             If Not BurnSoft.Applications.MGC.Other.WishList.Update(DatabaseName, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, errOut) Then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "btnEdit.Click"

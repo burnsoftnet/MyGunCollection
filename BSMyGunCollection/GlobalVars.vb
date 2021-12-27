@@ -209,29 +209,7 @@ Module GlobalVars
         End Try
         Return lAns
     End Function
-    ''' <summary>
-    ''' Check to see if a field is required and alert if the value is not blank and alert if it is required
-    ''' </summary>
-    ''' <param name="strValue"></param>
-    ''' <param name="strField"></param>
-    ''' <param name="strTitle"></param>
-    ''' <returns></returns>
-    Public Function IsRequired(ByVal strValue As String, ByVal strField As String, ByVal strTitle As String) As Boolean
-        Dim bAns As Boolean = False
-        ''TODO #50 Convert this code to use helpers.isrequired
-        Try
-            If Len(Trim(strValue)) = 0 Then
-                bAns = False
-            Else
-                bAns = True
-            End If
-            If bAns = False Then MsgBox("Please put in a value for " & strField & "!", MsgBoxStyle.Critical, strTitle)
-        Catch ex As Exception
-            Dim sSubFunc As String = "IsRequired"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
+
     ''' <summary>
     ''' Check to see if the login is enabled in the database
     ''' </summary>

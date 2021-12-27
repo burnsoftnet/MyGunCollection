@@ -1,4 +1,5 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 Imports BurnSoft.Security.RegularEncryption.SHA
 
@@ -151,12 +152,12 @@ Public Class FrmSettings
             If Len(strUid) = 0 Then strUid = "admin"
             strUid = One.Encrypt(FluffContent(strUid))
 ' ReSharper disable VbUnreachableCode
-            If Not IsRequired(strName, "Name", Text) Then Return 1 : Exit Function
+            If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
-                If Not IsRequired(txtLogin.Text, "User Name", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtPWD.Text, "Password", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtPhrase.Text, "Forgot Phrase", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtWord.Text, "Forgot Key Word", Text) Then Return 1 : Exit Function
+                If Not Helpers.IsRequired(txtLogin.Text, "User Name", Text, _errOut) Then Return 1 : Exit Function
+                If Not Helpers.IsRequired(txtPWD.Text, "Password", Text, _errOut) Then Return 1 : Exit Function
+                If Not Helpers.IsRequired(txtPhrase.Text, "Forgot Phrase", Text, _errOut) Then Return 1 : Exit Function
+                If Not Helpers.IsRequired(txtWord.Text, "Forgot Key Word", Text, _errOut) Then Return 1 : Exit Function
             End If
             If ChkPassword.Checked Then
                 If InStr(strPwd, strCpwd, CompareMethod.Text) = 0 Then

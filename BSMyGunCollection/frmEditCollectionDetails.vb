@@ -1,5 +1,6 @@
 'Imports System.Windows.Forms.VisualStyles
 'Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 
@@ -258,11 +259,11 @@ Public Class FrmEditCollectionDetails
             
             If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut)) : Exit Sub
 
-            If Not IsRequired(strManu, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
-            If Not IsRequired(strSerial, "Serial", Text) Then Exit Sub
-            If Not IsRequired(strType, "Type", Text) Then Exit Sub
-            If Not IsRequired(strCal, "Caliber Or Gauge", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strSerial, "Serial", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strType, "Type", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strCal, "Caliber Or Gauge", Text, _errOut) Then Exit Sub
 
 
             Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, _errOut)

@@ -1,3 +1,4 @@
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -92,8 +93,8 @@ Public Class FrmEditAccessory
             Dim strPurVal As String = FluffContent(txtPurVal.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
-            If Not IsRequired(strMan, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strMan, "Manufacturer", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
             If Not BurnSoft.Applications.MGC.Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, strModel, strSerial, strCondition, strNotes, strUse, Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
             Close()
         Catch ex As Exception

@@ -1,4 +1,5 @@
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 ''' <summary>
@@ -134,7 +135,7 @@ Public Class FrmViewShopDetails
             Dim strLic As String = FluffContent(txtLic.Text)
             Dim errOut as String = ""
 
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
 
             If Not Shops.Update(DatabasePath, Convert.ToInt32(ShopId), strName, strAddress1, strAddress2, strCity, strState, strZip,strCountry, strPhone, strFax, strWebsite, stremail, strLic,chkSIB.Checked, errOut) Then Throw New Exception(errOut)
             
