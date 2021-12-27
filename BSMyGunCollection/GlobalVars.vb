@@ -280,39 +280,39 @@ Module GlobalVars
     ''' Get the Owner ID to look up the information and return the owner id
     ''' </summary>
     ''' <returns></returns>
-    Public Function GetOwnerID() As Integer
-        Dim iAns As Integer = 0
-        Try
-            Dim Obj As New BSDatabase
-            Obj.ConnectDB()
-            Dim SQL As String = "SELECT Top 1 ID,Name,CCDWL from Owner_Info"
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            If RS.HasRows Then
-                While (RS.Read)
-                    iAns = RS("ID")
-                    OwnerName = RS("Name")
-                    If Not IsDBNull(RS("CCDWL")) Then
-                        OwnerLic = Trim(One.Decrypt(RS("CCDWL")))
-                    Else
-                        OwnerLic = ""
-                    End If
-                End While
-            Else
-                iAns = 0
-                OwnerName = "Trial User"
-            End If
-            RS.Close()
-            RS = Nothing
-            Obj.CloseDB()
-            Obj = Nothing
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetOwnerID"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return iAns
-    End Function
+    'Public Function GetOwnerID() As Integer
+    '    Dim iAns As Integer = 0
+    '    Try
+    '        Dim Obj As New BSDatabase
+    '        Obj.ConnectDB()
+    '        Dim SQL As String = "SELECT Top 1 ID,Name,CCDWL from Owner_Info"
+    '        Dim CMD As New OdbcCommand(SQL, Obj.Conn)
+    '        Dim RS As OdbcDataReader
+    '        RS = CMD.ExecuteReader
+    '        If RS.HasRows Then
+    '            While (RS.Read)
+    '                iAns = RS("ID")
+    '                OwnerName = RS("Name")
+    '                If Not IsDBNull(RS("CCDWL")) Then
+    '                    OwnerLic = Trim(One.Decrypt(RS("CCDWL")))
+    '                Else
+    '                    OwnerLic = ""
+    '                End If
+    '            End While
+    '        Else
+    '            iAns = 0
+    '            OwnerName = "Trial User"
+    '        End If
+    '        RS.Close()
+    '        RS = Nothing
+    '        Obj.CloseDB()
+    '        Obj = Nothing
+    '    Catch ex As Exception
+    '        Dim sSubFunc As String = "GetOwnerID"
+    '        Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return iAns
+    'End Function
     ''' <summary>
     ''' Convert string to a double
     ''' </summary>

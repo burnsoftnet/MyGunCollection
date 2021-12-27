@@ -63,7 +63,9 @@ Public Class FrmAddCollectionAmmo
             If Not Helpers.IsRequired(strGrain, "Grain", Text, errOut) Then Exit Sub
             If Not Helpers.IsRequired(strJacket, "Jacket", Text, errOut) Then Exit Sub
             If Not Helpers.IsRequired(strQty, "Qty", Text, errOut) Then Exit Sub
-            Dim ddValue As Double = ConvToNum(strGrain)
+            'Dim ddValue As Double = ConvToNum(strGrain)
+            Dim ddValue As Double = Helpers.ConvertTextToNumber(strGrain, errOut)
+            if errOut.Length > 0 Then Throw New Exception(errOut)
 
             If Not Inventory.Add(DatabasePath, strMan, strName, strCal, strGrain, strJacket, Convert.ToInt32(strQty), ddValue, lVelocity, errOut) Then Throw New Exception(errOut)
             If Auditammo Then
