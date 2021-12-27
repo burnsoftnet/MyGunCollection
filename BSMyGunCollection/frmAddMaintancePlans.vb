@@ -1,4 +1,5 @@
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class Add Maintenance Plans form.
@@ -18,10 +19,10 @@ Public Class FrmAddMaintancePlans
             Dim strIid As String = nudIID.Value
             Dim strIirf As String = nudIIRF.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strOd, "Operation Description", Text) Then Exit Sub
             Dim errOut As String = ""
+
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strOd, "Operation Description", Text, errOut) Then Exit Sub
             If Not MaintancePlans.Add(DatabasePath, strName, strOd, strIid, strIirf, strNotes, errOut) Then Throw New Exception(errOut)
 
             MsgBox(strName & " was added to the Maintenance Plans!", MsgBoxStyle.Information, Text)

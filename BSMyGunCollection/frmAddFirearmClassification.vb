@@ -1,4 +1,5 @@
 ﻿Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class frmAddFirearmClassification.
@@ -21,9 +22,9 @@ Public Class FrmAddFirearmClassification
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Try
-            Dim strClass As String = FluffContent(txtClass.Text)
-            If Not IsRequired(strClass, "Classification Type", Text) Then Exit Sub
             Dim errOut as String = ""
+            Dim strClass As String = FluffContent(txtClass.Text)
+            If Not Helpers.IsRequired(strClass, "Classification Type", Text, errOut) Then Exit Sub
             If Not Classification.Exists(DatabasePath, strClass, errOut) Then
                 If Not Classification.Add(DatabasePath, strClass, errOut) Then Throw New Exception(errOut)
                 Else 

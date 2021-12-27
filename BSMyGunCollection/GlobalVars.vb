@@ -233,52 +233,6 @@ Module GlobalVars
         Return bAns
     End Function
     ''' <summary>
-    ''' Verify that the field is filled in
-    ''' </summary>
-    ''' <param name="lValue"></param>
-    ''' <param name="lDefault"></param>
-    ''' <param name="strField"></param>
-    ''' <param name="StrTitle"></param>
-    ''' <returns></returns>
-    Public Function IsRequired(ByVal lValue As Long, ByVal lDefault As Long, ByVal strField As String, ByVal StrTitle As String) As Boolean
-        Dim bAns As Boolean = False
-        Try
-            If lValue = lDefault Then
-                bAns = False
-            Else
-                bAns = True
-            End If
-            If bAns = False Then MsgBox("Please put in a value for " & strField & "!", MsgBoxStyle.Critical, StrTitle)
-        Catch ex As Exception
-            Dim sSubFunc As String = "IsRequired"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
-    ''' <summary>
-    ''' Override to verify that the field is required and has information
-    ''' </summary>
-    ''' <param name="lValue"></param>
-    ''' <param name="lDefault"></param>
-    ''' <param name="strField"></param>
-    ''' <param name="StrTitle"></param>
-    ''' <returns></returns>
-    Public Function IsRequired(ByVal lValue As Double, ByVal lDefault As Double, ByVal strField As String, ByVal StrTitle As String) As Boolean
-        Dim bAns As Boolean = False
-        Try
-            If lValue = lDefault Then
-                bAns = False
-            Else
-                bAns = True
-            End If
-            If bAns = False Then MsgBox("Please put in a value for " & strField & "!", MsgBoxStyle.Critical, StrTitle)
-        Catch ex As Exception
-            Dim sSubFunc As String = "IsRequired"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
-    ''' <summary>
     ''' Check to see if the login is enabled in the database
     ''' </summary>
     ''' <param name="PWD"></param>

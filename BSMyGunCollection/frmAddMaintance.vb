@@ -1,5 +1,6 @@
 
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class frmAddMaintance.
@@ -81,8 +82,9 @@ Public Class FrmAddMaintance
             Dim sAu As String = FluffContent(txtAmmoUsed.Text)
             Dim iAvg As Integer = 0
             If inAvg Then iAvg = 1
-            If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
             Dim errOut As String = ""
+
+            If Not Helpers.IsRequired(strName, "Maintenance Plan", Text, errOut) Then Exit Sub
             If Not MaintanceDetails.Add(DatabasePath, strName, Gid, strId, strOd, strOdDue, strOdrf, strNotes, sAu,Bsid, iAvg, errOut) Then Throw New Exception(errOut)
             MsgBox(strName & " was added!", MsgBoxStyle.Information, Text)
             Close()

@@ -1,5 +1,6 @@
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -93,14 +94,13 @@ Public Class FrmAddBarrelSystem
             Dim petLoads As String = FluffContent(txtPetLoads.Text)
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
-
-            If Not IsRequired(sName, "Name", Text) Then Exit Sub
-            If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
-            If Not IsRequired(cal, "Caliber", Text) Then Exit Sub
-            If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
-            If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
-
             Dim errOut as String = ""
+
+            If Not Helpers.IsRequired(sName, "Name", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sysType, "System Type", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(cal, "Caliber", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purPrice, "Purchase Price", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purFrom, "Purchased From", Text,errOut) Then Exit Sub
 
             if Not ExtraBarrelConvoKits.Add(DatabasePath, Gid, sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom,ovalLen, sysType, chkSetDefault.Checked, DateTime.Now, errOut) Then Throw New Exception(errOut)
             Dim barrelId As Long = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut)

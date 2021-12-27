@@ -1,4 +1,6 @@
 
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class frmAddGunSmithLog.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -47,11 +49,11 @@ Public Class FrmAddGunSmithLog
             Dim strReturn As String = DateTimePicker2.Value
             Dim strOd As String = FluffContent(txtOD.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
-
-            If Not IsRequired(strSmith, "Gun Smith Name", Text) Then Exit Sub
-            If Not IsRequired(strOd, "Operation Details", Text) Then Exit Sub
-
             Dim errOut As String =""
+
+            If Not Helpers.IsRequired(strSmith, "Gun Smith Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strOd, "Operation Details", Text, errOut) Then Exit Sub
+
             If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(DatabasePath, strSmith, errOut) Then 
                 BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath, strSmith, errOut)
             End If

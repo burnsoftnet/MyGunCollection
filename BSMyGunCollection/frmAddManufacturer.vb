@@ -1,4 +1,6 @@
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
+
 ''' <summary>
 ''' Class frmAddManufacturer.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -25,7 +27,7 @@ Public Class FrmAddManufacturer
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
-            If Not IsRequired(strMan, "Manufacturer's Name", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strMan, "Manufacturer's Name", Text, _errOut) Then Exit Sub
 
             If Not Manufacturers.Exists(DatabasePath, strMan, _errOut) Then
                 If Not Manufacturers.Add(DatabasePath, strMan, _errOut) Then Throw New Exception(_errOut)

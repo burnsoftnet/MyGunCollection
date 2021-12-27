@@ -1,4 +1,5 @@
 Imports BurnSoft.Applications.MGC.Ammo
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class frmAddCollectionAmmo.
@@ -48,6 +49,7 @@ Public Class FrmAddCollectionAmmo
                 MsgBox("Please input a numeric value for Velocity!")
                 Exit Sub
             End If
+            Dim errOut As String = ""
             Dim strMan As String = FluffContent(txtMan.Text)
             Dim strName As String = FluffContent(txtName.Text)
             Dim strCal As String = FluffContent(txtCal.Text)
@@ -55,15 +57,14 @@ Public Class FrmAddCollectionAmmo
             Dim strJacket As String = FluffContent(txtJacket.Text)
             Dim strQty As String = CStr(txtQty.Value)
             Dim lVelocity As Long = FluffContent(txtVelocity.Text, 0)
-            If Not IsRequired(strMan, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strCal, "Caliber", Text) Then Exit Sub
-            If Not IsRequired(strGrain, "Grain", Text) Then Exit Sub
-            If Not IsRequired(strJacket, "Jacket", Text) Then Exit Sub
-            If Not IsRequired(strQty, "Qty", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strMan, "Manufacturer", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strCal, "Caliber", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strGrain, "Grain", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strJacket, "Jacket", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strQty, "Qty", Text, errOut) Then Exit Sub
             Dim ddValue As Double = ConvToNum(strGrain)
-            
-            Dim errOut As String = ""
+
             If Not Inventory.Add(DatabasePath, strMan, strName, strCal, strGrain, strJacket, Convert.ToInt32(strQty), ddValue, lVelocity, errOut) Then Throw New Exception(errOut)
             If Auditammo Then
                 Dim aid As Long = Inventory.GetLastAmmoId(DatabasePath, errOut)

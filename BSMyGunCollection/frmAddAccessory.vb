@@ -42,10 +42,8 @@ Public Class FrmAddAccessory
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
             Dim errOut as String = ""
-            'If Not IsRequired(strMan, "Manufacturer", Text) Then Exit Sub
             If Not Helpers.IsRequired(strMan, "Manufacturer", Text, errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, errOut) Then Exit Sub
-            'If Not IsRequired(strModel, "Model", Text) Then Exit Sub
 
             If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
             Close()
