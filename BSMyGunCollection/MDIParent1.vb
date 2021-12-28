@@ -1,7 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Firearms
-Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.MsgBox
 ''' <summary>
@@ -602,10 +601,16 @@ Public Class MdiParent1
         ShowDebugLogToolStripMenuItem.Visible = DebugMode
 
         Try
-            If LoginEnabled(UseMyPwd, UseMyUid, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIn Then
+            'If LoginEnabled(UseMyPwd, UseMyUid, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIn Then
+            '    Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
+            '    frmLogin.Show()
+            'End If
+
+            If OwnerInformation.LoginEnabled(DatabasePath, UseMyUid, UseMyPwd, UseMyForgotWord, UseMyForgotPhrase, _errOut) And Not IsLoggedIn Then
                 Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
                 frmLogin.Show()
             End If
+
             Lastviewedfirearm = 0
             Dim objR As New BSRegistry
             OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)

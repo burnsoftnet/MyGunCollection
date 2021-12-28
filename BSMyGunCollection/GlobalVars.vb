@@ -213,63 +213,60 @@ Module GlobalVars
     ''' <summary>
     ''' Check to see if the login is enabled in the database
     ''' </summary>
-    ''' <param name="PWD"></param>
-    ''' <param name="UID"></param>
-    ''' <param name="FW"></param>
-    ''' <param name="FP"></param>
+    ''' <param name="pwd"></param>
+    ''' <param name="uid"></param>
+    ''' <param name="fw"></param>
+    ''' <param name="fp"></param>
     ''' <returns></returns>
-    Public Function LoginEnabled(ByRef PWD As String, ByRef UID As String, ByRef FW As String, ByRef FP As String) As Boolean
+    Public Function LoginEnabled(ByRef pwd As String, ByRef uid As String, ByRef fw As String, ByRef fp As String) As Boolean
         Dim bAns As Boolean = False
         Try
-            Dim Obj As New BSDatabase
-            Obj.ConnectDB()
-            Dim SQL = "SELECT UsePWD,PWD,UID,forgot_word,forgot_phrase from Owner_Info"
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            If RS.HasRows Then
-                Dim intUsePWD As Integer = CInt(RS("UsePWD"))
-                If intUsePWD = 1 Then
-                    If Not IsDBNull(RS("PWD")) Then
-                        PWD = One.Decrypt(RS("PWD"))
+            Dim obj As New BSDatabase
+            obj.ConnectDB()
+            Dim sql = "SELECT UsePWD,PWD,UID,forgot_word,forgot_phrase from Owner_Info"
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            If rs.HasRows Then
+                Dim intUsePwd As Integer = CInt(rs("UsePWD"))
+                If intUsePwd = 1 Then
+                    If Not IsDBNull(rs("PWD")) Then
+                        pwd = One.Decrypt(rs("PWD"))
                     Else
-                        PWD = ""
+                        pwd = ""
                     End If
-                    If Not IsDBNull(RS("UID")) Then
-                        UID = One.Decrypt(RS("UID"))
+                    If Not IsDBNull(rs("UID")) Then
+                        uid = One.Decrypt(rs("UID"))
                     Else
-                        UID = "admin"
+                        uid = "admin"
                     End If
-                    If Not IsDBNull(RS("forgot_word")) And Len(RS("forgot_word")) > 0 Then
-                        FW = One.Decrypt(RS("forgot_word"))
+                    If Not IsDBNull(rs("forgot_word")) And Len(rs("forgot_word")) > 0 Then
+                        fw = One.Decrypt(rs("forgot_word"))
                     Else
-                        FW = "burnsoft"
+                        fw = "burnsoft"
                     End If
-                    If Not IsDBNull(RS("forgot_phrase")) And Len(RS("forgot_phrase")) > 0 Then
-                        FP = One.Decrypt(RS("forgot_phrase"))
+                    If Not IsDBNull(rs("forgot_phrase")) And Len(rs("forgot_phrase")) > 0 Then
+                        fp = One.Decrypt(rs("forgot_phrase"))
                     Else
-                        FP = "The Company that made this App"
+                        fp = "The Company that made this App"
                     End If
                     bAns = True
                 Else
                     bAns = False
-                    PWD = ""
-                    UID = "admin"
-                    FP = "The Company that made this App"
-                    FW = "burnsoft"
+                    pwd = ""
+                    uid = "admin"
+                    fp = "The Company that made this App"
+                    fw = "burnsoft"
                 End If
             Else
                 bAns = False
-                PWD = ""
-                UID = "admin"
-                FP = "The Company that made this App"
-                FW = "burnsoft"
+                pwd = ""
+                uid = "admin"
+                fp = "The Company that made this App"
+                fw = "burnsoft"
             End If
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
-            Obj = Nothing
+            rs.Close()
+            obj.CloseDB()
         Catch ex As Exception
             Dim sSubFunc As String = "LoginEnabled"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
@@ -283,10 +280,10 @@ Module GlobalVars
     ''' <param name="sMsg"></param>
     Public Sub Buggerme(ByVal sFrom As String, ByVal sMsg As String)
         If DebugMode Then
-            Dim ObjFS As New BSFileSystem
+            Dim objFs As New BSFileSystem
             Dim sMessage As String = Now() & sFrom & " - " & sMsg
             Dim sPath As String = Application.LocalUserAppDataPath.ToString & "\" & DebugFile
-            ObjFS.LogDebugFile(sPath, sMessage)
+            objFs.LogDebugFile(sPath, sMessage)
         End If
     End Sub
     ''' <summary>
@@ -312,8 +309,8 @@ Module GlobalVars
     ''' <param name="message">The message.</param>
     Public Sub LogError(ByVal message As String )
         Try
-            Dim ObjFS As New BSFileSystem
-            ObjFS.LogFile(MyLogFile, message)
+            Dim objFs As New BSFileSystem
+            objFs.LogFile(MyLogFile, message)
         Catch ex As Exception
             Dim sMsg As String = "ERRROR Writing to Log File!" & Chr(13) & message
             MsgBox(sMsg)
@@ -322,11 +319,11 @@ Module GlobalVars
     ''' <summary>
     ''' Check to see if the picture in the database is a the default picture
     ''' </summary>
-    ''' <param name="ID"></param>
-    Sub CheckDefaultPic(ByVal ID As Long)
+    ''' <param name="id"></param>
+    Sub CheckDefaultPic(ByVal id As Long)
         Try
-            Dim Obj As New GlobalFunctions
-            Obj.HasDefaultPicture(ID, True)
+            Dim obj As New GlobalFunctions
+            obj.HasDefaultPicture(id, True)
         Catch ex As Exception
             Dim sSubFunc As String = "CheckDefaultPic"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
