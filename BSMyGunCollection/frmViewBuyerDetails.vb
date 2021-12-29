@@ -1,5 +1,3 @@
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
@@ -10,7 +8,6 @@ Imports BurnSoft.Applications.MGC.Types
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmViewBuyerDetails
-    ''TODO: #50 Convert This Section
     ''' <summary>
     ''' The buyer identifier
     ''' </summary>
@@ -41,39 +38,6 @@ Public Class FrmViewBuyerDetails
                 If l.Dob.Equals(DefaultDob) Then txtDOB.Text = ""
                 txtRes.Text = l.Resident
             Next
-
-            'Dim obj As New BSDatabase
-            'Call obj.ConnectDB()
-            'Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & BuyerId
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    If Not IsDBNull(rs("Name")) Then txtName.Text = Trim(rs("Name"))
-            '    If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = Trim(rs("Address1"))
-            '    If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = Trim(rs("Address2"))
-            '    If Not IsDBNull(rs("City")) Then txtCity.Text = Trim(rs("City"))
-            '    If Not IsDBNull(rs("ZipCode")) Then txtZip.Text = Trim(rs("ZipCode"))
-            '    If Not IsDBNull(rs("State")) Then txtState.Text = Trim(rs("State"))
-            '    If Not IsDBNull(rs("Phone")) Then txtPhone.Text = Trim(rs("Phone"))
-            '    If Not IsDBNull(rs("Country")) Then txtCountry.Text = Trim(rs("Country"))
-            '    If Not IsDBNull(rs("Fax")) Then txtFax.Text = Trim(rs("Fax"))
-            '    If Not IsDBNull(rs("eMail")) Then txteMail.Text = Trim(rs("eMail"))
-            '    If Not IsDBNull(rs("WebSite")) Then txtWebSite.Text = Trim(rs("WebSite"))
-            '    If Not IsDBNull(rs("Lic")) Then txtLic.Text = Trim(rs("Lic"))
-            '    If Not IsDBNull(rs("DLic")) Then txtDLic.Text = Trim(rs("DLic"))
-            '    If Not IsDBNull(rs("DOB")) Then
-            '        If rs("DOB") = DefaultDob Then
-            '            txtDOB.Text = ""
-            '        Else
-            '            txtDOB.Text = Trim(rs("DOB"))
-            '        End If
-            '    End If
-            '    If Not IsDBNull(rs("ResiDent")) Then txtRes.Text = Trim(rs("ResiDent"))
-            'End While
-            'rs.Close()
-
-            'obj.CloseDB()
         Catch ex As Exception
             Call LogError(Name, "LoadSellerData", Err.Number, ex.Message.ToString)
         End Try
@@ -88,8 +52,7 @@ Public Class FrmViewBuyerDetails
             Gun_CollectionTableAdapter.FillByBuyer(MGCDataSet.Gun_Collection, BuyerId)
             Call LoadSellerData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -177,13 +140,6 @@ Public Class FrmViewBuyerDetails
             If Not Helpers.IsRequired(strRes, "Residency", Text, errOut) Then Exit Sub
             If Not Buyers.Update(DatabasePath, bid, strName, strAddress1, strAddress2, strCity, strState, strZip, strPhone,
                                  strCountry, stremail, strLic, strWebsite, strFax, strDob, strDLic, strRes, errOut) Then Throw New Exception(errOut)
-            'Dim obj As New BSDatabase
-            'Dim sql As String = "UPDATE Gun_Collection_SoldTo set Name='" & strName & "',Address1='" & strAddress1 & _
-            '                    "',Address2='" & strAddress2 & "',City='" & strCity & "',State='" & strState & "',Country='" & _
-            '                    strCountry & "',Phone='" & strPhone & "',fax='" & strFax & "',website='" & strWebsite & _
-            '                    "',email='" & stremail & "',lic='" & strLic & "',DOB='" & strDob & "',Dlic='" & strDLic & _
-            '                    "',Resident='" & strRes & "',ZipCode='" & strZip & "' where ID=" & bid
-            'obj.ConnExec(sql)
             txtName.ReadOnly = True
             txtAddress1.ReadOnly = True
             txtAddress2.ReadOnly = True

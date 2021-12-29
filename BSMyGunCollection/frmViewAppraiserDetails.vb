@@ -1,6 +1,4 @@
-﻿'Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC.Global
+﻿Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
@@ -21,14 +19,14 @@ Public Class FrmViewAppraiserDetails
     ''' <summary>
     ''' error container
     ''' </summary>
-    Dim errOut as String
+    Dim _errOut as String
     ''' <summary>
     ''' Pops the data.
     ''' </summary>
     Sub PopData()
         Try
-            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, Convert.ToInt32(ShopId),errOut )
-            If errOut.Length > 0 Then Throw New Exception(errOut)
+            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, Convert.ToInt32(ShopId),_errOut )
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each l As AppraisersContactDetails In lst
                 ShopName = l.Name
                 txtName.Text = l.Name
@@ -117,32 +115,17 @@ Public Class FrmViewAppraiserDetails
             Dim stremail As String = FluffContent(txteMail.Text)
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
-            'Dim bInBusiness As Boolean = chkSIB.Checked
-            'Dim intSib As Integer = 0
-            Dim sql As String
-            'Dim errOut As String = ""
-            ''TODO #50 Conver this section
-            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
-            'If bInBusiness Then intSib = 1
 
+            If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Exit Sub
+  
             If Not Appraisers.Update(DatabasePath, ShopId, strName, strAddress1,
                                                                                strAddress2, strCity, strState, strZip,
                                                                                strCountry, strPhone, strFax, stremail,
-                                                                               strLic, strWebsite, chkSIB.Checked, errOut) Then Throw New Exception(errOut)
-
-            Dim obj As New BSDatabase
-            'sql = "UPDATE Appriaser_Contact_Details set aName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
-            '        strAddress2 & "',City='" & strCity & "',State='" & strState & "', Zip='" & _
-            '        strZip & "',Phone='" & strPhone & "', Country='" & strCountry & _
-            '        "',Fax='" & strFax & "',eMail='" & stremail & "',website='" & _
-            '        strWebsite & "',Lic='" & strLic & "', SIB=" & intSib & ",sync_lastupdate=Now() where ID=" & ShopId
-            'obj.ConnExec(sql)
+                                                                               strLic, strWebsite, chkSIB.Checked, _errOut) Then Throw New Exception(_errOut)
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Appraisers Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Appraiser Name Change Alert!")
                 If sAns = vbYes Then
-                    If Not Appraisers.UpdateCollection(DatabasePath, FluffContent(ShopName), strName, errOut) Then Throw New Exception(errOut)
-                    'sql = "update gun_collection set AppraisedBy='" & strName & "' where AppraisedBy='" & FluffContent(ShopName) & "'"
-                    'obj.ConnExec(sql)
+                    If Not Appraisers.UpdateCollection(DatabasePath, FluffContent(ShopName), strName, _errOut) Then Throw New Exception(_errOut)
                 End If
             End If
         Catch ex As Exception
