@@ -130,12 +130,12 @@ Public Class FrmViewAppraiserDetails
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
             Dim bInBusiness As Boolean = chkSIB.Checked
-            Dim intSib As Integer = 0
+            'Dim intSib As Integer = 0
             Dim sql As String
             Dim errOut As String = ""
             ''TODO #50 Conver this section
             If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
-            If bInBusiness Then intSib = 1
+            'If bInBusiness Then intSib = 1
 
             If Not Appraisers.Update(DatabasePath, ShopId, strName, strAddress1,
                                                                                strAddress2, strCity, strState, strZip,
@@ -157,8 +157,7 @@ Public Class FrmViewAppraiserDetails
                 End If
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnSave.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSave.Click", Err.Number, ex.Message.ToString)
         End Try
         Call DisableForm()
     End Sub
