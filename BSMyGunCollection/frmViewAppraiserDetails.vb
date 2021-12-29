@@ -27,7 +27,7 @@ Public Class FrmViewAppraiserDetails
     ''' </summary>
     Sub PopData()
         Try
-            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, ShopId,errOut )
+            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, Convert.ToInt32(ShopId),errOut )
             If errOut.Length > 0 Then Throw New Exception(errOut)
             For Each l As AppraisersContactDetails In lst
                 txtName.Text = l.Name
