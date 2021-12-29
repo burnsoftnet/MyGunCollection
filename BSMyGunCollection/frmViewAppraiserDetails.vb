@@ -1,7 +1,8 @@
-﻿Imports System.Data.Odbc
+﻿'Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
 ''' Class FrmViewAppraiserDetails.
@@ -18,47 +19,67 @@ Public Class FrmViewAppraiserDetails
     ''' </summary>
     Public ShopName As String
     ''' <summary>
+    ''' error container
+    ''' </summary>
+    Dim errOut as String
+    ''' <summary>
     ''' Pops the data.
     ''' </summary>
     Sub PopData()
         Try
-            Dim obj As New BSDatabase
-            Dim intSib As Integer
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Appriaser_Contact_Details where ID=" & ShopId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While (rs.Read)
-                    If Not IsDBNull(rs("aName")) Then txtName.Text = rs("aName")
-                    If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
-                    If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
-                    If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
-                    If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
-                    If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
-                    If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
-                    If Not IsDBNull(rs("fax")) Then txtFax.Text = rs("fax")
-                    If Not IsDBNull(rs("website")) Then txtWebSite.Text = rs("website")
-                    If Not IsDBNull(rs("email")) Then txteMail.Text = rs("email")
-                    If Not IsDBNull(rs("lic")) Then txtLic.Text = rs("lic")
-                    If Not IsDBNull(rs("Zip")) Then txtZip.Text = rs("Zip")
-                    ShopName = txtName.Text
-                    intSib = CInt(rs("SIB"))
-                    If intSib = 1 Then
-                        chkSIB.Checked = True
-                    Else
-                        chkSIB.Checked = False
-                    End If
-                End While
-            Else
-                Close()
-            End If
-            rs.Close()
-            Call obj.CloseDB()
+            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, ShopId,errOut )
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            For Each l As AppraisersContactDetails In lst
+                txtName.Text = l.Name
+                txtAddress1.Text = l.Address1
+                txtAddress2.Text = l.Address2
+                txtCity.Text = l.City
+                txtState.Text = l.State
+                txtCountry.Text =l.Country
+                txtPhone.Text = l.Phone
+                txtFax.Text = l.Fax
+                txtWebSite.Text = l.WebSite
+                txteMail.Text = l.Email
+                txtLic.Text = l.Lic
+                txtZip.Text = l.ZipCode
+                chkSIB.Checked = l.StillInBusiness
+            Next
+            'Dim obj As New BSDatabase
+            'Dim intSib As Integer
+            'Call obj.ConnectDB()
+            'Dim sql As String = "SELECT * from Appriaser_Contact_Details where ID=" & ShopId
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'If rs.HasRows Then
+            '    While (rs.Read)
+            '        If Not IsDBNull(rs("aName")) Then txtName.Text = rs("aName")
+            '        If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
+            '        If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
+            '        If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
+            '        If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
+            '        If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
+            '        If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
+            '        If Not IsDBNull(rs("fax")) Then txtFax.Text = rs("fax")
+            '        If Not IsDBNull(rs("website")) Then txtWebSite.Text = rs("website")
+            '        If Not IsDBNull(rs("email")) Then txteMail.Text = rs("email")
+            '        If Not IsDBNull(rs("lic")) Then txtLic.Text = rs("lic")
+            '        If Not IsDBNull(rs("Zip")) Then txtZip.Text = rs("Zip")
+            '        ShopName = txtName.Text
+            '        intSib = CInt(rs("SIB"))
+            '        If intSib = 1 Then
+            '            chkSIB.Checked = True
+            '        Else
+            '            chkSIB.Checked = False
+            '        End If
+            '    End While
+            'Else
+            '    Close()
+            'End If
+            'rs.Close()
+            'Call obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "PopLoad"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "PopLoad", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
