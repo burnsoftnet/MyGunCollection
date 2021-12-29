@@ -140,9 +140,9 @@ Public Class FrmViewAppraiserDetails
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Appraisers Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Appraiser Name Change Alert!")
                 If sAns = vbYes Then
-                    'If Not Appraisers.UpdateCollection(DatabasePath,FluffContent(ShopName), strName, errOut) Then Throw New Exception(errOut)
-                    sql = "update gun_collection set AppraisedBy='" & strName & "' where AppraisedBy='" & FluffContent(ShopName) & "'"
-                    obj.ConnExec(sql)
+                    If Not Appraisers.UpdateCollection(DatabasePath, FluffContent(ShopName), strName, errOut) Then Throw New Exception(errOut)
+                    'sql = "update gun_collection set AppraisedBy='" & strName & "' where AppraisedBy='" & FluffContent(ShopName) & "'"
+                    'obj.ConnExec(sql)
                 End If
             End If
         Catch ex As Exception
