@@ -601,15 +601,10 @@ Public Class MdiParent1
         ShowDebugLogToolStripMenuItem.Visible = DebugMode
 
         Try
-            'If LoginEnabled(UseMyPwd, UseMyUid, UseMyForgotWord, UseMyForgotPhrase) And Not IsLoggedIn Then
-            '    Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
-            '    frmLogin.Show()
-            'End If
-
-            'If OwnerInformation.LoginEnabled(DatabasePath, UseMyUid, UseMyPwd, UseMyForgotWord, UseMyForgotPhrase, _errOut) And Not IsLoggedIn Then
-            '    Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
-            '    frmLogin.Show()
-            'End If
+            If OwnerInformation.LoginEnabled(DatabasePath, UseMyUid, UseMyPwd, UseMyForgotWord, UseMyForgotPhrase, _errOut) And Not IsLoggedIn Then
+                Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
+                frmLogin.Show()
+            End If
 
             Lastviewedfirearm = 0
             Dim objR As New BSRegistry

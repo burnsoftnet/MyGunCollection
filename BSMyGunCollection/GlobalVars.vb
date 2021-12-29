@@ -1,5 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Security.RegularEncryption.SHA
 
 ''' <summary>
@@ -163,9 +164,11 @@ Module GlobalVars
             If Len(sAns) = 0 Then
                 sAns = sDefault
             End If
+            'Dim errOut As String =""
+            'sAns = Helpers.FluffContent(strContent, errOut, sDefault)
+            'If errOut.Length > 0 Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "FluffContent"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError("GlobalVars", "FluffContent", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
