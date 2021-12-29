@@ -1,5 +1,5 @@
-﻿Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
+﻿'Imports System.Data.Odbc
+'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
@@ -163,15 +163,15 @@ Public Class FrmViewGunSmithDetails
             Dim stremail As String = FluffContent(txteMail.Text)
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
-            Dim bInBusiness As Boolean = chkSIB.Checked
-            Dim intSib As Integer = 0
-            Dim sql As String
-' ReSharper disable RedundantAssignment
-            sql = ""
-' ReSharper restore RedundantAssignment
-            Dim errOut as String 
-            ''TODO #50 Convert this Section
-            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            'Dim bInBusiness As Boolean = chkSIB.Checked
+'            Dim intSib As Integer = 0
+'            Dim sql As String
+'' ReSharper disable RedundantAssignment
+'            sql = ""
+'' ReSharper restore RedundantAssignment
+            'Dim errOut as String 
+            '''TODO #50 Convert this Section
+            If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Exit Sub
 
             If Not GunSmiths.Update(DatabasePath, Convert.ToInt32(ShopId), strName, strAddress1,
                                      strAddress2, strCity, strState, strZip,
@@ -196,8 +196,7 @@ Public Class FrmViewGunSmithDetails
                 End If
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnSave.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSave.Click", Err.Number, ex.Message.ToString)
         End Try
         Call DisableForm()
     End Sub
