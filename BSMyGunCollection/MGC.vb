@@ -2,7 +2,6 @@ Imports System.IO
 Imports System.Text
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
-Imports System.Globalization
 Imports ADODB
 Imports BurnSoft.Security.RegularEncryption.SHA
 Imports Microsoft.Win32
@@ -10,216 +9,216 @@ Namespace MGC
     ''' <summary>
     ''' Class BSRegistry.
     ''' </summary>
-    Public Class BSRegistry
-        Private Const MY_CLASS_NAME = "MGC.BSRegistry"
-        Private _RegPath As String
-        Private _Reg_Successful As String
-        Private _Reg_SetHistListtb As String
-        Private _Reg_SetHistListdt As String
-        Private _Reg_AlertOnBackUp As Boolean = True
-        Private _Reg_TrackHistoryDays As Integer
-        Private _Reg_LastPath As String
-        Private _Reg_LastFile As String
-        Private _Reg_BackupOnExit As Boolean = False
-        Private _Reg_UseOrgImage As Boolean = False
-        Private _Reg_ViewPetLoads As Boolean = True
-        Private _Reg_IndvReports As Boolean = True
-        Private _Reg_TrackHistory As Boolean = True
-        Private _Reg_NumberFormat As String
-        Private _Reg_AutoUpdate As Boolean = False
-        Private _Reg_UseProxy As Boolean = False
-        Private _Reg_UseNumberCatOnly As Boolean
-        Private _Reg_AUDITAMMO As Boolean = False
-        Private _Reg_USEAUTOASSIGN As Boolean = False
-        Private _Reg_UNIQUECUSTCATID As Boolean = False
-        Private _Reg_USESELECTIVEBOUNDBOOK As Boolean = False
+    Public Class BsRegistry
+        ''Private Const MyClassName = "MGC.BSRegistry"
+        Private _regPath As String
+        Private _regSuccessful As String
+        Private _regSetHistListtb As String
+        Private _regSetHistListdt As String
+        Private _regAlertOnBackUp As Boolean = True
+        Private _regTrackHistoryDays As Integer
+        Private _regLastPath As String
+        Private _regLastFile As String
+        Private _regBackupOnExit As Boolean = False
+        Private _regUseOrgImage As Boolean = False
+        Private _regViewPetLoads As Boolean = True
+        Private _regIndvReports As Boolean = True
+        Private _regTrackHistory As Boolean = True
+        Private _regNumberFormat As String
+        Private _regAutoUpdate As Boolean = False
+        Private _regUseProxy As Boolean = False
+        Private _regUseNumberCatOnly As Boolean
+        Private _regAuditammo As Boolean = False
+        Private _regUseautoassign As Boolean = False
+        Private _regUniquecustcatid As Boolean = False
+        Private _regUseselectiveboundbook As Boolean = False
         Public Property DefaultRegPath() As String
             Get
-                If Len(_RegPath) = 0 Then _RegPath = "Software\\BurnSoft\\BSMGC"
-                Return _RegPath
+                If Len(_regPath) = 0 Then _regPath = "Software\\BurnSoft\\BSMGC"
+                Return _regPath
             End Get
             Set(ByVal value As String)
-                _RegPath = value
+                _regPath = value
             End Set
         End Property
-        Private Property Reg_Successful() As String
+        Private Property RegSuccessful() As String
             Get
-                If Len(_Reg_Successful) = 0 Then _Reg_Successful = Now
-                Return _Reg_Successful
+                If Len(_regSuccessful) = 0 Then _regSuccessful = Now
+                Return _regSuccessful
             End Get
             Set(ByVal value As String)
-                _Reg_Successful = value
+                _regSuccessful = value
             End Set
         End Property
-        Private Property Reg_SetHistListtb() As String
+        Private Property RegSetHistListtb() As String
             Get
-                Return _Reg_SetHistListtb
+                Return _regSetHistListtb
             End Get
             Set(ByVal value As String)
-                _Reg_SetHistListtb = value
+                _regSetHistListtb = value
             End Set
         End Property
-        Private Property Reg_SetHistListdt() As String
+        Private Property RegSetHistListdt() As String
             Get
-                Return _Reg_SetHistListdt
+                Return _regSetHistListdt
             End Get
             Set(ByVal value As String)
-                _Reg_SetHistListdt = value
+                _regSetHistListdt = value
             End Set
         End Property
-        Private Property Reg_AlertOnBackUp() As Boolean
+        Private Property RegAlertOnBackUp() As Boolean
             Get
-                Return _Reg_AlertOnBackUp
+                Return _regAlertOnBackUp
             End Get
             Set(ByVal value As Boolean)
-                _Reg_AlertOnBackUp = value
+                _regAlertOnBackUp = value
             End Set
         End Property
-        Private Property Reg_TrackHistoryDays() As Integer
+        Private Property RegTrackHistoryDays() As Integer
             Get
-                If _Reg_TrackHistoryDays = 0 Then _Reg_TrackHistoryDays = 15
-                Return _Reg_TrackHistoryDays
+                If _regTrackHistoryDays = 0 Then _regTrackHistoryDays = 15
+                Return _regTrackHistoryDays
             End Get
             Set(ByVal value As Integer)
-                _Reg_TrackHistoryDays = value
+                _regTrackHistoryDays = value
             End Set
         End Property
-        Private Property Reg_LastPath() As String
+        Private Property RegLastPath() As String
             Get
-                If Len(_Reg_LastPath) = 0 Then _Reg_LastPath = "C:\"
-                Return _Reg_LastPath
+                If Len(_regLastPath) = 0 Then _regLastPath = "C:\"
+                Return _regLastPath
             End Get
             Set(ByVal value As String)
-                _Reg_LastPath = value
+                _regLastPath = value
             End Set
         End Property
-        Private Property Reg_LastFile() As String
+        Private Property RegLastFile() As String
             Get
-                If Len(_Reg_LastFile) = 0 Then _Reg_LastFile = "MGC.MDB"
-                Return _Reg_LastFile
+                If Len(_regLastFile) = 0 Then _regLastFile = "MGC.MDB"
+                Return _regLastFile
             End Get
             Set(ByVal value As String)
-                _Reg_LastFile = value
+                _regLastFile = value
             End Set
         End Property
-        Private Property Reg_BackupOnExit() As Boolean
+        Private Property RegBackupOnExit() As Boolean
             Get
-                Return _Reg_BackupOnExit
+                Return _regBackupOnExit
             End Get
             Set(ByVal value As Boolean)
-                _Reg_BackupOnExit = value
+                _regBackupOnExit = value
             End Set
         End Property
-        Private Property Reg_UseOrgImage() As Boolean
+        Private Property RegUseOrgImage() As Boolean
             Get
-                Return _Reg_UseOrgImage
+                Return _regUseOrgImage
             End Get
             Set(ByVal value As Boolean)
-                _Reg_UseOrgImage = value
+                _regUseOrgImage = value
             End Set
         End Property
-        Private Property Reg_ViewPetLoads() As Boolean
+        Private Property RegViewPetLoads() As Boolean
             Get
-                Return _Reg_ViewPetLoads
+                Return _regViewPetLoads
             End Get
             Set(ByVal value As Boolean)
-                _Reg_ViewPetLoads = value
+                _regViewPetLoads = value
             End Set
         End Property
-        Private Property Reg_IndvReports() As Boolean
+        Private Property RegIndvReports() As Boolean
             Get
-                Return _Reg_IndvReports
+                Return _regIndvReports
             End Get
             Set(ByVal value As Boolean)
-                _Reg_IndvReports = value
+                _regIndvReports = value
             End Set
         End Property
-        Private Property Reg_TrackHistory() As Boolean
+        Private Property RegTrackHistory() As Boolean
             Get
-                Return _Reg_TrackHistory
+                Return _regTrackHistory
             End Get
             Set(ByVal value As Boolean)
-                _Reg_TrackHistory = value
+                _regTrackHistory = value
             End Set
         End Property
-        Private Property Reg_NumberFormat() As String
+        Private Property RegNumberFormat() As String
             Get
-                If Len(_Reg_NumberFormat) = 0 Then _Reg_NumberFormat = "0000"
-                Return _Reg_NumberFormat
+                If Len(_regNumberFormat) = 0 Then _regNumberFormat = "0000"
+                Return _regNumberFormat
             End Get
             Set(ByVal value As String)
-                _Reg_NumberFormat = value
+                _regNumberFormat = value
             End Set
         End Property
-        Private Property Reg_AutoUpdate() As Boolean
+        Private Property RegAutoUpdate() As Boolean
             Get
-                Return _Reg_AutoUpdate
+                Return _regAutoUpdate
             End Get
             Set(ByVal value As Boolean)
-                _Reg_AutoUpdate = value
+                _regAutoUpdate = value
             End Set
         End Property
-        Private Property Reg_UseProxy() As Boolean
+        Private Property RegUseProxy() As Boolean
             Get
-                Return _Reg_UseProxy
+                Return _regUseProxy
             End Get
             Set(ByVal value As Boolean)
-                _Reg_UseProxy = value
+                _regUseProxy = value
             End Set
         End Property
-        Private Property Reg_AUDITAMMO() As Boolean
+        Private Property RegAuditammo() As Boolean
             Get
-                Return _Reg_AUDITAMMO
+                Return _regAuditammo
             End Get
             Set(ByVal value As Boolean)
-                _Reg_AUDITAMMO = value
+                _regAuditammo = value
             End Set
         End Property
-        Private Property Reg_UseNumberCatOnly() As Boolean
+        Private Property RegUseNumberCatOnly() As Boolean
             Get
-                Return _Reg_UseNumberCatOnly
+                Return _regUseNumberCatOnly
             End Get
             Set(ByVal value As Boolean)
-                _Reg_UseNumberCatOnly = value
+                _regUseNumberCatOnly = value
             End Set
         End Property
-        Private Property Reg_USEAUTOASSIGN() As Boolean
+        Private Property RegUseautoassign() As Boolean
             Get
-                Return _Reg_USEAUTOASSIGN
+                Return _regUseautoassign
             End Get
             Set(ByVal value As Boolean)
-                _Reg_USEAUTOASSIGN = value
+                _regUseautoassign = value
             End Set
         End Property
-        Private Property Reg_UNIQUECUSTCATID() As Boolean
+        Private Property RegUniquecustcatid() As Boolean
             Get
-                Return _Reg_UNIQUECUSTCATID
+                Return _regUniquecustcatid
             End Get
             Set(ByVal value As Boolean)
-                _Reg_UNIQUECUSTCATID = value
+                _regUniquecustcatid = value
             End Set
         End Property
-        Private Property Reg_USESELECTIVEBOUNDBOOK() As Boolean
+        Private Property RegUseselectiveboundbook() As Boolean
             Get
-                Return _Reg_USESELECTIVEBOUNDBOOK
+                Return _regUseselectiveboundbook
             End Get
             Set(ByVal value As Boolean)
-                _Reg_USESELECTIVEBOUNDBOOK = value
+                _regUseselectiveboundbook = value
             End Set
         End Property
         Public Sub UpDateAppDetails()
             Dim strValue As String = DefaultRegPath
             If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
-            Dim MyReg As RegistryKey
-            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            MyReg.SetValue("Version", Application.ProductVersion)
-            MyReg.SetValue("AppName", Application.ProductName)
-            MyReg.SetValue("AppEXE", Application.ExecutablePath())
-            MyReg.SetValue("Path", ApplicationPath)
-            MyReg.SetValue("LogPath", MyLogFile)
-            MyReg.SetValue("DataBase", ApplicationPathData & "\" & DatabaseName)
-            MyReg.SetValue("AppDataPath", ApplicationPathData)
-            MyReg.Close()
+            Dim myReg As RegistryKey
+            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+            myReg.SetValue("Version", Application.ProductVersion)
+            myReg.SetValue("AppName", Application.ProductName)
+            myReg.SetValue("AppEXE", Application.ExecutablePath())
+            myReg.SetValue("Path", ApplicationPath)
+            myReg.SetValue("LogPath", MyLogFile)
+            myReg.SetValue("DataBase", ApplicationPathData & "\" & DatabaseName)
+            myReg.SetValue("AppDataPath", ApplicationPathData)
+            myReg.Close()
         End Sub
         Public Sub CreateSubKey(ByVal strValue As String)
             Registry.CurrentUser.CreateSubKey(strValue)
@@ -227,9 +226,9 @@ Namespace MGC
         Public Function RegSubKeyExists(ByVal strValue As String) As Boolean
             Dim bAns As Boolean = False
             Try
-                Dim MyReg As RegistryKey
-                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-                If MyReg Is Nothing Then
+                Dim myReg As RegistryKey
+                myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+                If myReg Is Nothing Then
                     bAns = False
                 Else
                     bAns = True
@@ -242,20 +241,20 @@ Namespace MGC
         Public Function GetRegSubKeyValue(ByVal strKey As String, ByVal strValue As String, ByVal strDefault As String) As String
             Dim sAns As String = ""
             Dim strMsg As String = ""
-            Dim MyReg As RegistryKey
+            Dim myReg As RegistryKey
             Try
                 If RegSubKeyExists(strKey) Then
-                    MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
-                    If Len(MyReg.GetValue(strValue)) > 0 Then
-                        sAns = MyReg.GetValue(strValue)
+                    myReg = Registry.CurrentUser.OpenSubKey(strKey, True)
+                    If Len(myReg.GetValue(strValue)) > 0 Then
+                        sAns = myReg.GetValue(strValue)
                     Else
-                        MyReg.SetValue(strValue, strDefault)
+                        myReg.SetValue(strValue, strDefault)
                         sAns = strDefault
                     End If
                 Else
                     Call CreateSubKey(strKey)
-                    MyReg = Registry.CurrentUser.OpenSubKey(strKey, True)
-                    MyReg.SetValue(strValue, strDefault)
+                    myReg = Registry.CurrentUser.OpenSubKey(strKey, True)
+                    myReg.SetValue(strValue, strDefault)
                     sAns = strDefault
                 End If
             Catch ex As Exception
@@ -265,132 +264,132 @@ Namespace MGC
         End Function
         Public Sub SetSettingDetails()
             If Not SettingsExists() Then
-                Dim MyReg As RegistryKey
+                Dim myReg As RegistryKey
                 Dim strValue As String = DefaultRegPath & "\Settings"
-                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+                myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
 
-                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
-                MyReg.SetValue("Successful", Reg_Successful)
-                MyReg.SetValue("SetHistListtb", Reg_SetHistListtb)
-                MyReg.SetValue("SetHistListdt", Reg_SetHistListdt)
-                MyReg.SetValue("AlertOnBackUp", Reg_AlertOnBackUp)
-                MyReg.SetValue("TrackHistoryDays", Reg_TrackHistoryDays)
-                MyReg.SetValue("TrackHistory", Reg_TrackHistory)
-                MyReg.SetValue("LastPath", Reg_LastPath)
-                MyReg.SetValue("LastFile", Reg_LastFile)
-                MyReg.SetValue("BackupOnExit", Reg_BackupOnExit)
-                MyReg.SetValue("UseOrgImage", Reg_UseOrgImage)
-                MyReg.SetValue("ViewPetLoads", Reg_ViewPetLoads)
-                MyReg.SetValue("IndvReports", Reg_IndvReports)
-                MyReg.SetValue("UseNumberCatOnly", Reg_UseNumberCatOnly)
-                MyReg.SetValue("AUDITAMMO", Reg_AUDITAMMO)
-                MyReg.Close()
+                myReg = Registry.CurrentUser.CreateSubKey(strValue)
+                myReg.SetValue("Successful", RegSuccessful)
+                myReg.SetValue("SetHistListtb", RegSetHistListtb)
+                myReg.SetValue("SetHistListdt", RegSetHistListdt)
+                myReg.SetValue("AlertOnBackUp", RegAlertOnBackUp)
+                myReg.SetValue("TrackHistoryDays", RegTrackHistoryDays)
+                myReg.SetValue("TrackHistory", RegTrackHistory)
+                myReg.SetValue("LastPath", RegLastPath)
+                myReg.SetValue("LastFile", RegLastFile)
+                myReg.SetValue("BackupOnExit", RegBackupOnExit)
+                myReg.SetValue("UseOrgImage", RegUseOrgImage)
+                myReg.SetValue("ViewPetLoads", RegViewPetLoads)
+                myReg.SetValue("IndvReports", RegIndvReports)
+                myReg.SetValue("UseNumberCatOnly", RegUseNumberCatOnly)
+                myReg.SetValue("AUDITAMMO", RegAuditammo)
+                myReg.Close()
             End If
         End Sub
         Public Function SettingsExists() As Boolean
             Dim bAns As Boolean = False
-            Dim MyReg As RegistryKey
+            Dim myReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
             On Error Resume Next
-            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            If MyReg Is Nothing Then
+            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+            If myReg Is Nothing Then
                 bAns = False
             Else
                 bAns = True
             End If
             Return bAns
         End Function
-        Public Sub GetSettings(ByRef LastSucBackup As String, ByRef AlertOnBackUp As Boolean,
-                            ByRef TrackHistoryDays As Integer, ByRef TrackHistory As Boolean,
-                            ByRef AutoBackup As Boolean, ByRef UOIMG As Boolean, ByRef UsePL As Boolean,
-                            ByRef UseIPer As Boolean, ByRef UseCCID As Boolean, ByRef USEAA As Boolean,
-                            ByRef UseAACID As Boolean, ByRef UseUniqueCustID As Boolean, ByRef bUSESELECTIVEBOUNDBOOK As Boolean)
-            Dim MyReg As RegistryKey
-            Dim NumberFormat As String
-            Dim UseProxy As Boolean
-            Dim AutoUpdate As Boolean
+        Public Sub GetSettings(ByRef lastSucBackup As String, ByRef alertOnBackUp As Boolean,
+                            ByRef trackHistoryDays As Integer, ByRef trackHistory As Boolean,
+                            ByRef autoBackup As Boolean, ByRef uoimg As Boolean, ByRef usePl As Boolean,
+                            ByRef useIPer As Boolean, ByRef useCcid As Boolean, ByRef useaa As Boolean,
+                            ByRef useAacid As Boolean, ByRef useUniqueCustId As Boolean, ByRef bUseselectiveboundbook As Boolean)
+            Dim myReg As RegistryKey
+            Dim numberFormat As String
+            Dim useProxy As Boolean
+            Dim autoUpdate As Boolean
             Dim strValue As String = DefaultRegPath & "\Settings"
             Try
-                MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-                If MyReg Is Nothing Then Call SetSettingDetails()
-                If (Not MyReg Is Nothing) Then
-                    TrackHistoryDays = CInt(GetRegSubKeyValue(strValue, "TrackHistoryDays", Reg_TrackHistoryDays)) 'CInt(MyReg.GetValue("TrackHistoryDays", ""))
-                    TrackHistory = CBool(GetRegSubKeyValue(strValue, "TrackHistory", Reg_TrackHistory))
-                    NumberFormat = CStr(GetRegSubKeyValue(strValue, "NumberFormat", Reg_NumberFormat))
-                    AutoUpdate = CBool(GetRegSubKeyValue(strValue, "AutoUpdate", Reg_AutoUpdate))
-                    UseProxy = CBool(GetRegSubKeyValue(strValue, "UseProxy", Reg_UseProxy))
-                    LastSucBackup = GetRegSubKeyValue(strValue, "Successful", Reg_Successful)
-                    AlertOnBackUp = CBool(GetRegSubKeyValue(strValue, "AlertOnBackUp", Reg_AlertOnBackUp))
-                    AutoBackup = CBool(GetRegSubKeyValue(strValue, "BackupOnExit", Reg_BackupOnExit))
-                    UOIMG = CBool(GetRegSubKeyValue(strValue, "UseOrgImage", Reg_UseOrgImage))
-                    UsePL = CBool(GetRegSubKeyValue(strValue, "ViewPetLoads", Reg_ViewPetLoads))
-                    UseIPer = CBool(GetRegSubKeyValue(strValue, "IndvReports", Reg_IndvReports))
-                    UseCCID = CBool(GetRegSubKeyValue(strValue, "UseNumberCatOnly", Reg_UseNumberCatOnly))
-                    USEAA = CBool(GetRegSubKeyValue(strValue, "AUDITAMMO", Reg_AUDITAMMO))
-                    UseAACID = CBool(GetRegSubKeyValue(strValue, "USEAUTOASSIGN", Reg_USEAUTOASSIGN))
-                    UseUniqueCustID = CBool(GetRegSubKeyValue(strValue, "DISABLEUNIQUECUSTCATID", Reg_UNIQUECUSTCATID))
-                    bUSESELECTIVEBOUNDBOOK = CBool(GetRegSubKeyValue(strValue, "USESELECTIVEBOUNDBOOK", Reg_USESELECTIVEBOUNDBOOK))
+                myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+                If myReg Is Nothing Then Call SetSettingDetails()
+                If (Not myReg Is Nothing) Then
+                    trackHistoryDays = CInt(GetRegSubKeyValue(strValue, "TrackHistoryDays", RegTrackHistoryDays)) 'CInt(MyReg.GetValue("TrackHistoryDays", ""))
+                    trackHistory = CBool(GetRegSubKeyValue(strValue, "TrackHistory", RegTrackHistory))
+                    numberFormat = CStr(GetRegSubKeyValue(strValue, "NumberFormat", RegNumberFormat))
+                    autoUpdate = CBool(GetRegSubKeyValue(strValue, "AutoUpdate", RegAutoUpdate))
+                    useProxy = CBool(GetRegSubKeyValue(strValue, "UseProxy", RegUseProxy))
+                    lastSucBackup = GetRegSubKeyValue(strValue, "Successful", RegSuccessful)
+                    alertOnBackUp = CBool(GetRegSubKeyValue(strValue, "AlertOnBackUp", RegAlertOnBackUp))
+                    autoBackup = CBool(GetRegSubKeyValue(strValue, "BackupOnExit", RegBackupOnExit))
+                    uoimg = CBool(GetRegSubKeyValue(strValue, "UseOrgImage", RegUseOrgImage))
+                    usePl = CBool(GetRegSubKeyValue(strValue, "ViewPetLoads", RegViewPetLoads))
+                    useIPer = CBool(GetRegSubKeyValue(strValue, "IndvReports", RegIndvReports))
+                    useCcid = CBool(GetRegSubKeyValue(strValue, "UseNumberCatOnly", RegUseNumberCatOnly))
+                    useaa = CBool(GetRegSubKeyValue(strValue, "AUDITAMMO", RegAuditammo))
+                    useAacid = CBool(GetRegSubKeyValue(strValue, "USEAUTOASSIGN", RegUseautoassign))
+                    useUniqueCustId = CBool(GetRegSubKeyValue(strValue, "DISABLEUNIQUECUSTCATID", RegUniquecustcatid))
+                    bUseselectiveboundbook = CBool(GetRegSubKeyValue(strValue, "USESELECTIVEBOUNDBOOK", RegUseselectiveboundbook))
                 Else
-                    TrackHistoryDays = Reg_TrackHistoryDays
-                    TrackHistory = Reg_TrackHistory
-                    NumberFormat = Reg_NumberFormat
-                    AutoUpdate = Reg_AutoUpdate
-                    UseProxy = Reg_UseProxy
-                    LastSucBackup = Reg_Successful
-                    AlertOnBackUp = Reg_AlertOnBackUp
-                    AutoBackup = Reg_BackupOnExit
-                    UOIMG = Reg_UseOrgImage
-                    UsePL = Reg_ViewPetLoads
-                    UseIPer = Reg_IndvReports
-                    UseCCID = Reg_UseNumberCatOnly
-                    USEAA = Reg_AUDITAMMO
-                    UseAACID = Reg_USEAUTOASSIGN
-                    UseUniqueCustID = Reg_UNIQUECUSTCATID
-                    bUSESELECTIVEBOUNDBOOK = Reg_USESELECTIVEBOUNDBOOK
+                    trackHistoryDays = RegTrackHistoryDays
+                    trackHistory = RegTrackHistory
+                    numberFormat = RegNumberFormat
+                    autoUpdate = RegAutoUpdate
+                    useProxy = RegUseProxy
+                    lastSucBackup = RegSuccessful
+                    alertOnBackUp = RegAlertOnBackUp
+                    autoBackup = RegBackupOnExit
+                    uoimg = RegUseOrgImage
+                    usePl = RegViewPetLoads
+                    useIPer = RegIndvReports
+                    useCcid = RegUseNumberCatOnly
+                    useaa = RegAuditammo
+                    useAacid = RegUseautoassign
+                    useUniqueCustId = RegUniquecustcatid
+                    bUseselectiveboundbook = RegUseselectiveboundbook
                 End If
             Catch ex As Exception
-                Dim MyErr As Long = Err.Number
-                If MyErr = 13 Then Call SetSettingDetails()
+                Dim myErr As Long = Err.Number
+                If myErr = 13 Then Call SetSettingDetails()
             End Try
         End Sub
-        Public Sub SaveSettings(ByVal NumberFormat As String, ByVal TrackHistory As Boolean,
-                                ByVal TrackHistoryDays As Integer, ByVal AutoUpdate As Boolean,
-                                ByVal UseProxy As Boolean, ByVal AlertOnBackUp As Boolean,
-                                ByVal AutoBackup As Boolean, ByVal UOIMG As Boolean, ByVal UsePL As Boolean,
-                                ByVal UseIPer As Boolean, ByVal USENCCID As Boolean, ByVal USEAA As Boolean,
-                                ByVal UseAACID As Boolean, ByVal UseUniqueCustID As Boolean, ByVal bUSESELECTIVEBOUNDBOOK As Boolean)
-            Dim MyReg As RegistryKey
+        Public Sub SaveSettings(ByVal numberFormat As String, ByVal trackHistory As Boolean,
+                                ByVal trackHistoryDays As Integer, ByVal autoUpdate As Boolean,
+                                ByVal useProxy As Boolean, ByVal alertOnBackUp As Boolean,
+                                ByVal autoBackup As Boolean, ByVal uoimg As Boolean, ByVal usePl As Boolean,
+                                ByVal useIPer As Boolean, ByVal usenccid As Boolean, ByVal useaa As Boolean,
+                                ByVal useAacid As Boolean, ByVal useUniqueCustId As Boolean, ByVal bUseselectiveboundbook As Boolean)
+            Dim myReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            If MyReg Is Nothing Then
-                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
+            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+            If myReg Is Nothing Then
+                myReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
-            MyReg.SetValue("TrackHistoryDays", TrackHistoryDays)
-            MyReg.SetValue("TrackHistory", TrackHistory)
-            MyReg.SetValue("NumberFormat", NumberFormat)
-            MyReg.SetValue("AutoUpdate", AutoUpdate)
-            MyReg.SetValue("UseProxy", UseProxy)
-            MyReg.SetValue("AlertOnBackUp", AlertOnBackUp)
-            MyReg.SetValue("BackupOnExit", AutoBackup)
-            MyReg.SetValue("UseOrgImage", UOIMG)
-            MyReg.SetValue("ViewPetLoads", UsePL)
-            MyReg.SetValue("IndvReports", UseIPer)
-            MyReg.SetValue("UseNumberCatOnly", USENCCID)
-            MyReg.SetValue("AUDITAMMO", USEAA)
-            MyReg.SetValue("USEAUTOASSIGN", UseAACID)
-            MyReg.SetValue("DISABLEUNIQUECUSTCATID", UseUniqueCustID)
-            MyReg.SetValue("USESELECTIVEBOUNDBOOK", bUSESELECTIVEBOUNDBOOK)
-            MyReg.Close()
+            myReg.SetValue("TrackHistoryDays", trackHistoryDays)
+            myReg.SetValue("TrackHistory", trackHistory)
+            myReg.SetValue("NumberFormat", numberFormat)
+            myReg.SetValue("AutoUpdate", autoUpdate)
+            myReg.SetValue("UseProxy", useProxy)
+            myReg.SetValue("AlertOnBackUp", alertOnBackUp)
+            myReg.SetValue("BackupOnExit", autoBackup)
+            myReg.SetValue("UseOrgImage", uoimg)
+            myReg.SetValue("ViewPetLoads", usePl)
+            myReg.SetValue("IndvReports", useIPer)
+            myReg.SetValue("UseNumberCatOnly", usenccid)
+            myReg.SetValue("AUDITAMMO", useaa)
+            myReg.SetValue("USEAUTOASSIGN", useAacid)
+            myReg.SetValue("DISABLEUNIQUECUSTCATID", useUniqueCustId)
+            myReg.SetValue("USESELECTIVEBOUNDBOOK", bUseselectiveboundbook)
+            myReg.Close()
         End Sub
         Public Sub SaveLastWorkingDir(ByVal strPath As String)
-            Dim MyReg As RegistryKey
+            Dim myReg As RegistryKey
             Dim strValue As String = DefaultRegPath & "\Settings"
-            MyReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
-            If MyReg Is Nothing Then
-                MyReg = Registry.CurrentUser.CreateSubKey(strValue)
+            myReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
+            If myReg Is Nothing Then
+                myReg = Registry.CurrentUser.CreateSubKey(strValue)
             End If
-            MyReg.SetValue("LastWorkingPath", strPath)
-            MyReg.Close()
+            myReg.SetValue("LastWorkingPath", strPath)
+            myReg.Close()
         End Sub
         Public Function GetLastWorkingDir() As String
             Dim sAns As String = ""
@@ -405,13 +404,13 @@ Namespace MGC
             myReg.Close()
             Return sAns
         End Function
-        Public Sub SaveFirearmListSort(ByVal ConfigSort As String)
+        Public Sub SaveFirearmListSort(ByVal configSort As String)
             Dim strValue As String = DefaultRegPath & "\Settings"
             If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
-            Dim MyReg As RegistryKey
-            MyReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            MyReg.SetValue("VIEW_FirearmList", ConfigSort)
-            MyReg.Close()
+            Dim myReg As RegistryKey
+            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
+            myReg.SetValue("VIEW_FirearmList", configSort)
+            myReg.Close()
         End Sub
         Public Function GetViewSettings(ByVal sKey As String, Optional ByVal sDefault As String = "") As String
             Dim sAns As String = ""
@@ -423,11 +422,11 @@ Namespace MGC
     ''' <summary>
     ''' Class BSDatabase.
     ''' </summary>
-    Public Class BSDatabase
+    Public Class BsDatabase
         ''' <summary>
         ''' The Class Name for the error file
         ''' </summary>
-        Private Const MY_CLASS_NAME = "MGC.BSDatabase"
+        Private Const MyClassName = "MGC.BSDatabase"
         ''' <summary>
         ''' The connection
         ''' </summary>
@@ -436,63 +435,57 @@ Namespace MGC
         ''' ses the connect.
         ''' </summary>
         ''' <returns>System.String.</returns>
-        Public Function sConnect() As String
-            Dim sAns As String = ""
-            sAns = "Driver={Microsoft Access Driver (*.mdb)};dbq=" & ApplicationPathData & "\" & DatabaseName & ";Pwd=14un0t2n0"
-            Return sAns
+        Public Function SConnect() As String
+            Return "Driver={Microsoft Access Driver (*.mdb)};dbq=" & ApplicationPathData & "\" & DatabaseName & ";Pwd=14un0t2n0"
         End Function
         ''' <summary>
         ''' ses the connect OLE.
         ''' </summary>
         ''' <returns>System.String.</returns>
-        Public Function sConnectOLE() As String
-            Dim sAns As String = ""
-            'removed ; User Id=
-            sAns = "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & ApplicationPathData & "\" & DatabaseName & """;Jet OLEDB:Database Password=14un0t2n0;"
-            Return sAns
+        Public Function SConnectOle() As String
+            Return "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & ApplicationPathData & "\" & DatabaseName & """;Jet OLEDB:Database Password=14un0t2n0;"
         End Function
         ''' <summary>
         ''' Connects the database.
         ''' </summary>
-        Public Sub ConnectDB()
+        Public Sub ConnectDb()
             Try
-                Conn = New OdbcConnection(sConnect)
+                Conn = New OdbcConnection(SConnect)
                 Conn.Open()
             Catch ex As Exception
                 Dim sSubFunc As String = "ConnectDB"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
         ''' <summary>
         ''' Closes the database.
         ''' </summary>
-        Public Sub CloseDB()
+        Public Sub CloseDb()
             Try
                 Conn.Close()
                 Conn = Nothing
             Catch ex As Exception
                 Dim sSubFunc As String = "CloseDB"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
         ''' <summary>
         ''' Connections the execute.
         ''' </summary>
-        ''' <param name="strSQL">The string SQL.</param>
-        Public Sub ConnExec(ByVal strSQL As String)
+        ''' <param name="strSql">The string SQL.</param>
+        Public Sub ConnExec(ByVal strSql As String)
             Try
-                Call ConnectDB()
-                Dim CMD As New OdbcCommand
-                CMD.Connection = Conn
-                CMD.CommandText = strSQL
-                CMD.ExecuteNonQuery()
-                CMD.Connection.Close()
-                CMD = Nothing
+                Call ConnectDb()
+                Dim cmd As New OdbcCommand
+                cmd.Connection = Conn
+                cmd.CommandText = strSql
+                cmd.ExecuteNonQuery()
+                cmd.Connection.Close()
                 Conn = Nothing
             Catch ex As Exception
                 Dim sSubFunc As String = "ConnExec"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-                Call LogError(MY_CLASS_NAME, sSubFunc, 0, "ConnExec.strSQL=" & strSQL)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, 0, "ConnExec.strSQL=" & strSql)
             End Try
         End Sub
     End Class
@@ -504,7 +497,7 @@ Namespace MGC
         ''' <summary>
         ''' Class Name for error file to help locate where the error occurred
         ''' </summary>
-        Private Const MY_CLASS_NAME = "MGC.GlobalFunctions"
+        Private Const MyClassName = "MGC.GlobalFunctions"
         ''' <summary>
         ''' Objects the existsin database.
         ''' </summary>
@@ -512,76 +505,76 @@ Namespace MGC
         ''' <param name="strField">The string field.</param>
         ''' <param name="strTable">The string table.</param>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function ObjectExistsinDB(ByVal strObject As String, ByVal strField As String, ByVal strTable As String) As Boolean
+        Public Function ObjectExistsinDb(ByVal strObject As String, ByVal strField As String, ByVal strTable As String) As Boolean
             Try
                 Dim bAns As Boolean = False
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT " & strField & " from " & strTable & " where " & strField & "='" & strObject & "'"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT " & strField & " from " & strTable & " where " & strField & "='" & strObject & "'"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
                     bAns = True
                 Else
                     bAns = False
                 End If
-                RS.Close()
-                CMD = Nothing
-                Call Obj.CloseDB()
+                rs.Close()
+                cmd = Nothing
+                Call obj.CloseDb()
                 Return bAns
             Catch ex As Exception
                 Dim sSubFunc As String = "ObjectExistsinDB"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Function
         ''' <summary>
         ''' Gets the identifier.
         ''' </summary>
-        ''' <param name="SQL">The SQL.</param>
+        ''' <param name="sql">The SQL.</param>
         ''' <returns>System.Int64.</returns>
-        Public Function GetID(ByVal SQL As String) As Long
+        Public Function GetId(ByVal sql As String) As Long
             Try
                 Dim sAns As Long = 0
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While (RS.Read())
-                        sAns = CLng(RS("ID"))
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While (rs.Read())
+                        sAns = CLng(rs("ID"))
                     End While
                 Else
                     sAns = 0
                 End If
-                RS.Close()
-                CMD = Nothing
-                Call Obj.CloseDB()
+                rs.Close()
+                cmd = Nothing
+                Call obj.CloseDb()
                 Return sAns
             Catch ex As Exception
                 Dim sSubFunc As String = "GetID"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString & "::" & SQL)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString & "::" & sql)
             End Try
         End Function
         ''' <summary>
         ''' Gets the name.
         ''' </summary>
-        ''' <param name="SQL">The SQL.</param>
+        ''' <param name="sql">The SQL.</param>
         ''' <param name="strValue">The string value.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetName(ByVal SQL As String, ByVal strValue As String) As String
+        Public Function GetName(ByVal sql As String, ByVal strValue As String) As String
             Dim sAns As String = "N/A"
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While (RS.Read())
-                        If Not IsDBNull(RS(strValue)) Then
-                            sAns = RS(strValue)
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While (rs.Read())
+                        If Not IsDBNull(rs(strValue)) Then
+                            sAns = rs(strValue)
                         Else
                             sAns = 0
                         End If
@@ -589,12 +582,12 @@ Namespace MGC
                 Else
                     sAns = "N/A"
                 End If
-                RS.Close()
-                CMD = Nothing
-                Call Obj.CloseDB()
+                rs.Close()
+                cmd = Nothing
+                Call obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "GetName"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString & "::" & SQL)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString & "::" & sql)
             End Try
             Return sAns
         End Function
@@ -608,27 +601,27 @@ Namespace MGC
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         Public Function ContactExists(ByVal strTable As String, ByVal strColumnName As String, ByVal strName As String, Optional ByRef intCount As Integer = 0) As Boolean
             Dim bAns As Boolean = False
-            Dim SQL As String = "SELECT Count(*) as Total from " & strTable & " where " & strColumnName & " like '" & strName & "%'"
+            Dim sql As String = "SELECT Count(*) as Total from " & strTable & " where " & strColumnName & " like '" & strName & "%'"
             Try
                 intCount = 0
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While (RS.Read)
-                        intCount = RS("Total")
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While (rs.Read)
+                        intCount = rs("Total")
                     End While
                 End If
                 If intCount <> 0 Then bAns = True
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Call Obj.CloseDB()
+                rs.Close()
+                rs = Nothing
+                cmd = Nothing
+                Call obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "ContactExists"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return bAns
         End Function
@@ -641,25 +634,25 @@ Namespace MGC
         ''' <returns>System.Int32.</returns>
         Public Function HasCollectionAttached(ByVal strName As String, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
             Dim iAns As Integer = 0
-            Dim SQL As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "='" & strName & "'"
+            Dim sql As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "='" & strName & "'"
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While (RS.Read)
-                        iAns = RS("Total")
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While (rs.Read)
+                        iAns = rs("Total")
                     End While
                 End If
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Call Obj.CloseDB()
+                rs.Close()
+                rs = Nothing
+                cmd = Nothing
+                Call obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "HasCollectionAttached"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return iAns
         End Function
@@ -667,27 +660,24 @@ Namespace MGC
         ''' <summary>
         ''' Gets the name of the wish list.
         ''' </summary>
-        ''' <param name="strID">The string identifier.</param>
+        ''' <param name="strId">The string identifier.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetWishListName(ByVal strID As String) As String
+        Public Function GetWishListName(ByVal strId As String) As String
             Dim sAns As String = ""
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT * from WishList where ID=" & strID
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                While (RS.Read)
-                    sAns = RS("Manufacturer") & " " & RS("Model")
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT * from WishList where ID=" & strId
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                While (rs.Read)
+                    sAns = rs("Manufacturer") & " " & rs("Model")
                 End While
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
+                rs.Close()
+                obj.CloseDb()
             Catch ex As Exception
-                Dim sSubFunc As String = "GetWishListName"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, "GetWishListName", Err.Number, ex.Message.ToString)
             End Try
             Return sAns
         End Function
@@ -699,27 +689,28 @@ Namespace MGC
         Public Function CatalogIsNumeric() As Boolean
             Dim bAns As Boolean = False
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT CustomID from Gun_Collection"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                Dim sID As String = ""
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT CustomID from Gun_Collection"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+' ReSharper disable once RedundantAssignment
+                Dim sId As String = ""
                 Dim iRowCount As Long = 0
                 Dim iCount As Long = 0
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While RS.Read
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While rs.Read
                         iRowCount += 1
-                        sID = Trim(RS("CustomID"))
-                        If Len(sID) = 0 Then sID = "N/A"
-                        If IsNumeric(sID) Then iCount += 1
+                        sId = Trim(rs("CustomID"))
+                        If Len(sId) = 0 Then sId = "N/A"
+                        If IsNumeric(sId) Then iCount += 1
                     End While
                 End If
                 If iRowCount = iCount Then bAns = True
             Catch ex As Exception
                 Dim sSubFunc As String = "CatalogIsNumeric"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return bAns
         End Function
@@ -728,24 +719,26 @@ Namespace MGC
         ''' </summary>
         Public Sub SetCatalogValuesToNumeric()
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT ID,CustomID from Gun_Collection"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                Dim sID As String = ""
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT ID,CustomID from Gun_Collection"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+' ReSharper disable once UnusedVariable
+                Dim sId As String = ""
+' ReSharper disable once UnusedVariable
                 Dim iRowCount As Long = 0
                 Dim iCount As Long = 0
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While RS.Read
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While rs.Read
                         iCount += 1
-                        Obj.ConnExec("UPDATE Gun_Collection set CustomID='" & iCount & "',sync_lastupdate=Now() where ID=" & RS("ID"))
+                        obj.ConnExec("UPDATE Gun_Collection set CustomID='" & iCount & "',sync_lastupdate=Now() where ID=" & rs("ID"))
                     End While
                 End If
             Catch ex As Exception
                 Dim sSubFunc As String = "SetCatalogToNumeric"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
         ''' <summary>
@@ -754,67 +747,62 @@ Namespace MGC
         ''' <param name="sType">Type of the s.</param>
         Public Sub SetCatalogType(ByVal sType As String)
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = ""
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+' ReSharper disable once RedundantAssignment
+                Dim sql As String = ""
                 Select Case LCase(sType)
                     Case "num"
-                        SQL = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Integer;"
+                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Integer;"
                     Case "let"
-                        SQL = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
+                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
                     Case Else
-                        SQL = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
+                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
                 End Select
-                Obj.ConnExec(SQL)
+                obj.ConnExec(sql)
             Catch ex As Exception
                 Dim sSubFunc As String = "SetCatalogType"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
 
         ''' <summary>
         ''' Gets the report SQL.
         ''' </summary>
-        ''' <param name="RID">The rid.</param>
+        ''' <param name="rid">The rid.</param>
         ''' <returns>System.String.</returns>
-        Public Function GetReportSQL(ByVal RID As Long) As String
-            Dim sAns As String = ""
-            sAns = GetName("SELECT * from CR_SavedReports where id=" & RID, "MySQL")
-            Return sAns
+        Public Function GetReportSql(ByVal rid As Long) As String
+            Return GetName("SELECT * from CR_SavedReports where id=" & rid, "MySQL")
         End Function
         ''' <summary>
         ''' Determines whether [has default picture] [the specified identifier].
         ''' </summary>
-        ''' <param name="ID">The identifier.</param>
-        ''' <param name="AddPic">if set to <c>true</c> [add pic].</param>
+        ''' <param name="id">The identifier.</param>
+        ''' <param name="addPic">if set to <c>true</c> [add pic].</param>
         ''' <returns><c>true</c> if [has default picture] [the specified identifier]; otherwise, <c>false</c>.</returns>
-        Public Function HasDefaultPicture(ByVal ID As Long, Optional ByVal AddPic As Boolean = False) As Boolean
+        Public Function HasDefaultPicture(ByVal id As Long, Optional ByVal addPic As Boolean = False) As Boolean
             Dim bAns As Boolean = False
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT * from Gun_Collection_Pictures where CID=" & ID & " and IsMain=1"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                bAns = RS.HasRows
-                If Not bAns And AddPic Then Call AddDefaultPic(ID)
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
-                Obj = Nothing
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT * from Gun_Collection_Pictures where CID=" & id & " and IsMain=1"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                bAns = rs.HasRows
+                If Not bAns And addPic Then Call AddDefaultPic(id)
+                rs.Close()
+                obj.CloseDb()
             Catch ex As Exception
-                Dim sSubFunc As String = "HasDefaultPicture"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, "HasDefaultPicture", Err.Number, ex.Message.ToString)
             End Try
             Return bAns
         End Function
         ''' <summary>
         ''' Adds the default pic.
         ''' </summary>
-        ''' <param name="ItemID">The item identifier.</param>
-        Sub AddDefaultPic(ByVal ItemID As Long)
+        ''' <param name="itemId">The item identifier.</param>
+        Sub AddDefaultPic(ByVal itemId As Long)
             Try
                 Dim sFileName As String = ApplicationPath & "\" & DefaultPic
                 Dim sThumbName As String = ApplicationPath & "\mgc_thumb.jpg"
@@ -838,84 +826,82 @@ Namespace MGC
                 File.Delete(sThumbName)
                 myNewPic.Save(sThumbName, ImageFormat.Jpeg)
                 myNewPic.Dispose()
-                Dim st_t As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
-                Dim mbr_t As BinaryReader = New BinaryReader(st_t)
-                Dim buffer_t(st_t.Length) As Byte
-                mbr_t.Read(buffer_t, 0, CInt(st_t.Length))
-                st_t.Close()
+                Dim stT As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
+                Dim mbrT As BinaryReader = New BinaryReader(stT)
+                Dim bufferT(stT.Length) As Byte
+                mbrT.Read(bufferT, 0, CInt(stT.Length))
+                stT.Close()
                 '--End Function to convert picture to thumbnail for database format--
-                Dim Obj As New BSDatabase
-                Dim MyConn As New Connection
-                MyConn.Open(Obj.sConnect)
-                Dim RS As New Recordset
-                RS.Open("Gun_Collection_Pictures", MyConn, 2, 2)
-                RS.AddNew()
-                RS("CID").Value = ItemID
-                RS("PICTURE").AppendChunk(buffer)
-                RS("THUMB").AppendChunk(buffer_t)
-                RS("ISMAIN").Value = 1
-                RS("sync_lastupdate").Value = Now
-                RS.Update()
-                RS.Close()
+                Dim obj As New BsDatabase
+                Dim myConn As New Connection
+                myConn.Open(obj.SConnect)
+                Dim rs As New Recordset
+                rs.Open("Gun_Collection_Pictures", myConn, 2, 2)
+                rs.AddNew()
+                rs("CID").Value = itemId
+                rs("PICTURE").AppendChunk(buffer)
+                rs("THUMB").AppendChunk(bufferT)
+                rs("ISMAIN").Value = 1
+                rs("sync_lastupdate").Value = Now
+                rs.Update()
+                rs.Close()
             Catch ex As Exception
                 Dim sSubFunc As String = "AddDefaultPic"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
 
         ''' <summary>
         ''' Adds the purchase price accessories.
         ''' </summary>
-        ''' <param name="GID">The gid.</param>
+        ''' <param name="gid">The gid.</param>
         ''' <returns>System.Double.</returns>
-        Function AddPurchasePriceAccessories(ByVal GID As Long) As Double
+        Function AddPurchasePriceAccessories(ByVal gid As Long) As Double
             Dim dAns As Double = 0
             Try
-                Dim Obj As New BSDatabase
-                Obj.ConnectDB()
-                Dim SQL As String = "SELECT SUM(cdbl(PurValue)) as Total from Gun_Collection_Accessories where GID=" & GID
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
+                Dim obj As New BsDatabase
+                obj.ConnectDb()
+                Dim sql As String = "SELECT SUM(cdbl(PurValue)) as Total from Gun_Collection_Accessories where GID=" & gid
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+' ReSharper disable once UnusedVariable
                 Dim tCount As Long = 0
-                RS = CMD.ExecuteReader
-                While RS.Read()
-                    If Not IsDBNull(RS("Total")) Then dAns = CDbl(RS("Total"))
+                rs = cmd.ExecuteReader
+                While rs.Read()
+                    If Not IsDBNull(rs("Total")) Then dAns = CDbl(rs("Total"))
                 End While
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
+                rs.Close()
+                obj.CloseDb()
             Catch ex As Exception
-                Dim sSubFunc As String = "AddPurchasePriceAccessories"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, "AddPurchasePriceAccessories", Err.Number, ex.Message.ToString)
             End Try
             Return (dAns)
         End Function
         ''' <summary>
         ''' Adds the appriased price accessories.
         ''' </summary>
-        ''' <param name="GID">The gid.</param>
+        ''' <param name="gid">The gid.</param>
         ''' <returns>System.Double.</returns>
-        Function AddAppriasedPriceAccessories(ByVal GID As Long) As Double
+        Function AddAppriasedPriceAccessories(ByVal gid As Long) As Double
             Dim dAns As Double = 0
             Try
-                Dim Obj As New BSDatabase
-                Obj.ConnectDB()
-                Dim SQL As String = "SELECT SUM(cdbl(AppValue)) as Total from Gun_Collection_Accessories where GID=" & GID & " and CIV=1"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
+                Dim obj As New BsDatabase
+                obj.ConnectDb()
+                Dim sql As String = "SELECT SUM(cdbl(AppValue)) as Total from Gun_Collection_Accessories where GID=" & gid & " and CIV=1"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
                 Dim tCount As Long = 0
-                RS = CMD.ExecuteReader
-                While RS.Read()
-                    If Not IsDBNull(RS("Total")) Then dAns = CDbl(RS("Total"))
+                rs = cmd.ExecuteReader
+                While rs.Read()
+                    If Not IsDBNull(rs("Total")) Then dAns = CDbl(rs("Total"))
                 End While
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
+                rs.Close()
+                rs = Nothing
+                cmd = Nothing
+                obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "AddAppriasedPriceAccessories"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return (dAns)
         End Function
@@ -926,26 +912,26 @@ Namespace MGC
         Public Function DatabaseVersion() As Double
             Dim dAns As Double = 0
             Try
-                Dim Obj As New BSDatabase
-                Dim SQL As String = "SELECT top 1 dbver from DB_Version order by ID desc"
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    While RS.Read()
-                        dAns = CDbl(RS("dbver"))
+                Dim obj As New BsDatabase
+                Dim sql As String = "SELECT top 1 dbver from DB_Version order by ID desc"
+                Call obj.ConnectDb()
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    While rs.Read()
+                        dAns = CDbl(rs("dbver"))
                     End While
                 Else
                     dAns = 0
                 End If
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
+                rs.Close()
+                rs = Nothing
+                cmd = Nothing
+                obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "DatabaseVersion"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
                 dAns = 0
             End Try
 
@@ -954,51 +940,51 @@ Namespace MGC
         ''' <summary>
         ''' Gets the user settings database.
         ''' </summary>
-        ''' <param name="RecID">The record identifier.</param>
+        ''' <param name="recId">The record identifier.</param>
         ''' <param name="sName">Name of the s.</param>
         ''' <param name="sAddress">The s address.</param>
         ''' <param name="sCity">The s city.</param>
         ''' <param name="sState">State of the s.</param>
         ''' <param name="sZip">The s zip.</param>
         ''' <param name="sPhone">The s phone.</param>
-        ''' <param name="sCCD">The s CCD.</param>
-        Public Sub GetUserSettingsDB(ByRef RecID As Long, ByRef sName As String, ByRef sAddress As String,
+        ''' <param name="sCcd">The s CCD.</param>
+        Public Sub GetUserSettingsDb(ByRef recId As Long, ByRef sName As String, ByRef sAddress As String,
                                     ByRef sCity As String, ByRef sState As String, ByRef sZip As String,
-                                    ByRef sPhone As String, ByRef sCCD As String)
+                                    ByRef sPhone As String, ByRef sCcd As String)
             Try
-                Dim Obj As New BSDatabase
-                Call Obj.ConnectDB()
-                Dim SQL As String = "SELECT TOP 1 * from Owner_Info"
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                If RS.HasRows Then
-                    RS.Read()
-                    RecID = CInt(RS("ID"))
-                    sName = Trim(RS("name"))
-                    sAddress = Trim(One.Decrypt(RS("address")))
-                    sCity = Trim(RS("City"))
-                    sState = Trim(RS("State"))
-                    sZip = Trim(RS("Zip"))
-                    sPhone = Trim(RS("Phone"))
-                    sCCD = Trim(One.Decrypt(RS("CCDWL")))
+                Dim obj As New BsDatabase
+                Call obj.ConnectDb()
+                Dim sql As String = "SELECT TOP 1 * from Owner_Info"
+                Dim cmd As New OdbcCommand(sql, obj.Conn)
+                Dim rs As OdbcDataReader
+                rs = cmd.ExecuteReader
+                If rs.HasRows Then
+                    rs.Read()
+                    recId = CInt(rs("ID"))
+                    sName = Trim(rs("name"))
+                    sAddress = Trim(One.Decrypt(rs("address")))
+                    sCity = Trim(rs("City"))
+                    sState = Trim(rs("State"))
+                    sZip = Trim(rs("Zip"))
+                    sPhone = Trim(rs("Phone"))
+                    sCcd = Trim(One.Decrypt(rs("CCDWL")))
                 Else
-                    RecID = 0
+                    recId = 0
                 End If
-                RS.Close()
-                CMD = Nothing
-                RS = Nothing
-                Obj.CloseDB()
+                rs.Close()
+                cmd = Nothing
+                rs = Nothing
+                obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "GetUserSettingsDB"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
+                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
     End Class
     ''' <summary>
     ''' Class BSFileSystem.
     ''' </summary>
-    Public Class BSFileSystem
+    Public Class BsFileSystem
         ''' <summary>
         ''' Logs the file.
         ''' </summary>

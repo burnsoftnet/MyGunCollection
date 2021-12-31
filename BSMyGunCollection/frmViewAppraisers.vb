@@ -76,7 +76,7 @@ Public Class FrmViewAppraisers
         Dim myValue As Long = ListBox1.SelectedValue
         Dim objGf As New GlobalFunctions
         Dim strShopName As String = objGf.GetName("SELECT aname from Appriaser_Contact_Details where ID=" & myValue, "aname")
-        Dim obj As New BSDatabase
+        Dim obj As New BsDatabase
         Dim sql As String = "DELETE from Appriaser_Contact_Details where ID=" & myValue
         Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strShopName & " from the database.", MsgBoxStyle.YesNo, "Delete an Appraiser")
         Dim intColTotal As Integer = objGf.HasCollectionAttached(strShopName, "AppraisedBy")

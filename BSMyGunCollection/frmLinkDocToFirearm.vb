@@ -32,7 +32,7 @@ Public Class FrmLinkDocToFirearm
     ''' <param name="gid">The gid.</param>
     Sub LinkDocToFirearm(gid As String)
         Try
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             Dim sql As String = "INSERT INTO Gun_Collection_Docs_Links (GID,DID) VALUES(" & gid & "," & DocId & ")"
             obj.ConnExec(sql)
         Catch ex As Exception

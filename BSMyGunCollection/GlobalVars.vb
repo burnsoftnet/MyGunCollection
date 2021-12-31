@@ -224,8 +224,8 @@ Module GlobalVars
     Public Function LoginEnabled(ByRef pwd As String, ByRef uid As String, ByRef fw As String, ByRef fp As String) As Boolean
         Dim bAns As Boolean = False
         Try
-            Dim obj As New BSDatabase
-            obj.ConnectDB()
+            Dim obj As New BsDatabase
+            obj.ConnectDb()
             Dim sql = "SELECT UsePWD,PWD,UID,forgot_word,forgot_phrase from Owner_Info"
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -269,7 +269,7 @@ Module GlobalVars
                 fw = "burnsoft"
             End If
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "LoginEnabled"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
@@ -283,7 +283,7 @@ Module GlobalVars
     ''' <param name="sMsg"></param>
     Public Sub Buggerme(ByVal sFrom As String, ByVal sMsg As String)
         If DebugMode Then
-            Dim objFs As New BSFileSystem
+            Dim objFs As New BsFileSystem
             Dim sMessage As String = Now() & sFrom & " - " & sMsg
             Dim sPath As String = Application.LocalUserAppDataPath.ToString & "\" & DebugFile
             objFs.LogDebugFile(sPath, sMessage)
@@ -298,7 +298,7 @@ Module GlobalVars
     ''' <param name="sErrorDesc"></param>
     Public Sub LogError(ByVal sForm As String, ByVal sProcedure As String, ByVal iErrNo As Long, ByVal sErrorDesc As String)
         Try
-            Dim objFs As New BSFileSystem
+            Dim objFs As New BsFileSystem
             Dim sMessage As String = sForm & "." & sProcedure & "::" & iErrNo & "::" & sErrorDesc
             objFs.LogFile(MyLogFile, sMessage)
         Catch ex As Exception
@@ -312,7 +312,7 @@ Module GlobalVars
     ''' <param name="message">The message.</param>
     Public Sub LogError(ByVal message As String )
         Try
-            Dim objFs As New BSFileSystem
+            Dim objFs As New BsFileSystem
             objFs.LogFile(MyLogFile, message)
         Catch ex As Exception
             Dim sMsg As String = "ERRROR Writing to Log File!" & Chr(13) & message

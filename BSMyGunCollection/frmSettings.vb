@@ -108,7 +108,7 @@ Public Class FrmSettings
     ''' </summary>
     Private Sub GetRegData()
         Try
-            Dim objR As New BSRegistry
+            Dim objR As New BsRegistry
             Call objR.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
         Catch ex As Exception
             Call LogError(Name, "GetRegData", Err.Number, ex.Message.ToString)
@@ -120,7 +120,7 @@ Public Class FrmSettings
     ''' <returns>System.Int32.</returns>
     Function SaveData() As Integer
         Try
-            Dim objR As New BSRegistry
+            Dim objR As New BsRegistry
             objR.SaveSettings("0000", chkBAKCleanup.Checked, nudDays.Value, False, False, chkAOBU.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
             DoAutoBackup = chkBackupOnExit.Checked
             DoOriginalImage = chkDoOriginalImage.Checked

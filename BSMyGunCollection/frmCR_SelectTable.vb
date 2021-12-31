@@ -73,7 +73,7 @@ Public Class FrmCrSelectTable
             Dim srid As Long = ComboBox2.SelectedValue
             Dim reportName As String = ComboBox2.Text
             Dim objGf As New GlobalFunctions
-            Dim sql As String = objGf.GetReportSQL(srid)
+            Dim sql As String = objGf.GetReportSql(srid)
             Dim frmnew As New FrmCrViewReport
             frmnew.Sql = Replace(sql, "''", "'")
             frmnew.ReportName = reportName

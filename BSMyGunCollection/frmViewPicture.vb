@@ -86,7 +86,7 @@ Public Class FrmViewPicture
         Try
             Dim sqlu As String = "UPDATE Gun_Collection_Pictures set ISMAIN=0 where CID=" & GroupId
             Dim sql As String = "UPDATE Gun_Collection_Pictures set ISMAIN=1 where ID=" & MyId
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             obj.ConnExec(sqlu)
             obj.ConnExec(sql)
             MsgBox("This is now the Default Picture")
@@ -178,8 +178,8 @@ Public Class FrmViewPicture
 ' ReSharper disable once ParameterHidesMember
     Public Sub GetPictureInfo(ByVal pid As Long, ByRef sName As String, ByRef sNotes As String)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & MyId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -236,8 +236,8 @@ Public Class FrmViewPicture
     ''' </summary>
     Sub GetPicture()
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & MyId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim b() As Byte = cmd.ExecuteScalar

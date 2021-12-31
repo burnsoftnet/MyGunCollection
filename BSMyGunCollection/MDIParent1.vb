@@ -605,7 +605,7 @@ Public Class MdiParent1
             End If
 
             Lastviewedfirearm = 0
-            Dim objR As New BSRegistry
+            Dim objR As New BsRegistry
             OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)
             if _errOut.Length > 0 Then Throw New Exception(_errOut)
 
@@ -639,7 +639,7 @@ Public Class MdiParent1
     ''' </summary>
     Sub CheckBackup()
         Try
-            Dim objR As New BSRegistry
+            Dim objR As New BsRegistry
             Dim lastSucBackup As String = ""
             Dim alertOnBackUp As Boolean
             Dim trackHistoryDays As Integer
@@ -725,8 +725,8 @@ Public Class MdiParent1
     Function IsNotOldEnough(ByVal strId As String) As Boolean
         Dim bAns As Boolean = False
         Try
-            Dim obj As New BSDatabase
-            obj.ConnectDB()
+            Dim obj As New BsDatabase
+            obj.ConnectDb()
             Dim sql As String = "SELECT ItemSold, dtSold from qryGunCollectionDetails where ID=" & strId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -742,7 +742,7 @@ Public Class MdiParent1
                 isSold = CInt(rs("ItemSold"))
             End While
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
             If isSold > 0 Then
                 If DateDiff(DateInterval.Year, CDate(strDate), DateTime.Now) < 5 Then bAns = True
             End If
@@ -832,7 +832,7 @@ Public Class MdiParent1
             ListBox1.Refresh()
             lblTotal.Text = ListBox1.Items.Count
             If Lastviewedfirearm > 0 Then ListBox1.SelectedValue = Lastviewedfirearm
-            Dim objR As New BSRegistry
+            Dim objR As New BsRegistry
             If IsReady Then objR.SaveFirearmListSort(cmbView.SelectedItem.ToString)
         Catch ex As Exception
             Dim strProcedure As String = "RefreshCollection"
@@ -860,7 +860,7 @@ Public Class MdiParent1
         Try
             Dim itemName As String = ListBox1.Text
             Dim itemId As Long = ListBox1.SelectedValue
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             Dim strNewName As String = InputBox("Type in the new name for " & itemName & ":", "Rename Firearm Display Name", itemName)
             If Len(strNewName) = 0 Then Exit Sub
             Dim sql As String = "UPDATE Gun_Collection set FullName='" & strNewName & "',sync_lastupdate=Now() where ID=" & itemId

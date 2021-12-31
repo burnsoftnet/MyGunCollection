@@ -16,8 +16,8 @@ Public Class FrmViewMaintancePlan
     Sub GetData()
         Try
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Maintance_Plans where ID=" & Id
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -30,7 +30,7 @@ Public Class FrmViewMaintancePlan
                 If Not IsDBNull(rs("Notes")) Then txtNotes.Text = rs("Notes")
             End While
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "GetData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -85,7 +85,7 @@ Public Class FrmViewMaintancePlan
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim sql As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOd & _
                         "',iid=" & intIid & ",iirf=" & intIirf & ",Notes='" & strNotes & "' where ID=" & Id
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             obj.ConnExec(sql)
             btnEdit.Visible = True
             btnUpdate.Visible = False

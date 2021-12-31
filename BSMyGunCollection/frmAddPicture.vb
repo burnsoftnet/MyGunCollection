@@ -37,8 +37,8 @@ Public Class FrmAddPicture
     Function IsFirstPic(ByVal strCid As String) As Boolean
         Dim bAns As Boolean = False
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Gun_Collection_Pictures where CID=" & strCid & " and ISMAIN=1"
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -49,7 +49,7 @@ Public Class FrmAddPicture
                 bAns = True
             End If
             rs.Close()
-            Call obj.CloseDB()
+            Call obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "IsFirstPic"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -99,9 +99,9 @@ Public Class FrmAddPicture
             mbrT.Read(bufferT, 0, CInt(stT.Length))
             stT.Close()
             '--End Function to convert picture to thumbnail for database format--
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             Dim myConn As New Connection
-            myConn.Open(obj.sConnect)
+            myConn.Open(obj.SConnect)
             Dim rs As New Recordset
             rs.Open("Gun_Collection_Pictures", myConn, 2, 2)
             rs.AddNew()

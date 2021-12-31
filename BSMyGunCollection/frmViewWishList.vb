@@ -99,7 +99,7 @@ Public Class FrmViewWishList
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim obj As New BSDatabase
+        Dim obj As New BsDatabase
         Dim objG As New GlobalFunctions
         Dim strName As String = objG.GetWishListName(itemId)
         Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")

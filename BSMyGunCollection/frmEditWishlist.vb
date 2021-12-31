@@ -21,8 +21,8 @@ Public Class FrmEditWishlist
     ''' </summary>
     Sub UpdateData()
         Try
-            Dim obj As New BSDatabase
-            obj.ConnectDB()
+            Dim obj As New BsDatabase
+            obj.ConnectDb()
             Dim sql As String = "SELECT * from Wishlist where ID=" & ItemId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -36,7 +36,7 @@ Public Class FrmEditWishlist
                 txtNotes.Text = Trim(rs("Notes"))
             End While
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "UpdateData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)

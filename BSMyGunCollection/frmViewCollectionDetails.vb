@@ -305,7 +305,7 @@ Public Class FrmViewCollectionDetails
                 Dim myText As String = ListView1.Items(CInt(myIndex)).Text
                 'TODO: #50 Replace function below with one from library
                 Dim sql As String = "DELETE from Gun_Collection_Pictures where ID=" & myText
-                Dim obj As New BSDatabase
+                Dim obj As New BsDatabase
                 obj.ConnExec(sql)
                 
                 Call GetPics()
@@ -439,7 +439,7 @@ Public Class FrmViewCollectionDetails
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
         Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
         If meAns = vbYes Then
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             Dim uSql As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & GunId
             obj.ConnExec(uSql)
             MDIParent1.RefreshCollection()
@@ -453,10 +453,10 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     ''' <returns>System.Int64.</returns>
     Function CountPics() As Long
-        Dim obj As New BSDatabase
+        Dim obj As New BsDatabase
         Dim iAns As Long = 0
         Try
-            Call obj.ConnectDB()
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT Count(*) as Total from Gun_Collection_Pictures where CID=" & GunId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -533,8 +533,8 @@ Public Class FrmViewCollectionDetails
     'Populate the selling information in the disposition tab.
     Sub LoadSellerData()
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -557,7 +557,7 @@ Public Class FrmViewCollectionDetails
                 If Not IsDBNull(rs("ResiDent")) Then txtRes.Text = rs("ResiDent")
             End While
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadSellerData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -744,8 +744,8 @@ Public Class FrmViewCollectionDetails
             imgPics.Images.Clear()
             Dim picCount As Long = CountPics()
             Dim i As Long 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT ID from Gun_Collection_Pictures where CID=" & GunId '& " order by ID DESC"
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -760,7 +760,7 @@ Public Class FrmViewCollectionDetails
                     rs.Read()
                 Next i
             End If
-            obj.CloseDB()
+            obj.CloseDb()
 
         Catch ex As Exception
             Call LogError(Name, "GetPics", Err.Number, ex.Message.ToString)
@@ -773,8 +773,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="i">The i.</param>
     Sub GetPicsId(ByVal picId As Long, ByVal i As Long)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT THUMB from Gun_Collection_Pictures where ID=" & picId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim b() As Byte = cmd.ExecuteScalar
@@ -784,7 +784,7 @@ Public Class FrmViewCollectionDetails
                 DrawToScale(New Bitmap(stream), i, picId)
                 stream.Close()
             End If
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "GetPicsID", Err.Number, ex.Message.ToString)
         End Try
@@ -965,7 +965,7 @@ Public Class FrmViewCollectionDetails
             sAns &= XML_GenerateBarrelConversKit()
             sAns &= "</Firearm>" & nl
             sAns = Replace(sAns, "&", "&amp;")
-            Dim objFs As New BSFileSystem
+            Dim objFs As New BsFileSystem
             objFs.OutPutToFile(strPath, sAns)
             MsgBox("Firearm was exported to " & Chr(10) & strPath)
         Catch ex As Exception
@@ -1036,8 +1036,8 @@ Public Class FrmViewCollectionDetails
         Dim sAns As String = ""
         Dim nl As String = Chr(10) & Chr(13)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Gun_Collection_Accessories where GID=" & GunId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -1066,7 +1066,7 @@ Public Class FrmViewCollectionDetails
                 sAns &= "    </Accessories>" & nl
             End If
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "GenerateAss", Err.Number, ex.Message.ToString)
         End Try
@@ -1080,8 +1080,8 @@ Public Class FrmViewCollectionDetails
         Dim sAns As String = ""
         Dim nl As String = Chr(10) & Chr(13)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Maintance_Details where GID=" & GunId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -1102,7 +1102,7 @@ Public Class FrmViewCollectionDetails
                 sAns &= "    </Maintance_Details>" & nl
             End If
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "XML_GenerateMaint", Err.Number, ex.Message.ToString)
         End Try
@@ -1116,8 +1116,8 @@ Public Class FrmViewCollectionDetails
         Dim sAns As String = ""
         Dim nl As String = Chr(10) & Chr(13)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from GunSmith_Details where GID=" & GunId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -1137,7 +1137,7 @@ Public Class FrmViewCollectionDetails
                 sAns &= "    </GunSmith_Details>" & nl
             End If
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "XML_GenerateGSmith", Err.Number, ex.Message.ToString)
         End Try
@@ -1151,8 +1151,8 @@ Public Class FrmViewCollectionDetails
         Dim sAns As String = ""
         Dim nl As String = Chr(10) & Chr(13)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Gun_Collection_Ext where GID=" & GunId
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -1181,7 +1181,7 @@ Public Class FrmViewCollectionDetails
                 sAns &= "    </BarrelConverstionKit_Details>" & nl
             End If
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "XML_GenerateBarrelConversKit", Err.Number, ex.Message.ToString)
         End Try

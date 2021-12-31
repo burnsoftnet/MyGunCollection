@@ -76,8 +76,8 @@ Public Class FrmFirearmImagePicker
     Sub GetPicture(picit As Long)
         Try
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & picit
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim b() As Byte = cmd.ExecuteScalar
@@ -112,8 +112,8 @@ Public Class FrmFirearmImagePicker
             _firearmIdArray = New ArrayList
             _firearmNameArray = New ArrayList
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
+            Dim obj As New BsDatabase
+            Call obj.ConnectDb()
             Dim sql As String = "SELECT p.id,p.cid,c.FullName, p.Picture from Gun_Collection_Pictures p inner join Gun_Collection c on c.id=p.cid where p.ISMAIN=1 order by c.FullName asc;"
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -125,7 +125,7 @@ Public Class FrmFirearmImagePicker
                 _maxItems += 1
             End While
             rs.Close()
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadArrays"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)

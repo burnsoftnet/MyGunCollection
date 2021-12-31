@@ -23,8 +23,8 @@ Public Class FrmEditPicturedetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim obj As New BSDatabase
-            obj.ConnectDB()
+            Dim obj As New BsDatabase
+            obj.ConnectDb()
             Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & Pid
             Dim cmd As New OdbcCommand(sql, obj.Conn)
             Dim rs As OdbcDataReader
@@ -35,7 +35,7 @@ Public Class FrmEditPicturedetails
             End While
             rs.Close()
 
-            obj.CloseDB()
+            obj.CloseDb()
         Catch ex As Exception
             Dim sSubFunc As String = "LoadData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -52,7 +52,7 @@ Public Class FrmEditPicturedetails
             Dim sNotes As String = FluffContent(txtNotes.Text)
             Dim sql As String = "UPDATE Gun_Collection_Pictures set pd_name='" & _
                                 sTitle & "', pd_note='" & sNotes & "',sync_lastupdate=Now() where ID=" & Pid
-            Dim obj As New BSDatabase
+            Dim obj As New BsDatabase
             obj.ConnExec(sql)
             Close()
         Catch ex As Exception

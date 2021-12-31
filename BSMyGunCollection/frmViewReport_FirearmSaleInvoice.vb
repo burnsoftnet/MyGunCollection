@@ -27,7 +27,7 @@ Public Class FrmViewReportFirearmSaleInvoice
         Dim ownerPhone As String = ""
         Dim ownerCcd As String = ""
         Dim obj As New GlobalFunctions
-        obj.GetUserSettingsDB(ownerRecId, ownerName, ownerAddress, ownerCity, ownerState, ownerZip, ownerPhone, ownerCcd)
+        obj.GetUserSettingsDb(ownerRecId, ownerName, ownerAddress, ownerCity, ownerState, ownerZip, ownerPhone, ownerCcd)
         Dim parmList As New List(Of ReportParameter)
         parmList.Add(New ReportParameter("OWNER_Name", ownerName))
         parmList.Add(New ReportParameter("OWNER_Address", ownerAddress))
