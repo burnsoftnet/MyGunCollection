@@ -439,6 +439,7 @@ Public Class FrmViewCollectionDetails
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
         Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
         If meAns = vbYes Then
+            ''TODO #50 Replace with function from library
             Dim obj As New BsDatabase
             Dim uSql As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & GunId
             obj.ConnExec(uSql)
@@ -468,8 +469,7 @@ Public Class FrmViewCollectionDetails
             End If
             rs.Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "CountPics"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "CountPics", Err.Number, ex.Message.ToString)
         End Try
         Return iAns
     End Function
@@ -495,8 +495,7 @@ Public Class FrmViewCollectionDetails
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadAmmoData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadAmmoData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -526,13 +525,13 @@ Public Class FrmViewCollectionDetails
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadMaintData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadMaintData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     'Populate the selling information in the disposition tab.
     Sub LoadSellerData()
         Try
+            ''TODO: #50 Replace with function form library
             Dim obj As New BsDatabase
             Call obj.ConnectDb()
             Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerId
@@ -559,8 +558,7 @@ Public Class FrmViewCollectionDetails
             rs.Close()
             obj.CloseDb()
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadSellerData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadSellerData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
