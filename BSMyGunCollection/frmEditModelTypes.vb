@@ -1,4 +1,5 @@
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+
 ''' <summary>
 ''' Class FrmEditModelTypes.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -35,10 +36,17 @@ Public Class FrmEditModelTypes
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditModelTypes_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        txtManufacturer.Text = ManufacturersName
-        txtModel.Text = ModelName
-        Dim obj As New GlobalFunctions
-        ManufacturersId = obj.GetManufacturersID(ManufacturersName)
+        Try 
+            txtManufacturer.Text = ManufacturersName
+            txtModel.Text = ModelName
+            Dim errOut as String = ""
+            ManufacturersId = Manufacturers.GetId(DatabasePath, ManufacturersName,errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            If ManufacturersId = 0 Then Manufacturers.Add(DatabasePath, ManufacturersName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+        Catch ex As Exception
+            Call LogError(Name, "frmEditModelTypes_Load", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
@@ -48,14 +56,12 @@ Public Class FrmEditModelTypes
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim errOut as String = ""
-            If Not BurnSoft.Applications.MGC.Firearms.Models.Update(DatabasePath, ModelId, txtModel.Text, errOut) Then Throw New Exception(errOut)
-            If Not BurnSoft.Applications.MGC.Firearms.Manufacturers.Update(DatabaseName, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
-
-            frmEditModel.LoadData()
-            Close()
+            If Not Models.Update(DatabasePath, ModelId, txtModel.Text, errOut) Then Throw New Exception(errOut)
+            If Not Manufacturers.Update(DatabaseName, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
+        frmEditModel.LoadData()
+        Close()
     End Sub
 End Class

@@ -665,22 +665,6 @@ Namespace MGC
         End Function
 
         ''' <summary>
-        ''' Gets the manufacturers identifier.
-        ''' </summary>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetManufacturersID(ByVal strValue As String) As Long
-            Dim SQL As String = "SELECT ID from Gun_Manufacturer where Brand='" & strValue & "'"
-            Dim iAns As Long = GetID(SQL)
-            If iAns = 0 Then
-                Dim Obj As New BSDatabase
-                Obj.ConnExec("INSERT INTO Gun_Manufacturer(Brand,sync_lastupdate) VALUES('" & strValue & "',Now())")
-                iAns = GetID(SQL)
-            End If
-            Return iAns
-        End Function
-
-        ''' <summary>
         ''' Gets the name of the wish list.
         ''' </summary>
         ''' <param name="strID">The string identifier.</param>
@@ -706,31 +690,6 @@ Namespace MGC
                 Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
             Return sAns
-        End Function
-
-        ''' <summary>
-        ''' Stolen buyer exists.
-        ''' </summary>
-        ''' <param name="strName">Name of the string.</param>
-        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function StolenBuyerExists(ByVal strName As String) As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim Obj As New BSDatabase
-                Dim SQL As String = "SELECT * from Gun_Collection_SoldTo where Name='" & strName & "'"
-                Call Obj.ConnectDB()
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                bAns = RS.HasRows
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "StolenBuyerExists"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
         End Function
 
         ''' <summary>
@@ -904,32 +863,6 @@ Namespace MGC
             End Try
         End Sub
 
-        ''' <summary>
-        ''' Determines whether [has documents attached] [the specified gid].
-        ''' </summary>
-        ''' <param name="GID">The gid.</param>
-        ''' <returns><c>true</c> if [has documents attached] [the specified gid]; otherwise, <c>false</c>.</returns>
-        Function HasDocumentsAttached(GID As Long) As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim Obj As New BSDatabase
-                Obj.ConnectDB()
-                Dim SQL As String = "select * from Gun_Collection_Docs_Links where GID=" & GID
-                Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-                Dim RS As OdbcDataReader
-                RS = CMD.ExecuteReader
-                bAns = RS.HasRows
-                RS.Close()
-                RS = Nothing
-                CMD = Nothing
-                Obj.CloseDB()
-                Obj = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "HasDocumentsAttached"
-                Call LogError(MY_CLASS_NAME, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
         ''' <summary>
         ''' Adds the purchase price accessories.
         ''' </summary>
