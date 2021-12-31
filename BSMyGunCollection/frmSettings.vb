@@ -87,19 +87,19 @@ Public Class FrmSettings
             For Each o As OwnerInfo In lst
                 _recId = o.Id
                 txtName.Text = o.Name
-                txtAddress.Text = One.Decrypt(o.Address)
+                txtAddress.Text = o.Address
                 txtCity.Text = o.City
                 txtState.Text = o.State
                 txtZip.Text = o.ZipCode
                 txtPhone.Text = o.Phone
-                txtCCD.Text = One.Decrypt(o.Ccdwl)
+                txtCCD.Text = o.Ccdwl
                 ChkPassword.Checked = o.UsePassword
                 If o.UsePassword Then
-                    txtPWD.Text = One.Decrypt(o.Password)
+                    txtPWD.Text = o.Password
                     txtCPWD.Text = txtPWD.Text
-                    txtLogin.Text = One.Decrypt(o.UserName)
-                    txtPhrase.Text = One.Decrypt(o.ForgotPhrase)
-                    txtWord.Text = One.Decrypt(o.ForgotWord)
+                    txtLogin.Text = o.UserName
+                    txtPhrase.Text = o.ForgotPhrase
+                    txtWord.Text = o.ForgotWord
                 End If
             Next
         Catch ex As Exception
@@ -137,20 +137,20 @@ Public Class FrmSettings
             Disableuniquecustcatid = chkUnique.Checked
             Useselectiveboundbook = chkSelectiveBoundBook.Checked
             Dim strName As String = FluffContent(txtName.Text)
-            Dim strAddress As String = One.Encrypt(FluffContent(txtAddress.Text))
+            Dim strAddress As String = FluffContent(txtAddress.Text)
             Dim strCity As String = FluffContent(txtCity.Text)
             Dim strState As String = FluffContent(txtState.Text)
             Dim strZipCode As String = FluffContent(txtZip.Text)
             Dim strPhone As String = FluffContent(txtPhone.Text)
-            Dim strCcd As String = One.Encrypt(FluffContent(txtCCD.Text))
-            Dim strPwd As String = One.Encrypt(FluffContent(txtPWD.Text))
-            Dim strCpwd As String = One.Encrypt(FluffContent(txtCPWD.Text))
-            Dim strPhrase As String = One.Encrypt(FluffContent(txtPhrase.Text))
-            Dim strWord As String = One.Encrypt(FluffContent(txtWord.Text))
+            Dim strCcd As String = FluffContent(txtCCD.Text)
+            Dim strPwd As String = FluffContent(txtPWD.Text)
+            Dim strCpwd As String = FluffContent(txtCPWD.Text)
+            Dim strPhrase As String = FluffContent(txtPhrase.Text)
+            Dim strWord As String = FluffContent(txtWord.Text)
             Dim strUid As String = txtLogin.Text
             OwnerLic = txtCCD.Text
             If Len(strUid) = 0 Then strUid = "admin"
-            strUid = One.Encrypt(FluffContent(strUid))
+            strUid = FluffContent(strUid)
 ' ReSharper disable VbUnreachableCode
             If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
