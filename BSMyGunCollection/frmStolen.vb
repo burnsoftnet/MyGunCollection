@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 
 ''' <summary>
 ''' Class FrmStolen.
@@ -43,29 +45,37 @@ Public Class FrmStolen
             Dim sFinalPrice As String = FluffContent("0.00")
             Dim bid As Long
             Dim obj As New BSDatabase
-            Dim objo As New GlobalFunctions
+            'Dim objo As New GlobalFunctions
             Dim errOut as String = ""
             If Not Helpers.IsRequired(strDLic, "Case Number", Text,errOut ) Then Exit Sub
-            If Not objo.StolenBuyerExists(strName) Then
-                Dim sql As String = "INSERT INTO Gun_Collection_SoldTo(Name,Address1," & _
-                                    "Address2,City,State,Country,Phone,fax,website,email," & _
-                                    "lic,DOB,Dlic,Resident,ZipCode,sync_lastupdate) VALUES('" & strName & "','" & _
-                                    strAddress1 & "','" & strAddress2 & "','" & strCity & "','" & _
-                                    strState & "','" & strCountry & "','" & strPhone & "','" & _
-                                    strFax & "','" & strWebsite & "','" & stremail & "','" & _
-                                    strLic & "','" & strDob & "','" & strDLic & "','" & _
-                                    strRes & "','" & strZip & "',Now())"
-                obj.ConnExec(sql)
+
+            If Not Buyers.Exists(DatabasePath, strName, strAddress1, strAddress2, strCity, strState, strZip, strDob, strDLic, errOut)
+                if Not Buyers.Add(DatabasePath, strName, strAddress1, strAddress2, strCity, strState, strZip, strPhone, strCountry,
+                                  stremail, strLic, strWebsite, strFax, strDob, strDLic, strRes, errOut) Then Throw New Exception(errOut)
             End If
-            bid = objo.GetID("SELECT ID from Gun_Collection_SoldTo where Name='" & strName & "'")
+            'If Not objo.StolenBuyerExists(strName) Then
+            '    Dim sql As String = "INSERT INTO Gun_Collection_SoldTo(Name,Address1," & _
+            '                        "Address2,City,State,Country,Phone,fax,website,email," & _
+            '                        "lic,DOB,Dlic,Resident,ZipCode,sync_lastupdate) VALUES('" & strName & "','" & _
+            '                        strAddress1 & "','" & strAddress2 & "','" & strCity & "','" & _
+            '                        strState & "','" & strCountry & "','" & strPhone & "','" & _
+            '                        strFax & "','" & strWebsite & "','" & stremail & "','" & _
+            '                        strLic & "','" & strDob & "','" & strDLic & "','" & _
+            '                        strRes & "','" & strZip & "',Now())"
+            '    obj.ConnExec(sql)
+            'End If
+            'bid = objo.GetID("SELECT ID from Gun_Collection_SoldTo where Name='" & strName & "'")
+            bid = Buyers.GetId(DatabasePath,"SELECT ID from Gun_Collection_SoldTo where Name='" & strName & "'", errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim uSql As String = "UPDATE Gun_Collection set ItemSold=2,BID=" & bid & ",dtSold='" & dtpStolen.Value & "',AppraisedValue='" & sFinalPrice & "',sync_lastupdate=Now() where ID=" & ItemId
             obj.ConnExec(uSql)
-            MDIParent1.RefreshCollection()
-            Close()
+            'If Not MyCollection.MarkAsStolen(DatabasePath,Convert.ToInt32(ItemId), Convert.ToInt32(bid),dtpStolen.Value,"0.00", errOut ) Then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "SaveData"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
         End Try
+        MDIParent1.RefreshCollection()
+        Close()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnCancel control.
