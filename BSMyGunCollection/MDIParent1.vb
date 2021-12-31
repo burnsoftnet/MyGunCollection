@@ -565,8 +565,7 @@ Public Class MdiParent1
             frmNew.MdiParent = Me
             frmNew.Show()
         Catch ex As Exception
-            Dim strProcedure As String = "CopyFirearmToolStripMenuItem.Click"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "CopyFirearmToolStripMenuItem.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 #End Region
@@ -588,8 +587,7 @@ Public Class MdiParent1
             End If
             If Not RunningRegForm Then Application.Exit()
         Catch ex As Exception
-            Dim strProcedure As String = "Disposed"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Disposed", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -633,8 +631,7 @@ Public Class MdiParent1
                 frmNew.Show()
             End If
         Catch ex As Exception
-            Dim strProcedure As String = "Load"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -653,8 +650,7 @@ Public Class MdiParent1
             Dim obj As New MsgClass
             If myLastDateDiff > trackHistoryDays Then obj.DoMessage("It has been " & myLastDateDiff & " days since your last backup.", MgboxStyle.Inf_OK, MgBtnStyle.mb_Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
         Catch ex As Exception
-            Dim strProcedure As String = "CheckBackup"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "CheckBackup", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -672,8 +668,7 @@ Public Class MdiParent1
             frmNew.Show()
             Cursor = Cursors.Arrow
         Catch ex As Exception
-            Dim strProcedure As String = "ListBox1.DoubleClick"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name,"ListBox1.DoubleClick", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 

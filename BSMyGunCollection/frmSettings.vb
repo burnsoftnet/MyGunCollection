@@ -1,7 +1,6 @@
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
-Imports BurnSoft.Security.RegularEncryption.SHA
 
 ''' <summary>
 ''' Class frmSettings.
@@ -40,8 +39,7 @@ Public Class FrmSettings
             End If
             _firstRun = False
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -65,8 +63,7 @@ Public Class FrmSettings
                 txtWord.Enabled = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "ChkPassword_CheckedChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ChkPassword_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -103,8 +100,7 @@ Public Class FrmSettings
                 End If
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "GetData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -115,8 +111,7 @@ Public Class FrmSettings
             Dim objR As New BSRegistry
             Call objR.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
         Catch ex As Exception
-            Dim sSubFunc As String = "GetRegData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetRegData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -151,18 +146,25 @@ Public Class FrmSettings
             OwnerLic = txtCCD.Text
             If Len(strUid) = 0 Then strUid = "admin"
             strUid = FluffContent(strUid)
-' ReSharper disable VbUnreachableCode
+
+' ReSharper disable once VbUnreachableCode
             If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
+' ReSharper disable once VbUnreachableCode
                 If Not Helpers.IsRequired(txtLogin.Text, "User Name", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable once VbUnreachableCode
                 If Not Helpers.IsRequired(txtPWD.Text, "Password", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable once VbUnreachableCode
                 If Not Helpers.IsRequired(txtPhrase.Text, "Forgot Phrase", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable VbUnreachableCode
                 If Not Helpers.IsRequired(txtWord.Text, "Forgot Key Word", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper restore VbUnreachableCode
             End If
             If ChkPassword.Checked Then
                 If InStr(strPwd, strCpwd, CompareMethod.Text) = 0 Then
                     MsgBox("Passwords do not match!", MsgBoxStyle.Critical, Text)
                     Return 1
+' ReSharper disable once VbUnreachableCode
                     Exit Function
                 End If
             End If
@@ -175,8 +177,7 @@ Public Class FrmSettings
             End If
             Return 0
         Catch ex As Exception
-            Dim sSubFunc As String = "SaveData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "SaveData", Err.Number, ex.Message.ToString)
         End Try
     End Function
     ''' <summary>
