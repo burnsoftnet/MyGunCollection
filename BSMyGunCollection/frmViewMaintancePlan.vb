@@ -32,8 +32,7 @@ Public Class FrmViewMaintancePlan
             rs.Close()
             obj.CloseDb()
         Catch ex As Exception
-            Dim sSubFunc As String = "GetData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -96,8 +95,7 @@ Public Class FrmViewMaintancePlan
             txtNotes.ReadOnly = True
             Text = $"View Maintenance Plan"
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

@@ -40,8 +40,7 @@ Public Class FrmAddAmmo
                 Label1.Text = strAmmo & $" already existed!"
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Button1.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Button1.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

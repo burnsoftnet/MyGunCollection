@@ -73,8 +73,7 @@ Public Class FrmViewPicture
             fs.Close()
             MsgBox("Picture was exported to " & strFilePath)
         Catch ex As Exception
-            Dim sSubFunc As String = "ExportPictureToolStripMenuItem.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ExportPictureToolStripMenuItem.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -90,10 +89,8 @@ Public Class FrmViewPicture
             obj.ConnExec(sqlu)
             obj.ConnExec(sql)
             MsgBox("This is now the Default Picture")
-        
         Catch ex As Exception
-            Dim sSubFunc As String = "ChangePictureToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ChangePictureToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -193,8 +190,7 @@ Public Class FrmViewPicture
             rs.Close()
 
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPictureInfo"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPictureInfo", Err.Number, ex.Message.ToString)
         End Try
 
     End Sub
@@ -269,8 +265,7 @@ Public Class FrmViewPicture
                 stream.Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicture"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPicture", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -31,8 +31,7 @@ Public Class FrmViewReportAmmoByCaliber
             ReportViewer1.LocalReport.SetParameters(parmList)
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -76,8 +75,7 @@ Public Class FrmViewReportAmmoByCaliber
             End Select
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripComboBox1_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

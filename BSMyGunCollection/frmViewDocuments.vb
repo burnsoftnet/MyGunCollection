@@ -92,8 +92,7 @@ Public Class FrmViewDocuments
                 Call RefreshData()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DeleteToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -98,12 +98,18 @@ Public Class FrmViewWishList
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
-        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim obj As New BsDatabase
-        Dim objG As New GlobalFunctions
-        Dim strName As String = objG.GetWishListName(itemId)
-        Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
-        Dim sql As String = "DELETE from Wishlist where ID=" & itemId
-        If strAns = vbYes Then obj.ConnExec(sql) : Call RefreshData()
+        Try
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim errOut As String
+            Dim objG As New GlobalFunctions
+            Dim strName As String = objG.GetWishListName(itemId)
+            Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
+            If strAns = vbYes Then 
+                If Not BurnSoft.Applications.MGC.Other.WishList.Delete(DatabasePath, Convert.ToInt32(itemId), errOut) Then Throw New Exception(errOut)
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+        Call RefreshData()
     End Sub
 End Class
