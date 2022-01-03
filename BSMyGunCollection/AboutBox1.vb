@@ -1,5 +1,6 @@
 Imports System.IO
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class AboutBox1. This class cannot be inherited.
@@ -22,8 +23,7 @@ Public NotInheritable Class AboutBox1
         End If
         Text = String.Format("About {0}", applicationTitle)
         LabelProductName.Text = My.Application.Info.ProductName
-        Dim objGf As New GlobalFunctions
-        LabelVersion.Text = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", objGf.DatabaseVersion)
+        LabelVersion.Text = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, errOut := ""))
         LabelCopyright.Text = My.Application.Info.Copyright
         LabelCompanyName.Text = My.Application.Info.CompanyName
         TextBoxDescription.Text = My.Application.Info.Description
