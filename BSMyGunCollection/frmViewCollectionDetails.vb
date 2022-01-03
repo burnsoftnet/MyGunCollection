@@ -449,33 +449,6 @@ Public Class FrmViewCollectionDetails
         End If
     End Sub
 #End Region
-#Region " General Functions "
-    ''' <summary>
-    ''' Counts the pics. Count the number of pictures that is attached to this firearm.
-    ''' </summary>
-    ''' <returns>System.Int64.</returns>
-    Function CountPics() As Long
-        Dim obj As New BsDatabase
-        Dim iAns As Long = 0
-        Try
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT Count(*) as Total from Gun_Collection_Pictures where CID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    iAns = rs("Total")
-                End While
-            End If
-            rs.Close()
-        Catch ex As Exception
-            Call LogError(Name, "CountPics", Err.Number, ex.Message.ToString)
-        End Try
-        Return iAns
-    End Function
-
-#End Region
 #Region " General Subs "
     ''' <summary>
     ''' Loads the ammo data. Load the Ammo collection tab based on the calibers listed in the main details page
@@ -761,8 +734,8 @@ Public Class FrmViewCollectionDetails
         Try
             ListView1.Clear()
             imgPics.Images.Clear()
-            '' TODO #50 Converted to use library function
-            Dim picCount As Long = CountPics()
+            Dim picCount As Long = Pictures.CountPics(DatabasePath,Convert.ToInt32(GunId), _errOut )
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Dim i As Long 
             Dim obj As New BsDatabase
             Call obj.ConnectDb()
