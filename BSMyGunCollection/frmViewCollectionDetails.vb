@@ -3,8 +3,10 @@ Imports System.IO
 Imports System.Data.Odbc
 Imports System.Security.Policy
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
@@ -484,20 +486,20 @@ Public Class FrmViewCollectionDetails
                 Label50.Visible = False
                 lblTotalFirearm.Visible = False
                 lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)
-                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
                 lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFired(DatabasePath, GunId, _errOut)
-                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
             Else
                 Maintance_DetailsTableAdapter.FillBy_BSID(MGCDataSet.Maintance_Details, GunId, BsDefaultbarrelsystemid)
                 Label50.Visible = True
                 lblTotalFirearm.Visible = True
 
                 lblTotalFirearm.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)  
-                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
                 lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
-                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
                 lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
-                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
             Call LogError(Name, "LoadMaintData", Err.Number, ex.Message.ToString)
@@ -933,8 +935,9 @@ Public Class FrmViewCollectionDetails
             If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = SaveFileDialog1.FileName
             'Call XML_Generate(strFilePath)
-            'Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", objGf.DatabaseVersion)
-            Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString)
+            Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, _errOut))
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            'Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString)
 
             If Not XmlExport.Generate(DatabasePath, Convert.ToInt32(GunId), appVersion, strFilePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
