@@ -1,6 +1,7 @@
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
+Imports System.Security.Policy
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
@@ -931,12 +932,15 @@ Public Class FrmViewCollectionDetails
             SaveFileDialog1.FileName = Replace(Replace(Replace(defaultFileName, " ", "_"), "/", "-"), "\", "-")
             If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = SaveFileDialog1.FileName
-            Call XML_Generate(strFilePath)
-            Close()
+            'Call XML_Generate(strFilePath)
+            'Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", objGf.DatabaseVersion)
+            Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString)
+
+            If Not XmlExport.Generate(DatabasePath, Convert.ToInt32(GunId), appVersion, strFilePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton3_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "ToolStripButton3_Click", Err.Number, ex.Message.ToString)
         End Try
+        Close()
     End Sub
     ''' <summary>
     ''' XMLs the generate.
