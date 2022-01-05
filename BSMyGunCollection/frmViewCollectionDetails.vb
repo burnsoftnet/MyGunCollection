@@ -525,33 +525,6 @@ Public Class FrmViewCollectionDetails
                 txtDOB.Text = l.Dob
                 txtRes.Text = l.Resident
             Next
-
-            ''TODO: #50 Replace with function form library
-            'Dim obj As New BsDatabase
-            'Call obj.ConnectDb()
-            'Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerId
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
-            '    If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
-            '    If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
-            '    If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
-            '    If Not IsDBNull(rs("ZipCode")) Then txtZip.Text = rs("ZipCode")
-            '    If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
-            '    If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
-            '    If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
-            '    If Not IsDBNull(rs("Fax")) Then txtFax.Text = rs("Fax")
-            '    If Not IsDBNull(rs("eMail")) Then txteMail.Text = rs("eMail")
-            '    If Not IsDBNull(rs("WebSite")) Then txtWebSite.Text = rs("WebSite")
-            '    If Not IsDBNull(rs("Lic")) Then txtLic.Text = rs("Lic")
-            '    If Not IsDBNull(rs("DLic")) Then txtDLic.Text = rs("DLic")
-            '    If Not IsDBNull(rs("DOB")) Then txtDOB.Text = rs("DOB")
-            '    If Not IsDBNull(rs("ResiDent")) Then txtRes.Text = rs("ResiDent")
-            'End While
-            'rs.Close()
-            'obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "LoadSellerData", Err.Number, ex.Message.ToString)
         End Try
