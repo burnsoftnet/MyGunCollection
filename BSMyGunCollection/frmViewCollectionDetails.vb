@@ -706,6 +706,7 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public Sub GetPics()
         Try
+            'TODO: #50 Convert this code
             ListView1.Clear()
             imgPics.Images.Clear()
             Dim picCount As Long = Pictures.CountPics(DatabasePath,Convert.ToInt32(GunId), _errOut )
@@ -740,6 +741,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="i">The i.</param>
     Sub GetPicsId(ByVal picId As Long, ByVal i As Long)
         Try
+            'TODO: #50 Convert this code
             Dim obj As New BsDatabase
             Call obj.ConnectDb()
             Dim sql As String = "SELECT THUMB from Gun_Collection_Pictures where ID=" & picId
@@ -905,10 +907,8 @@ Public Class FrmViewCollectionDetails
             SaveFileDialog1.FileName = Replace(Replace(Replace(defaultFileName, " ", "_"), "/", "-"), "\", "-")
             If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = SaveFileDialog1.FileName
-            'Call XML_Generate(strFilePath)
             Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, _errOut))
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            'Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString)
 
             If Not XmlExport.Generate(DatabasePath, Convert.ToInt32(GunId), appVersion, strFilePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
@@ -916,248 +916,6 @@ Public Class FrmViewCollectionDetails
         End Try
         Close()
     End Sub
-    ''' <summary>
-    ''' XMLs the generate.
-    ''' </summary>
-    ''' <param name="strPath">The string path.</param>
-    Sub XML_Generate(ByVal strPath As String)
-        Try
-            Dim sAns As String 
-            Dim nl As String = Chr(10) & Chr(13)
-            sAns = "<?xml version=""1.0"" encoding=""utf-8"" ?>"
-            sAns &= "<Firearm>" & nl
-            sAns &= "   <MGC>"
-            sAns &= "       <version>" & String.Format("Version {0}", Application.ProductVersion.ToString) & "</version>"
-            sAns &= "   </MGC>"
-            sAns &= XML_GenerateDetails()
-            sAns &= XML_GenerateAss()
-            sAns &= XML_GenerateMaint()
-            sAns &= XML_GenerateGSmith()
-            sAns &= XML_GenerateBarrelConversKit()
-            sAns &= "</Firearm>" & nl
-            sAns = Replace(sAns, "&", "&amp;")
-            Dim objFs As New BsFileSystem
-            objFs.OutPutToFile(strPath, sAns)
-            MsgBox("Firearm was exported to " & Chr(10) & strPath)
-        Catch ex As Exception
-            Dim sSubFunc As String = "XML_Generate"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-    End Sub
-    ''' <summary>
-    ''' XMLs the generate details.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateDetails() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        sAns &= "    <Details>" & nl
-        sAns &= "       <FullName>" & Text & "</FullName>" & nl
-        sAns &= "       <Manufacturer>" & txtManu.Text & "</Manufacturer>" & nl
-        sAns &= "       <ModelName>" & txtModel.Text & "</ModelName>" & nl
-        sAns &= "       <SerialNumber>" & txtSerial.Text & "</SerialNumber>" & nl
-        sAns &= "       <Type>" & txtType.Text & "</Type>" & nl
-        sAns &= "       <Caliber>" & txtCal.Text & "</Caliber>" & nl
-        sAns &= "       <Finish>" & txtFinish.Text & "</Finish>" & nl
-        sAns &= "       <Condition>" & txtCondition.Text & "</Condition>" & nl
-        sAns &= "       <CustomID>" & txtCustCatID.Text & "</CustomID>" & nl
-        sAns &= "       <NatID>" & txtNationality.Text & "</NatID>" & nl
-        sAns &= "       <GripID>" & txtGripType.Text & "</GripID>" & nl
-        sAns &= "       <Weight>" & txtWeight.Text & "</Weight>" & nl
-        sAns &= "       <Height>" & txtLength.Text & "</Height>" & nl
-        sAns &= "       <BarrelLength>" & txtBarLen.Text & "</BarrelLength>" & nl
-        sAns &= "       <BarWid>" & txtBarWid.Text & "</BarWid>" & nl
-        sAns &= "       <BarHei>" & txtBarHei.Text & "</BarHei>" & nl
-        sAns &= "       <Action>" & txtAction.Text & "</Action>" & nl
-        sAns &= "       <Feedsystem>" & txtFeed.Text & "</Feedsystem>" & nl
-        sAns &= "       <Sights>" & txtSights.Text & "</Sights>" & nl
-        sAns &= "       <PurchasedPrice>" & txtPurPrice.Text & "</PurchasedPrice>" & nl
-        sAns &= "       <PurchasedFrom>" & txtPurchasedFrom.Text & "</PurchasedFrom>" & nl
-        sAns &= "       <AppraisedValue>" & txtAppValue.Text & "</AppraisedValue>" & nl
-        sAns &= "       <AppraisalDate>" & dtpAppDate.Value & "</AppraisalDate>" & nl
-        sAns &= "       <AppraisedBy>" & txtAppBy.Text & "</AppraisedBy>" & nl
-        sAns &= "       <InsuredValue>" & txtInsVal.Text & "</InsuredValue>" & nl
-        sAns &= "       <StorageLocation>" & txtStorage.Text & "</StorageLocation>" & nl
-        sAns &= "       <ConditionComments>" & txtConCom.Text & "</ConditionComments>" & nl
-        sAns &= "       <AdditionalNotes>" & txtAddNotes.Text & "</AdditionalNotes>" & nl
-        sAns &= "       <Produced>" & txtProduced.Text & "</Produced>" & nl
-        sAns &= "       <IsCandR>" & chkBoxCR.Checked & "</IsCandR>" & nl
-        sAns &= "       <PetLoads>" & txtPetLoads.Text & "</PetLoads>" & nl
-        sAns &= "       <dtp>" & dtpPurchased.Value & "</dtp>" & nl
-        sAns &= "       <Importer>" & txtImporter.Text & "</Importer>" & nl
-        sAns &= "       <ReManDT>" & dtpReManDT.Value & "</ReManDT>" & nl
-        sAns &= "       <POI>" & txtPOI.Text & "</POI>" & nl
-        sAns &= "       <SGChoke>" & txtChoke.Text & "</SGChoke>" & nl
-        sAns &= "       <Caliber3>" & txtCaliber3.Text & "</Caliber3>" & nl
-        sAns &= "       <TwistOfRate>" & txtTwistOfRate.Text & "</TwistOfRate>" & nl
-        sAns &= "       <TriggerPull>" & txtTriggerPull.Text & "</TriggerPull>" & nl
-        sAns &= "       <BoundBook>" & chkBoundBook.Checked & "</BoundBook>" & nl
-        sAns &= "       <Classification>" & txtClassification.Text & "</Classification>" & nl
-        sAns &= "       <DateofCR>" & dtpDateofCR.Value & "</DateofCR>" & nl
-        sAns &= "       <IsClassIII>" & chkClassIII.Checked & "</IsClassIII>" & nl
-        sAns &= "       <ClassIiiOwner>" & txtClassIIIOwner.Text  & "</ClassIiiOwner>" & nl
-        sAns &= "    </Details>" & nl
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate ass.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateAss() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from Gun_Collection_Accessories where GID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <Accessories>" & nl
-                    sAns &= "       <Manufacturer>" & rs("Manufacturer") & "</Manufacturer>" & nl
-                    sAns &= "       <Model>" & rs("Model") & "</Model>" & nl
-                    sAns &= "       <SerialNumber>" & rs("SerialNumber") & "</SerialNumber>" & nl
-                    sAns &= "       <Condition>" & rs("Condition") & "</Condition>" & nl
-                    sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
-                    sAns &= "       <Use>" & rs("Use") & "</Use>" & nl
-                    sAns &= "       <PurValue>" & rs("PurValue") & "</PurValue>" & nl
-                    sAns &= "       <appValue>" & rs("appValue") & "</appValue>" & nl
-                    Dim civ as Boolean = False
-                    If rs("civ") = 1 Then civ = True
-                    sAns &= "       <civ>" & civ & "</civ>" & nl
-                    Dim ic as Boolean = False
-                    If rs("ic") = 1 Then ic = True
-                    sAns &= "       <ic>" & ic & "</ic>" & nl
-                    sAns &= "    </Accessories>" & nl
-                End While
-            Else
-                sAns &= "    <Accessories>" & nl
-                sAns &= "    </Accessories>" & nl
-            End If
-            rs.Close()
-            obj.CloseDb()
-        Catch ex As Exception
-            Call LogError(Name, "GenerateAss", Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate maint.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateMaint() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from Maintance_Details where GID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <Maintance_Details>" & nl
-                    sAns &= "       <Name>" & rs("Name") & "</Name>" & nl
-                    sAns &= "       <OpDate>" & rs("OpDate") & "</OpDate>" & nl
-                    sAns &= "       <OpDueDate>" & rs("OpDueDate") & "</OpDueDate>" & nl
-                    sAns &= "       <RndFired>" & rs("RndFired") & "</RndFired>" & nl
-                    sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
-                    sAns &= "       <ammoUsed>" & rs("au") & "</ammoUsed>" & nl
-                    sAns &= "    </Maintance_Details>" & nl
-                End While
-            Else
-                sAns &= "    <Maintance_Details>" & nl
-                sAns &= "    </Maintance_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDb()
-        Catch ex As Exception
-            Call LogError(Name, "XML_GenerateMaint", Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate g smith.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateGSmith() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from GunSmith_Details where GID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <GunSmith_Details>" & nl
-                    sAns &= "       <gsmith>" & rs("gsmith") & "</gsmith>" & nl
-                    sAns &= "       <sdate>" & rs("sdate") & "</sdate>" & nl
-                    sAns &= "       <rdate>" & rs("rdate") & "</rdate>" & nl
-                    sAns &= "       <od>" & rs("od") & "</od>" & nl
-                    sAns &= "       <notes>" & rs("notes") & "</notes>" & nl
-                    sAns &= "    </GunSmith_Details>" & nl
-                End While
-            Else
-                sAns &= "    <GunSmith_Details>" & nl
-                sAns &= "    </GunSmith_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDb()
-        Catch ex As Exception
-            Call LogError(Name, "XML_GenerateGSmith", Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate barrel convers kit.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateBarrelConversKit() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from Gun_Collection_Ext where GID=" & GunId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <BarrelConverstionKit_Details>" & nl
-                    sAns &= "       <ModelName>" & rs("ModelName") & "</ModelName>" & nl
-                    sAns &= "       <Caliber>" & rs("Caliber") & "</Caliber>" & nl
-                    sAns &= "       <Finish>" & rs("Finish") & "</Finish>" & nl
-                    sAns &= "       <BarrelLength>" & rs("BarrelLength") & "</BarrelLength>" & nl
-                    sAns &= "       <PetLoads>" & rs("PetLoads") & "</PetLoads>" & nl
-                    sAns &= "       <Action>" & rs("Action") & "</Action>" & nl
-                    sAns &= "       <Feedsystem>" & rs("Feedsystem") & "</Feedsystem>" & nl
-                    sAns &= "       <Sights>" & rs("Sights") & "</Sights>" & nl
-                    sAns &= "       <PurchasedPrice>" & rs("PurchasedPrice") & "</PurchasedPrice>" & nl
-                    sAns &= "       <PurchasedFrom>" & rs("PurchasedFrom") & "</PurchasedFrom>" & nl
-                    sAns &= "       <dtp>" & rs("dtp") & "</dtp>" & nl
-                    sAns &= "       <Height>" & rs("Height") & "</Height>" & nl
-                    sAns &= "       <Type>" & rs("Type") & "</Type>" & nl
-                    sAns &= "       <IsDefault>" & rs("IsDefault") & "</IsDefault>" & nl
-                    sAns &= "    </BarrelConverstionKit_Details>" & nl
-                End While
-            Else
-                sAns &= "    <BarrelConverstionKit_Details>" & nl
-                sAns &= "    </BarrelConverstionKit_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDb()
-        Catch ex As Exception
-            Call LogError(Name, "XML_GenerateBarrelConversKit", Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
 #End Region
     ''' <summary>
     ''' Does the edit ass item.
@@ -1306,8 +1064,7 @@ Public Class FrmViewCollectionDetails
            Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
            if Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, BsDefaultbarrelsystemid, bid, GunId, _errOut) Then Throw New Exception(_errOut)
        Catch ex As Exception
-           Dim sSubFunc As String = "SetAsDefaultToolStripMenuItem_Click"
-           Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+           Call LogError(Name, "SetAsDefaultToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
        End Try
         Call LoadData()
     End Sub
