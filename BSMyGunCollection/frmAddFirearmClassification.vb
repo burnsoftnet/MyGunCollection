@@ -32,8 +32,7 @@ Public Class FrmAddFirearmClassification
                     txtClass.Text = ""
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

@@ -175,6 +175,7 @@ Public Class FrmViewPicture
 ' ReSharper disable once ParameterHidesMember
     Public Sub GetPictureInfo(ByVal pid As Long, ByRef sName As String, ByRef sNotes As String)
         Try
+            '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList
             Dim obj As New BsDatabase
             Call obj.ConnectDb()
             Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & MyId

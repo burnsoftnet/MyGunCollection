@@ -19,8 +19,7 @@ Public Class FrmAddAmmo
             txtAmmo.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath, errOut)
             if (errOut.Length > 0) Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

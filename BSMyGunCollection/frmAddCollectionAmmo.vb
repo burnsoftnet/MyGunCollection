@@ -26,8 +26,7 @@ Public Class FrmAddCollectionAmmo
             txtJacket.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Jacket(DatabaseName, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -79,8 +78,7 @@ Public Class FrmAddCollectionAmmo
             MsgBox(strMan & " " & strName & " was added to the database!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

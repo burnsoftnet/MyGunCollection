@@ -44,8 +44,7 @@ Public Class FrmAddDocument
                 If Not Documents.PerformDocLink(DatabasePath, Gid, did, _errOut) Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "CheckForLink"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "CheckForLink", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -64,8 +63,7 @@ Public Class FrmAddDocument
                 _fileWasSelected = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnBrowse.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnBrowse.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

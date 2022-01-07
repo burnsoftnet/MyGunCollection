@@ -37,8 +37,7 @@ Public Class FrmAddManufacturer
             End If
             txtMan.Text = ""
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -50,8 +49,8 @@ Public Class FrmAddManufacturer
         Try
             txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Manufacturer(DatabasePath, _errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

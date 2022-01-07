@@ -1,6 +1,3 @@
-
-'Imports System.Data.Odbc
-'Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
@@ -79,8 +76,7 @@ Public Class FrmAddFirearm
                 txtAddNotes.Text = o.AdditionalNotes
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -117,8 +113,7 @@ Public Class FrmAddFirearm
             txtStorage.Text = ""
             txtSights.Text = ""
         Catch ex As Exception
-            Dim sSubFunc As String = "DoAutoFill"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DoAutoFill", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -148,8 +143,7 @@ Public Class FrmAddFirearm
             Call DoAutoFill()
             If IsCopy Then Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 
@@ -243,8 +237,7 @@ Public Class FrmAddFirearm
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

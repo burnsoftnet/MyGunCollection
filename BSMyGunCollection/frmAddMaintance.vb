@@ -37,8 +37,7 @@ Public Class FrmAddMaintance
         Try
             Maintance_PlansTableAdapter.Fill(MGCDataSet.Maintance_Plans)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -53,8 +52,7 @@ Public Class FrmAddMaintance
             frmViewMaintancePlan.Id = strId
             frmViewMaintancePlan.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnViewPlans_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "btnViewPlans_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -89,8 +87,7 @@ Public Class FrmAddMaintance
             MsgBox(strName & " was added!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

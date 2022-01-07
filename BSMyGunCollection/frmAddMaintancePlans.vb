@@ -28,8 +28,7 @@ Public Class FrmAddMaintancePlans
             MsgBox(strName & " was added to the Maintenance Plans!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

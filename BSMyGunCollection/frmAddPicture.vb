@@ -34,33 +34,6 @@ Public Class FrmAddPicture
         End Try
     End Sub
     ''' <summary>
-    ''' Determines whether [is first pic] [the specified string cid].
-    ''' </summary>
-    ''' <param name="strCid">The string cid.</param>
-    ''' <returns><c>true</c> if [is first pic] [the specified string cid]; otherwise, <c>false</c>.</returns>
-    Function IsFirstPic(ByVal strCid As String) As Boolean
-        Dim bAns As Boolean = False
-        Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from Gun_Collection_Pictures where CID=" & strCid & " and ISMAIN=1"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                bAns = False
-            Else
-                bAns = True
-            End If
-            rs.Close()
-            Call obj.CloseDb()
-        Catch ex As Exception
-            Dim sSubFunc As String = "IsFirstPic"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
-    ''' <summary>
     ''' Handles the Click event of the btnAdd control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -118,6 +91,8 @@ Public Class FrmAddPicture
             Else
                 rs("ISMAIN").Value = 0
             End If
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+
             rs("pd_name").Value = sName
             rs("pd_note").Value = sNotes
             rs("sync_lastupdate").Value = Now

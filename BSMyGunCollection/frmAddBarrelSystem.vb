@@ -36,8 +36,7 @@ Public Class FrmAddBarrelSystem
             txtSysType.AutoCompleteCustomSource = GunCollection.BarrelSysTypes(DatabasePath,errOut)
             If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "AutoFill"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "AutoFill", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -62,8 +61,7 @@ Public Class FrmAddBarrelSystem
             Next
 
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -118,8 +116,7 @@ Public Class FrmAddBarrelSystem
             Close()
 
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

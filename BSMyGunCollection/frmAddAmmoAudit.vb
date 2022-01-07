@@ -44,8 +44,7 @@ Public Class FrmAddAmmoAudit
             Call frmViewAmmoInventory.LoadData()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

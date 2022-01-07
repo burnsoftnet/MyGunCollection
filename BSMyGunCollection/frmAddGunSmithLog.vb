@@ -24,8 +24,7 @@ Public Class FrmAddGunSmithLog
         Try
             txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, _errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -70,8 +69,7 @@ Public Class FrmAddGunSmithLog
             MsgBox("Details where added to the Gun Smith Log", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

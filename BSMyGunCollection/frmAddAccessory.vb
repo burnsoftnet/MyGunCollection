@@ -48,8 +48,7 @@ Public Class FrmAddAccessory
             If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -71,8 +70,7 @@ Public Class FrmAddAccessory
             txtPurVal.AutoCompleteCustomSource = Accessory.PurchaseValue(DatabasePath, errOut)
             If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
