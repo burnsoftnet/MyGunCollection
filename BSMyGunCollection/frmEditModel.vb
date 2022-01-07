@@ -24,8 +24,7 @@ Public Class FrmEditModel
         Try
             GryGunModelToManufacturerTableAdapter.Fill(MGCDataSet.gryGunModelToManufacturer)
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -40,8 +39,7 @@ Public Class FrmEditModel
                 DataGridView1.Width = Width - 19
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Resize"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Resize", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -62,8 +60,7 @@ Public Class FrmEditModel
                 Call LoadData()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DeleteToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 
@@ -84,8 +81,7 @@ Public Class FrmEditModel
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "EditToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "EditToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

@@ -51,8 +51,7 @@ Public Class FrmEditMaintenance
                 chkInAVG.Checked = o.DoesCount
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -65,8 +64,7 @@ Public Class FrmEditMaintenance
             Maintance_PlansTableAdapter.Fill(MGCDataSet.Maintance_Plans)
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -81,8 +79,7 @@ Public Class FrmEditMaintenance
             frmViewMaintancePlan.Id = strId
             frmViewMaintancePlan.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnViewPlans_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnViewPlans_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 
@@ -112,8 +109,7 @@ Public Class FrmEditMaintenance
             If Not BurnSoft.Applications.MGC.Firearms.MaintanceDetails.Update(DatabasePath, Mid, strName, Gid, strId, strOd,strOdDue, strOdrf, strNotes, sAu,Bsid, chkInAVG.Checked, _errOut) Then Throw New Exception(_errOut)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

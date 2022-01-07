@@ -23,6 +23,7 @@ Public Class FrmEditPicturedetails
     ''' </summary>
     Sub LoadData()
         Try
+            '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList
             Dim obj As New BsDatabase
             obj.ConnectDb()
             Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & Pid
@@ -49,6 +50,7 @@ Public Class FrmEditPicturedetails
         Try
             Dim sTitle As String = FluffContent(txtName.Text)
             Dim sNotes As String = FluffContent(txtNotes.Text)
+            '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.UpdatePictureDetails
             Dim sql As String = "UPDATE Gun_Collection_Pictures set pd_name='" & _
                                 sTitle & "', pd_note='" & sNotes & "',sync_lastupdate=Now() where ID=" & Pid
             Dim obj As New BsDatabase

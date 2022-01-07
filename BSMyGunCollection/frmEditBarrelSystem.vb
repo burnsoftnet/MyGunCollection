@@ -47,8 +47,7 @@ Public Class FrmEditBarrelSystem
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
         Catch ex As Exception
-            Dim sSubFunc As String = "AutoFill"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "AutoFill", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -74,8 +73,7 @@ Public Class FrmEditBarrelSystem
                 txtPurFrom.Text = Trim(o.PurchasedFrom)
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -114,8 +112,7 @@ Public Class FrmEditBarrelSystem
             MdiParent.Refresh()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "SaveData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "SaveData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

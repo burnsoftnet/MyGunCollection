@@ -106,8 +106,7 @@ Public Class FrmEditCollectionDetails
             Next
 
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -194,8 +193,7 @@ Public Class FrmEditCollectionDetails
                 Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -292,8 +290,7 @@ Public Class FrmEditCollectionDetails
                 MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

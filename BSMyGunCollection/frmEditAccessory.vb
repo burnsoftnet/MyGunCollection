@@ -43,8 +43,7 @@ Public Class FrmEditAccessory
                 chkIsChoke.Checked = o.IsChoke
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -66,8 +65,7 @@ Public Class FrmEditAccessory
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -98,8 +96,7 @@ Public Class FrmEditAccessory
             If Not BurnSoft.Applications.MGC.Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, strModel, strSerial, strCondition, strNotes, strUse, Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnEdit.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

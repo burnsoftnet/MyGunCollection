@@ -18,8 +18,7 @@ Public Class FrmEditAmmunitionType
         Try
             Gun_CalTableAdapter.Fill(MGCDataSet.Gun_Cal)
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -37,8 +36,7 @@ Public Class FrmEditAmmunitionType
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView1_RowValidated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView1_RowValidated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -52,8 +50,7 @@ Public Class FrmEditAmmunitionType
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunCalBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunCalBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -66,8 +63,7 @@ Public Class FrmEditAmmunitionType
             DataGridView1.Width = Width - 15
             DataGridView1.Height = Height - 39
         Catch ex As Exception
-            Dim sSubFunc As String = "Resize"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Resize", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

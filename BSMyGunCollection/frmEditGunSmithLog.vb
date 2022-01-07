@@ -30,8 +30,7 @@ Public Class FrmEditGunSmithLog
                 txtOD.Text = o.Notes
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -44,8 +43,7 @@ Public Class FrmEditGunSmithLog
             txtGS.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GunSmith.Name(DatabasePath, _errOut)
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -71,8 +69,7 @@ Public Class FrmEditGunSmithLog
 
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
