@@ -97,8 +97,7 @@ Public Class FrmFirearmImagePicker
                 stream.Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicture"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "GetPicture", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -127,8 +126,7 @@ Public Class FrmFirearmImagePicker
             rs.Close()
             obj.CloseDb()
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadArrays"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadArrays", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -215,8 +213,7 @@ Public Class FrmFirearmImagePicker
             Call GetPicture(_picArray(_currentIndex))
             Call SizeForm()
         Catch ex As Exception
-            Dim sSubFunc As String = "frmFirearmImagePicker_Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmFirearmImagePicker_Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

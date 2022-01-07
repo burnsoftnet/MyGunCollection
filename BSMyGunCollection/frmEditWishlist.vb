@@ -38,8 +38,7 @@ Public Class FrmEditWishlist
             rs.Close()
             obj.CloseDb()
         Catch ex As Exception
-            Dim sSubFunc As String = "UpdateData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "UpdateData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -84,8 +83,7 @@ Public Class FrmEditWishlist
             
             If Not BurnSoft.Applications.MGC.Other.WishList.Update(DatabaseName, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, errOut) Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "btnEdit.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
         End Try
         Close()
     End Sub

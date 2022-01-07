@@ -37,8 +37,7 @@ Public Class FrmEditPicturedetails
 
             obj.CloseDb()
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -56,8 +55,7 @@ Public Class FrmEditPicturedetails
             obj.ConnExec(sql)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -92,8 +92,7 @@ Public Class FrmImportFirearm
             UseWaitCursor = False
             MsgBox("Import of the " & fullName & " firearm is complete!")
         Catch ex As Exception
-            Dim sSubFunc As String = "ProcessXMLToDB"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ProcessXMLToDB", Err.Number, ex.Message.ToString)
             UseWaitCursor = False
             MsgBox("Error occured while attempting to import file. See log for details.")
         End Try
