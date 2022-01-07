@@ -865,38 +865,6 @@ Namespace MGC
             Return (dAns)
         End Function
         ''' <summary>
-        ''' Databases the version.
-        ''' </summary>
-        ''' <returns>System.Double.</returns>
-        Public Function DatabaseVersion() As Double
-            Dim dAns As Double = 0
-            Try
-                Dim obj As New BsDatabase
-                Dim sql As String = "SELECT top 1 dbver from DB_Version order by ID desc"
-                Call obj.ConnectDb()
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While rs.Read()
-                        dAns = CDbl(rs("dbver"))
-                    End While
-                Else
-                    dAns = 0
-                End If
-                rs.Close()
-                rs = Nothing
-                cmd = Nothing
-                obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "DatabaseVersion"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-                dAns = 0
-            End Try
-
-            Return dAns
-        End Function
-        ''' <summary>
         ''' Gets the user settings database.
         ''' </summary>
         ''' <param name="recId">The record identifier.</param>
@@ -964,15 +932,7 @@ Namespace MGC
             Dim sendMessage As String = DateTime.Now & vbTab & strMessage
             Call AppendToFile(strPath, sendMessage)
         End Sub
-        ''' <summary>
-        ''' Deletes the file.
-        ''' </summary>
-        ''' <param name="strPath">The string path.</param>
-        Public Sub DeleteFile(ByVal strPath As String)
-            If File.Exists(strPath) Then
-                File.Delete(strPath)
-            End If
-        End Sub
+
         ''' <summary>
         ''' Files the exists.
         ''' </summary>
@@ -1010,25 +970,6 @@ Namespace MGC
         Public Function DirectoryExists(ByVal strPath As String) As Boolean
             Return Directory.Exists(strPath)
         End Function
-        ''' <summary>
-        ''' Gets the name of file.
-        ''' </summary>
-        ''' <param name="strFile">The string file.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetNameOfFile(ByVal strFile As String) As String
-            Dim sAns As String = ""
-            sAns = Path.GetFileName(strFile)
-            Return sAns
-        End Function
-        ''' <summary>
-        ''' Converts to file.
-        ''' </summary>
-        ''' <param name="strPath">The string path.</param>
-        ''' <param name="strNewLine">Creates new line.</param>
-        Public Sub OutPutToFile(ByVal strPath As String, ByVal strNewLine As String)
-            Call AppendToFile(strPath, strNewLine)
-        End Sub
-    End Class
     ''' <summary>
     ''' Class ViewSizeSettings.
     ''' </summary>
