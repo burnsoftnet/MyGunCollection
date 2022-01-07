@@ -20,8 +20,7 @@ Public Class FrmViewAmmoAuditList
         Try
             Gun_Collection_Ammo_PriceAuditTableAdapter.FillBy_AID(MGCDataSet.Gun_Collection_Ammo_PriceAudit, Aid)
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -87,14 +86,14 @@ Public Class FrmViewAmmoAuditList
             Dim price As Double = DataGridView1.SelectedRows.Item(0).Cells.Item(3).Value
 ' ReSharper disable once LocalVariableHidesMember
             Dim ppb As Double = FormatNumber(price / qty, 2)
+            ''TODO: #50 UPdate this function with BurnSoft.Applications.MGC.Ammo.Audit.UpdatePricePerBullet after library update
             Dim obj As New BsDatabase
             Dim sql As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
                                 ppb & " where ID=" & itemId
             obj.ConnExec(sql)
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton2_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

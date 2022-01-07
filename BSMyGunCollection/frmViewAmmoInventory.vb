@@ -47,8 +47,7 @@ Public Class FrmViewAmmoInventory
             End If
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -60,8 +59,7 @@ Public Class FrmViewAmmoInventory
             tslAmmoTotal.Text = $"Total Rounds in Inventory: " & Inventory.GetTotalInventory(DatabasePath, _errOut)
             if _errOut.Length > 0 Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -76,8 +74,7 @@ Public Class FrmViewAmmoInventory
                 DataGridView1.Width = Width - 19
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Resize"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Resize", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -92,8 +89,7 @@ Public Class FrmViewAmmoInventory
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView1_RowValidated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView1_RowValidated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -108,8 +104,7 @@ Public Class FrmViewAmmoInventory
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunCollectionAmmoBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunCollectionAmmoBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -133,8 +128,7 @@ Public Class FrmViewAmmoInventory
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton1_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton1_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -165,8 +159,7 @@ Public Class FrmViewAmmoInventory
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton3_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton3_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -196,8 +189,7 @@ Public Class FrmViewAmmoInventory
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton5_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton5_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

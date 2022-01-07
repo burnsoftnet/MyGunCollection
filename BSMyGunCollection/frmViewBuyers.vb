@@ -48,8 +48,7 @@ Public Class FrmViewBuyers
             frmNew.BuyerId = myValue
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "ListBox1_DoubleClick"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ListBox1_DoubleClick", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -75,8 +74,7 @@ Public Class FrmViewBuyers
                 End If
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton1_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton1_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
