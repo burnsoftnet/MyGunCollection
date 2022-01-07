@@ -69,8 +69,8 @@ Public Class FrmCrSelectTable
         Try
             Dim srid As Long = ComboBox2.SelectedValue
             Dim reportName As String = ComboBox2.Text
-            Dim objGf As New GlobalFunctions
-            Dim sql As String = objGf.GetReportSql(srid)
+            Dim sql As String = CustomReports.GetReportSql(DatabasePath, srid, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Dim frmnew As New FrmCrViewReport
             frmnew.Sql = Replace(sql, "''", "'")
             frmnew.ReportName = reportName

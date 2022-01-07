@@ -732,15 +732,6 @@ Namespace MGC
                 Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
-
-        ''' <summary>
-        ''' Gets the report SQL.
-        ''' </summary>
-        ''' <param name="rid">The rid.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetReportSql(ByVal rid As Long) As String
-            Return GetName("SELECT * from CR_SavedReports where id=" & rid, "MySQL")
-        End Function
         ''' <summary>
         ''' Determines whether [has default picture] [the specified identifier].
         ''' </summary>
@@ -826,6 +817,7 @@ Namespace MGC
         Function AddPurchasePriceAccessories(ByVal gid As Long) As Double
             Dim dAns As Double = 0
             Try
+                '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Accessories.SumUpPurchaseValue
                 Dim obj As New BsDatabase
                 obj.ConnectDb()
                 Dim sql As String = "SELECT SUM(cdbl(PurValue)) as Total from Gun_Collection_Accessories where GID=" & gid
