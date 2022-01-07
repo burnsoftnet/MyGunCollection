@@ -3,6 +3,7 @@ Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports ADODB
+Imports BurnSoft.Applications.MGC.Firearms
 ''TODO: Convert code from FrmAddPicture #7
 ''' <summary>
 ''' Class frmAddPicture.
@@ -14,6 +15,10 @@ Public Class FrmAddPicture
     ''' The item identifier
     ''' </summary>
     Public ItemId As String
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut As String
     ''' <summary>
     ''' Handles the Click event of the btnBrowse control.
     ''' </summary>
@@ -107,7 +112,8 @@ Public Class FrmAddPicture
             rs("CID").Value = ItemId
             rs("PICTURE").AppendChunk(buffer)
             rs("THUMB").AppendChunk(bufferT)
-            If IsFirstPic(ItemId) Then
+            'If IsFirstPic(ItemId) Then
+            If Pictures.IsFirstPic(DatabasePath, Convert.ToInt32(ItemId), errOut) Then
                 rs("ISMAIN").Value = 1
             Else
                 rs("ISMAIN").Value = 0
