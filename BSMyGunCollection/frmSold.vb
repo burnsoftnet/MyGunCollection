@@ -87,8 +87,7 @@ Public Class FrmSold
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -129,8 +128,7 @@ Public Class FrmSold
                 txtRes.Text = o.Resident
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "btnApply.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "btnApply.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

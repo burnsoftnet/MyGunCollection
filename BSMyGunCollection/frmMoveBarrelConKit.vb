@@ -30,8 +30,7 @@ Public Class FrmMoveBarrelConKit
             MsgBox("Barrel/Conversion Kit was moved to " & fullName)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAttach_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAttach_Click", Err.Number, ex.Message.ToString)
         End Try
 
     End Sub

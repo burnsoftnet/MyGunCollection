@@ -78,8 +78,7 @@ Public Class FrmSearchCollection
             lblResults.Text = dgvResults.RowCount
             If dgvResults.RowCount = 1 Then Call ViewCollectionDetails()
         Catch ex As Exception
-            Dim strProcedure As String = "btnSearch.Click"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSearch.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -95,8 +94,7 @@ Public Class FrmSearchCollection
             frmNew.Show()
             Cursor = Cursors.Arrow
         Catch ex As Exception
-            Dim strProcedure As String = "ViewCollectionDetails"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ViewCollectionDetails", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

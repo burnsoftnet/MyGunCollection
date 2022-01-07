@@ -37,7 +37,7 @@ Public Class FrmLinkDocToFirearm
             obj.ConnExec(sql)
         Catch ex As Exception
             Dim sSubFunc As String = "LinkDocToFirearm"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LinkDocToFirearm", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -54,8 +54,7 @@ Public Class FrmLinkDocToFirearm
             Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?", MsgBoxStyle.YesNo, Text)
             If sAns = vbNo Then Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAttach.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAttach.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

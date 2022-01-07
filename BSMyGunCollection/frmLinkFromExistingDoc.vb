@@ -27,8 +27,7 @@ Public Class FrmLinkFromExistingDoc
         Try
             Gun_Collection_DocsTableAdapter.Fill(MGCDataSet.Gun_Collection_Docs)
         Catch ex As Exception
-            Dim sSubFunc As String = "RefreshData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "RefreshData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
