@@ -25,8 +25,7 @@ Public Class FrmAddPicture
             OpenFileDialog1.Filter = $"Bmp Files(*.bmp)|*.bmp|Gif Files(*.gif)|*.gif|Jpg Files(*.jpg)|*.jpg"
             If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
         Catch ex As Exception
-            Dim sSubFunc As String = "btnBrowse.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnBrowse.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

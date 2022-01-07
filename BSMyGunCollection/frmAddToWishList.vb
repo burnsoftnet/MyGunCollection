@@ -23,8 +23,7 @@ Public Class FrmAddToWishList
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
         Catch ex As Exception
-            Dim sSubFunc As String = "DoAutoFill"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DoAutoFill", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -59,8 +58,7 @@ Public Class FrmAddToWishList
                 If Not BurnSoft.Applications.MGC.Other.WishList.Add(DatabasePath, strManu, strModel, strSs, strQty, strValue, strNotes, _errOut) Then Throw new Exception(_errOut)
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
         Close()
     End Sub
@@ -73,8 +71,7 @@ Public Class FrmAddToWishList
         Try
             Call DoAutoFill()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

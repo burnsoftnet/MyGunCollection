@@ -44,8 +44,7 @@ Public Class FrmCrSelectColumns
                 CheckedListBox1.Items.Add(o.DisplayName)
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -80,8 +79,7 @@ Public Class FrmCrSelectColumns
             If i = 0 Then sAns &= "* "
             sAns &= " from " & TableRealName
         Catch ex As Exception
-            Dim sSubFunc As String = "GenerateSQL"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GenerateSQL", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function

@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Universal
 Imports BurnSoft.Applications.MGC.Reports
 
@@ -41,8 +40,7 @@ Public Class FrmCrViewReport
                 .BorderStyle = BorderStyle.Fixed3D
             End With
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -70,8 +68,7 @@ Public Class FrmCrViewReport
                 .ShowDialog()
             End With
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton1.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton1.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -108,8 +105,7 @@ Public Class FrmCrViewReport
                 End If
             End With
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton2.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton2.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 #Region " Windows Form Designer generated code "
@@ -204,8 +200,7 @@ Public Class FrmCrViewReport
                 MsgBox("The Report was Saved!")
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton3.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton3.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -38,8 +38,7 @@ Public Class FrmDbCleanup
         Try 
             If Not DatabaseCleanUp.KillData(DatabasePath, strTable, _errOut ) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "KillData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "KillData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -49,8 +48,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearGripTypes(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearGripTypes"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearGripTypes", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -60,8 +58,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearBuyerList(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearBuyerList"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearBuyerList", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -71,8 +68,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearGunShopList(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearGunShopList"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearGunShopList", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -82,8 +78,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearNationality(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearNationality"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearNationality", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -93,8 +88,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearModels(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearModels"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearModels", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -104,8 +98,7 @@ Public Class FrmDbCleanup
         Try
             If Not DatabaseCleanUp.ClearManufacturers(DatabasePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ClearManufacturers"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ClearManufacturers", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -24,8 +24,7 @@ Public Class FrmCrSelectTable
                 Height = 102
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -37,8 +36,7 @@ Public Class FrmCrSelectTable
         Try
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -59,8 +57,7 @@ Public Class FrmCrSelectTable
             frmNew.Show()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnNext.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnNext.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -80,8 +77,7 @@ Public Class FrmCrSelectTable
             frmnew.MdiParent = MdiParent
             frmnew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnLoadSaved.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnLoadSaved.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -102,8 +98,7 @@ Public Class FrmCrSelectTable
                 Call LoadData()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DeleteToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

@@ -22,8 +22,7 @@ Public Class FrmCrEditSql
                 txtSQL.Text = o.Sql
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -66,8 +65,7 @@ Public Class FrmCrEditSql
             MsgBox("Report Was Saved!")
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnSave_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSave_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

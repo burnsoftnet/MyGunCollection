@@ -29,8 +29,7 @@ Public Class FrmCopyAccessory
             _fullName = Accessories.GetFullName(DatabasePath, Convert.ToInt32(ItemId), _errOut)
             Label1.Text &= _fullName
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -47,8 +46,7 @@ Public Class FrmCopyAccessory
             Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to copy it to another item?", MsgBoxStyle.YesNo, Text)
             If sAns = vbNo Then Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnCopy.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnCopy.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
