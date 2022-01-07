@@ -846,8 +846,7 @@ Public Class MdiParent1
         Try
             Help.ShowHelp(Me, MyHelpFile)
         Catch ex As Exception
-            Dim strProcedure As String = "DoHelp"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DoHelp", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 #End Region
@@ -867,8 +866,7 @@ Public Class MdiParent1
             obj.ConnExec(sql)
             Call RefreshCollection()
         Catch ex As Exception
-            Dim strProcedure As String = "RenameDisplayNameToolStripMenuItem.Click"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "RenameDisplayNameToolStripMenuItem.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

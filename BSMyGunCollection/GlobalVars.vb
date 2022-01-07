@@ -210,69 +210,6 @@ Module GlobalVars
     End Function
 
     ''' <summary>
-    ''' Check to see if the login is enabled in the database
-    ''' </summary>
-    ''' <param name="pwd"></param>
-    ''' <param name="uid"></param>
-    ''' <param name="fw"></param>
-    ''' <param name="fp"></param>
-    ''' <returns></returns>
-    Public Function LoginEnabled(ByRef pwd As String, ByRef uid As String, ByRef fw As String, ByRef fp As String) As Boolean
-        Dim bAns As Boolean = False
-        Try
-            Dim obj As New BsDatabase
-            obj.ConnectDb()
-            Dim sql = "SELECT UsePWD,PWD,UID,forgot_word,forgot_phrase from Owner_Info"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                Dim intUsePwd As Integer = CInt(rs("UsePWD"))
-                If intUsePwd = 1 Then
-                    If Not IsDBNull(rs("PWD")) Then
-                        pwd = One.Decrypt(rs("PWD"))
-                    Else
-                        pwd = ""
-                    End If
-                    If Not IsDBNull(rs("UID")) Then
-                        uid = One.Decrypt(rs("UID"))
-                    Else
-                        uid = "admin"
-                    End If
-                    If Not IsDBNull(rs("forgot_word")) And Len(rs("forgot_word")) > 0 Then
-                        fw = One.Decrypt(rs("forgot_word"))
-                    Else
-                        fw = "burnsoft"
-                    End If
-                    If Not IsDBNull(rs("forgot_phrase")) And Len(rs("forgot_phrase")) > 0 Then
-                        fp = One.Decrypt(rs("forgot_phrase"))
-                    Else
-                        fp = "The Company that made this App"
-                    End If
-                    bAns = True
-                Else
-                    bAns = False
-                    pwd = ""
-                    uid = "admin"
-                    fp = "The Company that made this App"
-                    fw = "burnsoft"
-                End If
-            Else
-                bAns = False
-                pwd = ""
-                uid = "admin"
-                fp = "The Company that made this App"
-                fw = "burnsoft"
-            End If
-            rs.Close()
-            obj.CloseDb()
-        Catch ex As Exception
-            Dim sSubFunc As String = "LoginEnabled"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
-    ''' <summary>
     ''' Dump information in the debug log if enabled
     ''' </summary>
     ''' <param name="sFrom"></param>
