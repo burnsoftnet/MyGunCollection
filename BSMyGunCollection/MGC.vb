@@ -970,6 +970,7 @@ Namespace MGC
         Public Function DirectoryExists(ByVal strPath As String) As Boolean
             Return Directory.Exists(strPath)
         End Function
+    End Class
     ''' <summary>
     ''' Class ViewSizeSettings.
     ''' </summary>
