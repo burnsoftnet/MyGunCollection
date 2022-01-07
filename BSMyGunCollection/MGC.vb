@@ -591,40 +591,7 @@ Namespace MGC
             End Try
             Return sAns
         End Function
-        ''' <summary>
-        ''' Contacts the exists.
-        ''' </summary>
-        ''' <param name="strTable">The string table.</param>
-        ''' <param name="strColumnName">Name of the string column.</param>
-        ''' <param name="strName">Name of the string.</param>
-        ''' <param name="intCount">The int count.</param>
-        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function ContactExists(ByVal strTable As String, ByVal strColumnName As String, ByVal strName As String, Optional ByRef intCount As Integer = 0) As Boolean
-            Dim bAns As Boolean = False
-            Dim sql As String = "SELECT Count(*) as Total from " & strTable & " where " & strColumnName & " like '" & strName & "%'"
-            Try
-                intCount = 0
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While (rs.Read)
-                        intCount = rs("Total")
-                    End While
-                End If
-                If intCount <> 0 Then bAns = True
-                rs.Close()
-                rs = Nothing
-                cmd = Nothing
-                Call obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "ContactExists"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
+
         ''' <summary>
         ''' Determines whether [has collection attached] [the specified string name].
         ''' </summary>

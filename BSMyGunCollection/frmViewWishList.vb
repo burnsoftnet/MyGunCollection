@@ -101,6 +101,7 @@ Public Class FrmViewWishList
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
             Dim errOut As String
+            '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Other.WishList.GetName
             Dim objG As New GlobalFunctions
             Dim strName As String = objG.GetWishListName(itemId)
             Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
