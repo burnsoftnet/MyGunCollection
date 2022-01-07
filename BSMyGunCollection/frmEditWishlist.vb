@@ -1,6 +1,7 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.Other
+Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
 ''' Class FrmEditWishlist.
@@ -17,26 +18,25 @@ Public Class FrmEditWishlist
     ''' </summary>
     Private _strName As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
+    ''' <summary>
     ''' Updates the data.
     ''' </summary>
     Sub UpdateData()
         Try
-            Dim obj As New BsDatabase
-            obj.ConnectDb()
-            Dim sql As String = "SELECT * from Wishlist where ID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While (rs.Read)
-                txtManu.Text = Trim(rs("Manufacturer"))
-                txtModel.Text = Trim(rs("Model"))
-                txtSS.Text = Trim(rs("PlacetoBuy"))
-                txtQty.Text = Trim(rs("Qty"))
-                txtValue.Text = Trim(rs("Value"))
-                txtNotes.Text = Trim(rs("Notes"))
-            End While
-            rs.Close()
-            obj.CloseDb()
+
+            Dim lst As List(Of WishlistList) = WishList.List(DatabasePath, Convert.ToInt32(ItemId), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each l As WishlistList In lst
+                txtManu.Text = l.Manufacturer
+                txtModel.Text = l.Model
+                txtSS.Text = l.PlacetoBuy
+                txtQty.Text = l.Qty
+                txtValue.Text = l.Value
+                txtNotes.Text = l.Notes
+            Next
         Catch ex As Exception
             Call LogError(Name, "UpdateData", Err.Number, ex.Message.ToString)
         End Try
@@ -48,6 +48,7 @@ Public Class FrmEditWishlist
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditWishlist_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         If Len(ItemId) = 0 Then End
+        '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Other.WishList.GetName
         Dim objG As New GlobalFunctions
         _strName = objG.GetWishListName(ItemId)
         Text = _strName
@@ -74,14 +75,13 @@ Public Class FrmEditWishlist
             Dim strQty As String = txtQty.Text
             Dim strValue As String = FluffContent(txtValue.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            Dim errOut As String = ""
 
-            If Not Helpers.IsRequired(strManu, "Manufacturer", Text, errOut) Then Exit Sub
-            If Not Helpers.IsRequired(strModel, "Model", Text, errOut) Then Exit Sub
-            If Not Helpers.IsRequired(strQty, "Qty", Text, errOut) Then Exit Sub
-            If Not Helpers.IsRequired(strValue, "Value", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strQty, "Qty", Text, _errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strValue, "Value", Text, _errOut) Then Exit Sub
             
-            If Not BurnSoft.Applications.MGC.Other.WishList.Update(DatabaseName, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, errOut) Then Throw New Exception(errOut)
+            If Not WishList.Update(DatabaseName, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
         End Try
