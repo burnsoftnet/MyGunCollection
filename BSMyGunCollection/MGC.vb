@@ -498,99 +498,6 @@ Namespace MGC
         ''' Class Name for error file to help locate where the error occurred
         ''' </summary>
         Private Const MyClassName = "MGC.GlobalFunctions"
-        ''' <summary>
-        ''' Objects the existsin database.
-        ''' </summary>
-        ''' <param name="strObject">The string object.</param>
-        ''' <param name="strField">The string field.</param>
-        ''' <param name="strTable">The string table.</param>
-        ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function ObjectExistsinDb(ByVal strObject As String, ByVal strField As String, ByVal strTable As String) As Boolean
-            Try
-                Dim bAns As Boolean = False
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim sql As String = "SELECT " & strField & " from " & strTable & " where " & strField & "='" & strObject & "'"
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    bAns = True
-                Else
-                    bAns = False
-                End If
-                rs.Close()
-                cmd = Nothing
-                Call obj.CloseDb()
-                Return bAns
-            Catch ex As Exception
-                Dim sSubFunc As String = "ObjectExistsinDB"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Function
-        ''' <summary>
-        ''' Gets the identifier.
-        ''' </summary>
-        ''' <param name="sql">The SQL.</param>
-        ''' <returns>System.Int64.</returns>
-        Public Function GetId(ByVal sql As String) As Long
-            Try
-                Dim sAns As Long = 0
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While (rs.Read())
-                        sAns = CLng(rs("ID"))
-                    End While
-                Else
-                    sAns = 0
-                End If
-                rs.Close()
-                cmd = Nothing
-                Call obj.CloseDb()
-                Return sAns
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetID"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString & "::" & sql)
-            End Try
-        End Function
-        ''' <summary>
-        ''' Gets the name.
-        ''' </summary>
-        ''' <param name="sql">The SQL.</param>
-        ''' <param name="strValue">The string value.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetName(ByVal sql As String, ByVal strValue As String) As String
-            Dim sAns As String = "N/A"
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While (rs.Read())
-                        If Not IsDBNull(rs(strValue)) Then
-                            sAns = rs(strValue)
-                        Else
-                            sAns = 0
-                        End If
-                    End While
-                Else
-                    sAns = "N/A"
-                End If
-                rs.Close()
-                cmd = Nothing
-                Call obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetName"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString & "::" & sql)
-            End Try
-            Return sAns
-        End Function
 
         ''' <summary>
         ''' Determines whether [has collection attached] [the specified string name].
@@ -614,8 +521,6 @@ Namespace MGC
                     End While
                 End If
                 rs.Close()
-                rs = Nothing
-                cmd = Nothing
                 Call obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "HasCollectionAttached"
@@ -849,14 +754,11 @@ Namespace MGC
                 Dim sql As String = "SELECT SUM(cdbl(AppValue)) as Total from Gun_Collection_Accessories where GID=" & gid & " and CIV=1"
                 Dim cmd As New OdbcCommand(sql, obj.Conn)
                 Dim rs As OdbcDataReader
-                Dim tCount As Long = 0
                 rs = cmd.ExecuteReader
                 While rs.Read()
                     If Not IsDBNull(rs("Total")) Then dAns = CDbl(rs("Total"))
                 End While
                 rs.Close()
-                rs = Nothing
-                cmd = Nothing
                 obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "AddAppriasedPriceAccessories"
@@ -899,8 +801,6 @@ Namespace MGC
                     recId = 0
                 End If
                 rs.Close()
-                cmd = Nothing
-                rs = Nothing
                 obj.CloseDb()
             Catch ex As Exception
                 Dim sSubFunc As String = "GetUserSettingsDB"
@@ -981,12 +881,14 @@ Namespace MGC
         ''' <param name="height">The height.</param>
         ''' <param name="width">The width.</param>
         ''' <param name="location">The location.</param>
+' ReSharper disable once RedundantAssignment
         Sub LoadViewCollectionDetails(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If My.Settings.ViewCollectionDetails_Width.Length > 0 And My.Settings.ViewCollectionDetails_Height.Length > 0 Then
                 height = My.Settings.ViewCollectionDetails_Height
                 width = My.Settings.ViewCollectionDetails_Width
             End If
             If My.Settings.ViewCollectionDetails_X.Length > 0 And My.Settings.ViewCollectionDetails_Y.Length > 0 Then
+' ReSharper disable once RedundantAssignment
                 location = New Point(My.Settings.ViewCollectionDetails_X, My.Settings.ViewCollectionDetails_Y)
             End If
         End Sub
