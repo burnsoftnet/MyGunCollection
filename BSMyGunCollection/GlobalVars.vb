@@ -1,6 +1,4 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
-Imports BurnSoft.Security.RegularEncryption.SHA
 
 ''' <summary>
 ''' Global Variables and Functions

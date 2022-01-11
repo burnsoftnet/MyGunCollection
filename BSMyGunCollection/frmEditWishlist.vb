@@ -47,11 +47,14 @@ Public Class FrmEditWishlist
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditWishlist_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        If Len(ItemId) = 0 Then End
-        '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Other.WishList.GetName
-        Dim objG As New GlobalFunctions
-        _strName = objG.GetWishListName(ItemId)
-        Text = _strName
+        Try
+            If Len(ItemId) = 0 Then End
+            _strName = WishList.GetName(DatabasePath, Convert.ToInt32(ItemId), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Text = _strName
+        Catch ex As Exception
+            Call LogError(Name, "frmEditWishlist_Load", Err.Number, ex.Message.ToString)
+        End Try
         Call UpdateData()
     End Sub
     ''' <summary>
