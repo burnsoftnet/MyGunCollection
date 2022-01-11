@@ -534,7 +534,8 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadAddAccessories()
         Dim objGf As New GlobalFunctions
-        lblTPV.Text = objGf.AddPurchasePriceAccessories(GunId)
+        'lblTPV.Text = objGf.AddPurchasePriceAccessories(GunId)
+        lblTPV.Text = Accessories.SumUpPurchaseValue(DatabasePath, Convert.ToInt32(GunId), _errOut)
         lblTAV.Text = objGf.AddAppriasedPriceAccessories(GunId)
     End Sub
     ''' <summary>
