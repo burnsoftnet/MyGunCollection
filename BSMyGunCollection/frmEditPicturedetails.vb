@@ -29,28 +29,12 @@ Public Class FrmEditPicturedetails
     ''' </summary>
     Sub LoadData()
         Try
-            'TODO: #50 Convert this function to use on from the updated library:  BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
-
             Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each l As PictureDetails In lst
                 txtName.Text = l.PictureDisplayName
                 txtNotes.Text = l.PictureNotes
             Next
-
-            'Dim obj As New BsDatabase
-            'obj.ConnectDb()
-            'Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & Pid
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    If Not IsDBNull(rs("pd_name")) Then txtName.Text = rs("pd_name")
-            '    If Not IsDBNull(rs("pd_note")) Then txtNotes.Text = rs("pd_note")
-            'End While
-            'rs.Close()
-
-            'obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
