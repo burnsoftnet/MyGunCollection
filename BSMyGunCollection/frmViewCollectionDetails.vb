@@ -2,6 +2,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
@@ -533,10 +534,8 @@ Public Class FrmViewCollectionDetails
     ''' Loads the add accessories. Load the Accessories and total up the cost of the accessories and the total appriased value
     ''' </summary>
     Sub LoadAddAccessories()
-        Dim objGf As New GlobalFunctions
-        lblTPV.Text = objGf.AddPurchasePriceAccessories(GunId)
         lblTPV.Text = Accessories.SumUpPurchaseValue(DatabasePath, Convert.ToInt32(GunId), _errOut)
-        lblTAV.Text = objGf.AddAppriasedPriceAccessories(GunId)
+        lblTAV.Text = Accessories.SumUpAppriaseValue(DatabasePath, Convert.ToInt32(GunId), _errOut)
     End Sub
     ''' <summary>
     ''' Adds the choke option.  When a shotgun is selected, add the ability to put in what choke is in the firearm

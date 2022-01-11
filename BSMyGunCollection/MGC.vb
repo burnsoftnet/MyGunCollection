@@ -500,36 +500,6 @@ Namespace MGC
         Private Const MyClassName = "MGC.GlobalFunctions"
 
         ''' <summary>
-        ''' Determines whether [has collection attached] [the specified string name].
-        ''' </summary>
-        ''' <param name="strName">Name of the string.</param>
-        ''' <param name="strColumnName">Name of the string column.</param>
-        ''' <param name="strTableName">Name of the string table.</param>
-        ''' <returns>System.Int32.</returns>
-        Public Function HasCollectionAttached(ByVal strName As String, ByVal strColumnName As String, Optional strTableName As String = "Gun_Collection") As Integer
-            Dim iAns As Integer = 0
-            Dim sql As String = "SELECT Count(*) as Total from " & strTableName & " where " & strColumnName & "='" & strName & "'"
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While (rs.Read)
-                        iAns = rs("Total")
-                    End While
-                End If
-                rs.Close()
-                Call obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "HasCollectionAttached"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return iAns
-        End Function
-
-        ''' <summary>
         ''' Gets the name of the wish list.
         ''' </summary>
         ''' <param name="strId">The string identifier.</param>
@@ -714,58 +684,6 @@ Namespace MGC
             End Try
         End Sub
 
-        ''' <summary>
-        ''' Adds the purchase price accessories.
-        ''' </summary>
-        ''' <param name="gid">The gid.</param>
-        ''' <returns>System.Double.</returns>
-        Function AddPurchasePriceAccessories(ByVal gid As Long) As Double
-            Dim dAns As Double = 0
-            Try
-                '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Accessories.SumUpPurchaseValue
-                Dim obj As New BsDatabase
-                obj.ConnectDb()
-                Dim sql As String = "SELECT SUM(cdbl(PurValue)) as Total from Gun_Collection_Accessories where GID=" & gid
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-' ReSharper disable once UnusedVariable
-                Dim tCount As Long = 0
-                rs = cmd.ExecuteReader
-                While rs.Read()
-                    If Not IsDBNull(rs("Total")) Then dAns = CDbl(rs("Total"))
-                End While
-                rs.Close()
-                obj.CloseDb()
-            Catch ex As Exception
-                Call LogError(MyClassName, "AddPurchasePriceAccessories", Err.Number, ex.Message.ToString)
-            End Try
-            Return (dAns)
-        End Function
-        ''' <summary>
-        ''' Adds the appriased price accessories.
-        ''' </summary>
-        ''' <param name="gid">The gid.</param>
-        ''' <returns>System.Double.</returns>
-        Function AddAppriasedPriceAccessories(ByVal gid As Long) As Double
-            Dim dAns As Double = 0
-            Try
-                Dim obj As New BsDatabase
-                obj.ConnectDb()
-                Dim sql As String = "SELECT SUM(cdbl(AppValue)) as Total from Gun_Collection_Accessories where GID=" & gid & " and CIV=1"
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                While rs.Read()
-                    If Not IsDBNull(rs("Total")) Then dAns = CDbl(rs("Total"))
-                End While
-                rs.Close()
-                obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "AddAppriasedPriceAccessories"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return (dAns)
-        End Function
         ''' <summary>
         ''' Gets the user settings database.
         ''' </summary>
