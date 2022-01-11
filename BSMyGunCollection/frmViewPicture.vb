@@ -2,6 +2,8 @@ Imports System.IO
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class FrmViewPicture.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -28,6 +30,10 @@ Public Class FrmViewPicture
     ''' The s note
     ''' </summary>
     Public SNote As String = ""
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 #Region "Menu Items"
     ''' <summary>
     ''' Handles the Click event of the CloseToolStripMenuItem control.
@@ -175,20 +181,26 @@ Public Class FrmViewPicture
 ' ReSharper disable once ParameterHidesMember
     Public Sub GetPictureInfo(ByVal pid As Long, ByRef sName As String, ByRef sNotes As String)
         Try
-            'TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & MyId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            sName = ""
-            sNotes = "N/A"
-            While rs.Read()
-                If Not IsDBNull(rs("pd_name")) Then sName = rs("pd_name")
-                If Not IsDBNull(rs("pd_note")) Then sNotes = rs("pd_note")
-            End While
-            rs.Close()
+            'TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
+            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each l As PictureDetails In lst
+                sName = l.PictureDisplayName
+                sNotes = l.PictureNotes
+            Next
+            'Dim obj As New BsDatabase
+            'Call obj.ConnectDb()
+            'Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & MyId
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'sName = ""
+            'sNotes = "N/A"
+            'While rs.Read()
+            '    If Not IsDBNull(rs("pd_name")) Then sName = rs("pd_name")
+            '    If Not IsDBNull(rs("pd_note")) Then sNotes = rs("pd_note")
+            'End While
+            'rs.Close()
 
         Catch ex As Exception
             Call LogError(Name, "GetPictureInfo", Err.Number, ex.Message.ToString)
