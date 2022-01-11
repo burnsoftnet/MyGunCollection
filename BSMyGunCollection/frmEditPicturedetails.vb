@@ -31,26 +31,26 @@ Public Class FrmEditPicturedetails
         Try
             'TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList
 
-            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, errOut)
-            If errOut.Length > 0 Then Throw New Exception(errOut)
-            For Each l As PictureDetails In lst
-                txtName.Text = l.PictureDisplayName
-                txtNotes.Text = l.PictureNotes
-            Next
+            'Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, errOut)
+            'If errOut.Length > 0 Then Throw New Exception(errOut)
+            'For Each l As PictureDetails In lst
+            '    txtName.Text = l.PictureDisplayName
+            '    txtNotes.Text = l.PictureNotes
+            'Next
 
-            'Dim obj As New BsDatabase
-            'obj.ConnectDb()
-            'Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & Pid
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    If Not IsDBNull(rs("pd_name")) Then txtName.Text = rs("pd_name")
-            '    If Not IsDBNull(rs("pd_note")) Then txtNotes.Text = rs("pd_note")
-            'End While
-            'rs.Close()
+            Dim obj As New BsDatabase
+            obj.ConnectDb()
+            Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & Pid
+            Dim cmd As New OdbcCommand(sql, obj.Conn)
+            Dim rs As OdbcDataReader
+            rs = cmd.ExecuteReader
+            While rs.Read
+                If Not IsDBNull(rs("pd_name")) Then txtName.Text = rs("pd_name")
+                If Not IsDBNull(rs("pd_note")) Then txtNotes.Text = rs("pd_note")
+            End While
+            rs.Close()
 
-            'obj.CloseDb()
+            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
@@ -66,15 +66,10 @@ Public Class FrmEditPicturedetails
             Dim sNotes As String = FluffContent(txtNotes.Text)
             If Not BurnSoft.Applications.MGC.Firearms.Pictures.UpdatePictureDetails(DatabasePath, Pid, sTitle, sNotes, errOut) Then Throw New Exception(errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            'TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.UpdatePictureDetails
-            'Dim sql As String = "UPDATE Gun_Collection_Pictures set pd_name='" & _
-            '                    sTitle & "', pd_note='" & sNotes & "',sync_lastupdate=Now() where ID=" & Pid
-            'Dim obj As New BsDatabase
-            'obj.ConnExec(sql)
-            Close()
         Catch ex As Exception
             Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
+        Close()
     End Sub
     ''' <summary>
     ''' Handles the Load event of the frmEditPicturedetails control.
