@@ -100,10 +100,9 @@ Public Class FrmViewWishList
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim errOut As String
-            '' TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Other.WishList.GetName
-            Dim objG As New GlobalFunctions
-            Dim strName As String = objG.GetWishListName(itemId)
+            Dim errOut As String = ""
+            Dim strName As String = BurnSoft.Applications.MGC.Other.WishList.GetName(DatabasePath, Convert.ToInt32(itemId), errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
             Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
             If strAns = vbYes Then 
                 If Not BurnSoft.Applications.MGC.Other.WishList.Delete(DatabasePath, Convert.ToInt32(itemId), errOut) Then Throw New Exception(errOut)
