@@ -500,31 +500,6 @@ Namespace MGC
         Private Const MyClassName = "MGC.GlobalFunctions"
 
         ''' <summary>
-        ''' Gets the name of the wish list.
-        ''' </summary>
-        ''' <param name="strId">The string identifier.</param>
-        ''' <returns>System.String.</returns>
-        Public Function GetWishListName(ByVal strId As String) As String
-            Dim sAns As String = ""
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim sql As String = "SELECT * from WishList where ID=" & strId
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                While (rs.Read)
-                    sAns = rs("Manufacturer") & " " & rs("Model")
-                End While
-                rs.Close()
-                obj.CloseDb()
-            Catch ex As Exception
-                Call LogError(MyClassName, "GetWishListName", Err.Number, ex.Message.ToString)
-            End Try
-            Return sAns
-        End Function
-
-        ''' <summary>
         ''' Catalogs the is numeric.
         ''' </summary>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
