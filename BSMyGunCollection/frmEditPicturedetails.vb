@@ -29,7 +29,7 @@ Public Class FrmEditPicturedetails
     ''' </summary>
     Sub LoadData()
         Try
-            'TODO: #50 Convert this function to use on from the updated library: BurnSoft.Applications.MGC.Firearms.Pictures.GetList
+            'TODO: #50 Convert this function to use on from the updated library:  BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
 
             Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
