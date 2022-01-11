@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Other
 Imports BurnSoft.Applications.MGC.Types
