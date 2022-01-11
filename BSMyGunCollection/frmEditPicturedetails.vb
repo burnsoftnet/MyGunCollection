@@ -31,7 +31,7 @@ Public Class FrmEditPicturedetails
         Try
             'TODO: #50 Convert this function to use on from the updated library:  BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
 
-            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut)
+            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each l As PictureDetails In lst
                 txtName.Text = l.PictureDisplayName
