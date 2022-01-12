@@ -606,13 +606,11 @@ Public Class MdiParent1
             End If
 
             Lastviewedfirearm = 0
-            Dim objR As New BsRegistry
             OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)
             if _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             Call Buggerme("mdiparent1.load", "Owner ID=" & OwnerId)
             Call Buggerme("mdiparent1.load", "Updating App Details")
-            'objR.UpDateAppDetails()
 
             If Not MyRegistry.UpDateAppDetails(Application.ProductVersion,Application.ProductName,Application.ExecutablePath(),ApplicationPath,MyLogFile, DatabasePath, ApplicationPathData, _errOut) Then Throw New Exception(_errOut)
             Call Buggerme("mdiparent1.load", "Checking Registration for App")
@@ -624,7 +622,8 @@ Public Class MdiParent1
             'End of mock registration
 
             IsReady = True
-            cmbView.Text = objR.GetViewSettings("VIEW_FirearmList", "In Stock")
+            cmbView.Text = MyRegistry.GetViewSettings("VIEW_FirearmList",_errOut, "In Stock")
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Call Buggerme("mdiparent1.load", "View The Selected Collection: " & cmbView.Text)
             Call Buggerme("mdiparent1.load", "Refreshing Collection list")
             Call RefreshCollection()
