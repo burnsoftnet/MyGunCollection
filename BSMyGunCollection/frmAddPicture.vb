@@ -46,10 +46,17 @@ Public Class FrmAddPicture
             End If
             Enabled = False
             Cursor = Cursors.WaitCursor
-            Dim sFileName As String = OpenFileDialog1.FileName
-            Dim sThumbName As String = ApplicationPathData & "\mgc_thumb.jpg"
+
             Dim sName As String = FluffContent(txtName.Text, " ")
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
+            Dim errOut As String = ""
+            'TODO: #7 #50 Updated this function with the one from the new library once available and fully tested
+            'If Not Pictures.Save(DatabasePath,OpenFileDialog1.FileName,ApplicationPathData,Convert.ToInt32(ItemId),sName, sNotes, errOut) Then Throw New Exception(errOut)
+
+            Dim sFileName As String = OpenFileDialog1.FileName
+            Dim sThumbName As String = ApplicationPathData & "\mgc_thumb.jpg"
+            'Dim sName As String = FluffContent(txtName.Text, " ")
+            'Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             '---Start Function to convert picture to database format-----
             Dim st As New FileStream(sFileName, FileMode.Open, FileAccess.Read)
             Dim mbr As BinaryReader = New BinaryReader(st)
