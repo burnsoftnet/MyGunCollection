@@ -121,8 +121,8 @@ Public Class FrmSettings
     ''' <returns>System.Int32.</returns>
     Function SaveData() As Integer
         Try
-            Dim objR As New BsRegistry
-            objR.SaveSettings("0000", chkBAKCleanup.Checked, nudDays.Value, False, False, chkAOBU.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
+            If Not MyRegistry.SaveSettings("0000", chkBAKCleanup.Checked, Convert.ToInt32(nudDays.Value), False, chkAOBU.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked, _errOut) Then Throw New Exception(_errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             DoAutoBackup = chkBackupOnExit.Checked
             DoOriginalImage = chkDoOriginalImage.Checked
             UsePetLoads = chkPetLoads.Checked
