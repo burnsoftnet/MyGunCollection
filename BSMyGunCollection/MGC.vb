@@ -206,20 +206,7 @@ Namespace MGC
                 _regUseselectiveboundbook = value
             End Set
         End Property
-        Public Sub UpDateAppDetails()
-            Dim strValue As String = DefaultRegPath
-            If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
-            Dim myReg As RegistryKey
-            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            myReg.SetValue("Version", Application.ProductVersion)
-            myReg.SetValue("AppName", Application.ProductName)
-            myReg.SetValue("AppEXE", Application.ExecutablePath())
-            myReg.SetValue("Path", ApplicationPath)
-            myReg.SetValue("LogPath", MyLogFile)
-            myReg.SetValue("DataBase", ApplicationPathData & "\" & DatabaseName)
-            myReg.SetValue("AppDataPath", ApplicationPathData)
-            myReg.Close()
-        End Sub
+
         Public Sub CreateSubKey(ByVal strValue As String)
             Registry.CurrentUser.CreateSubKey(strValue)
         End Sub
@@ -262,148 +249,9 @@ Namespace MGC
             End Try
             Return sAns
         End Function
-        Public Sub SetSettingDetails()
-            If Not SettingsExists() Then
-                Dim myReg As RegistryKey
-                Dim strValue As String = DefaultRegPath & "\Settings"
-                myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
 
-                myReg = Registry.CurrentUser.CreateSubKey(strValue)
-                myReg.SetValue("Successful", RegSuccessful)
-                myReg.SetValue("SetHistListtb", RegSetHistListtb)
-                myReg.SetValue("SetHistListdt", RegSetHistListdt)
-                myReg.SetValue("AlertOnBackUp", RegAlertOnBackUp)
-                myReg.SetValue("TrackHistoryDays", RegTrackHistoryDays)
-                myReg.SetValue("TrackHistory", RegTrackHistory)
-                myReg.SetValue("LastPath", RegLastPath)
-                myReg.SetValue("LastFile", RegLastFile)
-                myReg.SetValue("BackupOnExit", RegBackupOnExit)
-                myReg.SetValue("UseOrgImage", RegUseOrgImage)
-                myReg.SetValue("ViewPetLoads", RegViewPetLoads)
-                myReg.SetValue("IndvReports", RegIndvReports)
-                myReg.SetValue("UseNumberCatOnly", RegUseNumberCatOnly)
-                myReg.SetValue("AUDITAMMO", RegAuditammo)
-                myReg.Close()
-            End If
-        End Sub
-        Public Function SettingsExists() As Boolean
-            Dim bAns As Boolean = False
-            Dim myReg As RegistryKey
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            On Error Resume Next
-            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            If myReg Is Nothing Then
-                bAns = False
-            Else
-                bAns = True
-            End If
-            Return bAns
-        End Function
-        Public Sub GetSettings(ByRef lastSucBackup As String, ByRef alertOnBackUp As Boolean,
-                            ByRef trackHistoryDays As Integer, ByRef trackHistory As Boolean,
-                            ByRef autoBackup As Boolean, ByRef uoimg As Boolean, ByRef usePl As Boolean,
-                            ByRef useIPer As Boolean, ByRef useCcid As Boolean, ByRef useaa As Boolean,
-                            ByRef useAacid As Boolean, ByRef useUniqueCustId As Boolean, ByRef bUseselectiveboundbook As Boolean)
-            Dim myReg As RegistryKey
-            Dim numberFormat As String
-            Dim useProxy As Boolean
-            Dim autoUpdate As Boolean
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            Try
-                myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-                If myReg Is Nothing Then Call SetSettingDetails()
-                If (Not myReg Is Nothing) Then
-                    trackHistoryDays = CInt(GetRegSubKeyValue(strValue, "TrackHistoryDays", RegTrackHistoryDays)) 'CInt(MyReg.GetValue("TrackHistoryDays", ""))
-                    trackHistory = CBool(GetRegSubKeyValue(strValue, "TrackHistory", RegTrackHistory))
-                    numberFormat = CStr(GetRegSubKeyValue(strValue, "NumberFormat", RegNumberFormat))
-                    autoUpdate = CBool(GetRegSubKeyValue(strValue, "AutoUpdate", RegAutoUpdate))
-                    useProxy = CBool(GetRegSubKeyValue(strValue, "UseProxy", RegUseProxy))
-                    lastSucBackup = GetRegSubKeyValue(strValue, "Successful", RegSuccessful)
-                    alertOnBackUp = CBool(GetRegSubKeyValue(strValue, "AlertOnBackUp", RegAlertOnBackUp))
-                    autoBackup = CBool(GetRegSubKeyValue(strValue, "BackupOnExit", RegBackupOnExit))
-                    uoimg = CBool(GetRegSubKeyValue(strValue, "UseOrgImage", RegUseOrgImage))
-                    usePl = CBool(GetRegSubKeyValue(strValue, "ViewPetLoads", RegViewPetLoads))
-                    useIPer = CBool(GetRegSubKeyValue(strValue, "IndvReports", RegIndvReports))
-                    useCcid = CBool(GetRegSubKeyValue(strValue, "UseNumberCatOnly", RegUseNumberCatOnly))
-                    useaa = CBool(GetRegSubKeyValue(strValue, "AUDITAMMO", RegAuditammo))
-                    useAacid = CBool(GetRegSubKeyValue(strValue, "USEAUTOASSIGN", RegUseautoassign))
-                    useUniqueCustId = CBool(GetRegSubKeyValue(strValue, "DISABLEUNIQUECUSTCATID", RegUniquecustcatid))
-                    bUseselectiveboundbook = CBool(GetRegSubKeyValue(strValue, "USESELECTIVEBOUNDBOOK", RegUseselectiveboundbook))
-                Else
-                    trackHistoryDays = RegTrackHistoryDays
-                    trackHistory = RegTrackHistory
-                    numberFormat = RegNumberFormat
-                    autoUpdate = RegAutoUpdate
-                    useProxy = RegUseProxy
-                    lastSucBackup = RegSuccessful
-                    alertOnBackUp = RegAlertOnBackUp
-                    autoBackup = RegBackupOnExit
-                    uoimg = RegUseOrgImage
-                    usePl = RegViewPetLoads
-                    useIPer = RegIndvReports
-                    useCcid = RegUseNumberCatOnly
-                    useaa = RegAuditammo
-                    useAacid = RegUseautoassign
-                    useUniqueCustId = RegUniquecustcatid
-                    bUseselectiveboundbook = RegUseselectiveboundbook
-                End If
-            Catch ex As Exception
-                Dim myErr As Long = Err.Number
-                If myErr = 13 Then Call SetSettingDetails()
-            End Try
-        End Sub
-        Public Sub SaveSettings(ByVal numberFormat As String, ByVal trackHistory As Boolean,
-                                ByVal trackHistoryDays As Integer, ByVal autoUpdate As Boolean,
-                                ByVal useProxy As Boolean, ByVal alertOnBackUp As Boolean,
-                                ByVal autoBackup As Boolean, ByVal uoimg As Boolean, ByVal usePl As Boolean,
-                                ByVal useIPer As Boolean, ByVal usenccid As Boolean, ByVal useaa As Boolean,
-                                ByVal useAacid As Boolean, ByVal useUniqueCustId As Boolean, ByVal bUseselectiveboundbook As Boolean)
-            Dim myReg As RegistryKey
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            If myReg Is Nothing Then
-                myReg = Registry.CurrentUser.CreateSubKey(strValue)
-            End If
-            myReg.SetValue("TrackHistoryDays", trackHistoryDays)
-            myReg.SetValue("TrackHistory", trackHistory)
-            myReg.SetValue("NumberFormat", numberFormat)
-            myReg.SetValue("AutoUpdate", autoUpdate)
-            myReg.SetValue("UseProxy", useProxy)
-            myReg.SetValue("AlertOnBackUp", alertOnBackUp)
-            myReg.SetValue("BackupOnExit", autoBackup)
-            myReg.SetValue("UseOrgImage", uoimg)
-            myReg.SetValue("ViewPetLoads", usePl)
-            myReg.SetValue("IndvReports", useIPer)
-            myReg.SetValue("UseNumberCatOnly", usenccid)
-            myReg.SetValue("AUDITAMMO", useaa)
-            myReg.SetValue("USEAUTOASSIGN", useAacid)
-            myReg.SetValue("DISABLEUNIQUECUSTCATID", useUniqueCustId)
-            myReg.SetValue("USESELECTIVEBOUNDBOOK", bUseselectiveboundbook)
-            myReg.Close()
-        End Sub
-        Public Sub SaveLastWorkingDir(ByVal strPath As String)
-            Dim myReg As RegistryKey
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            myReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
-            If myReg Is Nothing Then
-                myReg = Registry.CurrentUser.CreateSubKey(strValue)
-            End If
-            myReg.SetValue("LastWorkingPath", strPath)
-            myReg.Close()
-        End Sub
-        Public Function GetLastWorkingDir() As String
-            Dim sAns As String = ""
-            Dim myReg As RegistryKey
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            myReg = Registry.CurrentUser.CreateSubKey(strValue, RegistryKeyPermissionCheck.Default)
-            If myReg Is Nothing Then
-                myReg = Registry.CurrentUser.CreateSubKey(strValue)
-                myReg.SetValue("LastWorkingPath", "")
-            End If
-            sAns = myReg.GetValue("LastWorkingPath", "")
-            myReg.Close()
-            Return sAns
-        End Function
+       
+
         Public Sub SaveFirearmListSort(ByVal configSort As String)
             Dim strValue As String = DefaultRegPath & "\Settings"
             If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
