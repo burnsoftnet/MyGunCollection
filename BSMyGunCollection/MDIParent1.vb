@@ -836,8 +836,7 @@ Public Class MdiParent1
             ListBox1.Refresh()
             lblTotal.Text = ListBox1.Items.Count
             If Lastviewedfirearm > 0 Then ListBox1.SelectedValue = Lastviewedfirearm
-            Dim objR As New BsRegistry
-            If IsReady Then objR.SaveFirearmListSort(cmbView.SelectedItem.ToString)
+            If IsReady Then If Not MyRegistry.SaveFirearmListSort(cmbView.SelectedItem.ToString, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Dim strProcedure As String = "RefreshCollection"
             Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)

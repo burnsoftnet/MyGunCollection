@@ -250,16 +250,6 @@ Namespace MGC
             Return sAns
         End Function
 
-       
-
-        Public Sub SaveFirearmListSort(ByVal configSort As String)
-            Dim strValue As String = DefaultRegPath & "\Settings"
-            If Not RegSubKeyExists(strValue) Then Call CreateSubKey(strValue)
-            Dim myReg As RegistryKey
-            myReg = Registry.CurrentUser.OpenSubKey(strValue, True)
-            myReg.SetValue("VIEW_FirearmList", configSort)
-            myReg.Close()
-        End Sub
         Public Function GetViewSettings(ByVal sKey As String, Optional ByVal sDefault As String = "") As String
             Dim sAns As String = ""
             Dim strValue As String = DefaultRegPath & "\Settings"
