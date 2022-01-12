@@ -1,6 +1,7 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.MsgBox
 ''' <summary>
@@ -611,7 +612,9 @@ Public Class MdiParent1
 
             Call Buggerme("mdiparent1.load", "Owner ID=" & OwnerId)
             Call Buggerme("mdiparent1.load", "Updating App Details")
-            objR.UpDateAppDetails()
+            'objR.UpDateAppDetails()
+
+            If Not MyRegistry.UpDateAppDetails(Application.ProductVersion,Application.ProductName,Application.ExecutablePath(),ApplicationPath,MyLogFile, DatabasePath, ApplicationPathData, _errOut) Then Throw New Exception(_errOut)
             Call Buggerme("mdiparent1.load", "Checking Registration for App")
             'This section was added to change to free version
             Call CheckBackup()
