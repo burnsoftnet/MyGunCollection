@@ -642,12 +642,13 @@ Public Class MdiParent1
     ''' </summary>
     Sub CheckBackup()
         Try
-            Dim objR As New BsRegistry
+    
             Dim lastSucBackup As String = ""
             Dim alertOnBackUp As Boolean
             Dim trackHistoryDays As Integer
             Dim trackHistory As Boolean
-            Call objR.GetSettings(lastSucBackup, alertOnBackUp, trackHistoryDays, trackHistory, DoAutoBackup, DoOriginalImage, UsePetLoads, PersonalMark, UseNumberCatOnly, Auditammo, Useautoassign, Disableuniquecustcatid, Useselectiveboundbook)
+            MyRegistry.GetSettings(lastSucBackup, alertOnBackUp, trackHistoryDays, trackHistory, DoAutoBackup, DoOriginalImage, UsePetLoads, PersonalMark, UseNumberCatOnly, Auditammo, Useautoassign, Disableuniquecustcatid, Useselectiveboundbook, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             If Not alertOnBackUp Then Exit Sub
             Dim myLastDateDiff As Long = DateDiff(DateInterval.Day, CDate(lastSucBackup), DateTime.Now)
             Dim obj As New MsgClass

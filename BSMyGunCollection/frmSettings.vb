@@ -108,8 +108,9 @@ Public Class FrmSettings
     ''' </summary>
     Private Sub GetRegData()
         Try
-            Dim objR As New BsRegistry
-            Call objR.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
+            MyRegistry.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+        
         Catch ex As Exception
             Call LogError(Name, "GetRegData", Err.Number, ex.Message.ToString)
         End Try
