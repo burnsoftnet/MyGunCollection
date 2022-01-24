@@ -31,3 +31,7 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.modHotFixes.HotFix_7")>
 <Assembly: SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.modHotFixes.HotFix_8")>
 <Assembly: SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.modHotFixes.HotFix_9")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.ModGlobal.ConvToNum(System.String)~System.Double")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0054:Use compound assignment", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.ModGlobal.ConvToNum(System.String)~System.Double")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.ModGlobal.DelRegValue(System.String@,System.String@,System.String@)")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0059:Unnecessary assignment of a value", Justification:="<Pending>", Scope:="member", Target:="~M:BSMGC_HotFixes.ModGlobal.HotFixExists(System.String@)~System.Boolean")>

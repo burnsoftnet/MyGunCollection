@@ -418,3 +418,4 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewAppraisers.frmViewAppraisers_Load(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewAppraisers.ListBox1_DoubleClick(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Ammo")>
+<Assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification:="<Pending>", Scope:="member", Target:="~F:BSMyGunCollection.FrmAddPicture.errOut")>
