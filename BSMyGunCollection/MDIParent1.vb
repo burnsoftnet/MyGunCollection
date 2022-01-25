@@ -19,10 +19,6 @@ Public Class MdiParent1
     ''' </summary>
     Private _mChildFormNumber As Integer = 0
     ''' <summary>
-    ''' Converts to try.
-    ''' </summary>
-    Public DaysLeftToTry As String
-    ''' <summary>
     ''' The is ready
     ''' </summary>
     Public IsReady As Boolean = False
