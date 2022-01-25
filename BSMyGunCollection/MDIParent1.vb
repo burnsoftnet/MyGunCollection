@@ -632,6 +632,10 @@ Public Class MdiParent1
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
+            'TODO - #62 this code can help you disconnect from the database
+            'MGCDataSet.Dispose()
+            'GunCollectionBindingSource.Dispose()
+            'MGCDataSetBindingSource.Dispose()
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
