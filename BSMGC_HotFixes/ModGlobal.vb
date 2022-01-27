@@ -88,12 +88,12 @@ Module ModGlobal
             End If
         End Try
     End Sub
-    'This doesn't return anything, you might be able to delete
-    Sub RegHotfixExists()
-        Dim BSReg As New BSRegistry
-        Dim MyRead As String
-        MyRead = BSReg.GetRegSubKeyValue(RegKey & "\\HotFix", "LastUpdate")
-    End Sub
+    ''This doesn't return anything, you might be able to delete
+    'Sub RegHotfixExists()
+    '    Dim BSReg As New BSRegistry
+    '    Dim MyRead As String
+    '    MyRead = BSReg.GetRegSubKeyValue(RegKey & "\\HotFix", "LastUpdate")
+    'End Sub
     'check to see if a hot fix exists from the registry
     Function HotFixExists(ByRef strID As String) As Boolean
         Dim bAns As Boolean = False

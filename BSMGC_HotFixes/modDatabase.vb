@@ -171,13 +171,13 @@ Module modDatabase
         MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & ";"
         Call RunSQL(MySQL, False)
     End Sub
-    'Add Column to Table with default value
-    Sub AddColumnD(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
-        Dim MySQL As String
-        MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " [""" & strDefaultValue & """];"
-        'MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " DEFAULT '" & strDefaultValue & "';"
-        Call RunSQL(MySQL, False)
-    End Sub
+    ''Add Column to Table with default value
+    'Sub AddColumnD(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
+    '    Dim MySQL As String
+    '    MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " [""" & strDefaultValue & """];"
+    '    'MySQL = "ALTER TABLE " & strTable & " ADD COLUMN " & strName & " " & StrType & " DEFAULT '" & strDefaultValue & "';"
+    '    Call RunSQL(MySQL, False)
+    'End Sub
     'Drop database view
     Sub DropView(ByVal ViewName As String)
         Dim SQL As String
@@ -190,18 +190,18 @@ Module modDatabase
         MySQL = "CREATE VIEW " & ViewName & " AS " & SQL
         Call RunSQL(MySQL)
     End Sub
-    'Alter database view
-    Sub AlterView(ByVal ViewName As String, ByVal SQL As String)
-        Dim MySQL As String
-        MySQL = "ALTER VIEW " & ViewName & " AS (" & SQL & ")"
-        Call RunSQL(MySQL)
-    End Sub
-    'Alter database column in table
-    Sub AlterColumn(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
-        Dim MySQL As String
-        MySQL = "ALTER TABLE " & strTable & " ALTER COLUMN " & strName & " " & StrType & ";"
-        Call RunSQL(MySQL)
-    End Sub
+    ''Alter database view
+    'Sub AlterView(ByVal ViewName As String, ByVal SQL As String)
+    '    Dim MySQL As String
+    '    MySQL = "ALTER VIEW " & ViewName & " AS (" & SQL & ")"
+    '    Call RunSQL(MySQL)
+    'End Sub
+    ''Alter database column in table
+    'Sub AlterColumn(ByRef strName As String, ByRef strTable As String, ByRef strDefaultValue As String, ByRef StrType As String)
+    '    Dim MySQL As String
+    '    MySQL = "ALTER TABLE " & strTable & " ALTER COLUMN " & strName & " " & StrType & ";"
+    '    Call RunSQL(MySQL)
+    'End Sub
     'Drop Table
     Sub DropTable(ByRef strTable As String)
         Dim MySQL As String
