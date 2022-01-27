@@ -65,63 +65,63 @@ Module modDatabase
         If Conn.State <> 0 Then Conn.Close()
         Conn = Nothing
     End Sub
-    ''' <summary>
-    ''' Remove Password then Add New Password
-    ''' </summary>
-    Sub ChangePassword()
-        Call RemovePassword()
-        Call AddPassword()
-        Call DebugLog("ChangePassword", "ChangePassword", "INFO")
-    End Sub
-    ''' <summary>
-    ''' Test database with no password
-    ''' </summary>
-    ''' <returns></returns>
-    Public Function TestDBWithNoPWD() As Boolean
-        Dim bAns As Boolean = False
-        Dim Conn As Connection
-        Conn = New Connection
-        Try
-            With Conn
-                .Provider = "Microsoft.Jet.OLEDB.4.0"
-                .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ConnectModeEnum.adModeShareExclusive
-                .Open()
-            End With
-            bAns = True
-            Conn.Close()
-        Catch ex As Exception
-            Call DebugLog("TestDBWithNoPWD", Err.Number & " - " & Err.Description, "ERROR")
-            If Conn.State <> 0 Then Conn.Close()
-        End Try
-        Conn = Nothing
-        Return bAns
-    End Function
-    ''' <summary>
-    ''' Test database with password
-    ''' </summary>
-    ''' <returns></returns>
-    Function TestDBwithPWD() As Boolean
-        Dim bAns As Boolean = False
-        Dim Conn As Connection
-        Conn = New Connection
-        Try
-            With Conn
-                .Provider = "Microsoft.Jet.OLEDB.4.0"
-                .ConnectionString = "Data Source=" & strDBPath
-                .Mode = ConnectModeEnum.adModeShareExclusive
-                .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
-                .Open()
-            End With
-            bAns = True
-            Conn.Close()
-        Catch ex As Exception
-            Call DebugLog("TestDBWithPWD", Err.Number & " - " & Err.Description, "ERROR")
-            If Conn.State <> 0 Then Conn.Close()
-        End Try
-        Conn = Nothing
-        Return bAns
-    End Function
+    '''' <summary>
+    '''' Remove Password then Add New Password
+    '''' </summary>
+    'Sub ChangePassword()
+    '    Call RemovePassword()
+    '    Call AddPassword()
+    '    Call DebugLog("ChangePassword", "ChangePassword", "INFO")
+    'End Sub
+    '''' <summary>
+    '''' Test database with no password
+    '''' </summary>
+    '''' <returns></returns>
+    'Public Function TestDBWithNoPWD() As Boolean
+    '    Dim bAns As Boolean = False
+    '    Dim Conn As Connection
+    '    Conn = New Connection
+    '    Try
+    '        With Conn
+    '            .Provider = "Microsoft.Jet.OLEDB.4.0"
+    '            .ConnectionString = "Data Source=" & strDBPath
+    '            .Mode = ConnectModeEnum.adModeShareExclusive
+    '            .Open()
+    '        End With
+    '        bAns = True
+    '        Conn.Close()
+    '    Catch ex As Exception
+    '        Call DebugLog("TestDBWithNoPWD", Err.Number & " - " & Err.Description, "ERROR")
+    '        If Conn.State <> 0 Then Conn.Close()
+    '    End Try
+    '    Conn = Nothing
+    '    Return bAns
+    'End Function
+    '''' <summary>
+    '''' Test database with password
+    '''' </summary>
+    '''' <returns></returns>
+    'Function TestDBwithPWD() As Boolean
+    '    Dim bAns As Boolean = False
+    '    Dim Conn As Connection
+    '    Conn = New Connection
+    '    Try
+    '        With Conn
+    '            .Provider = "Microsoft.Jet.OLEDB.4.0"
+    '            .ConnectionString = "Data Source=" & strDBPath
+    '            .Mode = ConnectModeEnum.adModeShareExclusive
+    '            .Properties("Jet OLEDB:Database Password").Value = DATABASEPASSWORD
+    '            .Open()
+    '        End With
+    '        bAns = True
+    '        Conn.Close()
+    '    Catch ex As Exception
+    '        Call DebugLog("TestDBWithPWD", Err.Number & " - " & Err.Description, "ERROR")
+    '        If Conn.State <> 0 Then Conn.Close()
+    '    End Try
+    '    Conn = Nothing
+    '    Return bAns
+    'End Function
     ''' <summary>
     ''' Run SQL statement, by default it will run in exclusive mode, unless you pass false in the second parameter
     ''' </summary>
