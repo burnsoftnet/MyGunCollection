@@ -1379,4 +1379,12 @@ Public Class MdiParent1
     Private Sub Hotfix9ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix9ToolStripMenuItem.Click
         Call ReRunThisHostFixbyId(9)
     End Sub
+
+    Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovePasswordToolStripMenuItem.Click
+        'TODO - #62 this code can help you disconnect from the database
+        MGCDataSet.Dispose()
+        GunCollectionBindingSource.Dispose()
+        MGCDataSetBindingSource.Dispose()
+        'If Hotxies
+    End Sub
 End Class

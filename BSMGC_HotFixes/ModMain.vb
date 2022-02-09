@@ -172,7 +172,7 @@ Module ModMain
             bsreg = Nothing
         Catch ex As Exception
             Call LogError("ModMain", "Main", Err.Number, ex.Message.ToString)
-            Console.WriteLine("An Error Occurred: " & ex.Message.ToString & " Press any key to continue!")
+            Console.WriteLine($"An Error Occurred: " & ex.Message.ToString & $" Press any key to continue!")
             Console.Read()
         End Try
     End Sub
