@@ -628,10 +628,6 @@ Public Class MdiParent1
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
-            'TODO - #62 this code can help you disconnect from the database
-            'MGCDataSet.Dispose()
-            'GunCollectionBindingSource.Dispose()
-            'MGCDataSetBindingSource.Dispose()
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
@@ -1380,11 +1376,20 @@ Public Class MdiParent1
         Call ReRunThisHostFixbyId(9)
     End Sub
 
-    Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovePasswordToolStripMenuItem.Click
-        'TODO - #62 this code can help you disconnect from the database
+    Private Sub CloseConnection()
         MGCDataSet.Dispose()
-        GunCollectionBindingSource.Dispose()
-        MGCDataSetBindingSource.Dispose()
-        'If Hotxies
+        'GunCollectionBindingSource.Dispose()
+        'MGCDataSetBindingSource.Dispose()
+    End Sub
+
+    Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+        'TODO - #62 this code can help you disconnect from the database
+        CloseConnection()
+        If BurnSoft.Applications.MGC.hotixes.Database.Security.RemovePassword(DatabasePath, _errOut) Then
+            MsgBox("Password Removed")
+        Else 
+            MsgBox(_errOut)
+        End If
+        RefreshCollection()
     End Sub
 End Class
