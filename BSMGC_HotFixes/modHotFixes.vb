@@ -584,6 +584,7 @@ Module modHotFixes
         If Not ValueDoesExist("Gun_Collection_Condition", "[Name]", sValue) Then Call ConnExec(("INSERT INTO Gun_Collection_Condition ([Name]) VALUES('" & sValue & "')"))
         Console.Write("FINISHED")
         Console.WriteLine(vbTab & "Creating Barrel System Types Table.")
+
         SQL = "CREATE TABLE Gun_Collection_BarrelSysTypes (ID AUTOINCREMENT PRIMARY KEY, [Name] TEXT(255));"
         Call RunSQL(SQL)
         Console.WriteLine(vbTab & "Inserting Data into the Barrel System Types Table.")
