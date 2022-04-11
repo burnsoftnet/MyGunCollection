@@ -1392,4 +1392,18 @@ Public Class MdiParent1
         End If
         RefreshCollection()
     End Sub
+
+    Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
+        Try
+            CloseConnection()
+            If BurnSoft.Applications.MGC.hotixes.HotFix.Run(DatabasePath,10, _errOut) Then
+                MsgBox("Hotfix 10 was Applied!")
+            Else 
+                MsgBox(_errOut)
+            End If
+            RefreshCollection()
+        Catch ex As Exception
+            Call LogError(Name, "Hotfix10ToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
 End Class
