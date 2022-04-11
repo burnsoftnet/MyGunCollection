@@ -2,6 +2,7 @@ Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.hotixes.types
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.MsgBox
 ''' <summary>
@@ -628,6 +629,13 @@ Public Class MdiParent1
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
+            Dim hotfixList As List(Of HotFixList) = MyRegistry.GetHotxes(_errOut)
+            '''TODO: #62 Add other menu options in this section 
+            For Each o As HotFixList In hotfixList
+                If o.Id = 10 Then
+                    Hotfix10ToolStripMenuItem.Enabled = False
+                End If 
+            Next
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
