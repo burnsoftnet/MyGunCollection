@@ -56,16 +56,13 @@ Public Class FrmAddGunSmithLog
             If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Exists(DatabasePath, strSmith, errOut) Then 
                 BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath, strSmith, errOut)
             End If
-            'TODO: #57 UnComment code below when the field is avilable
+
             Dim gsid As Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, errOut)
 
             If Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Add(DatabasePath, Gid, strSmith, gsid, strOd, strNotes, strShip, strReturn, errOut) Then
                 Throw New Exception(errOut)
             End If
-            'TODO: #57 Delete code below when the field is avilable
-            'If Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Add(DatabasePath, Gid, strSmith, strOd, strNotes, strShip, strReturn, errOut) Then
-            '    Throw New Exception(errOut)
-            'End If
+
             MsgBox("Details where added to the Gun Smith Log", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
