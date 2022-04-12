@@ -1397,13 +1397,19 @@ Public Class MdiParent1
     Private Sub Hotfix9ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix9ToolStripMenuItem.Click
         Call ReRunThisHostFixbyId(9)
     End Sub
-
+    ''' <summary>
+    ''' Closes the connection.
+    ''' </summary>
     Private Sub CloseConnection()
         MGCDataSet.Dispose()
         'GunCollectionBindingSource.Dispose()
         'MGCDataSetBindingSource.Dispose()
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the RemovePasswordToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         'TODO - #62 this code can help you disconnect from the database
         CloseConnection()
@@ -1414,6 +1420,10 @@ Public Class MdiParent1
         End If
         RefreshCollection()
     End Sub
+    ''' <summary>
+    ''' Applies the hot fix.
+    ''' </summary>
+    ''' <param name="number">The number.</param>
     Private Sub ApplyHotFix(number As Integer)
         Try
             CloseConnection()
@@ -1427,7 +1437,11 @@ Public Class MdiParent1
             Call LogError(Name, $"ApplyHotfix_{number}", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the Hotfix10ToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
         ApplyHotFix(10)
     End Sub
