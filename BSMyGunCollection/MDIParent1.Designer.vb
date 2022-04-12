@@ -107,6 +107,7 @@ Partial Class MdiParent1
         Me.Hotfix8ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Hotfix9ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RedoAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix10ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowDebugLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,7 +176,8 @@ Partial Class MdiParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.Hotfix10ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix9ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Hotfix8ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -677,7 +679,7 @@ Partial Class MdiParent1
         '
         'ReRunHotfixUpdatesToolStripMenuItem
         '
-        Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.RedoAllToolStripMenuItem, Me.Hotfix10ToolStripMenuItem})
+        Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.RedoAllToolStripMenuItem, Me.Hotfix8ToolStripMenuItem1, Me.Hotfix9ToolStripMenuItem1, Me.Hotfix10ToolStripMenuItem})
         Me.ReRunHotfixUpdatesToolStripMenuItem.Image = CType(resources.GetObject("ReRunHotfixUpdatesToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ReRunHotfixUpdatesToolStripMenuItem.Name = "ReRunHotfixUpdatesToolStripMenuItem"
         Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
@@ -749,6 +751,12 @@ Partial Class MdiParent1
         Me.RedoAllToolStripMenuItem.Name = "RedoAllToolStripMenuItem"
         Me.RedoAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.RedoAllToolStripMenuItem.Text = "Redo All"
+        '
+        'Hotfix10ToolStripMenuItem
+        '
+        Me.Hotfix10ToolStripMenuItem.Name = "Hotfix10ToolStripMenuItem"
+        Me.Hotfix10ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.Hotfix10ToolStripMenuItem.Text = "Hotfix 10"
         '
         'SearchCollectionToolStripMenuItem
         '
@@ -1263,11 +1271,17 @@ Partial Class MdiParent1
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'Hotfix10ToolStripMenuItem
+        'Hotfix9ToolStripMenuItem1
         '
-        Me.Hotfix10ToolStripMenuItem.Name = "Hotfix10ToolStripMenuItem"
-        Me.Hotfix10ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.Hotfix10ToolStripMenuItem.Text = "Hotfix 10"
+        Me.Hotfix9ToolStripMenuItem1.Name = "Hotfix9ToolStripMenuItem1"
+        Me.Hotfix9ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.Hotfix9ToolStripMenuItem1.Text = "Hotfix 9"
+        '
+        'Hotfix8ToolStripMenuItem1
+        '
+        Me.Hotfix8ToolStripMenuItem1.Name = "Hotfix8ToolStripMenuItem1"
+        Me.Hotfix8ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.Hotfix8ToolStripMenuItem1.Text = "Hotfix 8"
         '
         'MdiParent1
         '
@@ -1452,4 +1466,6 @@ End Sub
     Friend WithEvents Hotfix9ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RedoAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Hotfix10ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Hotfix8ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents Hotfix9ToolStripMenuItem1 As ToolStripMenuItem
 End Class

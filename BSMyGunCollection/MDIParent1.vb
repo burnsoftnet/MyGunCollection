@@ -632,6 +632,15 @@ Public Class MdiParent1
             Dim hotfixList As List(Of HotFixList) = MyRegistry.GetHotxes(_errOut)
             '''TODO: #62 Add other menu options in this section 
             For Each o As HotFixList In hotfixList
+                Select o.Id
+                    Case 10
+                        Hotfix10ToolStripMenuItem.Enabled = False
+                    Case 9
+                        Hotfix9ToolStripMenuItem.Enabled = False
+                    Case 8
+                        Hotfix8ToolStripMenuItem.Enabled = False
+                End Select
+
                 If o.Id = 10 Then
                     Hotfix10ToolStripMenuItem.Enabled = False
                 End If 
@@ -1400,18 +1409,28 @@ Public Class MdiParent1
         End If
         RefreshCollection()
     End Sub
-
-    Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
+    Private Sub ApplyHotFix(number As Integer)
         Try
             CloseConnection()
-            If BurnSoft.Applications.MGC.hotixes.HotFix.Run(DatabasePath,10, _errOut) Then
-                MsgBox("Hotfix 10 was Applied!")
+            If BurnSoft.Applications.MGC.hotixes.HotFix.Run(DatabasePath,number, _errOut) Then
+                MsgBox($"Hotfix {number} was Applied!")
             Else 
                 MsgBox(_errOut)
             End If
             RefreshCollection()
         Catch ex As Exception
-            Call LogError(Name, "Hotfix10ToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+            Call LogError(Name, $"ApplyHotfix_{number}", Err.Number, ex.Message.ToString)
         End Try
+    End Sub
+    Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
+        ApplyHotFix(10)
+    End Sub
+
+    Private Sub Hotfix8ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles Hotfix8ToolStripMenuItem1.Click
+        ApplyHotFix(8)
+    End Sub
+
+    Private Sub Hotfix9ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles Hotfix9ToolStripMenuItem1.Click
+        ApplyHotFix(9)
     End Sub
 End Class
