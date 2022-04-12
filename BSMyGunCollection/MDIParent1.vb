@@ -1413,7 +1413,7 @@ Public Class MdiParent1
     Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) 
         'TODO - #62 this code can help you disconnect from the database
         CloseConnection()
-        If BurnSoft.Applications.MGC.hotixes.Database.Security.RemovePassword(DatabasePath, _errOut) Then
+        If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.RemovePassword(DatabasePath, _errOut) Then
             MsgBox("Password Removed")
         Else 
             MsgBox(_errOut)
