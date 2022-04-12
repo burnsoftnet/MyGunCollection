@@ -62,11 +62,14 @@ Public Class FrmEditGunSmithLog
 
             If Not Helpers.IsRequired(strSmith, "Gun Smith Name", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strOd, "Operation Details", Text, _errOut) Then Exit Sub
-            'TODO: #57 UnComment code below when the field is avilable
+
             Dim gsId as Long = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
+
+            If gsId = 0 Then
+                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.Add(DatabasePath,strSmith, _errOut) Then Throw New Exception(_errOut)
+                gsId = BurnSoft.Applications.MGC.PeopleAndPlaces.GunSmiths.GetId(DatabasePath, strSmith, _errOut)
+            End If
             if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id, strSmith, gsId, strOd, strNotes, strShip, strReturn, _errOut) Then Throw New Exception(_errOut)
-            'TODO: #57 Delete code below when the field is avilable
-            'if Not BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Update(DatabasePath, Id,  strSmith, strOd, strNotes, strShip, strReturn, _errOut ) Then Throw New Exception(_errOut)
 
             Close()
         Catch ex As Exception
