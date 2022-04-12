@@ -630,7 +630,7 @@ Public Class MdiParent1
                 frmNew.Show()
             End If
             Dim hotfixList As List(Of HotFixList) = MyRegistry.GetHotxes(_errOut)
-            '''TODO: #62 Add other menu options in this section 
+
             For Each o As HotFixList In hotfixList
                 if Not o.Id.Equals("LastUpdate") Then
                     Select o.Id
