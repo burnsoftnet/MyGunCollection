@@ -657,6 +657,23 @@ Public Class MdiParent1
                     End Select    
                 End If
             Next
+
+            if BurnSoft.Applications.MGC.hotixes.HotFix.NeedsUpdate(DatabasePath, _errOut) Then
+                Dim ans = MsgBox("Updates need to be applied. Apply Now?", MsgBoxStyle.YesNo, "Database Updates Required!")
+                If ans.Equals(vbyes) Then
+                    Dim applied As String = ""
+                    If BurnSoft.Applications.MGC.hotixes.HotFix.ApplyMissingHotFixes(DatabasePath, _errOut, applied) Then
+                        If applied.Length > 0 Then
+                            MsgBox($"Applied Hotfix: {applied}")
+                        Else 
+                            MsgBox($"No Updates applied")
+                        End If
+                    Else 
+                        Throw new Exception(_errOut)
+                    End If
+                End If
+
+            End If
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
