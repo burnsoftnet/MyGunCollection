@@ -21,13 +21,14 @@ Public Class FrmEditGunSmithLog
     ''' <exception cref="System.Exception"></exception>
     Sub LoadData()
         Try
-            Dim lst As List(Of GunSmithWorkDone) = BurnSoft.Applications.MGC.Firearms.GunSmithDetails.Lists(DatabasePath, id, _errOut)
+            Dim lst As List(Of GunSmithWorkDone) = BurnSoft.Applications.MGC.Firearms.GunSmithDetails.ListsById(DatabasePath, id, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each o As GunSmithWorkDone In lst
                 txtGS.Text = o.GunSmithName
                 DateTimePicker1.Value = CDate(o.StartDate)
                 DateTimePicker2.Value = CDate(o.ReturnDate)
-                txtOD.Text = o.Notes
+                txtOD.Text = o.OrderDetails
+                txtNotes.Text = o.Notes
             Next
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
