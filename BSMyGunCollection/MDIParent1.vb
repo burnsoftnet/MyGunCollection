@@ -632,18 +632,30 @@ Public Class MdiParent1
             Dim hotfixList As List(Of HotFixList) = MyRegistry.GetHotxes(_errOut)
             '''TODO: #62 Add other menu options in this section 
             For Each o As HotFixList In hotfixList
-                Select o.Id
-                    Case 10
-                        Hotfix10ToolStripMenuItem.Enabled = False
-                    Case 9
-                        Hotfix9ToolStripMenuItem.Enabled = False
-                    Case 8
-                        Hotfix8ToolStripMenuItem.Enabled = False
-                End Select
-
-                If o.Id = 10 Then
-                    Hotfix10ToolStripMenuItem.Enabled = False
-                End If 
+                if Not o.Id.Equals("LastUpdate") Then
+                    Select o.Id
+                        Case 10
+                            Hotfix10ToolStripMenuItem.Enabled = False
+                        Case 9
+                            Hotfix9ToolStripMenuItem.Enabled = False
+                        Case 8
+                            Hotfix8ToolStripMenuItem.Enabled = False
+                        Case 7
+                            Hotfix7ToolStripMenuItem.Enabled = False
+                        Case 6
+                            Hotfix6ToolStripMenuItem.Enabled = False
+                        Case 5
+                            Hotfix5ToolStripMenuItem.Enabled = False
+                        Case 4
+                            Hotfix4ToolStripMenuItem.Enabled = False
+                        Case 3
+                            Hotfix3ToolStripMenuItem.Enabled = False
+                        Case 2
+                            Hotfix2ToolStripMenuItem.Enabled = False
+                        Case 1
+                            Hotfix1ToolStripMenuItem.Enabled = False
+                    End Select    
+                End If
             Next
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
@@ -958,14 +970,7 @@ Public Class MdiParent1
     ''' </summary>
     ''' <param name="myId">My identifier.</param>
     Sub ReRunThisHostFixbyId(myId As Integer)
-        DoAutoBackup = False
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
-        myProcess.StartInfo.Arguments = "/hotfix=" & myId
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
-        myProcess.Start()
-        Application.Exit()
-        End
+        ApplyHotFix(myId)
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -1422,15 +1427,8 @@ Public Class MdiParent1
             Call LogError(Name, $"ApplyHotfix_{number}", Err.Number, ex.Message.ToString)
         End Try
     End Sub
+
     Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
         ApplyHotFix(10)
-    End Sub
-
-    Private Sub Hotfix8ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles Hotfix8ToolStripMenuItem1.Click
-        ApplyHotFix(8)
-    End Sub
-
-    Private Sub Hotfix9ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles Hotfix9ToolStripMenuItem1.Click
-        ApplyHotFix(9)
     End Sub
 End Class
