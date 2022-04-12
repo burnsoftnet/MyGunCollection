@@ -1405,21 +1405,7 @@ Public Class MdiParent1
         'GunCollectionBindingSource.Dispose()
         'MGCDataSetBindingSource.Dispose()
     End Sub
-    ''' <summary>
-    ''' Handles the Click event of the RemovePasswordToolStripMenuItem control.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
-    Private Sub RemovePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) 
-        'TODO - #62 this code can help you disconnect from the database
-        CloseConnection()
-        If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.RemovePassword(DatabasePath, _errOut) Then
-            MsgBox("Password Removed")
-        Else 
-            MsgBox(_errOut)
-        End If
-        RefreshCollection()
-    End Sub
+    
     ''' <summary>
     ''' Applies the hot fix.
     ''' </summary>
@@ -1444,5 +1430,33 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix10ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix10ToolStripMenuItem.Click
         ApplyHotFix(10)
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the DisablePasswordToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub DisablePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DisablePasswordToolStripMenuItem.Click
+        CloseConnection()
+        If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.RemovePassword(DatabasePath, _errOut) Then
+            MsgBox("Password Removed")
+        Else 
+            MsgBox(_errOut)
+        End If
+        RefreshCollection()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the EnablePasswordToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub EnablePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePasswordToolStripMenuItem.Click
+        CloseConnection()
+        If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.AddPassword(DatabasePath, _errOut) Then
+            MsgBox("Password Removed")
+        Else 
+            MsgBox(_errOut)
+        End If
+        RefreshCollection()
     End Sub
 End Class
