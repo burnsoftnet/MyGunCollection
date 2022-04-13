@@ -171,8 +171,14 @@ Public Class FrmAddFirearm
             Dim strCustCatId As String = FluffContent(txtCustCatID.Text)
             Dim sChoke As String = FluffContent(txtChoke.Text)
             Dim custIdExists As Boolean = False
-            If Len(Trim(strCustCatId)) > 0 Then custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            If Len(Trim(strCustCatId)) > 0 Then
+                If UseNumberCatOnly Then
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                Else 
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                End If
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            End If
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim strProduced As String = FluffContent(txtProduced.Text)
             Dim strAction As String = FluffContent(txtAction.Text)
