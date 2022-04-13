@@ -21,7 +21,7 @@ Public Class FrmViewMaintancePlan
     Sub GetData()
         Try
 
-            Dim lst as List(Of MaintancePlansList) = BurnSoft.Applications.MGC.Firearms.MaintancePlans.Lists(DatabasePath, Id, errOut)
+            Dim lst as List(Of MaintancePlansList) = BurnSoft.Applications.MGC.Firearms.MaintancePlans.Lists(DatabasePath, Convert.ToInt32(Id), errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
 
             For Each l As MaintancePlansList In lst
@@ -31,25 +31,6 @@ Public Class FrmViewMaintancePlan
                 nudIIRF.Value = l.IntervalInRoundsFired
                 txtNotes.Text = l.Notes
             Next
-
-
-            'Dim obj As New BsDatabase
-            'Call obj.ConnectDb()
-            'Dim sql As String = "SELECT * from Maintance_Plans where ID=" & Id
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While (rs.Read())
-            '    If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
-            '    If Not IsDBNull(rs("OD")) Then txtOD.Text = rs("OD")
-            '    If Not IsDBNull(rs("iid")) Then nudIID.Value = rs("iid")
-            '    If Not IsDBNull(rs("iirf")) Then nudIIRF.Value = rs("iirf")
-            '    If Not IsDBNull(rs("Notes")) Then txtNotes.Text = rs("Notes")
-            'End While
-            'rs.Close()
-            'obj.CloseDb()
-
-
         Catch ex As Exception
             Call LogError(Name, "GetData", Err.Number, ex.Message.ToString)
         End Try
@@ -101,10 +82,7 @@ Public Class FrmViewMaintancePlan
             Dim intIid As Integer = nudIID.Value
             Dim intIirf As Integer = nudIIRF.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            'Dim sql As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOd & _
-            '            "',iid=" & intIid & ",iirf=" & intIirf & ",Notes='" & strNotes & "' where ID=" & Id
-            'Dim obj As New BsDatabase
-            'obj.ConnExec(sql)
+
             If Not BurnSoft.Applications.MGC.Firearms.MaintancePlans.Update(DatabasePath, Id, strName, strOd, intIid, intIirf, strNotes, errOut) Then Throw New Exception(errOut)
 
             btnEdit.Visible = True
