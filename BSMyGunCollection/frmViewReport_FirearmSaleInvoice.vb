@@ -23,7 +23,6 @@ Public Class FrmViewReportFirearmSaleInvoice
     ''' </summary>
     Sub GetData()
         Try
-            'Dim ownerRecId As Long = 0
             Dim ownerName As String = ""
             Dim ownerAddress As String = ""
             Dim ownerCity As String = ""
@@ -31,8 +30,6 @@ Public Class FrmViewReportFirearmSaleInvoice
             Dim ownerZip As String = ""
             Dim ownerPhone As String = ""
             Dim ownerCcd As String = ""
-            'Dim obj As New GlobalFunctions
-            'obj.GetUserSettingsDb(ownerRecId, ownerName, ownerAddress, ownerCity, ownerState, ownerZip, ownerPhone, ownerCcd)
             Dim ownerRecId As Long = ownerRecId = BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.GetOwnerId(DatabasePath, ownerName, ownerCcd, ownerAddress, ownerCity, ownerState, ownerZip, ownerPhone, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Dim parmList As New List(Of ReportParameter)
