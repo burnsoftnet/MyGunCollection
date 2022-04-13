@@ -762,41 +762,42 @@ Public Class MdiParent1
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click, OpenToolStripButton.Click
         Call DoRestore()
     End Sub
+    ''TODO #59 Removed Code Below After Testing
     ''' <summary>
     ''' Mark if the item was sold or not
     ''' </summary>
     ''' <param name="strId"></param>
     ''' <returns></returns>
-    Function IsNotOldEnough(ByVal strId As String) As Boolean
-        Dim bAns As Boolean = False
-        Try
-            Dim obj As New BsDatabase
-            obj.ConnectDb()
-            Dim sql As String = "SELECT ItemSold, dtSold from qryGunCollectionDetails where ID=" & strId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            Dim strDate As String = ""
-            Dim isSold As Integer = 0
-            While rs.Read()
-                If Not IsDBNull(rs("dtSold")) Then
-                    strDate = rs("dtSold")
-                Else
-                    strDate = DateTime.Now.ToString
-                End If
-                isSold = CInt(rs("ItemSold"))
-            End While
-            rs.Close()
-            obj.CloseDb()
-            If isSold > 0 Then
-                If DateDiff(DateInterval.Year, CDate(strDate), DateTime.Now) < 5 Then bAns = True
-            End If
-        Catch ex As Exception
-            Dim strProcedure As String = "IsNotOldEnough"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
-        End Try
-        Return bAns
-    End Function
+    'Function IsNotOldEnough(ByVal strId As String) As Boolean
+    '    Dim bAns As Boolean = False
+    '    Try
+    '        Dim obj As New BsDatabase
+    '        obj.ConnectDb()
+    '        Dim sql As String = "SELECT ItemSold, dtSold from qryGunCollectionDetails where ID=" & strId
+    '        Dim cmd As New OdbcCommand(sql, obj.Conn)
+    '        Dim rs As OdbcDataReader
+    '        rs = cmd.ExecuteReader
+    '        Dim strDate As String = ""
+    '        Dim isSold As Integer = 0
+    '        While rs.Read()
+    '            If Not IsDBNull(rs("dtSold")) Then
+    '                strDate = rs("dtSold")
+    '            Else
+    '                strDate = DateTime.Now.ToString
+    '            End If
+    '            isSold = CInt(rs("ItemSold"))
+    '        End While
+    '        rs.Close()
+    '        obj.CloseDb()
+    '        If isSold > 0 Then
+    '            If DateDiff(DateInterval.Year, CDate(strDate), DateTime.Now) < 5 Then bAns = True
+    '        End If
+    '    Catch ex As Exception
+    '        Dim strProcedure As String = "IsNotOldEnough"
+    '        Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+    '    End Try
+    '    Return bAns
+    'End Function
     ''' <summary>
     ''' Clean up the Database
     ''' </summary>
@@ -805,7 +806,10 @@ Public Class MdiParent1
             Dim itemName As String = ListBox1.Text
             Dim itemId As Long = ListBox1.SelectedValue
             Dim strMsg As String = "Are you sure that you wish to delete " & itemName & " from your collection?"
-            Dim bIsNotOld As Boolean = IsNotOldEnough(itemId)
+            ''TODO #59 Removed Code Below After Testing
+            ''Dim bIsNotOld As Boolean = IsNotOldEnough(itemId)
+            Dim bIsNotOld As Boolean = MyCollection.IsNotOldEnouthForDelete(DatabasePath, itemId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             If bIsNotOld Then strMsg = "BATFE recommends that you keep a record of the firearm for over 5 years of sale." & Chr(10) & strMsg
             Dim myAns As String = MsgBox(strMsg, MsgBoxStyle.YesNo, "Delete Firearm from Collection")
             If myAns = vbYes Then
