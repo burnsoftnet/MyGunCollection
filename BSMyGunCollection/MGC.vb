@@ -151,26 +151,26 @@ Namespace MGC
         ''' Sets the type of the catalog.
         ''' </summary>
         ''' <param name="sType">Type of the s.</param>
-        Public Sub SetCatalogType(ByVal sType As String)
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-' ReSharper disable once RedundantAssignment
-                Dim sql As String = ""
-                Select Case LCase(sType)
-                    Case "num"
-                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Integer;"
-                    Case "let"
-                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
-                    Case Else
-                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
-                End Select
-                obj.ConnExec(sql)
-            Catch ex As Exception
-                Dim sSubFunc As String = "SetCatalogType"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
+'        Public Sub SetCatalogType(ByVal sType As String)
+'            Try
+'                Dim obj As New BsDatabase
+'                Call obj.ConnectDb()
+'' ReSharper disable once RedundantAssignment
+'                Dim sql As String = ""
+'                Select Case LCase(sType)
+'                    Case "num"
+'                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Integer;"
+'                    Case "let"
+'                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
+'                    Case Else
+'                        sql = "ALTER TABLE Gun_Collection ALTER COLUMN CustomID Text(255);"
+'                End Select
+'                obj.ConnExec(sql)
+'            Catch ex As Exception
+'                Dim sSubFunc As String = "SetCatalogType"
+'                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
+'            End Try
+'        End Sub
         ''' <summary>
         ''' Determines whether [has default picture] [the specified identifier].
         ''' </summary>

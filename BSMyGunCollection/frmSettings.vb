@@ -1,4 +1,5 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
@@ -172,9 +173,9 @@ Public Class FrmSettings
             If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
             Dim objGf As New GlobalFunctions
             If UseNumberCatOnly Then
-                Call objGf.SetCatalogType("num")
+                If Not MyCollection.SetCatalogType(DatabasePath, MyCollection.CatalogType.Numeric, _errOut) Then Throw New Exception(_errOut)
             Else
-                Call objGf.SetCatalogType("let")
+                If Not MyCollection.SetCatalogType(DatabasePath, MyCollection.CatalogType.Text, _errOut) Then Throw New Exception(_errOut)
             End If
             Return 0
         Catch ex As Exception
