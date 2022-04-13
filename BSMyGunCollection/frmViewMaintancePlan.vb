@@ -1,5 +1,4 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -102,10 +101,12 @@ Public Class FrmViewMaintancePlan
             Dim intIid As Integer = nudIID.Value
             Dim intIirf As Integer = nudIIRF.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
-            Dim sql As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOd & _
-                        "',iid=" & intIid & ",iirf=" & intIirf & ",Notes='" & strNotes & "' where ID=" & Id
-            Dim obj As New BsDatabase
-            obj.ConnExec(sql)
+            'Dim sql As String = "UPDATE Maintance_Plans set Name='" & strName & "',OD='" & strOd & _
+            '            "',iid=" & intIid & ",iirf=" & intIirf & ",Notes='" & strNotes & "' where ID=" & Id
+            'Dim obj As New BsDatabase
+            'obj.ConnExec(sql)
+            If Not BurnSoft.Applications.MGC.Firearms.MaintancePlans.Update(DatabasePath, Id, strName, strOd, intIid, intIirf, strNotes, errOut) Then Throw New Exception(errOut)
+
             btnEdit.Visible = True
             btnUpdate.Visible = False
             txtName.ReadOnly = True
