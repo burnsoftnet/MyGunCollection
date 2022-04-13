@@ -227,7 +227,14 @@ Public Class FrmEditCollectionDetails
             Dim strBarHei As String = FluffContent(txtBarHei.Text)
             Dim strCustCatId As String = FluffContent(txtCustCatID.Text)
             Dim custIdExists As Boolean = False
-            If Len(Trim(strCustCatId)) > 0 Then custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut,CLng(ItemId))
+            If Len(Trim(strCustCatId)) > 0 Then
+                If UseNumberCatOnly Then
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,Convert.ToInt32(strCustCatId), _errOut)
+                Else 
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                End If
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            End If
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Dim strGripType As String = FluffContent(txtGripType.Text)
             Dim sChoke As String = FluffContent(txtChoke.Text)

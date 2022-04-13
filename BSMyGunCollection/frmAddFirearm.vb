@@ -173,7 +173,7 @@ Public Class FrmAddFirearm
             Dim custIdExists As Boolean = False
             If Len(Trim(strCustCatId)) > 0 Then
                 If UseNumberCatOnly Then
-                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,Convert.ToInt32(strCustCatId), _errOut)
                 Else 
                     custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
                 End If
