@@ -208,11 +208,12 @@ Public Class FrmSettings
         If Not _firstRun Then
             If chkNCCID.Checked Then
                 Dim objGf As New GlobalFunctions
-                If Not objGf.CatalogIsNumeric Then
+                ''If Not objGf.CatalogIsNumeric Then
+                If Not BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIsNumeric(DatabasePath, _errOut)
                     MsgBox("There are non-numeric numbers currently in the catalog!")
                     Dim sAns As String = MsgBox("Do you want to set new Numeric values for the Catalog ID?", MsgBoxStyle.YesNo)
                     If sAns = vbYes Then
-                        Call objGf.SetCatalogValuesToNumeric()
+                        If not BurnSoft.Applications.MGC.Firearms.MyCollection.SetCatalogValuesToNumeric(DatabasePath, _errOut) Then Throw New Exception(_errOut)
                         MsgBox("Remember to click on the Save button to apply these settings!")
                     Else
                         chkNCCID.Checked = False

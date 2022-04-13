@@ -90,62 +90,62 @@ Namespace MGC
         ''' Catalogs the is numeric.
         ''' </summary>
         ''' <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-        Public Function CatalogIsNumeric() As Boolean
-            Dim bAns As Boolean = False
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim sql As String = "SELECT CustomID from Gun_Collection"
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-' ReSharper disable once RedundantAssignment
-                Dim sId As String = ""
-                Dim iRowCount As Long = 0
-                Dim iCount As Long = 0
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While rs.Read
-                        iRowCount += 1
-                        sId = Trim(rs("CustomID"))
-                        If Len(sId) = 0 Then sId = "N/A"
-                        If IsNumeric(sId) Then iCount += 1
-                    End While
-                End If
-                If iRowCount = iCount Then bAns = True
-            Catch ex As Exception
-                Dim sSubFunc As String = "CatalogIsNumeric"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-            Return bAns
-        End Function
+'        Public Function CatalogIsNumeric() As Boolean
+'            Dim bAns As Boolean = False
+'            Try
+'                Dim obj As New BsDatabase
+'                Call obj.ConnectDb()
+'                Dim sql As String = "SELECT CustomID from Gun_Collection"
+'                Dim cmd As New OdbcCommand(sql, obj.Conn)
+'                Dim rs As OdbcDataReader
+'' ReSharper disable once RedundantAssignment
+'                Dim sId As String = ""
+'                Dim iRowCount As Long = 0
+'                Dim iCount As Long = 0
+'                rs = cmd.ExecuteReader
+'                If rs.HasRows Then
+'                    While rs.Read
+'                        iRowCount += 1
+'                        sId = Trim(rs("CustomID"))
+'                        If Len(sId) = 0 Then sId = "N/A"
+'                        If IsNumeric(sId) Then iCount += 1
+'                    End While
+'                End If
+'                If iRowCount = iCount Then bAns = True
+'            Catch ex As Exception
+'                Dim sSubFunc As String = "CatalogIsNumeric"
+'                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
+'            End Try
+'            Return bAns
+'        End Function
         ''TODO #50 Delete Code After Convert and Test
         ''' <summary>
         ''' Converts to numeric.
         ''' </summary>
-        Public Sub SetCatalogValuesToNumeric()
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim sql As String = "SELECT ID,CustomID from Gun_Collection"
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-' ReSharper disable once UnusedVariable
-                Dim sId As String = ""
-' ReSharper disable once UnusedVariable
-                Dim iRowCount As Long = 0
-                Dim iCount As Long = 0
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    While rs.Read
-                        iCount += 1
-                        obj.ConnExec("UPDATE Gun_Collection set CustomID='" & iCount & "',sync_lastupdate=Now() where ID=" & rs("ID"))
-                    End While
-                End If
-            Catch ex As Exception
-                Dim sSubFunc As String = "SetCatalogToNumeric"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
+'        Public Sub SetCatalogValuesToNumeric()
+'            Try
+'                Dim obj As New BsDatabase
+'                Call obj.ConnectDb()
+'                Dim sql As String = "SELECT ID,CustomID from Gun_Collection"
+'                Dim cmd As New OdbcCommand(sql, obj.Conn)
+'                Dim rs As OdbcDataReader
+'' ReSharper disable once UnusedVariable
+'                Dim sId As String = ""
+'' ReSharper disable once UnusedVariable
+'                Dim iRowCount As Long = 0
+'                Dim iCount As Long = 0
+'                rs = cmd.ExecuteReader
+'                If rs.HasRows Then
+'                    While rs.Read
+'                        iCount += 1
+'                        obj.ConnExec("UPDATE Gun_Collection set CustomID='" & iCount & "',sync_lastupdate=Now() where ID=" & rs("ID"))
+'                    End While
+'                End If
+'            Catch ex As Exception
+'                Dim sSubFunc As String = "SetCatalogToNumeric"
+'                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
+'            End Try
+'        End Sub
         ''TODO #50 Delete Code After Convert and Test
         ''' <summary>
         ''' Sets the type of the catalog.
