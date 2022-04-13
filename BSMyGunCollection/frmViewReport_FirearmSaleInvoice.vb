@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
 ''' Class FrmViewReportFirearmSaleInvoice.

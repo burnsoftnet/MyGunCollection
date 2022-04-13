@@ -3,7 +3,6 @@ Imports System.Text
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports ADODB
-Imports BurnSoft.Security.RegularEncryption.SHA
 
 Namespace MGC
     ''' <summary>
@@ -162,48 +161,6 @@ Namespace MGC
             End Try
         End Sub
 
-        ''' <summary>
-        ''' Gets the user settings database.
-        ''' </summary>
-        ''' <param name="recId">The record identifier.</param>
-        ''' <param name="sName">Name of the s.</param>
-        ''' <param name="sAddress">The s address.</param>
-        ''' <param name="sCity">The s city.</param>
-        ''' <param name="sState">State of the s.</param>
-        ''' <param name="sZip">The s zip.</param>
-        ''' <param name="sPhone">The s phone.</param>
-        ''' <param name="sCcd">The s CCD.</param>
-        Public Sub GetUserSettingsDb(ByRef recId As Long, ByRef sName As String, ByRef sAddress As String,
-                                    ByRef sCity As String, ByRef sState As String, ByRef sZip As String,
-                                    ByRef sPhone As String, ByRef sCcd As String)
-            Try
-                Dim obj As New BsDatabase
-                Call obj.ConnectDb()
-                Dim sql As String = "SELECT TOP 1 * from Owner_Info"
-                Dim cmd As New OdbcCommand(sql, obj.Conn)
-                Dim rs As OdbcDataReader
-                rs = cmd.ExecuteReader
-                If rs.HasRows Then
-                    rs.Read()
-                    recId = CInt(rs("ID"))
-                    sName = Trim(rs("name"))
-                    sAddress = Trim(One.Decrypt(rs("address")))
-                    sCity = Trim(rs("City"))
-                    sState = Trim(rs("State"))
-                    sZip = Trim(rs("Zip"))
-                    sPhone = Trim(rs("Phone"))
-                    sCcd = Trim(One.Decrypt(rs("CCDWL")))
-                Else
-                    recId = 0
-                End If
-                rs.Close()
-                obj.CloseDb()
-            Catch ex As Exception
-                Dim sSubFunc As String = "GetUserSettingsDB"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
-    End Class
     ''' <summary>
     ''' Class BSFileSystem.
     ''' </summary>

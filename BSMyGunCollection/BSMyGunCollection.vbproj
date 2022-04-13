@@ -1044,9 +1044,6 @@
     <Content Include="adodb.dll" />
     <Content Include="bswtsicon.png" />
     <Content Include="BurnSoft.MsgBox.dll" />
-    <Content Include="Config.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="DataGridViewAutoFilter.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
