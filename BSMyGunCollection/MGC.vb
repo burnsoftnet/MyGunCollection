@@ -85,7 +85,7 @@ Namespace MGC
         ''' Class Name for error file to help locate where the error occurred
         ''' </summary>
         Private Const MyClassName = "MGC.GlobalFunctions"
-
+        ''TODO #50 Delete Code After Convert and Test
         ''' <summary>
         ''' Catalogs the is numeric.
         ''' </summary>
@@ -118,6 +118,7 @@ Namespace MGC
             End Try
             Return bAns
         End Function
+        ''TODO #50 Delete Code After Convert and Test
         ''' <summary>
         ''' Converts to numeric.
         ''' </summary>
@@ -145,6 +146,7 @@ Namespace MGC
                 Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
+        ''TODO #50 Delete Code After Convert and Test
         ''' <summary>
         ''' Sets the type of the catalog.
         ''' </summary>
