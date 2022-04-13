@@ -1,5 +1,7 @@
 Imports BSMyGunCollection.MGC
 Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class FrmViewMaintancePlan.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -11,26 +13,44 @@ Public Class FrmViewMaintancePlan
     ''' </summary>
     Public Id As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Private errOut as String
+    ''' <summary>
     ''' Gets the data.
     ''' </summary>
     Sub GetData()
         Try
 
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT * from Maintance_Plans where ID=" & Id
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While (rs.Read())
-                If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
-                If Not IsDBNull(rs("OD")) Then txtOD.Text = rs("OD")
-                If Not IsDBNull(rs("iid")) Then nudIID.Value = rs("iid")
-                If Not IsDBNull(rs("iirf")) Then nudIIRF.Value = rs("iirf")
-                If Not IsDBNull(rs("Notes")) Then txtNotes.Text = rs("Notes")
-            End While
-            rs.Close()
-            obj.CloseDb()
+            Dim lst as List(Of MaintancePlansList) = BurnSoft.Applications.MGC.Firearms.MaintancePlans.Lists(DatabasePath, Id, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+
+            For Each l As MaintancePlansList In lst
+                txtName.Text = l.Name
+                txtOD.Text = l.OperationDetails
+                nudIID.Value = l.IntervalsInDays
+                nudIIRF.Value = l.IntervalInRoundsFired
+                txtNotes.Text = l.Notes
+            Next
+
+
+            'Dim obj As New BsDatabase
+            'Call obj.ConnectDb()
+            'Dim sql As String = "SELECT * from Maintance_Plans where ID=" & Id
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'While (rs.Read())
+            '    If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
+            '    If Not IsDBNull(rs("OD")) Then txtOD.Text = rs("OD")
+            '    If Not IsDBNull(rs("iid")) Then nudIID.Value = rs("iid")
+            '    If Not IsDBNull(rs("iirf")) Then nudIIRF.Value = rs("iirf")
+            '    If Not IsDBNull(rs("Notes")) Then txtNotes.Text = rs("Notes")
+            'End While
+            'rs.Close()
+            'obj.CloseDb()
+
+
         Catch ex As Exception
             Call LogError(Name, "GetData", Err.Number, ex.Message.ToString)
         End Try
