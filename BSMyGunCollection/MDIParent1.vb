@@ -1,5 +1,4 @@
 Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.hotixes.types
@@ -924,31 +923,6 @@ Public Class MdiParent1
     End Sub
 
     ''' <summary>
-    ''' Runs the hot fix.
-    ''' </summary>
-    Public Sub RunHotFix()
-        DoAutoBackup = False
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
-        myProcess.Start()
-        Application.Exit()
-        End
-    End Sub
-    ''' <summary>
-    ''' Res the run hot fix updates.
-    ''' </summary>
-    Public Sub ReRunHotFixUpdates()
-        DoAutoBackup = False
-        Dim myProcess As New Process
-        myProcess.StartInfo.FileName = ApplicationPath & "\" & MyHotfixFile
-        myProcess.StartInfo.Arguments = "/redo /debug"
-        myProcess.StartInfo.WindowStyle = ProcessWindowStyle.Normal
-        myProcess.Start()
-        Application.Exit()
-        End
-    End Sub
-    ''' <summary>
     ''' Res the run this host fix by identifier.
     ''' </summary>
     ''' <param name="myId">My identifier.</param>
@@ -1306,7 +1280,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub RedoAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RedoAllToolStripMenuItem.Click
-        Call ReRunHotFixUpdates()
+        
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.

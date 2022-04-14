@@ -160,7 +160,7 @@ Namespace MGC
                 Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
             End Try
         End Sub
-
+        End Class
     ''' <summary>
     ''' Class BSFileSystem.
     ''' </summary>
