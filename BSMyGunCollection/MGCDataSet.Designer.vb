@@ -3904,8 +3904,6 @@ Partial Public Class MGCDataSet
         
         Private columnIsCandR1 As Global.System.Data.DataColumn
         
-        Private columnremandt As Global.System.Data.DataColumn
-        
         Private columnPOI As Global.System.Data.DataColumn
         
         Private columnIsInBoundBook As Global.System.Data.DataColumn
@@ -3923,6 +3921,12 @@ Partial Public Class MGCDataSet
         Private columnClassIII_owner As Global.System.Data.DataColumn
         
         Private columnIsClassIII As Global.System.Data.DataColumn
+        
+        Private columnReManDT As Global.System.Data.DataColumn
+        
+        Private columnIsNoLeathal As Global.System.Data.DataColumn
+        
+        Private columnisCompetition As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -4313,14 +4317,6 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property remandtColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnremandt
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property POIColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPOI
@@ -4388,6 +4384,30 @@ Partial Public Class MGCDataSet
         Public ReadOnly Property IsClassIIIColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnIsClassIII
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ReManDTColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnReManDT
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsNoLeathalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsNoLeathal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property isCompetitionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnisCompetition
             End Get
         End Property
         
@@ -4472,7 +4492,6 @@ Partial Public Class MGCDataSet
                     ByVal dtp As Date,  _
                     ByVal IsCandR As Double,  _
                     ByVal IsCandR1 As Integer,  _
-                    ByVal remandt As Date,  _
                     ByVal POI As String,  _
                     ByVal IsInBoundBook As Integer,  _
                     ByVal TwistRate As String,  _
@@ -4481,9 +4500,12 @@ Partial Public Class MGCDataSet
                     ByVal Classification As String,  _
                     ByVal DateofCR As Date,  _
                     ByVal ClassIII_owner As String,  _
-                    ByVal IsClassIII As Integer) As Gun_CollectionRow
+                    ByVal IsClassIII As Integer,  _
+                    ByVal ReManDT As Date,  _
+                    ByVal IsNoLeathal As Double,  _
+                    ByVal isCompetition As Double) As Gun_CollectionRow
             Dim rowGun_CollectionRow As Gun_CollectionRow = CType(Me.NewRow,Gun_CollectionRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, Action, Feedsystem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, IsCandR1, remandt, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, ClassIII_owner, IsClassIII}
+            Dim columnValuesArray() As Object = New Object() {Nothing, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, Action, Feedsystem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, IsCandR1, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, ClassIII_owner, IsClassIII, ReManDT, IsNoLeathal, isCompetition}
             rowGun_CollectionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGun_CollectionRow)
             Return rowGun_CollectionRow
@@ -4556,7 +4578,6 @@ Partial Public Class MGCDataSet
             Me.columndtp = MyBase.Columns("dtp")
             Me.columnIsCandR = MyBase.Columns("IsCandR")
             Me.columnIsCandR1 = MyBase.Columns("IsCandR1")
-            Me.columnremandt = MyBase.Columns("remandt")
             Me.columnPOI = MyBase.Columns("POI")
             Me.columnIsInBoundBook = MyBase.Columns("IsInBoundBook")
             Me.columnTwistRate = MyBase.Columns("TwistRate")
@@ -4566,6 +4587,9 @@ Partial Public Class MGCDataSet
             Me.columnDateofCR = MyBase.Columns("DateofCR")
             Me.columnClassIII_owner = MyBase.Columns("ClassIII_owner")
             Me.columnIsClassIII = MyBase.Columns("IsClassIII")
+            Me.columnReManDT = MyBase.Columns("ReManDT")
+            Me.columnIsNoLeathal = MyBase.Columns("IsNoLeathal")
+            Me.columnisCompetition = MyBase.Columns("isCompetition")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4659,8 +4683,6 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnIsCandR)
             Me.columnIsCandR1 = New Global.System.Data.DataColumn("IsCandR1", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIsCandR1)
-            Me.columnremandt = New Global.System.Data.DataColumn("remandt", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnremandt)
             Me.columnPOI = New Global.System.Data.DataColumn("POI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPOI)
             Me.columnIsInBoundBook = New Global.System.Data.DataColumn("IsInBoundBook", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -4679,6 +4701,12 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnClassIII_owner)
             Me.columnIsClassIII = New Global.System.Data.DataColumn("IsClassIII", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIsClassIII)
+            Me.columnReManDT = New Global.System.Data.DataColumn("ReManDT", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnReManDT)
+            Me.columnIsNoLeathal = New Global.System.Data.DataColumn("IsNoLeathal", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsNoLeathal)
+            Me.columnisCompetition = New Global.System.Data.DataColumn("isCompetition", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnisCompetition)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -20516,21 +20544,6 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property remandt() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tableGun_Collection.remandtColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'remandt' in table 'Gun_Collection' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableGun_Collection.remandtColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property POI() As String
             Get
                 Try 
@@ -20661,6 +20674,51 @@ Partial Public Class MGCDataSet
             End Get
             Set
                 Me(Me.tableGun_Collection.IsClassIIIColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ReManDT() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.ReManDTColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ReManDT' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.ReManDTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsNoLeathal() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.IsNoLeathalColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsNoLeathal' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.IsNoLeathalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property isCompetition() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.isCompetitionColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'isCompetition' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.isCompetitionColumn) = value
             End Set
         End Property
         
@@ -21182,18 +21240,6 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsremandtNull() As Boolean
-            Return Me.IsNull(Me.tableGun_Collection.remandtColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetremandtNull()
-            Me(Me.tableGun_Collection.remandtColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsPOINull() As Boolean
             Return Me.IsNull(Me.tableGun_Collection.POIColumn)
         End Function
@@ -21298,6 +21344,42 @@ Partial Public Class MGCDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetIsClassIIINull()
             Me(Me.tableGun_Collection.IsClassIIIColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsReManDTNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.ReManDTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetReManDTNull()
+            Me(Me.tableGun_Collection.ReManDTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsNoLeathalNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.IsNoLeathalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsNoLeathalNull()
+            Me(Me.tableGun_Collection.IsNoLeathalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsisCompetitionNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.isCompetitionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetisCompetitionNull()
+            Me(Me.tableGun_Collection.isCompetitionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -36885,7 +36967,6 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("PetLoads", "PetLoads")
             tableMapping.ColumnMappings.Add("dtp", "dtp")
             tableMapping.ColumnMappings.Add("IsCandR", "IsCandR1")
-            tableMapping.ColumnMappings.Add("remandt", "remandt")
             tableMapping.ColumnMappings.Add("POI", "POI")
             tableMapping.ColumnMappings.Add("IsInBoundBook", "IsInBoundBook")
             tableMapping.ColumnMappings.Add("TwistRate", "TwistRate")
@@ -36895,6 +36976,9 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("DateofCR", "DateofCR")
             tableMapping.ColumnMappings.Add("IsClassIII", "IsClassIII")
             tableMapping.ColumnMappings.Add("ClassIII_owner", "ClassIII_owner")
+            tableMapping.ColumnMappings.Add("ReManDT", "ReManDT")
+            tableMapping.ColumnMappings.Add("IsNoLeathal", "IsNoLeathal")
+            tableMapping.ColumnMappings.Add("isCompetition", "isCompetition")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -36932,7 +37016,11 @@ Namespace MGCDataSetTableAdapters
                 ")) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 AND `l"& _ 
                 "bs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS NULL)"& _ 
                 " OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classificat"& _ 
-                "ion` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)))"
+                "ion` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((? = 1 "& _ 
+                "AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` "& _ 
+                "IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`C"& _ 
+                "lassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition"& _ 
+                "` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -37015,8 +37103,8 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dtp", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dtp", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_remandt", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_remandt", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ReManDT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ReManDT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_POI", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_POI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsInBoundBook", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsInBoundBook", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -37031,6 +37119,14 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Classification", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Classification", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DateofCR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DateofCR", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ClassIII_owner", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_isCompetition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gun_Collection` (`OID`, `MID`, `FullName`, `ModelName`, `ModelID`, `"& _ 
@@ -37041,9 +37137,10 @@ Namespace MGCDataSetTableAdapters
                 "cation`, `ConditionComments`, `AdditionalNotes`, `HasAss`, `Produced`, `dt`, `It"& _ 
                 "emSold`, `SID`, `BID`, `dtSold`, `PetLoads`, `dtp`, `IsCandR`, `ReManDT`, `POI`,"& _ 
                 " `IsInBoundBook`, `TwistRate`, `lbs_trigger`, `Caliber3`, `Classification`, `Dat"& _ 
-                "eofCR`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
-                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?, ?)"
+                "eofCR`, `IsNoLeathal`, `IsClassIII`, `ClassIII_owner`, `isCompetition`) VALUES ("& _ 
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
+                ")"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("MID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "MID", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37087,7 +37184,7 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PetLoads", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PetLoads", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dtp", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dtp", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("remandt", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ReManDT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("POI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsInBoundBook", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsInBoundBook", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TwistRate", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TwistRate", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37095,6 +37192,10 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Caliber3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Caliber3", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Classification", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Classification", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DateofCR", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Gun_Collection` SET `OID` = ?, `MID` = ?, `FullName` = ?, `ModelName` = ?"& _ 
@@ -37107,7 +37208,8 @@ Namespace MGCDataSetTableAdapters
                 "nalNotes` = ?, `HasAss` = ?, `Produced` = ?, `dt` = ?, `ItemSold` = ?, `SID` = ?"& _ 
                 ", `BID` = ?, `dtSold` = ?, `PetLoads` = ?, `dtp` = ?, `IsCandR` = ?, `ReManDT` ="& _ 
                 " ?, `POI` = ?, `IsInBoundBook` = ?, `TwistRate` = ?, `lbs_trigger` = ?, `Caliber"& _ 
-                "3` = ?, `Classification` = ?, `DateofCR` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `"& _ 
+                "3` = ?, `Classification` = ?, `DateofCR` = ?, `IsNoLeathal` = ?, `IsClassIII` = "& _ 
+                "?, `ClassIII_owner` = ?, `isCompetition` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `"& _ 
                 "OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND"& _ 
                 " ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName"& _ 
                 "` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID"& _ 
@@ -37142,7 +37244,10 @@ Namespace MGCDataSetTableAdapters
                 "ND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `C"& _ 
                 "aliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL)"& _ 
                 " OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` ="& _ 
-                " ?)))"
+                " ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 "& _ 
+                "AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner"& _ 
+                "` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) O"& _ 
+                "R (`isCompetition` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("MID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "MID", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37186,7 +37291,7 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PetLoads", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PetLoads", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dtp", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dtp", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("remandt", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ReManDT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("POI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsInBoundBook", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsInBoundBook", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("TwistRate", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "TwistRate", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37194,6 +37299,10 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Caliber3", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Caliber3", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Classification", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Classification", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DateofCR", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -37275,8 +37384,8 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_dtp", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dtp", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsCandR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsCandR", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_remandt", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_remandt", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "remandt", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ReManDT", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ReManDT", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ReManDT", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_POI", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_POI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "POI", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsInBoundBook", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsInBoundBook", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -37291,6 +37400,14 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Classification", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Classification", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_DateofCR", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DateofCR", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DateofCR", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsNoLeathal", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsNoLeathal", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ClassIII_owner", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_isCompetition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -37306,15 +37423,15 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(12) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT     ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Calibe"& _ 
-                "r, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "            StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsy"& _ 
-                "stem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                    AppraisedBy, InsuredValue, StorageLocation, ConditionComment"& _ 
-                "s, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, "& _ 
-                "dtp, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      IsCandR, remandt, POI,IsInBoundBook,TwistRate,lbs_t"& _ 
-                "rigger,Caliber3,Classification,DateofCR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY F"& _ 
-                "ullName"
+            Me._commandCollection(0).CommandText = "SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Cal"& _ 
+                "iber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType"& _ 
+                ", BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsystem, Sights, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate"& _ 
+                ", AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes"& _ 
+                ", HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Cali"& _ 
+                "ber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompe"& _ 
+                "tition"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -37335,36 +37452,37 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
             Me._commandCollection(3).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection ORDER BY C"& _ 
-                "ustomID"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection WHERE (Ite"& _ 
-                "mSold = 0) ORDER BY CustomID"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Cust"& _ 
+                "omID"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT     ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Calibe"& _ 
-                "r, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
-                "            StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsy"& _ 
-                "stem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
-                "                    AppraisedBy, InsuredValue, StorageLocation, ConditionComment"& _ 
-                "s, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, "& _ 
-                "dtp, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      IsCandR, remandt, POI,IsInBoundBook,TwistRate,lbs_t"& _ 
-                "rigger,Caliber3,Classification,DateofCR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection where IsCla"& _ 
-                "ssIII=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(5).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsClassIII = 1) ORDER BY Fu"& _ 
+                "llName"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = Me.Connection
@@ -37381,35 +37499,38 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(8).Connection = Me.Connection
             Me._commandCollection(8).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection WHERE (IsC"& _ 
-                "andR = 1) ORDER BY FullName"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 1) ORDER BY FullN"& _ 
+                "ame"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(9).Connection = Me.Connection
             Me._commandCollection(9).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection WHERE (Ite"& _ 
-                "mSold = 0) ORDER BY FullName"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Full"& _ 
+                "Name"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(10).Connection = Me.Connection
             Me._commandCollection(10).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection WHERE (IsC"& _ 
-                "andR = 0) ORDER BY FullName"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullN"& _ 
+                "ame"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(11).Connection = Me.Connection
@@ -37420,13 +37541,14 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(12) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(12).Connection = Me.Connection
             Me._commandCollection(12).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
-                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, Classification, Co"& _ 
-                "ndition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, Gr"& _ 
-                "ipID, HasAss, Height, ID, InsuredValue, IsCandR, IsInBoundBook, ItemSold, MID, M"& _ 
-                "odelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, Purchased"& _ 
-                "Price, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, Twis"& _ 
-                "tRate, Type, Weight, dt, dtSold, dtp, lbs_trigger FROM Gun_Collection WHERE (Ite"& _ 
-                "mSold <> 0) ORDER BY FullName"
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY Ful"& _ 
+                "lName"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -37866,14 +37988,18 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_PetLoads As String,  _
                     ByVal Original_dtp As Global.System.Nullable(Of Date),  _
                     ByVal Original_IsCandR As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_remandt As Date,  _
+                    ByVal Original_ReManDT As Global.System.Nullable(Of Date),  _
                     ByVal Original_POI As String,  _
                     ByVal Original_IsInBoundBook As Global.System.Nullable(Of Integer),  _
                     ByVal Original_TwistRate As String,  _
                     ByVal Original_lbs_trigger As String,  _
                     ByVal Original_Caliber3 As String,  _
                     ByVal Original_Classification As String,  _
-                    ByVal Original_DateofCR As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_DateofCR As Global.System.Nullable(Of Date),  _
+                    ByVal Original_IsNoLeathal As Global.System.Nullable(Of Double),  _
+                    ByVal Original_IsClassIII As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ClassIII_owner As String,  _
+                    ByVal Original_isCompetition As Global.System.Nullable(Of Double)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_OID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -38155,8 +38281,13 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(79).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(80).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(82).Value = CType(Original_remandt,Date)
+            If (Original_ReManDT.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = CType(Original_ReManDT.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(81).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(82).Value = Global.System.DBNull.Value
+            End If
             If (Original_POI Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(83).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(84).Value = Global.System.DBNull.Value
@@ -38205,6 +38336,34 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(95).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(96).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsNoLeathal.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = CType(Original_IsNoLeathal.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(97).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(98).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsClassIII.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = CType(Original_IsClassIII.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(99).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(100).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ClassIII_owner Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(101).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(102).Value = CType(Original_ClassIII_owner,String)
+            End If
+            If (Original_isCompetition.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = CType(Original_isCompetition.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(103).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(104).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -38268,14 +38427,18 @@ Namespace MGCDataSetTableAdapters
                     ByVal PetLoads As String,  _
                     ByVal dtp As Global.System.Nullable(Of Date),  _
                     ByVal IsCandR As Global.System.Nullable(Of Integer),  _
-                    ByVal remandt As Date,  _
+                    ByVal ReManDT As Global.System.Nullable(Of Date),  _
                     ByVal POI As String,  _
                     ByVal IsInBoundBook As Global.System.Nullable(Of Integer),  _
                     ByVal TwistRate As String,  _
                     ByVal lbs_trigger As String,  _
                     ByVal Caliber3 As String,  _
                     ByVal Classification As String,  _
-                    ByVal DateofCR As Global.System.Nullable(Of Date)) As Integer
+                    ByVal DateofCR As Global.System.Nullable(Of Date),  _
+                    ByVal IsNoLeathal As Global.System.Nullable(Of Double),  _
+                    ByVal IsClassIII As Global.System.Nullable(Of Integer),  _
+                    ByVal ClassIII_owner As String,  _
+                    ByVal isCompetition As Global.System.Nullable(Of Double)) As Integer
             If (OID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(OID.Value,Integer)
             Else
@@ -38486,7 +38649,11 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(41).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(42).Value = CType(remandt,Date)
+            If (ReManDT.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(42).Value = CType(ReManDT.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(42).Value = Global.System.DBNull.Value
+            End If
             If (POI Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(43).Value = Global.System.DBNull.Value
             Else
@@ -38521,6 +38688,26 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(49).Value = CType(DateofCR.Value,Date)
             Else
                 Me.Adapter.InsertCommand.Parameters(49).Value = Global.System.DBNull.Value
+            End If
+            If (IsNoLeathal.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(50).Value = CType(IsNoLeathal.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (IsClassIII.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(51).Value = CType(IsClassIII.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (ClassIII_owner Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(52).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(52).Value = CType(ClassIII_owner,String)
+            End If
+            If (isCompetition.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(53).Value = CType(isCompetition.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -38584,7 +38771,7 @@ Namespace MGCDataSetTableAdapters
                     ByVal PetLoads As String,  _
                     ByVal dtp As Global.System.Nullable(Of Date),  _
                     ByVal IsCandR As Global.System.Nullable(Of Integer),  _
-                    ByVal remandt As Date,  _
+                    ByVal ReManDT As Global.System.Nullable(Of Date),  _
                     ByVal POI As String,  _
                     ByVal IsInBoundBook As Global.System.Nullable(Of Integer),  _
                     ByVal TwistRate As String,  _
@@ -38592,6 +38779,10 @@ Namespace MGCDataSetTableAdapters
                     ByVal Caliber3 As String,  _
                     ByVal Classification As String,  _
                     ByVal DateofCR As Global.System.Nullable(Of Date),  _
+                    ByVal IsNoLeathal As Global.System.Nullable(Of Double),  _
+                    ByVal IsClassIII As Global.System.Nullable(Of Integer),  _
+                    ByVal ClassIII_owner As String,  _
+                    ByVal isCompetition As Global.System.Nullable(Of Double),  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_OID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_MID As Global.System.Nullable(Of Integer),  _
@@ -38633,14 +38824,18 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_PetLoads As String,  _
                     ByVal Original_dtp As Global.System.Nullable(Of Date),  _
                     ByVal Original_IsCandR As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_remandt As Date,  _
+                    ByVal Original_ReManDT As Global.System.Nullable(Of Date),  _
                     ByVal Original_POI As String,  _
                     ByVal Original_IsInBoundBook As Global.System.Nullable(Of Integer),  _
                     ByVal Original_TwistRate As String,  _
                     ByVal Original_lbs_trigger As String,  _
                     ByVal Original_Caliber3 As String,  _
                     ByVal Original_Classification As String,  _
-                    ByVal Original_DateofCR As Global.System.Nullable(Of Date)) As Integer
+                    ByVal Original_DateofCR As Global.System.Nullable(Of Date),  _
+                    ByVal Original_IsNoLeathal As Global.System.Nullable(Of Double),  _
+                    ByVal Original_IsClassIII As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ClassIII_owner As String,  _
+                    ByVal Original_isCompetition As Global.System.Nullable(Of Double)) As Integer
             If (OID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(OID.Value,Integer)
             Else
@@ -38851,7 +39046,11 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(42).Value = CType(remandt,Date)
+            If (ReManDT.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(ReManDT.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
+            End If
             If (POI Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
             Else
@@ -38887,337 +39086,390 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_ID,Integer)
-            If (Original_OID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_OID.Value,Integer)
+            If (IsNoLeathal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(IsNoLeathal.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (IsClassIII.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(IsClassIII.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (ClassIII_owner Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            End If
-            If (Original_MID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_MID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(ClassIII_owner,String)
             End If
-            If (Original_FullName Is Nothing) Then
+            If (isCompetition.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(isCompetition.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_ID,Integer)
+            If (Original_OID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_OID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_FullName,String)
             End If
-            If (Original_ModelName Is Nothing) Then
+            If (Original_MID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_MID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_ModelName,String)
             End If
-            If (Original_ModelID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ModelID.Value,Integer)
-            Else
+            If (Original_FullName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_FullName,String)
             End If
-            If (Original_SerialNumber Is Nothing) Then
+            If (Original_ModelName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_SerialNumber,String)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ModelName,String)
             End If
-            If (Original_Type Is Nothing) Then
+            If (Original_ModelID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ModelID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_Type,String)
             End If
-            If (Original_Caliber Is Nothing) Then
+            If (Original_SerialNumber Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_Caliber,String)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_SerialNumber,String)
             End If
-            If (Original_Finish Is Nothing) Then
+            If (Original_Type Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_Finish,String)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_Type,String)
             End If
-            If (Original_Condition Is Nothing) Then
+            If (Original_Caliber Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_Caliber,String)
             End If
-            If (Original_CustomID Is Nothing) Then
+            If (Original_Finish Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_CustomID,String)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Finish,String)
             End If
-            If (Original_NatID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_NatID.Value,Integer)
-            Else
+            If (Original_Condition Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
-            End If
-            If (Original_GripID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_GripID.Value,Integer)
             Else
+                Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_Condition,String)
+            End If
+            If (Original_CustomID Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_CustomID,String)
             End If
-            If (Original_Qty.HasValue = true) Then
+            If (Original_NatID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_Qty.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_NatID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
             End If
-            If (Original_Weight Is Nothing) Then
+            If (Original_GripID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_GripID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_Weight,String)
             End If
-            If (Original_Height Is Nothing) Then
+            If (Original_Qty.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_Qty.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_Height,String)
             End If
-            If (Original_StockType Is Nothing) Then
+            If (Original_Weight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_StockType,String)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_Weight,String)
             End If
-            If (Original_BarrelLength Is Nothing) Then
+            If (Original_Height Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_BarrelLength,String)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_Height,String)
             End If
-            If (Original_BarrelWidth Is Nothing) Then
+            If (Original_StockType Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_BarrelWidth,String)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_StockType,String)
             End If
-            If (Original_BarrelHeight Is Nothing) Then
+            If (Original_BarrelLength Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_BarrelHeight,String)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_BarrelLength,String)
             End If
-            If (Original_Action Is Nothing) Then
+            If (Original_BarrelWidth Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_Action,String)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_BarrelWidth,String)
             End If
-            If (Original_Feedsystem Is Nothing) Then
+            If (Original_BarrelHeight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_Feedsystem,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_BarrelHeight,String)
             End If
-            If (Original_Sights Is Nothing) Then
+            If (Original_Action Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Sights,String)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Action,String)
             End If
-            If (Original_PurchasedPrice Is Nothing) Then
+            If (Original_Feedsystem Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_PurchasedPrice,String)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_Feedsystem,String)
             End If
-            If (Original_PurchasedFrom Is Nothing) Then
+            If (Original_Sights Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_PurchasedFrom,String)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_Sights,String)
             End If
-            If (Original_AppraisedValue Is Nothing) Then
+            If (Original_PurchasedPrice Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_AppraisedValue,String)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_PurchasedPrice,String)
             End If
-            If (Original_AppraisalDate Is Nothing) Then
+            If (Original_PurchasedFrom Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_AppraisalDate,String)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_PurchasedFrom,String)
             End If
-            If (Original_AppraisedBy Is Nothing) Then
+            If (Original_AppraisedValue Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_AppraisedBy,String)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_AppraisedValue,String)
             End If
-            If (Original_InsuredValue Is Nothing) Then
+            If (Original_AppraisalDate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_InsuredValue,String)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_AppraisalDate,String)
             End If
-            If (Original_StorageLocation Is Nothing) Then
+            If (Original_AppraisedBy Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_StorageLocation,String)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_AppraisedBy,String)
             End If
-            If (Original_HasAss.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_HasAss.Value,Integer)
-            Else
+            If (Original_InsuredValue Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_InsuredValue,String)
             End If
-            If (Original_Produced Is Nothing) Then
+            If (Original_StorageLocation Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_Produced,String)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_StorageLocation,String)
             End If
-            If (Original_dt.HasValue = true) Then
+            If (Original_HasAss.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_dt.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_HasAss.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
             End If
-            If (Original_ItemSold.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_ItemSold.Value,Integer)
-            Else
+            If (Original_Produced Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_Produced,String)
             End If
-            If (Original_SID.HasValue = true) Then
+            If (Original_dt.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_SID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_dt.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
             End If
-            If (Original_BID.HasValue = true) Then
+            If (Original_ItemSold.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_BID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_ItemSold.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
             End If
-            If (Original_dtSold.HasValue = true) Then
+            If (Original_SID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_dtSold.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_SID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
             End If
-            If (Original_PetLoads Is Nothing) Then
+            If (Original_BID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_BID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_PetLoads,String)
             End If
-            If (Original_dtp.HasValue = true) Then
+            If (Original_dtSold.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_dtp.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_dtSold.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
             End If
-            If (Original_IsCandR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_IsCandR.Value,Integer)
-            Else
+            If (Original_PetLoads Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_PetLoads,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_remandt,Date)
-            If (Original_POI Is Nothing) Then
+            If (Original_dtp.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_dtp.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsCandR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_IsCandR.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_POI,String)
             End If
-            If (Original_IsInBoundBook.HasValue = true) Then
+            If (Original_ReManDT.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_IsInBoundBook.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_ReManDT.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
             End If
-            If (Original_TwistRate Is Nothing) Then
+            If (Original_POI Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_TwistRate,String)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_POI,String)
             End If
-            If (Original_lbs_trigger Is Nothing) Then
+            If (Original_IsInBoundBook.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_IsInBoundBook.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_lbs_trigger,String)
             End If
-            If (Original_Caliber3 Is Nothing) Then
+            If (Original_TwistRate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_Caliber3,String)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_TwistRate,String)
             End If
-            If (Original_Classification Is Nothing) Then
+            If (Original_lbs_trigger Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_Classification,String)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_lbs_trigger,String)
             End If
-            If (Original_DateofCR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_DateofCR.Value,Date)
-            Else
+            If (Original_Caliber3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_Caliber3,String)
+            End If
+            If (Original_Classification Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_Classification,String)
+            End If
+            If (Original_DateofCR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_DateofCR.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsNoLeathal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_IsNoLeathal.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IsClassIII.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_IsClassIII.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ClassIII_owner Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_ClassIII_owner,String)
+            End If
+            If (Original_isCompetition.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_isCompetition.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
