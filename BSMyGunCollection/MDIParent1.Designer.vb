@@ -151,7 +151,6 @@ Partial Class MdiParent1
         Me.ToolStripButton14 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton12 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.HelpToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.tsslErrorsFound = New System.Windows.Forms.ToolStripStatusLabel()
@@ -893,7 +892,7 @@ Partial Class MdiParent1
         '
         Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.ToolStripButton3, Me.HelpToolStripButton})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -1104,17 +1103,6 @@ Partial Class MdiParent1
         '
         Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
         Me.ToolStripSeparator16.Size = New System.Drawing.Size(6, 39)
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"),System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(36, 36)
-        Me.ToolStripButton3.Text = "ToolStripButton3"
-        Me.ToolStripButton3.ToolTipText = "Application Updater"
-        Me.ToolStripButton3.Visible = false
         '
         'HelpToolStripButton
         '
@@ -1386,7 +1374,6 @@ End Sub
     Friend WithEvents Gun_CollectionTableAdapter As Gun_CollectionTableAdapter
     Friend WithEvents ToolStripButton1 As ToolStripButton
     Friend WithEvents ToolStripButton2 As ToolStripButton
-    Friend WithEvents ToolStripButton3 As ToolStripButton
     Friend WithEvents CheckForUpdatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AmmunitionInventroyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AddMmunitionToMyCollectionToolStripMenuItem As ToolStripMenuItem
