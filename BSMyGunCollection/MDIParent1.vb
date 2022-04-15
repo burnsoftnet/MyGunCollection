@@ -1274,14 +1274,7 @@ Public Class MdiParent1
         frmNew.Show()
         Cursor = Cursors.Arrow
     End Sub
-    ''' <summary>
-    ''' Converts to olstripmenuitem_click.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub RedoAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RedoAllToolStripMenuItem.Click
-        
-    End Sub
+
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
     ''' </summary>

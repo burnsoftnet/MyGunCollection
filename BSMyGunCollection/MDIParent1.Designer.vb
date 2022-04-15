@@ -107,7 +107,9 @@ Partial Class MdiParent1
         Me.Hotfix8ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Hotfix9ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Hotfix10ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RedoAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SecurityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DisablePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnablePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShowDebugLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsMenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -176,9 +178,6 @@ Partial Class MdiParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.SecurityToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DisablePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnablePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -680,7 +679,7 @@ Partial Class MdiParent1
         '
         'ReRunHotfixUpdatesToolStripMenuItem
         '
-        Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.RedoAllToolStripMenuItem, Me.SecurityToolStripMenuItem})
+        Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.SecurityToolStripMenuItem})
         Me.ReRunHotfixUpdatesToolStripMenuItem.Image = CType(resources.GetObject("ReRunHotfixUpdatesToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ReRunHotfixUpdatesToolStripMenuItem.Name = "ReRunHotfixUpdatesToolStripMenuItem"
         Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
@@ -753,11 +752,24 @@ Partial Class MdiParent1
         Me.Hotfix10ToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.Hotfix10ToolStripMenuItem.Text = "Hotfix 10"
         '
-        'RedoAllToolStripMenuItem
+        'SecurityToolStripMenuItem
         '
-        Me.RedoAllToolStripMenuItem.Name = "RedoAllToolStripMenuItem"
-        Me.RedoAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.RedoAllToolStripMenuItem.Text = "Redo All"
+        Me.SecurityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisablePasswordToolStripMenuItem, Me.EnablePasswordToolStripMenuItem})
+        Me.SecurityToolStripMenuItem.Name = "SecurityToolStripMenuItem"
+        Me.SecurityToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SecurityToolStripMenuItem.Text = "Security"
+        '
+        'DisablePasswordToolStripMenuItem
+        '
+        Me.DisablePasswordToolStripMenuItem.Name = "DisablePasswordToolStripMenuItem"
+        Me.DisablePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DisablePasswordToolStripMenuItem.Text = "Disable Password"
+        '
+        'EnablePasswordToolStripMenuItem
+        '
+        Me.EnablePasswordToolStripMenuItem.Name = "EnablePasswordToolStripMenuItem"
+        Me.EnablePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EnablePasswordToolStripMenuItem.Text = "Enable Password"
         '
         'SearchCollectionToolStripMenuItem
         '
@@ -782,37 +794,37 @@ Partial Class MdiParent1
         'NewWindowToolStripMenuItem
         '
         Me.NewWindowToolStripMenuItem.Name = "NewWindowToolStripMenuItem"
-        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewWindowToolStripMenuItem.Text = "&New Window"
         '
         'CascadeToolStripMenuItem
         '
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CascadeToolStripMenuItem.Text = "&Cascade"
         '
         'TileVerticalToolStripMenuItem
         '
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileVerticalToolStripMenuItem.Text = "Tile &Vertical"
         '
         'TileHorizontalToolStripMenuItem
         '
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "Tile &Horizontal"
         '
         'CloseAllToolStripMenuItem
         '
         Me.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem"
-        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloseAllToolStripMenuItem.Text = "C&lose All"
         '
         'ArrangeIconsToolStripMenuItem
         '
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
         '
         'HelpMenu
@@ -1272,25 +1284,6 @@ Partial Class MdiParent1
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'SecurityToolStripMenuItem
-        '
-        Me.SecurityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisablePasswordToolStripMenuItem, Me.EnablePasswordToolStripMenuItem})
-        Me.SecurityToolStripMenuItem.Name = "SecurityToolStripMenuItem"
-        Me.SecurityToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SecurityToolStripMenuItem.Text = "Security"
-        '
-        'DisablePasswordToolStripMenuItem
-        '
-        Me.DisablePasswordToolStripMenuItem.Name = "DisablePasswordToolStripMenuItem"
-        Me.DisablePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.DisablePasswordToolStripMenuItem.Text = "Disable Password"
-        '
-        'EnablePasswordToolStripMenuItem
-        '
-        Me.EnablePasswordToolStripMenuItem.Name = "EnablePasswordToolStripMenuItem"
-        Me.EnablePasswordToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EnablePasswordToolStripMenuItem.Text = "Enable Password"
-        '
         'MdiParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -1472,7 +1465,6 @@ End Sub
     Friend WithEvents Hotfix7ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Hotfix8ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Hotfix9ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RedoAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Hotfix10ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SecurityToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DisablePasswordToolStripMenuItem As ToolStripMenuItem
