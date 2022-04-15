@@ -37544,7 +37544,7 @@ Namespace MGCDataSetTableAdapters
                 "             PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType,"& _ 
                 " StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_t"& _ 
                 "rigger"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ItemSold = 0 and IsNoLeatha"& _ 
-                "l=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+                "l=0"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(12) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(12).Connection = Me.Connection
@@ -37557,7 +37557,7 @@ Namespace MGCDataSetTableAdapters
                 "             PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType,"& _ 
                 " StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_t"& _ 
                 "rigger"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ItemSold = 0 and IsNoLeatha"& _ 
-                "l=0"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+                "l=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(13) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(13).Connection = Me.Connection
@@ -37899,7 +37899,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByInStockLeathal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+        Public Overloads Overridable Function FillByInStockLethal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(11)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -37912,7 +37912,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByInStockLeathal() As MGCDataSet.Gun_CollectionDataTable
+        Public Overloads Overridable Function GetDataByInStockLethal() As MGCDataSet.Gun_CollectionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(11)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
@@ -37923,7 +37923,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByInStockNonLeathal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+        Public Overloads Overridable Function FillByInStockNonLethal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -37936,7 +37936,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByInStockNonLeathal() As MGCDataSet.Gun_CollectionDataTable
+        Public Overloads Overridable Function GetDataByInStockNonLethal() As MGCDataSet.Gun_CollectionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(12)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)

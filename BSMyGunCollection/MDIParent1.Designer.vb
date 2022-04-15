@@ -1174,7 +1174,7 @@ Partial Class MdiParent1
         'cmbView
         '
         Me.cmbView.FormattingEnabled = true
-        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen"})
+        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - Lethal", "In Stock - Non-Lethal", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen"})
         Me.cmbView.Location = New System.Drawing.Point(6, 9)
         Me.cmbView.Name = "cmbView"
         Me.cmbView.Size = New System.Drawing.Size(141, 21)
