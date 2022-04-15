@@ -26,30 +26,46 @@ Partial Class EditGunClassications
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(EditGunClassications))
-        Me.DataGridView1 = New DataGridView()
-        Me.GunCollectionClassificationBindingSource = New BindingSource(Me.components)
-        Me.MGCDataSet = New MGCDataSet()
-        Me.Gun_Collection_ClassificationTableAdapter = New Gun_Collection_ClassificationTableAdapter()
-        Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn()
-        Me.MyclassDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn()
-        CType(Me.DataGridView1, ISupportInitialize).BeginInit()
-        CType(Me.GunCollectionClassificationBindingSource, ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(EditGunClassications))
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MyclassDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GunCollectionClassificationBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.Gun_Collection_ClassificationTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter()
+        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GunCollectionClassificationBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'DataGridView1
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.MyclassDataGridViewTextBoxColumn})
+        Me.DataGridView1.AccessibleName = "DataGridView1"
+        Me.DataGridView1.AllowUserToAddRows = false
+        Me.DataGridView1.AutoGenerateColumns = false
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.MyclassDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.GunCollectionClassificationBindingSource
-        Me.DataGridView1.Location = New Point(-2, 0)
+        Me.DataGridView1.Location = New System.Drawing.Point(-2, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New Size(220, 352)
+        Me.DataGridView1.Size = New System.Drawing.Size(220, 352)
         Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.Visible = false
+        '
+        'MyclassDataGridViewTextBoxColumn
+        '
+        Me.MyclassDataGridViewTextBoxColumn.DataPropertyName = "myclass"
+        Me.MyclassDataGridViewTextBoxColumn.FillWeight = 160!
+        Me.MyclassDataGridViewTextBoxColumn.HeaderText = "Class Type"
+        Me.MyclassDataGridViewTextBoxColumn.Name = "MyclassDataGridViewTextBoxColumn"
+        Me.MyclassDataGridViewTextBoxColumn.Width = 160
         '
         'GunCollectionClassificationBindingSource
         '
@@ -59,44 +75,29 @@ Partial Class EditGunClassications
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Gun_Collection_ClassificationTableAdapter
         '
-        Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = True
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.Visible = False
-        '
-        'MyclassDataGridViewTextBoxColumn
-        '
-        Me.MyclassDataGridViewTextBoxColumn.DataPropertyName = "myclass"
-        Me.MyclassDataGridViewTextBoxColumn.FillWeight = 160.0!
-        Me.MyclassDataGridViewTextBoxColumn.HeaderText = "Class Type"
-        Me.MyclassDataGridViewTextBoxColumn.Name = "MyclassDataGridViewTextBoxColumn"
-        Me.MyclassDataGridViewTextBoxColumn.Width = 160
+        Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = true
         '
         'EditGunClassications
         '
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(220, 350)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(220, 350)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
         Me.Name = "EditGunClassications"
         Me.Text = "Classification"
-        CType(Me.DataGridView1, ISupportInitialize).EndInit()
-        CType(Me.GunCollectionClassificationBindingSource, ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GunCollectionClassificationBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents GunCollectionClassificationBindingSource As BindingSource
