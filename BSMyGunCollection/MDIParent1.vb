@@ -830,6 +830,8 @@ Public Class MdiParent1
                     Gun_CollectionTableAdapter.FillByInStockLethal(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - NON-LETHAL"
                     Gun_CollectionTableAdapter.FillByInStockNonLethal(MGCDataSet.Gun_Collection)
+                Case "COMPETITION"
+                    Gun_CollectionTableAdapter.FillByCompetitionGuns(MGCDataSet.Gun_Collection)
                 Case "SOLD/STOLEN"
                     Gun_CollectionTableAdapter.FillBySold(MGCDataSet.Gun_Collection)
                 Case "C & R"

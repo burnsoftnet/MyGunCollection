@@ -2,7 +2,6 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
@@ -694,6 +693,8 @@ Public Class FrmViewCollectionDetails
                 lblSold.Text = $"on {l.DateSold}"
                 IsSold = l.WasSold
                 IsStolen = l.WasStolen
+                chkNonLethal.Checked = l.IsNonLethal
+                chkIsCompeition.Checked = l.IsCompetition
             Next
 
             Refresh()
@@ -1303,9 +1304,17 @@ Public Class FrmViewCollectionDetails
     ''' <exception cref="System.Exception"></exception>
     Private Sub chkIsCompeition_CheckedChanged(sender As Object, e As EventArgs) Handles chkIsCompeition.CheckedChanged
         Try
-            If Not BurnSoft.Applications.MGC.Firearms.MyCollection.SetAsCompetitionGun(DatabasePath, Convert.ToInt32(GunId), chkIsCompeition.Checked, _errOut) Then Throw New Exception(_errOut)
+            If Not MyCollection.SetAsCompetitionGun(DatabasePath, Convert.ToInt32(GunId), chkIsCompeition.Checked, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "chkIsCompeition_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub chkNonLethal_CheckedChanged(sender As Object, e As EventArgs) Handles chkNonLethal.CheckedChanged
+        Try
+            If Not MyCollection.SetAsNonLethal(DatabasePath, Convert.ToInt32(GunId), chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkNonLethal_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

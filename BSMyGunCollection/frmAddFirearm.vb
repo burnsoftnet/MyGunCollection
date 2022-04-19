@@ -229,14 +229,14 @@ Public Class FrmAddFirearm
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Call BurnSoft.Applications.MGC.Firearms.GunTypes.UpdateGunType(DatabasePath, strType, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-
+            ''TODO: #65 Come Back to this to add the check boxes
             if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Add(DatabasePath, UseNumberCatOnly, OwnerId, lngManId, strFullName, strModel, lngModelId, strSerial,
                                                                        strType,strCal, strFinish, strCondition, strCustCatId, lngNationalityId, lngGripId, strWeight,
                                                                        strLength, strGripType, strBarLen, strBarWid, strBarHei, strAction, strfeed, strSights, strPurPrice,
                                                                        strPurchasedFrom, strAppValue, strAppDate, strAppBy, strInsVal, strStorage, strConCom, strAddNotes,
                                                                        strProduced, strPetLoads, strPurDate, chkBoxCR.Checked, strImporter, sReManDt, sPoi, 
                                                                        sChoke, chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification, sDateOfCr,
-                                                                       chkClassIII.Checked,sClassIiiOwner, _errOut) Then Throw New Exception(_errOut)
+                                                                       chkClassIII.Checked,sClassIiiOwner,false, false, _errOut) Then Throw New Exception(_errOut)
 
             Lastviewedfirearm = BurnSoft.Applications.MGC.Firearms.MyCollection.GetLastId(DatabasePath, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
