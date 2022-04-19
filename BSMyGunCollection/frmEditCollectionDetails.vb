@@ -103,6 +103,8 @@ Public Class FrmEditCollectionDetails
                 if o.ItemSold Then  dtpSold.Value = o.DateSold
                 Label34.Visible = o.ItemSold
                 dtpSold.Visible = o.ItemSold
+                chkIsCompeition.Checked = o.IsCompetition
+                chkNonLethal.Checked = o.IsNonLethal
             Next
 
         Catch ex As Exception
@@ -282,7 +284,7 @@ Public Class FrmEditCollectionDetails
 
             Dim sReManDt As String = dtpReManDT.Value
             Dim sPoi As String = FluffContent(txtPOI.Text)
-            ''TODO: #65 Come Back to this to add the check boxes
+
             if Not BurnSoft.Applications.MGC.Firearms.MyCollection.Update(DatabasePath, Convert.ToInt32(ItemId), UseNumberCatOnly,
                                                                           Convert.ToInt32(OwnerId), lngManId, strModel, lngModelId,
                                                                           strSerial, strType, strCal, strFinish, strCondition,strCustCatId,
@@ -292,7 +294,7 @@ Public Class FrmEditCollectionDetails
                                                                           strInsVal, strStorage, strConCom, strAddNotes, strProduced, strPetLoads,
                                                                           strPurDate, chkBoxCR.Checked, strImporter, sReManDt, sPoi, sChoke, 
                                                                           chkBoundBook.Checked, sTwist, sTrigger, sCaliber3, sClassification,
-                                                                          sDateOfCr, chkClassIII.Checked, _isSold, dtpSold.Value,sClassIiiOwner,False,False, _errOut) Then Throw New Exception(_errOut)
+                                                                          sDateOfCr, chkClassIII.Checked, _isSold, dtpSold.Value,sClassIiiOwner,chkIsCompeition.Checked,chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
 
                 MDIParent1.RefreshCollection()
             Close()
