@@ -83,7 +83,7 @@ Public Class FrmEditWishlist
             If Not Helpers.IsRequired(strQty, "Qty", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strValue, "Value", Text, _errOut) Then Exit Sub
             
-            If Not WishList.Update(DatabaseName, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, _errOut) Then Throw New Exception(_errOut)
+            If Not WishList.Update(DatabasePath, ItemId, strManu, strModel, strSs, strQty, strValue,strNotes, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
         End Try

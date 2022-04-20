@@ -57,7 +57,7 @@ Public Class FrmEditModelTypes
         Try
             Dim errOut as String = ""
             If Not Models.Update(DatabasePath, ModelId, txtModel.Text, errOut) Then Throw New Exception(errOut)
-            If Not Manufacturers.Update(DatabaseName, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
+            If Not Manufacturers.Update(DatabasePath, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
         Catch ex As Exception
             Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try

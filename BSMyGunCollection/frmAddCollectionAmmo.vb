@@ -15,15 +15,15 @@ Public Class FrmAddCollectionAmmo
     Private Sub frmAddCollectionAmmo_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
             Dim errOut as String = ""
-            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Ammo.Manufacturer(DatabaseName, errOut)
+            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Ammo.Manufacturer(DatabasePath, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            txtCal.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Caliber(DatabaseName, errOut)
+            txtCal.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Caliber(DatabasePath, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            txtName.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Name(DatabaseName, errOut)
+            txtName.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Name(DatabasePath, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            txtGrain.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Grain(DatabaseName, errOut)
+            txtGrain.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Grain(DatabasePath, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            txtJacket.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Jacket(DatabaseName, errOut)
+            txtJacket.AutoCompleteCustomSource =BurnSoft.Applications.MGC.AutoFill.Ammo.Jacket(DatabasePath, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
