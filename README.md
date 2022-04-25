@@ -33,6 +33,15 @@ v7.x TBD
 
 - Optimize functions by converting alot of the code to use a seperate library
 - FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
+- ADDED - The ability to Mark a Firearm as a Competition Gun and The ability to view all firearms with this Marker in the list
+- ADDED - The ability to mark a device as a Non-Lethal Weapon and the abilit to view all of these devices in the list.  Since things like the byrma and tazer have serial numbers and some people have these as an option when visiting other states.
+- OPTIZIMED - Hotfix Updater to not use a seperate application which windows would complain about.  Now it is all part of the app.
+- UPDATED - Mixxing fields in Import and Export Functions.
+- ADDED - Preloaded data with information that was an option that was loaded in By the Data Loader.
+- REMOVED - The Data Loader application.  This application was the only one that went out to the web to get the data, now that the database has all the information pre loaded, this application is no longer needed.
+- FIXED - Glitch in Audit Ammo in version 6 release, the settings was not saving a properly loading when the app started
+- UPDATEd - Wording a Spelling.
+
 
 v6.5  March 2021
 

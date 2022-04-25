@@ -100,6 +100,8 @@ Partial Class FrmViewCollectionDetails
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.chkNonLethal = New System.Windows.Forms.CheckBox()
+        Me.Label63 = New System.Windows.Forms.Label()
         Me.chkIsCompeition = New System.Windows.Forms.CheckBox()
         Me.Label62 = New System.Windows.Forms.Label()
         Me.dtpDateofCR = New System.Windows.Forms.DateTimePicker()
@@ -308,8 +310,6 @@ Partial Class FrmViewCollectionDetails
         Me.GunSmith_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.GunSmith_DetailsTableAdapter()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.Qry_DocsAndLinksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter()
-        Me.chkNonLethal = New System.Windows.Forms.CheckBox()
-        Me.Label63 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout
         Me.TabPage5.SuspendLayout
         CType(Me.pbStolen,System.ComponentModel.ISupportInitialize).BeginInit
@@ -1044,6 +1044,26 @@ Partial Class FrmViewCollectionDetails
         Me.TabPage11.Text = "Collector Details"
         Me.TabPage11.UseVisualStyleBackColor = true
         '
+        'chkNonLethal
+        '
+        Me.chkNonLethal.AccessibleName = "chkNonLethal"
+        Me.chkNonLethal.AutoSize = true
+        Me.chkNonLethal.Location = New System.Drawing.Point(109, 274)
+        Me.chkNonLethal.Name = "chkNonLethal"
+        Me.chkNonLethal.Size = New System.Drawing.Size(44, 17)
+        Me.chkNonLethal.TabIndex = 236
+        Me.chkNonLethal.Text = "Yes"
+        Me.chkNonLethal.UseVisualStyleBackColor = true
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = true
+        Me.Label63.Location = New System.Drawing.Point(9, 275)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(102, 13)
+        Me.Label63.TabIndex = 235
+        Me.Label63.Text = "Non-Lethal Device?"
+        '
         'chkIsCompeition
         '
         Me.chkIsCompeition.AccessibleName = "chkIsCompeition"
@@ -1415,6 +1435,7 @@ Partial Class FrmViewCollectionDetails
         '
         Me.ListView1.ContextMenuStrip = Me.mnuPictre
         Me.ListView1.HideSelection = false
+        Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.ListView1.Location = New System.Drawing.Point(7, 36)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(592, 362)
@@ -3004,26 +3025,6 @@ Partial Class FrmViewCollectionDetails
         'Qry_DocsAndLinksTableAdapter
         '
         Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = true
-        '
-        'chkNonLethal
-        '
-        Me.chkNonLethal.AccessibleName = "chkNonLethal"
-        Me.chkNonLethal.AutoSize = true
-        Me.chkNonLethal.Location = New System.Drawing.Point(109, 274)
-        Me.chkNonLethal.Name = "chkNonLethal"
-        Me.chkNonLethal.Size = New System.Drawing.Size(44, 17)
-        Me.chkNonLethal.TabIndex = 236
-        Me.chkNonLethal.Text = "Yes"
-        Me.chkNonLethal.UseVisualStyleBackColor = true
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = true
-        Me.Label63.Location = New System.Drawing.Point(9, 275)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(102, 13)
-        Me.Label63.TabIndex = 235
-        Me.Label63.Text = "Non-Lethal Device?"
         '
         'FrmViewCollectionDetails
         '
