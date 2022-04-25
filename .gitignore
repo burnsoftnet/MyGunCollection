@@ -13,3 +13,5 @@ BSMyGunCollection/packages
 BSMyGunCollection_Setup/Debug
 BSMyGunCollection_Setup/Release
 BSMyGunCollection/obj/Release/DesignTimeResolveAssemblyReferences.cache
+BSMyGunCollection.UnitTest/obj
+BSMyGunCollection.UnitTest/bin
