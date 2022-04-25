@@ -1,16 +1,22 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using BSMyGunCollection.UnitTest.Settings;
 using BurnSoft.Testing.Apps.Appium;
+using BurnSoft.Testing.Apps.Appium.Types;
 
 namespace BSMyGunCollection.UnitTest.UI
 {
     [TestClass]
     public class MainApp
     {
-        public TestContext TestContect { get; set; }
+        /// <summary>
+        /// Gets or sets the test context.
+        /// </summary>
+        /// <value>The test context.</value>
+        public TestContext TestContext { get; set; }
         private GeneralActions ga;
         private string appPath;
         private string appName;
@@ -64,6 +70,21 @@ namespace BSMyGunCollection.UnitTest.UI
             return File.Exists(fullLogPath);
         }
 
+        private void DumpResults(List<BatchCommandList> value)
+        {
+            if (value.Count > 0)
+            {
+                int testNumber = 1;
+                foreach (BatchCommandList v in value)
+                {
+                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED";
+                    TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}");
+                    TestContext.WriteLine(v.ReturnedValue);
+                    testNumber++;
+                }
+            }
+        }
+
         [TestMethod]
         public void VerifyAppInitlizeTest()
         {
@@ -89,42 +110,16 @@ namespace BSMyGunCollection.UnitTest.UI
             Assert.IsTrue(bans);
         }
         [TestMethod]
-        public void CollectionTestTest()
+        public void CollectionViewTest()
         {
             bool bans = false;
             try
             {
-                ga.GetElements("ListBox1", out errOut);
+                List<BatchCommandList> value = ga.RunBatchCommands(Command.Helpers.UI.Collection.ViewWindow.RunTest(FirearmToView), out errOut);
                 if (errOut.Length > 0) throw new Exception(errOut);
-                bool value = ga.PerformAction(FirearmToView, "", GeneralActions.MyAction.DoubleClick, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                Thread.Sleep(2000);
-                value = ga.PerformAction("Collector Details", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Condition Comments", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Additional Notes", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Picture(s)", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Barrels/Conversion Kits", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Accessories", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Ammunition", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Maintenance", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Gun Smith", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Sale/Disposition", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Standard Details", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
-                value = ga.PerformAction("Exit", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
-                if (errOut.Length > 0) throw new Exception(errOut);
+                DumpResults(value);
+                bans= ga.AllTestsPassed(value);
 
-                bans = true;
                 if (ErrLogExists())
                 {
                     bans = false;

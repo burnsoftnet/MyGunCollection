@@ -11,6 +11,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BSMyGunCollection_Setup", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMyGunCollection.UnitTest", "BSMyGunCollection.UnitTest\BSMyGunCollection.UnitTest.csproj", "{3E8C0BEC-3087-4A33-8B2E-61CEAE3A1ACB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSMyGunCollection.UnitTest.Command.Helpers", "BSMyGunCollection.UnitTest.Command.Helpers\BSMyGunCollection.UnitTest.Command.Helpers.csproj", "{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,12 +29,17 @@ Global
 		{3E8C0BEC-3087-4A33-8B2E-61CEAE3A1ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8C0BEC-3087-4A33-8B2E-61CEAE3A1ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E8C0BEC-3087-4A33-8B2E-61CEAE3A1ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3E8C0BEC-3087-4A33-8B2E-61CEAE3A1ACB} = {C3B39E09-A06C-468C-9E76-CFA32FA56FA8}
+		{3716F7CF-1F6E-467F-BE8E-40B38FAC8EE7} = {C3B39E09-A06C-468C-9E76-CFA32FA56FA8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27F10E9D-7D11-4ABE-821D-B8C0CCC3CC20}
