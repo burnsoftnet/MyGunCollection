@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Settings\VS2019.cs" />
+    <Compile Include="UI\Collection\AddTest.cs" />
     <Compile Include="UI\Collection\ViewWindowTest.cs" />
     <Compile Include="UI\MainAppTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

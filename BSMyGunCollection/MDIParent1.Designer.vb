@@ -211,7 +211,7 @@ Partial Class MdiParent1
         Me.ImportFirearmToolStripMenuItem.AccessibleName = "Import"
         Me.ImportFirearmToolStripMenuItem.Image = CType(resources.GetObject("ImportFirearmToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ImportFirearmToolStripMenuItem.Name = "ImportFirearmToolStripMenuItem"
-        Me.ImportFirearmToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportFirearmToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ImportFirearmToolStripMenuItem.Text = "&Import Firearm"
         '
         'OpenToolStripMenuItem
@@ -221,13 +221,13 @@ Partial Class MdiParent1
         Me.OpenToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
         Me.OpenToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R),System.Windows.Forms.Keys)
-        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OpenToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.OpenToolStripMenuItem.Text = "&Restore"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(151, 6)
         '
         'SaveToolStripMenuItem
         '
@@ -236,20 +236,20 @@ Partial Class MdiParent1
         Me.SaveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
         Me.SaveToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.B),System.Windows.Forms.Keys)
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.SaveToolStripMenuItem.Text = "&Backup"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(151, 6)
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.AccessibleName = "Exit"
         Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ExitToolStripMenuItem.Text = "E&xit"
         '
         'EditMenu
@@ -945,7 +945,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton4
         '
-        Me.ToolStripButton4.AccessibleName = "ToolStripButton4"
+        Me.ToolStripButton4.AccessibleName = "AmmoInventory"
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"),System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -956,7 +956,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton9
         '
-        Me.ToolStripButton9.AccessibleName = "ToolStripButton9"
+        Me.ToolStripButton9.AccessibleName = "AddAmmoInventory"
         Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"),System.Drawing.Image)
         Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -966,7 +966,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton10
         '
-        Me.ToolStripButton10.AccessibleName = "ToolStripButton10"
+        Me.ToolStripButton10.AccessibleName = "WishList"
         Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"),System.Drawing.Image)
         Me.ToolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -976,7 +976,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton11
         '
-        Me.ToolStripButton11.AccessibleName = "ToolStripButton11"
+        Me.ToolStripButton11.AccessibleName = "AddWishList"
         Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"),System.Drawing.Image)
         Me.ToolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -986,7 +986,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton5
         '
-        Me.ToolStripButton5.AccessibleName = "ToolStripButton5"
+        Me.ToolStripButton5.AccessibleName = "ViewMaintenancePlans"
         Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"),System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -1002,18 +1002,18 @@ Partial Class MdiParent1
         '
         'ToolStripButton1
         '
-        Me.ToolStripButton1.AccessibleName = "ToolStripButton1"
+        Me.ToolStripButton1.AccessibleName = "AddGun"
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"),System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(36, 36)
-        Me.ToolStripButton1.Text = "ToolStrip_AddGun"
+        Me.ToolStripButton1.Text = "AddGun"
         Me.ToolStripButton1.ToolTipText = "Add Gun to Collection"
         '
         'ToolStripButton15
         '
-        Me.ToolStripButton15.AccessibleName = "ToolStripButton15"
+        Me.ToolStripButton15.AccessibleName = "FirearmGallery"
         Me.ToolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton15.Image = CType(resources.GetObject("ToolStripButton15.Image"),System.Drawing.Image)
         Me.ToolStripButton15.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -1023,7 +1023,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton13
         '
-        Me.ToolStripButton13.AccessibleName = "ToolStripButton13"
+        Me.ToolStripButton13.AccessibleName = "SearchCollection"
         Me.ToolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton13.Image = CType(resources.GetObject("ToolStripButton13.Image"),System.Drawing.Image)
         Me.ToolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -1033,7 +1033,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton2
         '
-        Me.ToolStripButton2.AccessibleName = "ToolStripButton2"
+        Me.ToolStripButton2.AccessibleName = "DeleteSelectedFirearm"
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"),System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -1049,7 +1049,7 @@ Partial Class MdiParent1
         '
         'ToolStripButton7
         '
-        Me.ToolStripButton7.AccessibleName = "ToolStripButton7"
+        Me.ToolStripButton7.AccessibleName = "AmmoInventoryReport"
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"),System.Drawing.Image)
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta

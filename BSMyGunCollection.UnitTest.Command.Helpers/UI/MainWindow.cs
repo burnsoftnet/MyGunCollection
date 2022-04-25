@@ -89,6 +89,94 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             //cmd.AddRange(Menu.ClickOnExit(verify));
             return cmd;
         }
+
+        internal class ToolBar
+        {
+            internal static List<BatchCommandList> ClickOnOpenToolStripButton(bool verify = false)
+            {
+                string element = "OpenToolStripButton";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+            internal static List<BatchCommandList> ClickOnSaveToolStripButton(bool verify = false)
+            {
+                string element = "SaveToolStripButton";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnSettingsButton(bool verify = false)
+            {
+                string element = "SettingsButton";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnAmmoInventoryToolStripButton(bool verify = false)
+            {
+                string element = "AmmoInventory";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnAddAmmoInventory(bool verify = false)
+            {
+                string element = "AddAmmoInventory";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnWishList(bool verify = false)
+            {
+                string element = "WishList";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnViewMaintenancePlans(bool verify = false)
+            {
+                string element = "ViewMaintenancePlans";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnAddGun(bool verify = false)
+            {
+                string element = "AddGun";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnFirearmGallery(bool verify = false)
+            {
+                string element = "FirearmGallery";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnAddWishList(bool verify = false)
+            {
+                string element = "AddWishList";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+            
+            internal static List<BatchCommandList> ClickOnSearchCollection(bool verify = false)
+            {
+                string element = "SearchCollection";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            internal static List<BatchCommandList> ClickOnDeleteSelectedFirearm(bool verify = false)
+            {
+                string element = "DeleteSelectedFirearm";
+                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+        }
+
         /// <summary>
         /// Class Menu.
         /// </summary>
