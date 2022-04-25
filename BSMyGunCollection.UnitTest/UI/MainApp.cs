@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Threading;
 using BSMyGunCollection.UnitTest.Settings;
 using BurnSoft.Testing.Apps.Appium;
 
@@ -17,6 +18,7 @@ namespace BSMyGunCollection.UnitTest.UI
         private string fullAppPath;
         private string fullLogPath;
         private string errOut;
+        private string FirearmToView;
 
         [TestInitialize]
         public void Init()
@@ -27,6 +29,7 @@ namespace BSMyGunCollection.UnitTest.UI
                 appPath = Vs2019.GetSetting("AppPath");
                 appName = Vs2019.GetSetting("AppName");
                 errLog = Vs2019.GetSetting("ErrorLogName");
+                FirearmToView = Vs2019.GetSetting("FirearmToView");
                 fullAppPath = Path.Combine(appPath, appName);
                 fullLogPath = Path.Combine(appPath, errLog);
                 string SettingsScreenShotLocation = "ScreenShots";
@@ -36,7 +39,7 @@ namespace BSMyGunCollection.UnitTest.UI
 
                 ga = new GeneralActions();
                 ga.TestName = "MainApp";
-                ga.ApplicationPath = fullLogPath;
+                ga.ApplicationPath = fullAppPath;
                 ga.SettingsScreenShotLocation = fullExceptionPath;
                 ga.DoSleep = true;
                 ga.Initialize();
@@ -62,13 +65,16 @@ namespace BSMyGunCollection.UnitTest.UI
         }
 
         [TestMethod]
-        public void VerifyAppInit()
+        public void VerifyAppInitlizeTest()
         {
             bool bans = false;
             try
             {
                 ga.GetElements("ListBox1", out errOut);
                 if (errOut.Length > 0) throw new Exception(errOut);
+                bool value = ga.PerformAction(FirearmToView, "", GeneralActions.MyAction.DoubleClick, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                Thread.Sleep(2000);
                 bans = true;
                 if (ErrLogExists())
                 {

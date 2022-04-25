@@ -30,6 +30,7 @@ namespace BSMyGunCollection.UnitTest.Settings
             ls.Add(new Tuple<string, string>("AppPath", "C:\\Source\\Repos\\MyGunCollection\\BSMyGunCollection\\bin\\Debug\\"));
             ls.Add(new Tuple<string, string>("AppName", "BSMyGunCollection.exe"));
             ls.Add(new Tuple<string, string>("ErrorLogName", "err.log"));
+            ls.Add(new Tuple<string, string>("FirearmToView", "Glock G17"));
 
             //ls.Add(new Tuple<string, string>("", ""));
             //ls.Add(new Tuple<string, string>("", ""));
