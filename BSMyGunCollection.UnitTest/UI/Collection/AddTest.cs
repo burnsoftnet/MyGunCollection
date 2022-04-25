@@ -51,9 +51,13 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         private string _firearmToView;
         /// <summary>
-        /// The firearm to set as non lethal
+        /// The add firearm manufacture
         /// </summary>
-        private string _firearmToSetAsNonLethal;
+        private string AddFirearmManufacture;
+        /// <summary>
+        /// The add firearm model
+        /// </summary>
+        private string AddFirearmModel;
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -67,7 +71,8 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 _appName = Vs2019.GetSetting("AppName");
                 _errLog = Vs2019.GetSetting("ErrorLogName");
                 _firearmToView = Vs2019.GetSetting("FirearmToView");
-                _firearmToSetAsNonLethal = Vs2019.GetSetting("FirearmToSetAsNonLethal");
+                AddFirearmManufacture = Vs2019.GetSetting("AddFirearmManufacture");
+                AddFirearmModel = Vs2019.GetSetting("AddFirearmModel");
                 _fullAppPath = Path.Combine(_appPath, _appName);
                 _fullLogPath = Path.Combine(_appPath, _errLog);
 
@@ -76,6 +81,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 if (!Directory.Exists(fullExceptionPath)) Directory.CreateDirectory(fullExceptionPath);
                 if (File.Exists(_fullLogPath)) File.Delete(_fullLogPath);
 
+                VerifyDoesntExist();
                 _ga = new GeneralActions();
                 _ga.TestName = "MainApp";
                 _ga.ApplicationPath = _fullAppPath;
@@ -125,6 +131,17 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         }
         #endregion
 
+        private void VerifyDoesntExist()
+        {
+            string dbPath = BurnSoft.Applications.MGC.ThirdParty.Main.GetDatabaseLocation(out _);
+            string fullname = $"{AddFirearmManufacture} {AddFirearmModel}";
+            if (BurnSoft.Applications.MGC.Firearms.MyCollection.Exists(dbPath,
+                fullname, out _))
+            {
+                long id = BurnSoft.Applications.MGC.Firearms.MyCollection.GetId(dbPath, fullname, out _);
+                BurnSoft.Applications.MGC.Firearms.MyCollection.Delete(dbPath, id, out _);
+            }
+        }
         [TestMethod]
         public void AddSimpleTest()
         {
@@ -132,8 +149,9 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             try
             {
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
-                    "UnitTestFirearms","GitHub","G17 9mm super",
-                    "UTF0293845", "Pistol: Semi-Auto - SA Only"), out _errOut);
+                    AddFirearmManufacture, "GitHub", AddFirearmModel,
+                    "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
+                    "90%","WebGunShop","499.99"), out _errOut);
                 if (_errOut.Length > 0) throw new Exception(_errOut);
                 DumpResults(value);
                 bans = _ga.AllTestsPassed(value);
