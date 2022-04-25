@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BurnSoft.Testing.Apps.Appium;
 using BurnSoft.Testing.Apps.Appium.Types;
 
@@ -44,6 +40,26 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers
             });
             return cmd;
         }
+
+        internal static List<BatchCommandList> SendTExt(string testName, string element,string value, bool verify = false,
+            GeneralActions.AppAction commandAction = GeneralActions.AppAction.FindElementByAccessibilityId)
+        {
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.AddRange(Sleep500());
+            string actionMs = verify ? "Verify" : "Send Text";
+            GeneralActions.MyAction action = verify ? GeneralActions.MyAction.Nothing : GeneralActions.MyAction.SendKeys;
+
+            cmd.Add(new BatchCommandList()
+            {
+                Actions = action,
+                TestName = $"{actionMs} {testName}",
+                ElementName = element,
+                CommandAction = commandAction,
+                SendKeys = value
+            });
+            return cmd;
+        }
+
         internal static List<BatchCommandList> Sleep500()
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();

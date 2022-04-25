@@ -6,4 +6,4 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification = "<Pending>", Scope = "member", Target = "~M:BSMyGunCollection.UnitTest.Settings.Vs2019.GeneralSettings~System.Collections.Generic.List{System.Tuple{System.String,System.String}}")]
-[assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>", Scope = "member", Target = "~M:BSMyGunCollection.UnitTest.UI.MainApp.Init")]
+[assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "<Pending>", Scope = "member", Target = "~M:BSMyGunCollection.UnitTest.UI.MainAppTest.Init")]
