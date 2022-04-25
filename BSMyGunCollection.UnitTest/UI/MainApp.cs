@@ -88,5 +88,54 @@ namespace BSMyGunCollection.UnitTest.UI
             }
             Assert.IsTrue(bans);
         }
+        [TestMethod]
+        public void CollectionTestTest()
+        {
+            bool bans = false;
+            try
+            {
+                ga.GetElements("ListBox1", out errOut);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                bool value = ga.PerformAction(FirearmToView, "", GeneralActions.MyAction.DoubleClick, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                Thread.Sleep(2000);
+                value = ga.PerformAction("Collector Details", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Condition Comments", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Additional Notes", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Picture(s)", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Barrels/Conversion Kits", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Accessories", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Ammunition", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Maintenance", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Gun Smith", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Sale/Disposition", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Standard Details", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+                value = ga.PerformAction("Exit", "", GeneralActions.MyAction.Click, out errOut, GeneralActions.AppAction.FindElementByName);
+                if (errOut.Length > 0) throw new Exception(errOut);
+
+                bans = true;
+                if (ErrLogExists())
+                {
+                    bans = false;
+                    throw new Exception($"ERROR LOG EXISTS!! {fullLogPath}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Assert.IsTrue(bans);
+        }
     }
 }
