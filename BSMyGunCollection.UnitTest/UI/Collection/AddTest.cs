@@ -53,11 +53,11 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// <summary>
         /// The add firearm manufacture
         /// </summary>
-        private string AddFirearmManufacture;
+        private string _addFirearmManufacture;
         /// <summary>
         /// The add firearm model
         /// </summary>
-        private string AddFirearmModel;
+        private string _addFirearmModel;
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -71,8 +71,8 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 _appName = Vs2019.GetSetting("AppName");
                 _errLog = Vs2019.GetSetting("ErrorLogName");
                 _firearmToView = Vs2019.GetSetting("FirearmToView");
-                AddFirearmManufacture = Vs2019.GetSetting("AddFirearmManufacture");
-                AddFirearmModel = Vs2019.GetSetting("AddFirearmModel");
+                _addFirearmManufacture = Vs2019.GetSetting("AddFirearmManufacture");
+                _addFirearmModel = Vs2019.GetSetting("AddFirearmModel");
                 _fullAppPath = Path.Combine(_appPath, _appName);
                 _fullLogPath = Path.Combine(_appPath, _errLog);
 
@@ -134,7 +134,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         private void VerifyDoesntExist()
         {
             string dbPath = BurnSoft.Applications.MGC.ThirdParty.Main.GetDatabaseLocation(out _);
-            string fullname = $"{AddFirearmManufacture} {AddFirearmModel}";
+            string fullname = $"{_addFirearmManufacture} {_addFirearmModel}";
             if (BurnSoft.Applications.MGC.Firearms.MyCollection.Exists(dbPath,
                 fullname, out _))
             {
@@ -149,9 +149,37 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             try
             {
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
-                    AddFirearmManufacture, "GitHub", AddFirearmModel,
+                    _addFirearmManufacture, "GitHub", _addFirearmModel,
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
                     "90%","WebGunShop","499.99"), out _errOut);
+                if (_errOut.Length > 0) throw new Exception(_errOut);
+                DumpResults(value);
+                bans = _ga.AllTestsPassed(value);
+
+                if (ErrLogExists())
+                {
+                    bans = false;
+                    throw new Exception($"ERROR LOG EXISTS!! {_fullLogPath}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Assert.IsTrue(bans);
+        }
+
+        [TestMethod]
+        public void AddJustABoutEverythingTest()
+        {
+            bool bans = false;
+            try
+            {
+                List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
+                    _addFirearmManufacture, "GitHub", _addFirearmModel,
+                    "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
+                    "90%", "WebGunShop", "499.99", "9mm kurtz","","plastic","1/1/1990","blow back","16oz",
+                    "USA","black","Gun Locker","fixed irons","30 round magazine","5 in.","4.5 in." ), out _errOut);
                 if (_errOut.Length > 0) throw new Exception(_errOut);
                 DumpResults(value);
                 bans = _ga.AllTestsPassed(value);
