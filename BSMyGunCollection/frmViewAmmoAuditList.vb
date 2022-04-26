@@ -90,11 +90,7 @@ Public Class FrmViewAmmoAuditList
             Dim price As Double = DataGridView1.SelectedRows.Item(0).Cells.Item(3).Value
 ' ReSharper disable once LocalVariableHidesMember
             Dim ppb As Double = FormatNumber(price / qty, 2)
-            ''TODO: #50 UPdate this function with BurnSoft.Applications.MGC.Ammo.Audit.UpdatePricePerBullet after library update
-            Dim obj As New BsDatabase
-            Dim sql As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
-                                ppb & " where ID=" & itemId
-            obj.ConnExec(sql)
+          
             If Not BurnSoft.Applications.MGC.Ammo.Audit.UpdatePricePerBullet(DatabasePath, itemId, ppb, errOut) Then Throw New Exception(errOut)
             Call LoadData()
         Catch ex As Exception
