@@ -178,7 +178,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
                     _addFirearmManufacture, "GitHub", _addFirearmModel,
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
-                    "90%", "WebGunShop", "499.99", "9mm kurtz","","plastic","1/1/1990","blow back","16oz",
+                    "90%", "WebGunShop", "499.99", "9mm kurtz","9mm","plastic","1/1/1990","blow back","16oz",
                     "USA","black","Gun Locker","fixed irons","30 round magazine","5 in.","4.5 in." ), out _errOut);
                 if (_errOut.Length > 0) throw new Exception(_errOut);
                 DumpResults(value);
