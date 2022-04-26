@@ -94,7 +94,7 @@ Public Class FrmImportFirearm
         Catch ex As Exception
             Call LogError(Name, "ProcessXMLToDB", Err.Number, ex.Message.ToString)
             UseWaitCursor = False
-            MsgBox("Error occured while attempting to import file. See log for details.")
+            MsgBox("Error occurred while attempting to import file. See log for details.")
         End Try
         MDIParent1.RefreshCollection()
         Close()

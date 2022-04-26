@@ -1297,7 +1297,7 @@ Public Class FrmViewCollectionDetails
         Close()
     End Sub
     ''' <summary>
-    ''' Handles the CheckedChanged event of the chkIsCompeition control.
+    ''' Handles the CheckedChanged event of the chkIsCompetition control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -1306,7 +1306,7 @@ Public Class FrmViewCollectionDetails
         Try
             If Not MyCollection.SetAsCompetitionGun(DatabasePath, Convert.ToInt32(GunId), chkIsCompeition.Checked, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Call LogError(Name, "chkIsCompeition_CheckedChanged", Err.Number, ex.Message.ToString)
+            Call LogError(Name, "chkIsCompetition_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 

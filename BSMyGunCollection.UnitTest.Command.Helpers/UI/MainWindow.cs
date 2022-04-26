@@ -299,7 +299,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                     GeneralActions.AppAction.FindElementByName);
             }
             /// <summary>
-            /// Views the custom cataolog.
+            /// Views the custom catalog.
             /// </summary>
             /// <param name="verify">if set to <c>true</c> [verify].</param>
             /// <returns>List&lt;BatchCommandList&gt;.</returns>

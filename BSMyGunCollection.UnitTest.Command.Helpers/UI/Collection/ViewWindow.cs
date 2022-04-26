@@ -67,7 +67,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         }
 
         /// <summary>
-        /// Colletors the details.
+        /// Collators the details.
         /// </summary>
         /// <param name="verify">if set to <c>true</c> [verify].</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
@@ -89,7 +89,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 GeneralActions.AppAction.FindElementByName);
         }
         /// <summary>
-        /// Additionals the notes.
+        /// Additional the notes.
         /// </summary>
         /// <param name="verify">if set to <c>true</c> [verify].</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
@@ -100,7 +100,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 GeneralActions.AppAction.FindElementByName);
         }
         /// <summary>
-        /// Pictureses the specified verify.
+        /// Pictures  the specified verify.
         /// </summary>
         /// <param name="verify">if set to <c>true</c> [verify].</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
@@ -111,7 +111,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 GeneralActions.AppAction.FindElementByName);
         }
         /// <summary>
-        /// Barrelses the conversion kits.
+        /// Barrels the conversion kits.
         /// </summary>
         /// <param name="verify">if set to <c>true</c> [verify].</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
@@ -122,7 +122,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 GeneralActions.AppAction.FindElementByName);
         }
         /// <summary>
-        /// Accessorieses the specified verify.
+        /// Accessories the specified verify.
         /// </summary>
         /// <param name="verify">if set to <c>true</c> [verify].</param>
         /// <returns>List&lt;BatchCommandList&gt;.</returns>
