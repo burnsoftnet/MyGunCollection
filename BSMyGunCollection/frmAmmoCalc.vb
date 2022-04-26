@@ -56,9 +56,9 @@ Public Class FrmAmmoCalc
                 intId = CInt(ListView1.Items(i).SubItems(0).Text)
                 intCurQty = BurnSoft.Applications.MGC.Ammo.Inventory.GetQty(DatabasePath, intId, _errOut)
                 If Len(AmmoUsed) = 0 Then
-                    AmmoUsed = ListView1.Items(i).SubItems(1).Text
+                    AmmoUsed = $"{ListView1.Items(i).SubItems(1).Text} ( {intQty} )"
                 Else
-                    AmmoUsed &= ", " & ListView1.Items(i).SubItems(1).Text
+                    AmmoUsed &= $", {ListView1.Items(i).SubItems(1).Text} ( {intQty} )"
                 End If
                 If Not BurnSoft.Applications.MGC.Ammo.Inventory.UpdateQty(DatabasePath, intId, intCurQty, intQty, _errOut) Then Throw New Exception(_errOut)
             Next
