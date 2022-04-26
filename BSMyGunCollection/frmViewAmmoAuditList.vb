@@ -14,6 +14,10 @@ Public Class FrmViewAmmoAuditList
     ''' </summary>
     Public SName As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut as String
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
@@ -91,6 +95,7 @@ Public Class FrmViewAmmoAuditList
             Dim sql As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
                                 ppb & " where ID=" & itemId
             obj.ConnExec(sql)
+            If Not BurnSoft.Applications.MGC.Ammo.Audit.UpdatePricePerBullet(DatabasePath, itemId, ppb, errOut) Then Throw New Exception(errOut)
             Call LoadData()
         Catch ex As Exception
             Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)

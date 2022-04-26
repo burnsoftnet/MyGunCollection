@@ -77,8 +77,8 @@ namespace BSMyGunCollection.UnitTest.UI
                 int testNumber = 1;
                 foreach (BatchCommandList v in value)
                 {
-                    string passfailed = v.PassedFailed ? "PASSED" : "FAILED";
-                    TestContext.WriteLine($"{testNumber}.) {passfailed} - {v.TestName}");
+                    string passFailed = v.PassedFailed ? "PASSED" : "FAILED";
+                    TestContext.WriteLine($"{testNumber}.) {passFailed} - {v.TestName}");
                     TestContext.WriteLine(v.ReturnedValue);
                     testNumber++;
                 }
@@ -86,7 +86,7 @@ namespace BSMyGunCollection.UnitTest.UI
         }
 
         [TestMethod]
-        public void VerifyAppInitlizeTest()
+        public void VerifyAppInitTest()
         {
             bool bans = false;
             try

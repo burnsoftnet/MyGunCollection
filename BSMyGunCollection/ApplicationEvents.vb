@@ -15,20 +15,20 @@ Namespace My
         ''' <returns>A <see cref="T:System.Boolean" /> indicating if application startup should continue.</returns>
 ' ReSharper disable once ParameterHidesMember
         Protected Overrides Function OnInitialize(ByVal commandLineArgs As ReadOnlyCollection(Of String)) As Boolean
-            Dim objf As New BsFileSystem
+            Dim bsFileSystem As New BsFileSystem
             Try
                 Dim debugMsg As String = ""
                 Dim nl As String = vbCrLf
 
                 DebugMode = ConfigurationManager.AppSettings("DEBUG_MODE")
                 Dim appDataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\BurnSoft\MGC"
-                Dim appdatapathExists As Boolean = objf.DirectoryExists(appDataPath)
+                Dim appDataPathExists As Boolean = bsFileSystem.DirectoryExists(appDataPath)
                 ApplicationPath = Windows.Forms.Application.StartupPath
                 ApplicationPathData = ApplicationPath
                 debugMsg &= nl & "AppDataPath=" & appDataPath
-                If appdatapathExists Then
+                If appDataPathExists Then
                     debugMsg &= nl & "Found Application Data Path"
-                    If objf.FileExists(appDataPath & "\" & DatabaseName) Then
+                    If bsFileSystem.FileExists(appDataPath & "\" & DatabaseName) Then
                         debugMsg &= nl & "Found Application Data"
                         ApplicationPathData = appDataPath
                     End If
@@ -39,8 +39,8 @@ Namespace My
                 debugMsg &= nl & "Application Path=" & ApplicationPath
                 debugMsg &= nl & "OS Version=" & Environment.OSVersion.Version.Major
 
-                Dim batchExists As Boolean = objf.FileExists(ApplicationPath & "\srh.bat")
-                Dim iniExists As Boolean = objf.FileExists(ApplicationPath & "\hotfix.ini")
+                Dim batchExists As Boolean = bsFileSystem.FileExists(ApplicationPath & "\srh.bat")
+                Dim iniExists As Boolean = bsFileSystem.FileExists(ApplicationPath & "\hotfix.ini")
 
                 MyLogFile = ApplicationPathData & "\err.log"
 
