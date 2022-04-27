@@ -353,7 +353,74 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
             }
         }
-       
+
+        internal class CollectorDetails
+        {
+            internal static List<BatchCommandList> RunTest(string AppraisedValue,string AppraisedDate, string AppraisedBy,string InsuredValue,  bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(ClickOnTab());
+                cmd.AddRange(ClickOn.AppraisedValue(verify));
+                cmd.AddRange(FillIn.AppraisedValue(AppraisedValue, verify));
+                cmd.AddRange(ClickOn.AppraisedDate(verify));
+                cmd.AddRange(FillIn.AppraisedDate(AppraisedDate, verify));
+                cmd.AddRange(ClickOn.AppraisedBy(verify));
+                cmd.AddRange(FillIn.AppraisedBy(AppraisedBy, verify));
+                cmd.AddRange(ClickOn.InsuredValue(verify));
+                cmd.AddRange(FillIn.InsuredValue(InsuredValue, verify));
+                return cmd;
+            }
+
+            internal static List<BatchCommandList> ClickOnTab(bool verify = false)
+            {
+                return Base.ClickOnElement("Collector Details", "Collector Details", verify);
+            }
+
+            internal class ClickOn
+            {
+                internal static List<BatchCommandList> InsuredValue(bool verify = false)
+                {
+                    return Base.ClickOnElement("Insured Value", "txtInsVal", verify);
+                }
+
+                internal static List<BatchCommandList> AppraisedValue(bool verify = false)
+                {
+                    return Base.ClickOnElement("Appraised Value", "txtAppValue", verify);
+                }
+                internal static List<BatchCommandList> AppraisedDate(bool verify = false)
+                {
+                    return Base.ClickOnElement("Appraised Date", "dtpAppDate", verify);
+                }
+
+                internal static List<BatchCommandList> AppraisedBy(bool verify = false)
+                {
+                    return Base.ClickOnElement("Appraised By", "txtAppBy", verify);
+                }
+            }
+
+            internal class FillIn
+            {
+                internal static List<BatchCommandList> InsuredValue(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Insured Value", "txtInsVal", value, verify);
+                }
+
+                internal static List<BatchCommandList> AppraisedValue(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Appraised Value", "txtAppValue", value, verify);
+                }
+
+                internal static List<BatchCommandList> AppraisedDate(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Appraised Date", "dtpAppDate", value, verify);
+                }
+
+                internal static List<BatchCommandList> AppraisedBy(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Appraised By", "txtAppBy", value, verify);
+                }
+            }
+        }
         
     }
 }

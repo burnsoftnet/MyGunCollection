@@ -170,7 +170,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         }
 
         [TestMethod]
-        public void AddJustABoutEverythingTest()
+        public void AddJustABoutEverythingOnTabTest()
         {
             bool bans = false;
             try
