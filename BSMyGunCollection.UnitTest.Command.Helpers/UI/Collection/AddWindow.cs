@@ -367,102 +367,232 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             /// </summary>
             internal class FillIn
             {
+                /// <summary>
+                /// Overalls the length.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> OverallLength(string value, bool verify = false)
                 {
                     return Base.SendTExt("Overal lLength", "txtLength", value, verify);
                 }
+                /// <summary>
+                /// Barrels the length.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> BarrelLength(string value, bool verify = false)
                 {
                     return Base.SendTExt("BarrelLength", "txtBarLen", value, verify);
                 }
+                /// <summary>
+                /// Currents the choke.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> CurrentChoke(string value, bool verify = false)
                 {
                     return Base.SendTExt("Current Choke", "txtChoke", value, verify);
                 }
+                /// <summary>
+                /// Weights the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Weight(string value, bool verify = false)
                 {
                     return Base.SendTExt("Weight", "txtWeight", value, verify);
                 }
+                /// <summary>
+                /// Places the of orgin.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PlaceOfOrgin(string value, bool verify = false)
                 {
                     return Base.SendTExt("Place of origin", "txtNationality", value, verify);
                 }
+                /// <summary>
+                /// Finishes the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Finish(string value, bool verify = false)
                 {
                     return Base.SendTExt("Finish", "txtFinish", value, verify);
                 }
+                /// <summary>
+                /// Storages the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Storage(string value, bool verify = false)
                 {
                     return Base.SendTExt("Storage Location", "txtStorage", value, verify);
                 }
+                /// <summary>
+                /// Sightses the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Sights(string value, bool verify = false)
                 {
                     return Base.SendTExt("Sigths", "txtSights", value, verify);
                 }
+                /// <summary>
+                /// Feeds the system.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> FeedSystem(string value, bool verify = false)
                 {
                     return Base.SendTExt("Feed System", "txtFeed", value, verify);
                 }
+                /// <summary>
+                /// Stocks the type of the grip.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> StockGripType(string value, bool verify = false)
                 {
                     return Base.SendTExt("Stock Grip Type", "txtGripType", value, verify);
                 }
+                /// <summary>
+                /// Manufactureds the date.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> ManufacturedDate(string value, bool verify = false)
                 {
                     return Base.SendTExt("Manufactured Date", "txtProduced", value, verify);
                 }
+                /// <summary>
+                /// Actions the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Action(string value, bool verify = false)
                 {
                     return Base.SendTExt("Action", "txtAction", value, verify);
                 }
+                /// <summary>
+                /// Caliber2s the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber2(string value, bool verify = false)
                 {
                     return Base.SendTExt("Caliber 2", "txtPetLoads", value, verify);
                 }
+                /// <summary>
+                /// Caliber3s the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber3(string value, bool verify = false)
                 {
                     return Base.SendTExt("Caliber 3", "txtCaliber3", value, verify);
                 }
+                /// <summary>
+                /// Manufactures the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Manufacture(string value, bool verify = false)
                 {
                     return Base.SendTExt("Manufacture", "txtManu", value, verify);
                 }
-
+                /// <summary>
+                /// Importers the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Importer(string value, bool verify = false)
                 {
                     return Base.SendTExt("Importer", "txtImporter", value, verify);
                 }
-
+                /// <summary>
+                /// Models the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Model(string value, bool verify = false)
                 {
                     return Base.SendTExt("Model", "txtModel", value, verify);
                 }
-
+                /// <summary>
+                /// Serials the number.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> SerialNumber(string value, bool verify = false)
                 {
                     return Base.SendTExt("Serial Number", "txtSerial", value, verify);
                 }
-
+                /// <summary>
+                /// Pistols the type.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PistolType(string value, bool verify = false)
                 {
                     return Base.SendTExt("Type", "txtType", value, verify);
                 }
-
+                /// <summary>
+                /// Calibers the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber(string value, bool verify = false)
                 {
                     return Base.SendTExt("Caliber", "txtCal", value, verify);
                 }
-
+                /// <summary>
+                /// Conditions the specified value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Condition(string value, bool verify = false)
                 {
                     return Base.SendTExt("Condition", "cmdCondition", value, verify);
                 }
-
+                /// <summary>
+                /// Purchaseds from.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PurchasedFrom(string value, bool verify = false)
                 {
                     return Base.SendTExt("Purchased From", "txtPurchasedFrom", value, verify);
                 }
-
+                /// <summary>
+                /// Purchaseds the price.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PurchasedPrice(string value, bool verify = false)
                 {
                     return Base.SendTExt("Purchased Price", "txtPurPrice", value, verify);
@@ -473,7 +603,8 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
         internal class CollectorDetails
         {
-            internal static List<BatchCommandList> RunTest(string AppraisedValue,string AppraisedDate, string AppraisedBy,string InsuredValue,  bool verify = false)
+            internal static List<BatchCommandList> RunTest(string AppraisedValue,string AppraisedDate, string AppraisedBy,string InsuredValue,string TwistOfRate,
+                string TriggerPull, bool isClassIiiItem, string IsClassIiiOwner, bool IsCompetitionGun,bool IsNonLethalDevice, bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(ClickOnTab());
@@ -485,6 +616,19 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 cmd.AddRange(FillIn.AppraisedBy(AppraisedBy, verify));
                 cmd.AddRange(ClickOn.InsuredValue(verify));
                 cmd.AddRange(FillIn.InsuredValue(InsuredValue, verify));
+                cmd.AddRange(ClickOn.TwistOfRate(verify));
+                cmd.AddRange(FillIn.TwistOfRate(TwistOfRate, verify));
+                cmd.AddRange(ClickOn.TriggerPull(verify));
+                cmd.AddRange(FillIn.TriggerPull(TriggerPull, verify));
+                if (isClassIiiItem)
+                {
+                    cmd.AddRange(ClickOn.IsClassIiiItem(verify));
+                    cmd.AddRange(ClickOn.IsClassIiiOwner(verify));
+                    cmd.AddRange(FillIn.IsClassIiiOwner(IsClassIiiOwner, verify));
+                }
+                if (IsCompetitionGun) cmd.AddRange(ClickOn.IsCompetitionGun(verify));
+                if (IsNonLethalDevice) cmd.AddRange(ClickOn.IsNonLethalDevice(verify));
+
                 return cmd;
             }
 
@@ -495,6 +639,36 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
             internal class ClickOn
             {
+                internal static List<BatchCommandList> IsCompetitionGun(bool verify = false)
+                {
+                    return Base.ClickOnElement("Competition Gun Check Box", "chkIsCompeition", verify);
+                }
+
+                internal static List<BatchCommandList> IsNonLethalDevice(bool verify = false)
+                {
+                    return Base.ClickOnElement("Non-Lethal Device Check Box", "chkNonLethal", verify);
+                }
+
+                internal static List<BatchCommandList> IsClassIiiOwner(bool verify = false)
+                {
+                    return Base.ClickOnElement("Class III Owner", "txtClassIIIOwner", verify);
+                }
+
+                internal static List<BatchCommandList> IsClassIiiItem(bool verify = false)
+                {
+                    return Base.ClickOnElement("Is Class III Item Check Box", "chkClassIII", verify);
+                }
+
+                internal static List<BatchCommandList> TriggerPull(bool verify = false)
+                {
+                    return Base.ClickOnElement("Trigger Pull", "txtTriggerPull", verify);
+                }
+
+                internal static List<BatchCommandList> TwistOfRate(bool verify = false)
+                {
+                    return Base.ClickOnElement("Twist Rate", "txtTwistOfRate", verify);
+                }
+
                 internal static List<BatchCommandList> InsuredValue(bool verify = false)
                 {
                     return Base.ClickOnElement("Insured Value", "txtInsVal", verify);
@@ -517,6 +691,20 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
             internal class FillIn
             {
+                internal static List<BatchCommandList> IsClassIiiOwner(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Class III Owner", "txtClassIIIOwner", value, verify);
+                }
+                internal static List<BatchCommandList> TriggerPull(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Trigger Pull", "txtTriggerPull", value, verify);
+                }
+
+                internal static List<BatchCommandList> TwistOfRate(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Twist Rate", "txtTwistOfRate", value, verify);
+                }
+
                 internal static List<BatchCommandList> InsuredValue(string value, bool verify = false)
                 {
                     return Base.SendTExt("Insured Value", "txtInsVal", value, verify);
