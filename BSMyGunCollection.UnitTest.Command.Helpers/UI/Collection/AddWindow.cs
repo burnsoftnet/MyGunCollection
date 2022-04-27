@@ -125,129 +125,246 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             
             return cmd;
         }
-
+        /// <summary>
+        /// Class Details.
+        /// </summary>
         internal class Details
         {
+            /// <summary>
+            /// Class ClickOn.
+            /// </summary>
             internal class ClickOn
             {
+                /// <summary>
+                /// Overalls the length.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> OverallLength(bool verify = false)
                 {
                     return Base.ClickOnElement("Overal lLength", "txtLength", verify);
                 }
+                /// <summary>
+                /// Barrels the length.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> BarrelLength(bool verify = false)
                 {
                     return Base.ClickOnElement("BarrelLength", "txtBarLen", verify);
                 }
+                /// <summary>
+                /// Currents the choke.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> CurrentChoke(bool verify = false)
                 {
                     return Base.ClickOnElement("Current Choke", "txtChoke", verify);
                 }
-
+                /// <summary>
+                /// Weights the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Weight(bool verify = false)
                 {
                     return Base.ClickOnElement("Weight", "txtWeight", verify);
                 }
+                /// <summary>
+                /// Places the of orgin.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PlaceOfOrgin(bool verify = false)
                 {
                     return Base.ClickOnElement("Place of origin", "txtNationality", verify);
                 }
+                /// <summary>
+                /// Finishes the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Finish(bool verify = false)
                 {
                     return Base.ClickOnElement("Finish", "txtFinish", verify);
                 }
+                /// <summary>
+                /// Storages the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Storage(bool verify = false)
                 {
                     return Base.ClickOnElement("Storage Location", "txtStorage", verify);
                 }
+                /// <summary>
+                /// Sightses the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Sights(bool verify = false)
                 {
                     return Base.ClickOnElement("Sigths", "txtSights", verify);
                 }
+                /// <summary>
+                /// Feeds the system.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> FeedSystem(bool verify = false)
                 {
                     return Base.ClickOnElement("Feed System", "txtFeed", verify);
                 }
-
+                /// <summary>
+                /// Manufactures the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Manufacture(bool verify = false)
                 {
                     return Base.ClickOnElement("Manufacture", "txtManu", verify);
                 }
-
+                /// <summary>
+                /// Importers the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Importer(bool verify = false)
                 {
                     return Base.ClickOnElement("Importer", "txtImporter", verify);
                 }
-
+                /// <summary>
+                /// Models the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Model(bool verify = false)
                 {
                     return Base.ClickOnElement("Model", "txtModel", verify);
                 }
-
+                /// <summary>
+                /// Serials the number.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> SerialNumber(bool verify = false)
                 {
                     return Base.ClickOnElement("Serial Number", "txtSerial", verify);
                 }
-
+                /// <summary>
+                /// Pistols the type.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PistolType(bool verify = false)
                 {
                     return Base.ClickOnElement("Type", "txtType", verify);
                 }
-
+                /// <summary>
+                /// Calibers the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber(bool verify = false)
                 {
                     return Base.ClickOnElement("Caliber", "txtCal", verify);
                 }
-
+                /// <summary>
+                /// Conditions the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Condition(bool verify = false)
                 {
                     return Base.ClickOnElement("Condition", "cmdCondition", verify);
                 }
-
+                /// <summary>
+                /// Purchaseds from.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PurchasedFrom(bool verify = false)
                 {
                     return Base.ClickOnElement("Purchased From", "txtPurchasedFrom", verify);
                 }
-
+                /// <summary>
+                /// Purchaseds the price.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> PurchasedPrice(bool verify = false)
                 {
                     return Base.ClickOnElement("Purchased Price", "txtPurPrice", verify);
                 }
-
+                /// <summary>
+                /// Adds the button.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AddButton(bool verify = false)
                 {
                     return Base.ClickOnElement("Add button", "btnAdd", verify);
                 }
-
+                /// <summary>
+                /// Cancels the button.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> CancelButton(bool verify = false)
                 {
                     return Base.ClickOnElement("Cancel button", "btnCancel", verify);
                 }
-
+                /// <summary>
+                /// Caliber2s the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber2(bool verify = false)
                 {
                     return Base.ClickOnElement("Caliber 2", "txtPetLoads", verify);
                 }
-
+                /// <summary>
+                /// Caliber3s the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Caliber3(bool verify = false)
                 {
                     return Base.ClickOnElement("Caliber 3", "txtCaliber3", verify);
                 }
-
+                /// <summary>
+                /// Stocks the type of the grip.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> StockGripType(bool verify = false)
                 {
                     return Base.ClickOnElement("Stock Grip Type", "txtGripType", verify);
                 }
-
+                /// <summary>
+                /// Manufactureds the date.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> ManufacturedDate(bool verify = false)
                 {
                     return Base.ClickOnElement("Manufactured Date", "txtProduced", verify);
                 }
+                /// <summary>
+                /// Actions the specified verify.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> Action(bool verify = false)
                 {
                     return Base.ClickOnElement("Action", "txtAction", verify);
                 }
 
             }
+            /// <summary>
+            /// Class FillIn.
+            /// </summary>
             internal class FillIn
             {
                 internal static List<BatchCommandList> OverallLength(string value, bool verify = false)
