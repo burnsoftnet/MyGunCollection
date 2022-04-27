@@ -603,31 +603,32 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
         internal class CollectorDetails
         {
-            internal static List<BatchCommandList> RunTest(string AppraisedValue,string AppraisedDate, string AppraisedBy,string InsuredValue,string TwistOfRate,
-                string TriggerPull, bool isClassIiiItem, string IsClassIiiOwner, bool IsCompetitionGun,bool IsNonLethalDevice, bool verify = false)
+            internal static List<BatchCommandList> RunTest(string appraisedValue,string appraisedDate, string appraisedBy,string insuredValue,string twistOfRate,
+                string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun,bool isNonLethalDevice,bool isCandR, bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(ClickOnTab());
                 cmd.AddRange(ClickOn.AppraisedValue(verify));
-                cmd.AddRange(FillIn.AppraisedValue(AppraisedValue, verify));
+                cmd.AddRange(FillIn.AppraisedValue(appraisedValue, verify));
                 cmd.AddRange(ClickOn.AppraisedDate(verify));
-                cmd.AddRange(FillIn.AppraisedDate(AppraisedDate, verify));
+                cmd.AddRange(FillIn.AppraisedDate(appraisedDate, verify));
                 cmd.AddRange(ClickOn.AppraisedBy(verify));
-                cmd.AddRange(FillIn.AppraisedBy(AppraisedBy, verify));
+                cmd.AddRange(FillIn.AppraisedBy(appraisedBy, verify));
                 cmd.AddRange(ClickOn.InsuredValue(verify));
-                cmd.AddRange(FillIn.InsuredValue(InsuredValue, verify));
+                cmd.AddRange(FillIn.InsuredValue(insuredValue, verify));
                 cmd.AddRange(ClickOn.TwistOfRate(verify));
-                cmd.AddRange(FillIn.TwistOfRate(TwistOfRate, verify));
+                cmd.AddRange(FillIn.TwistOfRate(twistOfRate, verify));
                 cmd.AddRange(ClickOn.TriggerPull(verify));
-                cmd.AddRange(FillIn.TriggerPull(TriggerPull, verify));
+                cmd.AddRange(FillIn.TriggerPull(triggerPull, verify));
                 if (isClassIiiItem)
                 {
                     cmd.AddRange(ClickOn.IsClassIiiItem(verify));
                     cmd.AddRange(ClickOn.IsClassIiiOwner(verify));
-                    cmd.AddRange(FillIn.IsClassIiiOwner(IsClassIiiOwner, verify));
+                    cmd.AddRange(FillIn.IsClassIiiOwner(isClassIiiOwner, verify));
                 }
-                if (IsCompetitionGun) cmd.AddRange(ClickOn.IsCompetitionGun(verify));
-                if (IsNonLethalDevice) cmd.AddRange(ClickOn.IsNonLethalDevice(verify));
+                if (isCompetitionGun) cmd.AddRange(ClickOn.IsCompetitionGun(verify));
+                if (isNonLethalDevice) cmd.AddRange(ClickOn.IsNonLethalDevice(verify));
+                if (isCandR) cmd.AddRange(ClickOn.IsCandR(verify));
 
                 return cmd;
             }
@@ -639,6 +640,11 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
             internal class ClickOn
             {
+                internal static List<BatchCommandList> IsCandR(bool verify = false)
+                {
+                    return Base.ClickOnElement("C & R Check Box", "chkBoxCR", verify);
+                }
+
                 internal static List<BatchCommandList> IsCompetitionGun(bool verify = false)
                 {
                     return Base.ClickOnElement("Competition Gun Check Box", "chkIsCompeition", verify);
