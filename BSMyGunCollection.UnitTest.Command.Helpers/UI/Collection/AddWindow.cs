@@ -10,6 +10,20 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 {
     public class AddWindow
     {
+        /// <summary>
+        /// Runs the test.
+        /// </summary>
+        /// <param name="manufacture">The manufacture.</param>
+        /// <param name="importer">The importer.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="serialNumber">The serial number.</param>
+        /// <param name="pistolType">Type of the pistol.</param>
+        /// <param name="caliber">The caliber.</param>
+        /// <param name="condition">The condition.</param>
+        /// <param name="purchasedFrom">The purchased from.</param>
+        /// <param name="purchasedPrice">The purchased price.</param>
+        /// <param name="verify">if set to <c>true</c> [verify].</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         public static List<BatchCommandList> RunTest(string manufacture,string importer,string model,
             string serialNumber,string pistolType,string caliber,string condition,
             string purchasedFrom, string purchasedPrice, bool verify = false)
@@ -28,6 +42,34 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             cmd.AddRange(Base.Sleep());
             return cmd;
         }
+        /// <summary>
+        /// Runs the test.
+        /// </summary>
+        /// <param name="manufacture">The manufacture.</param>
+        /// <param name="importer">The importer.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="serialNumber">The serial number.</param>
+        /// <param name="pistolType">Type of the pistol.</param>
+        /// <param name="caliber">The caliber.</param>
+        /// <param name="condition">The condition.</param>
+        /// <param name="purchasedFrom">The purchased from.</param>
+        /// <param name="purchasedPrice">The purchased price.</param>
+        /// <param name="caliber2">The caliber2.</param>
+        /// <param name="caliber3">The caliber3.</param>
+        /// <param name="stockType">Type of the stock.</param>
+        /// <param name="manufacturedDate">The manufactured date.</param>
+        /// <param name="action">The action.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="placeOfOrgin">The place of orgin.</param>
+        /// <param name="finish">The finish.</param>
+        /// <param name="storage">The storage.</param>
+        /// <param name="sights">The sights.</param>
+        /// <param name="feedSystem">The feed system.</param>
+        /// <param name="overallLength">Length of the overall.</param>
+        /// <param name="barrelLength">Length of the barrel.</param>
+        /// <param name="verify">if set to <c>true</c> [verify].</param>
+        /// <param name="currentChoke">The current choke.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         public static List<BatchCommandList> RunTest(string manufacture, string importer, string model,
             string serialNumber, string pistolType, string caliber, string condition,
             string purchasedFrom, string purchasedPrice, string caliber2, string caliber3, string stockType,
@@ -42,6 +84,30 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             cmd.AddRange(AddOtherDetails(caliber2, caliber3, stockType, manufacturedDate, action, 
                 weight, placeOfOrgin, finish, storage, sights, feedSystem, overallLength, barrelLength, verify, currentChoke));
             
+            cmd.AddRange(Details.ClickOn.AddButton(verify));
+            cmd.AddRange(Base.Sleep());
+            return cmd;
+        }
+
+        public static List<BatchCommandList> RunTest(string manufacture, string importer, string model,
+            string serialNumber, string pistolType, string caliber, string condition,
+            string purchasedFrom, string purchasedPrice, string caliber2, string caliber3, string stockType,
+            string manufacturedDate, string action, string weight, string placeOfOrgin, string finish,
+            string storage, string sights, string feedSystem, string overallLength, string barrelLength,
+            string appraisedValue, string appraisedDate, string appraisedBy, string insuredValue, string twistOfRate,
+            string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun, bool isNonLethalDevice, 
+            bool isCandR, bool verify = false, string currentChoke = "")
+        {
+            List<BatchCommandList> cmd = new List<BatchCommandList>();
+            cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
+            cmd.AddRange(Base.Sleep500());
+            cmd.AddRange(AddSimple(manufacture, importer, model, serialNumber, pistolType, caliber,
+                condition, purchasedFrom, purchasedPrice, verify));
+            cmd.AddRange(AddOtherDetails(caliber2, caliber3, stockType, manufacturedDate, action,
+                weight, placeOfOrgin, finish, storage, sights, feedSystem, overallLength, barrelLength, verify, currentChoke));
+            cmd.AddRange(CollectorDetails.RunTest(appraisedValue, appraisedDate, appraisedBy, insuredValue, twistOfRate,
+                 triggerPull, isClassIiiItem, isClassIiiOwner, isCompetitionGun, isNonLethalDevice, isCandR, verify));
+
             cmd.AddRange(Details.ClickOn.AddButton(verify));
             cmd.AddRange(Base.Sleep());
             return cmd;
