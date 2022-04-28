@@ -673,6 +673,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun,bool isNonLethalDevice,bool isCandR, bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
+                //TODO: #58 Come Back to this, this is broked on tab click
                 cmd.AddRange(ClickOnTab());
                 cmd.AddRange(ClickOn.AppraisedValue(verify));
                 cmd.AddRange(FillIn.AppraisedValue(appraisedValue, verify));

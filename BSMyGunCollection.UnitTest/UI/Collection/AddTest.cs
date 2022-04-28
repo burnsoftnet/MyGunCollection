@@ -199,6 +199,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         [TestMethod]
         public void AddEverythingTest()
         {
+            //TODO: #58 Come Back to this, this is broked
             bool bans = false;
             try
             {
