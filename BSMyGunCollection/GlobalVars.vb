@@ -257,10 +257,12 @@ Module GlobalVars
     ''' <param name="id"></param>
     Sub CheckDefaultPic(ByVal id As Long)
         Try
-            Dim obj As New GlobalFunctions
+            'Dim obj As New GlobalFunctions
+            Dim errOut As String = ""
             '''TODO: #50 replace code
-            obj.HasDefaultPicture(id, True)
-            ''If Not Pictures.HasDefaultPicture(DatabasePath, id, )
+            ''obj.HasDefaultPicture(id, True)
+
+            If Not Pictures.HasDefaultPicture(DatabasePath, id, ApplicationPath, DefaultPic, errOut ) then Throw New Exception(errOut)
         Catch ex As Exception
             Dim sSubFunc As String = "CheckDefaultPic"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
