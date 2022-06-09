@@ -51,60 +51,60 @@ Public Class FrmAddPicture
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             Dim errOut As String = ""
             'TODO: #7 #50 Updated this function with the one from the new library once available and fully tested
-            'If Not Pictures.Save(DatabasePath,OpenFileDialog1.FileName,ApplicationPathData,Convert.ToInt32(ItemId),sName, sNotes, errOut) Then Throw New Exception(errOut)
+            If Not Pictures.Save(DatabasePath,OpenFileDialog1.FileName,ApplicationPathData,Convert.ToInt32(ItemId),sName, sNotes, errOut) Then Throw New Exception(errOut)
 
-            Dim sFileName As String = OpenFileDialog1.FileName
-            Dim sThumbName As String = ApplicationPathData & "\mgc_thumb.jpg"
-            'Dim sName As String = FluffContent(txtName.Text, " ")
-            'Dim sNotes As String = FluffContent(txtNotes.Text, " ")
-            '---Start Function to convert picture to database format-----
-            Dim st As New FileStream(sFileName, FileMode.Open, FileAccess.Read)
-            Dim mbr As BinaryReader = New BinaryReader(st)
-            Dim buffer(st.Length) As Byte
-            mbr.Read(buffer, 0, CInt(st.Length))
-            st.Close()
-            '---End Function to convert picture to database format-----
-            '--Start Function to convert picture to thumbnail for database format--
-            Dim intPicHeight As Integer = 64
-            Dim intPicWidth As Integer = 64
-            Dim myNewPic As Image
-            Dim myBitmap As Image
-            myBitmap = Image.FromFile(OpenFileDialog1.FileName)
-            Dim myPicCallback As Image.GetThumbnailImageAbort = Nothing
-            myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
-                IntPtr.Zero)
-            myBitmap.Dispose()
-            File.Delete(sThumbName)
-            myNewPic.Save(sThumbName, ImageFormat.Jpeg)
-            myNewPic.Dispose()
-            Dim stT As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
-            Dim mbrT As BinaryReader = New BinaryReader(stT)
-            Dim bufferT(stT.Length) As Byte
-            mbrT.Read(bufferT, 0, CInt(stT.Length))
-            stT.Close()
-            '--End Function to convert picture to thumbnail for database format--
-            Dim obj As New BsDatabase
-            Dim myConn As New Connection
-            myConn.Open(obj.SConnect)
-            Dim rs As New Recordset
-            rs.Open("Gun_Collection_Pictures", myConn, 2, 2)
-            rs.AddNew()
-            rs("CID").Value = ItemId
-            rs("PICTURE").AppendChunk(buffer)
-            rs("THUMB").AppendChunk(bufferT)
-            'If IsFirstPic(ItemId) Then
-            If Pictures.IsFirstPic(DatabasePath, Convert.ToInt32(ItemId), errOut) Then
-                rs("ISMAIN").Value = 1
-            Else
-                rs("ISMAIN").Value = 0
-            End If
-            If errOut.Length > 0 Then Throw New Exception(errOut)
+            'Dim sFileName As String = OpenFileDialog1.FileName
+            'Dim sThumbName As String = ApplicationPathData & "\mgc_thumb.jpg"
+            ''Dim sName As String = FluffContent(txtName.Text, " ")
+            ''Dim sNotes As String = FluffContent(txtNotes.Text, " ")
+            ''---Start Function to convert picture to database format-----
+            'Dim st As New FileStream(sFileName, FileMode.Open, FileAccess.Read)
+            'Dim mbr As BinaryReader = New BinaryReader(st)
+            'Dim buffer(st.Length) As Byte
+            'mbr.Read(buffer, 0, CInt(st.Length))
+            'st.Close()
+            ''---End Function to convert picture to database format-----
+            ''--Start Function to convert picture to thumbnail for database format--
+            'Dim intPicHeight As Integer = 64
+            'Dim intPicWidth As Integer = 64
+            'Dim myNewPic As Image
+            'Dim myBitmap As Image
+            'myBitmap = Image.FromFile(OpenFileDialog1.FileName)
+            'Dim myPicCallback As Image.GetThumbnailImageAbort = Nothing
+            'myNewPic = myBitmap.GetThumbnailImage(intPicWidth, intPicHeight, myPicCallback,
+            '    IntPtr.Zero)
+            'myBitmap.Dispose()
+            'File.Delete(sThumbName)
+            'myNewPic.Save(sThumbName, ImageFormat.Jpeg)
+            'myNewPic.Dispose()
+            'Dim stT As New FileStream(sThumbName, FileMode.Open, FileAccess.Read)
+            'Dim mbrT As BinaryReader = New BinaryReader(stT)
+            'Dim bufferT(stT.Length) As Byte
+            'mbrT.Read(bufferT, 0, CInt(stT.Length))
+            'stT.Close()
+            ''--End Function to convert picture to thumbnail for database format--
+            'Dim obj As New BsDatabase
+            'Dim myConn As New Connection
+            'myConn.Open(obj.SConnect)
+            'Dim rs As New Recordset
+            'rs.Open("Gun_Collection_Pictures", myConn, 2, 2)
+            'rs.AddNew()
+            'rs("CID").Value = ItemId
+            'rs("PICTURE").AppendChunk(buffer)
+            'rs("THUMB").AppendChunk(bufferT)
+            ''If IsFirstPic(ItemId) Then
+            'If Pictures.IsFirstPic(DatabasePath, Convert.ToInt32(ItemId), errOut) Then
+            '    rs("ISMAIN").Value = 1
+            'Else
+            '    rs("ISMAIN").Value = 0
+            'End If
+            'If errOut.Length > 0 Then Throw New Exception(errOut)
 
-            rs("pd_name").Value = sName
-            rs("pd_note").Value = sNotes
-            rs("sync_lastupdate").Value = Now
-            rs.Update()
-            rs.Close()
+            'rs("pd_name").Value = sName
+            'rs("pd_note").Value = sNotes
+            'rs("sync_lastupdate").Value = Now
+            'rs.Update()
+            'rs.Close()
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
