@@ -1,4 +1,5 @@
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
 ''' Global Variables and Functions
@@ -257,7 +258,9 @@ Module GlobalVars
     Sub CheckDefaultPic(ByVal id As Long)
         Try
             Dim obj As New GlobalFunctions
+            '''TODO: #50 replace code
             obj.HasDefaultPicture(id, True)
+            ''If Not Pictures.HasDefaultPicture(DatabasePath, id, )
         Catch ex As Exception
             Dim sSubFunc As String = "CheckDefaultPic"
             Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)

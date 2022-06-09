@@ -1,5 +1,4 @@
 Imports BurnSoft.Applications.MGC.Firearms
-''TODO: Convert code from FrmAddPicture #7
 ''' <summary>
 ''' Class frmAddPicture.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -11,10 +10,6 @@ Public Class FrmAddPicture
     ''' </summary>
     Public ItemId As String
     ''' <summary>
-    ''' The error out
-    ''' </summary>
-    Dim errOut As String
-    ''' <summary>
     ''' Handles the Click event of the btnBrowse control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -22,7 +17,7 @@ Public Class FrmAddPicture
     Private Sub btnBrowse_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBrowse.Click
         Try
             OpenFileDialog1.FilterIndex = 3
-            OpenFileDialog1.Filter = $"Bmp Files(*.bmp)|*.bmp|Gif Files(*.gif)|*.gif|Jpg Files(*.jpg)|*.jpg"
+            OpenFileDialog1.Filter = Pictures.FileFilterList
             If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
         Catch ex As Exception
             Call LogError(Name, "btnBrowse.Click", Err.Number, ex.Message.ToString)
@@ -46,6 +41,9 @@ Public Class FrmAddPicture
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             Dim errOut As String = ""
             If Not Pictures.Save(DatabasePath,OpenFileDialog1.FileName,ApplicationPathData,Convert.ToInt32(ItemId),sName, sNotes, errOut) Then Throw New Exception(errOut)
+            
+            Cursor = Cursors.Arrow
+            Enabled = True
             Close()
         Catch ex As Exception
             Dim sSubFunc As String = "btnAdd.Click"
@@ -60,12 +58,4 @@ Public Class FrmAddPicture
         Cursor = Cursors.Arrow
         Enabled = True
     End Sub
-    '''' <summary>
-    '''' Handles the Load event of the frmAddPicture control.
-    '''' </summary>
-    '''' <param name="sender">The source of the event.</param>
-    '''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    'Private Sub frmAddPicture_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-
-    'End Sub
 End Class
