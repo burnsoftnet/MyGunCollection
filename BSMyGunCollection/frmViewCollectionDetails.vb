@@ -305,10 +305,6 @@ Public Class FrmViewCollectionDetails
             If msgAns = vbYes Then
                 Dim myIndex As String = ListView1.FocusedItem.Index
                 Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-                ''TODO: #50 Replace function below with one from library
-                'Dim sql As String = "DELETE from Gun_Collection_Pictures where ID=" & myText
-                'Dim obj As New BsDatabase
-                'obj.ConnExec(sql)
                 If Not Pictures.Delete(DatabasePath, Convert.ToInt32(myText), _errOut) Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception

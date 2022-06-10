@@ -1,8 +1,6 @@
 Imports System.IO
 Imports System.Text
 Imports System.Data.Odbc
-Imports System.Drawing.Imaging
-Imports ADODB
 
 Namespace MGC
     ''' <summary>

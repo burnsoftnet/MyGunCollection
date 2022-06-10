@@ -422,3 +422,4 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewCollectionDetails.chkIsCompeition_CheckedChanged(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmViewCollectionDetails.chkNonLethal_CheckedChanged(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification:="<Pending>", Scope:="member", Target:="~F:BSMyGunCollection.FrmAddPicture.errOut")>
+<Assembly: SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification:="<Pending>", Scope:="member", Target:="~F:BSMyGunCollection.MGC.GlobalFunctions.MyClassName")>

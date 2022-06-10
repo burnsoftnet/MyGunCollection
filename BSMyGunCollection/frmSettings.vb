@@ -1,6 +1,6 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -80,7 +80,7 @@ Public Class FrmSettings
     ''' </summary>
     Sub GetData()
         Try
-            Dim lst as List(Of OwnerInfo) = BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.GetOwnerInfo(DatabasePath, _errOut)
+            Dim lst as List(Of OwnerInfo) = OwnerInformation.GetOwnerInfo(DatabasePath, _errOut)
             If _errOut.Length > 0 then Throw New Exception(_errOut)
             For Each o As OwnerInfo In lst
                 _recId = o.Id
@@ -170,8 +170,8 @@ Public Class FrmSettings
                     Exit Function
                 End If
             End If
-            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
-            Dim objGf As New GlobalFunctions
+            If Not OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
+            
             If UseNumberCatOnly Then
                 If Not MyCollection.SetCatalogType(DatabasePath, MyCollection.CatalogType.Numeric, _errOut) Then Throw New Exception(_errOut)
             Else
@@ -208,13 +208,11 @@ Public Class FrmSettings
     Private Sub chkNCCID_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkNCCID.CheckedChanged
         If Not _firstRun Then
             If chkNCCID.Checked Then
-                Dim objGf As New GlobalFunctions
-                ''If Not objGf.CatalogIsNumeric Then
-                If Not BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIsNumeric(DatabasePath, _errOut)
+                If Not MyCollection.CatalogIsNumeric(DatabasePath, _errOut)
                     MsgBox("There are non-numeric numbers currently in the catalog!")
                     Dim sAns As String = MsgBox("Do you want to set new Numeric values for the Catalog ID?", MsgBoxStyle.YesNo)
                     If sAns = vbYes Then
-                        If not BurnSoft.Applications.MGC.Firearms.MyCollection.SetCatalogValuesToNumeric(DatabasePath, _errOut) Then Throw New Exception(_errOut)
+                        If not MyCollection.SetCatalogValuesToNumeric(DatabasePath, _errOut) Then Throw New Exception(_errOut)
                         MsgBox("Remember to click on the Save button to apply these settings!")
                     Else
                         chkNCCID.Checked = False
