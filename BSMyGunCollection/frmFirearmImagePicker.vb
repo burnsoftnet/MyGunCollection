@@ -1,6 +1,9 @@
 ﻿Imports System.IO
 Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class FrmFirearmImagePicker.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -35,6 +38,10 @@ Public Class FrmFirearmImagePicker
     ''' The maximum items
     ''' </summary>
     Dim _maxItems As Long
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut As String
     ''' <summary>
     ''' Proportionals the size. Calculate the Proportional Size of an Image by passing the image size and the MaxSize or Height of the image
     ''' to return the new size.  The Max Width and Height is the parameters of the container
@@ -76,15 +83,10 @@ Public Class FrmFirearmImagePicker
     Sub GetPicture(picit As Long)
         Try
 
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & picit
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
-            If (b.Length > 0) Then
-                Dim stream As New MemoryStream(b, True)
-                stream.Write(b, 0, b.Length)
-                Dim bmp As Image = New Bitmap(stream)
+            Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, picit, _errOut, False, True)
+
+            For Each o As PictureDetails In lst
+                Dim bmp As Image = New Bitmap(o.PictureMemoryStream)
                 Dim imgSize As Size
                 imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
                 Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
@@ -94,8 +96,27 @@ Public Class FrmFirearmImagePicker
                 PictureBox1.Image = newimg
                 PictureBox1.Refresh()
                 Refresh()
-                stream.Close()
-            End If
+            Next
+            'Dim obj As New BsDatabase
+            'Call obj.ConnectDb()
+            'Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & picit
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim b() As Byte = cmd.ExecuteScalar
+            'If (b.Length > 0) Then
+            '    Dim stream As New MemoryStream(b, True)
+            '    stream.Write(b, 0, b.Length)
+            '    Dim bmp As Image = New Bitmap(stream)
+            '    Dim imgSize As Size
+            '    imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
+            '    Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
+            '    Dim g As Graphics
+            '    g = Graphics.FromImage(newimg)
+            '    g.DrawImage(bmp, 0, 0, imgSize.Width, imgSize.Height)
+            '    PictureBox1.Image = newimg
+            '    PictureBox1.Refresh()
+            '    Refresh()
+            '    stream.Close()
+            'End If
         Catch ex As Exception
             Call LogError(Name,  "GetPicture", Err.Number, ex.Message.ToString)
         End Try
