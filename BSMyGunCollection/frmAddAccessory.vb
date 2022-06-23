@@ -2,11 +2,6 @@ Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 
-''' <summary>
-''' Class frmAddAccessory.
-''' Implements the <see cref="System.Windows.Forms.Form" />
-''' </summary>
-''' <seealso cref="System.Windows.Forms.Form" />
 Public Class FrmAddAccessory
     ''' <summary>
     ''' The item identifier

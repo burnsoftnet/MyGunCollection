@@ -43,7 +43,7 @@ Public Class FrmViewBuyers
     Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.DoubleClick
         Try
             Dim myValue As Long = ListBox1.SelectedValue
-            Dim frmNew As New frmViewBuyerDetails
+            Dim frmNew As New FrmViewBuyerDetails
             frmNew.MdiParent = MdiParent
             frmNew.BuyerId = myValue
             frmNew.Show()

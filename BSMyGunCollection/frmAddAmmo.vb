@@ -1,4 +1,3 @@
-
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.AutoFill
 

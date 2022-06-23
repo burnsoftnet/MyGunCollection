@@ -3,11 +3,11 @@ Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmViewBuyerDetails.
+''' Class frmViewBuyerDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewBuyerDetails
+Public Class frmViewBuyerDetails
     ''' <summary>
     ''' The buyer identifier
     ''' </summary>

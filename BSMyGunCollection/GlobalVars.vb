@@ -259,7 +259,7 @@ Module GlobalVars
         Try
             'Dim obj As New GlobalFunctions
             Dim errOut As String = ""
-            '''TODO: #50 replace code
+            '''TODO: #50 replace code, THIS CODE SECTION HAS AN ERROR ON BLANK PICTURES
             ''obj.HasDefaultPicture(id, True)
 
             If Not Pictures.HasDefaultPicture(DatabasePath, id, ApplicationPath, DefaultPic, errOut ) then Throw New Exception(errOut)
