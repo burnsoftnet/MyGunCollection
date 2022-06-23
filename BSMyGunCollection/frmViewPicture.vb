@@ -2,6 +2,7 @@ Imports System.IO
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -89,12 +90,9 @@ Public Class FrmViewPicture
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ChangePictureToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ChangePictureToolStripMenuItem.Click
         Try
-            ''TODO: Replace with Reset and Set functions from pictures
-            Dim sqlu As String = "UPDATE Gun_Collection_Pictures set ISMAIN=0 where CID=" & GroupId
-            Dim sql As String = "UPDATE Gun_Collection_Pictures set ISMAIN=1 where ID=" & MyId
-            Dim obj As New BsDatabase
-            obj.ConnExec(sqlu)
-            obj.ConnExec(sql)
+            If Not Pictures.ResetDefaultPic(DatabasePath, GroupId, _errOut) Then Throw New Exception(_errOut)
+            If Not Pictures.SetAsDefaultPic(DatabasePath, MyId, _errOut) Then Throw New Exception(_errOut)
+            
             MsgBox("This is now the Default Picture")
         Catch ex As Exception
             Call LogError(Name, "ChangePictureToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
