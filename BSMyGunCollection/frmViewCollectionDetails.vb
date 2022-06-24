@@ -435,15 +435,16 @@ Public Class FrmViewCollectionDetails
         Close()
     End Sub
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
-        Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
-        If meAns = vbYes Then
-            ''TODO #50 Replace with function from library
-            Dim obj As New BsDatabase
-            Dim uSql As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & GunId
-            obj.ConnExec(uSql)
-            MDIParent1.RefreshCollection()
-            Close()
-        End If
+        Try
+            Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
+            If meAns = vbYes Then
+                If Not MyCollection.UnMarkAsStolenOrSold(DatabasePath, GunId, _errOut) Then Throw New Exception(_errOut)
+                MDIParent1.RefreshCollection()
+                Close()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "btnUnDoSale_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 #End Region
 #Region " General Subs "
