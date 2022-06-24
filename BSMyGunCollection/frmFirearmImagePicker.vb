@@ -67,12 +67,10 @@ Public Class FrmFirearmImagePicker
         End While
 
         If (imageSize.Width < 1) Then
-' ReSharper disable RedundantAssignment
             imageSize = New Size(imageSize.Width - imageSize.Width + 1, imageSize.Height - imageSize.Width - 1)
         ElseIf (imageSize.Height < 1) Then
             imageSize = New Size(imageSize.Width - imageSize.Height - 1, imageSize.Height - imageSize.Height + 1)
         End If
-        ' ReSharper restore RedundantAssignment
         imageSize = New Size(Convert.ToInt32(w), Convert.ToInt32(h))
         Return imageSize
     End Function
@@ -86,7 +84,9 @@ Public Class FrmFirearmImagePicker
             Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, picit, _errOut, False, True)
 
             For Each o As PictureDetails In lst
-                Dim bmp As Image = New Bitmap(o.PictureMemoryStream)
+                Dim stream As MemoryStream = o.PictureMemoryStream
+
+                Dim bmp As Image = New Bitmap(stream)
                 Dim imgSize As Size
                 imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
                 Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
@@ -96,6 +96,7 @@ Public Class FrmFirearmImagePicker
                 PictureBox1.Image = newimg
                 PictureBox1.Refresh()
                 Refresh()
+                stream.Close()
             Next
             'Dim obj As New BsDatabase
             'Call obj.ConnectDb()
