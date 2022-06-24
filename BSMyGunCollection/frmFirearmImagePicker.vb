@@ -43,38 +43,7 @@ Public Class FrmFirearmImagePicker
     ''' The error out
     ''' </summary>
     Dim _errOut As String
-    ''' <summary>
-    ''' Proportionals the size. Calculate the Proportional Size of an Image by passing the image size and the MaxSize or Height of the image
-    ''' to return the new size.  The Max Width and Height is the parameters of the container
-    ''' </summary>
-    ''' <param name="imageSize">Size of the image.</param>
-    ''' <param name="maxWMaxH">The maximum w maximum h.</param>
-    ''' <returns>Size.</returns>
-    'Public Function ProportionalSize(ByVal imageSize As Size, ByVal maxWMaxH As Size) As Size
-    '    Dim multBy As Double = 1.01
-    '    Dim w As Double = imageSize.Width
-    '    Dim h As Double = imageSize.Height
 
-    '    While (w < maxWMaxH.Width And h < maxWMaxH.Height)
-    '        w = imageSize.Width * multBy
-    '        h = imageSize.Height * multBy
-    '        multBy = multBy + 0.001
-    '    End While
-
-    '    While (w > maxWMaxH.Width Or h > maxWMaxH.Height)
-    '        multBy = multBy - 0.001
-    '        w = imageSize.Width * multBy
-    '        h = imageSize.Height * multBy
-    '    End While
-
-    '    If (imageSize.Width < 1) Then
-    '        imageSize = New Size(imageSize.Width - imageSize.Width + 1, imageSize.Height - imageSize.Width - 1)
-    '    ElseIf (imageSize.Height < 1) Then
-    '        imageSize = New Size(imageSize.Width - imageSize.Height - 1, imageSize.Height - imageSize.Height + 1)
-    '    End If
-    '    imageSize = New Size(Convert.ToInt32(w), Convert.ToInt32(h))
-    '    Return imageSize
-    'End Function
     ''' <summary>
     ''' Gets the picture. Get the image from the database based on the Picture ID
     ''' </summary>
@@ -121,21 +90,6 @@ Public Class FrmFirearmImagePicker
                 _firearmNameArray.Add(o.FullName)
                 _maxItems += 1
             Next
-
-            'Dim obj As New BsDatabase
-            'Call obj.ConnectDb()
-            'Dim sql As String = "SELECT p.id,p.cid,c.FullName, p.Picture from Gun_Collection_Pictures p inner join Gun_Collection c on c.id=p.cid where p.ISMAIN=1 order by c.FullName asc;"
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    _picArray.Add(rs("id"))
-            '    _firearmIdArray.Add(rs("cid"))
-            '    _firearmNameArray.Add(rs("FullName"))
-            '    _maxItems += 1
-            'End While
-            'rs.Close()
-            'obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "LoadArrays", Err.Number, ex.Message.ToString)
         End Try

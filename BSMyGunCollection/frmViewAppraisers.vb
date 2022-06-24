@@ -73,22 +73,25 @@ Public Class FrmViewAppraisers
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs) Handles ToolStripButton2.Click
-        Dim myValue As Long = ListBox1.SelectedValue
-        Dim strShopName As String = Appraisers.GetName(DatabasePath, Convert.ToInt32(myValue), _errOut)
-        If _errOut.Length > 0 Then Throw New Exception(_errOut)
-        Dim obj As New BsDatabase
-        Dim sql As String = "DELETE from Appriaser_Contact_Details where ID=" & myValue
-        Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strShopName & " from the database.", MsgBoxStyle.YesNo, "Delete an Appraiser")
-        Dim intColTotal As Integer = BurnSoft.Applications.MGC.Firearms.MyCollection.HasCollectionAttached(DatabasePath, strShopName, _errOut)
-        If _errOut.Length > 0 Then Throw New Exception(_errOut)
-        If sMsg = vbYes Then
-            If intColTotal <> 0 Then
-                MsgBox("Cannot delete " & strShopName & "! It still has " & intColTotal & " firearms attached to it!", MsgBoxStyle.Critical, "Cannot Delete Appraiser")
-            Else
-                obj.ConnExec(sql)
-                Call RefreshList()
+        Try 
+            Dim myValue As Long = ListBox1.SelectedValue
+            Dim strShopName As String = Appraisers.GetName(DatabasePath, Convert.ToInt32(myValue), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Dim sMsg As String = MsgBox("Are you sure that you want to delete " & strShopName & " from the database.", MsgBoxStyle.YesNo, "Delete an Appraiser")
+            Dim intColTotal As Integer = BurnSoft.Applications.MGC.Firearms.MyCollection.HasCollectionAttached(DatabasePath, FluffContent(strShopName), _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            If sMsg = vbYes Then
+                If intColTotal <> 0 Then
+                    MsgBox("Cannot delete " & strShopName & "! It still has " & intColTotal & " firearms attached to it!", MsgBoxStyle.Critical, "Cannot Delete Appraiser")
+                Else
+                    If Not Appraisers.Delete(DatabasePath, myValue, _errOut) Then Throw New Exception(_errOut)
+                    If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                    Call RefreshList()
+                End If
             End If
-        End If
+        Catch ex As Exception
+            Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the ToolStripButton3 control.
