@@ -1,5 +1,5 @@
 ﻿Imports System.IO
-Imports System.Data.Odbc
+'Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
@@ -50,31 +50,31 @@ Public Class FrmFirearmImagePicker
     ''' <param name="imageSize">Size of the image.</param>
     ''' <param name="maxWMaxH">The maximum w maximum h.</param>
     ''' <returns>Size.</returns>
-    Public Function ProportionalSize(ByVal imageSize As Size, ByVal maxWMaxH As Size) As Size
-        Dim multBy As Double = 1.01
-        Dim w As Double = imageSize.Width
-        Dim h As Double = imageSize.Height
+    'Public Function ProportionalSize(ByVal imageSize As Size, ByVal maxWMaxH As Size) As Size
+    '    Dim multBy As Double = 1.01
+    '    Dim w As Double = imageSize.Width
+    '    Dim h As Double = imageSize.Height
 
-        While (w < maxWMaxH.Width And h < maxWMaxH.Height)
-            w = imageSize.Width * multBy
-            h = imageSize.Height * multBy
-            multBy = multBy + 0.001
-        End While
+    '    While (w < maxWMaxH.Width And h < maxWMaxH.Height)
+    '        w = imageSize.Width * multBy
+    '        h = imageSize.Height * multBy
+    '        multBy = multBy + 0.001
+    '    End While
 
-        While (w > maxWMaxH.Width Or h > maxWMaxH.Height)
-            multBy = multBy - 0.001
-            w = imageSize.Width * multBy
-            h = imageSize.Height * multBy
-        End While
+    '    While (w > maxWMaxH.Width Or h > maxWMaxH.Height)
+    '        multBy = multBy - 0.001
+    '        w = imageSize.Width * multBy
+    '        h = imageSize.Height * multBy
+    '    End While
 
-        If (imageSize.Width < 1) Then
-            imageSize = New Size(imageSize.Width - imageSize.Width + 1, imageSize.Height - imageSize.Width - 1)
-        ElseIf (imageSize.Height < 1) Then
-            imageSize = New Size(imageSize.Width - imageSize.Height - 1, imageSize.Height - imageSize.Height + 1)
-        End If
-        imageSize = New Size(Convert.ToInt32(w), Convert.ToInt32(h))
-        Return imageSize
-    End Function
+    '    If (imageSize.Width < 1) Then
+    '        imageSize = New Size(imageSize.Width - imageSize.Width + 1, imageSize.Height - imageSize.Width - 1)
+    '    ElseIf (imageSize.Height < 1) Then
+    '        imageSize = New Size(imageSize.Width - imageSize.Height - 1, imageSize.Height - imageSize.Height + 1)
+    '    End If
+    '    imageSize = New Size(Convert.ToInt32(w), Convert.ToInt32(h))
+    '    Return imageSize
+    'End Function
     ''' <summary>
     ''' Gets the picture. Get the image from the database based on the Picture ID
     ''' </summary>
@@ -82,35 +82,13 @@ Public Class FrmFirearmImagePicker
     Sub GetPicture(picit As Long)
         Try
 
-            'Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, picit, _errOut, False, True,PictureBox1)
-
-            'For Each o As PictureDetails In lst
-            '    'Dim stream As MemoryStream = o.PictureMemoryStream
-
-            '    'Dim bmp As Image = New Bitmap(stream)
-            '    'Dim imgSize As Size
-            '    'imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
-            '    'Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
-            '    'Dim g As Graphics
-            '    'g = Graphics.FromImage(newimg)
-            '    'g.DrawImage(bmp, 0, 0, imgSize.Width, imgSize.Height)
-            '    PictureBox1.Image = o.PictureBmp
-            '    PictureBox1.Refresh()
-            '    Refresh()
-            '    'stream.Close()
-            'Next
-            'Dim obj As New BsDatabase
-            'Call obj.ConnectDb()
-            'Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & picit
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim b() As Byte = cmd.ExecuteScalar
             Dim b() As Byte = Database.GetPcture(DatabasePath, picit, _errOut)
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
                 Dim bmp As Image = New Bitmap(stream)
                 Dim imgSize As Size
-                imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
+                imgSize = Pictures.ProportionalSize(bmp.Size, PictureBox1.Size)
                 Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
                 Dim g As Graphics
                 g = Graphics.FromImage(newimg)
@@ -135,20 +113,29 @@ Public Class FrmFirearmImagePicker
             _firearmIdArray = New ArrayList
             _firearmNameArray = New ArrayList
 
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT p.id,p.cid,c.FullName, p.Picture from Gun_Collection_Pictures p inner join Gun_Collection c on c.id=p.cid where p.ISMAIN=1 order by c.FullName asc;"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                _picArray.Add(rs("id"))
-                _firearmIdArray.Add(rs("cid"))
-                _firearmNameArray.Add(rs("FullName"))
+            Dim lst As List(Of PictureDisplayList) = PictureDisplay.GetList(DatabasePath, _errOut)
+
+            For Each o As PictureDisplayList In lst
+                _picArray.Add(o.Id)
+                _firearmIdArray.Add(o.Cid)
+                _firearmNameArray.Add(o.FullName)
                 _maxItems += 1
-            End While
-            rs.Close()
-            obj.CloseDb()
+            Next
+
+            'Dim obj As New BsDatabase
+            'Call obj.ConnectDb()
+            'Dim sql As String = "SELECT p.id,p.cid,c.FullName, p.Picture from Gun_Collection_Pictures p inner join Gun_Collection c on c.id=p.cid where p.ISMAIN=1 order by c.FullName asc;"
+            'Dim cmd As New OdbcCommand(sql, obj.Conn)
+            'Dim rs As OdbcDataReader
+            'rs = cmd.ExecuteReader
+            'While rs.Read
+            '    _picArray.Add(rs("id"))
+            '    _firearmIdArray.Add(rs("cid"))
+            '    _firearmNameArray.Add(rs("FullName"))
+            '    _maxItems += 1
+            'End While
+            'rs.Close()
+            'obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "LoadArrays", Err.Number, ex.Message.ToString)
         End Try
