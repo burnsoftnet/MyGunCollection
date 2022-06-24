@@ -231,7 +231,7 @@ Public Class FrmViewPicture
     ''' </summary>
     Sub GetPicture()
         Try
-            Dim b() As Byte = Database.GetPcture(DatabasePath, MyId, _errOut)
+            Dim b() As Byte = Pictures.GetPicture(DatabasePath, MyId, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             If (b.Length > 0) Then

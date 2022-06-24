@@ -51,7 +51,7 @@ Public Class FrmFirearmImagePicker
     Sub GetPicture(picit As Long)
         Try
 
-            Dim b() As Byte = Database.GetPcture(DatabasePath, picit, _errOut)
+            Dim b() As Byte = Pictures.GetPicture(DatabasePath, picit, _errOut)
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)

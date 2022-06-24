@@ -1,6 +1,5 @@
 Imports System.ComponentModel
 Imports System.IO
-Imports System.Data.Odbc
 Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
@@ -724,19 +723,14 @@ Public Class FrmViewCollectionDetails
     ''' <param name="i">The i.</param>
     Sub GetPicsId(ByVal picId As Long, ByVal i As Long)
         Try
-            'TODO: #50 Convert this code
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT THUMB from Gun_Collection_Pictures where ID=" & picId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
+            Dim b() As Byte = Pictures.GetThumbnailPicture(DatabasePath, picId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
                 DrawToScale(New Bitmap(stream), i, picId)
                 stream.Close()
             End If
-            obj.CloseDb()
         Catch ex As Exception
             Call LogError(Name, "GetPicsID", Err.Number, ex.Message.ToString)
         End Try

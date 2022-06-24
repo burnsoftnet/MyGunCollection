@@ -1,78 +1,7 @@
 Imports System.IO
 Imports System.Text
-Imports System.Data.Odbc
 
 Namespace MGC
-    ''' <summary>
-    ''' Class BSDatabase.
-    ''' </summary>
-    Public Class BsDatabase
-        ''' <summary>
-        ''' The Class Name for the error file
-        ''' </summary>
-        Private Const MyClassName = "MGC.BSDatabase"
-        ''' <summary>
-        ''' The connection
-        ''' </summary>
-        Public Conn As OdbcConnection
-        ''' <summary>
-        ''' ses the connect.
-        ''' </summary>
-        ''' <returns>System.String.</returns>
-        Public Function SConnect() As String
-            Return "Driver={Microsoft Access Driver (*.mdb)};dbq=" & ApplicationPathData & "\" & DatabaseName & ";Pwd=14un0t2n0"
-        End Function
-        ''' <summary>
-        ''' ses the connect OLE.
-        ''' </summary>
-        ''' <returns>System.String.</returns>
-        Public Function SConnectOle() As String
-            Return "Provider=Microsoft.Jet.OLEDB.4.0;Persist Security Info=False;Data Source=""" & ApplicationPathData & "\" & DatabaseName & """;Jet OLEDB:Database Password=14un0t2n0;"
-        End Function
-        ''' <summary>
-        ''' Connects the database.
-        ''' </summary>
-        Public Sub ConnectDb()
-            Try
-                Conn = New OdbcConnection(SConnect)
-                Conn.Open()
-            Catch ex As Exception
-                Dim sSubFunc As String = "ConnectDB"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
-        ''' <summary>
-        ''' Closes the database.
-        ''' </summary>
-        Public Sub CloseDb()
-            Try
-                Conn.Close()
-                Conn = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "CloseDB"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-            End Try
-        End Sub
-        ''' <summary>
-        ''' Connections the execute.
-        ''' </summary>
-        ''' <param name="strSql">The string SQL.</param>
-        'Public Sub ConnExec(ByVal strSql As String)
-        '    Try
-        '        Call ConnectDb()
-        '        Dim cmd As New OdbcCommand
-        '        cmd.Connection = Conn
-        '        cmd.CommandText = strSql
-        '        cmd.ExecuteNonQuery()
-        '        cmd.Connection.Close()
-        '        Conn = Nothing
-        '    Catch ex As Exception
-        '        Dim sSubFunc As String = "ConnExec"
-        '        Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-        '        Call LogError(MyClassName, sSubFunc, 0, "ConnExec.strSQL=" & strSql)
-        '    End Try
-        'End Sub
-    End Class
 
     ''' <summary>
     ''' Class BSFileSystem.
