@@ -955,11 +955,16 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(GunId)
-        Dim frmNew As New FrmViewReportFirearmDetails
-        frmNew.IntId = GunId
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Call GetPics()
+            Dim frmNew As New FrmViewReportFirearmDetails
+            frmNew.IntId = GunId
+            frmNew.MdiParent = MdiParent
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
 
@@ -970,11 +975,16 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(GunId)
-        Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
-        frmNew.IntId = GunId
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Call GetPics()
+            Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
+            frmNew.IntId = GunId
+            frmNew.MdiParent = MdiParent
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ToolStripButton5_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
     ''' <summary>

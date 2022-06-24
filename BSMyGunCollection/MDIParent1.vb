@@ -971,11 +971,15 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ViewDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewDetailedReportToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ListBox1.SelectedValue)
-        Dim frmNew As New FrmViewReportFirearmDetails
-        frmNew.IntId = ListBox1.SelectedValue
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, ListBox1.SelectedValue, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Dim frmNew As New FrmViewReportFirearmDetails
+            frmNew.IntId = ListBox1.SelectedValue
+            frmNew.MdiParent = Me
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ViewDetailedReportToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
     ''' <summary>
@@ -985,11 +989,15 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ViewFullDetailedReportToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewFullDetailedReportToolStripMenuItem.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ListBox1.SelectedValue)
-        Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
-        frmNew.IntId = ListBox1.SelectedValue
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, ListBox1.SelectedValue, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
+            frmNew.IntId = ListBox1.SelectedValue
+            frmNew.MdiParent = Me
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ViewFullDetailedReportToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
     ''' <summary>

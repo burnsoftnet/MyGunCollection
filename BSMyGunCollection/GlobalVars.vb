@@ -1,5 +1,4 @@
 Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
 ''' Global Variables and Functions
@@ -251,21 +250,5 @@ Module GlobalVars
             MsgBox(sMsg)
         End Try
     End Sub
-    ''' <summary>
-    ''' Check to see if the picture in the database is a the default picture
-    ''' </summary>
-    ''' <param name="id"></param>
-    Sub CheckDefaultPic(ByVal id As Long)
-        Try
-            'Dim obj As New GlobalFunctions
-            Dim errOut As String = ""
-            '''TODO: #50 replace code, THIS CODE SECTION HAS AN ERROR ON BLANK PICTURES
-            ''obj.HasDefaultPicture(id, True)
 
-            If Not Pictures.HasDefaultPicture(DatabasePath, id, ApplicationPath, DefaultPic, errOut ) then Throw New Exception(errOut)
-        Catch ex As Exception
-            Dim sSubFunc As String = "CheckDefaultPic"
-            Call LogError("GlobalVars", sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-    End Sub
 End Module
