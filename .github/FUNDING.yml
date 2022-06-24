@@ -1,3 +1,2 @@
 # These are supported funding model platforms
-custom: ["https://www.paypal.me/burnsoft", PayPal.com]
-custom: ["https://www.venmo.com/u/joemirelesky", Venmo.com]
+custom: ["https://www.paypal.me/burnsoft", "https://www.venmo.com/u/joemirelesky"]
