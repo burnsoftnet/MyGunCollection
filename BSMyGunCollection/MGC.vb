@@ -57,21 +57,21 @@ Namespace MGC
         ''' Connections the execute.
         ''' </summary>
         ''' <param name="strSql">The string SQL.</param>
-        Public Sub ConnExec(ByVal strSql As String)
-            Try
-                Call ConnectDb()
-                Dim cmd As New OdbcCommand
-                cmd.Connection = Conn
-                cmd.CommandText = strSql
-                cmd.ExecuteNonQuery()
-                cmd.Connection.Close()
-                Conn = Nothing
-            Catch ex As Exception
-                Dim sSubFunc As String = "ConnExec"
-                Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
-                Call LogError(MyClassName, sSubFunc, 0, "ConnExec.strSQL=" & strSql)
-            End Try
-        End Sub
+        'Public Sub ConnExec(ByVal strSql As String)
+        '    Try
+        '        Call ConnectDb()
+        '        Dim cmd As New OdbcCommand
+        '        cmd.Connection = Conn
+        '        cmd.CommandText = strSql
+        '        cmd.ExecuteNonQuery()
+        '        cmd.Connection.Close()
+        '        Conn = Nothing
+        '    Catch ex As Exception
+        '        Dim sSubFunc As String = "ConnExec"
+        '        Call LogError(MyClassName, sSubFunc, Err.Number, ex.Message.ToString)
+        '        Call LogError(MyClassName, sSubFunc, 0, "ConnExec.strSQL=" & strSql)
+        '    End Try
+        'End Sub
     End Class
 
     ''' <summary>

@@ -1,7 +1,9 @@
 Imports System.IO
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
+Imports System.Web.UI.WebControls.Expressions
 Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 
@@ -229,11 +231,9 @@ Public Class FrmViewPicture
     ''' </summary>
     Sub GetPicture()
         Try
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & MyId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
+            Dim b() As Byte = Database.GetPcture(DatabasePath, MyId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
@@ -260,6 +260,7 @@ Public Class FrmViewPicture
                 PictureBox1.Refresh()
                 Refresh()
                 stream.Close()
+                b = Nothing
             End If
         Catch ex As Exception
             Call LogError(Name, "GetPicture", Err.Number, ex.Message.ToString)

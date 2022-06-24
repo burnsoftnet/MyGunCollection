@@ -704,30 +704,15 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public Sub GetPics()
         Try
-            'TODO: #50 Convert this code
             ListView1.Clear()
             imgPics.Images.Clear()
-            Dim picCount As Long = Pictures.CountPics(DatabasePath,Convert.ToInt32(GunId), _errOut )
+            Dim i As Long = 1
+            Dim lst as List(Of PictureDetails) = Pictures.GetList(DatabasePath, GunId, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim i As Long 
-            Dim obj As New BsDatabase
-            Call obj.ConnectDb()
-            Dim sql As String = "SELECT ID from Gun_Collection_Pictures where CID=" & GunId '& " order by ID DESC"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            Dim picId As Long
-            rs = cmd.ExecuteReader
-            ListView1.Clear()
-            If rs.HasRows Then
-                rs.Read()
-                For i = 1 To picCount
-                    picId = CLng(rs("ID"))
-                    GetPicsId(picId, i)
-                    rs.Read()
-                Next i
-            End If
-            obj.CloseDb()
-
+            For Each o As PictureDetails In lst
+                GetPicsId(o.Id, i)
+                i = i + 1
+            Next
         Catch ex As Exception
             Call LogError(Name, "GetPics", Err.Number, ex.Message.ToString)
         End Try

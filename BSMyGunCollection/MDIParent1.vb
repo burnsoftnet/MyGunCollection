@@ -874,15 +874,13 @@ Public Class MdiParent1
         Try
             Dim itemName As String = ListBox1.Text
             Dim itemId As Long = ListBox1.SelectedValue
-            Dim obj As New BsDatabase
             Dim strNewName As String = InputBox("Type in the new name for " & itemName & ":", "Rename Firearm Display Name", itemName)
             If Len(strNewName) = 0 Then Exit Sub
-            Dim sql As String = "UPDATE Gun_Collection set FullName='" & strNewName & "',sync_lastupdate=Now() where ID=" & itemId
-            obj.ConnExec(sql)
-            Call RefreshCollection()
+            If Not MyCollection.RenameFullName(DatabasePath, itemId, FluffContent(strNewName), _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "RenameDisplayNameToolStripMenuItem.Click", Err.Number, ex.Message.ToString)
         End Try
+        Call RefreshCollection()
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
