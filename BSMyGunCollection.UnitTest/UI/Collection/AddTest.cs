@@ -134,8 +134,10 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 }
             }
         }
-        #endregion
-
+        #endregion        
+        /// <summary>
+        /// Verifies the doesnt exist.
+        /// </summary>
         private void VerifyDoesntExist()
         {
             string dbPath = BurnSoft.Applications.MGC.ThirdParty.Main.GetDatabaseLocation(out _);
@@ -147,6 +149,11 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 BurnSoft.Applications.MGC.Firearms.MyCollection.Delete(dbPath, id, out _);
             }
         }
+        /// <summary>
+        /// Defines the test method AddSimpleTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod]
         public void AddSimpleTest()
         {
@@ -174,7 +181,11 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             }
             Assert.IsTrue(bans);
         }
-
+        /// <summary>
+        /// Defines the test method AddJustABoutEverythingOnTabTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod]
         public void AddJustABoutEverythingOnTabTest()
         {
@@ -203,10 +214,14 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             }
             Assert.IsTrue(bans);
         }
+        /// <summary>
+        /// Defines the test method AddEverythingTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod]
         public void AddEverythingTest()
         {
-            //TODO: #58 Come Back to this, this is broked
             bool bans = false;
             try
             {
