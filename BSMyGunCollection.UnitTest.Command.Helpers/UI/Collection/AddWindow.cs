@@ -666,9 +666,27 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
             }
         }
-
+        /// <summary>
+        /// Class CollectorDetails.
+        /// </summary>
         internal class CollectorDetails
         {
+            /// <summary>
+            /// Runs the test.
+            /// </summary>
+            /// <param name="appraisedValue">The appraised value.</param>
+            /// <param name="appraisedDate">The appraised date.</param>
+            /// <param name="appraisedBy">The appraised by.</param>
+            /// <param name="insuredValue">The insured value.</param>
+            /// <param name="twistOfRate">The twist of rate.</param>
+            /// <param name="triggerPull">The trigger pull.</param>
+            /// <param name="isClassIiiItem">if set to <c>true</c> [is class iii item].</param>
+            /// <param name="isClassIiiOwner">The is class iii owner.</param>
+            /// <param name="isCompetitionGun">if set to <c>true</c> [is competition gun].</param>
+            /// <param name="isNonLethalDevice">if set to <c>true</c> [is non lethal device].</param>
+            /// <param name="isCandR">if set to <c>true</c> [is cand r].</param>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
             internal static List<BatchCommandList> RunTest(string appraisedValue,string appraisedDate, string appraisedBy,string insuredValue,string twistOfRate,
                 string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun,bool isNonLethalDevice,bool isCandR, bool verify = false)
             {
@@ -722,51 +740,92 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 {
                     return Base.ClickOnElement("C & R Check Box", "chkBoxCR", verify);
                 }
-
+                /// <summary>
+                /// Determines whether [is competition gun] [the specified verify].
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsCompetitionGun(bool verify = false)
                 {
                     return Base.ClickOnElement("Competition Gun Check Box", "chkIsCompeition", verify);
                 }
-
+                /// <summary>
+                /// Determines whether [is non lethal device] [the specified verify].
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsNonLethalDevice(bool verify = false)
                 {
                     return Base.ClickOnElement("Non-Lethal Device Check Box", "chkNonLethal", verify);
                 }
-
+                /// <summary>
+                /// Determines whether [is class iii owner] [the specified verify].
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsClassIiiOwner(bool verify = false)
                 {
                     return Base.ClickOnElement("Class III Owner", "txtClassIIIOwner", verify);
                 }
-
+                /// <summary>
+                /// Determines whether [is class iii item] [the specified verify].
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsClassIiiItem(bool verify = false)
                 {
                     return Base.ClickOnElement("Is Class III Item Check Box", "chkClassIII", verify);
                 }
-
+                /// <summary>
+                /// Triggers the pull.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> TriggerPull(bool verify = false)
                 {
                     return Base.ClickOnElement("Trigger Pull", "txtTriggerPull", verify);
                 }
-
+                /// <summary>
+                /// Twists the of rate.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> TwistOfRate(bool verify = false)
                 {
                     return Base.ClickOnElement("Twist Rate", "txtTwistOfRate", verify);
                 }
-
+                /// <summary>
+                /// Insureds the value.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> InsuredValue(bool verify = false)
                 {
                     return Base.ClickOnElement("Insured Value", "txtInsVal", verify);
                 }
-
+                /// <summary>
+                /// Appraiseds the value.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedValue(bool verify = false)
                 {
                     return Base.ClickOnElement("Appraised Value", "txtAppValue", verify);
                 }
+                /// <summary>
+                /// Appraiseds the date.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedDate(bool verify = false)
                 {
                     return Base.ClickOnElement("Appraised Date", "dtpAppDate", verify);
                 }
-
+                /// <summary>
+                /// Appraiseds the by.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedBy(bool verify = false)
                 {
                     return Base.ClickOnElement("Appraised By", "txtAppBy", verify);
@@ -810,6 +869,71 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 }
             }
         }
-        
+        /// <summary>
+        /// Class ConditionComments.
+        /// </summary>
+        internal class ConditionComments
+        {
+
+            /// <summary>
+            /// Clicks the on tab.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> ClickOnTab(bool verify = false)
+            {
+                return Base.ClickOnElement("Condition Comments", "Condition Comments", verify, GeneralActions.AppAction.FindElementByName);
+            }
+            /// <summary>
+            /// Class ClickOn.
+            /// </summary>
+            internal class ClickOn
+            {
+                /// <summary>
+                /// Noteses the text box.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> NotesTextBox(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Condition Text Box", "txtConCom", value, verify);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Class AdditionalNotes.
+        /// </summary>
+        internal class AdditionalNotes
+        {
+            /// <summary>
+            /// Clicks the on tab.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> ClickOnTab(bool verify = false)
+            {
+                return Base.ClickOnElement("Additional Notes", "Additional Notes", verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
+
+            /// <summary>
+            /// Class ClickOn.
+            /// </summary>
+            internal class ClickOn
+            {
+                /// <summary>
+                /// Noteses the text box.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> NotesTextBox(string value, bool verify = false)
+                {
+                    return Base.SendTExt("Notes Text Box", "txtAddNotes", value, verify);
+                }
+            }
+        }
     }
 }

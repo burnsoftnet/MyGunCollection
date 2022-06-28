@@ -59,6 +59,10 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         private string _addFirearmModel;
         /// <summary>
+        /// The database path
+        /// </summary>
+        private string _databasePath;
+        /// <summary>
         /// Initializes this instance.
         /// </summary>
         [TestInitialize]
@@ -75,6 +79,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 _addFirearmModel = Vs2019.GetSetting("AddFirearmModel");
                 _fullAppPath = Path.Combine(_appPath, _appName);
                 _fullLogPath = Path.Combine(_appPath, _errLog);
+                _databasePath = Path.Combine(_appPath, "MGC.mdb");
 
                 string settingsScreenShotLocation = "ScreenShots";
                 string fullExceptionPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, settingsScreenShotLocation);
@@ -148,6 +153,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             bool bans = false;
             try
             {
+                VerifyDoesntExist();
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
                     _addFirearmManufacture, "GitHub", _addFirearmModel,
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
@@ -175,6 +181,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             bool bans = false;
             try
             {
+                VerifyDoesntExist();
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
                     _addFirearmManufacture, "GitHub", _addFirearmModel,
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
@@ -203,6 +210,8 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             bool bans = false;
             try
             {
+                VerifyDoesntExist();
+
                 List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.Collection.AddWindow.RunTest(
                     _addFirearmManufacture, "GitHub", _addFirearmModel,
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
