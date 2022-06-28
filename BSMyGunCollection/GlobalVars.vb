@@ -1,4 +1,4 @@
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 
 ''' <summary>
 ''' Global Variables and Functions

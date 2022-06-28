@@ -1,5 +1,5 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
 ''' <summary>
 ''' Class frmViewAmmoInventory. Form to view ammo inventory

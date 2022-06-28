@@ -2,7 +2,7 @@ Imports System.IO
 Imports System.Data.Odbc
 Imports System.Drawing.Imaging
 Imports System.Web.UI.WebControls.Expressions
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types

@@ -1,5 +1,4 @@
 Imports System.IO
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>

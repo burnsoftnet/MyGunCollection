@@ -548,7 +548,7 @@
     <Compile Include="frmViewWishList.vb" />
     <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="GlobalVars.vb" />
-    <Compile Include="MGC.vb" />
+    <Compile Include="LogginAndSettings.vb" />
     <Compile Include="frmAddAmmo.Designer.vb">
       <DependentUpon>frmAddAmmo.vb</DependentUpon>
     </Compile>

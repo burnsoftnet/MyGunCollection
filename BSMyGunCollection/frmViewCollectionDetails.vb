@@ -1,6 +1,6 @@
 Imports System.ComponentModel
 Imports System.IO
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global

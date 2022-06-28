@@ -1,5 +1,5 @@
 Imports System.Collections.ObjectModel
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 Imports System.Configuration
 ''' <summary>
 ''' The My namespace.
