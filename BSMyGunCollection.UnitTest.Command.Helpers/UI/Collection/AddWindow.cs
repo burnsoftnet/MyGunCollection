@@ -699,14 +699,25 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
 
                 return cmd;
             }
-
+            /// <summary>
+            /// Clicks the on tab.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
             internal static List<BatchCommandList> ClickOnTab(bool verify = false)
             {
-                return Base.ClickOnElement("Collector Details", "Collector Details", verify);
+                return Base.ClickOnElement("Collector Details", "Collector Details", verify, GeneralActions.AppAction.FindElementByName);
             }
-
+            /// <summary>
+            /// Class ClickOn.
+            /// </summary>
             internal class ClickOn
             {
+                /// <summary>
+                /// Determines whether [is cand r] [the specified verify].
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsCandR(bool verify = false)
                 {
                     return Base.ClickOnElement("C & R Check Box", "chkBoxCR", verify);
