@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BurnSoft.Testing.Apps.Appium;
 using BurnSoft.Testing.Apps.Appium.Types;
 
@@ -88,7 +84,47 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             cmd.AddRange(Base.Sleep());
             return cmd;
         }
-
+        /// <summary>
+        /// Runs the test.
+        /// </summary>
+        /// <param name="manufacture">The manufacture.</param>
+        /// <param name="importer">The importer.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="serialNumber">The serial number.</param>
+        /// <param name="pistolType">Type of the pistol.</param>
+        /// <param name="caliber">The caliber.</param>
+        /// <param name="condition">The condition.</param>
+        /// <param name="purchasedFrom">The purchased from.</param>
+        /// <param name="purchasedPrice">The purchased price.</param>
+        /// <param name="caliber2">The caliber2.</param>
+        /// <param name="caliber3">The caliber3.</param>
+        /// <param name="stockType">Type of the stock.</param>
+        /// <param name="manufacturedDate">The manufactured date.</param>
+        /// <param name="action">The action.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="placeOfOrgin">The place of orgin.</param>
+        /// <param name="finish">The finish.</param>
+        /// <param name="storage">The storage.</param>
+        /// <param name="sights">The sights.</param>
+        /// <param name="feedSystem">The feed system.</param>
+        /// <param name="overallLength">Length of the overall.</param>
+        /// <param name="barrelLength">Length of the barrel.</param>
+        /// <param name="appraisedValue">The appraised value.</param>
+        /// <param name="appraisedDate">The appraised date.</param>
+        /// <param name="appraisedBy">The appraised by.</param>
+        /// <param name="insuredValue">The insured value.</param>
+        /// <param name="twistOfRate">The twist of rate.</param>
+        /// <param name="triggerPull">The trigger pull.</param>
+        /// <param name="isClassIiiItem">if set to <c>true</c> [is class iii item].</param>
+        /// <param name="isClassIiiOwner">The is class iii owner.</param>
+        /// <param name="isCompetitionGun">if set to <c>true</c> [is competition gun].</param>
+        /// <param name="isNonLethalDevice">if set to <c>true</c> [is non lethal device].</param>
+        /// <param name="isCandR">if set to <c>true</c> [is cand r].</param>
+        /// <param name="conditionNotes">The condition notes.</param>
+        /// <param name="additionalNotes">The additional notes.</param>
+        /// <param name="verify">if set to <c>true</c> [verify].</param>
+        /// <param name="currentChoke">The current choke.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         public static List<BatchCommandList> RunTest(string manufacture, string importer, string model,
             string serialNumber, string pistolType, string caliber, string condition,
             string purchasedFrom, string purchasedPrice, string caliber2, string caliber3, string stockType,
@@ -96,7 +132,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             string storage, string sights, string feedSystem, string overallLength, string barrelLength,
             string appraisedValue, string appraisedDate, string appraisedBy, string insuredValue, string twistOfRate,
             string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun, bool isNonLethalDevice, 
-            bool isCandR, bool verify = false, string currentChoke = "")
+            bool isCandR, string conditionNotes, string additionalNotes, bool verify = false, string currentChoke = "")
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
             cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
@@ -107,6 +143,8 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 weight, placeOfOrgin, finish, storage, sights, feedSystem, overallLength, barrelLength, verify, currentChoke));
             cmd.AddRange(CollectorDetails.RunTest(appraisedValue, appraisedDate, appraisedBy, insuredValue, twistOfRate,
                  triggerPull, isClassIiiItem, isClassIiiOwner, isCompetitionGun, isNonLethalDevice, isCandR, verify));
+            cmd.AddRange(ConditionComments.RunTest(conditionNotes, verify));
+            cmd.AddRange(AdditionalNotes.RunTest(additionalNotes, verify));
 
             cmd.AddRange(Details.ClickOn.AddButton(verify));
             cmd.AddRange(Base.Sleep());
@@ -151,7 +189,25 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             cmd.AddRange(Details.FillIn.PurchasedPrice(purchasedPrice, verify));
             return cmd;
         }
-
+        /// <summary>
+        /// Adds the other details.
+        /// </summary>
+        /// <param name="caliber2">The caliber2.</param>
+        /// <param name="caliber3">The caliber3.</param>
+        /// <param name="stockType">Type of the stock.</param>
+        /// <param name="manufacturedDate">The manufactured date.</param>
+        /// <param name="action">The action.</param>
+        /// <param name="weight">The weight.</param>
+        /// <param name="placeOfOrgin">The place of orgin.</param>
+        /// <param name="finish">The finish.</param>
+        /// <param name="storage">The storage.</param>
+        /// <param name="sights">The sights.</param>
+        /// <param name="feedSystem">The feed system.</param>
+        /// <param name="overallLength">Length of the overall.</param>
+        /// <param name="barrelLength">Length of the barrel.</param>
+        /// <param name="verify">if set to <c>true</c> [verify].</param>
+        /// <param name="currentChoke">The current choke.</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         internal static List<BatchCommandList> AddOtherDetails(string caliber2, string caliber3, string stockType, string manufacturedDate, string action,
             string weight, string placeOfOrgin, string finish, string storage, string sights, string feedSystem,
             string overallLength, string barrelLength, bool verify = false, string currentChoke = "")
@@ -691,7 +747,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                 string triggerPull, bool isClassIiiItem, string isClassIiiOwner, bool isCompetitionGun,bool isNonLethalDevice,bool isCandR, bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                //TODO: #58 Come Back to this, this is broked on tab click
                 cmd.AddRange(ClickOnTab());
                 cmd.AddRange(ClickOn.AppraisedValue(verify));
                 cmd.AddRange(FillIn.AppraisedValue(appraisedValue, verify));
@@ -831,38 +886,77 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
                     return Base.ClickOnElement("Appraised By", "txtAppBy", verify);
                 }
             }
-
+            /// <summary>
+            /// Class FillIn.
+            /// </summary>
             internal class FillIn
             {
+                /// <summary>
+                /// Determines whether [is class iii owner] [the specified value].
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> IsClassIiiOwner(string value, bool verify = false)
                 {
                     return Base.SendTExt("Class III Owner", "txtClassIIIOwner", value, verify);
                 }
+                /// <summary>
+                /// Triggers the pull.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> TriggerPull(string value, bool verify = false)
                 {
                     return Base.SendTExt("Trigger Pull", "txtTriggerPull", value, verify);
                 }
-
+                /// <summary>
+                /// Twists the of rate.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> TwistOfRate(string value, bool verify = false)
                 {
                     return Base.SendTExt("Twist Rate", "txtTwistOfRate", value, verify);
                 }
-
+                /// <summary>
+                /// Insureds the value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> InsuredValue(string value, bool verify = false)
                 {
                     return Base.SendTExt("Insured Value", "txtInsVal", value, verify);
                 }
-
+                /// <summary>
+                /// Appraiseds the value.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedValue(string value, bool verify = false)
                 {
                     return Base.SendTExt("Appraised Value", "txtAppValue", value, verify);
                 }
-
+                /// <summary>
+                /// Appraiseds the date.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedDate(string value, bool verify = false)
                 {
                     return Base.SendTExt("Appraised Date", "dtpAppDate", value, verify);
                 }
-
+                /// <summary>
+                /// Appraiseds the by.
+                /// </summary>
+                /// <param name="value">The value.</param>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> AppraisedBy(string value, bool verify = false)
                 {
                     return Base.SendTExt("Appraised By", "txtAppBy", value, verify);
@@ -874,6 +968,21 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         /// </summary>
         internal class ConditionComments
         {
+            /// <summary>
+            /// Runs the test.
+            /// </summary>
+            /// <param name="notes">The notes.</param>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> RunTest(string notes,bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(ClickOnTab());
+                cmd.AddRange(ClickOn.NotesTextBox(verify));
+                cmd.AddRange(FillIn.NotesTextBox(notes, verify));
+
+                return cmd;
+            }
 
             /// <summary>
             /// Clicks the on tab.
@@ -888,6 +997,21 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             /// Class ClickOn.
             /// </summary>
             internal class ClickOn
+            {
+                /// <summary>
+                /// Appraiseds the date.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> NotesTextBox(bool verify = false)
+                {
+                    return Base.ClickOnElement("Condition Text Box", "txtConCom", verify);
+                }
+            }
+            /// <summary>
+            /// Class FillIn.
+            /// </summary>
+            internal class FillIn
             {
                 /// <summary>
                 /// Noteses the text box.
@@ -908,6 +1032,22 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         internal class AdditionalNotes
         {
             /// <summary>
+            /// Runs the test.
+            /// </summary>
+            /// <param name="notes">The notes.</param>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> RunTest(string notes, bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                
+                cmd.AddRange(ClickOnTab());
+                cmd.AddRange(ClickOn.NotesTextBox(verify));
+                cmd.AddRange(FillIn.NotesTextBox(notes, verify));
+
+                return cmd;
+            }
+            /// <summary>
             /// Clicks the on tab.
             /// </summary>
             /// <param name="verify">if set to <c>true</c> [verify].</param>
@@ -922,6 +1062,21 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             /// Class ClickOn.
             /// </summary>
             internal class ClickOn
+            {
+                /// <summary>
+                /// Noteses the text box.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> NotesTextBox(bool verify = false)
+                {
+                    return Base.ClickOnElement("Notes Text Box", "txtAddNotes", verify);
+                }
+            }
+            /// <summary>
+            /// Class FillIn.
+            /// </summary>
+            internal class FillIn
             {
                 /// <summary>
                 /// Noteses the text box.

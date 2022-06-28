@@ -217,7 +217,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                     "UTF0293845", "Pistol: Semi-Auto - SA Only", "9mm Luger",
                     "90%", "WebGunShop", "499.99", "9mm kurtz", "9mm", "plastic", "1/1/1990", "blow back", "16oz",
                     "USA", "black", "Gun Locker", "fixed irons", "30 round magazine", "5 in.", "4.5 in.", "599.99", "4/20/2022", 
-                    "Blue Book of Ky", "599.99","1-16","2 lbs.",true,"Anyone who wants it!", true, false,true), out _errOut);
+                    "Blue Book of Ky", "599.99","1-16","2 lbs.",true,"Anyone who wants it!", true, false,true, "New In Box","Like and Would Buy Again!"), out _errOut);
                 if (_errOut.Length > 0) throw new Exception(_errOut);
                 DumpResults(value);
                 bans = _ga.AllTestsPassed(value);
