@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmSearchCollection
+Partial Class frmSearch_Collection
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class frmSearchCollection
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmSearchCollection))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmSearch_Collection))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.cmbLookIn = New ComboBox
@@ -136,7 +136,7 @@ Partial Class frmSearchCollection
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FrmSearchCollection"
+        Me.Name = "frmSearch_Collection"
         Me.SizeGripStyle = SizeGripStyle.Hide
         Me.Text = "Search Collection"
         CType(Me.dgvResults, ISupportInitialize).EndInit()

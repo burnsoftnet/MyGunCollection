@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Reports
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmCrViewReport
+Public Class frmCR_ViewReport
     ''' <summary>
     ''' The error out'
     ''' </summary>
@@ -110,7 +110,7 @@ Public Class frmCrViewReport
     End Sub
 #Region " Windows Form Designer generated code "
     ''' <summary>
-    ''' Initializes a new instance of the <see cref="FrmCrViewReport"/> class.
+    ''' Initializes a new instance of the <see cref="frmCR_ViewReport"/> class.
     ''' </summary>
     Public Sub New()
         MyBase.New()

@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmCrSelectTable
+Partial Class frmCR_SelectTable
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class frmCrSelectTable
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCrSelectTable))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCR_SelectTable))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.CRTableListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -215,7 +215,7 @@ Partial Class frmCrSelectTable
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "FrmCrSelectTable"
+        Me.Name = "frmCR_SelectTable"
         Me.HelpProvider1.SetShowHelp(Me, true)
         Me.Text = "Custom Report Builder - Select Table"
         CType(Me.CRTableListBindingSource,System.ComponentModel.ISupportInitialize).EndInit

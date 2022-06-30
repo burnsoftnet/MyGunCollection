@@ -20,7 +20,7 @@ Public Class FrmViewWishList
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New FrmViewReportWishList
+        Dim frmNew As New frmViewReport_WishList
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Cursor = Cursors.Arrow

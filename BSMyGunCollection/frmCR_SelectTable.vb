@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC.Reports
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmCrSelectTable
+Public Class frmCR_SelectTable
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -48,7 +48,7 @@ Public Class frmCrSelectTable
             Dim tid As Long = ComboBox1.SelectedValue
 ' ReSharper disable once LocalVariableHidesMember
             Dim name As String = ComboBox1.Text
-            Dim frmNew As New FrmCrSelectColumns
+            Dim frmNew As New frmCR_SelectColumns
             frmNew.TableId = tid
             frmNew.TableName = name
             frmNew.TableRealName = TableList.GetTableName(DatabasePath, tid, _errOut)
@@ -70,7 +70,7 @@ Public Class frmCrSelectTable
             Dim reportName As String = ComboBox2.Text
             Dim sql As String = CustomReports.GetReportSql(DatabasePath, srid, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim frmnew As New FrmCrViewReport
+            Dim frmnew As New frmCR_ViewReport
             frmnew.Sql = Replace(sql, "''", "'")
             frmnew.ReportName = reportName
             frmnew.MdiParent = MdiParent
@@ -113,7 +113,7 @@ Public Class frmCrSelectTable
     ''' Bring up the SQL editor window
     ''' </summary>
     Sub ShowSqlEditor()
-        Dim frmNew As New FrmCrEditSql
+        Dim frmNew As New frmCR_EditSQL
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
@@ -132,7 +132,7 @@ Public Class frmCrSelectTable
     ''' </summary>
     Sub EditReport()
         Dim rid As Long = ComboBox2.SelectedValue
-        Dim frmNew As New FrmCrEditSql
+        Dim frmNew As New frmCR_EditSQL
         frmNew.Rid = rid
         frmNew.MdiParent = MdiParent
         frmNew.Show()

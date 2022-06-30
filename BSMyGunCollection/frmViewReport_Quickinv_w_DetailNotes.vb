@@ -1,7 +1,7 @@
 ''' <summary>
 ''' View Quick Inventory Details with Notes Report
 ''' </summary>
-Public Class FrmViewReportQuickinvWDetailNotes
+Public Class frmViewReport_Quickinv_w_DetailNotes
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Quickinv_w_DetailNotes control.
     ''' </summary>

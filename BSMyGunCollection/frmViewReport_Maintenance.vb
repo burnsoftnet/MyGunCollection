@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportMaintenance
+Public Class frmViewReport_Maintenance
     ''' <summary>
     ''' My gid
     ''' </summary>

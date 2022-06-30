@@ -5,7 +5,7 @@ Imports BurnSoft.Applications.MGC
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmSearchCollection
+Public Class frmSearch_Collection
     ''' <summary>
     ''' Builds the search string.
     ''' </summary>

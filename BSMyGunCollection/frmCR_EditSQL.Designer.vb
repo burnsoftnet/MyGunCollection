@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class frmCrEditSql
+Partial Class frmCR_EditSQL
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class frmCrEditSql
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmCrEditSql))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmCR_EditSQL))
         Me.txtSQL = New TextBox()
         Me.btnSave = New Button()
         Me.btnViewInReport = New Button()
@@ -99,7 +99,7 @@ Partial Class frmCrEditSql
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FrmCrEditSql"
+        Me.Name = "frmCR_EditSQL"
         Me.Text = "Edit SQL"
         Me.ResumeLayout(False)
         Me.PerformLayout()

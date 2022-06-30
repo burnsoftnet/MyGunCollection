@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportWishList.
+''' Class frmViewReport_WishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportWishList
+Public Class frmViewReport_WishList
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_WishList control.
     ''' </summary>

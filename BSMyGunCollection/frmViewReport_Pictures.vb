@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportPictures.
+''' Class frmViewReport_Pictures.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportPictures
+Public Class frmViewReport_Pictures
     ''' <summary>
     ''' My gun id
     ''' </summary>

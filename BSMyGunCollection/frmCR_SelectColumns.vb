@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class frmCrSelectColumns
+Public Class frmCR_SelectColumns
     Dim _errOut as String
     ''' <summary>
     ''' The table name
@@ -25,7 +25,7 @@ Public Class frmCrSelectColumns
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGetData.Click
-        Dim frmnew As New FrmCrViewReport
+        Dim frmnew As New frmCR_ViewReport
         If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSql()
         frmnew.Sql = txtSQL.Text
         frmnew.MdiParent = MdiParent
