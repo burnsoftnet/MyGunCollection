@@ -390,10 +390,10 @@
       <DependentUpon>frmCR_ViewReport.vb</DependentUpon>
     </Compile>
     <Compile Include="frmCR_ViewReport.vb" />
-    <Compile Include="frmDBCleanup.Designer.vb">
-      <DependentUpon>frmDBCleanup.vb</DependentUpon>
+    <Compile Include="frmDbCleanup.Designer.vb">
+      <DependentUpon>frmDbCleanup.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDBCleanup.vb" />
+    <Compile Include="frmDbCleanup.vb" />
     <Compile Include="frmEditAccessory.Designer.vb">
       <DependentUpon>frmEditAccessory.vb</DependentUpon>
     </Compile>
@@ -799,9 +799,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmCR_ViewReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDBCleanup.resx">
+    <EmbeddedResource Include="frmDbCleanup.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>frmDBCleanup.vb</DependentUpon>
+      <DependentUpon>frmDbCleanup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditAccessory.resx">
       <SubType>Designer</SubType>

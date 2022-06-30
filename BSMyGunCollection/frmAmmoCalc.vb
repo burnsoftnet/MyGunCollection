@@ -1,13 +1,9 @@
-'Imports BSMyGunCollection.MGC
-'Imports System.Data.Odbc
-''TODO: #43 Clean up Unused Code
-
 ''' <summary>
 ''' Class frmAmmoCalc.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAmmoCalc
+Public Class frmAmmoCalc
     ''' <summary>
     ''' The ammo type
     ''' </summary>

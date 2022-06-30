@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddFirearmClassification
+Partial Class frmAddFirearmClassification
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddFirearmClassification
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddFirearmClassification))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddFirearmClassification))
         Me.Label1 = New Label()
         Me.Label2 = New Label()
         Me.txtClass = New TextBox()
@@ -100,7 +100,7 @@ Partial Class FrmAddFirearmClassification
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddFirearmClassification"
+        Me.Name = "FrmAddFirearmClassification"
         Me.Text = "Add Firearm Classification"
         Me.ResumeLayout(False)
         Me.PerformLayout()

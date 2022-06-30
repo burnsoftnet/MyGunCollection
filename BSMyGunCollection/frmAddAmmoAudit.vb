@@ -5,7 +5,7 @@ Imports BurnSoft.Applications.MGC.Ammo
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddAmmoAudit
+Public Class frmAddAmmoAudit
     ''' <summary>
     ''' The aid
     ''' </summary>

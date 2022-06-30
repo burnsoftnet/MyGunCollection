@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddCollectionAmmo
+Partial Class frmAddCollectionAmmo
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -222,7 +222,7 @@ Partial Class FrmAddCollectionAmmo
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Velocity (FPS):"
         '
-        'FrmAddCollectionAmmo
+        'frmAddCollectionAmmo
         '
         Me.AcceptButton = Me.btnAdd
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)

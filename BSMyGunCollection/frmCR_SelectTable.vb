@@ -1,11 +1,10 @@
-Imports BSMyGunCollection.MGC
 Imports BurnSoft.Applications.MGC.Reports
 ''' <summary>
 ''' Class frmCR_SelectTable.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmCrSelectTable
+Public Class frmCrSelectTable
     ''' <summary>
     ''' The error out
     ''' </summary>

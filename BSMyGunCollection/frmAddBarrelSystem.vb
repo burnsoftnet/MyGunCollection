@@ -8,7 +8,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddBarrelSystem
+Public Class frmAddBarrelSystem
     ''' <summary>
     ''' The gid
     ''' </summary>

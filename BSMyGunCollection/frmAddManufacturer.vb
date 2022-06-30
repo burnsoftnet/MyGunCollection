@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Global
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddManufacturer
+Public Class frmAddManufacturer
     ''' <summary>
     ''' The error out
     ''' </summary>

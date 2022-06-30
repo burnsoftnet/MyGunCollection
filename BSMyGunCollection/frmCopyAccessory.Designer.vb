@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmCopyAccessory
+Partial Class frmCopyAccessory
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -97,7 +97,7 @@ Partial Class FrmCopyAccessory
         Me.HelpProvider1.SetHelpKeyword(Me, "Copying an Accessory")
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Copying an Accessory")
-        Me.Name = "frmCopyAccessory"
+        Me.Name = "FrmCopyAccessory"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Copy Accessory"
         CType(Me.QryGunCollectionDetailsBindingSource, ISupportInitialize).EndInit()

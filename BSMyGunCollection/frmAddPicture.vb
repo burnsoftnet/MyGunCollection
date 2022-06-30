@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC.Firearms
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddPicture
+Public Class frmAddPicture
     ''' <summary>
     ''' The item identifier
     ''' </summary>

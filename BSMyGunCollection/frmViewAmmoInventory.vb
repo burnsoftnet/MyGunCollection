@@ -168,7 +168,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
-        Dim frmNew As New frmAddCollectionAmmo
+        Dim frmNew As New FrmAddCollectionAmmo
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -179,7 +179,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Try
-            Dim frmNew As New frmAddAmmoAudit
+            Dim frmNew As New FrmAddAmmoAudit
             Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView1.Rows(rowId).Selected = True

@@ -34,7 +34,7 @@ Public Class FrmViewDocuments
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
-        Dim frmNew As New frmAddDocument
+        Dim frmNew As New FrmAddDocument
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -125,7 +125,7 @@ Public Class FrmViewDocuments
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
-        Dim frmNew As New frmAddDocument
+        Dim frmNew As New FrmAddDocument
         frmNew.Did = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
         frmNew.EditMode = True
         frmNew.MdiParent = MdiParent

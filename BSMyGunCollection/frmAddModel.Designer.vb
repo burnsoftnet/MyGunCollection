@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddModel
+Partial Class frmAddModel
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class FrmAddModel
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddModel))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddModel))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.Label3 = New Label
@@ -141,7 +141,7 @@ Partial Class FrmAddModel
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddModel"
+        Me.Name = "FrmAddModel"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Add Model"

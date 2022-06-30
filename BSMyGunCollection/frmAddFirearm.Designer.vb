@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddFirearm
+Partial Class frmAddFirearm
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -1150,7 +1150,7 @@ Partial Class FrmAddFirearm
         Me.Label62.TabIndex = 237
         Me.Label62.Text = "Competition Gun?"
         '
-        'FrmAddFirearm
+        'frmAddFirearm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

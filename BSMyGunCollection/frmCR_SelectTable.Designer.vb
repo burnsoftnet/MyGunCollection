@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmCrSelectTable
+Partial Class frmCrSelectTable
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -196,7 +196,7 @@ Partial Class FrmCrSelectTable
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = true
         '
-        'FrmCrSelectTable
+        'frmCrSelectTable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

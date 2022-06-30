@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Reports
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmCrViewReport
+Public Class frmCrViewReport
     ''' <summary>
     ''' The error out'
     ''' </summary>

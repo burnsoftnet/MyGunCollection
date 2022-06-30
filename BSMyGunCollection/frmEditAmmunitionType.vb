@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC
 ''' <summary>
 ''' Edit the Ammunition Type
 ''' </summary>
-Public Class FrmEditAmmunitionType
+Public Class frmEditAmmunitionType
     ''' <summary>
     ''' The update pending
     ''' </summary>

@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmCrSelectColumns
+Public Class frmCrSelectColumns
     Dim _errOut as String
     ''' <summary>
     ''' The table name

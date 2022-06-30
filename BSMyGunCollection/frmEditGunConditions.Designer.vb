@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditGunConditions
+Partial Class frmEditGunConditions
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditGunConditions
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditGunConditions))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditGunConditions))
         Me.DataGridView1 = New DataGridView
         Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         Me.NameDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
@@ -89,7 +89,7 @@ Partial Class FrmEditGunConditions
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmEditGunConditions"
+        Me.Name = "FrmEditGunConditions"
         Me.Text = "Firearm Conditions"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()
         CType(Me.GunCollectionConditionBindingSource, ISupportInitialize).EndInit()

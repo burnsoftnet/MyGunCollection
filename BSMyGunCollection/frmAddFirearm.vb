@@ -7,7 +7,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddFirearm
+Public Class frmAddFirearm
     ''' <summary>
     ''' The error out container
     ''' </summary>

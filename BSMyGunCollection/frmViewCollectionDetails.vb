@@ -366,14 +366,14 @@ Public Class FrmViewCollectionDetails
         Call LoadAddAccessories()
     End Sub
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
-        Dim frmNew As New frmEditCollectionDetails
+        Dim frmNew As New FrmEditCollectionDetails
         frmNew.ItemId = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
     End Sub
     Private Sub btnAddAmmo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAmmo.Click
-        Dim frmNew As New frmAddCollectionAmmo
+        Dim frmNew As New FrmAddCollectionAmmo
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -942,7 +942,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
-        Dim frmNew As New frmEditCollectionDetails
+        Dim frmNew As New FrmEditCollectionDetails
         frmNew.ItemId = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1023,7 +1023,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
-        Dim frmNew As New frmAddBarrelSystem
+        Dim frmNew As New FrmAddBarrelSystem
         frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1083,7 +1083,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem1.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmEditBarrelSystem
+        Dim frmNew As New FrmEditBarrelSystem
         frmNew.Gid = GunId
         frmNew.Bid = bid
         frmNew.Recname = Text
@@ -1213,7 +1213,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddDocument_Click(sender As Object, e As EventArgs) Handles btnAddDocument.Click
-        Dim frmNew As New frmAddDocument
+        Dim frmNew As New FrmAddDocument
         frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1236,7 +1236,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem3.Click
         Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        Dim frmNew As New frmAddDocument
+        Dim frmNew As New FrmAddDocument
         frmNew.EditMode = True
         frmNew.Did = did
         frmNew.Show()

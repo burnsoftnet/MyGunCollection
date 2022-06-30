@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddGunSmithLog
+Partial Class frmAddGunSmithLog
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddGunSmithLog
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddGunSmithLog))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddGunSmithLog))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.Label3 = New Label
@@ -176,7 +176,7 @@ Partial Class FrmAddGunSmithLog
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddGunSmithLog"
+        Me.Name = "FrmAddGunSmithLog"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Add Gun Smith Log"
         Me.ResumeLayout(False)

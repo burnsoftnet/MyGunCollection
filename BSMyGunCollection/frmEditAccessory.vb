@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditAccessory
+Public Class frmEditAccessory
     ''' <summary>
     ''' The item identifier
     ''' </summary>

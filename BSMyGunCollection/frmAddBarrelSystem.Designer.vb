@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddBarrelSystem
+Partial Class frmAddBarrelSystem
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -344,7 +344,7 @@ Partial Class FrmAddBarrelSystem
         Me.Label14.TabIndex = 28
         Me.Label14.Text = "Set As Default"
         '
-        'FrmAddBarrelSystem
+        'frmAddBarrelSystem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

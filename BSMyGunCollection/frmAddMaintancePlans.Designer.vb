@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddMaintancePlans
+Partial Class frmAddMaintancePlans
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddMaintancePlans
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddMaintancePlans))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddMaintancePlans))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.Label3 = New Label
@@ -181,7 +181,7 @@ Partial Class FrmAddMaintancePlans
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddMaintancePlans"
+        Me.Name = "FrmAddMaintancePlans"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Add Maintenance Plan"
         CType(Me.nudIID, ISupportInitialize).EndInit()

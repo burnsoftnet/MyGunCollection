@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditBarrelSystem
+Partial Class frmEditBarrelSystem
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmEditBarrelSystem
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditBarrelSystem))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditBarrelSystem))
         Me.btnCancel = New Button
         Me.btnSave = New Button
         Me.txtFinish = New TextBox
@@ -342,7 +342,7 @@ Partial Class FrmEditBarrelSystem
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
-        Me.Name = "frmEditBarrelSystem"
+        Me.Name = "FrmEditBarrelSystem"
         Me.Text = "Edit Barrel/Conversion Kit System"
         Me.ResumeLayout(False)
         Me.PerformLayout()

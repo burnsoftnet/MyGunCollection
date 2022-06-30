@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Global
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddCollectionAmmo
+Public Class frmAddCollectionAmmo
     ''' <summary>
     ''' Handles the Load event of the frmAddCollectionAmmo control.
     ''' </summary>

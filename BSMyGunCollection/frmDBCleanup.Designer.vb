@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmDbCleanup
+Partial Class frmDbCleanup
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmDbCleanup
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmDBCleanup))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmDbCleanup))
         Me.Label1 = New Label
         Me.cbActionList = New ComboBox
         Me.btnStart = New Button
@@ -99,7 +99,7 @@ Partial Class FrmDbCleanup
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmDBCleanup"
+        Me.Name = "FrmDbCleanup"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Database Clean Up"
         Me.ResumeLayout(False)

@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditCollectionDetails
+Partial Class frmEditCollectionDetails
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -1170,7 +1170,7 @@ Partial Class FrmEditCollectionDetails
         Me.Label62.TabIndex = 240
         Me.Label62.Text = "Competition Gun?"
         '
-        'FrmEditCollectionDetails
+        'frmEditCollectionDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

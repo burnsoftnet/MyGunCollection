@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditAccessory
+Partial Class frmEditAccessory
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmEditAccessory
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditAccessory))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditAccessory))
         Me.btnCancel = New Button
         Me.btnEdit = New Button
         Me.txtNotes = New TextBox
@@ -302,7 +302,7 @@ Partial Class FrmEditAccessory
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Edit an Accessory")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditAccessory"
+        Me.Name = "FrmEditAccessory"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Edit Accessory"
         Me.ResumeLayout(False)

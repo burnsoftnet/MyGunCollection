@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddNationality
+Partial Class frmAddNationality
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class FrmAddNationality
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddNationality))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddNationality))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.txtName = New TextBox
@@ -108,7 +108,7 @@ Partial Class FrmAddNationality
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddNationality"
+        Me.Name = "FrmAddNationality"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Add Place of Origin"
         Me.ResumeLayout(False)
