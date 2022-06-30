@@ -36,7 +36,7 @@ Public Class frmAmmoCalc
         Close()
     End Sub
 
-    '''' <summary>
+    ''' <summary>
     ''' Updates the inventory.
     ''' </summary>
     Sub UpdateInventory()
