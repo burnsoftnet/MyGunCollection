@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 ''' <summary>
 ''' Class frmViewWishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
