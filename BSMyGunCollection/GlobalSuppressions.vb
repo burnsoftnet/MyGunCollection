@@ -457,3 +457,28 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewCollectionDetails")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewGunSmithDetails")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewMaintancePlan")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_ViewReport.frmCR_ViewReport_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_ViewReport.frmCR_ViewReport_Resize(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0140:Object creation can be simplified", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmCR_ViewReport.ToolStripButton3_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmSearch_Collection.btnSearch_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmSearch_Collection.dgvResults_CellDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmSearch_Collection.frmSearch_Collection_Resize(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmSearch_Collection.ViewCollectionDetails")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Accessories.frmViewReport_Accessories_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Accessories.frmViewReport_Accessories_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Ammo_By_Caliber.frmViewReport_Ammo_By_Caliber_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0028:Simplify collection initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Ammo_By_Caliber.frmViewReport_Ammo_By_Caliber_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Blank_BoundBook.frmViewReport_Blank_BoundBook_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewReport_Blank_ShootersCard.frmReport_Blank_ShootersCard_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmSearch_Collection")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Accessories")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Ammo_By_Caliber")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Blank_ShootersCard")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Blank_ShootersCard2")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_BoundBook2")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Insurance")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Insurance_InsuredValue")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Insurance_InsuredValue_wTotal")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Maintenance")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Pictures")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Quickinv_w_DetailNotes")>
