@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmForSale
+Partial Class frmForSale
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -30,7 +30,7 @@ Partial Class FrmForSale
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
         Dim ReportDataSource2 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmForSale))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmForSale))
         Me.ForSaleDataBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.Owner_InfoBindingSource = New BindingSource(Me.components)
@@ -99,7 +99,7 @@ Partial Class FrmForSale
         Me.ClientSize = New Size(613, 471)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmForSale"
+        Me.Name = "FrmForSale"
         Me.Text = "Firearm For Sale!!"
         CType(Me.ForSaleDataBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

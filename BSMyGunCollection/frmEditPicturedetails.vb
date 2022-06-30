@@ -1,13 +1,11 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmEditPicturedetails.
+''' Class frmEditPicturedetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditPicturedetails
+Public Class frmEditPicturedetails
     ''' <summary>
     ''' The picture id
     ''' </summary>

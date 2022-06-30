@@ -109,7 +109,7 @@ Public Class frmAddBarrelSystem
                 defaultBarrelId = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut, true)
                 If Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, defaultBarrelId, barrelId, Gid, errOut) then Throw New Exception(errOut)
             End If
-            Dim frmNew As New frmViewCollectionDetails
+            Dim frmNew As New FrmViewCollectionDetails
             frmNew.GunId = Gid
             frmNew.MdiParent = MdiParent
             frmNew.Show()

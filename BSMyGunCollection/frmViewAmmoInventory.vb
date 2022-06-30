@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.Ammo
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewAmmoInventory
+Public Class frmViewAmmoInventory
     ''' <summary>
     ''' The update pending
     ''' </summary>
@@ -198,7 +198,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
-        Dim frmNew As New frmViewAmmoAuditList
+        Dim frmNew As New FrmViewAmmoAuditList
         Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Rows(rowId).Selected = True

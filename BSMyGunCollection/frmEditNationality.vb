@@ -2,11 +2,11 @@ Imports System.ComponentModel
 Imports BurnSoft.Applications.MGC
 
 ''' <summary>
-''' Class FrmEditNationality.
+''' Class frmEditNationality.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditNationality
+Public Class frmEditNationality
     ''' <summary>
     ''' The update pending
     ''' </summary>

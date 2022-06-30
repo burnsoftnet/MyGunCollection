@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmImportFirearm
+Partial Class frmImportFirearm
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -101,7 +101,7 @@ Partial Class FrmImportFirearm
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'FrmImportFirearm
+        'frmImportFirearm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

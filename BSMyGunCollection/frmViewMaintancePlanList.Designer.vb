@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewMaintancePlanList
+Partial Class frmViewMaintancePlanList
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmViewMaintancePlanList
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewMaintancePlanList))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewMaintancePlanList))
         Me.MaintancePlansBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.Maintance_PlansTableAdapter = New Maintance_PlansTableAdapter
@@ -152,7 +152,7 @@ Partial Class FrmViewMaintancePlanList
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmViewMaintancePlanList"
+        Me.Name = "FrmViewMaintancePlanList"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "View Maintenance Plan List"
         CType(Me.MaintancePlansBindingSource, ISupportInitialize).EndInit()

@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmForgotPassword
+Partial Class frmForgotPassword
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmForgotPassword
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmForgotPassword))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmForgotPassword))
         Me.PictureBox1 = New PictureBox
         Me.Label1 = New Label
         Me.lblPhrase = New Label
@@ -92,7 +92,7 @@ Partial Class FrmForgotPassword
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.FormBorderStyle = FormBorderStyle.FixedToolWindow
-        Me.Name = "frmForgotPassword"
+        Me.Name = "FrmForgotPassword"
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Forgot Password"
         CType(Me.PictureBox1, ISupportInitialize).EndInit()

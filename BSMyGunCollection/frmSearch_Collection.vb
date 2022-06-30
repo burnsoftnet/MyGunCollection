@@ -1,11 +1,11 @@
 Imports BurnSoft.Applications.MGC
 
 ''' <summary>
-''' Class FrmSearchCollection.
+''' Class frmSearchCollection.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmSearchCollection
+Public Class frmSearchCollection
     ''' <summary>
     ''' Builds the search string.
     ''' </summary>
@@ -88,7 +88,7 @@ Public Class FrmSearchCollection
         Try
             Dim rowId As Long = dgvResults.SelectedCells.Item(0).Value
             Cursor = Cursors.WaitCursor
-            Dim frmNew As New frmViewCollectionDetails
+            Dim frmNew As New FrmViewCollectionDetails
             frmNew.MdiParent = MdiParent
             frmNew.GunId = rowId
             frmNew.Show()

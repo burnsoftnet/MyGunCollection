@@ -3,11 +3,11 @@ Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmViewGunSmithDetails.
+''' Class frmViewGunSmithDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewGunSmithDetails
+Public Class frmViewGunSmithDetails
     ''' <summary>
     ''' The shop identifier
     ''' </summary>

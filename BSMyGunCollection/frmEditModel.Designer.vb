@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditModel
+Partial Class frmEditModel
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditModel
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditModel))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditModel))
         Me.DataGridView1 = New DataGridView
         Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         Me.BrandDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
@@ -138,7 +138,7 @@ Partial Class FrmEditModel
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmEditModel"
+        Me.Name = "FrmEditModel"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Manage Models Types"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

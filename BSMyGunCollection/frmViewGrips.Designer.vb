@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewGrips
+Partial Class frmViewGrips
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmViewGrips
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewGrips))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewGrips))
         Me.ToolStrip1 = New ToolStrip
         Me.DataGridView1 = New DataGridView
         Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
@@ -106,7 +106,7 @@ Partial Class FrmViewGrips
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Viewing Grips")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewGrips"
+        Me.Name = "FrmViewGrips"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Manage Grips"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

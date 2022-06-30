@@ -1,21 +1,6 @@
-﻿' ***********************************************************************
-' Assembly         : BSMyGunCollection
-' Author           : burnsoft
-' Created          : 02-25-2021
-'
-' Last Modified By : burnsoft
-' Last Modified On : 02-25-2021
-' ***********************************************************************
-' <copyright file="frmLinkDocToFirearm.vb" company="BurnSoft">
-'     Copyright © Burnsoft. 2007 - 2017
-' </copyright>
-' <summary></summary>
-' ***********************************************************************
+﻿Imports BurnSoft.Applications.MGC.Firearms
 
-Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC.Firearms
-
-Public Class FrmLinkDocToFirearm
+Public Class frmLinkDocToFirearm
     ''' <summary>
     ''' The document identifier
     ''' </summary>

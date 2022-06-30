@@ -1,11 +1,11 @@
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmViewMaintancePlan.
+''' Class frmViewMaintancePlan.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewMaintancePlan
+Public Class frmViewMaintancePlan
     ''' <summary>
     ''' The identifier
     ''' </summary>

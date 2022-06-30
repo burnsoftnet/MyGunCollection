@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmStolen
+Partial Class frmStolen
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmStolen
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmStolen))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmStolen))
         Me.Label1 = New Label
         Me.dtpStolen = New DateTimePicker
         Me.Label2 = New Label
@@ -111,7 +111,7 @@ Partial Class FrmStolen
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmStolen"
+        Me.Name = "FrmStolen"
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Mark Firearm as Stolen"
         Me.ResumeLayout(False)

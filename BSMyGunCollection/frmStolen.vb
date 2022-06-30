@@ -3,11 +3,11 @@ Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 
 ''' <summary>
-''' Class FrmStolen.
+''' Class frmStolen.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmStolen
+Public Class frmStolen
     ''' <summary>
     ''' The item identifier
     ''' </summary>

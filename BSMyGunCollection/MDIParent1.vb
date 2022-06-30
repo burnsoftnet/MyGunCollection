@@ -391,7 +391,7 @@ Public Class MdiParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ViewToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ViewToolStripMenuItem.Click
         Dim myValue As Long = ListBox1.SelectedValue
-        Dim frmNew As New frmViewCollectionDetails
+        Dim frmNew As New FrmViewCollectionDetails
         frmNew.MdiParent = Me
         frmNew.GunId = myValue
         frmNew.Show()
@@ -624,7 +624,7 @@ Public Class MdiParent1
             Call Buggerme("mdiparent1.load", "Refreshing Collection list")
             Call RefreshCollection()
             If OwnerId = 0 Then
-                Dim frmNew As New frmSettings
+                Dim frmNew As New FrmSettings
                 frmNew.MdiParent = Me
                 frmNew.Show()
             End If
@@ -706,7 +706,7 @@ Public Class MdiParent1
         Try
             Cursor = Cursors.WaitCursor
             Dim myValue As Long = ListBox1.SelectedValue
-            Dim frmNew As New frmViewCollectionDetails
+            Dim frmNew As New FrmViewCollectionDetails
             frmNew.MdiParent = Me
             frmNew.GunId = myValue
             frmNew.Show()
@@ -910,7 +910,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub GripTypesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles GripTypesToolStripMenuItem.Click
-        Dim frmNew As New frmViewGrips
+        Dim frmNew As New FrmViewGrips
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
@@ -950,7 +950,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ImportFirearmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ImportFirearmToolStripMenuItem.Click
-        Dim frmNew As New frmImportFirearm
+        Dim frmNew As New FrmImportFirearm
         frmNew.MdiParent = Me
         frmNew.Show()
     End Sub

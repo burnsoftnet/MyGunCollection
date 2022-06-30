@@ -1,9 +1,9 @@
 ﻿''' <summary>
-''' Class FrmMoveBarrelConKit.
+''' Class frmMoveBarrelConKit.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmMoveBarrelConKit
+Public Class frmMoveBarrelConKit
     ''' <summary>
     ''' The barrel identifier
     ''' </summary>

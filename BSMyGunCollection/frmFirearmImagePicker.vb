@@ -1,16 +1,14 @@
 ﻿Imports System.IO
-'Imports System.Data.Odbc
 Imports BSMyGunCollection.LogginAndSettings
-Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmFirearmImagePicker.
+''' Class frmFirearmImagePicker.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmFirearmImagePicker
+Public Class frmFirearmImagePicker
     ''' <summary>
     ''' The pic array
     ''' </summary>
@@ -203,7 +201,7 @@ Public Class FrmFirearmImagePicker
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Dim frmNew As New frmViewCollectionDetails
+        Dim frmNew As New FrmViewCollectionDetails
         frmNew.GunId = _firearmIdArray(_currentIndex)
         frmNew.MdiParent = MdiParent
         frmNew.Show()

@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditGunSmithLog
+Partial Class frmEditGunSmithLog
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -159,7 +159,7 @@ Partial Class FrmEditGunSmithLog
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'FrmEditGunSmithLog
+        'frmEditGunSmithLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

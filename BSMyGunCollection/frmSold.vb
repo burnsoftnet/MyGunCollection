@@ -2,11 +2,11 @@ Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmSold.
+''' Class frmSold.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmSold
+Public Class frmSold
     ''' <summary>
     ''' The item identifier
     ''' </summary>

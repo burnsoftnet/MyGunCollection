@@ -4,7 +4,7 @@
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditModel
+Public Class frmEditModel
     ''' <summary>
     ''' The update pending
     ''' </summary>
@@ -74,7 +74,7 @@ Public Class FrmEditModel
             Dim myId As Integer = CInt(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value.ToString)
             Dim manu As String = DataGridView1.SelectedRows.Item(0).Cells.Item(1).Value.ToString
             Dim model As String = DataGridView1.SelectedRows.Item(0).Cells.Item(2).Value.ToString
-            Dim frmNew As New frmEditModelTypes
+            Dim frmNew As New FrmEditModelTypes
             frmNew.ModelId = myId
             frmNew.ModelName = model
             frmNew.ManufacturersName = manu

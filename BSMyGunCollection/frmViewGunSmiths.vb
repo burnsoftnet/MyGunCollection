@@ -3,11 +3,11 @@ Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 ' ReSharper disable RedundantAssignment
 
 ''' <summary>
-''' Class FrmViewGunSmiths.
+''' Class frmViewGunSmiths.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewGunSmiths
+Public Class frmViewGunSmiths
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -60,7 +60,7 @@ Public Class FrmViewGunSmiths
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
         Dim myValue As Long = ListBox1.SelectedValue
-        Dim frmNew As New frmViewGunSmithDetails
+        Dim frmNew As New FrmViewGunSmithDetails
         frmNew.MdiParent = MdiParent
         frmNew.ShopId = myValue
         frmNew.Show()

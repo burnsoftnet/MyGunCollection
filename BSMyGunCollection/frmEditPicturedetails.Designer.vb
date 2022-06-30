@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditPicturedetails
+Partial Class frmEditPicturedetails
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmEditPicturedetails
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditPicturedetails))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditPicturedetails))
         Me.txtNotes = New TextBox
         Me.txtName = New TextBox
         Me.Label2 = New Label
@@ -97,7 +97,7 @@ Partial Class FrmEditPicturedetails
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditPicturedetails"
+        Me.Name = "FrmEditPicturedetails"
         Me.Text = "Edit Picture Details"
         Me.ResumeLayout(False)
         Me.PerformLayout()

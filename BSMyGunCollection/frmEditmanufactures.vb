@@ -4,7 +4,7 @@ Imports BurnSoft.Applications.MGC
 ''' <summary>
 ''' Edit Manufactures form
 ''' </summary>
-Public Class FrmEditmanufactures
+Public Class frmEditmanufactures
     ''' <summary>
     ''' The update pending
     ''' </summary>

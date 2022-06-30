@@ -2,11 +2,11 @@ Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 
 ''' <summary>
-''' Class FrmViewBuyers.
+''' Class frmViewBuyers.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewBuyers
+Public Class frmViewBuyers
     ''' <summary>
     ''' The error out
     ''' </summary>

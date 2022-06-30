@@ -1,7 +1,7 @@
 ''' <summary>
 ''' For Sale Form, to mark a fire arm as for sale
 ''' </summary>
-Public Class FrmForSale
+Public Class frmForSale
     ''' <summary>
     ''' My identifier
     ''' </summary>

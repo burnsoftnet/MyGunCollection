@@ -1,7 +1,7 @@
 ''' <summary>
 ''' The Login form that is optional
 ''' </summary>
-Public Class FrmLogin
+Public Class frmLogin
     ''' <summary>
     ''' Handles the Click event of the OK control.
     ''' </summary>

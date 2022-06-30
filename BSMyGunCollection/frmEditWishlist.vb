@@ -3,11 +3,11 @@ Imports BurnSoft.Applications.MGC.Other
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmEditWishlist.
+''' Class frmEditWishlist.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditWishlist
+Public Class frmEditWishlist
     ''' <summary>
     ''' The item identifier
     ''' </summary>

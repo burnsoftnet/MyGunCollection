@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmLogin
+Partial Class frmLogin
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -32,7 +32,7 @@ Partial Class FrmLogin
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmLogin))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmLogin))
         Me.LogoPictureBox = New PictureBox
         Me.UsernameLabel = New Label
         Me.PasswordLabel = New Label
@@ -133,7 +133,7 @@ Partial Class FrmLogin
         Me.FormBorderStyle = FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmLogin"
+        Me.Name = "FrmLogin"
         Me.SizeGripStyle = SizeGripStyle.Hide
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Login"

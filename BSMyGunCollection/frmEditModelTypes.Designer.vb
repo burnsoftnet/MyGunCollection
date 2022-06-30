@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditModelTypes
+Partial Class frmEditModelTypes
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmEditModelTypes
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditModelTypes))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditModelTypes))
         Me.lblMsg = New Label
         Me.btnCancel = New Button
         Me.btnAdd = New Button
@@ -120,7 +120,7 @@ Partial Class FrmEditModelTypes
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditModelTypes"
+        Me.Name = "FrmEditModelTypes"
         Me.Text = "Edit Model"
         Me.ResumeLayout(False)
         Me.PerformLayout()

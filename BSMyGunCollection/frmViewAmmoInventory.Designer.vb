@@ -4,7 +4,7 @@ Imports DataGridViewAutoFilter
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewAmmoInventory
+Partial Class frmViewAmmoInventory
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,7 +28,7 @@ Partial Class FrmViewAmmoInventory
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewAmmoInventory))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewAmmoInventory))
         Me.DataGridView1 = New DataGridView()
         Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn()
         Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilterTextBoxColumn()
@@ -245,7 +245,7 @@ Partial Class FrmViewAmmoInventory
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Ammunition Inventory")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewAmmoInventory"
+        Me.Name = "FrmViewAmmoInventory"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "View Ammunition Inventory"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

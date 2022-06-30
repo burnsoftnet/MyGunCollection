@@ -1,5 +1,4 @@
-﻿Imports BSMyGunCollection.MGC
-Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+﻿Imports BurnSoft.Applications.MGC.PeopleAndPlaces
 
 ''' <summary>
 ''' Class FrmViewAppraisers.

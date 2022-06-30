@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditmanufactures
+Partial Class frmEditmanufactures
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditmanufactures
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditmanufactures))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditmanufactures))
         Me.DataGridView1 = New DataGridView
         Me.BrandDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         Me.GunManufacturerBindingSource = New BindingSource(Me.components)
@@ -88,7 +88,7 @@ Partial Class FrmEditmanufactures
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmEditmanufactures"
+        Me.Name = "FrmEditmanufactures"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Edit Manufactures"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

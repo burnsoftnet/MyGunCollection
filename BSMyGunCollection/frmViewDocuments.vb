@@ -1,11 +1,11 @@
 ﻿Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
-''' Class FrmViewDocuments.
+''' Class frmViewDocuments.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewDocuments
+Public Class frmViewDocuments
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -111,7 +111,7 @@ Public Class FrmViewDocuments
     Private Sub AttachToFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AttachToFirearmToolStripMenuItem.Click
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim frmNew As New frmLinkDocToFirearm
+            Dim frmNew As New FrmLinkDocToFirearm
             frmNew.DocId = CLng(itemId)
             frmNew.MdiParent = MdiParent
             frmNew.Show()

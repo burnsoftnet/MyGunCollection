@@ -4,7 +4,7 @@ Imports DataGridViewAutoFilter
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewCollectionDetails
+Partial Class frmViewCollectionDetails
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -3028,7 +3028,7 @@ Partial Class FrmViewCollectionDetails
         '
         Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = true
         '
-        'FrmViewCollectionDetails
+        'frmViewCollectionDetails
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font

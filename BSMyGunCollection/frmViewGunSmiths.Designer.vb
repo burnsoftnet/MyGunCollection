@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewGunSmiths
+Partial Class frmViewGunSmiths
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmViewGunSmiths
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewGunSmiths))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewGunSmiths))
         Me.ToolStrip1 = New ToolStrip()
         Me.ToolStripButton1 = New ToolStripButton()
         Me.ToolStripSeparator1 = New ToolStripSeparator()
@@ -134,7 +134,7 @@ Partial Class FrmViewGunSmiths
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmViewGunSmiths"
+        Me.Name = "FrmViewGunSmiths"
         Me.Text = "View Gunsmiths"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

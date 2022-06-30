@@ -1,11 +1,11 @@
 Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
-''' Class FrmEditModelTypes.
+''' Class frmEditModelTypes.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditModelTypes
+Public Class frmEditModelTypes
     ''' <summary>
     ''' The manufacturers identifier
     ''' </summary>

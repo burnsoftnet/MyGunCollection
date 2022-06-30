@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewMaintancePlan
+Partial Class frmViewMaintancePlan
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmViewMaintancePlan
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewMaintancePlan))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewMaintancePlan))
         Me.brnCancel = New Button
         Me.btnEdit = New Button
         Me.nudIIRF = New NumericUpDown
@@ -199,7 +199,7 @@ Partial Class FrmViewMaintancePlan
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmViewMaintancePlan"
+        Me.Name = "FrmViewMaintancePlan"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "View Maintenance Plan"
         CType(Me.nudIIRF, ISupportInitialize).EndInit()

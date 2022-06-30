@@ -1,11 +1,11 @@
 Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
-''' Class FrmImportFirearm.
+''' Class frmImportFirearm.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmImportFirearm
+Public Class frmImportFirearm
     ''' <summary>
     ''' The error out
     ''' </summary>
@@ -100,7 +100,7 @@ Public Class FrmImportFirearm
         Close()
     End Sub
     ''' <summary>
-    ''' Handles the Load event of the FrmImportFirearm control.
+    ''' Handles the Load event of the frmImportFirearm control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>

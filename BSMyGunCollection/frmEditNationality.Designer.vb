@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditNationality
+Partial Class frmEditNationality
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditNationality
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditNationality))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditNationality))
         Me.DataGridView1 = New DataGridView
         Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         Me.CountryDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
@@ -96,7 +96,7 @@ Partial Class FrmEditNationality
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Editing Place of Origin")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditNationality"
+        Me.Name = "FrmEditNationality"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Edit Place of Origin"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

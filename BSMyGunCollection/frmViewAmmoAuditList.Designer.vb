@@ -4,7 +4,7 @@ Imports DataGridViewAutoFilter
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewAmmoAuditList
+Partial Class frmViewAmmoAuditList
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,7 +28,7 @@ Partial Class FrmViewAmmoAuditList
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewAmmoAuditList))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewAmmoAuditList))
         Me.ToolStrip1 = New ToolStrip
         Me.ToolStripButton2 = New ToolStripButton
         Me.ToolStripButton1 = New ToolStripButton
@@ -169,7 +169,7 @@ Partial Class FrmViewAmmoAuditList
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewAmmoAuditList"
+        Me.Name = "FrmViewAmmoAuditList"
         Me.Text = "Ammo Audit"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

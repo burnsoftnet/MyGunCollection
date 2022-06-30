@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmMoveBarrelConKit
+Partial Class frmMoveBarrelConKit
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmMoveBarrelConKit
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmMoveBarrelConKit))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmMoveBarrelConKit))
         Me.btnAttach = New Button()
         Me.cmbFirearm = New ComboBox()
         Me.Label1 = New Label()
@@ -92,7 +92,7 @@ Partial Class FrmMoveBarrelConKit
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmMoveBarrelConKit"
+        Me.Name = "FrmMoveBarrelConKit"
         Me.Text = "Move Barrel/Conversion Kit"
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()
         CType(Me.GunCollectionBindingSource, ISupportInitialize).EndInit()

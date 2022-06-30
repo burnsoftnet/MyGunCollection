@@ -1,10 +1,9 @@
-Imports BSMyGunCollection.MGC
 ''' <summary>
-''' Class FrmViewAmmoAuditList.
+''' Class frmViewAmmoAuditList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewAmmoAuditList
+Public Class frmViewAmmoAuditList
     ''' <summary>
     ''' The aid
     ''' </summary>

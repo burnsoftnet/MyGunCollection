@@ -12,7 +12,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewCollectionDetails
+Public Class frmViewCollectionDetails
     ''' <summary>
     ''' The Gun Collection identifier
     ''' </summary>
@@ -421,13 +421,13 @@ Public Class FrmViewCollectionDetails
         Cursor = Cursors.Arrow
     End Sub
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFlyer.Click
-        Dim frmNew As New frmForSale
+        Dim frmNew As New FrmForSale
         frmNew.MdiParent = MdiParent
         frmNew.MyId = GunId
         frmNew.Show()
     End Sub
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
-        Dim frmNew As New frmSold
+        Dim frmNew As New FrmSold
         frmNew.MdiParent = MdiParent
         frmNew.ItemId = GunId
         frmNew.Show()
@@ -1012,7 +1012,7 @@ Public Class FrmViewCollectionDetails
         DataGridView4.Rows(rowId).Selected = True
 ' ReSharper disable once LocalVariableHidesMember
         Dim itemId As String = DataGridView4.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmEditGunSmithLog
+        Dim frmNew As New FrmEditGunSmithLog
         frmNew.Id = itemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1120,7 +1120,7 @@ Public Class FrmViewCollectionDetails
     Private Sub EditNotesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditNotesToolStripMenuItem.Click
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmEditPicturedetails
+        Dim frmNew As New FrmEditPicturedetails
         frmNew.MdiParent = MdiParent
         frmNew.Pid = CLng(myText)
         frmNew.Show()
@@ -1153,7 +1153,7 @@ Public Class FrmViewCollectionDetails
             DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim frmNew As New frmEditMaintenance
+            Dim frmNew As New FrmEditMaintenance
             frmNew.Mid = mid
             frmNew.MdiParent = MdiParent
             frmNew.Show()
@@ -1175,7 +1175,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnStolen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnStolen.Click
-        Dim frmNew As New frmStolen
+        Dim frmNew As New FrmStolen
         frmNew.MdiParent = MdiParent
         frmNew.ItemId = GunId
         frmNew.Show()
@@ -1224,7 +1224,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddExistingDoc_Click(sender As Object, e As EventArgs) Handles btnAddExistingDoc.Click
-        Dim frmNew As New frmLinkFromExistingDoc
+        Dim frmNew As New FrmLinkFromExistingDoc
         frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1276,7 +1276,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub MoveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToolStripMenuItem.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmMoveBarrelConKit
+        Dim frmNew As New FrmMoveBarrelConKit
         frmNew.BarrelId = bid
         frmNew.MdiParent = MdiParent
         frmNew.Show()

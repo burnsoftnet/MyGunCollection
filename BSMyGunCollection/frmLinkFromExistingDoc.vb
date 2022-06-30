@@ -3,7 +3,7 @@
 ''' <summary>
 ''' for to link firearm to existing document
 ''' </summary>
-Public Class FrmLinkFromExistingDoc
+Public Class frmLinkFromExistingDoc
     ''' <summary>
     ''' The error out
     ''' </summary>
