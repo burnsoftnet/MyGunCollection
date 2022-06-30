@@ -128,10 +128,10 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.MdiParent1.WishlistToolStripMenuItem_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmCR_EditSQL")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmCR_SelectColumns")>
-<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAccessory.btnAdd_Click(System.Object,System.EventArgs)")>
-<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAccessory.btnCancel_Click(System.Object,System.EventArgs)")>
-<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAccessory.frmAddAccessory_Load(System.Object,System.EventArgs)")>
-<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAmmo.frmAddAmmo_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmAddAccessory.btnAdd_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmAddAccessory.btnCancel_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmAddAccessory.frmAddAccessory_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmAddAmmo.frmAddAmmo_Load(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAmmoAudit.btnAdd_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddAmmoAudit.btnCancel_Click(System.Object,System.EventArgs)")>
 <Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmAddBarrelSystem.btnAdd_Click(System.Object,System.EventArgs)")>

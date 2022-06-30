@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddAmmo
+Partial Class frmAddAmmo
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -94,7 +94,7 @@ Partial Class FrmAddAmmo
         '
         Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
         '
-        'FrmAddAmmo
+        'frmAddAmmo
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)

@@ -101,7 +101,7 @@ Public Class MdiParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AmmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmToolStripMenuItem.Click
-        Dim frmNew As New frmAddAmmo
+        Dim frmNew As New FrmAddAmmo
         frmNew.Show()
     End Sub
     ''' <summary>

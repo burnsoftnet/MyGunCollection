@@ -352,7 +352,7 @@ Public Class FrmViewCollectionDetails
         frmAddPicture.Show()
     End Sub
     Private Sub btnAddAccess_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAccess.Click
-        Dim frmNew As New frmAddAccessory
+        Dim frmNew As New FrmAddAccessory
         frmNew.MdiParent = MdiParent
         frmNew.ItemId = GunId
         frmNew.IsShotGun = IsShotGun

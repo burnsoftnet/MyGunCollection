@@ -2,7 +2,7 @@ Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 
-Public Class FrmAddAccessory
+Public Class frmAddAccessory
     ''' <summary>
     ''' The item identifier
     ''' </summary>

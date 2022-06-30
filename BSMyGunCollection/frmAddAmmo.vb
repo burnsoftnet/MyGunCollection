@@ -6,7 +6,7 @@ Imports BurnSoft.Applications.MGC.AutoFill
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddAmmo
+Public Class frmAddAmmo
     ''' <summary>
     ''' Handles the Load event of the frmAddAmmo control.
     ''' </summary>
