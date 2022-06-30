@@ -139,9 +139,8 @@
     <Reference Include="BurnSoft.Universal, Version=4.0.32.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Universal.4.0.32.5\lib\net472\BurnSoft.Universal.dll</HintPath>
     </Reference>
-    <Reference Include="DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\DataGridViewAutoFilter.dll</HintPath>
+    <Reference Include="DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGridViewAutoFilter.4.7.2.34861\lib\net472\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -1168,6 +1167,7 @@
     <None Include="BurnSoft.Applications.MGC.chm" />
     <None Include="BurnSoft.Security.RegularEncryption.chm" />
     <None Include="BurnSoft.Universal.chm" />
+    <None Include="DataGridViewAutoFilter.chm" />
     <None Include="MGCDataSet.xsc">
       <DependentUpon>MGCDataSet.xsd</DependentUpon>
     </None>
@@ -1225,9 +1225,6 @@
     </None>
     <Content Include="bswtsicon.png" />
     <Content Include="BurnSoft.MsgBox.dll" />
-    <Content Include="DataGridViewAutoFilter.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="DBBackup.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
