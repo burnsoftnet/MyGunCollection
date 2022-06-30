@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportInsuranceApprisedValueWTotal.
+''' Class frmViewReport_Insurance_ApprisedValue_wTotal.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportInsuranceApprisedValueWTotal
+Public Class frmViewReport_Insurance_ApprisedValue_wTotal
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Insurance_ApprisedValue control.
     ''' </summary>

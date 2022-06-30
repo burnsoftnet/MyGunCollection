@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportAccessories.
+''' Class frmViewReportAccessories.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportAccessories
+Public Class frmViewReport_Accessories
     ''' <summary>
     ''' The gun id
     ''' </summary>

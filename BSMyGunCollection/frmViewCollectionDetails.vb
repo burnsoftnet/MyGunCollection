@@ -263,7 +263,7 @@ Public Class frmViewCollectionDetails
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListView1.DoubleClick
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmViewPicture
+        Dim frmNew As New FrmViewPicture
         frmNew.MdiParent = MdiParent
         frmNew.MyId = CLng(myText)
         frmNew.GroupId = CLng(GunId)
@@ -288,7 +288,7 @@ Public Class frmViewCollectionDetails
     Private Sub mnuPicItem_Show_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnuPicItem_Show.Click
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmViewPicture
+        Dim frmNew As New FrmViewPicture
         frmNew.MdiParent = MdiParent
         frmNew.MyId = CLng(myText)
         frmNew.Show()
@@ -413,7 +413,7 @@ Public Class frmViewCollectionDetails
     End Sub
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Cursor = Cursors.WaitCursor
-        Dim newForm As New FrmViewReportMaintenance
+        Dim newForm As New frmViewReport_Maintenance
         newForm.MdiParent = MdiParent
         newForm.MyGid = GunId
         newForm.Title = Text
@@ -958,7 +958,7 @@ Public Class frmViewCollectionDetails
         Try
             If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
             Call GetPics()
-            Dim frmNew As New FrmViewReportFirearmDetails
+            Dim frmNew As New frmViewReport_FirearmDetails
             frmNew.IntId = GunId
             frmNew.MdiParent = MdiParent
             frmNew.Show()
@@ -978,7 +978,7 @@ Public Class frmViewCollectionDetails
         Try
             If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
             Call GetPics()
-            Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
+            Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
             frmNew.IntId = GunId
             frmNew.MdiParent = MdiParent
             frmNew.Show()
@@ -994,7 +994,7 @@ Public Class frmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAmmoReportByCal_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAmmoReportByCal.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New FrmViewReportAmmoByCaliber
+        Dim frmNew As New frmViewReport_Ammo_By_Caliber
         frmNew.Cal = Trim(txtCal.Text)
         frmNew.Pet = Trim(txtPetLoads.Text)
         frmNew.MdiParent = MdiParent
@@ -1035,7 +1035,7 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnVwAccessReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnVwAccessReport.Click
-        Dim frmNew As New FrmViewReportAccessories
+        Dim frmNew As New frmViewReport_Accessories
         frmNew.Gid = GunId
         frmNew.Title = Text
         frmNew.MdiParent = MdiParent
@@ -1105,7 +1105,7 @@ Public Class frmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGalleryReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGalleryReport.Click
         Cursor = Cursors.WaitCursor
-        Dim newForm As New FrmViewReportPictures
+        Dim newForm As New frmViewReport_Pictures
         newForm.MdiParent = MdiParent
         newForm.MyGid = GunId
         newForm.Title = Text
@@ -1187,7 +1187,7 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnPrintSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintSale.Click
-        Dim frmNew As New FrmViewReportFirearmSaleInvoice
+        Dim frmNew As New frmViewReport_FirearmSaleInvoice
         frmNew.MdiParent = MdiParent
         frmNew.UserId = SellerId
         frmNew.FirearmId = GunId

@@ -1,5 +1,5 @@
 Imports Microsoft.Reporting.WinForms
-Public Class FrmViewReportInsuranceWTotal
+Public Class frmViewReport_Insurance_wTotal
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Insurance control.
     ''' </summary>

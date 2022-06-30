@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReportBoundBook
+Partial Class frmViewReport_BoundBook
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,7 +28,7 @@ Partial Class FrmViewReportBoundBook
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportBoundBook))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_BoundBook))
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource()
         Me.BoundBooksBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet()
@@ -128,7 +128,7 @@ Partial Class FrmViewReportBoundBook
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmViewReportBoundBook"
+        Me.Name = "frmViewReport_BoundBook"
         Me.Text = "Bound Book Report"
         CType(Me.BoundBooksBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

@@ -1,11 +1,17 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportAmmoByCaliber.
+''' Class frmViewReportAmmoByCaliber.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportAmmoByCaliber
+Public Class frmViewReport_Ammo_By_Caliber
+    ''' <summary>
+    ''' The calibler
+    ''' </summary>
     Public Cal As String
+    ''' <summary>
+    ''' The pet load or second caliber
+    ''' </summary>
     Public Pet As String
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Ammo_By_Caliber control.

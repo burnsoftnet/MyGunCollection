@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportInsuranceApprisedValue
+Public Class frmViewReport_Insurance_ApprisedValue
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Insurance_ApprisedValue control.
     ''' </summary>

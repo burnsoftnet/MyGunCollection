@@ -1,18 +1,15 @@
 Imports System.IO
-Imports System.Data.Odbc
 Imports System.Drawing.Imaging
-Imports System.Web.UI.WebControls.Expressions
 Imports BSMyGunCollection.LogginAndSettings
-Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
-''' Class FrmViewPicture.
+''' Class frmViewPicture.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewPicture
+Public Class frmViewPicture
     ''' <summary>
     ''' My identifier
     ''' </summary>
@@ -182,7 +179,7 @@ Public Class FrmViewPicture
 ' ReSharper disable once ParameterHidesMember
     Public Sub GetPictureInfo(ByVal pid As Long, ByRef sName As String, ByRef sNotes As String)
         Try
-            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
+            Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each l As PictureDetails In lst
                 sName = l.PictureDisplayName

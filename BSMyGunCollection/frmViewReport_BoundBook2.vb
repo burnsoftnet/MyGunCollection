@@ -1,10 +1,10 @@
 ﻿Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportBoundBook2.
+''' Class frmViewReport_BoundBook2.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportBoundBook2
+Public Class frmViewReport_BoundBook2
     ''' <summary>
     ''' The is first run
     ''' </summary>
@@ -63,7 +63,7 @@ Public Class FrmViewReportBoundBook2
         IsFirstRun = False
     End Sub
     ''' <summary>
-    ''' Initializes a new instance of the <see cref="FrmViewReportBoundBook2"/> class.
+    ''' Initializes a new instance of the <see cref="frmViewReport_BoundBook2"/> class.
     ''' </summary>
     Public Sub New()
         IsFirstRun = True

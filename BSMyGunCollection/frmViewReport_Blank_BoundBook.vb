@@ -1,7 +1,7 @@
 ''' <summary>
 ''' Print out the Blank Version of the Bound Book Report
 ''' </summary>
-Public Class FrmViewReportBlankBoundBook
+Public Class frmViewReport_Blank_BoundBook
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Blank_BoundBook control.
     ''' </summary>

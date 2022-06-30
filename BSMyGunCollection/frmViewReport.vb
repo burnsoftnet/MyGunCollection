@@ -1,5 +1,5 @@
 Imports Microsoft.Reporting.WinForms
-Public Class FrmViewReport
+Public Class frmViewReport
     ''' <summary>
     ''' Handles the Load event of the frmViewReport control.
     ''' </summary>

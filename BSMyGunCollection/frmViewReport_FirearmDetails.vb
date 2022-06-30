@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportFirearmDetails.
+''' Class frmViewReport_FirearmDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportFirearmDetails
+Public Class frmViewReport_FirearmDetails
     ''' <summary>
     ''' The int identifier
     ''' </summary>

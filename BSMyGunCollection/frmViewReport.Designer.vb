@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReport
+Partial Class frmViewReport
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class FrmViewReport
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReport))
         Me.qryGunCollectionDetailsBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.ReportViewer1 = New ReportViewer
@@ -99,7 +99,7 @@ Partial Class FrmViewReport
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewReport"
+        Me.Name = "FrmViewReport"
         Me.Text = "Report - Simple Inventory List"
         CType(Me.qryGunCollectionDetailsBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

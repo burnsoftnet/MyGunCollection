@@ -1,7 +1,7 @@
 ''' <summary>
 ''' Report for the Blank Shooters Card report to print out
 ''' </summary>
-Public Class FrmViewReportBlankShootersCard2
+Public Class frmViewReport_Blank_ShootersCard2
     ''' <summary>
     ''' Handles the Load event of the frmViewReport_Blank_ShootersCard2 control.
     ''' </summary>
