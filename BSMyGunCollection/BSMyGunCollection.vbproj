@@ -129,8 +129,8 @@
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3455\lib\net472\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3457\lib\net472\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
@@ -1190,6 +1190,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bswtsicon.png" />
     <Content Include="Help_32_x_32.ico" />
     <Content Include="MyMsgBox.ico" />
     <None Include="packages.config" />
@@ -1225,7 +1226,6 @@
     <None Include="my_gun_collection_help.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="bswtsicon.png" />
     <Content Include="DBBackup.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
