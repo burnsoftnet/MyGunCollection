@@ -70,7 +70,6 @@ Public Class frmAddCollectionAmmo
                 Dim aid As Long = Inventory.GetLastAmmoId(DatabasePath, errOut)
                 Dim sValue As String = InputBox("How Much did you pay for this box?", "Ammo Audit", 0)
                 If Len(sValue) = 0 Then sValue = 0
-                Dim ppb As Double = CDbl(sValue) / CLng(strQty)
                 Dim store As String = InputBox("Where did you buy this at?", "Ammo Audit", "Online")
                 If store.Length = 0 Then store = "N/A"
                 If Not Audit.Add(DatabasePath, aid, Now,Convert.ToInt32(strQty),Convert.ToInt32(strQty), CDbl(sValue), store, errOut  ) then Throw New Exception(errOut)
