@@ -73,7 +73,7 @@ Public Class frmAddCollectionAmmo
                 Dim ppb As Double = CDbl(sValue) / CLng(strQty)
                 Dim store As String = InputBox("Where did you buy this at?", "Ammo Audit", "Online")
                 If store.Length = 0 Then store = "N/A"
-                If Not Audit.Add(DatabasePath, aid, Now,Convert.ToInt32(strQty),Convert.ToInt32(strQty), ppb, store, errOut  ) then Throw New Exception(errOut)
+                If Not Audit.Add(DatabasePath, aid, Now,Convert.ToInt32(strQty),Convert.ToInt32(strQty), CDbl(sValue), store, errOut  ) then Throw New Exception(errOut)
             End If
             MsgBox(strMan & " " & strName & " was added to the database!", MsgBoxStyle.Information, Text)
             Close()
