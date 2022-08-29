@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewGunSmithDetails
+Partial Class frmViewGunSmithDetails
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmViewGunSmithDetails
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewGunSmithDetails))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewGunSmithDetails))
         Me.TabControl1 = New TabControl()
         Me.TabPage1 = New TabPage()
         Me.btnSave = New Button()
@@ -410,7 +410,7 @@ Partial Class FrmViewGunSmithDetails
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmViewGunSmithDetails"
+        Me.Name = "FrmViewGunSmithDetails"
         Me.Text = "Gunsmith Details"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)

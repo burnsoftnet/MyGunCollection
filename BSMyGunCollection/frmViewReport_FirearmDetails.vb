@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportFirearmDetails.
+''' Class frmViewReport_FirearmDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportFirearmDetails
+Public Class frmViewReport_FirearmDetails
     ''' <summary>
     ''' The int identifier
     ''' </summary>
@@ -29,8 +29,7 @@ Public Class FrmViewReportFirearmDetails
             End If
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

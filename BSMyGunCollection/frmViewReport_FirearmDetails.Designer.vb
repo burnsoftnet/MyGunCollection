@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReportFirearmDetails
+Partial Class frmViewReport_FirearmDetails
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class FrmViewReportFirearmDetails
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportFirearmDetails))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_FirearmDetails))
         Me.FullDetailsBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.ReportViewer1 = New ReportViewer
@@ -71,7 +71,7 @@ Partial Class FrmViewReportFirearmDetails
         Me.ClientSize = New Size(522, 459)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmViewReportFirearmDetails"
+        Me.Name = "frmViewReport_FirearmDetails"
         Me.StartPosition = FormStartPosition.CenterScreen
         Me.Text = "Firearm Detailed Report"
         CType(Me.FullDetailsBindingSource, ISupportInitialize).EndInit()

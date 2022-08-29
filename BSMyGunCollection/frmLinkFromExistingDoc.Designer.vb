@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmLinkFromExistingDoc
+Partial Class frmLinkFromExistingDoc
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmLinkFromExistingDoc
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmLinkFromExistingDoc))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmLinkFromExistingDoc))
         Me.MGCDataSet = New MGCDataSet()
         Me.GunCollectionDocsBindingSource = New BindingSource(Me.components)
         Me.Gun_Collection_DocsTableAdapter = New Gun_Collection_DocsTableAdapter()
@@ -114,7 +114,7 @@ Partial Class FrmLinkFromExistingDoc
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmLinkFromExistingDoc"
+        Me.Name = "FrmLinkFromExistingDoc"
         Me.Text = "Document Collection"
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()
         CType(Me.GunCollectionDocsBindingSource, ISupportInitialize).EndInit()

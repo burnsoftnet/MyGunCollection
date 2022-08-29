@@ -1,7 +1,13 @@
-﻿''' <summary>
+﻿Imports BurnSoft.Applications.MGC.Firearms
+
+''' <summary>
 ''' for to link firearm to existing document
 ''' </summary>
-Public Class FrmLinkFromExistingDoc
+Public Class frmLinkFromExistingDoc
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
     ''' <summary>
     ''' The gun id
     ''' </summary>
@@ -21,8 +27,7 @@ Public Class FrmLinkFromExistingDoc
         Try
             Gun_Collection_DocsTableAdapter.Fill(MGCDataSet.Gun_Collection_Docs)
         Catch ex As Exception
-            Dim sSubFunc As String = "RefreshData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "RefreshData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -41,8 +46,9 @@ Public Class FrmLinkFromExistingDoc
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim docName As String = cmbDoc.SelectedText
         Dim docId As Long = cmbDoc.SelectedValue
-        Dim objAddObject As New frmAddDocument
-        If objAddObject.PerformDocLink(Gid, docId) Then
+        'Dim objAddObject As New frmAddDocument
+        'If objAddObject.PerformDocLink(Gid, docId) Then
+        If Documents.PerformDocLink(DatabasePath, Gid, docId, _errOut) Then
             Dim sAns As String = MsgBox(docName & " was linked to this firearm, Do you wish to add another?", MsgBoxStyle.YesNo, "Doc Linked")
             If sAns = vbYes Then
                 Call RefreshData()

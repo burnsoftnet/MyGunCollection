@@ -1,4 +1,3 @@
-
 Imports BurnSoft.Applications.MGC.Ammo
 Imports BurnSoft.Applications.MGC.AutoFill
 
@@ -7,7 +6,7 @@ Imports BurnSoft.Applications.MGC.AutoFill
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddAmmo
+Public Class frmAddAmmo
     ''' <summary>
     ''' Handles the Load event of the frmAddAmmo control.
     ''' </summary>
@@ -19,8 +18,7 @@ Public Class FrmAddAmmo
             txtAmmo.AutoCompleteCustomSource = Ammo.Caliber(DatabasePath, errOut)
             if (errOut.Length > 0) Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -40,8 +38,7 @@ Public Class FrmAddAmmo
                 Label1.Text = strAmmo & $" already existed!"
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Button1.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Button1.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

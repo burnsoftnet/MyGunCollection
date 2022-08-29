@@ -1,7 +1,5 @@
-''' <summary>
-''' 
-''' </summary>
-Public Class FrmViewMaintancePlanList
+
+Public Class frmViewMaintancePlanList
     ''' <summary>
     ''' Handles the Load event of the frmViewMaintancePlanList control.
     ''' </summary>

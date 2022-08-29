@@ -12,7 +12,7 @@
     <AssemblyName>BSMyGunCollection</AssemblyName>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>images\My_GunCollection_72_x_72.ico</ApplicationIcon>
-    <ManifestCertificateThumbprint>7A8EC588D285191AC5FC7F2E2C6E784F539770C2</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>6337D4A805CDFD4CCDCC4D77A9DB03C6BC3A469E</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
@@ -50,7 +50,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
@@ -126,20 +126,20 @@
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-    <Reference Include="BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    </Reference>
+    <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3457\lib\net472\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Universal, Version=4.0.32.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Universal.4.0.32.2\lib\net461\BurnSoft.Universal.dll</HintPath>
+    <Reference Include="BurnSoft.Universal, Version=4.0.32.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Universal.4.0.32.5\lib\net472\BurnSoft.Universal.dll</HintPath>
     </Reference>
-    <Reference Include="DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\DataGridViewAutoFilter.dll</HintPath>
+    <Reference Include="DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGridViewAutoFilter.4.7.2.34861\lib\net472\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -159,7 +159,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -245,16 +247,16 @@
     <Compile Include="frmStolen.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewAppraiserDetails.Designer.vb">
-      <DependentUpon>frmViewAppraiserDetails.vb</DependentUpon>
+    <Compile Include="FrmViewAppraiserDetails.Designer.vb">
+      <DependentUpon>FrmViewAppraiserDetails.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewAppraiserDetails.vb">
+    <Compile Include="FrmViewAppraiserDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmViewAppraisers.Designer.vb">
-      <DependentUpon>frmViewAppraisers.vb</DependentUpon>
+    <Compile Include="FrmViewAppraisers.Designer.vb">
+      <DependentUpon>FrmViewAppraisers.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewAppraisers.vb">
+    <Compile Include="FrmViewAppraisers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmViewDocuments.Designer.vb">
@@ -488,10 +490,10 @@
     <Compile Include="frmCR_ViewReport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDBCleanup.Designer.vb">
-      <DependentUpon>frmDBCleanup.vb</DependentUpon>
+    <Compile Include="frmDbCleanup.Designer.vb">
+      <DependentUpon>frmDbCleanup.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDBCleanup.vb">
+    <Compile Include="frmDbCleanup.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditAccessory.Designer.vb">
@@ -722,8 +724,9 @@
     <Compile Include="frmViewWishList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="GlobalVars.vb" />
-    <Compile Include="MGC.vb" />
+    <Compile Include="LogginAndSettings.vb" />
     <Compile Include="frmAddAmmo.Designer.vb">
       <DependentUpon>frmAddAmmo.vb</DependentUpon>
     </Compile>
@@ -810,11 +813,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmStolen.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewAppraiserDetails.resx">
-      <DependentUpon>frmViewAppraiserDetails.vb</DependentUpon>
+    <EmbeddedResource Include="FrmViewAppraiserDetails.resx">
+      <DependentUpon>FrmViewAppraiserDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewAppraisers.resx">
-      <DependentUpon>frmViewAppraisers.vb</DependentUpon>
+    <EmbeddedResource Include="FrmViewAppraisers.resx">
+      <DependentUpon>FrmViewAppraisers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewGunSmithDetails.resx">
       <DependentUpon>frmViewGunSmithDetails.vb</DependentUpon>
@@ -980,9 +983,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmCR_ViewReport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDBCleanup.resx">
+    <EmbeddedResource Include="frmDbCleanup.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>frmDBCleanup.vb</DependentUpon>
+      <DependentUpon>frmDbCleanup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditAccessory.resx">
       <SubType>Designer</SubType>
@@ -1160,8 +1163,11 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="BurnSoft.Applications.MGC.chm" />
+    <None Include="BurnSoft.MsgBox.chm" />
     <None Include="BurnSoft.Security.RegularEncryption.chm" />
     <None Include="BurnSoft.Universal.chm" />
+    <None Include="DataGridViewAutoFilter.chm" />
     <None Include="MGCDataSet.xsc">
       <DependentUpon>MGCDataSet.xsd</DependentUpon>
     </None>
@@ -1184,6 +1190,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bswtsicon.png" />
+    <Content Include="Help_32_x_32.ico" />
+    <Content Include="MyMsgBox.ico" />
     <None Include="packages.config" />
     <None Include="Resources\My_GunCollection_Multi_Icon.ico" />
     <None Include="ClassDiagram1.cd" />
@@ -1217,16 +1226,6 @@
     <None Include="my_gun_collection_help.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="adodb.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="BurnSoft.MsgBox.dll" />
-    <Content Include="Config.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataGridViewAutoFilter.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="DBBackup.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1255,12 +1254,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="mgc_default.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MyGunCollection_DataLoader.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MyGunCollection_DataLoader.XmlSerializers.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -1292,12 +1285,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BurnSoft.Applications.MGC\BurnSoft.Applications.MGC.csproj">
-      <Project>{fbd093a7-f3e7-43a3-a99a-7625d7c0df8b}</Project>
-      <Name>BurnSoft.Applications.MGC</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

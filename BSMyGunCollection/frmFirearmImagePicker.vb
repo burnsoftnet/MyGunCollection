@@ -1,12 +1,14 @@
 ﻿Imports System.IO
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
-''' Class FrmFirearmImagePicker.
+''' Class frmFirearmImagePicker.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmFirearmImagePicker
+Public Class frmFirearmImagePicker
     ''' <summary>
     ''' The pic array
     ''' </summary>
@@ -20,7 +22,7 @@ Public Class FrmFirearmImagePicker
     ''' </summary>
     Dim _firearmNameArray As ArrayList
     ''' <summary>
-    ''' The leftbutton index
+    ''' The left button index
     ''' </summary>
     Dim _leftbuttonIndex As Long
     ''' <summary>
@@ -36,57 +38,24 @@ Public Class FrmFirearmImagePicker
     ''' </summary>
     Dim _maxItems As Long
     ''' <summary>
-    ''' Proportionals the size. Calculate the Proportional Size of an Image by passing the image size and the MaxSize or Height of the image
-    ''' to return the new size.  The Max Width and Height is the parameters of the container
+    ''' The error out
     ''' </summary>
-    ''' <param name="imageSize">Size of the image.</param>
-    ''' <param name="maxWMaxH">The maximum w maximum h.</param>
-    ''' <returns>Size.</returns>
-    Public Function ProportionalSize(ByVal imageSize As Size, ByVal maxWMaxH As Size) As Size
-        Dim multBy As Double = 1.01
-        Dim w As Double = imageSize.Width
-        Dim h As Double = imageSize.Height
+    Dim _errOut As String
 
-        While (w < maxWMaxH.Width And h < maxWMaxH.Height)
-            w = imageSize.Width * multBy
-            h = imageSize.Height * multBy
-            multBy = multBy + 0.001
-        End While
-
-        While (w > maxWMaxH.Width Or h > maxWMaxH.Height)
-            multBy = multBy - 0.001
-            w = imageSize.Width * multBy
-            h = imageSize.Height * multBy
-        End While
-
-        If (imageSize.Width < 1) Then
-' ReSharper disable RedundantAssignment
-            imageSize = New Size(imageSize.Width - imageSize.Width + 1, imageSize.Height - imageSize.Width - 1)
-        ElseIf (imageSize.Height < 1) Then
-            imageSize = New Size(imageSize.Width - imageSize.Height - 1, imageSize.Height - imageSize.Height + 1)
-        End If
-        ' ReSharper restore RedundantAssignment
-        imageSize = New Size(Convert.ToInt32(w), Convert.ToInt32(h))
-        Return imageSize
-    End Function
     ''' <summary>
     ''' Gets the picture. Get the image from the database based on the Picture ID
     ''' </summary>
-    ''' <param name="picit">The picit.</param>
+    ''' <param name="picit">The pict.</param>
     Sub GetPicture(picit As Long)
         Try
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & picit
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
+            Dim b() As Byte = Pictures.GetPicture(DatabasePath, picit, _errOut)
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
                 Dim bmp As Image = New Bitmap(stream)
                 Dim imgSize As Size
-                imgSize = ProportionalSize(bmp.Size, PictureBox1.Size)
+                imgSize = Pictures.ProportionalSize(bmp.Size, PictureBox1.Size)
                 Dim newimg As New Bitmap(imgSize.Width, imgSize.Height)
                 Dim g As Graphics
                 g = Graphics.FromImage(newimg)
@@ -97,8 +66,7 @@ Public Class FrmFirearmImagePicker
                 stream.Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicture"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "GetPicture", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -112,23 +80,16 @@ Public Class FrmFirearmImagePicker
             _firearmIdArray = New ArrayList
             _firearmNameArray = New ArrayList
 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT p.id,p.cid,c.FullName, p.Picture from Gun_Collection_Pictures p inner join Gun_Collection c on c.id=p.cid where p.ISMAIN=1 order by c.FullName asc;"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                _picArray.Add(rs("id"))
-                _firearmIdArray.Add(rs("cid"))
-                _firearmNameArray.Add(rs("FullName"))
+            Dim lst As List(Of PictureDisplayList) = PictureDisplay.GetList(DatabasePath, _errOut)
+
+            For Each o As PictureDisplayList In lst
+                _picArray.Add(o.Id)
+                _firearmIdArray.Add(o.Cid)
+                _firearmNameArray.Add(o.FullName)
                 _maxItems += 1
-            End While
-            rs.Close()
-            obj.CloseDB()
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadArrays"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadArrays", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -215,8 +176,7 @@ Public Class FrmFirearmImagePicker
             Call GetPicture(_picArray(_currentIndex))
             Call SizeForm()
         Catch ex As Exception
-            Dim sSubFunc As String = "frmFirearmImagePicker_Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmFirearmImagePicker_Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -228,7 +188,7 @@ Public Class FrmFirearmImagePicker
         Call UpdateIndexes(_rightButtonIndex)
     End Sub
     ''' <summary>
-    ''' Handles the Click event of the btnLeft control. when the left button ( < ) is clicked
+    ''' Handles the Click event of the btnLeft control. when the left button is clicked
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
@@ -241,8 +201,8 @@ Public Class FrmFirearmImagePicker
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Dim frmNew As New frmViewCollectionDetails
-        frmNew.ItemId = _firearmIdArray(_currentIndex)
+        Dim frmNew As New FrmViewCollectionDetails
+        frmNew.GunId = _firearmIdArray(_currentIndex)
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub

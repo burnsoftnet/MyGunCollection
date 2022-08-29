@@ -1,11 +1,11 @@
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Types
 ''' <summary>
 ''' Class frmCR_SelectColumns.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmCR_SelectColumns
+    Dim _errOut as String
     ''' <summary>
     ''' The table name
     ''' </summary>
@@ -13,48 +13,22 @@ Public Class frmCR_SelectColumns
     ''' <summary>
     ''' The table identifier
     ''' </summary>
-    Public TableID As Long
+    Public TableId As Long
     ''' <summary>
     ''' The table real name
     ''' </summary>
     Public TableRealName As String
-    ''' <summary>
-    ''' Gets the name of the column.
-    ''' </summary>
-    ''' <param name="DN">The dn.</param>
-    ''' <returns>System.String.</returns>
-    Function GetColumnName(ByVal DN As String) As String
-        Dim sAns As String = ""
-        Try
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "SELECT col from CR_ColumnList where tid=" & TableID & " and DN='" & DN & "'"
-            Call Obj.ConnectDB()
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                sAns = RS("col")
-            End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GetColumnName"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
+
     ''' <summary>
     ''' Handles the Click event of the Button1 control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGetData.Click
-        Dim frmnew As New FrmCrViewReport
-        If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSQL()
+        Dim frmnew As New frmCR_ViewReport
+        If Len(txtSQL.Text) = 0 Then txtSQL.Text = GenerateSql()
         frmnew.Sql = txtSQL.Text
-        frmnew.MdiParent = Me.MdiParent
+        frmnew.MdiParent = MdiParent
         frmnew.Show()
     End Sub
     ''' <summary>
@@ -64,57 +38,48 @@ Public Class frmCR_SelectColumns
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmCR_SelectColumns_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim Obj As New BSDatabase
-            Dim SQL As String = "Select * from CR_ColumnList where tid=" & TableID
-            Call Obj.ConnectDB()
-            Dim CMD As New OdbcCommand(SQL, Obj.Conn)
-            Dim RS As OdbcDataReader
-            RS = CMD.ExecuteReader
-            While RS.Read
-                CheckedListBox1.Items.Add(RS("DN"))
-            End While
-            RS.Close()
-            RS = Nothing
-            CMD = Nothing
-            Obj.CloseDB()
+            dim myList as List(Of ColumnLists) = BurnSoft.Applications.MGC.Reports.ColumnList.GetList(DatabasePath, TableId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each o As ColumnLists In myList
+                CheckedListBox1.Items.Add(o.DisplayName)
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
     ''' Generates the SQL.
     ''' </summary>
     ''' <returns>System.String.</returns>
-    Function GenerateSQL() As String
+    Function GenerateSql() As String
         Dim sAns As String = ""
         Try
-            Dim strColumn As String = ""
-            Dim DisplayName As String = ""
+            Dim strColumn As String 
+            Dim displayName As String 
             sAns = "SELECT "
-            Dim i As Integer = 0
+            Dim i As Integer
             For i = 0 To CheckedListBox1.CheckedItems.Count - 1
-                DisplayName = CheckedListBox1.CheckedItems(i)
-                strColumn = GetColumnName(DisplayName)
+                displayName = CheckedListBox1.CheckedItems(i)
+                strColumn = BurnSoft.Applications.MGC.Reports.ColumnList.GetColumnName(DatabasePath, TableId, displayName, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
                 If i = 0 Then
-                    If DisplayName = strColumn Then
+                    If displayName = strColumn Then
                         sAns &= strColumn & " "
                     Else
-                        sAns &= strColumn & " as [" & DisplayName & "] "
+                        sAns &= strColumn & " as [" & displayName & "] "
                     End If
                 Else
-                    If DisplayName = strColumn Then
+                    If displayName = strColumn Then
                         sAns &= "," & strColumn & " "
                     Else
-                        sAns &= "," & strColumn & " as [" & DisplayName & "] "
+                        sAns &= "," & strColumn & " as [" & displayName & "] "
                     End If
                 End If
             Next i
             If i = 0 Then sAns &= "* "
             sAns &= " from " & TableRealName
         Catch ex As Exception
-            Dim sSubFunc As String = "GenerateSQL"
-            Call LogError(Me.Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GenerateSQL", Err.Number, ex.Message.ToString)
         End Try
         Return sAns
     End Function
@@ -124,7 +89,7 @@ Public Class frmCR_SelectColumns
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSQL.Click
-        txtSQL.Text = GenerateSQL()
+        txtSQL.Text = GenerateSql()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnHideSQL control.
@@ -132,8 +97,8 @@ Public Class frmCR_SelectColumns
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnHideSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnHideSQL.Click
-        Me.Height = 191
-        Me.Width = 303
+        Height = 191
+        Width = 303
         btnShowSQL.Visible = True
         btnHideSQL.Visible = False
     End Sub
@@ -145,7 +110,7 @@ Public Class frmCR_SelectColumns
     Private Sub btnShowSQL_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnShowSQL.Click
         btnHideSQL.Visible = True
         btnShowSQL.Visible = False
-        Me.Height = 355
-        Me.Width = 428
+        Height = 355
+        Width = 428
     End Sub
 End Class

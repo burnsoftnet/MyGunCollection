@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmSold
+Partial Class frmSold
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmSold
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmSold))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmSold))
         Me.Label12 = New Label()
         Me.txtZip = New TextBox()
         Me.btnCancel = New Button()
@@ -466,7 +466,7 @@ Partial Class FrmSold
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmSold"
+        Me.Name = "FrmSold"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = FormStartPosition.CenterParent
         Me.Text = "Add Seller and Complete"

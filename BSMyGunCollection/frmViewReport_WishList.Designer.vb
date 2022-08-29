@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReportWishList
+Partial Class frmViewReport_WishList
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class FrmViewReportWishList
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportWishList))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_WishList))
         Me.WishlistBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.ReportViewer1 = New ReportViewer
@@ -99,7 +99,7 @@ Partial Class FrmViewReportWishList
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmViewReportWishList"
+        Me.Name = "frmViewReport_WishList"
         Me.Text = "Report - Wishlist"
         CType(Me.WishlistBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

@@ -1,10 +1,11 @@
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+
 ''' <summary>
-''' Class FrmEditModelTypes.
+''' Class frmEditModelTypes.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditModelTypes
+Public Class frmEditModelTypes
     ''' <summary>
     ''' The manufacturers identifier
     ''' </summary>
@@ -35,10 +36,17 @@ Public Class FrmEditModelTypes
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditModelTypes_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        txtManufacturer.Text = ManufacturersName
-        txtModel.Text = ModelName
-        Dim obj As New GlobalFunctions
-        ManufacturersId = obj.GetManufacturersID(ManufacturersName)
+        Try 
+            txtManufacturer.Text = ManufacturersName
+            txtModel.Text = ModelName
+            Dim errOut as String = ""
+            ManufacturersId = Manufacturers.GetId(DatabasePath, ManufacturersName,errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            If ManufacturersId = 0 Then Manufacturers.Add(DatabasePath, ManufacturersName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+        Catch ex As Exception
+            Call LogError(Name, "frmEditModelTypes_Load", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
@@ -47,18 +55,13 @@ Public Class FrmEditModelTypes
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim manu As String = txtManufacturer.Text
-            Dim model As String = txtModel.Text
-            Dim objDb As New BSDatabase
-            Dim sql As String = "UPDATE Gun_Model set [Model]='" & model & "',sync_lastupdate=Now() where ID=" & ModelId
-            objDb.ConnExec(sql)
-            sql = "UPDATE Gun_Manufacturer set Brand='" & manu & "',sync_lastupdate=Now() where ID=" & ManufacturersId
-            objDb.ConnExec(sql)
-            frmEditModel.LoadData()
-            Close()
+            Dim errOut as String = ""
+            If Not Models.Update(DatabasePath, ModelId, txtModel.Text, errOut) Then Throw New Exception(errOut)
+            If Not Manufacturers.Update(DatabasePath, ManufacturersId, txtManufacturer.Text, errOut) Then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
+        frmEditModel.LoadData()
+        Close()
     End Sub
 End Class

@@ -1,10 +1,10 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
 
 ''' <summary>
 ''' Edit Manufactures form
 ''' </summary>
-Public Class FrmEditmanufactures
+Public Class frmEditmanufactures
     ''' <summary>
     ''' The update pending
     ''' </summary>
@@ -25,8 +25,8 @@ Public Class FrmEditmanufactures
     Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
         If UpdatePending Then
             Gun_ManufacturerTableAdapter.Update(MGCDataSet.Gun_Manufacturer)
-            Dim obj As New BSDatabase
-            obj.UpdateSyncDataTables("Gun_Manufacturer")
+            Dim errOut As String = ""
+            Database.UpdateSyncDataTables(DatabasePath,"Gun_Manufacturer", errOut)
             UpdatePending = False
         End If
     End Sub

@@ -1,10 +1,9 @@
-Imports BSMyGunCollection.MGC
 ''' <summary>
-''' Class FrmViewAmmoAuditList.
+''' Class frmViewAmmoAuditList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewAmmoAuditList
+Public Class frmViewAmmoAuditList
     ''' <summary>
     ''' The aid
     ''' </summary>
@@ -14,14 +13,17 @@ Public Class FrmViewAmmoAuditList
     ''' </summary>
     Public SName As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim errOut as String
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
         Try
             Gun_Collection_Ammo_PriceAuditTableAdapter.FillBy_AID(MGCDataSet.Gun_Collection_Ammo_PriceAudit, Aid)
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -87,14 +89,11 @@ Public Class FrmViewAmmoAuditList
             Dim price As Double = DataGridView1.SelectedRows.Item(0).Cells.Item(3).Value
 ' ReSharper disable once LocalVariableHidesMember
             Dim ppb As Double = FormatNumber(price / qty, 2)
-            Dim obj As New BSDatabase
-            Dim sql As String = "UPDATE Gun_Collection_Ammo_PriceAudit set PPB=" & _
-                                ppb & " where ID=" & itemId
-            obj.ConnExec(sql)
+          
+            If Not BurnSoft.Applications.MGC.Ammo.Audit.UpdatePricePerBullet(DatabasePath, itemId, ppb, errOut) Then Throw New Exception(errOut)
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton2_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

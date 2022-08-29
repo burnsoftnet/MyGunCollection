@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportMaintenance
+Public Class frmViewReport_Maintenance
     ''' <summary>
     ''' My gid
     ''' </summary>
@@ -30,8 +30,7 @@ Public Class FrmViewReportMaintenance
             End If
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -57,8 +56,7 @@ Public Class FrmViewReportMaintenance
                 ReportViewer1.RefreshReport()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripComboBox1_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

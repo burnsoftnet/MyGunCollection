@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAmmoCalc
+Partial Class frmAmmoCalc
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -246,7 +246,7 @@ Partial Class FrmAmmoCalc
         Me.HelpProvider1.SetHelpKeyword(Me, "Ammo Calculator")
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Ammo Calculator")
-        Me.Name = "frmAmmoCalc"
+        Me.Name = "FrmAmmoCalc"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Ammo Calculator"
         Me.GroupBox1.ResumeLayout(False)

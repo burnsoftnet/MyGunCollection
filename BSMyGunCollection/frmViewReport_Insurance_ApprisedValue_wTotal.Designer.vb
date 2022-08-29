@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReportInsuranceApprisedValueWTotal
+Partial Class frmViewReport_Insurance_ApprisedValue_wTotal
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class FrmViewReportInsuranceApprisedValueWTotal
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportInsuranceApprisedValueWTotal))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Insurance_ApprisedValue_wTotal))
         Me.qryGunCollectionDetailsBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
         Me.ReportViewer1 = New ReportViewer
@@ -99,7 +99,7 @@ Partial Class FrmViewReportInsuranceApprisedValueWTotal
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmViewReportInsuranceApprisedValueWTotal"
+        Me.Name = "frmViewReport_Insurance_ApprisedValue_wTotal"
         Me.Text = "Insurance Report By Appraised Value with Total"
         CType(Me.qryGunCollectionDetailsBindingSource, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

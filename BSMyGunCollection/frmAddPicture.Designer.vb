@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddPicture
+Partial Class frmAddPicture
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddPicture
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddPicture))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddPicture))
         Me.btnBrowse = New Button
         Me.btnAdd = New Button
         Me.PictureBox1 = New PictureBox
@@ -121,7 +121,7 @@ Partial Class FrmAddPicture
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddPicture"
+        Me.Name = "FrmAddPicture"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = FormStartPosition.CenterParent
         Me.Text = "Add Picture"

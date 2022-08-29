@@ -1,61 +1,157 @@
 Imports System.Drawing.Printing
 Imports System.Security.Principal
+' ReSharper disable once UnusedParameter.Local
 
 #Region "DataGridPrinter"
-'\\ --[DataGridPrinter]----------------------------------------------
-'\\ Provides a way to print a nicely formatted page from a data grid
-'\\ control.
-'\\ -----------------------------------------------------------------
+''' <summary>
+''' Provides a way to print a nicely formatted page from a data grid control
+''' </summary>
 Public Class DataGridPrinter
 #Region "Private enumerated types"
+    ''' <summary>
+    ''' Enum CellTextHorizontalAlignment
+    ''' </summary>
     Public Enum CellTextHorizontalAlignment
         LeftAlign = 1
         CentreAlign = 2
         RightAlign = 3
     End Enum
+    ''' <summary>
+    ''' Enum CellTextVerticalAlignment
+    ''' </summary>
     Public Enum CellTextVerticalAlignment
+' ReSharper disable once UnusedMember.Global
         TopAlign = 1
         MiddleAlign = 2
         BottomAlign = 3
     End Enum
 #End Region
 #Region "Private properties"
-    '\\ Printing the report related
+    ''' <summary>
+    ''' The grid print document
+    ''' </summary>
     Private WithEvents _gridPrintDocument As PrintDocument
+    ''' <summary>
+    ''' The data grid
+    ''' </summary>
     Private _dataGrid As DataGrid
-    '\\ Print progress variables
+    ''' <summary>
+    ''' The current print grid line
+    ''' </summary>
     Private _currentPrintGridLine As Integer
+    ''' <summary>
+    ''' The current page down
+    ''' </summary>
     Private _currentPageDown As Integer
+    ''' <summary>
+    ''' The current page across
+    ''' </summary>
     Private _currentPageAcross As Integer = 1
-    '\\ Fonts to use to do the printing...
+    ''' <summary>
+    ''' Fonts to use to do the printing... 
+    ''' </summary>
     Private _printFont As New Font(FontFamily.GenericSansSerif, 9)
+    ''' <summary>
+    ''' The header font
+    ''' </summary>
     Private _headerFont As New Font(FontFamily.GenericSansSerif, 12)
+    ''' <summary>
+    ''' The footer font
+    ''' </summary>
     Private _footerFont As New Font(FontFamily.GenericSansSerif, 10)
+    ''' <summary>
+    ''' The header rectangle
+    ''' </summary>
     Private _headerRectangle As Rectangle
+    ''' <summary>
+    ''' The footer rectangle
+    ''' </summary>
     Private _footerRectangle As Rectangle
+    ''' <summary>
+    ''' The page content rectangle
+    ''' </summary>
     Private _pageContentRectangle As Rectangle
+    ''' <summary>
+    ''' The row height
+    ''' </summary>
     Private _rowheight As Double
-    '\\ Column widths related
+    ''' <summary>
+    ''' Column widths related 
+    ''' </summary>
     Private _pagesAcross As Integer = 1
+    ' ReSharper disable once FieldCanBeMadeReadOnly.Local    
+    ''' <summary>
+    ''' The column bounds
+    ''' </summary>
     Private _columnBounds As New ColumnBounds
+    ''' <summary>
+    ''' The text layout
+    ''' </summary>
     Private _textlayout As StringFormat
+    ''' <summary>
+    ''' The footer height percent
+    ''' </summary>
     Private _footerHeightPercent As Integer = 3
+    ''' <summary>
+    ''' The header height percent
+    ''' </summary>
     Private _headerHeightPercent As Integer = 7
+    ''' <summary>
+    ''' The inter section spacing percent
+    ''' </summary>
     Private _interSectionSpacingPercent As Integer = 2
+    ''' <summary>
+    ''' The cell gutter
+    ''' </summary>
     Private _cellGutter As Integer = 5
-    '\\ Pens to draw the sections with
+    ''' <summary>
+    ''' Pens to draw the sections with
+    ''' </summary>
     Private _footerPen As New Pen(Color.Green)
+    ''' <summary>
+    ''' The header pen
+    ''' </summary>
     Private _headerPen As New Pen(Color.RoyalBlue)
+    ''' <summary>
+    ''' The grid pen
+    ''' </summary>
     Private _gridPen As New Pen(Color.Black)
-    '\\ Brushes to fill the sections with
+    ''' <summary>
+    ''' Brushes to fill the sections with
+    ''' </summary>
     Private _headerBrush As Brush = Brushes.White
+    ''' <summary>
+    ''' The footer brush
+    ''' </summary>
     Private _footerBrush As Brush = Brushes.White
+    ''' <summary>
+    ''' The column header brush
+    ''' </summary>
     Private _columnHeaderBrush As Brush = Brushes.White
+    ''' <summary>
+    ''' The odd row brush
+    ''' </summary>
     Private _oddRowBrush As Brush = Brushes.White
+    ''' <summary>
+    ''' The even row brush
+    ''' </summary>
     Private _evenRowBrush As Brush = Brushes.White
+    ''' <summary>
+    ''' The header text
+    ''' </summary>
     Private _headerText As String
+    ''' <summary>
+    ''' The logged in username
+    ''' </summary>
+' ReSharper disable once FieldCanBeMadeReadOnly.Local
     Private _loggedInUsername As String
+    ''' <summary>
+    ''' The grid row count
+    ''' </summary>
     Private _gridRowCount As Integer
+    ''' <summary>
+    ''' The grid column count
+    ''' </summary>
     Private _gridColumnCount As Integer
 #End Region
 #Region "Public interface"
@@ -97,6 +193,11 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "HeaderHeightPercent"
+    ''' <summary>
+    ''' Gets or sets the header height percent.
+    ''' </summary>
+    ''' <value>The header height percent.</value>
+    ''' <exception cref="ArgumentException">HeaderHeightPercent must be between 0 and 30</exception>
     Public Property HeaderHeightPercent() As Integer
         Get
             Return _headerHeightPercent
@@ -110,6 +211,11 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "InterSectionSpacingPercent"
+    ''' <summary>
+    ''' Gets or sets the inter section spacing percent.
+    ''' </summary>
+    ''' <value>The inter section spacing percent.</value>
+    ''' <exception cref="ArgumentException">InterSectionSpacingPercent must be between 0 and 20</exception>
     Public Property InterSectionSpacingPercent() As Integer
         Get
             Return _interSectionSpacingPercent
@@ -124,6 +230,11 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "CellGutter"
+    ''' <summary>
+    ''' Gets or sets the cell gutter.
+    ''' </summary>
+    ''' <value>The cell gutter.</value>
+    ''' <exception cref="ArgumentException">CellGutter must be between 0 and 10</exception>
     Public Property CellGutter() As Integer
         Get
             Return _cellGutter
@@ -138,6 +249,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "HeaderFont"
+    ''' <summary>
+    ''' Gets or sets the header font.
+    ''' </summary>
+    ''' <value>The header font.</value>
     Public Property HeaderFont() As Font
         Get
             Return _headerFont
@@ -149,6 +264,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "PrintFont"
+    ''' <summary>
+    ''' Gets or sets the print font.
+    ''' </summary>
+    ''' <value>The print font.</value>
     Public Property PrintFont() As Font
         Get
             Return _printFont
@@ -160,6 +279,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "FooterFont"
+    ''' <summary>
+    ''' Gets or sets the footer font.
+    ''' </summary>
+    ''' <value>The footer font.</value>
     Public Property FooterFont() As Font
         Get
             Return _footerFont
@@ -172,6 +295,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "HeaderText"
+    ''' <summary>
+    ''' Gets or sets the header text.
+    ''' </summary>
+    ''' <value>The header text.</value>
     Public Property HeaderText() As String
         Get
             Return _headerText
@@ -183,6 +310,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "HeaderPen"
+    ''' <summary>
+    ''' Gets or sets the header pen.
+    ''' </summary>
+    ''' <value>The header pen.</value>
     Public Property HeaderPen() As Pen
         Get
             Return _headerPen
@@ -193,6 +324,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "FooterPen"
+    ''' <summary>
+    ''' Gets or sets the footer pen.
+    ''' </summary>
+    ''' <value>The footer pen.</value>
     Public Property FooterPen() As Pen
         Get
             Return _footerPen
@@ -203,6 +338,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "GridPen"
+    ''' <summary>
+    ''' Gets or sets the grid pen.
+    ''' </summary>
+    ''' <value>The grid pen.</value>
     Public Property GridPen() As Pen
         Get
             Return _gridPen
@@ -214,6 +353,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "HeaderBrush"
+    ''' <summary>
+    ''' Gets or sets the header brush.
+    ''' </summary>
+    ''' <value>The header brush.</value>
     Public Property HeaderBrush() As Brush
         Get
             Return _headerBrush
@@ -224,6 +367,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "FooterBrush"
+    ''' <summary>
+    ''' Gets or sets the footer brush.
+    ''' </summary>
+    ''' <value>The footer brush.</value>
     Public Property FooterBrush() As Brush
         Get
             Return _footerBrush
@@ -234,6 +381,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "ColumnHeaderBrush"
+    ''' <summary>
+    ''' Gets or sets the column header brush.
+    ''' </summary>
+    ''' <value>The column header brush.</value>
     Public Property ColumnHeaderBrush() As Brush
         Get
             Return _columnHeaderBrush
@@ -244,6 +395,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "OddRowBrush"
+    ''' <summary>
+    ''' Gets or sets the odd row brush.
+    ''' </summary>
+    ''' <value>The odd row brush.</value>
     Public Property OddRowBrush() As Brush
         Get
             Return _oddRowBrush
@@ -254,6 +409,10 @@ Public Class DataGridPrinter
     End Property
 #End Region
 #Region "EvenRowBrush"
+    ''' <summary>
+    ''' Gets or sets the even row brush.
+    ''' </summary>
+    ''' <value>The even row brush.</value>
     Public Property EvenRowBrush() As Brush
         Get
             Return _evenRowBrush
@@ -265,6 +424,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "PrintDocument"
+    ''' <summary>
+    ''' Gets the print document.
+    ''' </summary>
+    ''' <value>The print document.</value>
     Public ReadOnly Property PrintDocument() As PrintDocument
         Get
             Return _gridPrintDocument
@@ -273,6 +436,10 @@ Public Class DataGridPrinter
 #End Region
 
 #Region "DataGrid"
+    ''' <summary>
+    ''' Sets the data grid.
+    ''' </summary>
+    ''' <value>The data grid.</value>
     Public WriteOnly Property DataGrid() As DataGrid
         Set(ByVal value As DataGrid)
             _dataGrid = value
@@ -336,7 +503,11 @@ Public Class DataGridPrinter
         End If
 
     End Sub
-
+    ''' <summary>
+    ''' Handles the PrintPage event of the _GridPrintDocument control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="PrintPageEventArgs"/> instance containing the event data.</param>
     Private Sub _GridPrintDocument_PrintPage(ByVal sender As Object, ByVal e As PrintPageEventArgs) Handles _gridPrintDocument.PrintPage
 
         If _currentPageDown = 1 And _currentPageAcross = 1 Then
@@ -540,12 +711,11 @@ Public Class DataGridPrinter
 
     End Sub
     ''' <summary>
-    ''' Rowses the per page.
+    ''' Rows the per page.
     ''' </summary>
     ''' <param name="gridLineFont">The grid line font.</param>
     ''' <param name="e">The e.</param>
     ''' <returns>System.Int32.</returns>
-' ReSharper disable once UnusedParameter.Local
     Private Function RowsPerPage(ByVal gridLineFont As Font, ByVal e As Graphics) As Integer
 
         Return CInt((_pageContentRectangle.Height / ((_cellGutter * 2) + _rowheight)) - 2)
@@ -562,6 +732,7 @@ Public Class DataGridPrinter
     ''' <param name="target">The target.</param>
     ''' <param name="printFont">The print font.</param>
     ''' <param name="fillColour">The fill colour.</param>
+' ReSharper disable once ParameterHidesMember
 ' ReSharper disable once ParameterHidesMember
     Public Sub DrawCellString(ByVal s As String, _
                                     ByVal horizontalAlignment As CellTextHorizontalAlignment, _
@@ -618,7 +789,10 @@ Public Class DataGridPrinter
             Return b
         End If
     End Function
-
+    ''' <summary>
+    ''' Grids the column count.
+    ''' </summary>
+    ''' <returns>System.Int32.</returns>
     Private Function GridColumnCount() As Integer
 
         If _gridColumnCount = 0 Then
@@ -635,7 +809,10 @@ Public Class DataGridPrinter
         Return _gridColumnCount
 
     End Function
-
+    ''' <summary>
+    ''' Grids the row count.
+    ''' </summary>
+    ''' <returns>System.Int32.</returns>
     Private Function GridRowCount() As Integer
 
         If _gridRowCount = 0 Then
@@ -652,7 +829,11 @@ Public Class DataGridPrinter
         Return _gridRowCount
 
     End Function
-
+    ''' <summary>
+    ''' Gets the column heading text.
+    ''' </summary>
+    ''' <param name="column">The column.</param>
+    ''' <returns>System.String.</returns>
     Private Function GetColumnHeadingText(ByVal column As Integer) As String
         Dim sAns As String = ""
         If _dataGrid.TableStyles.Count > 0 Then
@@ -672,7 +853,11 @@ Public Class DataGridPrinter
         End If
         Return sAns
     End Function
-
+    ''' <summary>
+    ''' Mapped the column to base column.
+    ''' </summary>
+    ''' <param name="mappedColumn">The mapped column.</param>
+    ''' <returns>System.Int32.</returns>
     Private Function MappedColumnToBaseColumn(ByVal mappedColumn As Integer) As Integer
 
         If _dataGrid.TableStyles.Count <= 1 Then
@@ -784,11 +969,22 @@ Public Class ColumnBounds
     Inherits ArrayList
 
 #Region "Private properties"
+    ''' <summary>
+    ''' The current page
+    ''' </summary>
     Private _currentPage As Integer = 1
+    ''' <summary>
+    ''' The right extents
+    ''' </summary>
     Private _rightExtents As Integer '\\ How far right does this column set reach?
 #End Region
 
 #Region "ArrayList overrides"
+    ''' <summary>
+    ''' Adds the specified column bound.
+    ''' </summary>
+    ''' <param name="columnBound">The column bound.</param>
+    ''' <returns>System.Int32.</returns>
     Public Overloads Function Add(ByVal columnBound As ColumnBound) As Integer
         If columnBound.Left + columnBound.Width > _rightExtents Then
             _rightExtents = CInt(columnBound.Left) + CInt(columnBound.Width)
@@ -796,24 +992,35 @@ Public Class ColumnBounds
         columnBound.Page = _currentPage
         Return MyBase.Add(columnBound)
     End Function
-
+    ''' <summary>
+    ''' Removes all elements from the <see cref="T:System.Collections.ArrayList" />.
+    ''' </summary>
     Public Overloads Sub Clear()
         _currentPage = 1
         _rightExtents = 0
         MyBase.Clear()
     End Sub
-
+    ''' <summary>
+    ''' Next the page.
+    ''' </summary>
     Public Sub NextPage()
         _currentPage += 1
         _rightExtents = 0
     End Sub
-
+    ''' <summary>
+    ''' Gets the total pages.
+    ''' </summary>
+    ''' <value>The total pages.</value>
     Friend ReadOnly Property TotalPages() As Integer
         Get
             Return _currentPage
         End Get
     End Property
-
+    ''' <summary>
+    ''' Gets or sets the element at the specified index.
+    ''' </summary>
+    ''' <param name="index">The index.</param>
+    ''' <value>The item.</value>
     Default Public Shadows Property Item(ByVal index As Integer) As ColumnBound
         Get
             Return CType(MyBase.Item(index), ColumnBound)
@@ -825,6 +1032,10 @@ Public Class ColumnBounds
 #End Region
 
 #Region "Public interface"
+    ''' <summary>
+    ''' Gets the right extents.
+    ''' </summary>
+    ''' <value>The right extents.</value>
     Public ReadOnly Property RightExtents() As Integer
         Get
             Return _rightExtents

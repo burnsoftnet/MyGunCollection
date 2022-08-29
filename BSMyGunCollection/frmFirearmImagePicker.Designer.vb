@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmFirearmImagePicker
+Partial Class frmFirearmImagePicker
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmFirearmImagePicker
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmFirearmImagePicker))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmFirearmImagePicker))
         Me.btnLeft = New Button()
         Me.btnRight = New Button()
         Me.txtName = New TextBox()
@@ -84,7 +84,7 @@ Partial Class FrmFirearmImagePicker
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmFirearmImagePicker"
+        Me.Name = "FrmFirearmImagePicker"
         Me.StartPosition = FormStartPosition.Manual
         Me.Text = "Firearm Chooser"
         CType(Me.PictureBox1, ISupportInitialize).EndInit()

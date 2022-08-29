@@ -1,4 +1,3 @@
-Imports BSMyGunCollection.MGC
 ''' <summary>
 ''' Class frmViewWishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -20,7 +19,7 @@ Public Class FrmViewWishList
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New FrmViewReportWishList
+        Dim frmNew As New frmViewReport_WishList
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Cursor = Cursors.Arrow
@@ -98,12 +97,18 @@ Public Class FrmViewWishList
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
-        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim obj As New BSDatabase
-        Dim objG As New GlobalFunctions
-        Dim strName As String = objG.GetWishListName(itemId)
-        Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
-        Dim sql As String = "DELETE from Wishlist where ID=" & itemId
-        If strAns = vbYes Then obj.ConnExec(sql) : Call RefreshData()
+        Try
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim errOut As String = ""
+            Dim strName As String = BurnSoft.Applications.MGC.Other.WishList.GetName(DatabasePath, Convert.ToInt32(itemId), errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            Dim strAns As String = MsgBox("Are you sure you want to delete " & strName & "?", MsgBoxStyle.YesNo, "Delete Item from Wishlist")
+            If strAns = vbYes Then 
+                If Not BurnSoft.Applications.MGC.Other.WishList.Delete(DatabasePath, Convert.ToInt32(itemId), errOut) Then Throw New Exception(errOut)
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+        Call RefreshData()
     End Sub
 End Class

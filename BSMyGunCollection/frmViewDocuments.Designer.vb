@@ -4,7 +4,7 @@ Imports DataGridViewAutoFilter
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewDocuments
+Partial Class frmViewDocuments
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,7 +28,7 @@ Partial Class FrmViewDocuments
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewDocuments))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewDocuments))
         Me.ToolStrip1 = New ToolStrip()
         Me.ToolStripButton1 = New ToolStripButton()
         Me.ToolStripButton2 = New ToolStripButton()
@@ -222,7 +222,7 @@ Partial Class FrmViewDocuments
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewDocuments"
+        Me.Name = "FrmViewDocuments"
         Me.Text = "View Documents"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

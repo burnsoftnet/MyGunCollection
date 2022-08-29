@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmSettings
+Partial Class frmSettings
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class FrmSettings
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmSettings))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmSettings))
         Me.TabControl1 = New TabControl
         Me.TabPage1 = New TabPage
         Me.txtCCD = New TextBox
@@ -626,7 +626,7 @@ Partial Class FrmSettings
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmSettings"
+        Me.Name = "FrmSettings"
         Me.Text = "Settings"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)

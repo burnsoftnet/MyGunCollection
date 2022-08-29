@@ -1,11 +1,12 @@
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class Add Maintenance Plans form.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddMaintancePlans
+Public Class frmAddMaintancePlans
     ''' <summary>
     ''' Handles the Click event of the btnAdd control.
     ''' </summary>
@@ -18,19 +19,16 @@ Public Class FrmAddMaintancePlans
             Dim strIid As String = nudIID.Value
             Dim strIirf As String = nudIIRF.Value
             Dim strNotes As String = FluffContent(txtNotes.Text)
+            Dim errOut As String = ""
 
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strOd, "Operation Description", Text) Then Exit Sub
-            Dim obj As New BSDatabase
-            Dim sql As String = "INSERT INTO Maintance_Plans(Name,OD,iid,iirf,Notes,sync_lastupdate) VALUES('" &
-                        strName & "','" & strOd & "','" & strIid & "','" & strIirf & "','" &
-                        strNotes & "',Now())"
-            obj.ConnExec(sql)
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strOd, "Operation Description", Text, errOut) Then Exit Sub
+            If Not MaintancePlans.Add(DatabasePath, strName, strOd, strIid, strIirf, strNotes, errOut) Then Throw New Exception(errOut)
+
             MsgBox(strName & " was added to the Maintenance Plans!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

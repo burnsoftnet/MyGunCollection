@@ -1,5 +1,7 @@
-﻿Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
+﻿Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class FrmViewAppraiserDetails.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -15,51 +17,38 @@ Public Class FrmViewAppraiserDetails
     ''' </summary>
     Public ShopName As String
     ''' <summary>
+    ''' error container
+    ''' </summary>
+    Dim _errOut as String
+    ''' <summary>
     ''' Pops the data.
     ''' </summary>
     Sub PopData()
         Try
-            Dim obj As New BSDatabase
-            Dim intSib As Integer
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Appriaser_Contact_Details where ID=" & ShopId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While (rs.Read)
-                    If Not IsDBNull(rs("aName")) Then txtName.Text = rs("aName")
-                    If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
-                    If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
-                    If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
-                    If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
-                    If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
-                    If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
-                    If Not IsDBNull(rs("fax")) Then txtFax.Text = rs("fax")
-                    If Not IsDBNull(rs("website")) Then txtWebSite.Text = rs("website")
-                    If Not IsDBNull(rs("email")) Then txteMail.Text = rs("email")
-                    If Not IsDBNull(rs("lic")) Then txtLic.Text = rs("lic")
-                    If Not IsDBNull(rs("Zip")) Then txtZip.Text = rs("Zip")
-                    ShopName = txtName.Text
-                    intSib = CInt(rs("SIB"))
-                    If intSib = 1 Then
-                        chkSIB.Checked = True
-                    Else
-                        chkSIB.Checked = False
-                    End If
-                End While
-            Else
-                Close()
-            End If
-            rs.Close()
-            Call obj.CloseDB()
+            Dim lst as List(Of AppraisersContactDetails) = Appraisers.Get(DatabasePath, Convert.ToInt32(ShopId),_errOut )
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each l As AppraisersContactDetails In lst
+                ShopName = l.Name
+                txtName.Text = l.Name
+                txtAddress1.Text = l.Address1
+                txtAddress2.Text = l.Address2
+                txtCity.Text = l.City
+                txtState.Text = l.State
+                txtCountry.Text =l.Country
+                txtPhone.Text = l.Phone
+                txtFax.Text = l.Fax
+                txtWebSite.Text = l.WebSite
+                txteMail.Text = l.Email
+                txtLic.Text = l.Lic
+                txtZip.Text = l.ZipCode
+                chkSIB.Checked = l.StillInBusiness
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "PopLoad"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "PopLoad", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
-    ''' Enableds the form.
+    ''' Enables the form.
     ''' </summary>
     Sub EnabledForm()
         txtName.ReadOnly = False
@@ -126,28 +115,21 @@ Public Class FrmViewAppraiserDetails
             Dim stremail As String = FluffContent(txteMail.Text)
             Dim strWebsite As String = FluffContent(txtWebSite.Text)
             Dim strLic As String = FluffContent(txtLic.Text)
-            Dim bInBusiness As Boolean = chkSIB.Checked
-            Dim intSib As Integer = 0
-            Dim sql As String
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If bInBusiness Then intSib = 1
-            Dim obj As New BSDatabase
-            sql = "UPDATE Appriaser_Contact_Details set aName='" & strName & "',Address1='" & strAddress1 & "',Address2='" & _
-                    strAddress2 & "',City='" & strCity & "',State='" & strState & "', Zip='" & _
-                    strZip & "',Phone='" & strPhone & "', Country='" & strCountry & _
-                    "',Fax='" & strFax & "',eMail='" & stremail & "',website='" & _
-                    strWebsite & "',Lic='" & strLic & "', SIB=" & intSib & ",sync_lastupdate=Now() where ID=" & ShopId
-            obj.ConnExec(sql)
+
+            If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Exit Sub
+  
+            If Not Appraisers.Update(DatabasePath, ShopId, strName, strAddress1,
+                                                                               strAddress2, strCity, strState, strZip,
+                                                                               strCountry, strPhone, strFax, stremail,
+                                                                               strLic, strWebsite, chkSIB.Checked, _errOut) Then Throw New Exception(_errOut)
             If String.Compare(FluffContent(ShopName), strName) <> 0 Then
                 Dim sAns As String = MsgBox("Appraisers Name Changed from " & ShopName & " to " & txtName.Text & "!" & Chr(10) & "Do you wish to update all your firearms with the update?", vbYesNo, "Appraiser Name Change Alert!")
                 If sAns = vbYes Then
-                    sql = "update gun_collection set AppriasedBy='" & strName & "' where AppriasedBy='" & FluffContent(ShopName) & "'"
-                    obj.ConnExec(sql)
+                    If Not Appraisers.UpdateCollection(DatabasePath, FluffContent(ShopName), strName, _errOut) Then Throw New Exception(_errOut)
                 End If
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "btnSave.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSave.Click", Err.Number, ex.Message.ToString)
         End Try
         Call DisableForm()
     End Sub

@@ -1,11 +1,12 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
+
 ''' <summary>
-''' Class FrmEditNationality.
+''' Class frmEditNationality.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmEditNationality
+Public Class frmEditNationality
     ''' <summary>
     ''' The update pending
     ''' </summary>
@@ -19,8 +20,7 @@ Public Class FrmEditNationality
         Try
             Gun_NationalityTableAdapter.Fill(MGCDataSet.Gun_Nationality)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -33,8 +33,7 @@ Public Class FrmEditNationality
             DataGridView1.Width = Width - 15
             DataGridView1.Height = Height - 39
         Catch ex As Exception
-            Dim sSubFunc As String = "Resize"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Resize", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -48,8 +47,7 @@ Public Class FrmEditNationality
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunNationalityBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunNationalityBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -61,13 +59,12 @@ Public Class FrmEditNationality
         Try
             If UpdatePending Then
                 Gun_NationalityTableAdapter.Update(MGCDataSet.Gun_Nationality)
-                Dim obj As New BSDatabase
-                obj.UpdateSyncDataTables("Gun_Nationality")
+                Dim errOut As String = ""
+                Database.UpdateSyncDataTables(DatabasePath,"Gun_Nationality", errOut)
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView1_RowValidated    "
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView1_RowValidated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

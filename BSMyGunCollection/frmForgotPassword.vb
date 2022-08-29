@@ -3,7 +3,7 @@
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmForgotPassword
+Public Class frmForgotPassword
     ''' <summary>
     ''' Handles the Load event of the frmForgotPassword control.
     ''' </summary>

@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditWishlist
+Partial Class frmEditWishlist
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmEditWishlist
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditWishlist))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditWishlist))
         Me.btnCancel = New Button
         Me.btnEdit = New Button
         Me.txtNotes = New TextBox
@@ -204,7 +204,7 @@ Partial Class FrmEditWishlist
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmEditWishlist"
+        Me.Name = "FrmEditWishlist"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "frmEditWishlist"
         Me.ResumeLayout(False)

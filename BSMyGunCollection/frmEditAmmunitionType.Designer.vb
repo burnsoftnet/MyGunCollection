@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditAmmunitionType
+Partial Class frmEditAmmunitionType
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditAmmunitionType
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditAmmunitionType))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditAmmunitionType))
         Me.DataGridView1 = New DataGridView
         Me.CalDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
         Me.GunCalBindingSource = New BindingSource(Me.components)
@@ -86,7 +86,7 @@ Partial Class FrmEditAmmunitionType
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Editing Ammunition Type")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditAmmunitionType"
+        Me.Name = "FrmEditAmmunitionType"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Edit Ammunition Type"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()

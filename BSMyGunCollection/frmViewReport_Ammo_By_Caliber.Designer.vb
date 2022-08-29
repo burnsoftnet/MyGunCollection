@@ -4,7 +4,7 @@ Imports Microsoft.Reporting.WinForms
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewReportAmmoByCaliber
+Partial Class frmViewReport_Ammo_By_Caliber
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -29,7 +29,7 @@ Partial Class FrmViewReportAmmoByCaliber
     Private Sub InitializeComponent()
         Me.components = New Container
         Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewReportAmmoByCaliber))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Ammo_By_Caliber))
         Me.ToolStrip1 = New ToolStrip
         Me.Gun_Collection_AmmoBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
@@ -99,7 +99,7 @@ Partial Class FrmViewReportAmmoByCaliber
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmViewReportAmmoByCaliber"
+        Me.Name = "frmViewReport_Ammo_By_Caliber"
         Me.Text = "Ammunition Inventory Report"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()

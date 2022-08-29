@@ -3,7 +3,7 @@ Imports System.ComponentModel
 ''' <summary>
 ''' Edit Firearm Types form
 ''' </summary>
-Public Class FrmEditFirearmType
+Public Class frmEditFirearmType
     ''' <summary>
     ''' The update pending
     ''' </summary>

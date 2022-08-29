@@ -1,17 +1,18 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
+Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
-''' Class FrmSold.
+''' Class frmSold.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmSold
+Public Class frmSold
     ''' <summary>
     ''' The item identifier
     ''' </summary>
     Public ItemId As String
     ''' <summary>
-    ''' The askingprice
+    ''' The asking price
     ''' </summary>
     Public Askingprice As String
     ''' <summary>
@@ -60,42 +61,33 @@ Public Class FrmSold
                     dobRequired = False
                 End If
             End If
-            If Not IsRequired(strName, "Name", Text) Then Exit Sub
-            If Not IsRequired(strAddress1, "Address", Text) Then Exit Sub
-            If Not IsRequired(strCity, "City", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(strZip, "Zip Code", Text) Then Exit Sub
-            If Not IsRequired(strState, "State", Text) Then Exit Sub
-            If Not IsRequired(sLic, sLicType, Text) Then Exit Sub
+            Dim errOut as String = ""
+            If Not Helpers.IsRequired(strName, "Name", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strAddress1, "Address", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strCity, "City", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strZip, "Zip Code", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strState, "State", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sLic, sLicType, Text, errOut) Then Exit Sub
             If dobRequired Then
-                If Not IsRequired(strDob, "Date of Birth", Text) Then Exit Sub
+                If Not Helpers.IsRequired(strDob, "Date of Birth", Text, errOut) Then Exit Sub
             Else
                 strDob = DefaultDob
             End If
-            If Not IsRequired(strRes, "Residency/Alien ID", Text) Then Exit Sub
-            If Not IsRequired(sFinalPrice, "Final Sale Price", Text) Then Exit Sub
+            If Not Helpers.IsRequired(strRes, "Residency/Alien ID", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sFinalPrice, "Final Sale Price", Text, errOut) Then Exit Sub
 
-            Dim obj As New BSDatabase
-            Dim objo As New GlobalFunctions
-            If Not objo.BuyerExists(strName, strAddress1, strAddress2, strCity, strState, strZip, strDob, strDLic) Then
-                Dim sql As String = "INSERT INTO Gun_Collection_SoldTo(Name,Address1," & _
-                                    "Address2,City,State,Country,Phone,fax,website,email," & _
-                                    "lic,DOB,Dlic,Resident,ZipCode,sync_lastupdate) VALUES('" & strName & "','" & _
-                                    strAddress1 & "','" & strAddress2 & "','" & strCity & "','" & _
-                                    strState & "','" & strCountry & "','" & strPhone & "','" & _
-                                    strFax & "','" & strWebsite & "','" & stremail & "','" & _
-                                    strLic & "','" & strDob & "','" & strDLic & "','" & _
-                                    strRes & "','" & strZip & "',Now())"
-                obj.ConnExec(sql)
+            if Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Exists(DatabasePath,strName, strAddress1, strAddress2, strCity, strState, strZip, strDob, strDLic, errOut) Then
+                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Add(DatabasePath, strName, strAddress1, strAddress2, strCity, strState, strZip, strPhone, strCountry, stremail, strLic, strWebsite, strFax, strDob, strDLic, strRes, errOut) then Throw New Exception(errOut)
             End If
-            bid = objo.GetID("SELECT ID from Gun_Collection_SoldTo where Name='" & strName & "'")
-            Dim uSql As String = "UPDATE Gun_Collection set ItemSold=1,BID=" & bid & ",dtSold='" & dtpSale.Value & "',AppraisedValue='" & sFinalPrice & "',sync_lastupdate=Now() where ID=" & ItemId
-            obj.ConnExec(uSql)
+            bid = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.GetId(DatabasePath, strName, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.FirearmBought(DatabasePath, ItemId, bid, dtpSale.Value, sFinalPrice, errOut) Then Throw New Exception(errOut)
+
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnUpdate.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -114,41 +106,29 @@ Public Class FrmSold
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnApply_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnApply.Click
         Try
-            Dim obj As New BSDatabase
             Dim sbid As Long = cmbPrevBuyer.SelectedValue
-            Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & sbid
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                If Not IsDBNull(rs("Name")) Then txtName.Text = Trim(rs("Name"))
-                If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = Trim(rs("Address1"))
-                If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = Trim(rs("Address2"))
-                If Not IsDBNull(rs("City")) Then txtCity.Text = Trim(rs("City"))
-                If Not IsDBNull(rs("ZipCode")) Then txtZip.Text = Trim(rs("ZipCode"))
-                If Not IsDBNull(rs("State")) Then txtState.Text = Trim(rs("State"))
-                If Not IsDBNull(rs("Phone")) Then txtPhone.Text = Trim(rs("Phone"))
-                If Not IsDBNull(rs("Country")) Then txtCountry.Text = Trim(rs("Country"))
-                If Not IsDBNull(rs("fax")) Then txtFax.Text = Trim(rs("fax"))
-                If Not IsDBNull(rs("email")) Then txteMail.Text = Trim(rs("email"))
-                If Not IsDBNull(rs("website")) Then txtWebSite.Text = Trim(rs("website"))
-                If Not IsDBNull(rs("lic")) Then txtLic.Text = Trim(rs("lic"))
-                If Not IsDBNull(rs("Dlic")) Then txtDLic.Text = Trim(rs("Dlic"))
-                If Not IsDBNull(rs("DOB")) Then
-                    If rs("DOB") = DefaultDob Then
-                        txtDOB.Text = ""
-                    Else
-                        txtDOB.Text = Trim(rs("DOB"))
-                    End If
-                End If
-                If Not IsDBNull(rs("Resident")) Then txtRes.Text = Trim(rs("Resident"))
-            End While
-            rs.Close()
-            obj.CloseDB()
+            Dim errOut as String = ""
+            Dim lst As List(Of BuyersList) = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Get(DatabasePath, sbid, errOut)
+
+            For Each o As BuyersList In lst
+                txtName.Text = o.Name
+                txtAddress1.Text = o.Address1
+                txtAddress2.Text = o.Address2
+                txtCity.Text = o.City
+                txtState.Text = o.State
+                txtZip.Text = o.ZipCode
+                txtPhone.Text = o.Phone
+                txtCountry.Text = o.Country
+                txtFax.Text = o.Fax
+                txteMail.Text = o.Email
+                txtWebSite.Text = o.WebSite
+                txtLic.Text = o.Lic
+                txtDLic.Text = o.Dlic
+                txtDOB.Text = o.Dob
+                txtRes.Text = o.Resident
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "btnApply.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "btnApply.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

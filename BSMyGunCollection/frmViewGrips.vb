@@ -1,10 +1,10 @@
 Imports System.ComponentModel
 ''' <summary>
-''' Class FrmViewGrips.
+''' Class frmViewGrips.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewGrips
+Public Class frmViewGrips
     ''' <summary>
     ''' The update pending
     ''' </summary>

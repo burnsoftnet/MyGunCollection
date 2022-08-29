@@ -1,12 +1,8 @@
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
-''' <summary>
-''' Class frmAddAccessory.
-''' Implements the <see cref="System.Windows.Forms.Form" />
-''' </summary>
-''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddAccessory
+Public Class frmAddAccessory
     ''' <summary>
     ''' The item identifier
     ''' </summary>
@@ -15,6 +11,7 @@ Public Class FrmAddAccessory
     ''' The is shot gun
     ''' </summary>
     Public IsShotGun As Boolean
+   
     ''' <summary>
     ''' Handles the Click event of the btnCancel control.
     ''' </summary>
@@ -30,6 +27,7 @@ Public Class FrmAddAccessory
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
+            
             Dim strMan As String = FluffContent(txtMan.Text)
             Dim strModel As String = FluffContent(txtModel.Text)
             Dim strSerial As String = FluffContent(txtSerial.Text)
@@ -38,15 +36,14 @@ Public Class FrmAddAccessory
             Dim strPurVal As String = FluffContent(txtPurVal.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
-            If Not IsRequired(strMan, "Manufacturer", Text) Then Exit Sub
-            If Not IsRequired(strModel, "Model", Text) Then Exit Sub
-
             Dim errOut as String = ""
+            If Not Helpers.IsRequired(strMan, "Manufacturer", Text, errOut) Then Exit Sub
+            If Not Helpers.IsRequired(strModel, "Model", Text, errOut) Then Exit Sub
+
             If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -68,8 +65,7 @@ Public Class FrmAddAccessory
             txtPurVal.AutoCompleteCustomSource = Accessory.PurchaseValue(DatabasePath, errOut)
             If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

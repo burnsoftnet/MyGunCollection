@@ -1,11 +1,13 @@
-Imports BSMyGunCollection.MGC
+
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class frmAddMaintance.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddMaintance
+Public Class frmAddMaintance
     ''' <summary>
     ''' The gun id
     ''' </summary>
@@ -35,8 +37,7 @@ Public Class FrmAddMaintance
         Try
             Maintance_PlansTableAdapter.Fill(MGCDataSet.Maintance_Plans)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -51,8 +52,7 @@ Public Class FrmAddMaintance
             frmViewMaintancePlan.Id = strId
             frmViewMaintancePlan.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnViewPlans_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "btnViewPlans_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -80,17 +80,14 @@ Public Class FrmAddMaintance
             Dim sAu As String = FluffContent(txtAmmoUsed.Text)
             Dim iAvg As Integer = 0
             If inAvg Then iAvg = 1
-            If Not IsRequired(strName, "Maintenance Plan", Text) Then Exit Sub
-            Dim sql As String = "INSERT INTO Maintance_Details(gid,mpid,Name,OpDate,OpDueDate,RndFired,Notes,au,BSID,DC,sync_lastupdate) VALUES(" &
-                        Gid & "," & strId & ",'" & strName & "','" & strOd & "','" & strOdDue & "','" &
-                        strOdrf & "','" & strNotes & "','" & sAu & "'," & Bsid & "," & iAvg & ",Now())"
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
+            Dim errOut As String = ""
+
+            If Not Helpers.IsRequired(strName, "Maintenance Plan", Text, errOut) Then Exit Sub
+            If Not MaintanceDetails.Add(DatabasePath, strName, Gid, strId, strOd, strOdDue, strOdrf, strNotes, sAu,Bsid, iAvg, errOut) Then Throw New Exception(errOut)
             MsgBox(strName & " was added!", MsgBoxStyle.Information, Text)
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

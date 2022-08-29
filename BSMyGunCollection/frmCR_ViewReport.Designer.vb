@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmCrViewReport
+Partial Class frmCR_ViewReport
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class FrmCrViewReport
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmCrViewReport))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmCR_ViewReport))
         Me.ToolStrip1 = New ToolStrip
         Me.ToolStripButton1 = New ToolStripButton
         Me.ToolStripButton2 = New ToolStripButton
@@ -506,7 +506,7 @@ Partial Class FrmCrViewReport
         Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Custom Reports - Viewing Results")
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "FrmCrViewReport"
+        Me.Name = "frmCR_ViewReport"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "View Custom Report"
         Me.ToolStrip1.ResumeLayout(False)

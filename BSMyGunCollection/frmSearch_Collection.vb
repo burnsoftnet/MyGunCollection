@@ -1,14 +1,15 @@
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC
+
 ''' <summary>
-''' Class FrmSearchCollection.
+''' Class frmSearchCollection.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmSearchCollection
+Public Class frmSearch_Collection
     ''' <summary>
     ''' Builds the search string.
     ''' </summary>
-    ''' <param name="sLookin">The s lookin.</param>
+    ''' <param name="sLookin">The s look in.</param>
     ''' <returns>System.Object.</returns>
     Function BuildSearchString(ByVal sLookin As String)
         Dim sAns As String = ""
@@ -71,14 +72,13 @@ Public Class FrmSearchCollection
         Try
             Dim sql As String = "SELECT ID,FullName as [Full Name],Brand,ModelName as [Model],SerialNumber as [Serial No],Type,Caliber from qryGunCollectionDetails where " & _
                 BuildSearchString(cmbLookIn.Text) & " like'%" & txtLookFor.Text & "%'"
-            Dim obj As New BSDatabase
-            dgvResults.DataSource = obj.GetData(sql)
+            Dim errOut As String = ""
+            dgvResults.DataSource = Database.GetDataFromTable(DatabasePath, sql, errOut)
             dgvResults.Columns(0).Visible = False
             lblResults.Text = dgvResults.RowCount
             If dgvResults.RowCount = 1 Then Call ViewCollectionDetails()
         Catch ex As Exception
-            Dim strProcedure As String = "btnSearch.Click"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnSearch.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -88,14 +88,13 @@ Public Class FrmSearchCollection
         Try
             Dim rowId As Long = dgvResults.SelectedCells.Item(0).Value
             Cursor = Cursors.WaitCursor
-            Dim frmNew As New frmViewCollectionDetails
+            Dim frmNew As New FrmViewCollectionDetails
             frmNew.MdiParent = MdiParent
-            frmNew.ItemId = rowId
+            frmNew.GunId = rowId
             frmNew.Show()
             Cursor = Cursors.Arrow
         Catch ex As Exception
-            Dim strProcedure As String = "ViewCollectionDetails"
-            Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ViewCollectionDetails", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

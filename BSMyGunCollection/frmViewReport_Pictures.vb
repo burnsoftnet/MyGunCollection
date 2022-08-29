@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportPictures.
+''' Class frmViewReport_Pictures.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportPictures
+Public Class frmViewReport_Pictures
     ''' <summary>
     ''' My gun id
     ''' </summary>
@@ -31,8 +31,7 @@ Public Class FrmViewReportPictures
             End If
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

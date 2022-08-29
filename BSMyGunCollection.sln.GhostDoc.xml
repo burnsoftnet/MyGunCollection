@@ -9,6 +9,8 @@
     <IgnoreExtensions>
     </IgnoreExtensions>
     <IgnoreFiles>
+      <IgnoreFile>.\BSMyGunCollection.UnitTest.Command.Helpers\GlobalSuppressions.cs</IgnoreFile>
+      <IgnoreFile>.\BSMyGunCollection\GlobalSuppressions.vb</IgnoreFile>
       <IgnoreFile>.\BSMyGunCollection\MGCDataSet.Designer.vb</IgnoreFile>
     </IgnoreFiles>
   </SpellChecker>
@@ -55,5 +57,8 @@
   </HelpConfiguration>
 </HelpConfigurations>
 <GeneralProperties>
+  <CheckSourceSymbolNames description="Check symbol names" type="Boolean">False</CheckSourceSymbolNames>
+  <SearchInheritedCommentsOnlyWithinProject description="Search for inherited comments only within current project" type="Boolean">False</SearchInheritedCommentsOnlyWithinProject>
+  <UseInheritdocTag description="Use &lt;inheritdoc /&gt; tag for inherited comments  instead of copying the base member documentation" type="Boolean">False</UseInheritdocTag>
 </GeneralProperties>
 </GhostDoc>

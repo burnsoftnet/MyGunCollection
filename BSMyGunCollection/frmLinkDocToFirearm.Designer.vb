@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmLinkDocToFirearm
+Partial Class frmLinkDocToFirearm
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmLinkDocToFirearm
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmLinkDocToFirearm))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmLinkDocToFirearm))
         Me.btnAttach = New Button()
         Me.ComboBox1 = New ComboBox()
         Me.Label1 = New Label()
@@ -92,7 +92,7 @@ Partial Class FrmLinkDocToFirearm
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmLinkDocToFirearm"
+        Me.Name = "FrmLinkDocToFirearm"
         Me.Text = "Link Document to Firearm"
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()
         CType(Me.GunCollectionBindingSource, ISupportInitialize).EndInit()

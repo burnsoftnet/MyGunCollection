@@ -1,8 +1,6 @@
-''TODO #43 Clean up unused code 
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -10,7 +8,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddBarrelSystem
+Public Class frmAddBarrelSystem
     ''' <summary>
     ''' The gid
     ''' </summary>
@@ -38,8 +36,7 @@ Public Class FrmAddBarrelSystem
             txtSysType.AutoCompleteCustomSource = GunCollection.BarrelSysTypes(DatabasePath,errOut)
             If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "AutoFill"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "AutoFill", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -47,26 +44,6 @@ Public Class FrmAddBarrelSystem
     ''' </summary>
     Sub LoadData()
         Try
-            'Dim sql As String = "SELECT * from Gun_Collection where ID=" & Gid
-            'Dim obj As New BSDatabase
-            'Call obj.ConnectDB()
-            'Dim cmd As New OdbcCommand(sql, obj.Conn)
-            'Dim rs As OdbcDataReader
-            'rs = cmd.ExecuteReader
-            'While rs.Read
-            '    If Not IsDBNull(rs("Fullname")) Then txtRecieverName.Text = rs("Fullname")
-            '    If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
-            '    If Not IsDBNull(rs("Height")) Then txtOvLen.Text = rs("Height")
-            '    If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
-            '    If Not IsDBNull(rs("Feedsystem")) Then txtFeedSys.Text = rs("Feedsystem")
-            '    If Not IsDBNull(rs("Sights")) Then txtSight.Text = rs("Sights")
-            '    If Not IsDBNull(rs("PetLoads")) Then txtPetLoads.Text = rs("PetLoads")
-            '    If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = rs("PurchasedPrice")
-            '    If Not IsDBNull(rs("PurchasedFrom")) Then txtPurFrom.Text = rs("PurchasedFrom")
-            '    If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
-            'End While
-            'rs.Close()
-            'obj.CloseDB()
             Dim errOut as String = ""
             Dim lst as List(Of BarrelSystems) = ExtraBarrelConvoKits.GetCurrentBarrelDetailstList(DatabasePath, Gid, errOut)
 
@@ -84,8 +61,7 @@ Public Class FrmAddBarrelSystem
             Next
 
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -104,8 +80,6 @@ Public Class FrmAddBarrelSystem
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
             Dim sName As String = FluffContent(txtName.Text)
             Dim sysType As String = FluffContent(txtSysType.Text)
             Dim cal As String = FluffContent(txtCal.Text)
@@ -118,49 +92,31 @@ Public Class FrmAddBarrelSystem
             Dim petLoads As String = FluffContent(txtPetLoads.Text)
             Dim purPrice As String = FluffContent(txtPurPrice.Text)
             Dim purFrom As String = FluffContent(txtPurFrom.Text)
-            Dim iDefault As Integer 
-            Dim sql As String 
+            Dim errOut as String = ""
 
-            If Not IsRequired(sName, "Name", Text) Then Exit Sub
-            If Not IsRequired(sysType, "System Type", Text) Then Exit Sub
-            If Not IsRequired(cal, "Caliber", Text) Then Exit Sub
-            If Not IsRequired(purPrice, "Purchase Price", Text) Then Exit Sub
-            If Not IsRequired(purFrom, "Purchased From", Text) Then Exit Sub
+            If Not Helpers.IsRequired(sName, "Name", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(sysType, "System Type", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(cal, "Caliber", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purPrice, "Purchase Price", Text,errOut) Then Exit Sub
+            If Not Helpers.IsRequired(purFrom, "Purchased From", Text,errOut) Then Exit Sub
 
-            If chkSetDefault.Checked Then
-                iDefault = 1
-            Else
-                iDefault = 0
-            End If
-
-            sql = "INSERT INTO Gun_Collection_Ext (GID,ModelName,Caliber,Finish,BarrelLength,PetLoads,Action," &
-                    "Feedsystem,Sights,PurchasedPrice,PurchasedFrom,dtp,Height,Type,IsDefault,sync_lastupdate) VALUES(" &
-                    Gid & ",'" & sName & "','" & cal & "','" & stockFinish & "','" & barLen &
-                    "','" & petLoads & "','" & fAction & "','" & feedSys & "','" & sights & "','" &
-                    purPrice & "','" & purFrom & "',DATE(),'" & ovalLen & "','" & sysType &
-                    "'," & iDefault & ",Now())"
-
-
-            obj.ConnExec(sql)
-            Dim barrelId As Long = objGf.GetBarrelID(Gid)
+            if Not ExtraBarrelConvoKits.Add(DatabasePath, Gid, sName, cal, stockFinish, barLen, petLoads, fAction, feedSys, sights, purPrice, purFrom,ovalLen, sysType, chkSetDefault.Checked, DateTime.Now, errOut) Then Throw New Exception(errOut)
+            Dim barrelId As Long = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut)
+            If Not ExtraBarrelConvoKits.AddLink(DatabasePath, barrelId, Gid, errOut) Then Throw New Exception(errOut)
             Dim defaultBarrelId As Long
-            sql = "INSERT INTO Gun_Collection_Ext_Links(BSID,GID,sync_lastupdate) VALUES(" & barrelId &
-                    "," & Gid & ",Now())"
-            obj.ConnExec(sql)
 
             If chkSetDefault.Checked Then
-                defaultBarrelId = objGf.GetBarrelID(Gid, 1)
-                Call objGf.SwapDefaultBarrelSystems(defaultBarrelId, barrelId, Gid)
+                defaultBarrelId = ExtraBarrelConvoKits.GetBarrelId(DatabasePath, Gid, errOut, true)
+                If Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, defaultBarrelId, barrelId, Gid, errOut) then Throw New Exception(errOut)
             End If
-            Dim frmNew As New frmViewCollectionDetails
-            frmNew.ItemId = Gid
+            Dim frmNew As New FrmViewCollectionDetails
+            frmNew.GunId = Gid
             frmNew.MdiParent = MdiParent
             frmNew.Show()
             Close()
 
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

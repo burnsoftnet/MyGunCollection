@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewBuyers
+Partial Class frmViewBuyers
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmViewBuyers
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewBuyers))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewBuyers))
         Me.ListBox1 = New ListBox
         Me.GunCollectionSoldToBindingSource = New BindingSource(Me.components)
         Me.MGCDataSet = New MGCDataSet
@@ -117,7 +117,7 @@ Partial Class FrmViewBuyers
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmViewBuyers"
+        Me.Name = "FrmViewBuyers"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "View Buyers"
         CType(Me.GunCollectionSoldToBindingSource, ISupportInitialize).EndInit()

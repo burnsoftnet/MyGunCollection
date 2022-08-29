@@ -1,13 +1,15 @@
 Imports System.IO
-Imports System.Data.Odbc
 Imports System.Drawing.Imaging
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
-''' Class FrmViewPicture.
+''' Class frmViewPicture.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewPicture
+Public Class frmViewPicture
     ''' <summary>
     ''' My identifier
     ''' </summary>
@@ -28,6 +30,10 @@ Public Class FrmViewPicture
     ''' The s note
     ''' </summary>
     Public SNote As String = ""
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 #Region "Menu Items"
     ''' <summary>
     ''' Handles the Click event of the CloseToolStripMenuItem control.
@@ -73,8 +79,7 @@ Public Class FrmViewPicture
             fs.Close()
             MsgBox("Picture was exported to " & strFilePath)
         Catch ex As Exception
-            Dim sSubFunc As String = "ExportPictureToolStripMenuItem.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ExportPictureToolStripMenuItem.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -84,16 +89,12 @@ Public Class FrmViewPicture
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ChangePictureToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ChangePictureToolStripMenuItem.Click
         Try
-            Dim sqlu As String = "UPDATE Gun_Collection_Pictures set ISMAIN=0 where CID=" & GroupId
-            Dim sql As String = "UPDATE Gun_Collection_Pictures set ISMAIN=1 where ID=" & MyId
-            Dim obj As New BSDatabase
-            obj.ConnExec(sqlu)
-            obj.ConnExec(sql)
+            If Not Pictures.ResetDefaultPic(DatabasePath, GroupId, _errOut) Then Throw New Exception(_errOut)
+            If Not Pictures.SetAsDefaultPic(DatabasePath, MyId, _errOut) Then Throw New Exception(_errOut)
+            
             MsgBox("This is now the Default Picture")
-        
         Catch ex As Exception
-            Dim sSubFunc As String = "ChangePictureToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ChangePictureToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -178,23 +179,14 @@ Public Class FrmViewPicture
 ' ReSharper disable once ParameterHidesMember
     Public Sub GetPictureInfo(ByVal pid As Long, ByRef sName As String, ByRef sNotes As String)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT pd_name,pd_note from Gun_Collection_Pictures where ID=" & MyId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            sName = ""
-            sNotes = "N/A"
-            While rs.Read()
-                If Not IsDBNull(rs("pd_name")) Then sName = rs("pd_name")
-                If Not IsDBNull(rs("pd_note")) Then sNotes = rs("pd_note")
-            End While
-            rs.Close()
-
+            Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each l As PictureDetails In lst
+                sName = l.PictureDisplayName
+                sNotes = l.PictureNotes
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPictureInfo"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPictureInfo", Err.Number, ex.Message.ToString)
         End Try
 
     End Sub
@@ -236,11 +228,9 @@ Public Class FrmViewPicture
     ''' </summary>
     Sub GetPicture()
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT PICTURE from Gun_Collection_Pictures where ID=" & MyId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
+            Dim b() As Byte = Pictures.GetPicture(DatabasePath, MyId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
@@ -267,10 +257,10 @@ Public Class FrmViewPicture
                 PictureBox1.Refresh()
                 Refresh()
                 stream.Close()
+                b = Nothing
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicture"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPicture", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

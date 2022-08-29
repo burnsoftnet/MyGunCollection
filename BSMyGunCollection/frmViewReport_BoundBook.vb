@@ -1,10 +1,10 @@
 Imports Microsoft.Reporting.WinForms
 ''' <summary>
-''' Class FrmViewReportBoundBook.
+''' Class frmViewReport_BoundBook.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewReportBoundBook
+Public Class frmViewReport_BoundBook
     ''' <summary>
     ''' The is first run
     ''' </summary>
@@ -42,8 +42,7 @@ Public Class FrmViewReportBoundBook
             End Select
             ReportViewer1.RefreshReport()
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -58,8 +57,7 @@ Public Class FrmViewReportBoundBook
             Call LoadData()
             ReportViewer1.Cursor = Cursors.Arrow
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
         IsFirstRun = False
     End Sub
@@ -72,8 +70,7 @@ Public Class FrmViewReportBoundBook
         Try
             If Not IsFirstRun Then Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripComboBox1_SelectedIndexChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripComboBox1_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -85,7 +82,7 @@ Public Class FrmViewReportBoundBook
         Call LoadData()
     End Sub
     ''' <summary>
-    ''' Initializes a new instance of the <see cref="FrmViewReportBoundBook"/> class.
+    ''' Initializes a new instance of the <see cref="frmViewReport_BoundBook"/> class.
     ''' </summary>
     Public Sub New()
         IsFirstRun = True

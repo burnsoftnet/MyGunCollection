@@ -1,12 +1,9 @@
-Imports BSMyGunCollection.MGC
-Imports System.Data.Odbc
-
 ''' <summary>
 ''' Class frmAmmoCalc.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAmmoCalc
+Public Class frmAmmoCalc
     ''' <summary>
     ''' The ammo type
     ''' </summary>
@@ -24,6 +21,10 @@ Public Class FrmAmmoCalc
     ''' </summary>
     Public AmmoUsed As String
     ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
+    ''' <summary>
     ''' Handles the Click event of the Button1 control.
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
@@ -34,32 +35,7 @@ Public Class FrmAmmoCalc
         frmAddMaintance.txtAmmoUsed.Text = AmmoUsed
         Close()
     End Sub
-    ''' <summary>
-    ''' Currents the qty.
-    ''' </summary>
-    ''' <param name="intId">The int identifier.</param>
-    ''' <returns>System.Int32.</returns>
-    Function CurrentQty(ByVal intId As Integer) As Integer
-        Dim iAns As Integer = 0
-        Try
-            Dim sql As String = "SELECT Qty from Gun_Collection_Ammo where id=" & intId
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While (rs.Read())
-                iAns = CInt(rs("Qty"))
-            End While
-            rs.Close()
 
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "CurrentQty"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return iAns
-    End Function
     ''' <summary>
     ''' Updates the inventory.
     ''' </summary>
@@ -70,40 +46,23 @@ Public Class FrmAmmoCalc
             Dim intId As Integer
             Dim intQty As Integer
             Dim intCurQty As Integer
-            Dim intNewQty As Integer
             AmmoUsed = ""
             For i = 0 To intItemCount - 1
                 intQty = CInt(ListView1.Items(i).SubItems(2).Text)
                 intId = CInt(ListView1.Items(i).SubItems(0).Text)
-                intCurQty = CurrentQty(intId)
-                intNewQty = intCurQty - intQty
+                intCurQty = BurnSoft.Applications.MGC.Ammo.Inventory.GetQty(DatabasePath, intId, _errOut)
                 If Len(AmmoUsed) = 0 Then
-                    AmmoUsed = ListView1.Items(i).SubItems(1).Text
+                    AmmoUsed = $"{ListView1.Items(i).SubItems(1).Text} ( {intQty} )"
                 Else
-                    AmmoUsed &= ", " & ListView1.Items(i).SubItems(1).Text
+                    AmmoUsed &= $", {ListView1.Items(i).SubItems(1).Text} ( {intQty} )"
                 End If
-                Call UpdateQty(intId, intNewQty)
+                If Not BurnSoft.Applications.MGC.Ammo.Inventory.UpdateQty(DatabasePath, intId, intCurQty, intQty, _errOut) Then Throw New Exception(_errOut)
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "UpdateInventory"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "UpdateInventory", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    ''' <summary>
-    ''' Updates the qty.
-    ''' </summary>
-    ''' <param name="intId">The int identifier.</param>
-    ''' <param name="intQty">The int qty.</param>
-    Sub UpdateQty(ByVal intId As Integer, ByVal intQty As Integer)
-        Try
-            Dim sql As String = "UPDATE Gun_Collection_Ammo set Qty=" & intQty & ",sync_lastupdate=Now() where id=" & intId
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
-        Catch ex As Exception
-            Dim sSubFunc As String = "UpdateQty"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-    End Sub
+
     ''' <summary>
     ''' Converts to tal.
     ''' </summary>
@@ -118,8 +77,7 @@ Public Class FrmAmmoCalc
                 iAns += CInt(ListView1.Items(i).SubItems(2).Text)
             Next
         Catch ex As Exception
-            Dim sSubFunc As String = "EndingTotal"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "EndingTotal", Err.Number, ex.Message.ToString)
         End Try
         Return iAns
     End Function
@@ -137,10 +95,10 @@ Public Class FrmAmmoCalc
             ElseIf Len(AmmoTypePet) > 0 And Len(AmmoTypeCal3) > 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet3(MGCDataSet.Gun_Collection_Ammo, AmmoType, AmmoTypePet, AmmoTypeCal3)
             End If
-            txtCurQty.Text = CStr(CurrentQty(ComboBox1.SelectedValue))
+
+            txtCurQty.Text = BurnSoft.Applications.MGC.Ammo.Inventory.GetQty(DatabasePath, ComboBox1.SelectedValue, _errOut).ToString()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -169,8 +127,7 @@ Public Class FrmAmmoCalc
             End If
             NumericUpDown1.Value = 0
         Catch ex As Exception
-            Dim sSubFunc As String = "Button2_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Button2_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -187,6 +144,6 @@ Public Class FrmAmmoCalc
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        txtCurQty.Text = CStr(CurrentQty(ComboBox1.SelectedValue))
+        txtCurQty.Text = BurnSoft.Applications.MGC.Ammo.Inventory.GetQty(DatabasePath, ComboBox1.SelectedValue, _errOut).ToString()
     End Sub
 End Class

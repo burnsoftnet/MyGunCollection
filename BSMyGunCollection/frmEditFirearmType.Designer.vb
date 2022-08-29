@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditFirearmType
+Partial Class frmEditFirearmType
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditFirearmType
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditFirearmType))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditFirearmType))
         Me.DataGridView1 = New DataGridView
         Me.MGCDataSet = New MGCDataSet
         Me.GunTypeBindingSource = New BindingSource(Me.components)
@@ -89,7 +89,7 @@ Partial Class FrmEditFirearmType
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmEditFirearmType"
+        Me.Name = "FrmEditFirearmType"
         Me.Text = "Firearm Types"
         CType(Me.DataGridView1, ISupportInitialize).EndInit()
         CType(Me.MGCDataSet, ISupportInitialize).EndInit()

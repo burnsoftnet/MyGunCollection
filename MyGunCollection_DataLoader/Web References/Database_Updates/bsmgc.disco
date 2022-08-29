@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
-  <contractRef ref="http://www.burnsoft.net/services/bsmgc.asmx?wsdl" docRef="http://www.burnsoft.net/services/bsmgc.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
-  <soap address="http://www.burnsoft.net/services/bsmgc.asmx" xmlns:q1="http://www.burnsoft.net/" binding="q1:My_x005F_x0020_Gun_x005F_x0020_Collection_x005F_x0020_Database_x005F_x0020_UpdateSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-  <soap address="http://www.burnsoft.net/services/bsmgc.asmx" xmlns:q2="http://www.burnsoft.net/" binding="q2:My_x005F_x0020_Gun_x005F_x0020_Collection_x005F_x0020_Database_x005F_x0020_UpdateSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
-</discovery>

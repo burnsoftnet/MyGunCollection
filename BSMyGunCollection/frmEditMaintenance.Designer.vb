@@ -3,7 +3,7 @@ Imports BSMyGunCollection.MGCDataSetTableAdapters
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmEditMaintenance
+Partial Class frmEditMaintenance
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -27,7 +27,7 @@ Partial Class FrmEditMaintenance
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmEditMaintenance))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditMaintenance))
         Me.chkInAVG = New CheckBox
         Me.Label7 = New Label
         Me.txtAmmoUsed = New TextBox
@@ -264,7 +264,7 @@ Partial Class FrmEditMaintenance
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmEditMaintenance"
+        Me.Name = "FrmEditMaintenance"
         Me.Text = "Edit Maintenance Details"
         CType(Me.NumericUpDown1, ISupportInitialize).EndInit()
         CType(Me.MaintancePlansBindingSource, ISupportInitialize).EndInit()

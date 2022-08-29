@@ -2,7 +2,7 @@
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddDocument
+Partial Class frmAddDocument
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddDocument
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddDocument))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddDocument))
         Me.btnAdd = New Button()
         Me.btnBrowse = New Button()
         Me.OpenFileDialog1 = New OpenFileDialog()
@@ -146,7 +146,7 @@ Partial Class FrmAddDocument
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddDocument"
+        Me.Name = "FrmAddDocument"
         Me.Text = "Add Document"
         Me.ResumeLayout(False)
         Me.PerformLayout()

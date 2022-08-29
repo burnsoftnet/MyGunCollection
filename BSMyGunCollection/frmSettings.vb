@@ -1,13 +1,14 @@
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
-Imports BurnSoft.Security.RegularEncryption.SHA
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
 ''' Class frmSettings.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmSettings
+Public Class frmSettings
     ''' <summary>
     ''' The record identifier
     ''' </summary>
@@ -16,6 +17,10 @@ Public Class FrmSettings
     ''' The first run
     ''' </summary>
     Dim _firstRun As Boolean
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String = ""
     ''' <summary>
     ''' Handles the Load event of the frmSettings control.
     ''' </summary>
@@ -35,8 +40,7 @@ Public Class FrmSettings
             End If
             _firstRun = False
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -60,8 +64,7 @@ Public Class FrmSettings
                 txtWord.Enabled = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "ChkPassword_CheckedChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ChkPassword_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -77,42 +80,28 @@ Public Class FrmSettings
     ''' </summary>
     Sub GetData()
         Try
-            Dim obj As New BSDatabase
-            Dim intUsePass As Integer
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT TOP 1 * from Owner_Info"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                rs.Read()
-                _recId = CInt(rs("ID"))
-                txtName.Text = Trim(rs("name"))
-                txtAddress.Text = Trim(One.Decrypt(rs("address")))
-                txtCity.Text = Trim(rs("City"))
-                txtState.Text = Trim(rs("State"))
-                txtZip.Text = Trim(rs("Zip"))
-                txtPhone.Text = Trim(rs("Phone"))
-                txtCCD.Text = Trim(One.Decrypt(rs("CCDWL")))
-                intUsePass = CInt(rs("UsePWD"))
-                If intUsePass = 1 Then
-                    txtPWD.Text = Trim(One.Decrypt(rs("PWD")))
-                    txtCPWD.Text = Trim(txtPWD.Text)
-                    ChkPassword.Checked = True
-                    txtLogin.Text = Trim(One.Decrypt(rs("UID")))
-                    txtPhrase.Text = Trim(One.Decrypt(rs("forgot_phrase")))
-                    txtWord.Text = Trim(One.Decrypt(rs("forgot_word")))
-                Else
-                    ChkPassword.Checked = False
+            Dim lst as List(Of OwnerInfo) = OwnerInformation.GetOwnerInfo(DatabasePath, _errOut)
+            If _errOut.Length > 0 then Throw New Exception(_errOut)
+            For Each o As OwnerInfo In lst
+                _recId = o.Id
+                txtName.Text = o.Name
+                txtAddress.Text = o.Address
+                txtCity.Text = o.City
+                txtState.Text = o.State
+                txtZip.Text = o.ZipCode
+                txtPhone.Text = o.Phone
+                txtCCD.Text = o.Ccdwl
+                ChkPassword.Checked = o.UsePassword
+                If o.UsePassword Then
+                    txtPWD.Text = o.Password
+                    txtCPWD.Text = txtPWD.Text
+                    txtLogin.Text = o.UserName
+                    txtPhrase.Text = o.ForgotPhrase
+                    txtWord.Text = o.ForgotWord
                 End If
-            Else
-                _recId = 0
-            End If
-            rs.Close()
-            obj.CloseDB()
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "GetData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -120,11 +109,11 @@ Public Class FrmSettings
     ''' </summary>
     Private Sub GetRegData()
         Try
-            Dim objR As New BSRegistry
-            Call objR.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
+            MyRegistry.GetSettings(lblLastSuc.Text, chkAOBU.Checked, nudDays.Value, chkBAKCleanup.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+        
         Catch ex As Exception
-            Dim sSubFunc As String = "GetRegData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetRegData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -133,8 +122,8 @@ Public Class FrmSettings
     ''' <returns>System.Int32.</returns>
     Function SaveData() As Integer
         Try
-            Dim objR As New BSRegistry
-            objR.SaveSettings("0000", chkBAKCleanup.Checked, nudDays.Value, False, False, chkAOBU.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked)
+            If Not MyRegistry.SaveSettings("0000", chkBAKCleanup.Checked, Convert.ToInt32(nudDays.Value), False, chkAOBU.Checked, chkBackupOnExit.Checked, chkDoOriginalImage.Checked, chkPetLoads.Checked, chkIPer.Checked, chkNCCID.Checked, chkAAP.Checked, chkAACID.Checked, chkUnique.Checked, chkSelectiveBoundBook.Checked, _errOut) Then Throw New Exception(_errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             DoAutoBackup = chkBackupOnExit.Checked
             DoOriginalImage = chkDoOriginalImage.Checked
             UsePetLoads = chkPetLoads.Checked
@@ -145,63 +134,52 @@ Public Class FrmSettings
             Disableuniquecustcatid = chkUnique.Checked
             Useselectiveboundbook = chkSelectiveBoundBook.Checked
             Dim strName As String = FluffContent(txtName.Text)
-            Dim strAddress As String = One.Encrypt(FluffContent(txtAddress.Text))
+            Dim strAddress As String = FluffContent(txtAddress.Text)
             Dim strCity As String = FluffContent(txtCity.Text)
             Dim strState As String = FluffContent(txtState.Text)
             Dim strZipCode As String = FluffContent(txtZip.Text)
             Dim strPhone As String = FluffContent(txtPhone.Text)
-            Dim strCcd As String = One.Encrypt(FluffContent(txtCCD.Text))
-            Dim strPwd As String = One.Encrypt(FluffContent(txtPWD.Text))
-            Dim strCpwd As String = One.Encrypt(FluffContent(txtCPWD.Text))
-            Dim strPhrase As String = One.Encrypt(FluffContent(txtPhrase.Text))
-            Dim strWord As String = One.Encrypt(FluffContent(txtWord.Text))
+            Dim strCcd As String = FluffContent(txtCCD.Text)
+            Dim strPwd As String = FluffContent(txtPWD.Text)
+            Dim strCpwd As String = FluffContent(txtCPWD.Text)
+            Dim strPhrase As String = FluffContent(txtPhrase.Text)
+            Dim strWord As String = FluffContent(txtWord.Text)
             Dim strUid As String = txtLogin.Text
             OwnerLic = txtCCD.Text
             If Len(strUid) = 0 Then strUid = "admin"
-            strUid = One.Encrypt(FluffContent(strUid))
-            Dim bUsePassword As Boolean = ChkPassword.Checked
-            Dim iUsePassword As Integer = 0
-' ReSharper disable VbUnreachableCode
-            If Not IsRequired(strName, "Name", Text) Then Return 1 : Exit Function
+            strUid = FluffContent(strUid)
+
+' ReSharper disable once VbUnreachableCode
+            If Not Helpers.IsRequired(strName, "Name", Text, _errOut) Then Return 1 : Exit Function
             If ChkPassword.Checked Then
-                If Not IsRequired(txtLogin.Text, "User Name", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtPWD.Text, "Password", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtPhrase.Text, "Forgot Phrase", Text) Then Return 1 : Exit Function
-                If Not IsRequired(txtWord.Text, "Forgot Key Word", Text) Then Return 1 : Exit Function
+' ReSharper disable once VbUnreachableCode
+                If Not Helpers.IsRequired(txtLogin.Text, "User Name", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable once VbUnreachableCode
+                If Not Helpers.IsRequired(txtPWD.Text, "Password", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable once VbUnreachableCode
+                If Not Helpers.IsRequired(txtPhrase.Text, "Forgot Phrase", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper disable VbUnreachableCode
+                If Not Helpers.IsRequired(txtWord.Text, "Forgot Key Word", Text, _errOut) Then Return 1 : Exit Function
+' ReSharper restore VbUnreachableCode
             End If
-            If bUsePassword Then
+            If ChkPassword.Checked Then
                 If InStr(strPwd, strCpwd, CompareMethod.Text) = 0 Then
                     MsgBox("Passwords do not match!", MsgBoxStyle.Critical, Text)
                     Return 1
+' ReSharper disable once VbUnreachableCode
                     Exit Function
                 End If
             End If
-            ' ReSharper restore VbUnreachableCode
-            If bUsePassword Then iUsePassword = 1
-            Dim obj As New BSDatabase
-            Dim sql As String
-            If _recId = 0 Then
-                sql = "INSERT INTO Owner_Info(name,address,City,State,Zip,Phone,CCDWL,UsePWD,PWD,UID,forgot_word,forgot_phrase,sync_lastupdate) VALUES('" &
-                            strName & "','" & strAddress & "','" & strCity & "','" & strState & "','" & strZipCode & "','" &
-                            strPhone & "','" & strCcd & "'," & iUsePassword & ",'" & strPwd & "','" & strUid & "','" &
-                            strWord & "','" & strPhrase & "',Now())"
-            Else
-                sql = "UPDATE Owner_Info set Name='" & strName & "',address='" & strAddress & "',City='" &
-                        strCity & "',Zip='" & strZipCode & "',State='" & strState & "',Phone='" & strPhone & "',CCDWL='" & strCcd &
-                        "',UsePWD=" & iUsePassword & ",PWD='" & strPwd & "', UID='" & strUid & "', forgot_word='" &
-                        strWord & "', forgot_phrase='" & strPhrase & "',sync_lastupdate=Now() where ID=" & _recId
-            End If
-            obj.ConnExec(sql)
-            Dim objGf As New GlobalFunctions
+            If Not OwnerInformation.Update(DatabasePath, _recId, strName, strAddress, strCity , strState, strZipCode, strPhone, strCcd, ChkPassword.Checked, strPwd, strUid, strWord, strPhrase, _errOut) Then Throw New Exception(_errOut)
+            
             If UseNumberCatOnly Then
-                Call objGf.SetCatalogType("num")
+                If Not MyCollection.SetCatalogType(DatabasePath, MyCollection.CatalogType.Numeric, _errOut) Then Throw New Exception(_errOut)
             Else
-                Call objGf.SetCatalogType("let")
+                If Not MyCollection.SetCatalogType(DatabasePath, MyCollection.CatalogType.Text, _errOut) Then Throw New Exception(_errOut)
             End If
             Return 0
         Catch ex As Exception
-            Dim sSubFunc As String = "SaveData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "SaveData", Err.Number, ex.Message.ToString)
         End Try
     End Function
     ''' <summary>
@@ -230,12 +208,11 @@ Public Class FrmSettings
     Private Sub chkNCCID_CheckedChanged(ByVal sender As Object, ByVal e As EventArgs) Handles chkNCCID.CheckedChanged
         If Not _firstRun Then
             If chkNCCID.Checked Then
-                Dim objGf As New GlobalFunctions
-                If Not objGf.CatalogIsNumeric Then
+                If Not MyCollection.CatalogIsNumeric(DatabasePath, _errOut)
                     MsgBox("There are non-numeric numbers currently in the catalog!")
                     Dim sAns As String = MsgBox("Do you want to set new Numeric values for the Catalog ID?", MsgBoxStyle.YesNo)
                     If sAns = vbYes Then
-                        Call objGf.SetCatalogValuesToNumeric()
+                        If not MyCollection.SetCatalogValuesToNumeric(DatabasePath, _errOut) Then Throw New Exception(_errOut)
                         MsgBox("Remember to click on the Save button to apply these settings!")
                     Else
                         chkNCCID.Checked = False

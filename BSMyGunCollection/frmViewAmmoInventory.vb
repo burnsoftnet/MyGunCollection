@@ -1,16 +1,20 @@
 Imports System.ComponentModel
-Imports BSMyGunCollection.MGC
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
 ''' <summary>
 ''' Class frmViewAmmoInventory. Form to view ammo inventory
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewAmmoInventory
+Public Class frmViewAmmoInventory
     ''' <summary>
     ''' The update pending
     ''' </summary>
     Public UpdatePending As Boolean
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 
     ''' <summary>
     ''' Handles the Disposed event of the frmViewAmmoInventory control.
@@ -43,18 +47,20 @@ Public Class FrmViewAmmoInventory
             End If
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
-        Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
-        Dim objGf As New GlobalFunctions
-' ReSharper disable once LocalizableElement
-        tslAmmoTotal.Text = "Total Rounds in Inventory: " & objGf.GetTotalAmmoInventory
+        Try
+            Gun_Collection_AmmoTableAdapter.Fill(MGCDataSet.Gun_Collection_Ammo)
+            tslAmmoTotal.Text = $"Total Rounds in Inventory: " & Inventory.GetTotalInventory(DatabasePath, _errOut)
+            if _errOut.Length > 0 Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Resize event of the frmViewAmmoInventory control.
@@ -68,8 +74,7 @@ Public Class FrmViewAmmoInventory
                 DataGridView1.Width = Width - 19
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "Resize"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Resize", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -84,8 +89,7 @@ Public Class FrmViewAmmoInventory
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView1_RowValidated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView1_RowValidated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -100,8 +104,7 @@ Public Class FrmViewAmmoInventory
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunCollectionAmmoBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunCollectionAmmoBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -125,8 +128,7 @@ Public Class FrmViewAmmoInventory
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton1_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton1_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -157,8 +159,7 @@ Public Class FrmViewAmmoInventory
             DataGridView1.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton3_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton3_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -167,7 +168,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton4.Click
-        Dim frmNew As New frmAddCollectionAmmo
+        Dim frmNew As New FrmAddCollectionAmmo
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -178,7 +179,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Try
-            Dim frmNew As New frmAddAmmoAudit
+            Dim frmNew As New FrmAddAmmoAudit
             Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
             DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView1.Rows(rowId).Selected = True
@@ -188,8 +189,7 @@ Public Class FrmViewAmmoInventory
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton5_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "ToolStripButton5_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -198,7 +198,7 @@ Public Class FrmViewAmmoInventory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
-        Dim frmNew As New frmViewAmmoAuditList
+        Dim frmNew As New FrmViewAmmoAuditList
         Dim rowId As Long = DataGridView1.SelectedCells.Item(0).RowIndex
         DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Rows(rowId).Selected = True

@@ -1,19 +1,22 @@
 Imports System.ComponentModel
 Imports System.IO
-Imports System.Data.Odbc
-Imports BSMyGunCollection.MGC
-Imports BurnSoft.Universal
+Imports BSMyGunCollection.LogginAndSettings
+Imports BurnSoft.Applications.MGC.Ammo
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.PeopleAndPlaces
+Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
 ''' Class frmViewCollectionDetails.  Main form to view the firearm details
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmViewCollectionDetails
+Public Class frmViewCollectionDetails
     ''' <summary>
-    ''' The item identifier
+    ''' The Gun Collection identifier
     ''' </summary>
-    Public ItemId As String
+    Public GunId As String
     ''' <summary>
     ''' The shop identifier
     ''' </summary>
@@ -23,7 +26,7 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public UpdatePending As Boolean
     ''' <summary>
-    ''' The update pedning ass
+    ''' The update pending ass
     ''' </summary>
     Public UpdatePedningAss As Boolean
     ''' <summary>
@@ -39,11 +42,11 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Public SellerId As String
     ''' <summary>
-    ''' The bs hasmultibarrels
+    ''' The bs has multi barrels
     ''' </summary>
     Public BsHasmultibarrels As Boolean
     ''' <summary>
-    ''' The bs defaultbarrelsystemid
+    ''' The bs default barrel system id
     ''' </summary>
     Public BsDefaultbarrelsystemid As Long
     ''' <summary>
@@ -58,6 +61,10 @@ Public Class FrmViewCollectionDetails
     ''' The has documents
     ''' </summary>
     Public HasDocuments As Boolean
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String
 #Region " General Form Subs "
     ''' <summary>
     ''' Handles the Disposed event of the frmViewCollectionDetails control. Save the form size to the config file so that it will be the same size when the user opens it back up
@@ -69,8 +76,7 @@ Public Class FrmViewCollectionDetails
             Dim objS As New ViewSizeSettings
             objS.SaveViewCollectionDetails(Height, Width, Location.X, Location.Y)
         Catch ex As Exception
-            Dim sSubFunc As String = "frmViewCollectionDetails_Disposed"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmViewCollectionDetails_Disposed", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -84,8 +90,8 @@ Public Class FrmViewCollectionDetails
             objS.LoadViewCollectionDetails(Height, Width, Location)
             Label42.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
-            Lastviewedfirearm = ItemId
-            If Len(ItemId) <> 0 Then
+            Lastviewedfirearm = GunId
+            If Len(GunId) <> 0 Then
                 Call LoadData()
                 If IsSold Or IsStolen Then
                     btnSold.Visible = False
@@ -108,8 +114,7 @@ Public Class FrmViewCollectionDetails
                 Close()
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "frmViewCollectionDetails_Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "frmViewCollectionDetails_Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -122,7 +127,7 @@ Public Class FrmViewCollectionDetails
         Return bAns
     End Function
     ''' <summary>
-    ''' Forms the set tab contol. Set the size of the tab control 
+    ''' Forms the set tab control. Set the size of the tab control 
     ''' </summary>
     ''' <param name="tabContentsAvgHeight">Average height of the tab contents.</param>
     ''' <param name="tabContentsAvgWidth">Average width of the tab contents.</param>
@@ -155,7 +160,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format accessories. set the size and form of the accessories tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatAccessories(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -173,7 +178,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format ammo. format the size and format of the Ammunition Tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatAmmo(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -187,7 +192,7 @@ Public Class FrmViewCollectionDetails
     ''' <summary>
     ''' Forms the format maintenance. format the size and format of the Maintenance Tab
     ''' </summary>
-    ''' <param name="defaultLabellocation">The default labellocation.</param>
+    ''' <param name="defaultLabellocation">The default label location.</param>
     Private Sub Form_FormatMaintenance(defaultLabellocation As Long)
         Dim newY As Integer 
         Dim oldX As Integer 
@@ -258,10 +263,10 @@ Public Class FrmViewCollectionDetails
     Private Sub ListView1_DoubleClick(ByVal sender As Object, ByVal e As EventArgs) Handles ListView1.DoubleClick
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmViewPicture
+        Dim frmNew As New FrmViewPicture
         frmNew.MdiParent = MdiParent
         frmNew.MyId = CLng(myText)
-        frmNew.GroupId = CLng(ItemId)
+        frmNew.GroupId = CLng(GunId)
         frmNew.Show()
     End Sub
 
@@ -273,7 +278,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage4_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage4.Enter
-        Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, ItemId)
+        Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, GunId)
     End Sub
     ''' <summary>
     ''' Handles the Click event of the mnuPicItem_Show control.
@@ -283,7 +288,7 @@ Public Class FrmViewCollectionDetails
     Private Sub mnuPicItem_Show_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnuPicItem_Show.Click
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmViewPicture
+        Dim frmNew As New FrmViewPicture
         frmNew.MdiParent = MdiParent
         frmNew.MyId = CLng(myText)
         frmNew.Show()
@@ -294,15 +299,17 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub mnuPicItem_Delete_Click(ByVal sender As Object, ByVal e As EventArgs) Handles mnuPicItem_Delete.Click
-        Dim msgAns As String = MsgBox("Are you sure you want to delete this picture?", MsgBoxStyle.YesNo, "Delete Picture")
-        If msgAns = vbYes Then
-            Dim myIndex As String = ListView1.FocusedItem.Index
-            Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-            Dim sql As String = "DELETE from Gun_Collection_Pictures where ID=" & myText
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
-            Call GetPics()
-        End If
+        Try 
+            Dim msgAns As String = MsgBox("Are you sure you want to delete this picture?", MsgBoxStyle.YesNo, "Delete Picture")
+            If msgAns = vbYes Then
+                Dim myIndex As String = ListView1.FocusedItem.Index
+                Dim myText As String = ListView1.Items(CInt(myIndex)).Text
+                If Not Pictures.Delete(DatabasePath, Convert.ToInt32(myText), _errOut) Then Throw New Exception(_errOut)
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "mnuPicItem_Delete_Click", Err.Number, ex.Message.ToString)
+        End Try
+        Call GetPics()
     End Sub
     ''' <summary>
     ''' Handles the Click event of the txtPurchasedFrom control.
@@ -331,7 +338,7 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub TabPage8_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage8.Enter
         Try
-            GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, ItemId)
+            GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
         Catch ex As Exception
             Dim sSubFunc As String = "TabPage8.Enter.Gunsmith.Details"
             Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
@@ -340,14 +347,14 @@ Public Class FrmViewCollectionDetails
 #End Region
 #Region " Button Subs "
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
-        frmAddPicture.ItemId = ItemId
+        frmAddPicture.ItemId = GunId
         frmAddPicture.MdiParent = MdiParent
         frmAddPicture.Show()
     End Sub
     Private Sub btnAddAccess_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAccess.Click
-        Dim frmNew As New frmAddAccessory
+        Dim frmNew As New FrmAddAccessory
         frmNew.MdiParent = MdiParent
-        frmNew.ItemId = ItemId
+        frmNew.ItemId = GunId
         frmNew.IsShotGun = IsShotGun
         frmNew.Show()
     End Sub
@@ -355,18 +362,18 @@ Public Class FrmViewCollectionDetails
         Close()
     End Sub
     Private Sub btnRefresh_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefresh.Click
-        Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, ItemId)
+        Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, GunId)
         Call LoadAddAccessories()
     End Sub
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
-        Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemId = ItemId
+        Dim frmNew As New FrmEditCollectionDetails
+        frmNew.ItemId = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
     End Sub
     Private Sub btnAddAmmo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAmmo.Click
-        Dim frmNew As New frmAddCollectionAmmo
+        Dim frmNew As New FrmAddCollectionAmmo
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -378,7 +385,7 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub btnAddMain_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddMain.Click
         frmAddMaintance.MdiParent = MdiParent
-        frmAddMaintance.Gid = ItemId
+        frmAddMaintance.Gid = GunId
         frmAddMaintance.Bsid = BsDefaultbarrelsystemid
         frmAddMaintance.AmmoType = txtCal.Text
         frmAddMaintance.AmmoTypePet = txtPetLoads.Text
@@ -390,80 +397,54 @@ Public Class FrmViewCollectionDetails
     End Sub
     Private Sub btnGSLog_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSLog.Click
         frmAddGunSmithLog.MdiParent = MdiParent
-        frmAddGunSmithLog.Gid = ItemId
+        frmAddGunSmithLog.Gid = GunId
         frmAddGunSmithLog.Show()
     End Sub
     Private Sub btnGSReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSReport.Click
         Cursor = Cursors.WaitCursor
         frmViewReport_GunSmith.MdiParent = MdiParent
-        frmViewReport_GunSmith.Gid = ItemId
+        frmViewReport_GunSmith.Gid = GunId
         frmViewReport_GunSmith.Title = Text
         frmViewReport_GunSmith.Show()
         Cursor = Cursors.Arrow
     End Sub
     Private Sub btnRefreshGS_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshGS.Click
-        GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, ItemId)
+        GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
     End Sub
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Cursor = Cursors.WaitCursor
-        Dim newForm As New FrmViewReportMaintenance
+        Dim newForm As New frmViewReport_Maintenance
         newForm.MdiParent = MdiParent
-        newForm.MyGid = ItemId
+        newForm.MyGid = GunId
         newForm.Title = Text
         newForm.Show()
         Cursor = Cursors.Arrow
     End Sub
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFlyer.Click
-        Dim frmNew As New frmForSale
+        Dim frmNew As New FrmForSale
         frmNew.MdiParent = MdiParent
-        frmNew.MyId = ItemId
+        frmNew.MyId = GunId
         frmNew.Show()
     End Sub
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
-        Dim frmNew As New frmSold
+        Dim frmNew As New FrmSold
         frmNew.MdiParent = MdiParent
-        frmNew.ItemId = ItemId
+        frmNew.ItemId = GunId
         frmNew.Show()
         Close()
     End Sub
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
-        Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
-        If meAns = vbYes Then
-            Dim obj As New BSDatabase
-            Dim uSql As String = "UPDATE Gun_Collection set ItemSold=0,BID=2,dtSold=NULL where ID=" & ItemId
-            obj.ConnExec(uSql)
-            MDIParent1.RefreshCollection()
-            Close()
-        End If
-    End Sub
-#End Region
-#Region " General Functions "
-    ''' <summary>
-    ''' Counts the pics. Count the number of pictures that is attached to this firearm.
-    ''' </summary>
-    ''' <returns>System.Int64.</returns>
-    Function CountPics() As Long
-        Dim obj As New BSDatabase
-        Dim iAns As Long = 0
         Try
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT Count(*) as Total from Gun_Collection_Pictures where CID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    iAns = rs("Total")
-                End While
+            Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
+            If meAns = vbYes Then
+                If Not MyCollection.UnMarkAsStolenOrSold(DatabasePath, GunId, _errOut) Then Throw New Exception(_errOut)
+                MDIParent1.RefreshCollection()
+                Close()
             End If
-            rs.Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "CountPics"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnUnDoSale_Click", Err.Number, ex.Message.ToString)
         End Try
-        Return iAns
-    End Function
-
+    End Sub
 #End Region
 #Region " General Subs "
     ''' <summary>
@@ -471,21 +452,21 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadAmmoData()
         Try
-            Dim obj As New GlobalFunctions
-
             If Len(txtPetLoads.Text) = 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillBy(MGCDataSet.Gun_Collection_Ammo, txtCal.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) = 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text, txtPetLoads.Text)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             ElseIf Len(txtPetLoads.Text) > 0 And Len(txtCaliber3.Text) > 0 Then
                 Gun_Collection_AmmoTableAdapter.FillByCal_wPet3(MGCDataSet.Gun_Collection_Ammo, txtCal.Text, txtPetLoads.Text, txtCaliber3.Text)
-                lblAmmoTotal.Text = obj.TotalAmmoSelected(txtCal.Text, txtPetLoads.Text, txtCaliber3.Text)
+                lblAmmoTotal.Text = Inventory.TotalAmmoSelected(DatabasePath,txtCal.Text,txtPetLoads.Text,txtCaliber3.Text, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadAmmoData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadAmmoData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -493,62 +474,63 @@ Public Class FrmViewCollectionDetails
     ''' the total rounds fired count base on the count from the barrel vs the count form the receiver
     ''' </summary>
     Sub LoadMaintData()
-        Dim obj As New GlobalFunctions
-        If Not BsHasmultibarrels Then
-            Maintance_DetailsTableAdapter.FillBy(MGCDataSet.Maintance_Details, ItemId)
-            Label50.Visible = False
-            lblTotalFirearm.Visible = False
-            lblTotalRndsFired.Text = obj.TotalRoundsFired(ItemId)
-            lblAvgRndsFired.Text = obj.AverageRoundsFired(ItemId)
-        Else
-            Maintance_DetailsTableAdapter.FillBy_BSID(MGCDataSet.Maintance_Details, ItemId, BsDefaultbarrelsystemid)
-            Label50.Visible = True
-            lblTotalFirearm.Visible = True
-            lblTotalFirearm.Text = obj.TotalRoundsFired(ItemId)
-            lblTotalRndsFired.Text = obj.TotalRoundsFiredBS(BsDefaultbarrelsystemid)
-            lblAvgRndsFired.Text = obj.AverageRoundsFiredBS(BsDefaultbarrelsystemid)
-        End If
+        Try
+            If Not BsHasmultibarrels Then
+                Maintance_DetailsTableAdapter.FillBy(MGCDataSet.Maintance_Details, GunId)
+                Label50.Visible = False
+                lblTotalFirearm.Visible = False
+                lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
+                lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFired(DatabasePath, GunId, _errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
+            Else
+                Maintance_DetailsTableAdapter.FillBy_BSID(MGCDataSet.Maintance_Details, GunId, BsDefaultbarrelsystemid)
+                Label50.Visible = True
+                lblTotalFirearm.Visible = True
+
+                lblTotalFirearm.Text = MaintanceDetails.TotalRoundsFired(DatabasePath, GunId, _errOut)  
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
+                lblTotalRndsFired.Text = MaintanceDetails.TotalRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
+                lblAvgRndsFired.Text = MaintanceDetails.AverageRoundsFiredBs(DatabasePath, BsDefaultbarrelsystemid, _errOut)
+                If _errOut.Length > 0 And Not _errOut.Equals("Object cannot be cast from DBNull to other types") Then Throw New Exception(_errOut)
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "LoadMaintData", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     'Populate the selling information in the disposition tab.
     Sub LoadSellerData()
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection_SoldTo where ID=" & SellerId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            While rs.Read
-                If Not IsDBNull(rs("Name")) Then txtName.Text = rs("Name")
-                If Not IsDBNull(rs("Address1")) Then txtAddress1.Text = rs("Address1")
-                If Not IsDBNull(rs("Address2")) Then txtAddress2.Text = rs("Address2")
-                If Not IsDBNull(rs("City")) Then txtCity.Text = rs("City")
-                If Not IsDBNull(rs("ZipCode")) Then txtZip.Text = rs("ZipCode")
-                If Not IsDBNull(rs("State")) Then txtState.Text = rs("State")
-                If Not IsDBNull(rs("Phone")) Then txtPhone.Text = rs("Phone")
-                If Not IsDBNull(rs("Country")) Then txtCountry.Text = rs("Country")
-                If Not IsDBNull(rs("Fax")) Then txtFax.Text = rs("Fax")
-                If Not IsDBNull(rs("eMail")) Then txteMail.Text = rs("eMail")
-                If Not IsDBNull(rs("WebSite")) Then txtWebSite.Text = rs("WebSite")
-                If Not IsDBNull(rs("Lic")) Then txtLic.Text = rs("Lic")
-                If Not IsDBNull(rs("DLic")) Then txtDLic.Text = rs("DLic")
-                If Not IsDBNull(rs("DOB")) Then txtDOB.Text = rs("DOB")
-                If Not IsDBNull(rs("ResiDent")) Then txtRes.Text = rs("ResiDent")
-            End While
-            rs.Close()
-            obj.CloseDB()
+            Dim lst as List (Of BuyersList) = Buyers.Get(DatabasePath,Convert.ToInt32(SellerId), _errOut )
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each l As BuyersList In lst
+                txtName.Text = l.Name
+                txtAddress1.Text = l.Address1
+                txtAddress2.Text = l.Address2
+                txtCity.Text = l.City
+                txtZip.Text = l.ZipCode
+                txtState.Text = l.State
+                txtPhone.Text = l.Phone
+                txtCountry.Text = l.Country
+                txtFax.Text = l.Fax
+                txteMail.Text = l.Email
+                txtWebSite.Text = l.WebSite
+                txtLic.Text = l.Lic
+                txtDLic.Text = l.Dlic
+                txtDOB.Text = l.Dob
+                txtRes.Text = l.Resident
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "LoadSellerData"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadSellerData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
     ''' Loads the add accessories. Load the Accessories and total up the cost of the accessories and the total appriased value
     ''' </summary>
     Sub LoadAddAccessories()
-        Dim objGf As New GlobalFunctions
-        lblTPV.Text = objGf.AddPurchasePriceAccessories(ItemId)
-        lblTAV.Text = objGf.AddAppriasedPriceAccessories(ItemId)
+        lblTPV.Text = Accessories.SumUpPurchaseValue(DatabasePath, Convert.ToInt32(GunId), _errOut)
+        lblTAV.Text = Accessories.SumUpAppriaseValue(DatabasePath, Convert.ToInt32(GunId), _errOut)
     End Sub
     ''' <summary>
     ''' Adds the choke option.  When a shotgun is selected, add the ability to put in what choke is in the firearm
@@ -598,161 +580,122 @@ Public Class FrmViewCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim obj As New BSDatabase
-            Dim objGf As New GlobalFunctions
-            Dim objDf As New BSDateTime
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection where ID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
             Call LoadAddAccessories()
 
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
-            BsHasmultibarrels = objGf.HasMultiBarrelsListed(ItemId)
-            BsDefaultbarrelsystemid = objGf.GetDefaultBarrelID(ItemId)
+            BsHasmultibarrels = ExtraBarrelConvoKits.HasMultiBarrelsListed(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
+            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
+
             If Not BsHasmultibarrels Then
                 TabControl1.TabPages.Remove(TabPage10)
             Else
-                Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, ItemId)
+                Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, GunId)
                 DataGridView5.Columns(0).Visible = False
             End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
-            HasDocuments = objGf.HasDocumentsAttached(ItemId)
+            HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
+            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+
             If Not HasDocuments Then
                 TabControl1.TabPages.Remove(TabPage12)
             Else
-                Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, ItemId)
+                Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, GunId)
 
             End If
 
-            'Start populating the fields on the details for from the database
-            While rs.Read
-                Text = rs("fullname")
-                txtManu.Text = objGf.GetManufacturersName(rs("MID"))
-                txtModel.Text = rs("ModelName")
-                If Not IsDBNull(rs("SerialNumber")) Then txtSerial.Text = rs("SerialNumber")
-                If Not IsDBNull(rs("Type")) Then txtType.Text = rs("Type")
-                If Found(txtType.Text, "shotgun") Then IsShotGun = True
+            Dim lst as List(Of GunCollectionList) = MyCollection.GetList(DatabasePath, GunId, _errOut)
+            if _errOut.Length >0 Then Throw New Exception(_errOut)
+
+            For Each l As GunCollectionList In lst
+                Text = l.FullName
+                txtManu.Text = l.Manufacturer
+                txtModel.Text  = l.ModelName
+                txtSerial.Text = l.SerialNumber
+                txtType.Text = l.Type
+                IsShotGun = l.IsShotGun
                 If IsShotGun Then
-                    If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
+                    txtChoke.Text = l.ShotGunChoke
                     Call AddChokeOption()
                 End If
-                If Not IsDBNull(rs("Caliber")) Then txtCal.Text = rs("Caliber")
-                If Not IsDBNull(rs("Finish")) Then txtFinish.Text = rs("Finish")
-                If Not IsDBNull(rs("Condition")) Then txtCondition.Text = rs("Condition")
-                If Not IsDBNull(rs("Petloads")) Then txtPetLoads.Text = rs("Petloads")
-                txtNationality.Text = objGf.GetNationalityName(rs("NatID"))
-                If Not IsDBNull(rs("Weight")) Then txtWeight.Text = rs("Weight")
-                If Not IsDBNull(rs("Height")) Then txtLength.Text = rs("Height")
-                If Not IsDBNull(rs("BarrelLength")) Then txtBarLen.Text = rs("BarrelLength")
-                If Not IsDBNull(rs("BarrelWidth")) Then txtBarWid.Text = rs("BarrelWidth")
-                If Not IsDBNull(rs("BarrelHeight")) Then txtBarHei.Text = rs("BarrelHeight")
-                If Not IsDBNull(rs("CustomID")) Then txtCustCatID.Text = rs("CustomID")
-                txtGripType.Text = objGf.GetGripName(rs("GripID"))
-                If Not IsDBNull(rs("Produced")) Then txtProduced.Text = rs("Produced")
-                If Not IsDBNull(rs("Action")) Then txtAction.Text = rs("Action")
-                If Not IsDBNull(rs("Feedsystem")) Then txtFeed.Text = rs("Feedsystem")
-                If Not IsDBNull(rs("Sights")) Then txtSights.Text = rs("Sights")
-                If Not IsDBNull(rs("StorageLocation")) Then txtStorage.Text = rs("StorageLocation")
-                If Not IsDBNull(rs("PurchasedFrom")) Then txtPurchasedFrom.Text = rs("PurchasedFrom")
-                If Not IsDBNull(rs("PurchasedPrice")) Then txtPurPrice.Text = rs("PurchasedPrice")
-                If Not IsDBNull(rs("Importer")) Then txtImporter.Text = Trim(rs("Importer"))
-                If Not IsDBNull(rs("SGChoke")) Then txtChoke.Text = Trim(rs("SGChoke"))
+                txtCal.Text = l.Caliber
+                txtFinish.Text = l.Finish
+                txtCondition.Text = l.Condition
+                txtPetLoads.Text = l.PetLoads
+                txtNationality.Text = l.Nationality
+                txtWeight.Text = l.Weight
+                txtLength.Text = l.Height
+                txtBarLen.Text = l.BarrelLength
+                txtBarWid.Text = l.BarrelWidth
+                txtBarHei.Text = l.BarrelHeight
+                txtCustCatID.Text = l.CustomId
+                txtGripType.Text = l.GripType
+                txtProduced.Text = l.DateProduced
+                txtAction.Text = l.Action
+                txtFeed.Text = l.FeedSystem
+                txtSights.Text = l.Sights
+                txtStorage.Text = l.StorageLocation
+                txtPurchasedFrom.Text = l.PurchaseFrom
+                txtPurPrice.Text = l.PurchasePrice
+                txtImporter.Text = l.Importer
+                txtChoke.Text =l.ShotGunChoke
+                chkBoundBook.Checked = l.IsInBoundBook
+                txtTwistOfRate.Text = l.TwistRate
+                txtTriggerPull.Text = l.TriggerPullInPounds
+                txtCaliber3.Text = l.Caliber3
+                txtClassification.Text = l.Classification
 
-
-                If Not IsDBNull(rs("IsInBoundBook")) Then
-                    If CInt(rs("IsInBoundBook")) = 0 Then
-                        chkBoundBook.Checked = False
-                    Else
-                        chkBoundBook.Checked = True
-                    End If
-                Else
-                    chkBoundBook.Checked = True
-                End If
-
-                If Not IsDBNull(rs("TwistRate")) Then txtTwistOfRate.Text = Trim(rs("TwistRate"))
-                If Not IsDBNull(rs("lbs_trigger")) Then txtTriggerPull.Text = Trim(rs("lbs_trigger"))
-                If Not IsDBNull(rs("Caliber3")) Then txtCaliber3.Text = Trim(rs("Caliber3"))
-                If Not IsDBNull(rs("Classification")) Then txtClassification.Text = Trim(rs("Classification"))
-
-                'Date of C & R
-                If Not IsDBNull(rs("DateofCR")) Then
+                If l.DateOfCAndR.Length > 0 Then
                     dtpDateofCR.Checked = True
-                    dtpDateofCR.Value = objDf.FormatDate(rs("DateofCR"))
+                    dtpDateofCR.Value = l.DateOfCAndR
                     dtpDateofCR.Enabled = True
                 End If
                 dtpDateofCR.Enabled = False
 
-                Dim iClassIii As Integer = 0
-                If Not IsDBNull(rs("IsClassIII")) Then iClassIii = rs("IsClassIII")
-                If Not IsDBNull(rs("ClassIII_owner")) Then txtClassIIIOwner.Text = rs("ClassIII_owner")
-                If iClassIii = 0 Then
-                    chkClassIII.Checked = False
-                Else
-                    chkClassIII.Checked = True
-                End If
+                chkClassIII.Checked = l.IsClass3Item
+                chkBoxCR.Checked = l.IsCAndR
 
-                If Not IsDBNull(rs("IsCandR")) Then
-                    If CInt(rs("IsCandR")) = 0 Then
-                        chkBoxCR.Checked = False
-                    Else
-                        chkBoxCR.Checked = True
-                    End If
-                Else
-                    chkBoxCR.Checked = False
-                End If
-                If Not IsDBNull(rs("POI")) Then txtPOI.Text = Trim(rs("poi"))
-
-                If Not IsDBNull(rs("ReManDT")) Then
+                if l.RemanufactureDate.Length > 0 Then
                     dtpReManDT.Checked = True
-                    dtpReManDT.Value = rs("ReManDT")
+                    dtpReManDT.Value = l.RemanufactureDate
                     dtpReManDT.Enabled = True
                 End If
                 dtpReManDT.Enabled = False
 
-                If Not IsDBNull(rs("dtp")) Then
+                If l.DateTimeAdded.Length > 0 Then
                     dtpPurchased.Checked = False
-                    dtpPurchased.Value = rs("dtp")
+                    dtpPurchased.Value = l.DateTimeAdded
                     dtpPurchased.Enabled = False
-                Else
+                Else 
                     dtpPurchased.Checked = False
-                    dtpPurchased.Value = rs("dt")
+                    dtpPurchased.Value = l.DateTimeAddedInDb
                     dtpPurchased.Enabled = False
-                End If
-                If Not IsDBNull(rs("AppraisedValue")) Then txtAppValue.Text = rs("AppraisedValue")
-                ShopId = rs("SID")
-                If Len(Trim(rs("AppraisalDate"))) <> 0 Then
-                    dtpAppDate.Checked = True
-                    dtpAppDate.Value = rs("AppraisalDate")
-                    dtpAppDate.Enabled = False
-                End If
-                If Not IsDBNull(rs("AppraisedBy")) Then txtAppBy.Text = rs("AppraisedBy")
-                If Not IsDBNull(rs("InsuredValue")) Then txtInsVal.Text = rs("InsuredValue")
-                If Not IsDBNull(rs("ConditionComments")) Then txtConCom.Text = rs("ConditionComments")
-                If Not IsDBNull(rs("AdditionalNotes")) Then txtAddNotes.Text = rs("AdditionalNotes")
-                If Not IsDBNull(rs("BID")) Then SellerId = rs("BID")
-' ReSharper disable LocalizableElement
-                If Not IsDBNull(rs("dtSold")) Then lblSold.Text = "on " & rs("dtSold")
-' ReSharper restore LocalizableElement
-                If CInt(rs("ItemSold")) = 1 Then
-                    IsSold = True
-                    IsStolen = False
-                ElseIf CInt(rs("ItemSold")) = 2 Then
-                    IsSold = False
-                    IsStolen = True
-                Else
-                    IsSold = False
-                    IsStolen = False
                 End If
 
-            End While
-            rs.Close()
-            obj.CloseDB()
+                txtAppValue.Text = l.AppriasedValue
+                ShopId = l.Sid
+                If l.AppraisalDate.Length > 0 Then
+                    dtpAppDate.Checked = True
+                    dtpAppDate.Value = l.AppraisalDate
+                    dtpAppDate.Enabled = False
+                End If
+
+                txtAppBy.Text = l.AppriasedBy
+                txtInsVal.Text = l.InsuredValue
+                txtConCom.Text = l.ConditionComments
+                txtAddNotes.Text = l.AdditionalNotes
+                SellerId = l.Bid
+                lblSold.Text = $"on {l.DateSold}"
+                IsSold = l.WasSold
+                IsStolen = l.WasStolen
+                chkNonLethal.Checked = l.IsNonLethal
+                chkIsCompeition.Checked = l.IsCompetition
+            Next
+
             Refresh()
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -762,29 +705,15 @@ Public Class FrmViewCollectionDetails
         Try
             ListView1.Clear()
             imgPics.Images.Clear()
-            Dim picCount As Long = CountPics()
-            Dim i As Long 
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT ID from Gun_Collection_Pictures where CID=" & ItemId '& " order by ID DESC"
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            Dim picId As Long
-            rs = cmd.ExecuteReader
-            ListView1.Clear()
-            If rs.HasRows Then
-                rs.Read()
-                For i = 1 To picCount
-                    picId = CLng(rs("ID"))
-                    GetPicsId(picId, i)
-                    rs.Read()
-                Next i
-            End If
-            obj.CloseDB()
-
+            Dim i As Long = 1
+            Dim lst as List(Of PictureDetails) = Pictures.GetList(DatabasePath, GunId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            For Each o As PictureDetails In lst
+                GetPicsId(o.Id, i)
+                i = i + 1
+            Next
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPics"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPics", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -794,28 +723,23 @@ Public Class FrmViewCollectionDetails
     ''' <param name="i">The i.</param>
     Sub GetPicsId(ByVal picId As Long, ByVal i As Long)
         Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT THUMB from Gun_Collection_Pictures where ID=" & picId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim b() As Byte = cmd.ExecuteScalar
+            Dim b() As Byte = Pictures.GetThumbnailPicture(DatabasePath, picId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
             If (b.Length > 0) Then
                 Dim stream As New MemoryStream(b, True)
                 stream.Write(b, 0, b.Length)
                 DrawToScale(New Bitmap(stream), i, picId)
                 stream.Close()
             End If
-            obj.CloseDB()
         Catch ex As Exception
-            Dim sSubFunc As String = "GetPicsID"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GetPicsID", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
     ''' Draws to scale.
     ''' </summary>
     ''' <param name="bmp">The BMP.</param>
-    ''' <param name="imgindex">The imgindex.</param>
+    ''' <param name="imgindex">The img index.</param>
     ''' <param name="imgId">The img identifier.</param>
     Private Sub DrawToScale(ByVal bmp As Image, ByVal imgindex As Integer, ByVal imgId As Long)
         PictureBox1.Image = New Bitmap(bmp)
@@ -898,8 +822,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePendingMaint = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView3_Validated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "DataGridView3_Validated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -913,8 +836,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePendingMaint = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "MaintanceDetailsBindingSource_ListChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "MaintanceDetailsBindingSource_ListChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -929,8 +851,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePending = False
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "DataGridView4_Validated"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DataGridView4_Validated", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -944,8 +865,7 @@ Public Class FrmViewCollectionDetails
                 UpdatePending = True
             End If
         Catch ex As Exception
-            Dim sSubFunc As String = "GunSmithDetailsBindingSource_CurrentChanged"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "GunSmithDetailsBindingSource_CurrentChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 #End Region
@@ -964,247 +884,15 @@ Public Class FrmViewCollectionDetails
             SaveFileDialog1.FileName = Replace(Replace(Replace(defaultFileName, " ", "_"), "/", "-"), "\", "-")
             If SaveFileDialog1.ShowDialog() = DialogResult.Cancel Then Exit Sub
             Dim strFilePath As String = SaveFileDialog1.FileName
-            Call XML_Generate(strFilePath)
-            Close()
+            Dim appVersion as String = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, _errOut))
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+
+            If Not XmlExport.Generate(DatabasePath, Convert.ToInt32(GunId), appVersion, strFilePath, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "ToolStripButton3_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name,  "ToolStripButton3_Click", Err.Number, ex.Message.ToString)
         End Try
+        Close()
     End Sub
-    ''' <summary>
-    ''' XMLs the generate.
-    ''' </summary>
-    ''' <param name="strPath">The string path.</param>
-    Sub XML_Generate(ByVal strPath As String)
-        Try
-            Dim sAns As String 
-            Dim nl As String = Chr(10) & Chr(13)
-            sAns = "<?xml version=""1.0"" encoding=""utf-8"" ?>"
-            sAns &= "<Firearm>" & nl
-            sAns &= "   <MGC>"
-            sAns &= "       <version>" & String.Format("Version {0}", Application.ProductVersion.ToString) & "</version>"
-            sAns &= "   </MGC>"
-            sAns &= XML_GenerateDetails()
-            sAns &= XML_GenerateAss()
-            sAns &= XML_GenerateMaint()
-            sAns &= XML_GenerateGSmith()
-            sAns &= XML_GenerateBarrelConversKit()
-            sAns &= "</Firearm>" & nl
-            sAns = Replace(sAns, "&", "&amp;")
-            Dim objFs As New BSFileSystem
-            objFs.OutPutToFile(strPath, sAns)
-            MsgBox("Firearm was exported to " & Chr(10) & strPath)
-        Catch ex As Exception
-            Dim sSubFunc As String = "XML_Generate"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-    End Sub
-    ''' <summary>
-    ''' XMLs the generate details.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateDetails() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        sAns &= "    <Details>" & nl
-        sAns &= "       <FullName>" & Text & "</FullName>" & nl
-        sAns &= "       <Manufacturer>" & txtManu.Text & "</Manufacturer>" & nl
-        sAns &= "       <ModelName>" & txtModel.Text & "</ModelName>" & nl
-        sAns &= "       <SerialNumber>" & txtSerial.Text & "</SerialNumber>" & nl
-        sAns &= "       <Type>" & txtType.Text & "</Type>" & nl
-        sAns &= "       <Caliber>" & txtCal.Text & "</Caliber>" & nl
-        sAns &= "       <Finish>" & txtFinish.Text & "</Finish>" & nl
-        sAns &= "       <Condition>" & txtCondition.Text & "</Condition>" & nl
-        sAns &= "       <CustomID>" & txtCustCatID.Text & "</CustomID>" & nl
-        sAns &= "       <NatID>" & txtNationality.Text & "</NatID>" & nl
-        sAns &= "       <GripID>" & txtGripType.Text & "</GripID>" & nl
-        sAns &= "       <Weight>" & txtWeight.Text & "</Weight>" & nl
-        sAns &= "       <Height>" & txtLength.Text & "</Height>" & nl
-        sAns &= "       <BarrelLength>" & txtBarLen.Text & "</BarrelLength>" & nl
-        sAns &= "       <Action>" & txtAction.Text & "</Action>" & nl
-        sAns &= "       <Feedsystem>" & txtFeed.Text & "</Feedsystem>" & nl
-        sAns &= "       <Sights>" & txtSights.Text & "</Sights>" & nl
-        sAns &= "       <PurchasedPrice>" & txtPurPrice.Text & "</PurchasedPrice>" & nl
-        sAns &= "       <PurchasedFrom>" & txtPurchasedFrom.Text & "</PurchasedFrom>" & nl
-        sAns &= "       <AppraisedValue>" & txtAppValue.Text & "</AppraisedValue>" & nl
-        sAns &= "       <AppraisalDate>" & dtpAppDate.Value & "</AppraisalDate>" & nl
-        sAns &= "       <AppraisedBy>" & txtAppBy.Text & "</AppraisedBy>" & nl
-        sAns &= "       <InsuredValue>" & txtInsVal.Text & "</InsuredValue>" & nl
-        sAns &= "       <StorageLocation>" & txtStorage.Text & "</StorageLocation>" & nl
-        sAns &= "       <ConditionComments>" & txtConCom.Text & "</ConditionComments>" & nl
-        sAns &= "       <AdditionalNotes>" & txtAddNotes.Text & "</AdditionalNotes>" & nl
-        sAns &= "       <Produced>" & txtProduced.Text & "</Produced>" & nl
-        sAns &= "       <IsCandR>" & chkBoxCR.Checked & "</IsCandR>" & nl
-        sAns &= "       <PetLoads>" & txtPetLoads.Text & "</PetLoads>" & nl
-        sAns &= "       <dtp>" & dtpPurchased.Value & "</dtp>" & nl
-        sAns &= "       <Importer>" & txtImporter.Text & "</Importer>" & nl
-        sAns &= "       <ReManDT>" & dtpReManDT.Value & "</ReManDT>" & nl
-        sAns &= "       <POI>" & txtPOI.Text & "</POI>" & nl
-        sAns &= "       <SGChoke>" & txtChoke.Text & "</SGChoke>" & nl
-        sAns &= "       <Caliber3>" & txtCaliber3.Text & "</Caliber3>" & nl
-        sAns &= "       <TwistOfRate>" & txtTwistOfRate.Text & "</TwistOfRate>" & nl
-        sAns &= "       <TriggerPull>" & txtTriggerPull.Text & "</TriggerPull>" & nl
-        sAns &= "       <BoundBook>" & chkBoundBook.Checked & "</BoundBook>" & nl
-        sAns &= "       <Classification>" & txtClassification.Text & "</Classification>" & nl
-        sAns &= "       <DateofCR>" & dtpDateofCR.Value & "</DateofCR>" & nl
-        sAns &= "    </Details>" & nl
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate ass.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateAss() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection_Accessories where GID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <Accessories>" & nl
-                    sAns &= "       <Manufacturer>" & rs("Manufacturer") & "</Manufacturer>" & nl
-                    sAns &= "       <Model>" & rs("Model") & "</Model>" & nl
-                    sAns &= "       <SerialNumber>" & rs("SerialNumber") & "</SerialNumber>" & nl
-                    sAns &= "       <Condition>" & rs("Condition") & "</Condition>" & nl
-                    sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
-                    sAns &= "       <Use>" & rs("Use") & "</Use>" & nl
-                    sAns &= "       <PurValue>" & rs("PurValue") & "</PurValue>" & nl
-                    sAns &= "    </Accessories>" & nl
-                End While
-            Else
-                sAns &= "    <Accessories>" & nl
-                sAns &= "    </Accessories>" & nl
-            End If
-            rs.Close()
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "GenerateAss"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate maint.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateMaint() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Maintance_Details where GID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <Maintance_Details>" & nl
-                    sAns &= "       <Name>" & rs("Name") & "</Name>" & nl
-                    sAns &= "       <OpDate>" & rs("OpDate") & "</OpDate>" & nl
-                    sAns &= "       <OpDueDate>" & rs("OpDueDate") & "</OpDueDate>" & nl
-                    sAns &= "       <RndFired>" & rs("RndFired") & "</RndFired>" & nl
-                    sAns &= "       <Notes>" & rs("Notes") & "</Notes>" & nl
-                    sAns &= "    </Maintance_Details>" & nl
-                End While
-            Else
-                sAns &= "    <Maintance_Details>" & nl
-                sAns &= "    </Maintance_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateMaint"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate g smith.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateGSmith() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from GunSmith_Details where GID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <GunSmith_Details>" & nl
-                    sAns &= "       <gsmith>" & rs("gsmith") & "</gsmith>" & nl
-                    sAns &= "       <sdate>" & rs("sdate") & "</sdate>" & nl
-                    sAns &= "       <rdate>" & rs("rdate") & "</rdate>" & nl
-                    sAns &= "       <od>" & rs("od") & "</od>" & nl
-                    sAns &= "       <notes>" & rs("notes") & "</notes>" & nl
-                    sAns &= "    </GunSmith_Details>" & nl
-                End While
-            Else
-                sAns &= "    <GunSmith_Details>" & nl
-                sAns &= "    </GunSmith_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateGSmith"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
-    ''' <summary>
-    ''' XMLs the generate barrel convers kit.
-    ''' </summary>
-    ''' <returns>System.String.</returns>
-    Function XML_GenerateBarrelConversKit() As String
-        Dim sAns As String = ""
-        Dim nl As String = Chr(10) & Chr(13)
-        Try
-            Dim obj As New BSDatabase
-            Call obj.ConnectDB()
-            Dim sql As String = "SELECT * from Gun_Collection_Ext where GID=" & ItemId
-            Dim cmd As New OdbcCommand(sql, obj.Conn)
-            Dim rs As OdbcDataReader
-            rs = cmd.ExecuteReader
-            If rs.HasRows Then
-                While rs.Read
-                    sAns &= "    <BarrelConverstionKit_Details>" & nl
-                    sAns &= "       <ModelName>" & rs("ModelName") & "</ModelName>" & nl
-                    sAns &= "       <Caliber>" & rs("Caliber") & "</Caliber>" & nl
-                    sAns &= "       <Finish>" & rs("Finish") & "</Finish>" & nl
-                    sAns &= "       <BarrelLength>" & rs("BarrelLength") & "</BarrelLength>" & nl
-                    sAns &= "       <PetLoads>" & rs("PetLoads") & "</PetLoads>" & nl
-                    sAns &= "       <Action>" & rs("Action") & "</Action>" & nl
-                    sAns &= "       <Feedsystem>" & rs("Feedsystem") & "</Feedsystem>" & nl
-                    sAns &= "       <Sights>" & rs("Sights") & "</Sights>" & nl
-                    sAns &= "       <PurchasedPrice>" & rs("PurchasedPrice") & "</PurchasedPrice>" & nl
-                    sAns &= "       <PurchasedFrom>" & rs("PurchasedFrom") & "</PurchasedFrom>" & nl
-                    sAns &= "       <dtp>" & rs("dtp") & "</dtp>" & nl
-                    sAns &= "       <Height>" & rs("Height") & "</Height>" & nl
-                    sAns &= "       <Type>" & rs("Type") & "</Type>" & nl
-                    sAns &= "       <IsDefault>" & rs("IsDefault") & "</IsDefault>" & nl
-                    sAns &= "    </BarrelConverstionKit_Details>" & nl
-                End While
-            Else
-                sAns &= "    <BarrelConverstionKit_Details>" & nl
-                sAns &= "    </BarrelConverstionKit_Details>" & nl
-            End If
-            rs.Close()
-            obj.CloseDB()
-        Catch ex As Exception
-            Dim sSubFunc As String = "XML_GenerateBarrelConversKit"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
-        End Try
-        Return sAns
-    End Function
 #End Region
     ''' <summary>
     ''' Does the edit ass item.
@@ -1215,6 +903,7 @@ Public Class FrmViewCollectionDetails
 ' ReSharper restore LocalVariableHidesMember
         frmEditAccessory.MdiParent = MdiParent
         frmEditAccessory.ItemId = itemId
+        FrmEditAccessory.GunId = Convert.ToInt32(GunId)
         frmEditAccessory.Show()
     End Sub
     ''' <summary>
@@ -1253,8 +942,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton1.Click
-        Dim frmNew As New frmEditCollectionDetails
-        frmNew.ItemId = ItemId
+        Dim frmNew As New FrmEditCollectionDetails
+        frmNew.ItemId = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
@@ -1266,11 +955,16 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton2.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ItemId)
-        Dim frmNew As New FrmViewReportFirearmDetails
-        frmNew.IntId = ItemId
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Call GetPics()
+            Dim frmNew As New frmViewReport_FirearmDetails
+            frmNew.IntId = GunId
+            frmNew.MdiParent = MdiParent
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ToolStripButton2_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
 
@@ -1281,11 +975,16 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton5_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton5.Click
         Cursor = Cursors.WaitCursor
-        Call CheckDefaultPic(ItemId)
-        Dim frmNew As New FrmViewReportFirearmDetailsFullDetails()
-        frmNew.IntId = ItemId
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        Try
+            If Not Pictures.HasDefaultPicture(DatabasePath, GunId, ApplicationPath, DefaultPic, _errOut,true ) then Throw New Exception(_errOut)
+            Call GetPics()
+            Dim frmNew As New frmViewReport_FirearmDetailsFullDetails()
+            frmNew.IntId = GunId
+            frmNew.MdiParent = MdiParent
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "ToolStripButton5_Click", Err.Number, ex.Message.ToString)
+        End Try
         Cursor = Cursors.Arrow
     End Sub
     ''' <summary>
@@ -1295,7 +994,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAmmoReportByCal_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAmmoReportByCal.Click
         Cursor = Cursors.WaitCursor
-        Dim frmNew As New FrmViewReportAmmoByCaliber
+        Dim frmNew As New frmViewReport_Ammo_By_Caliber
         frmNew.Cal = Trim(txtCal.Text)
         frmNew.Pet = Trim(txtPetLoads.Text)
         frmNew.MdiParent = MdiParent
@@ -1313,7 +1012,7 @@ Public Class FrmViewCollectionDetails
         DataGridView4.Rows(rowId).Selected = True
 ' ReSharper disable once LocalVariableHidesMember
         Dim itemId As String = DataGridView4.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmEditGunSmithLog
+        Dim frmNew As New FrmEditGunSmithLog
         frmNew.Id = itemId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1324,8 +1023,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton6_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton6.Click
-        Dim frmNew As New frmAddBarrelSystem
-        frmNew.Gid = ItemId
+        Dim frmNew As New FrmAddBarrelSystem
+        frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
@@ -1336,8 +1035,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnVwAccessReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnVwAccessReport.Click
-        Dim frmNew As New FrmViewReportAccessories
-        frmNew.Gid = ItemId
+        Dim frmNew As New frmViewReport_Accessories
+        frmNew.Gid = GunId
         frmNew.Title = Text
         frmNew.MdiParent = MdiParent
         frmNew.Show()
@@ -1348,9 +1047,12 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub SetAsDefaultToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles SetAsDefaultToolStripMenuItem.Click
-        Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim objGf As New GlobalFunctions
-        objGf.SwapDefaultBarrelSystems(BsDefaultbarrelsystemid, bid, ItemId)
+       Try
+           Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
+           if Not ExtraBarrelConvoKits.SwapDefaultBarrelSystems(DatabasePath, BsDefaultbarrelsystemid, bid, GunId, _errOut) Then Throw New Exception(_errOut)
+       Catch ex As Exception
+           Call LogError(Name, "SetAsDefaultToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+       End Try
         Call LoadData()
     End Sub
     ''' <summary>
@@ -1359,17 +1061,20 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub DeleteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles DeleteToolStripMenuItem.Click
-        Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim objGf As New GlobalFunctions
-        If BsDefaultbarrelsystemid = bid Then
-            MsgBox("This is set as the default Barrel/Unit for this firearm!" & Chr(13) & "Please set another item as the default before deleting this one!")
-            Exit Sub
-        Else
-            Dim sMsg As String = ""
-            objGf.DeleteBarrelSystem(bid, sMsg)
-            MsgBox(sMsg)
-            Call LoadData()
-        End If
+        Try     
+            Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
+            If BsDefaultbarrelsystemid = bid Then
+                MsgBox("This is set as the default Barrel/Unit for this firearm!" & Chr(13) & "Please set another item as the default before deleting this one!")
+                Exit Sub
+            Else
+                Dim sMsg As String = ""
+                If Not ExtraBarrelConvoKits.DeleteBarrelSystem(DatabasePath, BID,sMsg, _errOut) Then Throw New Exception(_errOut)
+                MsgBox(sMsg)
+                Call LoadData()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the EditToolStripMenuItem1 control.
@@ -1378,8 +1083,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditToolStripMenuItem1.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmEditBarrelSystem
-        frmNew.Gid = ItemId
+        Dim frmNew As New FrmEditBarrelSystem
+        frmNew.Gid = GunId
         frmNew.Bid = bid
         frmNew.Recname = Text
         frmNew.MdiParent = MdiParent
@@ -1400,9 +1105,9 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGalleryReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGalleryReport.Click
         Cursor = Cursors.WaitCursor
-        Dim newForm As New FrmViewReportPictures
+        Dim newForm As New frmViewReport_Pictures
         newForm.MdiParent = MdiParent
-        newForm.MyGid = ItemId
+        newForm.MyGid = GunId
         newForm.Title = Text
         newForm.Show()
         Cursor = Cursors.Arrow
@@ -1415,7 +1120,7 @@ Public Class FrmViewCollectionDetails
     Private Sub EditNotesToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles EditNotesToolStripMenuItem.Click
         Dim myIndex As String = ListView1.FocusedItem.Index
         Dim myText As String = ListView1.Items(CInt(myIndex)).Text
-        Dim frmNew As New frmEditPicturedetails
+        Dim frmNew As New FrmEditPicturedetails
         frmNew.MdiParent = MdiParent
         frmNew.Pid = CLng(myText)
         frmNew.Show()
@@ -1431,14 +1136,13 @@ Public Class FrmViewCollectionDetails
             DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim obj As New BSDatabase
-            Dim sql As String = "DELETE from Maintance_Details where ID=" & mid
-            obj.ConnExec(sql)
-            Call LoadMaintData()
+
+            If Not MaintanceDetails.Delete(DatabasePath, mid, _errOut) Then Throw New Exception(_errOut)
+            
         Catch ex As Exception
-            Dim sSubFunc As String = "DeleteToolStripMenuItem1_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "DeleteToolStripMenuItem1_Click", Err.Number, ex.Message.ToString)
         End Try
+        Call LoadMaintData()
     End Sub
     ''' <summary>
     ''' Runs the edit maintenance. get the id of the maintenance details ID and pass that ID to the edit Maintance form
@@ -1449,13 +1153,12 @@ Public Class FrmViewCollectionDetails
             DataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             DataGridView3.Rows(rowId).Selected = True
             Dim mid As Long = DataGridView3.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim frmNew As New frmEditMaintenance
+            Dim frmNew As New FrmEditMaintenance
             frmNew.Mid = mid
             frmNew.MdiParent = MdiParent
             frmNew.Show()
         Catch ex As Exception
-            Dim sSubFunc As String = "RunEditMaintenance"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "RunEditMaintenance", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -1472,9 +1175,9 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnStolen_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnStolen.Click
-        Dim frmNew As New frmStolen
+        Dim frmNew As New FrmStolen
         frmNew.MdiParent = MdiParent
-        frmNew.ItemId = ItemId
+        frmNew.ItemId = GunId
         frmNew.Show()
         Close()
     End Sub
@@ -1484,10 +1187,10 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnPrintSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintSale.Click
-        Dim frmNew As New FrmViewReportFirearmSaleInvoice
+        Dim frmNew As New frmViewReport_FirearmSaleInvoice
         frmNew.MdiParent = MdiParent
         frmNew.UserId = SellerId
-        frmNew.FirearmId = ItemId
+        frmNew.FirearmId = GunId
         frmNew.Show()
     End Sub
 
@@ -1497,8 +1200,12 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
-        Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        frmViewDocuments.GetDocumentfromDb(did)
+        Try
+            Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the btnAddDocument control.
@@ -1506,8 +1213,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddDocument_Click(sender As Object, e As EventArgs) Handles btnAddDocument.Click
-        Dim frmNew As New frmAddDocument
-        frmNew.Gid = ItemId
+        Dim frmNew As New FrmAddDocument
+        frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -1517,8 +1224,8 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddExistingDoc_Click(sender As Object, e As EventArgs) Handles btnAddExistingDoc.Click
-        Dim frmNew As New frmLinkFromExistingDoc
-        frmNew.Gid = ItemId
+        Dim frmNew As New FrmLinkFromExistingDoc
+        frmNew.Gid = GunId
         frmNew.MdiParent = MdiParent
         frmNew.Show()
     End Sub
@@ -1529,7 +1236,7 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub EditToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem3.Click
         Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        Dim frmNew As New frmAddDocument
+        Dim frmNew As New FrmAddDocument
         frmNew.EditMode = True
         frmNew.Did = did
         frmNew.Show()
@@ -1540,8 +1247,12 @@ Public Class FrmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
-        Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-        frmViewDocuments.GetDocumentfromDb(did)
+        Try
+            Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the UnLinkToolStripMenuItem control.
@@ -1551,14 +1262,11 @@ Public Class FrmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            Dim sql As String = "delete from Gun_Collection_Docs_Links where id=" & did
-            Dim obj As New BSDatabase
-            obj.ConnExec(sql)
+            If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
-            Dim sSubFunc As String = "UnLinkToolStripMenuItem_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "UnLinkToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -1568,10 +1276,31 @@ Public Class FrmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub MoveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToolStripMenuItem.Click
         Dim bid As Long = DataGridView5.SelectedRows.Item(0).Cells.Item(0).Value
-        Dim frmNew As New frmMoveBarrelConKit
+        Dim frmNew As New FrmMoveBarrelConKit
         frmNew.BarrelId = bid
         frmNew.MdiParent = MdiParent
         frmNew.Show()
         Close()
+    End Sub
+    ''' <summary>
+    ''' Handles the CheckedChanged event of the chkIsCompetition control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub chkIsCompeition_CheckedChanged(sender As Object, e As EventArgs) Handles chkIsCompeition.CheckedChanged
+        Try
+            If Not MyCollection.SetAsCompetitionGun(DatabasePath, Convert.ToInt32(GunId), chkIsCompeition.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkIsCompetition_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub chkNonLethal_CheckedChanged(sender As Object, e As EventArgs) Handles chkNonLethal.CheckedChanged
+        Try
+            If Not MyCollection.SetAsNonLethal(DatabasePath, Convert.ToInt32(GunId), chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkNonLethal_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 End Class

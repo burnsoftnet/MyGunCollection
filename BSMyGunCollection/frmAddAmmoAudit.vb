@@ -1,12 +1,11 @@
 Imports BurnSoft.Applications.MGC.Ammo
 
-
 ''' <summary>
 ''' Class frmAddAmmoAudit.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddAmmoAudit
+Public Class frmAddAmmoAudit
     ''' <summary>
     ''' The aid
     ''' </summary>
@@ -45,8 +44,7 @@ Public Class FrmAddAmmoAudit
             Call frmViewAmmoInventory.LoadData()
             Close()
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd_Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

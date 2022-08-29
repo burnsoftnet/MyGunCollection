@@ -1,11 +1,16 @@
-Imports BSMyGunCollection.MGC
+Imports BurnSoft.Applications.MGC.Firearms
+Imports BurnSoft.Applications.MGC.Global
 
 ''' <summary>
 ''' Class frmAddManufacturer.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-Public Class FrmAddManufacturer
+Public Class frmAddManufacturer
+    ''' <summary>
+    ''' The error out
+    ''' </summary>
+    Dim _errOut as String = ""
     ''' <summary>
     ''' Handles the Click event of the Button2 control.
     ''' </summary>
@@ -22,22 +27,17 @@ Public Class FrmAddManufacturer
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
         Try
             Dim strMan As String = FluffContent(txtMan.Text)
-            If Not IsRequired(strMan, "Manufacturer's Name", Text) Then Exit Sub
-            Dim objGf As New GlobalFunctions
-            If Not objGf.ObjectExistsinDB(strMan, "Brand", "Gun_Manufacturer") Then
-                Dim obj As New BSDatabase
-                Dim sql As String = "INSERT INTO Gun_Manufacturer(Brand,sync_lastupdate) VALUES('" & strMan & "',Now())"
-                obj.ConnExec(sql)
+            If Not Helpers.IsRequired(strMan, "Manufacturer's Name", Text, _errOut) Then Exit Sub
+
+            If Not Manufacturers.Exists(DatabasePath, strMan, _errOut) Then
+                If Not Manufacturers.Add(DatabasePath, strMan, _errOut) Then Throw New Exception(_errOut)
                 MsgBox(strMan & " was added to the database!", MsgBoxStyle.Information, Text)
-                txtMan.Text = ""
-                'Close()
-            Else
+            Else 
                 MsgBox(strMan & " already existed in the database!", MsgBoxStyle.Critical, Text)
-                txtMan.Text = ""
             End If
+            txtMan.Text = ""
         Catch ex As Exception
-            Dim sSubFunc As String = "btnAdd.Click"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+            Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>
@@ -47,11 +47,10 @@ Public Class FrmAddManufacturer
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddManufacturer_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Dim objAf As New AutoFillCollections
-            txtMan.AutoCompleteCustomSource = objAf.Gun_Manufacturer()
+            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Gun.Manufacturer(DatabasePath, _errOut)
         Catch ex As Exception
-            Dim sSubFunc As String = "Load"
-            Call LogError(Name, sSubFunc, Err.Number, ex.Message.ToString)
+
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
     End Sub
     ''' <summary>

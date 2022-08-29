@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmViewPicture
+Partial Class frmViewPicture
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,7 +26,7 @@ Partial Class FrmViewPicture
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New Container
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewPicture))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmViewPicture))
         Me.PictureBox1 = New PictureBox
         Me.ContextMenuStrip1 = New ContextMenuStrip(Me.components)
         Me.ExportPictureToolStripMenuItem = New ToolStripMenuItem
@@ -130,7 +130,7 @@ Partial Class FrmViewPicture
         Me.ClientSize = New Size(395, 336)
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.Name = "frmViewPicture"
+        Me.Name = "FrmViewPicture"
         Me.Text = "View Picture"
         CType(Me.PictureBox1, ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)

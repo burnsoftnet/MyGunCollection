@@ -2,7 +2,7 @@ Imports System.ComponentModel
 Imports Microsoft.VisualBasic.CompilerServices
 
 <DesignerGenerated()> _
-Partial Class FrmAddToWishList
+Partial Class frmAddToWishList
     Inherits Form
 
     'Form overrides dispose to clean up the component list.
@@ -25,7 +25,7 @@ Partial Class FrmAddToWishList
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmAddToWishList))
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddToWishList))
         Me.Label1 = New Label
         Me.Label2 = New Label
         Me.Label3 = New Label
@@ -205,7 +205,7 @@ Partial Class FrmAddToWishList
         Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddToWishList"
+        Me.Name = "FrmAddToWishList"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.ShowInTaskbar = False
         Me.Text = "Add Item to Wishlist"
