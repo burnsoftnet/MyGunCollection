@@ -29,7 +29,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-v7.x TBD
+v6.9.14.1 TBD
 
 - Optimize functions by converting alot of the code to use a seperate library
 - FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
@@ -40,7 +40,7 @@ v7.x TBD
 - ADDED - Preloaded data with information that was an option that was loaded in By the Data Loader.
 - REMOVED - The Data Loader application.  This application was the only one that went out to the web to get the data, now that the database has all the information pre loaded, this application is no longer needed.
 - FIXED - Glitch in Audit Ammo in version 6 release, the settings was not saving a properly loading when the app started
-- UPDATED - Wording a Spelling.
+- UPDATED - Wording and Spelling.
 - ADDED - Before when you used the ammo calculator to subtract the rounds you used with the count in your inventory, it will now append how much of that ammo was used in the maintenance window.
 
 v6.5  March 2021

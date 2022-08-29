@@ -599,7 +599,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.0.1.98, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1EECA0302DCD4C6C8536E1993CAA69DD"
@@ -630,7 +630,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_28A22EE807314E7D88B5B36948F1D993"
@@ -661,7 +661,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_369E273C281C46BD9942B334898A2879"
@@ -927,7 +927,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=3.5.4848.17749, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_6919C560F6525C83D62996BC51BC1BF7"
@@ -1051,7 +1051,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.0.1.98, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_92F31A5DCA454FD035980E2BCB2D9C81"
@@ -1133,7 +1133,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.9.12.35, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=6.9.13.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_A5029518DFAE4D2395998A239FFCC941"
@@ -1368,7 +1368,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.0.1.15473, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_DF386E27C040A85C593683CDBF78D55E"
@@ -1610,15 +1610,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{C2CCC8B5-3C44-4780-8310-E0C004294D2B}"
-        "PackageCode" = "8:{B329E561-6EEC-4F7E-86F9-6824740D680A}"
+        "ProductCode" = "8:{3388C993-E90B-4784-985B-71F6A5AE2F2C}"
+        "PackageCode" = "8:{C847F1B8-8085-4C34-AEC8-95FAC6EE7FE9}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:6.9.13"
+        "ProductVersion" = "8:6.9.14"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
