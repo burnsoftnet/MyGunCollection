@@ -29,7 +29,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-v6.9.14.1 TBD
+v6.9.14.1 August 2022
 
 - Optimize functions by converting alot of the code to use a seperate library
 - FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
