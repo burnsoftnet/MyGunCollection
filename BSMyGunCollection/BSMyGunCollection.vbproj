@@ -126,8 +126,8 @@
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.3-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3457\lib\net472\BurnSoft.MsgBox.dll</HintPath>
@@ -1192,6 +1192,7 @@
   <ItemGroup>
     <Content Include="bswtsicon.png" />
     <Content Include="Help_32_x_32.ico" />
+    <Content Include="icon.png" />
     <Content Include="MyMsgBox.ico" />
     <None Include="packages.config" />
     <None Include="Resources\My_GunCollection_Multi_Icon.ico" />
@@ -1237,7 +1238,6 @@
     <None Include="images\My_GunCollection_16_x_16.ico" />
     <None Include="images\My_GunCollection_72_x_72.ico" />
     <None Include="images\My_GunCollection_64_x_64.ico" />
-    <Content Include="icon.png" />
     <Content Include="images\documents_16_x_16.ico" />
     <Content Include="images\documents_32_x_32.ico" />
     <Content Include="images\documents_add_16_x_16.ico" />
