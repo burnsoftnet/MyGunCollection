@@ -29,6 +29,11 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
+v6.9.15.2 September 2022
+
+* FIXED - Issue with when you have login Enabled
+* FIXED - Issue with updates constaly asking you to apply when  you already applied.
+
 v6.9.14.1 August 2022
 
 - Optimize functions by converting alot of the code to use a seperate library
