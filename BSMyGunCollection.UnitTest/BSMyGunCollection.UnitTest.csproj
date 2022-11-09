@@ -43,7 +43,7 @@
       <HintPath>..\packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=2.2.355.3458, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.MsgBox.2.2.355.3458\lib\net472\BurnSoft.MsgBox.dll</HintPath>
