@@ -18,7 +18,11 @@ Public Class frmAddPicture
         Try
             OpenFileDialog1.FilterIndex = 3
             OpenFileDialog1.Filter = Pictures.FileFilterList
-            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
+            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then
+                Dim file As String = OpenFileDialog1.FileName
+                OpenFileDialog1.Dispose()
+                PictureBox1.Image = Image.FromFile(file)
+            End If
         Catch ex As Exception
             Call LogError(Name, "btnBrowse.Click", Err.Number, ex.Message.ToString)
         End Try

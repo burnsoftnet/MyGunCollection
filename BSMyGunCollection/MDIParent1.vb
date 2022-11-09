@@ -691,7 +691,8 @@ Public Class MDIParent1
             If Not alertOnBackUp Then Exit Sub
             Dim myLastDateDiff As Long = DateDiff(DateInterval.Day, CDate(lastSucBackup), DateTime.Now)
             Dim obj As New MsgClass
-            If myLastDateDiff > trackHistoryDays Then obj.DoMessage("It has been " & myLastDateDiff & " days since your last backup.", MgboxStyle.Inf_OK, MgBtnStyle.mb_Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
+            If myLastDateDiff > trackHistoryDays Then obj.DoMessage("It has been " & myLastDateDiff & " days since your last backup.", MgboxStyle.Ok, MgBtnStyle.Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
+            
         Catch ex As Exception
             Call LogError(Name, "CheckBackup", Err.Number, ex.Message.ToString)
         End Try
