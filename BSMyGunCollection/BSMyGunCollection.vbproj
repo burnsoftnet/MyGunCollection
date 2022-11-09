@@ -127,10 +127,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3457\lib\net472\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.2.355.3458, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.2.355.3458\lib\net472\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>

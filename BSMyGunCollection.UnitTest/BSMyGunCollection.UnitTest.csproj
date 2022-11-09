@@ -43,7 +43,10 @@
       <HintPath>..\packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4-alpha\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    </Reference>
+    <Reference Include="BurnSoft.MsgBox, Version=2.2.355.3458, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.2.355.3458\lib\net472\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
@@ -91,6 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BurnSoft.Applications.MGC.chm" />
+    <None Include="BurnSoft.MsgBox.chm" />
     <None Include="BurnSoft.Security.RegularEncryption.chm" />
     <None Include="BurnSoft.Testing.Apps.Appium.chm" />
     <None Include="BurnSoft.Universal.chm" />
@@ -104,7 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bswtsicon.png" />
+    <Content Include="Help_32_x_32.ico" />
     <Content Include="icon.png" />
+    <Content Include="MyMsgBox.ico" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
