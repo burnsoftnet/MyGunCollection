@@ -154,7 +154,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddSimpleTest()
         {
             bool bans = false;
@@ -186,7 +186,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddJustABoutEverythingOnTabTest()
         {
             bool bans = false;
@@ -219,7 +219,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddEverythingTest()
         {
             bool bans = false;

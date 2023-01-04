@@ -85,7 +85,7 @@ namespace BSMyGunCollection.UnitTest.UI
             }
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Main App")]
         public void VerifyAppInitTest()
         {
             bool bans = false;
@@ -111,7 +111,7 @@ namespace BSMyGunCollection.UnitTest.UI
         }
         
 
-        [TestMethod]
+        [TestMethod, TestCategory("Main App")]
         public void VerifyMainWindowControls()
         {
             bool bans = false;

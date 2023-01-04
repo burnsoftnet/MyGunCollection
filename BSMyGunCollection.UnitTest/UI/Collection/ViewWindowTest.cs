@@ -125,7 +125,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         }
         #endregion
 
-        [TestMethod]
+        [TestMethod, TestCategory("View - Collection")]
         public void CollectionViewTest()
         {
             bool bans = false;
@@ -149,7 +149,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             Assert.IsTrue(bans);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("View - Collection")]
         public void ChangeToCompetitionGunInViewTest()
         {
             bool bans = false;
@@ -173,7 +173,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             Assert.IsTrue(bans);
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("View - Collection")]
         public void ChangeToNonLethalGunInViewTest()
         {
             bool bans = false;
