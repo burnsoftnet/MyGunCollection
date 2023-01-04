@@ -117,7 +117,7 @@ namespace BSMyGunCollection.UnitTest.UI
             bool bans = false;
             try
             {
-                List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.MainWindow.RunTest(), out _errOut);
+                List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.MainWindow.SideMenu.RunTest(), out _errOut);
                 if (_errOut.Length > 0) throw new Exception(_errOut);
                 DumpResults(value);
                 bans = _ga.AllTestsPassed(value);

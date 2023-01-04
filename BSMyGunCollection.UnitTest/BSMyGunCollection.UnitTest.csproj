@@ -52,7 +52,7 @@
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Testing.Apps.Appium, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Testing.Apps.Appium.1.0.0.12-beta\lib\net472\BurnSoft.Testing.Apps.Appium.dll</HintPath>
+      <HintPath>..\packages\BurnSoft.Testing.Apps.Appium.1.0.0.12-RC1\lib\net472\BurnSoft.Testing.Apps.Appium.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Universal, Version=4.0.32.5, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Universal.4.0.32.5\lib\net48\BurnSoft.Universal.dll</HintPath>
