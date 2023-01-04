@@ -91,7 +91,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 _ga.TestName = "MainApp";
                 _ga.ApplicationPath = _fullAppPath;
                 _ga.SettingsScreenShotLocation = fullExceptionPath;
-                //_ga.DoSleep = true;
+                _ga.DoSleep = false;
                 _ga.Initialize();
             }
             catch (Exception e)

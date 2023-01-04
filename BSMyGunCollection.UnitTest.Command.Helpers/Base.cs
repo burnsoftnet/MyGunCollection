@@ -10,7 +10,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers
             GeneralActions.AppAction commandAction = GeneralActions.AppAction.FindElementByAccessibilityId)
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
-            cmd.AddRange(Sleep500());
+            //cmd.AddRange(Sleep500());
             string actionMs = verify ? "Verify" : "Click On";
             GeneralActions.MyAction action = verify ? GeneralActions.MyAction.Nothing : GeneralActions.MyAction.Click;
 
@@ -27,7 +27,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers
             GeneralActions.AppAction commandAction = GeneralActions.AppAction.FindElementByAccessibilityId)
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
-            cmd.AddRange(Sleep500());
+            //cmd.AddRange(Sleep500());
             string actionMs = verify ? "Verify" : "Double Click On";
             GeneralActions.MyAction action = verify ? GeneralActions.MyAction.Nothing : GeneralActions.MyAction.DoubleClick;
 
@@ -45,7 +45,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers
             GeneralActions.AppAction commandAction = GeneralActions.AppAction.FindElementByAccessibilityId)
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
-            cmd.AddRange(Sleep500());
+            //cmd.AddRange(Sleep500());
             string actionMs = verify ? "Verify" : "Send Text";
             GeneralActions.MyAction action = verify ? GeneralActions.MyAction.Nothing : GeneralActions.MyAction.SendKeys;
 

@@ -26,16 +26,16 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
             cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
-            cmd.AddRange(Base.Sleep500());
+            //cmd.AddRange(Base.Sleep500());
             cmd.AddRange(AddSimple(manufacture, importer, model, serialNumber, pistolType, caliber,
                 condition, purchasedFrom, purchasedPrice, verify));
             cmd.AddRange(Details.ClickOn.CancelButton(verify));
             cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
-            cmd.AddRange(Base.Sleep500());
+            //cmd.AddRange(Base.Sleep500());
             cmd.AddRange(AddSimple(manufacture, importer, model, serialNumber, pistolType, caliber,
                 condition, purchasedFrom, purchasedPrice, verify));
             cmd.AddRange(Details.ClickOn.AddButton(verify));
-            cmd.AddRange(Base.Sleep());
+            //cmd.AddRange(Base.Sleep());
             return cmd;
         }
         /// <summary>
@@ -74,14 +74,14 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
             cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
-            cmd.AddRange(Base.Sleep500());
+            //cmd.AddRange(Base.Sleep500());
             cmd.AddRange(AddSimple(manufacture, importer, model, serialNumber, pistolType, caliber,
                 condition, purchasedFrom, purchasedPrice, verify));
             cmd.AddRange(AddOtherDetails(caliber2, caliber3, stockType, manufacturedDate, action, 
                 weight, placeOfOrgin, finish, storage, sights, feedSystem, overallLength, barrelLength, verify, currentChoke));
             
             cmd.AddRange(Details.ClickOn.AddButton(verify));
-            cmd.AddRange(Base.Sleep());
+            //cmd.AddRange(Base.Sleep());
             return cmd;
         }
         /// <summary>
@@ -136,7 +136,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();
             cmd.AddRange(MainWindow.ToolBar.ClickOnAddGun());
-            cmd.AddRange(Base.Sleep500());
+            //cmd.AddRange(Base.Sleep500());
             cmd.AddRange(AddSimple(manufacture, importer, model, serialNumber, pistolType, caliber,
                 condition, purchasedFrom, purchasedPrice, verify));
             cmd.AddRange(AddOtherDetails(caliber2, caliber3, stockType, manufacturedDate, action,
@@ -147,7 +147,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
             cmd.AddRange(AdditionalNotes.RunTest(additionalNotes, verify));
 
             cmd.AddRange(Details.ClickOn.AddButton(verify));
-            cmd.AddRange(Base.Sleep());
+            //cmd.AddRange(Base.Sleep());
             return cmd;
         }
         /// <summary>
