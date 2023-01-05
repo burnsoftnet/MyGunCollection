@@ -273,60 +273,116 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             {
                 private static string SectionName = "Add Item Menu";
 
-                internal static List<BatchCommandList> ClickOnAddItem(bool verify = false)
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddItem", verify);
+                    return ClickOn(SectionName, "mnuAddItem", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddFirearm(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddFirearm", verify);
+                    return ClickOn(SectionName, "mnuAddFirearm", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddAmmunitiontomyCollection(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddAmmunitiontomyCollection", verify);
+                    return ClickOn(SectionName, "mnuAddAmmunitiontomyCollection", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddtoWishlist(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddtoWishlist", verify);
+                    return ClickOn(SectionName, "mnuAddtoWishlist", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddManufacturer(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddManufacturer", verify);
+                    return ClickOn(SectionName, "mnuAddManufacturer", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddAmmunitionType(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddAmmunitionType", verify);
+                    return ClickOn(SectionName, "mnuAddAmmunitionType", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddFirearmClassification(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddFirearmClassification", verify);
+                    return ClickOn(SectionName, "mnuAddFirearmClassification", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnAddModel(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddModel", verify);
+                    return ClickOn(SectionName, "mnuAddModel", verify);
                 }
                 internal static List<BatchCommandList> ClickOnAddPlaceofOrigin(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AddPlaceofOrigin", verify);
+                    return ClickOn(SectionName, "mnuAddPlaceofOrigin", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnMaintenancePlan(bool verify = false)
                 {
-                    return ClickOn(SectionName, "MaintenancePlan", verify);
+                    return ClickOn(SectionName, "mnuAddMaintenancePlan", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnDocument(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Document", verify);
+                    return ClickOn(SectionName, "mnuDocument", verify);
                 }
             }
+
+            internal class ViewMenu
+            {
+                private static string SectionName = "Add Item Menu";
+
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ViewItems", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAmmunitionInventory(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AmmunitionInventory", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnWishlist(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Wishlist", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnMaintenancePlan(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ViewMaintenancePlan", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnListedShops(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ListedShops", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnListedBuyers(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ListedBuyers", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnListedGunsmiths(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ListedGunsmiths", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnListedAppraisers(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ListedAppraisers", verify);
+                }
+                internal static List<BatchCommandList> ClickOnDocuments(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Documents", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnImagePicker(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ImagePicker", verify);
+                }
+
+            }
+
             /// <summary>
             /// Clicks the on button.
             /// </summary>
