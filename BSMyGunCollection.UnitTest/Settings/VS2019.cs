@@ -30,7 +30,7 @@ namespace BSMyGunCollection.UnitTest.Settings
             ls.Add(new Tuple<string, string>("AppName", "BSMyGunCollection.exe"));
             ls.Add(new Tuple<string, string>("ErrorLogName", "err.log"));
             ls.Add(new Tuple<string, string>("FirearmToView", "Glock G17"));
-            ls.Add(new Tuple<string, string>("FirearmToSetAsNonLethal", "S&W GOVERNOR"));
+            ls.Add(new Tuple<string, string>("FirearmToSetAsNonLethal", "Glock G17"));
             ls.Add(new Tuple<string, string>("AddFirearmManufacture", "UnitTestFirearms"));
             ls.Add(new Tuple<string, string>("AddFirearmModel", "G17x"));
             //ls.Add(new Tuple<string, string>("", ""));
