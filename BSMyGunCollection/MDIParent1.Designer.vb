@@ -246,7 +246,7 @@ Partial Class MDIParent1
         '
         'ExitToolStripMenuItem
         '
-        Me.ExitToolStripMenuItem.AccessibleName = "Exit"
+        Me.ExitToolStripMenuItem.AccessibleName = "mnuExit"
         Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)

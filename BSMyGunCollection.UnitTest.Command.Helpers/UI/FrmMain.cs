@@ -170,10 +170,10 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             /// <param name="element">The element.</param>
             /// <param name="verify">if set to <c>true</c> [verify].</param>
             /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            private static List<BatchCommandList> ClickOnButton(string name, string element, bool verify = false)
+            private static List<BatchCommandList> ClickOnButton(string name, string element, bool verify = false, GeneralActions.AppAction cmdAction = GeneralActions.AppAction.FindElementByName)
             {
                 return Base.ClickOnElement($"{name} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                    cmdAction);
             }
         }
 
@@ -228,10 +228,9 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             /// <param name="element">The element.</param>
             /// <param name="verify">if set to <c>true</c> [verify].</param>
             /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            private static List<BatchCommandList> ClickOn(string name, string element, bool verify = false)
+            private static List<BatchCommandList> ClickOn(string name, string element, bool verify = false, GeneralActions.AppAction cmdAction = GeneralActions.AppAction.FindElementByName)
             {
-                return Base.ClickOnElement(name, element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return Base.ClickOnElement(name, element, verify,cmdAction);
             }
         }
         /// <summary>
