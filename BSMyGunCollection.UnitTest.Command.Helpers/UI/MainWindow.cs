@@ -99,7 +99,20 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(FrmMain.ToolBar.ClickOnSearchCollection(verify));
-                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button","btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddAmmoInventory(verify));
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddGun());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddWishList());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAmmoInventoryToolStripButton());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnFirearmGallery());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSettingsButton());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnExit"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnDeleteSelectedFirearm(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnOpenToolStripButton(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnViewMaintenancePlans());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSaveToolStripButton(true));
                 return cmd;
             }
         }

@@ -134,5 +134,29 @@ namespace BSMyGunCollection.UnitTest.UI
             }
             Assert.IsTrue(bans);
         }
+
+        [TestMethod, TestCategory("Main App")]
+        public void VerifyToolBarControler()
+        {
+            bool bans = false;
+            try
+            {
+                List<BatchCommandList> value = _ga.RunBatchCommands(Command.Helpers.UI.MainWindow.ToolBar.RunTest(), out _errOut);
+                if (_errOut.Length > 0) throw new Exception(_errOut);
+                DumpResults(value);
+                bans = _ga.AllTestsPassed(value);
+
+                if (ErrLogExists())
+                {
+                    bans = false;
+                    throw new Exception($"ERROR LOG EXISTS!! {_fullLogPath}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Assert.IsTrue(bans);
+        }
     }
 }
