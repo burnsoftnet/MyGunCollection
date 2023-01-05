@@ -262,6 +262,7 @@ Partial Class MDIParent1
         '
         'ManufacturersToolStripMenuItem
         '
+        Me.ManufacturersToolStripMenuItem.AccessibleName = "Manufacturers"
         Me.ManufacturersToolStripMenuItem.Image = CType(resources.GetObject("ManufacturersToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ManufacturersToolStripMenuItem.Name = "ManufacturersToolStripMenuItem"
         Me.ManufacturersToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
@@ -325,6 +326,7 @@ Partial Class MDIParent1
         '
         'AddItemToolStripMenuItem
         '
+        Me.AddItemToolStripMenuItem.AccessibleName = "AddItem"
         Me.AddItemToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GunToolStripMenuItem, Me.AddMmunitionToMyCollectionToolStripMenuItem, Me.AddToWishlistToolStripMenuItem, Me.ToolStripSeparator10, Me.AddManufacturerToolStripMenuItem, Me.AmmToolStripMenuItem, Me.AddFirearmClassificationToolStripMenuItem, Me.AddModelToolStripMenuItem, Me.AddPlaceOfOriginToolStripMenuItem, Me.ToolStripSeparator13, Me.MaintancePlanToolStripMenuItem, Me.DocumentToolStripMenuItem})
         Me.AddItemToolStripMenuItem.Name = "AddItemToolStripMenuItem"
         Me.AddItemToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
@@ -375,6 +377,8 @@ Partial Class MDIParent1
         '
         'AmmToolStripMenuItem
         '
+        Me.AmmToolStripMenuItem.AccessibleDescription = "Add Ammunition Type"
+        Me.AmmToolStripMenuItem.AccessibleName = "AddAmmunitionType"
         Me.AmmToolStripMenuItem.Image = CType(resources.GetObject("AmmToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AmmToolStripMenuItem.Name = "AmmToolStripMenuItem"
         Me.AmmToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
@@ -382,6 +386,8 @@ Partial Class MDIParent1
         '
         'AddFirearmClassificationToolStripMenuItem
         '
+        Me.AddFirearmClassificationToolStripMenuItem.AccessibleDescription = "Add Firearm Classification"
+        Me.AddFirearmClassificationToolStripMenuItem.AccessibleName = "AddFirearmClassification"
         Me.AddFirearmClassificationToolStripMenuItem.Image = CType(resources.GetObject("AddFirearmClassificationToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AddFirearmClassificationToolStripMenuItem.Name = "AddFirearmClassificationToolStripMenuItem"
         Me.AddFirearmClassificationToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
@@ -389,6 +395,8 @@ Partial Class MDIParent1
         '
         'AddModelToolStripMenuItem
         '
+        Me.AddModelToolStripMenuItem.AccessibleDescription = "Add Model"
+        Me.AddModelToolStripMenuItem.AccessibleName = "AddModel"
         Me.AddModelToolStripMenuItem.Image = CType(resources.GetObject("AddModelToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AddModelToolStripMenuItem.Name = "AddModelToolStripMenuItem"
         Me.AddModelToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
@@ -396,6 +404,8 @@ Partial Class MDIParent1
         '
         'AddPlaceOfOriginToolStripMenuItem
         '
+        Me.AddPlaceOfOriginToolStripMenuItem.AccessibleDescription = "Add Place of Origin"
+        Me.AddPlaceOfOriginToolStripMenuItem.AccessibleName = "AddPlaceofOrigin"
         Me.AddPlaceOfOriginToolStripMenuItem.Image = CType(resources.GetObject("AddPlaceOfOriginToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AddPlaceOfOriginToolStripMenuItem.Name = "AddPlaceOfOriginToolStripMenuItem"
         Me.AddPlaceOfOriginToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
@@ -408,6 +418,8 @@ Partial Class MDIParent1
         '
         'MaintancePlanToolStripMenuItem
         '
+        Me.MaintancePlanToolStripMenuItem.AccessibleDescription = "Maintenance Plan"
+        Me.MaintancePlanToolStripMenuItem.AccessibleName = "MaintenancePlan"
         Me.MaintancePlanToolStripMenuItem.Image = CType(resources.GetObject("MaintancePlanToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MaintancePlanToolStripMenuItem.Name = "MaintancePlanToolStripMenuItem"
         Me.MaintancePlanToolStripMenuItem.Size = New System.Drawing.Size(258, 22)
@@ -415,6 +427,8 @@ Partial Class MDIParent1
         '
         'DocumentToolStripMenuItem
         '
+        Me.DocumentToolStripMenuItem.AccessibleDescription = "Document"
+        Me.DocumentToolStripMenuItem.AccessibleName = "Document"
         Me.DocumentToolStripMenuItem.Image = CType(resources.GetObject("DocumentToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DocumentToolStripMenuItem.Name = "DocumentToolStripMenuItem"
         Me.DocumentToolStripMenuItem.Size = New System.Drawing.Size(258, 22)

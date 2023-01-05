@@ -219,8 +219,114 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                     return ClickOn(SectionName, "Backup", verify);
                 }
             }
-            
 
+            internal class EditMenu
+            {
+                private static string SectionName = "Edit Menu";
+
+                internal static List<BatchCommandList> ClickOnEdit(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Edit", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnManufactures(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Manufacturers", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAmmoType(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AmooType", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnModelTypes(bool verify = false)
+                {
+                    return ClickOn(SectionName, "ManageModels", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnPlaceOfOrgin(bool verify = false)
+                {
+                    return ClickOn(SectionName, "PlaceOfOrigin", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnGripTypes(bool verify = false)
+                {
+                    return ClickOn(SectionName, "GripTypes", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnFirearmConditions(bool verify = false)
+                {
+                    return ClickOn(SectionName, "FirearmConditions", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnFirearmTypes(bool verify = false)
+                {
+                    return ClickOn(SectionName, "FirearmTypes", verify);
+                }
+                internal static List<BatchCommandList> ClickOnClassification(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Classification", verify);
+                }
+            }
+
+            internal class AddItemMenu
+            {
+                private static string SectionName = "Add Item Menu";
+
+                internal static List<BatchCommandList> ClickOnAddItem(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddItem", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddFirearm(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddFirearm", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddAmmunitiontomyCollection(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddAmmunitiontomyCollection", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddtoWishlist(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddtoWishlist", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddManufacturer(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddManufacturer", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddAmmunitionType(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddAmmunitionType", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddFirearmClassification(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddFirearmClassification", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAddModel(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddModel", verify);
+                }
+                internal static List<BatchCommandList> ClickOnAddPlaceofOrigin(bool verify = false)
+                {
+                    return ClickOn(SectionName, "AddPlaceofOrigin", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnMaintenancePlan(bool verify = false)
+                {
+                    return ClickOn(SectionName, "MaintenancePlan", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnDocument(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Document", verify);
+                }
+            }
             /// <summary>
             /// Clicks the on button.
             /// </summary>

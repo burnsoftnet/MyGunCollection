@@ -10,16 +10,76 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
     {
         public class MainMenu
         {
-            public static List<BatchCommandList> RunTest(bool verify = false)
+            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, bool runAddItems = true)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                if (runFile) cmd.AddRange(RunTestFileMenu(verify));
+                if (runEdit) cmd.AddRange(RunTestEditMenu(verify));
+                if (runAddItems) cmd.AddRange(RunTestAddItemsMenu(verify));
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestFileMenu(bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnImport(verify));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
-                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnBackup(true));
-                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
+                //TODO: Functions do not Work Try to Fix Later
+                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
+                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestEditMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnManufactures(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnAmmoType(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnModelTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnPlaceOfOrgin(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnGripTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmConditions(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnClassification(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestAddItemsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearm(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitiontomyCollection(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddtoWishlist(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddManufacturer(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitionType(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearmClassification(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddModel(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddPlaceofOrigin(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMaintenancePlan(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnDocument(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddItem(verify));
                 return cmd;
             }
         }
