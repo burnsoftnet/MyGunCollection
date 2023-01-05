@@ -22,8 +22,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnOpenToolStripButton(bool verify = false)
             {
                 string element = "OpenToolStripButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on save tool strip button.
@@ -33,8 +32,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnSaveToolStripButton(bool verify = false)
             {
                 string element = "SaveToolStripButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on settings button.
@@ -44,8 +42,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnSettingsButton(bool verify = false)
             {
                 string element = "SettingsButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on ammo inventory tool strip button.
@@ -55,8 +52,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnAmmoInventoryToolStripButton(bool verify = false)
             {
                 string element = "AmmoInventory";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on add ammo inventory.
@@ -66,8 +62,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnAddAmmoInventory(bool verify = false)
             {
                 string element = "AddAmmoInventory";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on wish list.
@@ -77,8 +72,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnWishList(bool verify = false)
             {
                 string element = "WishList";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on view maintenance plans.
@@ -88,8 +82,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnViewMaintenancePlans(bool verify = false)
             {
                 string element = "ViewMaintenancePlans";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on add gun.
@@ -99,8 +92,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnAddGun(bool verify = false)
             {
                 string element = "AddGun";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on firearm gallery.
@@ -110,8 +102,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnFirearmGallery(bool verify = false)
             {
                 string element = "FirearmGallery";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on add wish list.
@@ -121,8 +112,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnAddWishList(bool verify = false)
             {
                 string element = "AddWishList";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on search collection.
@@ -132,8 +122,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnSearchCollection(bool verify = false)
             {
                 string element = "SearchCollection";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
             }
             /// <summary>
             /// Clicks the on delete selected firearm.
@@ -143,10 +132,48 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             internal static List<BatchCommandList> ClickOnDeleteSelectedFirearm(bool verify = false)
             {
                 string element = "DeleteSelectedFirearm";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                return ClickOnButton(element, element, verify);
+            }
+            /// <summary>
+            /// Clicks the on bound book.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> ClickOnBoundBook(bool verify = false)
+            {
+                return ClickOnButton("Bound Book", "ToolStripButton8", verify);
+            }
+            /// <summary>
+            /// Clicks the on documents.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> ClickOnDocuments(bool verify = false)
+            {
+                return ClickOnButton("Documents", "ToolStripButton14", verify);
+            }
+            /// <summary>
+            /// Clicks the on custom reports.
+            /// </summary>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            internal static List<BatchCommandList> ClickOnCustomReports(bool verify = false)
+            {
+                return ClickOnButton("Custom Reports", "ToolStripButton12", verify);
             }
 
+            /// <summary>
+            /// Clicks the on button.
+            /// </summary>
+            /// <param name="name">The name.</param>
+            /// <param name="element">The element.</param>
+            /// <param name="verify">if set to <c>true</c> [verify].</param>
+            /// <returns>List&lt;BatchCommandList&gt;.</returns>
+            private static List<BatchCommandList> ClickOnButton(string name, string element, bool verify = false)
+            {
+                return Base.ClickOnElement($"{name} tool bar icon", element, verify,
+                    GeneralActions.AppAction.FindElementByName);
+            }
         }
 
         /// <summary>

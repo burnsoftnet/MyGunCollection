@@ -92,7 +92,9 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 return cmd;
             }
         }
-
+        /// <summary>
+        /// Class ToolBar.
+        /// </summary>
         public class ToolBar
         {
             public static List<BatchCommandList> RunTest(bool verify = false)
@@ -113,6 +115,9 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 cmd.AddRange(FrmMain.ToolBar.ClickOnOpenToolStripButton(true));
                 cmd.AddRange(FrmMain.ToolBar.ClickOnViewMaintenancePlans());
                 cmd.AddRange(FrmMain.ToolBar.ClickOnSaveToolStripButton(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnBoundBook());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnDocuments());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSearchCollection());
                 return cmd;
             }
         }
