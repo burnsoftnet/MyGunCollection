@@ -190,7 +190,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 /// </summary>
                 /// <param name="verify">if set to <c>true</c> [verify].</param>
                 /// <returns>List&lt;BatchCommandList&gt;.</returns>
-                internal static List<BatchCommandList> ClickOnFile(bool verify = false)
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
                 {
                     return ClickOn(SectionName, "File", verify);
                 }
@@ -201,22 +201,34 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 /// <returns>List&lt;BatchCommandList&gt;.</returns>
                 internal static List<BatchCommandList> ClickOnExit(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Exit", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Exit", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnImport(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Import", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Import", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnRestore(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Restore", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Restore", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnBackup(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Backup", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify)cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Backup", verify));
+                    return cmd;
                 }
             }
 
@@ -224,48 +236,72 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             {
                 private static string SectionName = "Edit Menu";
 
-                internal static List<BatchCommandList> ClickOnEdit(bool verify = false)
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
                 {
                     return ClickOn(SectionName, "Edit", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnManufactures(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Manufacturers", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Manufacturers", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAmmoType(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AmooType", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "AmooType", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnModelTypes(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ManageModels", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ManageModels", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnPlaceOfOrgin(bool verify = false)
                 {
-                    return ClickOn(SectionName, "PlaceOfOrigin", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "PlaceOfOrigin", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnGripTypes(bool verify = false)
                 {
-                    return ClickOn(SectionName, "GripTypes", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "GripTypes", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnFirearmConditions(bool verify = false)
                 {
-                    return ClickOn(SectionName, "FirearmConditions", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "FirearmConditions", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnFirearmTypes(bool verify = false)
                 {
-                    return ClickOn(SectionName, "FirearmTypes", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "FirearmTypes", verify));
+                    return cmd;
                 }
                 internal static List<BatchCommandList> ClickOnClassification(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Classification", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Classification", verify));
+                    return cmd;
                 }
             }
 
@@ -280,51 +316,81 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 
                 internal static List<BatchCommandList> ClickOnAddFirearm(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddFirearm", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddFirearm", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddAmmunitiontomyCollection(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddAmmunitiontomyCollection", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddAmmunitiontomyCollection", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddtoWishlist(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddtoWishlist", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddtoWishlist", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddManufacturer(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddManufacturer", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddManufacturer", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddAmmunitionType(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddAmmunitionType", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddAmmunitionType", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddFirearmClassification(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddFirearmClassification", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddFirearmClassification", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnAddModel(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddModel", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddModel", verify));
+                    return cmd;
                 }
                 internal static List<BatchCommandList> ClickOnAddPlaceofOrigin(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddPlaceofOrigin", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddPlaceofOrigin", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnMaintenancePlan(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuAddMaintenancePlan", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAddMaintenancePlan", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnDocument(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuDocument", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuDocument", verify));
+                    return cmd;
                 }
             }
 
@@ -339,46 +405,73 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 
                 internal static List<BatchCommandList> ClickOnAmmunitionInventory(bool verify = false)
                 {
-                    return ClickOn(SectionName, "AmmunitionInventory", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "AmmunitionInventory", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnWishlist(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Wishlist", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Wishlist", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnMaintenancePlan(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ViewMaintenancePlan", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ViewMaintenancePlan", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnListedShops(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ListedShops", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ListedShops", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnListedBuyers(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ListedBuyers", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ListedBuyers", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnListedGunsmiths(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ListedGunsmiths", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ListedGunsmiths", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnListedAppraisers(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ListedAppraisers", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ListedAppraisers", verify));
+                    return cmd;
                 }
                 internal static List<BatchCommandList> ClickOnDocuments(bool verify = false)
                 {
-                    return ClickOn(SectionName, "Documents", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "Documents", verify));
+                    return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnImagePicker(bool verify = false)
                 {
-                    return ClickOn(SectionName, "ImagePicker", verify);
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "ImagePicker", verify));
+                    return cmd;
                 }
 
             }

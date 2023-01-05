@@ -23,35 +23,35 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             private static List<BatchCommandList> RunTestFileMenu(bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(true));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnImport(verify));
-                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
                 //TODO: Functions do not Work Try to Fix Later
                 //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
                 //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
-                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
                 return cmd;
             }
 
             private static List<BatchCommandList> RunTestEditMenu(bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(true));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnManufactures(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnAmmoType(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnModelTypes(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnPlaceOfOrgin(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnGripTypes(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmConditions(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmTypes(verify));
-                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
+                //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnClassification(verify));
                 //cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnEdit(verify));
                 return cmd;
@@ -60,25 +60,25 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             private static List<BatchCommandList> RunTestAddItemsMenu(bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(true));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearm(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitiontomyCollection(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddtoWishlist(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddManufacturer(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitionType(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearmClassification(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddModel(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddPlaceofOrigin(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMaintenancePlan(verify));
-                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnDocument(verify));
                 //cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(verify));
                 return cmd;
@@ -87,23 +87,23 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             private static List<BatchCommandList> RunTestViewsMenu(bool verify = false)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(true));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnAmmunitionInventory(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnWishlist(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMaintenancePlan(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedShops(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedBuyers(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedGunsmiths(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedAppraisers(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnDocuments(verify));
-                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
+                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnImagePicker(verify));
          
                 return cmd;
