@@ -8,6 +8,20 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 {
     public class MainWindow
     {
+        public class MainMenu
+        {
+            public static List<BatchCommandList> RunTest(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnImport(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnFile(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnBackup(true));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
+                return cmd;
+            }
+        }
         public class SideMenu
         {
             public static List<BatchCommandList> RunTest(bool verify = false, string lookForFirearm = "")

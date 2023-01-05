@@ -9,6 +9,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
     /// </summary>
     public class FrmMain
     {
+
         /// <summary>
         /// Class ToolBar.
         /// </summary>
@@ -181,24 +182,55 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
         /// </summary>
         internal class Menu
         {
-            /// <summary>
-            /// Clicks the on file.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ClickOnFile(bool verify = false)
+            internal class FileMenu
             {
-                return Base.ClickOnElement("File Menu", "File", verify,
-                    GeneralActions.AppAction.FindElementByName);
+                private static string SectionName = "File Menu";
+                /// <summary>
+                /// Clicks the on file.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> ClickOnFile(bool verify = false)
+                {
+                    return ClickOn(SectionName, "File", verify);
+                }
+                /// <summary>
+                /// Clicks the on exit.
+                /// </summary>
+                /// <param name="verify">if set to <c>true</c> [verify].</param>
+                /// <returns>List&lt;BatchCommandList&gt;.</returns>
+                internal static List<BatchCommandList> ClickOnExit(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Exit", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnImport(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Import", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnRestore(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Restore", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnBackup(bool verify = false)
+                {
+                    return ClickOn(SectionName, "Backup", verify);
+                }
             }
+            
+
             /// <summary>
-            /// Clicks the on exit.
+            /// Clicks the on button.
             /// </summary>
+            /// <param name="name">The name.</param>
+            /// <param name="element">The element.</param>
             /// <param name="verify">if set to <c>true</c> [verify].</param>
             /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ClickOnExit(bool verify = false)
+            private static List<BatchCommandList> ClickOn(string name, string element, bool verify = false)
             {
-                return Base.ClickOnElement("File Menu", "Exit", verify,
+                return Base.ClickOnElement(name, element, verify,
                     GeneralActions.AppAction.FindElementByName);
             }
         }
