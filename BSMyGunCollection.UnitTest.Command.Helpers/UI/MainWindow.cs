@@ -94,16 +94,13 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv1(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv2(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnWishlist(verify));
-                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReport(true));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportPurchaseValue(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportInsuredValue(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportAppraisedValue(verify));
-                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportWithTotal(true));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportWithTotalPurchaseValue(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportWithTotalInsuredValue(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReporWithTotaltAppraisedValue(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnCustomReport(verify));
-                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReports(true));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsBoundBook(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCardWTraget(verify));
                 cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCard(verify));
@@ -116,7 +113,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
                 cmd.AddRange(FrmMain.FirearmSortList.ViewAll(verify));
 
                 if (verify)
@@ -124,69 +120,69 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                     cmd.AddRange(Base.Sleep500());
                     cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
                 }
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewCandR(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewCompetition(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewCustomCataolog(verify));
                 if (verify)
                 {
-                    //cmd.AddRange(Base.Sleep500());
+                    
                     cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
                 }
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewClassIii(verify));
 
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewInStock(verify));
                 if (verify)
                 {
-                    //cmd.AddRange(Base.Sleep500());
+                    
                     cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
                 }
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewInStockLethal(verify));
                 if (verify)
                 {
-                    //cmd.AddRange(Base.Sleep500());
+                    
                     cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
                 }
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewInStockLethal(verify));
 
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewInStockNonLethal(verify));
 
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewNonCAndR(verify));
 
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewSoldOrStolen(verify));
 
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
-                //cmd.AddRange(Base.Sleep500());
+                
                 cmd.AddRange(FrmMain.FirearmSortList.ViewInStock(verify));
 
                 //cmd.AddRange(Menu.ClickOnFile(verify));
