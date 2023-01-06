@@ -10,13 +10,14 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
     {
         public class MainMenu
         {
-            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, bool runAddItems = true, bool runView = true)
+            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, bool runAddItems = true, bool runView = true, bool runReports = true)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 if (runFile) cmd.AddRange(RunTestFileMenu(verify));
                 if (runEdit) cmd.AddRange(RunTestEditMenu(verify));
                 if (runAddItems) cmd.AddRange(RunTestAddItemsMenu(verify));
                 if (runView) cmd.AddRange(RunTestViewsMenu(verify));
+                if (runReports) cmd.AddRange(RunTestReportsMenu(verify));
                 return cmd;
             }
 
@@ -89,23 +90,42 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(true));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnAmmunitionInventory(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnWishlist(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMaintenancePlan(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedShops(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedBuyers(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedGunsmiths(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedAppraisers(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnDocuments(verify));
-                //cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnImagePicker(verify));
          
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestReportsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnQuickCollectionReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnQuickCollectionReportwNotes(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnAmmunitionCollectionReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBook(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv1(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv2(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnWishlist(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportPurchaseValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportInsuredValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportAppraisedValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportWithTotal(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportWithTotalPurchaseValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportWithTotalInsuredValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReporWithTotaltAppraisedValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnCustomReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReports(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsBoundBook(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCardWTraget(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCard(verify));
                 return cmd;
             }
         }
