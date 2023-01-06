@@ -550,7 +550,7 @@ Partial Class MDIParent1
         'ReportsToolStripMenuItem
         '
         Me.ReportsToolStripMenuItem.AccessibleDescription = "Reports"
-        Me.ReportsToolStripMenuItem.AccessibleName = "mnuReports"
+        Me.ReportsToolStripMenuItem.AccessibleName = "mnuViewReports"
         Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickCollectionReportToolStripMenuItem, Me.QuickCollectionReportWNotesToolStripMenuItem, Me.AmmunitionCollectionReportToolStripMenuItem, Me.BoundBookToolStripMenuItem, Me.PrintOutWishlistToolStripMenuItem, Me.InsuranceReportToolStripMenuItem, Me.InsuraceReportWithTotalToolStripMenuItem, Me.CustomReportToolStripMenuItem, Me.BlankReportsToolStripMenuItem})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
@@ -586,7 +586,7 @@ Partial Class MDIParent1
         'BoundBookToolStripMenuItem
         '
         Me.BoundBookToolStripMenuItem.AccessibleDescription = "Bound Book"
-        Me.BoundBookToolStripMenuItem.AccessibleName = "mnuBoundBook"
+        Me.BoundBookToolStripMenuItem.AccessibleName = "mnuBoundBookReport"
         Me.BoundBookToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BoundBookVersion1ToolStripMenuItem, Me.BounfBookVersion2ToolStripMenuItem})
         Me.BoundBookToolStripMenuItem.Image = CType(resources.GetObject("BoundBookToolStripMenuItem.Image"), System.Drawing.Image)
         Me.BoundBookToolStripMenuItem.Name = "BoundBookToolStripMenuItem"
@@ -630,26 +630,26 @@ Partial Class MDIParent1
         '
         Me.ByPurchasedValueToolStripMenuItem.AccessibleName = "mnuInsuranceReportPV"
         Me.ByPurchasedValueToolStripMenuItem.Name = "ByPurchasedValueToolStripMenuItem"
-        Me.ByPurchasedValueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ByPurchasedValueToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.ByPurchasedValueToolStripMenuItem.Text = "By Purchased Value"
         '
         'ByInsuredValueToolStripMenuItem
         '
         Me.ByInsuredValueToolStripMenuItem.AccessibleName = "mnuInsuranceReportIv"
         Me.ByInsuredValueToolStripMenuItem.Name = "ByInsuredValueToolStripMenuItem"
-        Me.ByInsuredValueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ByInsuredValueToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.ByInsuredValueToolStripMenuItem.Text = "By Insured Value"
         '
         'ByAppraisedValueToolStripMenuItem
         '
         Me.ByAppraisedValueToolStripMenuItem.AccessibleName = "mnuInsuranceReportAv"
         Me.ByAppraisedValueToolStripMenuItem.Name = "ByAppraisedValueToolStripMenuItem"
-        Me.ByAppraisedValueToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ByAppraisedValueToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.ByAppraisedValueToolStripMenuItem.Text = "By Appraised Value"
         '
         'InsuraceReportWithTotalToolStripMenuItem
         '
-        Me.InsuraceReportWithTotalToolStripMenuItem.AccessibleName = "mnuInsuranceReportwt"
+        Me.InsuraceReportWithTotalToolStripMenuItem.AccessibleName = "mnuInsuranceReportWt"
         Me.InsuraceReportWithTotalToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ByPurchasedValueToolStripMenuItem1, Me.ByInsuredValueToolStripMenuItem1, Me.ByAppraisedValueToolStripMenuItem1})
         Me.InsuraceReportWithTotalToolStripMenuItem.Image = CType(resources.GetObject("InsuraceReportWithTotalToolStripMenuItem.Image"), System.Drawing.Image)
         Me.InsuraceReportWithTotalToolStripMenuItem.Name = "InsuraceReportWithTotalToolStripMenuItem"

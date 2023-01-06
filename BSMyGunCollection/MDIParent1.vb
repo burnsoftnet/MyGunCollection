@@ -895,11 +895,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem.Click
-        Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
-        frmNew.MdiParent = Me
-        frmNew.Show()
-        Cursor = Cursors.Arrow
+
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -1427,5 +1423,13 @@ Public Class MDIParent1
             MsgBox(_errOut)
         End If
         RefreshCollection()
+    End Sub
+
+    Private Sub InsuranceReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuranceReportToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
+
     End Sub
 End Class

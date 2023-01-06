@@ -482,7 +482,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 
                 internal static List<BatchCommandList> ClickOnMain(bool verify = false)
                 {
-                    return ClickOn(SectionName, "mnuReports", verify);
+                    return ClickOn(SectionName, "mnuViewReports", verify);
                 }
 
                 internal static List<BatchCommandList> ClickOnQuickCollectionReport(bool verify = false)
@@ -513,14 +513,13 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
                     if (!verify) cmd.AddRange(ClickOnMain(verify));
-                    cmd.AddRange(ClickOn(SectionName, "mnuBoundBook", verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBoundBookReport", verify));
                     return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnBoundBookv1(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnBoundBook(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuBoundBookv1", verify));
                     return cmd;
@@ -528,7 +527,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnBoundBookv2(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnBoundBook(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuBoundBookv2", verify));
                     return cmd;
@@ -554,15 +552,13 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnInsuranceReportPurchaseValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
-                    if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
+                    cmd.AddRange(ClickOnInsuranceReport(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportPV", verify));
                     return cmd;
                 }
                 internal static List<BatchCommandList> ClickOnmInsuranceReportInsuredValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportIv", verify));
                     return cmd;
@@ -571,7 +567,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnmInsuranceReportAppraisedValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportAv", verify));
                     return cmd;
@@ -581,14 +576,13 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
                     if (!verify) cmd.AddRange(ClickOnMain(verify));
-                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportwt", verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWt", verify));
                     return cmd;
                 }
 
                 internal static List<BatchCommandList> ClickOnInsuranceReportWithTotalPurchaseValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtPv", verify));
                     return cmd;
@@ -596,7 +590,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnmInsuranceReportWithTotalInsuredValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtIv", verify));
                     return cmd;
@@ -605,7 +598,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnmInsuranceReporWithTotaltAppraisedValue(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtAv", verify));
                     return cmd;
@@ -630,7 +622,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnBlankReportsBoundBook(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsBoundBook", verify));
                     return cmd;
@@ -639,7 +630,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnBlankReportsShooterCardWTraget(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsShooterCardWTraget", verify));
                     return cmd;
@@ -648,7 +638,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 internal static List<BatchCommandList> ClickOnBlankReportsShooterCard(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
-                    if (!verify) cmd.AddRange(ClickOnMain(verify));
                     if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
                     cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsShootersCard", verify));
                     return cmd;
