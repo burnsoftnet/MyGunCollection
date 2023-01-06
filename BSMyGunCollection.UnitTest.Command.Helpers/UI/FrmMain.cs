@@ -476,6 +476,185 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 
             }
 
+            internal class ReportsMenu
+            {
+                private static string SectionName = "Reports Menu";
+
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
+                {
+                    return ClickOn(SectionName, "mnuReports", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnQuickCollectionReport(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuQuickCollectionReport", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnQuickCollectionReportwNotes(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuQuickCollectionReportwNotes", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnAmmunitionCollectionReport(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAmmunitionCollectionReport", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBoundBook(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBoundBook", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBoundBookv1(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnBoundBook(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBoundBookv1", verify));
+                    return cmd;
+                }
+                internal static List<BatchCommandList> ClickOnBoundBookv2(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnBoundBook(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBoundBookv2", verify));
+                    return cmd;
+                }
+
+
+                internal static List<BatchCommandList> ClickOnWishlist(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuWishlist", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnInsuranceReport(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReport", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnInsuranceReportPurchaseValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportPV", verify));
+                    return cmd;
+                }
+                internal static List<BatchCommandList> ClickOnmInsuranceReportInsuredValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportIv", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnmInsuranceReportAppraisedValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReport(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportAv", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnInsuranceReportWithTotal(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportwt", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnInsuranceReportWithTotalPurchaseValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtPv", verify));
+                    return cmd;
+                }
+                internal static List<BatchCommandList> ClickOnmInsuranceReportWithTotalInsuredValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtIv", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnmInsuranceReporWithTotaltAppraisedValue(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnInsuranceReportWithTotal(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuInsuranceReportWtAv", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnCustomReport(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuCustomReport", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBlankReports(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBlankReports", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBlankReportsBoundBook(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsBoundBook", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBlankReportsShooterCardWTraget(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsShooterCardWTraget", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnBlankReportsShooterCard(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    if (!verify) cmd.AddRange(ClickOnBlankReports(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuBlankReportsShootersCard", verify));
+                    return cmd;
+                }
+            }
+
             /// <summary>
             /// Clicks the on button.
             /// </summary>
