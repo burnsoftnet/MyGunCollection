@@ -695,6 +695,44 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 
             }
 
+            internal class HelpMenu
+            {
+                private static string SectionName = "Help Menu";
+
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
+                {
+                    return ClickOn(SectionName, "mnuHelp", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnAbout(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuAbout", verify));
+                    return cmd;
+                }
+
+            }
+
+            internal class WindowsMenu
+            {
+                private static string SectionName = "Windows Menu";
+
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
+                {
+                    return ClickOn(SectionName, "mnuWindows", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnCloseAllWindows(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnnuCloseAll", verify));
+                    return cmd;
+                }
+
+            }
+
             /// <summary>
             /// Clicks the on button.
             /// </summary>

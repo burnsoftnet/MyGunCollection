@@ -753,7 +753,7 @@ Partial Class MDIParent1
         Me.CleanUpToolStripMenuItem.AccessibleName = "mnuDatabaseCleanUp"
         Me.CleanUpToolStripMenuItem.Image = CType(resources.GetObject("CleanUpToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CleanUpToolStripMenuItem.Name = "CleanUpToolStripMenuItem"
-        Me.CleanUpToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CleanUpToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.CleanUpToolStripMenuItem.Text = "C&lean-Up"
         '
         'ReRunHotfixUpdatesToolStripMenuItem
@@ -762,14 +762,14 @@ Partial Class MDIParent1
         Me.ReRunHotfixUpdatesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RunToolStripMenuItem, Me.SecurityToolStripMenuItem})
         Me.ReRunHotfixUpdatesToolStripMenuItem.Image = CType(resources.GetObject("ReRunHotfixUpdatesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReRunHotfixUpdatesToolStripMenuItem.Name = "ReRunHotfixUpdatesToolStripMenuItem"
-        Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ReRunHotfixUpdatesToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.ReRunHotfixUpdatesToolStripMenuItem.Text = "Hotfix Updates"
         '
         'RunToolStripMenuItem
         '
         Me.RunToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Hotfix1ToolStripMenuItem, Me.Hotfix2ToolStripMenuItem, Me.Hotfix3ToolStripMenuItem, Me.Hotfix4ToolStripMenuItem, Me.Hotfix5ToolStripMenuItem, Me.Hotfix6ToolStripMenuItem, Me.Hotfix7ToolStripMenuItem, Me.Hotfix8ToolStripMenuItem, Me.Hotfix9ToolStripMenuItem, Me.Hotfix10ToolStripMenuItem})
         Me.RunToolStripMenuItem.Name = "RunToolStripMenuItem"
-        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.RunToolStripMenuItem.Text = "Run "
         '
         'Hotfix1ToolStripMenuItem
@@ -836,7 +836,7 @@ Partial Class MDIParent1
         '
         Me.SecurityToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DisablePasswordToolStripMenuItem, Me.EnablePasswordToolStripMenuItem})
         Me.SecurityToolStripMenuItem.Name = "SecurityToolStripMenuItem"
-        Me.SecurityToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SecurityToolStripMenuItem.Size = New System.Drawing.Size(116, 22)
         Me.SecurityToolStripMenuItem.Text = "Security"
         '
         'DisablePasswordToolStripMenuItem
@@ -868,6 +868,7 @@ Partial Class MDIParent1
         '
         'WindowsMenu
         '
+        Me.WindowsMenu.AccessibleName = "mnuWindows"
         Me.WindowsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewWindowToolStripMenuItem, Me.CascadeToolStripMenuItem, Me.TileVerticalToolStripMenuItem, Me.TileHorizontalToolStripMenuItem, Me.CloseAllToolStripMenuItem, Me.ArrangeIconsToolStripMenuItem})
         Me.WindowsMenu.Name = "WindowsMenu"
         Me.WindowsMenu.Size = New System.Drawing.Size(68, 20)
@@ -875,42 +876,49 @@ Partial Class MDIParent1
         '
         'NewWindowToolStripMenuItem
         '
+        Me.NewWindowToolStripMenuItem.AccessibleName = "mnuNewWindow"
         Me.NewWindowToolStripMenuItem.Name = "NewWindowToolStripMenuItem"
-        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.NewWindowToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NewWindowToolStripMenuItem.Text = "&New Window"
         '
         'CascadeToolStripMenuItem
         '
+        Me.CascadeToolStripMenuItem.AccessibleName = "mnuCascade"
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CascadeToolStripMenuItem.Text = "&Cascade"
         '
         'TileVerticalToolStripMenuItem
         '
+        Me.TileVerticalToolStripMenuItem.AccessibleName = "mnuTileVert"
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileVerticalToolStripMenuItem.Text = "Tile &Vertical"
         '
         'TileHorizontalToolStripMenuItem
         '
+        Me.TileHorizontalToolStripMenuItem.AccessibleName = "mnuTileHor"
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "Tile &Horizontal"
         '
         'CloseAllToolStripMenuItem
         '
+        Me.CloseAllToolStripMenuItem.AccessibleName = "mnnuCloseAll"
         Me.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem"
-        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloseAllToolStripMenuItem.Text = "C&lose All"
         '
         'ArrangeIconsToolStripMenuItem
         '
+        Me.ArrangeIconsToolStripMenuItem.AccessibleName = "mnuArragneIcons"
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
         '
         'HelpMenu
         '
+        Me.HelpMenu.AccessibleName = "mnuHelp"
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem, Me.ToolStripSeparator12, Me.ReportABugToolStripMenuItem, Me.KnowledgeBaseToolStripMenuItem})
         Me.HelpMenu.Name = "HelpMenu"
         Me.HelpMenu.Size = New System.Drawing.Size(44, 20)
@@ -918,57 +926,63 @@ Partial Class MDIParent1
         '
         'ContentsToolStripMenuItem
         '
+        Me.ContentsToolStripMenuItem.AccessibleName = "mnuContents"
         Me.ContentsToolStripMenuItem.Image = CType(resources.GetObject("ContentsToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ContentsToolStripMenuItem.Text = "&Contents"
         '
         'IndexToolStripMenuItem
         '
+        Me.IndexToolStripMenuItem.AccessibleName = "mnuIndex"
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.IndexToolStripMenuItem.Text = "&Index"
         '
         'SearchToolStripMenuItem
         '
+        Me.SearchToolStripMenuItem.AccessibleName = "mnuSearch"
         Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem.Text = "&Search"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(165, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(177, 6)
         '
         'AboutToolStripMenuItem
         '
+        Me.AboutToolStripMenuItem.AccessibleName = "mnuAbout"
         Me.AboutToolStripMenuItem.Image = CType(resources.GetObject("AboutToolStripMenuItem.Image"), System.Drawing.Image)
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AboutToolStripMenuItem.Text = "&About ..."
         '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
-        Me.ToolStripSeparator12.Size = New System.Drawing.Size(165, 6)
+        Me.ToolStripSeparator12.Size = New System.Drawing.Size(177, 6)
         '
         'ReportABugToolStripMenuItem
         '
+        Me.ReportABugToolStripMenuItem.AccessibleName = "mnuReportABug"
         Me.ReportABugToolStripMenuItem.Image = CType(resources.GetObject("ReportABugToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReportABugToolStripMenuItem.Name = "ReportABugToolStripMenuItem"
-        Me.ReportABugToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ReportABugToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ReportABugToolStripMenuItem.Text = "Report a Bug"
         '
         'KnowledgeBaseToolStripMenuItem
         '
+        Me.KnowledgeBaseToolStripMenuItem.AccessibleName = "mnuKb"
         Me.KnowledgeBaseToolStripMenuItem.Image = CType(resources.GetObject("KnowledgeBaseToolStripMenuItem.Image"), System.Drawing.Image)
         Me.KnowledgeBaseToolStripMenuItem.Name = "KnowledgeBaseToolStripMenuItem"
-        Me.KnowledgeBaseToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.KnowledgeBaseToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.KnowledgeBaseToolStripMenuItem.Text = "&Knowledge Base"
         '
         'ToolStrip

@@ -10,7 +10,9 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
     {
         public class MainMenu
         {
-            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, bool runAddItems = true, bool runView = true, bool runReports = true, bool runTools = true)
+            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, 
+                bool runAddItems = true, bool runView = true, bool runReports = true, bool runTools = true, 
+                bool runHelp = true, bool runWindow = true)
             {
                 List<BatchCommandList> cmd = new List<BatchCommandList>();
                 if (runFile) cmd.AddRange(RunTestFileMenu(verify));
@@ -19,6 +21,8 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 if (runView) cmd.AddRange(RunTestViewsMenu(verify));
                 if (runReports) cmd.AddRange(RunTestReportsMenu(verify));
                 if (runTools) cmd.AddRange(RunTestToolsMenu(verify));
+                if (runHelp) cmd.AddRange(RunTestHelpMenu(verify));
+                if (runWindow) cmd.AddRange(RunTestWindowsMenu(verify));
                 return cmd;
             }
 
@@ -116,6 +120,24 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnDatabaseCleanUp(verify));
                 cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnDatabaseHotFixes(verify));
                 cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnSearchCollection(verify));
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestHelpMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.HelpMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.HelpMenu.ClickOnAbout(verify));
+
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestWindowsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.WindowsMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.WindowsMenu.ClickOnCloseAllWindows(verify));
+
                 return cmd;
             }
         }
