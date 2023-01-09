@@ -644,6 +644,57 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 }
             }
 
+            internal class ToolsMenu
+            {
+                private static string SectionName = "Tools Menu";
+
+                internal static List<BatchCommandList> ClickOnMain(bool verify = false)
+                {
+                    return ClickOn(SectionName, "mnuTools", verify);
+                }
+
+                internal static List<BatchCommandList> ClickOnSettings(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuSettings", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnDatabaseMainMenus(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuDatabase", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnDatabaseCleanUp(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    cmd.AddRange(ClickOnDatabaseMainMenus(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuDatabaseCleanUp", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnDatabaseHotFixesk(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    cmd.AddRange(ClickOnDatabaseMainMenus(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuDatabaseHotfixes", verify));
+                    return cmd;
+                }
+
+                internal static List<BatchCommandList> ClickOnSearchCollection(bool verify = false)
+                {
+                    List<BatchCommandList> cmd = new List<BatchCommandList>();
+                    if (!verify) cmd.AddRange(ClickOnMain(verify));
+                    cmd.AddRange(ClickOn(SectionName, "mnuSearchCollection", verify));
+                    return cmd;
+                }
+
+            }
+
             /// <summary>
             /// Clicks the on button.
             /// </summary>
