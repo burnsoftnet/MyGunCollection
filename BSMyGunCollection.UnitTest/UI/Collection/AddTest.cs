@@ -9,6 +9,9 @@ using BurnSoft.Testing.Apps.Appium.Types;
 
 namespace BSMyGunCollection.UnitTest.UI.Collection
 {
+    /// <summary>
+    /// Defines test class AddTest.
+    /// </summary>
     [TestClass]
     public class AddTest
     {

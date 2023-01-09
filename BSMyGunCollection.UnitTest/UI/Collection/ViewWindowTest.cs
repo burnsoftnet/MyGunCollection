@@ -9,6 +9,9 @@ using BurnSoft.Testing.Apps.Appium.Types;
 
 namespace BSMyGunCollection.UnitTest.UI.Collection
 {
+    /// <summary>
+    /// Defines test class ViewWindowTest.
+    /// </summary>
     [TestClass]
     public class ViewWindowTest
     {
@@ -123,8 +126,12 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 }
             }
         }
-        #endregion
-
+        #endregion        
+        /// <summary>
+        /// Defines the test method CollectionViewTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod, TestCategory("View - Collection")]
         public void CollectionViewTest()
         {
@@ -148,7 +155,11 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             }
             Assert.IsTrue(bans);
         }
-
+        /// <summary>
+        /// Defines the test method ChangeToCompetitionGunInViewTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod, TestCategory("View - Collection")]
         public void ChangeToCompetitionGunInViewTest()
         {
@@ -172,7 +183,11 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
             }
             Assert.IsTrue(bans);
         }
-
+        /// <summary>
+        /// Defines the test method ChangeToNonLethalGunInViewTest.
+        /// </summary>
+        /// <exception cref="System.Exception"></exception>
+        /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
         [TestMethod, TestCategory("View - Collection")]
         public void ChangeToNonLethalGunInViewTest()
         {
