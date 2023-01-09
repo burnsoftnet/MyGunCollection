@@ -677,7 +677,7 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                     return cmd;
                 }
 
-                internal static List<BatchCommandList> ClickOnDatabaseHotFixesk(bool verify = false)
+                internal static List<BatchCommandList> ClickOnDatabaseHotFixes(bool verify = false)
                 {
                     List<BatchCommandList> cmd = new List<BatchCommandList>();
                     cmd.AddRange(ClickOnDatabaseMainMenus(verify));
