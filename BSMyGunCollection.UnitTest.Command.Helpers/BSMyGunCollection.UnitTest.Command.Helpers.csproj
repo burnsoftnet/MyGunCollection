@@ -70,6 +70,7 @@
     <Compile Include="UI\Ammuntion\ViewMain.cs" />
     <Compile Include="UI\Collection\AddWindow.cs" />
     <Compile Include="UI\Collection\ViewWindow.cs" />
+    <Compile Include="UI\Editing\Manufactures.cs" />
     <Compile Include="UI\FrmMain.cs" />
     <Compile Include="UI\MainWindow.cs" />
   </ItemGroup>
