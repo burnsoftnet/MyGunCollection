@@ -2,7 +2,7 @@
 sort: 3
 ---
 
-# Welcome to the MyGunCollection wiki!
+# WIKI
 
 ## Videos
 
