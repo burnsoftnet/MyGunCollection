@@ -159,6 +159,7 @@ Partial Class frmAddAmmoAudit
         'frmAddAmmoAudit
         '
         Me.AcceptButton = Me.btnAdd
+        Me.AccessibleName = "AddAmmoWindow"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
@@ -176,7 +177,7 @@ Partial Class frmAddAmmoAudit
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "FrmAddAmmoAudit"
+        Me.Name = "frmAddAmmoAudit"
         Me.Text = "Add Ammo - Audit"
         CType(Me.nudQty,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.nudNumBox,System.ComponentModel.ISupportInitialize).EndInit
