@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 // ReSharper disable InconsistentNaming
 namespace BSMyGunCollection.UnitTest.Settings
@@ -25,8 +26,12 @@ namespace BSMyGunCollection.UnitTest.Settings
         /// <returns>List&lt;Tuple&lt;System.String, System.String&gt;&gt;.</returns>
         private static List<Tuple<string, string>> GeneralSettings()
         {
+            string startupPath = Environment.CurrentDirectory;
+            // This will get the current PROJECT directory
+            string projectDirectory = Directory.GetParent(startupPath).Parent.Parent.FullName;
+            string appPath = Path.Combine(projectDirectory, "BSMyGunCollection\\bin\\Debug");
             List<Tuple<string, string>> ls = new List<Tuple<string, string>>();
-            ls.Add(new Tuple<string, string>("AppPath", "C:\\Source\\Repos\\MyGunCollection\\BSMyGunCollection\\bin\\Debug\\"));
+            ls.Add(new Tuple<string, string>("AppPath", appPath));
             ls.Add(new Tuple<string, string>("AppName", "BSMyGunCollection.exe"));
             ls.Add(new Tuple<string, string>("ErrorLogName", "err.log"));
             ls.Add(new Tuple<string, string>("FirearmToView", "Glock G17"));
