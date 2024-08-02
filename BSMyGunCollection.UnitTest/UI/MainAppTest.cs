@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using BSMyGunCollection.UnitTest.Settings;
@@ -92,6 +93,10 @@ namespace BSMyGunCollection.UnitTest.UI
         public void CleanUp()
         {
             if (_ga != null) _ga.Dispose();
+
+            Process[] processes = Process.GetProcessesByName(_appName);
+            if (processes.Length > 0)
+                processes[0].CloseMainWindow();
         }
         /// <summary>
         /// Errors the log exists.
