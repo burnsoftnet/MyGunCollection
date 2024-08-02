@@ -100,7 +100,8 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AmmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmToolStripMenuItem.Click
-        Dim frmNew As New FrmAddAmmo
+        Dim frmNew As New frmAddAmmo
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -129,7 +130,8 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AddModelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddModelToolStripMenuItem.Click
-        Dim frmNew As New FrmAddModel
+        Dim frmNew As New frmAddModel
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -379,10 +381,17 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AddMmunitionToMyCollectionToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddMmunitionToMyCollectionToolStripMenuItem.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = MdiParent
+        RunAddAmmoToCollection()
+    End Sub
+    ''' <summary>
+    ''' Run the Add Ammo Collection Window Function
+    ''' </summary>
+    Public Sub RunAddAmmoToCollection()
+        Dim frmNew As New frmAddCollectionAmmo
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
     ''' </summary>
@@ -455,9 +464,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton9_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton9.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        RunAddAmmoToCollection()
     End Sub
     ''' <summary>
     ''' Converts to olstripbutton10_click.
@@ -888,11 +895,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem.Click
-        Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
-        frmNew.MdiParent = Me
-        frmNew.Show()
-        Cursor = Cursors.Arrow
+
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -1420,5 +1423,13 @@ Public Class MDIParent1
             MsgBox(_errOut)
         End If
         RefreshCollection()
+    End Sub
+
+    Private Sub InsuranceReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuranceReportToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
+
     End Sub
 End Class

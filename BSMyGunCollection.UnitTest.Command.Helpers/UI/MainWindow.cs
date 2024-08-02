@@ -8,317 +8,250 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
 {
     public class MainWindow
     {
-        public static List<BatchCommandList> RunTest(bool verify = false, string lookForFirearm = "")
+        public class MainMenu
         {
-            List<BatchCommandList> cmd = new List<BatchCommandList>();
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewAll(verify));
-
-            if (verify)
+            public static List<BatchCommandList> RunTest(bool verify = false, bool runFile = true, bool runEdit = true, 
+                bool runAddItems = true, bool runView = true, bool runReports = true, bool runTools = true, 
+                bool runHelp = true, bool runWindow = true)
             {
-                cmd.AddRange(Base.Sleep500());
-                cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                if (runFile) cmd.AddRange(RunTestFileMenu(verify));
+                if (runEdit) cmd.AddRange(RunTestEditMenu(verify));
+                if (runAddItems) cmd.AddRange(RunTestAddItemsMenu(verify));
+                if (runView) cmd.AddRange(RunTestViewsMenu(verify));
+                if (runReports) cmd.AddRange(RunTestReportsMenu(verify));
+                if (runTools) cmd.AddRange(RunTestToolsMenu(verify));
+                if (runHelp) cmd.AddRange(RunTestHelpMenu(verify));
+                if (runWindow) cmd.AddRange(RunTestWindowsMenu(verify));
+                return cmd;
             }
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewCandR(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewCompetition(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewCustomCataolog(verify));
-            if (verify)
+
+            private static List<BatchCommandList> RunTestFileMenu(bool verify = false)
             {
-                cmd.AddRange(Base.Sleep500());
-                cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnImport(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
+                //TODO: Functions do not Work Try to Fix Later
+                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
+                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
+                cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
+                return cmd;
             }
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewClassIii(verify));
 
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewInStock(verify));
-            if (verify)
+            private static List<BatchCommandList> RunTestEditMenu(bool verify = false)
             {
-                cmd.AddRange(Base.Sleep500());
-                cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnManufactures(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnAmmoType(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnModelTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnPlaceOfOrgin(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnGripTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmConditions(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnFirearmTypes(verify));
+                cmd.AddRange(FrmMain.Menu.EditMenu.ClickOnClassification(verify));
+                return cmd;
             }
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewInStockLethal(verify));
-            if (verify)
+
+            private static List<BatchCommandList> RunTestAddItemsMenu(bool verify = false)
             {
-                cmd.AddRange(Base.Sleep500());
-                cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearm(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitiontomyCollection(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddtoWishlist(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddManufacturer(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddAmmunitionType(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddFirearmClassification(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddModel(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnAddPlaceofOrigin(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnMaintenancePlan(verify));
+                cmd.AddRange(FrmMain.Menu.AddItemMenu.ClickOnDocument(verify));
+                return cmd;
             }
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewInStockLethal(verify));
 
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewInStockNonLethal(verify));
+            private static List<BatchCommandList> RunTestViewsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnAmmunitionInventory(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnWishlist(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnMaintenancePlan(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedShops(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedBuyers(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedGunsmiths(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnListedAppraisers(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnDocuments(verify));
+                cmd.AddRange(FrmMain.Menu.ViewMenu.ClickOnImagePicker(verify));
 
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewNonCAndR(verify));
+                return cmd;
+            }
 
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewSoldOrStolen(verify));
+            private static List<BatchCommandList> RunTestReportsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnQuickCollectionReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnQuickCollectionReportwNotes(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnAmmunitionCollectionReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv1(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBoundBookv2(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnWishlist(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportPurchaseValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportInsuredValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportAppraisedValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnInsuranceReportWithTotalPurchaseValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReportWithTotalInsuredValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnmInsuranceReporWithTotaltAppraisedValue(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnCustomReport(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsBoundBook(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCardWTraget(verify));
+                cmd.AddRange(FrmMain.Menu.ReportsMenu.ClickOnBlankReportsShooterCard(verify));
+                return cmd;
+            }
 
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ClickOnList(verify));
-            cmd.AddRange(Base.Sleep500());
-            cmd.AddRange(FirearmSortList.ViewInStock(verify));
+            private static List<BatchCommandList> RunTestToolsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnSettings(verify));
+                cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnDatabaseCleanUp(verify));
+                cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnDatabaseHotFixes(verify));
+                cmd.AddRange(FrmMain.Menu.ToolsMenu.ClickOnSearchCollection(verify));
+                return cmd;
+            }
 
-            //cmd.AddRange(Menu.ClickOnFile(verify));
-            //cmd.AddRange(Menu.ClickOnExit(verify));
-            return cmd;
+            private static List<BatchCommandList> RunTestHelpMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.HelpMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.HelpMenu.ClickOnAbout(verify));
+
+                return cmd;
+            }
+
+            private static List<BatchCommandList> RunTestWindowsMenu(bool verify = false)
+            {
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.Menu.WindowsMenu.ClickOnMain(true));
+                cmd.AddRange(FrmMain.Menu.WindowsMenu.ClickOnCloseAllWindows(verify));
+
+                return cmd;
+            }
         }
-
-        internal class ToolBar
+        public class SideMenu
         {
-            internal static List<BatchCommandList> ClickOnOpenToolStripButton(bool verify = false)
+            public static List<BatchCommandList> RunTest(bool verify = false, string lookForFirearm = "")
             {
-                string element = "OpenToolStripButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            internal static List<BatchCommandList> ClickOnSaveToolStripButton(bool verify = false)
-            {
-                string element = "SaveToolStripButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                cmd.AddRange(FrmMain.FirearmSortList.ViewAll(verify));
 
-            internal static List<BatchCommandList> ClickOnSettingsButton(bool verify = false)
-            {
-                string element = "SettingsButton";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                if (verify)
+                {
+                    cmd.AddRange(Base.Sleep500());
+                    cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewCandR(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewCompetition(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewCustomCataolog(verify));
+                if (verify)
+                {
+                    
+                    cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewClassIii(verify));
 
-            internal static List<BatchCommandList> ClickOnAmmoInventoryToolStripButton(bool verify = false)
-            {
-                string element = "AmmoInventory";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewInStock(verify));
+                if (verify)
+                {
+                    
+                    cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewInStockLethal(verify));
+                if (verify)
+                {
+                    
+                    cmd.AddRange(Base.ClickOnElement(lookForFirearm, lookForFirearm, verify, GeneralActions.AppAction.FindElementByName));
+                }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewInStockLethal(verify));
 
-            internal static List<BatchCommandList> ClickOnAddAmmoInventory(bool verify = false)
-            {
-                string element = "AddAmmoInventory";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewInStockNonLethal(verify));
 
-            internal static List<BatchCommandList> ClickOnWishList(bool verify = false)
-            {
-                string element = "WishList";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewNonCAndR(verify));
 
-            internal static List<BatchCommandList> ClickOnViewMaintenancePlans(bool verify = false)
-            {
-                string element = "ViewMaintenancePlans";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewSoldOrStolen(verify));
 
-            internal static List<BatchCommandList> ClickOnAddGun(bool verify = false)
-            {
-                string element = "AddGun";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ClickOnList(verify));
+                
+                cmd.AddRange(FrmMain.FirearmSortList.ViewInStock(verify));
 
-            internal static List<BatchCommandList> ClickOnFirearmGallery(bool verify = false)
-            {
-                string element = "FirearmGallery";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
+                //cmd.AddRange(Menu.ClickOnFile(verify));
+                //cmd.AddRange(Menu.ClickOnExit(verify));
+                return cmd;
             }
-
-            internal static List<BatchCommandList> ClickOnAddWishList(bool verify = false)
-            {
-                string element = "AddWishList";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            
-            internal static List<BatchCommandList> ClickOnSearchCollection(bool verify = false)
-            {
-                string element = "SearchCollection";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-
-            internal static List<BatchCommandList> ClickOnDeleteSelectedFirearm(bool verify = false)
-            {
-                string element = "DeleteSelectedFirearm";
-                return Base.ClickOnElement($"{element} tool bar icon", element, verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-
         }
-
         /// <summary>
-        /// Class Menu.
+        /// Class ToolBar.
         /// </summary>
-        internal class Menu
+        public class ToolBar
         {
-            /// <summary>
-            /// Clicks the on file.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ClickOnFile(bool verify = false)
+            public static List<BatchCommandList> RunTest(bool verify = false)
             {
-                return Base.ClickOnElement("File Menu", "File", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Clicks the on exit.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ClickOnExit(bool verify = false)
-            {
-                return Base.ClickOnElement("File Menu", "Exit", verify,
-                    GeneralActions.AppAction.FindElementByName);
+                List<BatchCommandList> cmd = new List<BatchCommandList>();
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSearchCollection(verify));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddAmmoInventory(verify));
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddGun());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAddWishList());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnCancel"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnAmmoInventoryToolStripButton());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnFirearmGallery());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSettingsButton());
+                if (!verify) cmd.AddRange(Base.ClickOnElement("Cancel button", "btnExit"));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnDeleteSelectedFirearm(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnOpenToolStripButton(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnViewMaintenancePlans());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSaveToolStripButton(true));
+                cmd.AddRange(FrmMain.ToolBar.ClickOnBoundBook());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnDocuments());
+                cmd.AddRange(FrmMain.ToolBar.ClickOnSearchCollection());
+                return cmd;
             }
         }
-        /// <summary>
-        /// Class FirearmSortList.
-        /// </summary>
-        internal class FirearmSortList
-        {
-            /// <summary>
-            /// Clicks the on list.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ClickOnList(bool verify = false)
-            {
-                return Base.ClickOnElement("Firearm sort list", "Open", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views all.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewAll(bool verify = false)
-            {
-                return Base.ClickOnElement("View All Firearms","ALL", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the in stock.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewInStock(bool verify = false)
-            {
-                return Base.ClickOnElement("View In Stock Firearms", "In Stock", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the i class iii.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewClassIii(bool verify = false)
-            {
-                return Base.ClickOnElement("View Class III Firearms", "Class III", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the in stock lethal.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewInStockLethal(bool verify = false)
-            {
-                return Base.ClickOnElement("View In Stock - Lethal Firearms", "In Stock - Lethal", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the in stock non lethal.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewInStockNonLethal(bool verify = false)
-            {
-                return Base.ClickOnElement("View In Stock - Non-Lethal Firearms", "In Stock - Non-Lethal", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the competition.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewCompetition(bool verify = false)
-            {
-                return Base.ClickOnElement("View Competition Firearms", "Competition", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the cand r.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewCandR(bool verify = false)
-            {
-                return Base.ClickOnElement("View C & R Firearms", "C & R", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the non c and r.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewNonCAndR(bool verify = false)
-            {
-                return Base.ClickOnElement("View Non C & R Firearms", "Non C & R", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the custom catalog.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewCustomCataolog(bool verify = false)
-            {
-                return Base.ClickOnElement("View Cust. Catalog # Firearms", "Cust. Catalog #", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-            /// <summary>
-            /// Views the sold or stolen.
-            /// </summary>
-            /// <param name="verify">if set to <c>true</c> [verify].</param>
-            /// <returns>List&lt;BatchCommandList&gt;.</returns>
-            internal static List<BatchCommandList> ViewSoldOrStolen(bool verify = false)
-            {
-                return Base.ClickOnElement("View Sold/Stolen Firearms", "Sold/Stolen", verify,
-                    GeneralActions.AppAction.FindElementByName);
-            }
-        }
-
     }
 }

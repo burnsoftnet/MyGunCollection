@@ -9,6 +9,9 @@ using BurnSoft.Testing.Apps.Appium.Types;
 
 namespace BSMyGunCollection.UnitTest.UI.Collection
 {
+    /// <summary>
+    /// Defines test class AddTest.
+    /// </summary>
     [TestClass]
     public class AddTest
     {
@@ -91,7 +94,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
                 _ga.TestName = "MainApp";
                 _ga.ApplicationPath = _fullAppPath;
                 _ga.SettingsScreenShotLocation = fullExceptionPath;
-                //_ga.DoSleep = true;
+                _ga.DoSleep = false;
                 _ga.Initialize();
             }
             catch (Exception e)
@@ -154,7 +157,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddSimpleTest()
         {
             bool bans = false;
@@ -186,7 +189,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddJustABoutEverythingOnTabTest()
         {
             bool bans = false;
@@ -219,7 +222,7 @@ namespace BSMyGunCollection.UnitTest.UI.Collection
         /// </summary>
         /// <exception cref="System.Exception"></exception>
         /// <exception cref="System.Exception">ERROR LOG EXISTS!! {_fullLogPath}</exception>
-        [TestMethod]
+        [TestMethod, TestCategory("Add - Firearm")]
         public void AddEverythingTest()
         {
             bool bans = false;

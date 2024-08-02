@@ -40,13 +40,8 @@ Public Class frmEditmanufactures
             UpdatePending = True
         End If
     End Sub
-    ''' <summary>
-    ''' Handles the Resize event of the frmEditmanufactures control.
-    ''' </summary>
-    ''' <param name="sender">The source of the event.</param>
-    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-    Private Sub frmEditmanufactures_Resize(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Resize
-        DataGridView1.Width = Width - 15
-        DataGridView1.Height = Height - 39
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Close()
     End Sub
 End Class
