@@ -84,6 +84,7 @@ Partial Class AboutBox1
         '
         'LabelProductName
         '
+        Me.LabelProductName.AccessibleDescription = "Product Name"
         Me.LabelProductName.AccessibleName = "LabelProductName"
         Me.LabelProductName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabelProductName.Location = New System.Drawing.Point(136, 0)
@@ -97,6 +98,7 @@ Partial Class AboutBox1
         '
         'LabelVersion
         '
+        Me.LabelVersion.AccessibleDescription = "Product Version"
         Me.LabelVersion.AccessibleName = "LabelVersion"
         Me.LabelVersion.AutoSize = true
         Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
@@ -111,6 +113,7 @@ Partial Class AboutBox1
         '
         'LabelCopyright
         '
+        Me.LabelCopyright.AccessibleDescription = "Copyright details"
         Me.LabelCopyright.AccessibleName = "LabelCopyright"
         Me.LabelCopyright.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabelCopyright.Location = New System.Drawing.Point(136, 70)
@@ -124,6 +127,7 @@ Partial Class AboutBox1
         '
         'LabelCompanyName
         '
+        Me.LabelCompanyName.AccessibleDescription = "Company Name"
         Me.LabelCompanyName.AccessibleName = "LabelCompanyName"
         Me.LabelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabelCompanyName.Location = New System.Drawing.Point(136, 103)
@@ -137,6 +141,7 @@ Partial Class AboutBox1
         '
         'TextBoxDescription
         '
+        Me.TextBoxDescription.AccessibleDescription = "Description"
         Me.TextBoxDescription.AccessibleName = "TextBoxDescription"
         Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBoxDescription.Location = New System.Drawing.Point(136, 128)
@@ -152,6 +157,7 @@ Partial Class AboutBox1
         '
         'OKButton
         '
+        Me.OKButton.AccessibleDescription = "Click Ok to Exit Window"
         Me.OKButton.AccessibleName = "OKButton"
         Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.OKButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
