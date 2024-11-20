@@ -98,6 +98,8 @@ Partial Class frmAddNationality
         'frmAddNationality
         '
         Me.AcceptButton = Me.btnAdd
+        Me.AccessibleDescription = "Add Place of Origin"
+        Me.AccessibleName = "frmAddNationality"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
