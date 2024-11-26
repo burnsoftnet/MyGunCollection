@@ -65,8 +65,9 @@ Partial Class frmCR_SelectTable
         '
         'ComboBox1
         '
+        Me.ComboBox1.AccessibleDescription = "Select the Table that you wish to gather Data From:"
+        Me.ComboBox1.AccessibleName = "ComboBox1"
         Me.ComboBox1.DataSource = Me.CRTableListBindingSource
-        Me.ComboBox1.DisplayMember = "DN"
         Me.ComboBox1.FormattingEnabled = true
         Me.HelpProvider1.SetHelpKeyword(Me.ComboBox1, "Custom Reports")
         Me.HelpProvider1.SetHelpNavigator(Me.ComboBox1, System.Windows.Forms.HelpNavigator.KeywordIndex)
@@ -94,6 +95,8 @@ Partial Class frmCR_SelectTable
         '
         'btnNext
         '
+        Me.btnNext.AccessibleDescription = "Next Button"
+        Me.btnNext.AccessibleName = "btnNext"
         Me.btnNext.ContextMenuStrip = Me.cmsNextMenu
         Me.btnNext.Location = New System.Drawing.Point(184, 39)
         Me.btnNext.Name = "btnNext"
@@ -117,6 +120,8 @@ Partial Class frmCR_SelectTable
         '
         'ComboBox2
         '
+        Me.ComboBox2.AccessibleDescription = "Or you can Load a Saved Report"
+        Me.ComboBox2.AccessibleName = "ComboBox2"
         Me.ComboBox2.DataSource = Me.CRSavedReportsBindingSource
         Me.ComboBox2.DisplayMember = "ReportName"
         Me.ComboBox2.FormattingEnabled = true
@@ -137,6 +142,8 @@ Partial Class frmCR_SelectTable
         '
         'btnLoadSaved
         '
+        Me.btnLoadSaved.AccessibleDescription = "Load Saved Report"
+        Me.btnLoadSaved.AccessibleName = "btnLoadSaved"
         Me.btnLoadSaved.ContextMenuStrip = Me.cmsSavedReports
         Me.btnLoadSaved.Location = New System.Drawing.Point(184, 88)
         Me.btnLoadSaved.Name = "btnLoadSaved"
@@ -180,6 +187,8 @@ Partial Class frmCR_SelectTable
         '
         'btnSQLEditor
         '
+        Me.btnSQLEditor.AccessibleDescription = "SQL Editor"
+        Me.btnSQLEditor.AccessibleName = "btnSQLEditor"
         Me.btnSQLEditor.Location = New System.Drawing.Point(248, 39)
         Me.btnSQLEditor.Name = "btnSQLEditor"
         Me.btnSQLEditor.Size = New System.Drawing.Size(75, 23)
@@ -189,6 +198,8 @@ Partial Class frmCR_SelectTable
         '
         'btnEdit
         '
+        Me.btnEdit.AccessibleDescription = "Edit Saved Report"
+        Me.btnEdit.AccessibleName = "btnEdit"
         Me.btnEdit.Location = New System.Drawing.Point(249, 87)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
@@ -196,8 +207,10 @@ Partial Class frmCR_SelectTable
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = true
         '
-        'frmCrSelectTable
+        'frmCR_SelectTable
         '
+        Me.AccessibleDescription = "Custom Report Builder - Select Table"
+        Me.AccessibleName = "frmCR_SelectTable"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(336, 130)
