@@ -25,7 +25,7 @@ Partial Class frmImportFirearm
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmImportFirearm))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmImportFirearm))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblFile = New System.Windows.Forms.Label()
@@ -64,6 +64,8 @@ Partial Class frmImportFirearm
         '
         'btnOpen
         '
+        Me.btnOpen.AccessibleDescription = "Select File"
+        Me.btnOpen.AccessibleName = "btnOpen"
         Me.btnOpen.Location = New System.Drawing.Point(316, 52)
         Me.btnOpen.Name = "btnOpen"
         Me.btnOpen.Size = New System.Drawing.Size(75, 23)
@@ -89,6 +91,8 @@ Partial Class frmImportFirearm
         '
         'btnImport
         '
+        Me.btnImport.AccessibleDescription = "Start Import"
+        Me.btnImport.AccessibleName = "btnImport"
         Me.btnImport.Enabled = false
         Me.btnImport.Location = New System.Drawing.Point(316, 99)
         Me.btnImport.Name = "btnImport"
@@ -103,6 +107,8 @@ Partial Class frmImportFirearm
         '
         'frmImportFirearm
         '
+        Me.AccessibleDescription = "Import Firearm from XML"
+        Me.AccessibleName = "frmImportFirearm"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(404, 154)
@@ -116,7 +122,7 @@ Partial Class frmImportFirearm
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "FrmImportFirearm"
+        Me.Name = "frmImportFirearm"
         Me.Text = "Import Firearm from XML"
         Me.ResumeLayout(false)
         Me.PerformLayout
