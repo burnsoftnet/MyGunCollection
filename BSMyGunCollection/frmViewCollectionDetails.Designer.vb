@@ -1820,6 +1820,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnVwAccessReport
         '
+        Me.btnVwAccessReport.AccessibleDescription = "View Report"
+        Me.btnVwAccessReport.AccessibleName = "btnVwAccessReport"
         Me.btnVwAccessReport.Location = New System.Drawing.Point(394, 8)
         Me.btnVwAccessReport.Name = "btnVwAccessReport"
         Me.btnVwAccessReport.Size = New System.Drawing.Size(75, 23)
@@ -1829,6 +1831,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnRefresh
         '
+        Me.btnRefresh.AccessibleDescription = "Refresh"
+        Me.btnRefresh.AccessibleName = "btnRefresh"
         Me.btnRefresh.Location = New System.Drawing.Point(224, 8)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
@@ -1838,6 +1842,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAddAccess
         '
+        Me.btnAddAccess.AccessibleDescription = "Add Accessory"
+        Me.btnAddAccess.AccessibleName = "btnAddAccess"
         Me.btnAddAccess.Location = New System.Drawing.Point(8, 8)
         Me.btnAddAccess.Name = "btnAddAccess"
         Me.btnAddAccess.Size = New System.Drawing.Size(113, 23)
@@ -1847,6 +1853,8 @@ Partial Class frmViewCollectionDetails
         '
         'DataGridView1
         '
+        Me.DataGridView1.AccessibleDescription = "List of Accessories"
+        Me.DataGridView1.AccessibleName = "DataGridView1"
         Me.DataGridView1.AllowUserToAddRows = false
         Me.DataGridView1.AutoGenerateColumns = false
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -1955,12 +1963,16 @@ Partial Class frmViewCollectionDetails
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.AccessibleDescription = "Accessory Menu"
+        Me.ContextMenuStrip1.AccessibleName = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.CopyToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(103, 48)
         '
         'EditToolStripMenuItem
         '
+        Me.EditToolStripMenuItem.AccessibleDescription = "Edit Accessory"
+        Me.EditToolStripMenuItem.AccessibleName = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
@@ -1968,6 +1980,8 @@ Partial Class frmViewCollectionDetails
         '
         'CopyToolStripMenuItem
         '
+        Me.CopyToolStripMenuItem.AccessibleDescription = "Copy Accessory"
+        Me.CopyToolStripMenuItem.AccessibleName = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.Image = CType(resources.GetObject("CopyToolStripMenuItem.Image"),System.Drawing.Image)
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
@@ -1990,15 +2004,17 @@ Partial Class frmViewCollectionDetails
         Me.TabPage6.Controls.Add(Me.btnAddAmmo)
         Me.TabPage6.Controls.Add(Me.DataGridView2)
         Me.TabPage6.ImageIndex = 3
-        Me.TabPage6.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 42)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage6.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Ammunition"
         Me.TabPage6.UseVisualStyleBackColor = true
         '
         'btnAmmoReportByCal
         '
+        Me.btnAmmoReportByCal.AccessibleDescription = "Print Ammo list"
+        Me.btnAmmoReportByCal.AccessibleName = "btnAmmoReportByCal"
         Me.btnAmmoReportByCal.Location = New System.Drawing.Point(429, 8)
         Me.btnAmmoReportByCal.Name = "btnAmmoReportByCal"
         Me.btnAmmoReportByCal.Size = New System.Drawing.Size(112, 23)
@@ -2027,6 +2043,8 @@ Partial Class frmViewCollectionDetails
         '
         'Button1
         '
+        Me.Button1.AccessibleDescription = "Refresh"
+        Me.Button1.AccessibleName = "Button1"
         Me.Button1.Location = New System.Drawing.Point(228, 9)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -2036,6 +2054,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAddAmmo
         '
+        Me.btnAddAmmo.AccessibleDescription = "Add Ammo"
+        Me.btnAddAmmo.AccessibleName = "btnAddAmmo"
         Me.btnAddAmmo.Location = New System.Drawing.Point(8, 9)
         Me.btnAddAmmo.Name = "btnAddAmmo"
         Me.btnAddAmmo.Size = New System.Drawing.Size(75, 23)
@@ -2045,6 +2065,8 @@ Partial Class frmViewCollectionDetails
         '
         'DataGridView2
         '
+        Me.DataGridView2.AccessibleDescription = "Ammo List"
+        Me.DataGridView2.AccessibleName = "DataGridView2"
         Me.DataGridView2.AllowUserToAddRows = false
         Me.DataGridView2.AutoGenerateColumns = false
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -2147,10 +2169,10 @@ Partial Class frmViewCollectionDetails
         Me.TabPage7.Controls.Add(Me.DataGridView3)
         Me.TabPage7.Controls.Add(Me.btnAddMain)
         Me.TabPage7.ImageIndex = 6
-        Me.TabPage7.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 42)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage7.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Maintenance"
         Me.TabPage7.UseVisualStyleBackColor = true
@@ -2282,7 +2304,7 @@ Partial Class frmViewCollectionDetails
         Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
         Me.NameDataGridViewTextBoxColumn1.ReadOnly = true
         Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NameDataGridViewTextBoxColumn1.Width = 97
+        Me.NameDataGridViewTextBoxColumn1.Width = 118
         '
         'OpDateDataGridViewTextBoxColumn
         '
