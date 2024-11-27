@@ -36,17 +36,18 @@ Partial Class frmEditmanufactures
         Me.Gun_ManufacturerTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_ManufacturerTableAdapter()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GunManufacturerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
-        Me.SuspendLayout()
+        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GunManufacturerBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.MenuStrip1.SuspendLayout
+        Me.SuspendLayout
         '
         'DataGridView1
         '
+        Me.DataGridView1.AccessibleDescription = "List of Manufacturers"
         Me.DataGridView1.AccessibleName = "gridMain"
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.AllowUserToAddRows = false
+        Me.DataGridView1.AutoGenerateColumns = false
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BrandDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.GunManufacturerBindingSource
@@ -79,7 +80,7 @@ Partial Class frmEditmanufactures
         '
         'Gun_ManufacturerTableAdapter
         '
-        Me.Gun_ManufacturerTableAdapter.ClearBeforeFill = True
+        Me.Gun_ManufacturerTableAdapter.ClearBeforeFill = true
         '
         'MenuStrip1
         '
@@ -92,15 +93,18 @@ Partial Class frmEditmanufactures
         '
         'ExitToolStripMenuItem
         '
+        Me.ExitToolStripMenuItem.AccessibleDescription = "Close Form"
         Me.ExitToolStripMenuItem.AccessibleName = "mnuExit"
-        Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ExitToolStripMenuItem.Image = CType(resources.GetObject("ExitToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(28, 20)
         Me.ExitToolStripMenuItem.ToolTipText = "Close Window"
         '
         'frmEditmanufactures
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AccessibleDescription = "Edit Manufactures"
+        Me.AccessibleName = "frmEditmanufactures"
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(230, 344)
         Me.Controls.Add(Me.DataGridView1)
@@ -108,22 +112,22 @@ Partial Class frmEditmanufactures
         Me.HelpProvider1.SetHelpKeyword(Me, "Editing Manufactures")
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Editing Manufactures")
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
         Me.Name = "frmEditmanufactures"
-        Me.HelpProvider1.SetShowHelp(Me, True)
+        Me.HelpProvider1.SetShowHelp(Me, true)
         Me.Text = "Edit Manufactures"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GunManufacturerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GunManufacturerBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.MenuStrip1.ResumeLayout(false)
+        Me.MenuStrip1.PerformLayout
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents GunManufacturerBindingSource As BindingSource
