@@ -53,6 +53,8 @@ Partial Class frmEditAccessory
         '
         'btnCancel
         '
+        Me.btnCancel.AccessibleDescription = "Exit form without saving"
+        Me.btnCancel.AccessibleName = "btnCancel"
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(211, 336)
         Me.btnCancel.Name = "btnCancel"
@@ -63,6 +65,8 @@ Partial Class frmEditAccessory
         '
         'btnEdit
         '
+        Me.btnEdit.AccessibleDescription = "Save changes to Database"
+        Me.btnEdit.AccessibleName = "btnEdit"
         Me.btnEdit.Location = New System.Drawing.Point(43, 336)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
@@ -72,6 +76,8 @@ Partial Class frmEditAccessory
         '
         'txtNotes
         '
+        Me.txtNotes.AccessibleDescription = "General notes"
+        Me.txtNotes.AccessibleName = "txtNotes"
         Me.txtNotes.Location = New System.Drawing.Point(14, 256)
         Me.txtNotes.Multiline = true
         Me.txtNotes.Name = "txtNotes"
@@ -81,6 +87,8 @@ Partial Class frmEditAccessory
         '
         'txtPurVal
         '
+        Me.txtPurVal.AccessibleDescription = "Purchase Value"
+        Me.txtPurVal.AccessibleName = "txtPurVal"
         Me.txtPurVal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurVal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurVal.Location = New System.Drawing.Point(136, 141)
@@ -90,6 +98,8 @@ Partial Class frmEditAccessory
         '
         'cmdCondition
         '
+        Me.cmdCondition.AccessibleDescription = "Condition"
+        Me.cmdCondition.AccessibleName = "cmdCondition"
         Me.cmdCondition.FormattingEnabled = true
         Me.cmdCondition.Items.AddRange(New Object() {"New", "New, Discontinued", "Perfect", "Excellent", "Very Good", "Good", "Fair", "Poor", "Antique Factory New", "Antique Excellent", "Antique Fine", "Antique Very Good", "Antique Good", "Antique Fair", "Antique Poor"})
         Me.cmdCondition.Location = New System.Drawing.Point(136, 88)
@@ -100,6 +110,8 @@ Partial Class frmEditAccessory
         '
         'txtUse
         '
+        Me.txtUse.AccessibleDescription = "HOw it is used"
+        Me.txtUse.AccessibleName = "txtUse"
         Me.txtUse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtUse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtUse.Location = New System.Drawing.Point(136, 115)
@@ -109,6 +121,8 @@ Partial Class frmEditAccessory
         '
         'txtSerial
         '
+        Me.txtSerial.AccessibleDescription = "Serial Number"
+        Me.txtSerial.AccessibleName = "txtSerial"
         Me.txtSerial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSerial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSerial.Location = New System.Drawing.Point(136, 58)
@@ -118,6 +132,8 @@ Partial Class frmEditAccessory
         '
         'txtModel
         '
+        Me.txtModel.AccessibleDescription = "Model"
+        Me.txtModel.AccessibleName = "txtModel"
         Me.txtModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtModel.Location = New System.Drawing.Point(136, 32)
@@ -127,6 +143,8 @@ Partial Class frmEditAccessory
         '
         'txtMan
         '
+        Me.txtMan.AccessibleDescription = "Manufacturer"
+        Me.txtMan.AccessibleName = "txtMan"
         Me.txtMan.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtMan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtMan.Location = New System.Drawing.Point(136, 6)
@@ -210,6 +228,8 @@ Partial Class frmEditAccessory
         '
         'chkCIV
         '
+        Me.chkCIV.AccessibleDescription = "Include in Appraised Value Check box"
+        Me.chkCIV.AccessibleName = "chkCIV"
         Me.chkCIV.AutoSize = true
         Me.chkCIV.Location = New System.Drawing.Point(180, 195)
         Me.chkCIV.Name = "chkCIV"
@@ -230,6 +250,8 @@ Partial Class frmEditAccessory
         '
         'txtAppValue
         '
+        Me.txtAppValue.AccessibleDescription = "Appraised Value"
+        Me.txtAppValue.AccessibleName = "txtAppValue"
         Me.txtAppValue.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppValue.Location = New System.Drawing.Point(136, 167)
@@ -249,6 +271,8 @@ Partial Class frmEditAccessory
         '
         'chkIsChoke
         '
+        Me.chkIsChoke.AccessibleDescription = "Is this a Shotgun Choke Checkbox"
+        Me.chkIsChoke.AccessibleName = "chkIsChoke"
         Me.chkIsChoke.AutoSize = true
         Me.chkIsChoke.Location = New System.Drawing.Point(181, 217)
         Me.chkIsChoke.Name = "chkIsChoke"
@@ -260,6 +284,7 @@ Partial Class frmEditAccessory
         '
         'Label10
         '
+        Me.Label10.AccessibleDescription = "Is this a Shotgun Choke Checkbox"
         Me.Label10.AutoSize = true
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.Label10.Location = New System.Drawing.Point(12, 217)
