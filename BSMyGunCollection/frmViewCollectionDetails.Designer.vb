@@ -28,7 +28,7 @@ Partial Class frmViewCollectionDetails
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmViewCollectionDetails))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewCollectionDetails))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -374,6 +374,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage5
         '
+        Me.TabPage5.AccessibleDescription = "Standard Details"
+        Me.TabPage5.AccessibleName = "TabPage5"
         Me.TabPage5.Controls.Add(Me.Label59)
         Me.TabPage5.Controls.Add(Me.txtCaliber3)
         Me.TabPage5.Controls.Add(Me.dtpPurchased)
@@ -451,6 +453,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtCaliber3
         '
+        Me.txtCaliber3.AccessibleDescription = "Caliber 3"
+        Me.txtCaliber3.AccessibleName = "txtCaliber3"
         Me.txtCaliber3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCaliber3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCaliber3.Location = New System.Drawing.Point(114, 320)
@@ -461,6 +465,8 @@ Partial Class frmViewCollectionDetails
         '
         'dtpPurchased
         '
+        Me.dtpPurchased.AccessibleDescription = "Purchase Date"
+        Me.dtpPurchased.AccessibleName = "dtpPurchased"
         Me.dtpPurchased.Checked = false
         Me.dtpPurchased.Enabled = false
         Me.dtpPurchased.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -493,6 +499,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtChoke
         '
+        Me.txtChoke.AccessibleDescription = "Current Choke:"
+        Me.txtChoke.AccessibleName = "txtChoke"
         Me.txtChoke.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtChoke.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtChoke.Location = New System.Drawing.Point(457, 342)
@@ -546,6 +554,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtImporter
         '
+        Me.txtImporter.AccessibleDescription = "Importer"
+        Me.txtImporter.AccessibleName = "txtImporter"
         Me.txtImporter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtImporter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtImporter.BackColor = System.Drawing.SystemColors.Control
@@ -575,6 +585,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtPetLoads
         '
+        Me.txtPetLoads.AccessibleDescription = "Caliber 2"
+        Me.txtPetLoads.AccessibleName = "txtPetLoads"
         Me.txtPetLoads.Location = New System.Drawing.Point(114, 294)
         Me.txtPetLoads.Name = "txtPetLoads"
         Me.txtPetLoads.ReadOnly = true
@@ -583,6 +595,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtCondition
         '
+        Me.txtCondition.AccessibleDescription = "Condition"
+        Me.txtCondition.AccessibleName = "txtCondition"
         Me.txtCondition.Location = New System.Drawing.Point(114, 181)
         Me.txtCondition.Name = "txtCondition"
         Me.txtCondition.ReadOnly = true
@@ -591,6 +605,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtPurPrice
         '
+        Me.txtPurPrice.AccessibleDescription = "Purcahse Price"
+        Me.txtPurPrice.AccessibleName = "txtPurPrice"
         Me.txtPurPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurPrice.Location = New System.Drawing.Point(114, 237)
@@ -601,6 +617,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtPurchasedFrom
         '
+        Me.txtPurchasedFrom.AccessibleDescription = "Purcahse From"
+        Me.txtPurchasedFrom.AccessibleName = "txtPurchasedFrom"
         Me.txtPurchasedFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurchasedFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurchasedFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
@@ -613,6 +631,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtStorage
         '
+        Me.txtStorage.AccessibleDescription = "Storage Location:"
+        Me.txtStorage.AccessibleName = "txtStorage"
         Me.txtStorage.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtStorage.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtStorage.Location = New System.Drawing.Point(457, 181)
@@ -623,6 +643,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtSights
         '
+        Me.txtSights.AccessibleDescription = "Sights"
+        Me.txtSights.AccessibleName = "txtSights"
         Me.txtSights.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSights.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSights.Location = New System.Drawing.Point(457, 155)
@@ -633,6 +655,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtFeed
         '
+        Me.txtFeed.AccessibleDescription = "Feed System/Capacity:"
+        Me.txtFeed.AccessibleName = "txtFeed"
         Me.txtFeed.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtFeed.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFeed.Location = New System.Drawing.Point(457, 129)
@@ -643,6 +667,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtAction
         '
+        Me.txtAction.AccessibleDescription = "Action"
+        Me.txtAction.AccessibleName = "txtAction"
         Me.txtAction.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAction.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAction.Location = New System.Drawing.Point(457, 103)
@@ -653,6 +679,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtProduced
         '
+        Me.txtProduced.AccessibleDescription = "Manufactured Date:"
+        Me.txtProduced.AccessibleName = "txtProduced"
         Me.txtProduced.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtProduced.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtProduced.Location = New System.Drawing.Point(457, 76)
@@ -663,6 +691,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtGripType
         '
+        Me.txtGripType.AccessibleDescription = "Stock/Grip Type:"
+        Me.txtGripType.AccessibleName = "txtGripType"
         Me.txtGripType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtGripType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtGripType.Location = New System.Drawing.Point(457, 50)
@@ -673,6 +703,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtCustCatID
         '
+        Me.txtCustCatID.AccessibleDescription = "Custom Catalog No.:"
+        Me.txtCustCatID.AccessibleName = "txtCustCatID"
         Me.txtCustCatID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCustCatID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCustCatID.Location = New System.Drawing.Point(457, 24)
@@ -705,6 +737,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtBarLen
         '
+        Me.txtBarLen.AccessibleDescription = "Barrel Length:"
+        Me.txtBarLen.AccessibleName = "txtBarLen"
         Me.txtBarLen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtBarLen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtBarLen.Location = New System.Drawing.Point(457, 316)
@@ -715,6 +749,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtLength
         '
+        Me.txtLength.AccessibleDescription = "Overall Length:"
+        Me.txtLength.AccessibleName = "txtLength"
         Me.txtLength.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtLength.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtLength.Location = New System.Drawing.Point(457, 290)
@@ -725,6 +761,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtWeight
         '
+        Me.txtWeight.AccessibleDescription = "Weight"
+        Me.txtWeight.AccessibleName = "txtWeight"
         Me.txtWeight.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtWeight.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtWeight.Location = New System.Drawing.Point(457, 260)
@@ -735,6 +773,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtNationality
         '
+        Me.txtNationality.AccessibleDescription = "Place of Origin"
+        Me.txtNationality.AccessibleName = "txtNationality"
         Me.txtNationality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtNationality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtNationality.Location = New System.Drawing.Point(457, 234)
@@ -745,6 +785,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtFinish
         '
+        Me.txtFinish.AccessibleDescription = "Finish"
+        Me.txtFinish.AccessibleName = "txtFinish"
         Me.txtFinish.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtFinish.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFinish.Location = New System.Drawing.Point(457, 208)
@@ -865,6 +907,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtCal
         '
+        Me.txtCal.AccessibleDescription = "Caliber Or Gauge"
+        Me.txtCal.AccessibleName = "txtCal"
         Me.txtCal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCal.Location = New System.Drawing.Point(114, 155)
@@ -929,6 +973,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtType
         '
+        Me.txtType.AccessibleDescription = "Type"
+        Me.txtType.AccessibleName = "txtType"
         Me.txtType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtType.Location = New System.Drawing.Point(114, 129)
@@ -939,6 +985,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtSerial
         '
+        Me.txtSerial.AccessibleDescription = "Serial Number"
+        Me.txtSerial.AccessibleName = "txtSerial"
         Me.txtSerial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSerial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSerial.Location = New System.Drawing.Point(114, 103)
@@ -949,6 +997,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtModel
         '
+        Me.txtModel.AccessibleDescription = "Model"
+        Me.txtModel.AccessibleName = "txtModel"
         Me.txtModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtModel.Location = New System.Drawing.Point(114, 77)
@@ -959,6 +1009,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtManu
         '
+        Me.txtManu.AccessibleDescription = "Manufacturer"
+        Me.txtManu.AccessibleName = "txtManu"
         Me.txtManu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtManu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtManu.Location = New System.Drawing.Point(114, 25)
@@ -1005,6 +1057,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage11
         '
+        Me.TabPage11.AccessibleDescription = "Collector Details"
+        Me.TabPage11.AccessibleName = "TabPage11"
         Me.TabPage11.Controls.Add(Me.chkNonLethal)
         Me.TabPage11.Controls.Add(Me.Label63)
         Me.TabPage11.Controls.Add(Me.chkIsCompeition)
@@ -1046,6 +1100,7 @@ Partial Class frmViewCollectionDetails
         '
         'chkNonLethal
         '
+        Me.chkNonLethal.AccessibleDescription = "Non-Lethal Device?"
         Me.chkNonLethal.AccessibleName = "chkNonLethal"
         Me.chkNonLethal.AutoSize = true
         Me.chkNonLethal.Location = New System.Drawing.Point(109, 274)
@@ -1066,6 +1121,7 @@ Partial Class frmViewCollectionDetails
         '
         'chkIsCompeition
         '
+        Me.chkIsCompeition.AccessibleDescription = "Competition Gun?"
         Me.chkIsCompeition.AccessibleName = "chkIsCompeition"
         Me.chkIsCompeition.AutoSize = true
         Me.chkIsCompeition.Location = New System.Drawing.Point(109, 249)
@@ -1086,6 +1142,8 @@ Partial Class frmViewCollectionDetails
         '
         'dtpDateofCR
         '
+        Me.dtpDateofCR.AccessibleDescription = "Date of C&R"
+        Me.dtpDateofCR.AccessibleName = "dtpDateofCR"
         Me.dtpDateofCR.Checked = false
         Me.dtpDateofCR.Enabled = false
         Me.dtpDateofCR.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -1096,6 +1154,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtClassIIIOwner
         '
+        Me.txtClassIIIOwner.AccessibleDescription = "Class 3 owner"
+        Me.txtClassIIIOwner.AccessibleName = "txtClassIIIOwner"
         Me.txtClassIIIOwner.Location = New System.Drawing.Point(109, 217)
         Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
         Me.txtClassIIIOwner.ReadOnly = true
@@ -1113,6 +1173,8 @@ Partial Class frmViewCollectionDetails
         '
         'chkClassIII
         '
+        Me.chkClassIII.AccessibleDescription = "Class III Item?"
+        Me.chkClassIII.AccessibleName = "chkClassIII"
         Me.chkClassIII.AutoSize = true
         Me.chkClassIII.Enabled = false
         Me.chkClassIII.Location = New System.Drawing.Point(108, 196)
@@ -1133,6 +1195,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtTriggerPull
         '
+        Me.txtTriggerPull.AccessibleDescription = "Trigger Pull in pounds"
+        Me.txtTriggerPull.AccessibleName = "txtTriggerPull"
         Me.txtTriggerPull.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtTriggerPull.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTriggerPull.Location = New System.Drawing.Point(109, 167)
@@ -1143,6 +1207,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtTwistOfRate
         '
+        Me.txtTwistOfRate.AccessibleDescription = "Twist of Rate"
+        Me.txtTwistOfRate.AccessibleName = "txtTwistOfRate"
         Me.txtTwistOfRate.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtTwistOfRate.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTwistOfRate.Location = New System.Drawing.Point(109, 138)
@@ -1171,6 +1237,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtInsVal
         '
+        Me.txtInsVal.AccessibleDescription = "Insured Value"
+        Me.txtInsVal.AccessibleName = "txtInsVal"
         Me.txtInsVal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtInsVal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtInsVal.Location = New System.Drawing.Point(108, 112)
@@ -1181,6 +1249,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtAppBy
         '
+        Me.txtAppBy.AccessibleDescription = "Appraised By:"
+        Me.txtAppBy.AccessibleName = "txtAppBy"
         Me.txtAppBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppBy.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
@@ -1192,6 +1262,8 @@ Partial Class frmViewCollectionDetails
         '
         'dtpAppDate
         '
+        Me.dtpAppDate.AccessibleDescription = "Appraisal Date:"
+        Me.dtpAppDate.AccessibleName = "dtpAppDate"
         Me.dtpAppDate.Checked = false
         Me.dtpAppDate.Enabled = false
         Me.dtpAppDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -1202,6 +1274,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtAppValue
         '
+        Me.txtAppValue.AccessibleDescription = "Appraised Value:"
+        Me.txtAppValue.AccessibleName = "txtAppValue"
         Me.txtAppValue.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppValue.Location = New System.Drawing.Point(108, 30)
@@ -1257,6 +1331,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtClassification
         '
+        Me.txtClassification.AccessibleDescription = "Classification"
+        Me.txtClassification.AccessibleName = "txtClassification"
         Me.txtClassification.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtClassification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtClassification.Location = New System.Drawing.Point(442, 86)
@@ -1276,6 +1352,8 @@ Partial Class frmViewCollectionDetails
         '
         'chkBoundBook
         '
+        Me.chkBoundBook.AccessibleDescription = "Add to Bound Book"
+        Me.chkBoundBook.AccessibleName = "chkBoundBook"
         Me.chkBoundBook.AutoSize = true
         Me.chkBoundBook.Checked = true
         Me.chkBoundBook.CheckState = System.Windows.Forms.CheckState.Checked
@@ -1298,6 +1376,8 @@ Partial Class frmViewCollectionDetails
         '
         'chkBoxCR
         '
+        Me.chkBoxCR.AccessibleDescription = "Is C && R Qualified"
+        Me.chkBoxCR.AccessibleName = "chkBoxCR"
         Me.chkBoxCR.AutoSize = true
         Me.chkBoxCR.Enabled = false
         Me.chkBoxCR.Location = New System.Drawing.Point(442, 32)
@@ -1318,6 +1398,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtPOI
         '
+        Me.txtPOI.AccessibleDescription = "Place Of Import:"
+        Me.txtPOI.AccessibleName = "txtPOI"
         Me.txtPOI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPOI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPOI.Location = New System.Drawing.Point(442, 167)
@@ -1328,6 +1410,8 @@ Partial Class frmViewCollectionDetails
         '
         'dtpReManDT
         '
+        Me.dtpReManDT.AccessibleDescription = "Remanufactured Date"
+        Me.dtpReManDT.AccessibleName = "dtpReManDT"
         Me.dtpReManDT.Checked = false
         Me.dtpReManDT.Enabled = false
         Me.dtpReManDT.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -1338,6 +1422,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label48
         '
+        Me.Label48.AccessibleDescription = "Place Of Import:"
         Me.Label48.AutoSize = true
         Me.Label48.Location = New System.Drawing.Point(321, 170)
         Me.Label48.Name = "Label48"
@@ -1356,6 +1441,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage1
         '
+        Me.TabPage1.AccessibleDescription = "Condition Comments"
+        Me.TabPage1.AccessibleName = "TabPage1"
         Me.TabPage1.Controls.Add(Me.txtConCom)
         Me.TabPage1.ImageIndex = 1
         Me.TabPage1.Location = New System.Drawing.Point(4, 42)
@@ -1368,6 +1455,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtConCom
         '
+        Me.txtConCom.AccessibleDescription = "Condition Comments"
+        Me.txtConCom.AccessibleName = "txtConCom"
         Me.txtConCom.Location = New System.Drawing.Point(0, 6)
         Me.txtConCom.Multiline = true
         Me.txtConCom.Name = "txtConCom"
@@ -1378,6 +1467,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage2
         '
+        Me.TabPage2.AccessibleDescription = "Additional Notes"
+        Me.TabPage2.AccessibleName = "TabPage2"
         Me.TabPage2.Controls.Add(Me.txtAddNotes)
         Me.TabPage2.ImageIndex = 1
         Me.TabPage2.Location = New System.Drawing.Point(4, 42)
@@ -1390,6 +1481,8 @@ Partial Class frmViewCollectionDetails
         '
         'txtAddNotes
         '
+        Me.txtAddNotes.AccessibleDescription = "Additional Notes"
+        Me.txtAddNotes.AccessibleName = "txtAddNotes"
         Me.txtAddNotes.Location = New System.Drawing.Point(1, 6)
         Me.txtAddNotes.Multiline = true
         Me.txtAddNotes.Name = "txtAddNotes"
@@ -1400,6 +1493,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage3
         '
+        Me.TabPage3.AccessibleDescription = "Pictures"
+        Me.TabPage3.AccessibleName = "TabPage3"
         Me.TabPage3.Controls.Add(Me.btnGalleryReport)
         Me.TabPage3.Controls.Add(Me.btnRefreshPics)
         Me.TabPage3.Controls.Add(Me.ListView1)
@@ -1415,6 +1510,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnGalleryReport
         '
+        Me.btnGalleryReport.AccessibleDescription = "View Gallery Report"
+        Me.btnGalleryReport.AccessibleName = "btnGalleryReport"
         Me.btnGalleryReport.Location = New System.Drawing.Point(340, 6)
         Me.btnGalleryReport.Name = "btnGalleryReport"
         Me.btnGalleryReport.Size = New System.Drawing.Size(124, 21)
@@ -1424,6 +1521,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnRefreshPics
         '
+        Me.btnRefreshPics.AccessibleDescription = "Refresh Pictures"
+        Me.btnRefreshPics.AccessibleName = "btnRefreshPics"
         Me.btnRefreshPics.Location = New System.Drawing.Point(182, 6)
         Me.btnRefreshPics.Name = "btnRefreshPics"
         Me.btnRefreshPics.Size = New System.Drawing.Size(76, 21)
@@ -1433,6 +1532,8 @@ Partial Class frmViewCollectionDetails
         '
         'ListView1
         '
+        Me.ListView1.AccessibleDescription = "List of Pictures"
+        Me.ListView1.AccessibleName = "ListView1"
         Me.ListView1.ContextMenuStrip = Me.mnuPictre
         Me.ListView1.HideSelection = false
         Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
@@ -1444,6 +1545,8 @@ Partial Class frmViewCollectionDetails
         '
         'mnuPictre
         '
+        Me.mnuPictre.AccessibleDescription = "Picture Menu"
+        Me.mnuPictre.AccessibleName = "mnuPictre"
         Me.mnuPictre.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuPicItem_Show, Me.EditNotesToolStripMenuItem, Me.ToolStripSeparator1, Me.mnuPicItem_Delete})
         Me.mnuPictre.Name = "mnuPictre"
         Me.mnuPictre.ShowItemToolTips = false
@@ -1451,6 +1554,8 @@ Partial Class frmViewCollectionDetails
         '
         'mnuPicItem_Show
         '
+        Me.mnuPicItem_Show.AccessibleDescription = "Show Picture"
+        Me.mnuPicItem_Show.AccessibleName = "mnuPicItem_Show"
         Me.mnuPicItem_Show.Image = CType(resources.GetObject("mnuPicItem_Show.Image"),System.Drawing.Image)
         Me.mnuPicItem_Show.Name = "mnuPicItem_Show"
         Me.mnuPicItem_Show.Size = New System.Drawing.Size(128, 22)
@@ -1458,6 +1563,8 @@ Partial Class frmViewCollectionDetails
         '
         'EditNotesToolStripMenuItem
         '
+        Me.EditNotesToolStripMenuItem.AccessibleDescription = "Edit Notes"
+        Me.EditNotesToolStripMenuItem.AccessibleName = "EditNotesToolStripMenuItem"
         Me.EditNotesToolStripMenuItem.Image = CType(resources.GetObject("EditNotesToolStripMenuItem.Image"),System.Drawing.Image)
         Me.EditNotesToolStripMenuItem.Name = "EditNotesToolStripMenuItem"
         Me.EditNotesToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
@@ -1470,6 +1577,8 @@ Partial Class frmViewCollectionDetails
         '
         'mnuPicItem_Delete
         '
+        Me.mnuPicItem_Delete.AccessibleDescription = "Delete"
+        Me.mnuPicItem_Delete.AccessibleName = "mnuPicItem_Delete"
         Me.mnuPicItem_Delete.Image = CType(resources.GetObject("mnuPicItem_Delete.Image"),System.Drawing.Image)
         Me.mnuPicItem_Delete.Name = "mnuPicItem_Delete"
         Me.mnuPicItem_Delete.Size = New System.Drawing.Size(128, 22)
@@ -1477,6 +1586,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAdd
         '
+        Me.btnAdd.AccessibleDescription = "Add Picture"
+        Me.btnAdd.AccessibleName = "btnAdd"
         Me.btnAdd.Location = New System.Drawing.Point(8, 6)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(83, 21)
@@ -1486,6 +1597,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage10
         '
+        Me.TabPage10.AccessibleDescription = "Barrels/Conversion Kits"
+        Me.TabPage10.AccessibleName = "TabPage10"
         Me.TabPage10.Controls.Add(Me.DataGridView5)
         Me.TabPage10.ImageIndex = 9
         Me.TabPage10.Location = New System.Drawing.Point(4, 42)
@@ -1498,6 +1611,8 @@ Partial Class frmViewCollectionDetails
         '
         'DataGridView5
         '
+        Me.DataGridView5.AccessibleDescription = "List of Barrels and Conversion Kits"
+        Me.DataGridView5.AccessibleName = "DataGridView5"
         Me.DataGridView5.AllowUserToAddRows = false
         Me.DataGridView5.AllowUserToDeleteRows = false
         Me.DataGridView5.AutoGenerateColumns = false
@@ -1557,7 +1672,7 @@ Partial Class frmViewCollectionDetails
         Me.CaliberDataGridViewTextBoxColumn.Name = "CaliberDataGridViewTextBoxColumn"
         Me.CaliberDataGridViewTextBoxColumn.ReadOnly = true
         Me.CaliberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CaliberDataGridViewTextBoxColumn.Width = 64
+        Me.CaliberDataGridViewTextBoxColumn.Width = 85
         '
         'TypeDataGridViewTextBoxColumn
         '
@@ -1567,7 +1682,7 @@ Partial Class frmViewCollectionDetails
         Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
         Me.TypeDataGridViewTextBoxColumn.ReadOnly = true
         Me.TypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TypeDataGridViewTextBoxColumn.Width = 56
+        Me.TypeDataGridViewTextBoxColumn.Width = 77
         '
         'BarrelLengthDataGridViewTextBoxColumn
         '
@@ -1598,30 +1713,40 @@ Partial Class frmViewCollectionDetails
         '
         'mnuBarrel
         '
+        Me.mnuBarrel.AccessibleDescription = "Barrel Menu"
+        Me.mnuBarrel.AccessibleName = "mnuBarrel"
         Me.mnuBarrel.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SetAsDefaultToolStripMenuItem, Me.EditToolStripMenuItem1, Me.DeleteToolStripMenuItem, Me.MoveToolStripMenuItem})
         Me.mnuBarrel.Name = "mnuBarrel"
         Me.mnuBarrel.Size = New System.Drawing.Size(148, 92)
         '
         'SetAsDefaultToolStripMenuItem
         '
+        Me.SetAsDefaultToolStripMenuItem.AccessibleDescription = "&Set As Default"
+        Me.SetAsDefaultToolStripMenuItem.AccessibleName = "SetAsDefaultToolStripMenuItem"
         Me.SetAsDefaultToolStripMenuItem.Name = "SetAsDefaultToolStripMenuItem"
         Me.SetAsDefaultToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.SetAsDefaultToolStripMenuItem.Text = "&Set As Default"
         '
         'EditToolStripMenuItem1
         '
+        Me.EditToolStripMenuItem1.AccessibleDescription = "Edit"
+        Me.EditToolStripMenuItem1.AccessibleName = "EditToolStripMenuItem1"
         Me.EditToolStripMenuItem1.Name = "EditToolStripMenuItem1"
         Me.EditToolStripMenuItem1.Size = New System.Drawing.Size(147, 22)
         Me.EditToolStripMenuItem1.Text = "&Edit"
         '
         'DeleteToolStripMenuItem
         '
+        Me.DeleteToolStripMenuItem.AccessibleDescription = "Delete"
+        Me.DeleteToolStripMenuItem.AccessibleName = "DeleteToolStripMenuItem"
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
         Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.DeleteToolStripMenuItem.Text = "&Delete"
         '
         'MoveToolStripMenuItem
         '
+        Me.MoveToolStripMenuItem.AccessibleDescription = "Move to another firearm"
+        Me.MoveToolStripMenuItem.AccessibleName = "MoveToolStripMenuItem"
         Me.MoveToolStripMenuItem.Name = "MoveToolStripMenuItem"
         Me.MoveToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
         Me.MoveToolStripMenuItem.Text = "&Move"
@@ -1638,6 +1763,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage4
         '
+        Me.TabPage4.AccessibleDescription = "Accessories"
+        Me.TabPage4.AccessibleName = "TabPage4"
         Me.TabPage4.Controls.Add(Me.lblTAV)
         Me.TabPage4.Controls.Add(Me.Label52)
         Me.TabPage4.Controls.Add(Me.lblTPV)
@@ -1693,6 +1820,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnVwAccessReport
         '
+        Me.btnVwAccessReport.AccessibleDescription = "View Report"
+        Me.btnVwAccessReport.AccessibleName = "btnVwAccessReport"
         Me.btnVwAccessReport.Location = New System.Drawing.Point(394, 8)
         Me.btnVwAccessReport.Name = "btnVwAccessReport"
         Me.btnVwAccessReport.Size = New System.Drawing.Size(75, 23)
@@ -1702,6 +1831,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnRefresh
         '
+        Me.btnRefresh.AccessibleDescription = "Refresh"
+        Me.btnRefresh.AccessibleName = "btnRefresh"
         Me.btnRefresh.Location = New System.Drawing.Point(224, 8)
         Me.btnRefresh.Name = "btnRefresh"
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
@@ -1711,6 +1842,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAddAccess
         '
+        Me.btnAddAccess.AccessibleDescription = "Add Accessory"
+        Me.btnAddAccess.AccessibleName = "btnAddAccess"
         Me.btnAddAccess.Location = New System.Drawing.Point(8, 8)
         Me.btnAddAccess.Name = "btnAddAccess"
         Me.btnAddAccess.Size = New System.Drawing.Size(113, 23)
@@ -1720,6 +1853,8 @@ Partial Class frmViewCollectionDetails
         '
         'DataGridView1
         '
+        Me.DataGridView1.AccessibleDescription = "List of Accessories"
+        Me.DataGridView1.AccessibleName = "DataGridView1"
         Me.DataGridView1.AllowUserToAddRows = false
         Me.DataGridView1.AutoGenerateColumns = false
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -1828,12 +1963,16 @@ Partial Class frmViewCollectionDetails
         '
         'ContextMenuStrip1
         '
+        Me.ContextMenuStrip1.AccessibleDescription = "Accessory Menu"
+        Me.ContextMenuStrip1.AccessibleName = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.CopyToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(103, 48)
         '
         'EditToolStripMenuItem
         '
+        Me.EditToolStripMenuItem.AccessibleDescription = "Edit Accessory"
+        Me.EditToolStripMenuItem.AccessibleName = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
@@ -1841,6 +1980,8 @@ Partial Class frmViewCollectionDetails
         '
         'CopyToolStripMenuItem
         '
+        Me.CopyToolStripMenuItem.AccessibleDescription = "Copy Accessory"
+        Me.CopyToolStripMenuItem.AccessibleName = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.Image = CType(resources.GetObject("CopyToolStripMenuItem.Image"),System.Drawing.Image)
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
@@ -1853,6 +1994,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage6
         '
+        Me.TabPage6.AccessibleDescription = "Ammunition"
+        Me.TabPage6.AccessibleName = "TabPage6"
         Me.TabPage6.AutoScroll = true
         Me.TabPage6.Controls.Add(Me.btnAmmoReportByCal)
         Me.TabPage6.Controls.Add(Me.lblAmmoTotal)
@@ -1870,6 +2013,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAmmoReportByCal
         '
+        Me.btnAmmoReportByCal.AccessibleDescription = "Print Ammo list"
+        Me.btnAmmoReportByCal.AccessibleName = "btnAmmoReportByCal"
         Me.btnAmmoReportByCal.Location = New System.Drawing.Point(429, 8)
         Me.btnAmmoReportByCal.Name = "btnAmmoReportByCal"
         Me.btnAmmoReportByCal.Size = New System.Drawing.Size(112, 23)
@@ -1898,6 +2043,8 @@ Partial Class frmViewCollectionDetails
         '
         'Button1
         '
+        Me.Button1.AccessibleDescription = "Refresh"
+        Me.Button1.AccessibleName = "Button1"
         Me.Button1.Location = New System.Drawing.Point(228, 9)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -1907,6 +2054,8 @@ Partial Class frmViewCollectionDetails
         '
         'btnAddAmmo
         '
+        Me.btnAddAmmo.AccessibleDescription = "Add Ammo"
+        Me.btnAddAmmo.AccessibleName = "btnAddAmmo"
         Me.btnAddAmmo.Location = New System.Drawing.Point(8, 9)
         Me.btnAddAmmo.Name = "btnAddAmmo"
         Me.btnAddAmmo.Size = New System.Drawing.Size(75, 23)
@@ -1916,6 +2065,8 @@ Partial Class frmViewCollectionDetails
         '
         'DataGridView2
         '
+        Me.DataGridView2.AccessibleDescription = "Ammo List"
+        Me.DataGridView2.AccessibleName = "DataGridView2"
         Me.DataGridView2.AllowUserToAddRows = false
         Me.DataGridView2.AutoGenerateColumns = false
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -2005,6 +2156,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage7
         '
+        Me.TabPage7.AccessibleDescription = "Maintenance"
+        Me.TabPage7.AccessibleName = "TabPage7"
         Me.TabPage7.Controls.Add(Me.lblTotalFirearm)
         Me.TabPage7.Controls.Add(Me.Label50)
         Me.TabPage7.Controls.Add(Me.lblAvgRndsFired)
@@ -2151,7 +2304,7 @@ Partial Class frmViewCollectionDetails
         Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
         Me.NameDataGridViewTextBoxColumn1.ReadOnly = true
         Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NameDataGridViewTextBoxColumn1.Width = 97
+        Me.NameDataGridViewTextBoxColumn1.Width = 118
         '
         'OpDateDataGridViewTextBoxColumn
         '
@@ -2232,15 +2385,17 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage8
         '
+        Me.TabPage8.AccessibleDescription = "Gun Smith"
+        Me.TabPage8.AccessibleName = "TabPage8"
         Me.TabPage8.Controls.Add(Me.btnRefreshGS)
         Me.TabPage8.Controls.Add(Me.btnGSLog)
         Me.TabPage8.Controls.Add(Me.DataGridView4)
         Me.TabPage8.Controls.Add(Me.btnGSReport)
         Me.TabPage8.ImageIndex = 7
-        Me.TabPage8.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 23)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(1142, 421)
+        Me.TabPage8.Size = New System.Drawing.Size(1142, 440)
         Me.TabPage8.TabIndex = 7
         Me.TabPage8.Text = "Gun Smith"
         Me.TabPage8.UseVisualStyleBackColor = true
@@ -2375,6 +2530,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage9
         '
+        Me.TabPage9.AccessibleDescription = "Sale/Disposition"
+        Me.TabPage9.AccessibleName = "TabPage9"
         Me.TabPage9.Controls.Add(Me.btnPrintSale)
         Me.TabPage9.Controls.Add(Me.btnStolen)
         Me.TabPage9.Controls.Add(Me.btnUnDoSale)
@@ -2382,10 +2539,10 @@ Partial Class frmViewCollectionDetails
         Me.TabPage9.Controls.Add(Me.btnSold)
         Me.TabPage9.Controls.Add(Me.btnFlyer)
         Me.TabPage9.ImageIndex = 8
-        Me.TabPage9.Location = New System.Drawing.Point(4, 42)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 23)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(1142, 421)
+        Me.TabPage9.Size = New System.Drawing.Size(1142, 440)
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Sale/Disposition"
         Me.TabPage9.UseVisualStyleBackColor = true
@@ -2721,6 +2878,8 @@ Partial Class frmViewCollectionDetails
         '
         'TabPage12
         '
+        Me.TabPage12.AccessibleDescription = "Documents"
+        Me.TabPage12.AccessibleName = "TabPage12"
         Me.TabPage12.Controls.Add(Me.btnAddExistingDoc)
         Me.TabPage12.Controls.Add(Me.btnAddDocument)
         Me.TabPage12.Controls.Add(Me.DataGridView6)
@@ -2931,6 +3090,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton1
         '
+        Me.ToolStripButton1.AccessibleDescription = "Edit Details"
+        Me.ToolStripButton1.AccessibleName = "ToolStripButton1"
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"),System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2940,6 +3101,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton6
         '
+        Me.ToolStripButton6.AccessibleDescription = "Add Barrel/Conversion Kit Display"
+        Me.ToolStripButton6.AccessibleName = "ToolStripButton6"
         Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"),System.Drawing.Image)
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2949,6 +3112,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton7
         '
+        Me.ToolStripButton7.AccessibleDescription = "Refresh"
+        Me.ToolStripButton7.AccessibleName = "ToolStripButton7"
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"),System.Drawing.Image)
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2963,6 +3128,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton2
         '
+        Me.ToolStripButton2.AccessibleDescription = "Print Preview Detail"
+        Me.ToolStripButton2.AccessibleName = "ToolStripButton2"
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"),System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2972,6 +3139,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton5
         '
+        Me.ToolStripButton5.AccessibleDescription = "Print Preview Complete Details Report"
+        Me.ToolStripButton5.AccessibleName = "ToolStripButton5"
         Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"),System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2981,6 +3150,8 @@ Partial Class frmViewCollectionDetails
         '
         'ToolStripButton3
         '
+        Me.ToolStripButton3.AccessibleDescription = "Export to XML"
+        Me.ToolStripButton3.AccessibleName = "ToolStripButton3"
         Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"),System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -2996,7 +3167,7 @@ Partial Class frmViewCollectionDetails
         'ToolStripButton4
         '
         Me.ToolStripButton4.AccessibleDescription = "Close Details"
-        Me.ToolStripButton4.AccessibleName = "Close Details"
+        Me.ToolStripButton4.AccessibleName = "ToolStripButton4"
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"),System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
@@ -3030,6 +3201,8 @@ Partial Class frmViewCollectionDetails
         '
         'frmViewCollectionDetails
         '
+        Me.AccessibleDescription = "View Full Detailed Report"
+        Me.AccessibleName = "frmViewCollectionDetails"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 496)
@@ -3041,7 +3214,7 @@ Partial Class frmViewCollectionDetails
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TopicId)
         Me.HelpProvider1.SetHelpString(Me, "6")
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.Name = "FrmViewCollectionDetails"
+        Me.Name = "frmViewCollectionDetails"
         Me.HelpProvider1.SetShowHelp(Me, true)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "View Full Detailed Report"

@@ -22,67 +22,73 @@ Partial Class frmAddNationality
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddNationality))
-        Me.Label1 = New Label
-        Me.Label2 = New Label
-        Me.txtName = New TextBox
-        Me.btnAdd = New Button
-        Me.btnCancel = New Button
-        Me.lblMsg = New Label
-        Me.HelpProvider1 = New HelpProvider
-        Me.SuspendLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddNationality))
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.lblMsg = New System.Windows.Forms.Label()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.SuspendLayout
         '
         'Label1
         '
-        Me.Label1.Location = New Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New Size(231, 31)
+        Me.Label1.Size = New System.Drawing.Size(231, 31)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "In this section, you can add a country of a gun manufacturer."
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New Font("Microsoft Sans Serif", 8.25!, FontStyle.Bold, GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New Point(12, 80)
+        Me.Label2.AutoSize = true
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label2.Location = New System.Drawing.Point(12, 80)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New Size(51, 13)
+        Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Region:"
         '
         'txtName
         '
-        Me.txtName.AutoCompleteMode = AutoCompleteMode.Suggest
-        Me.txtName.AutoCompleteSource = AutoCompleteSource.CustomSource
-        Me.txtName.Location = New Point(69, 77)
+        Me.txtName.AccessibleDescription = "Region"
+        Me.txtName.AccessibleName = "txtName"
+        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.txtName.Location = New System.Drawing.Point(69, 77)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New Size(149, 20)
+        Me.txtName.Size = New System.Drawing.Size(149, 20)
         Me.txtName.TabIndex = 2
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New Point(31, 103)
+        Me.btnAdd.AccessibleDescription = "Add to database"
+        Me.btnAdd.AccessibleName = "btnAdd"
+        Me.btnAdd.Location = New System.Drawing.Point(31, 103)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New Size(75, 23)
+        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 3
         Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.UseVisualStyleBackColor = true
         '
         'btnCancel
         '
-        Me.btnCancel.DialogResult = DialogResult.Cancel
-        Me.btnCancel.Location = New Point(154, 103)
+        Me.btnCancel.AccessibleDescription = "Exit window without saving changes"
+        Me.btnCancel.AccessibleName = "btnCancel"
+        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnCancel.Location = New System.Drawing.Point(154, 103)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
+        Me.btnCancel.UseVisualStyleBackColor = true
         '
         'lblMsg
         '
-        Me.lblMsg.Location = New Point(3, 40)
+        Me.lblMsg.Location = New System.Drawing.Point(3, 40)
         Me.lblMsg.Name = "lblMsg"
-        Me.lblMsg.Size = New Size(240, 34)
+        Me.lblMsg.Size = New System.Drawing.Size(240, 34)
         Me.lblMsg.TabIndex = 5
         '
         'HelpProvider1
@@ -92,10 +98,12 @@ Partial Class frmAddNationality
         'frmAddNationality
         '
         Me.AcceptButton = Me.btnAdd
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.AccessibleDescription = "Add Place of Origin"
+        Me.AccessibleName = "frmAddNationality"
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New Size(255, 138)
+        Me.ClientSize = New System.Drawing.Size(255, 138)
         Me.Controls.Add(Me.lblMsg)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnAdd)
@@ -103,18 +111,18 @@ Partial Class frmAddNationality
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.HelpProvider1.SetHelpKeyword(Me, "Adding Place of Origin")
-        Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Adding Place of Origin")
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "FrmAddNationality"
-        Me.HelpProvider1.SetShowHelp(Me, True)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
+        Me.Name = "frmAddNationality"
+        Me.HelpProvider1.SetShowHelp(Me, true)
         Me.Text = "Add Place of Origin"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtName As TextBox
