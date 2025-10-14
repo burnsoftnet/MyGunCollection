@@ -31,12 +31,18 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-v6.9.15.2 September 2022
+### v7.x.x.x
+
+* FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
+* UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
+* 
+
+### v6.9.15.2 September 2022
 
 * FIXED - Issue with when you have login Enabled
 * FIXED - Issue with updates constaly asking you to apply when  you already applied.
 
-v6.9.14.1 August 2022
+### v6.9.14.1 August 2022
 
 - Optimize functions by converting alot of the code to use a seperate library
 - FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
@@ -50,7 +56,7 @@ v6.9.14.1 August 2022
 - UPDATED - Wording and Spelling.
 - ADDED - Before when you used the ammo calculator to subtract the rounds you used with the count in your inventory, it will now append how much of that ammo was used in the maintenance window.
 
-v6.5  March 2021
+### v6.5  March 2021
 
 - Release as 100% Free, no longer a pay app
 - Spell Checked
