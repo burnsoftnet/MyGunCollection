@@ -35,7 +35,8 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
-* 
+* Optimed how the data pulled for the View Firearms Window
+* Fixed issue with C&R date when you edit a firearm.  If this was not set before, when you edit a firearm it will enable the C&R date and set a new date when you apply your changes.  Fixed it where it doesn't come up as enabled when you edit a firearm that is not a C&R Firearm.
 
 ### v6.9.15.2 September 2022
 

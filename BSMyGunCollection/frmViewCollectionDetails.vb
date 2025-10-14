@@ -582,36 +582,43 @@ Public Class frmViewCollectionDetails
         Try
             Call LoadAddAccessories()
 
+            Dim lst As List(Of GunCollectionFullList) = MyCollection.GetFullList(DatabasePath, GunId, _errOut)
+            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            'TODO: Delete Code Before Release
+
             'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
-            BsHasmultibarrels = ExtraBarrelConvoKits.HasMultiBarrelsListed(DatabasePath, GunId, _errOut)
-            if _errOut.Length >0 Then Throw New Exception(_errOut)
-            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
-            if _errOut.Length >0 Then Throw New Exception(_errOut)
+            'BsHasmultibarrels = ExtraBarrelConvoKits.HasMultiBarrelsListed(DatabasePath, GunId, _errOut)
+            'if _errOut.Length >0 Then Throw New Exception(_errOut)
+            'BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+            'if _errOut.Length >0 Then Throw New Exception(_errOut)
 
-            If Not BsHasmultibarrels Then
-                TabControl1.TabPages.Remove(TabPage10)
-            Else
-                Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, GunId)
-                DataGridView5.Columns(0).Visible = False
-            End If
+            'If Not BsHasmultibarrels Then
+            '    TabControl1.TabPages.Remove(TabPage10)
+            'Else
+            '    Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, GunId)
+            '    DataGridView5.Columns(0).Visible = False
+            'End If
             'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
-            HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
-            BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
+            'HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
+            'BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
 
-            If Not HasDocuments Then
-                TabControl1.TabPages.Remove(TabPage12)
-            Else
-                Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, GunId)
+            'If Not HasDocuments Then
+            '    TabControl1.TabPages.Remove(TabPage12)
+            'Else
+            '    Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, GunId)
 
-            End If
+            'End If
 
-            Dim lst as List(Of GunCollectionList) = MyCollection.GetList(DatabasePath, GunId, _errOut)
-            if _errOut.Length >0 Then Throw New Exception(_errOut)
+            'Dim lst as List(Of GunCollectionList) = MyCollection.GetList(DatabasePath, GunId, _errOut)
+            'if _errOut.Length >0 Then Throw New Exception(_errOut)
 
-            For Each l As GunCollectionList In lst
+            For Each l As GunCollectionFullList In lst
+                BsDefaultbarrelsystemid = l.Bid
+                BsHasmultibarrels = l.HasExtraBarrels
+                HasDocuments = l.HasDocuments
                 Text = l.FullName
                 txtManu.Text = l.Manufacturer
-                txtModel.Text  = l.ModelName
+                txtModel.Text = l.ModelName
                 txtSerial.Text = l.SerialNumber
                 txtType.Text = l.Type
                 IsShotGun = l.IsShotGun
@@ -639,7 +646,7 @@ Public Class frmViewCollectionDetails
                 txtPurchasedFrom.Text = l.PurchaseFrom
                 txtPurPrice.Text = l.PurchasePrice
                 txtImporter.Text = l.Importer
-                txtChoke.Text =l.ShotGunChoke
+                txtChoke.Text = l.ShotGunChoke
                 chkBoundBook.Checked = l.IsInBoundBook
                 txtTwistOfRate.Text = l.TwistRate
                 txtTriggerPull.Text = l.TriggerPullInPounds
@@ -656,7 +663,7 @@ Public Class frmViewCollectionDetails
                 chkClassIII.Checked = l.IsClass3Item
                 chkBoxCR.Checked = l.IsCAndR
 
-                if l.RemanufactureDate.Length > 0 Then
+                If l.RemanufactureDate.Length > 0 Then
                     dtpReManDT.Checked = True
                     dtpReManDT.Value = l.RemanufactureDate
                     dtpReManDT.Enabled = True
@@ -667,7 +674,7 @@ Public Class frmViewCollectionDetails
                     dtpPurchased.Checked = False
                     dtpPurchased.Value = l.DateTimeAdded
                     dtpPurchased.Enabled = False
-                Else 
+                Else
                     dtpPurchased.Checked = False
                     dtpPurchased.Value = l.DateTimeAddedInDb
                     dtpPurchased.Enabled = False
@@ -692,6 +699,20 @@ Public Class frmViewCollectionDetails
                 chkNonLethal.Checked = l.IsNonLethal
                 chkIsCompeition.Checked = l.IsCompetition
             Next
+
+            If Not BsHasmultibarrels Then
+                TabControl1.TabPages.Remove(TabPage10)
+            Else
+                Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, GunId)
+                DataGridView5.Columns(0).Visible = False
+            End If
+
+            If Not HasDocuments Then
+                TabControl1.TabPages.Remove(TabPage12)
+            Else
+                Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, GunId)
+
+            End If
 
             Refresh()
         Catch ex As Exception
