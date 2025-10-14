@@ -68,14 +68,14 @@ Public Class frmEditCollectionDetails
                 txtTriggerPull.Text = o.TriggerPullInPounds
                 txtCaliber3.Text = o.Caliber3
                 cmbClassification.Text = o.Classification
-                If o.DateOfCAndR.Length > 0 Then
+                chkBoxCR.Checked = o.IsCAndR
+                If o.IsCAndR Then
                     dtpDateofCR.Checked = True
                     dtpDateofCR.Value = o.DateOfCAndR
                     dtpDateofCR.Enabled = True
                 End If
                 txtClassIIIOwner.Text = o.Class3Owner
                 chkClassIII.Checked = o.IsClass3Item
-                chkBoxCR.Checked = o.IsCAndR
                 If o.RemanufactureDate.Length > 0 Then
                     dtpReManDT.Checked = True
                     dtpReManDT.Value = o.RemanufactureDate
