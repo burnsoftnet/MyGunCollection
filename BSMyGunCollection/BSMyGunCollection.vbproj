@@ -129,11 +129,11 @@
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.2.7, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.2.7-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.2.355.3458, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.2.355.3458\lib\net472\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3460, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.3.356.3461\lib\net481\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.1.1.1-beta\lib\net481\BurnSoft.Security.RegularEncryption.dll</HintPath>
+    <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.1.1.2\lib\net481\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Universal, Version=4.1.33.8, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Universal.4.1.33.8-beta\lib\net481\BurnSoft.Universal.dll</HintPath>
