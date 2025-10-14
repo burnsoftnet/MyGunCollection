@@ -136,7 +136,7 @@
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.1.1.2\lib\net481\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Universal, Version=4.1.33.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Universal.4.1.33.8-beta\lib\net481\BurnSoft.Universal.dll</HintPath>
+      <HintPath>..\packages\BurnSoft.Universal.4.1.33.9\lib\net481\BurnSoft.Universal.dll</HintPath>
     </Reference>
     <Reference Include="DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DataGridViewAutoFilter.4.7.2.34861\lib\net472\DataGridViewAutoFilter.dll</HintPath>
