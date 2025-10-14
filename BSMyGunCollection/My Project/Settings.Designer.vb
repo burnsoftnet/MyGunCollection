@@ -11,21 +11,16 @@
 Option Strict On
 Option Explicit On
 
-Imports System.CodeDom.Compiler
-Imports System.ComponentModel
-Imports System.ComponentModel.Design
-Imports System.Configuration
-Imports System.Runtime.CompilerServices
 
 Namespace My
     
-    <CompilerGenerated(),  _
-     GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
-     EditorBrowsable(EditorBrowsableState.Advanced)>  _
+    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0"),  _
+     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
-        Inherits ApplicationSettingsBase
+        Inherits Global.System.Configuration.ApplicationSettingsBase
         
-        Private Shared defaultInstance As MySettings = CType(Synchronized(New MySettings()),MySettings)
+        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
         
 #Region "My.Settings Auto-Save Functionality"
 #If _MyType = "WindowsForms" Then
@@ -33,10 +28,10 @@ Namespace My
 
     Private Shared addedHandlerLockObject As New Object
 
-    <DebuggerNonUserCode(), EditorBrowsable(EditorBrowsableState.Advanced)> _
-    Private Shared Sub AutoSaveSettings(sender As Object, e As EventArgs)
-        If Application.SaveMySettingsOnExit Then
-            Settings.Save()
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+    Private Shared Sub AutoSaveSettings(sender As Global.System.Object, e As Global.System.EventArgs)
+        If My.Application.SaveMySettingsOnExit Then
+            My.Settings.Save()
         End If
     End Sub
 #End If
@@ -49,7 +44,7 @@ Namespace My
                If Not addedHandler Then
                     SyncLock addedHandlerLockObject
                         If Not addedHandler Then
-                            AddHandler Application.Shutdown, AddressOf AutoSaveSettings
+                            AddHandler My.Application.Shutdown, AddressOf AutoSaveSettings
                             addedHandler = True
                         End If
                     End SyncLock
@@ -59,28 +54,30 @@ Namespace My
             End Get
         End Property
         
-        <ApplicationScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         SpecialSetting(SpecialSetting.ConnectionString),  _
-         DefaultSettingValue("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\MGC.mdb;Persist Security Info=True;Encrypt Password=False;Mask Password=False;Jet OLEDB:Database Password=14un0t2n0")>  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\MGC.mdb;Persist Secu"& _ 
+            "rity Info=True;Encrypt Password=False;Mask Password=False;Jet OLEDB:Database Pas"& _ 
+            "sword=14un0t2n0")>  _
         Public ReadOnly Property MGCConnectionString() As String
             Get
                 Return CType(Me("MGCConnectionString"),String)
             End Get
         End Property
         
-        <ApplicationScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("False")>  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public ReadOnly Property App_UseRegistry() As Boolean
             Get
                 Return CType(Me("App_UseRegistry"),Boolean)
             End Get
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewCollectionDetails_Height() As String
             Get
                 Return CType(Me("ViewCollectionDetails_Height"),String)
@@ -90,9 +87,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewCollectionDetails_Width() As String
             Get
                 Return CType(Me("ViewCollectionDetails_Width"),String)
@@ -102,9 +99,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewPicture_Height() As String
             Get
                 Return CType(Me("ViewPicture_Height"),String)
@@ -114,9 +111,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewPicture_Width() As String
             Get
                 Return CType(Me("ViewPicture_Width"),String)
@@ -126,9 +123,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewPicture_X() As String
             Get
                 Return CType(Me("ViewPicture_X"),String)
@@ -138,9 +135,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewPicture_Y() As String
             Get
                 Return CType(Me("ViewPicture_Y"),String)
@@ -150,9 +147,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewCollectionDetails_X() As String
             Get
                 Return CType(Me("ViewCollectionDetails_X"),String)
@@ -162,9 +159,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewCollectionDetails_Y() As String
             Get
                 Return CType(Me("ViewCollectionDetails_Y"),String)
@@ -174,9 +171,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoInv_Height() As String
             Get
                 Return CType(Me("ViewAmmoInv_Height"),String)
@@ -186,9 +183,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoInv_Width() As String
             Get
                 Return CType(Me("ViewAmmoInv_Width"),String)
@@ -198,9 +195,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoInv_X() As String
             Get
                 Return CType(Me("ViewAmmoInv_X"),String)
@@ -210,9 +207,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoInv_Y() As String
             Get
                 Return CType(Me("ViewAmmoInv_Y"),String)
@@ -222,9 +219,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoadt_Height() As String
             Get
                 Return CType(Me("ViewAmmoadt_Height"),String)
@@ -234,9 +231,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoadt_Width() As String
             Get
                 Return CType(Me("ViewAmmoadt_Width"),String)
@@ -246,9 +243,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoadt_X() As String
             Get
                 Return CType(Me("ViewAmmoadt_X"),String)
@@ -258,9 +255,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property ViewAmmoadt_Y() As String
             Get
                 Return CType(Me("ViewAmmoadt_Y"),String)
@@ -270,9 +267,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property frmFirearmImagePicker_Height() As String
             Get
                 Return CType(Me("frmFirearmImagePicker_Height"),String)
@@ -282,9 +279,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property frmFirearmImagePicker_Width() As String
             Get
                 Return CType(Me("frmFirearmImagePicker_Width"),String)
@@ -294,9 +291,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property frmFirearmImagePicker_X() As String
             Get
                 Return CType(Me("frmFirearmImagePicker_X"),String)
@@ -306,9 +303,9 @@ Namespace My
             End Set
         End Property
         
-        <UserScopedSetting(),  _
-         DebuggerNonUserCode(),  _
-         DefaultSettingValue("")>  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property frmFirearmImagePicker_Y() As String
             Get
                 Return CType(Me("frmFirearmImagePicker_Y"),String)
@@ -322,15 +319,15 @@ End Namespace
 
 Namespace My
     
-    <HideModuleName(),  _
-     DebuggerNonUserCode(),  _
-     CompilerGenerated()>  _
+    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <HelpKeyword("My.Settings")>  _
-        Friend ReadOnly Property Settings() As MySettings
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
+        Friend ReadOnly Property Settings() As Global.BSMyGunCollection.My.MySettings
             Get
-                Return MySettings.Default
+                Return Global.BSMyGunCollection.My.MySettings.Default
             End Get
         End Property
     End Module
