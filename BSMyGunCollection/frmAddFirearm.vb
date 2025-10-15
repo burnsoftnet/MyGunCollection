@@ -221,7 +221,7 @@ Public Class frmAddFirearm
 
             Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, _errOut)
+            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath, strModel, lngManId, _errOut, True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
