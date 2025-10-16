@@ -261,7 +261,7 @@ Public Class frmEditCollectionDetails
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCr As String = dtpDateofCR.Value
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
-            
+            '' TODO: #98 Apply the smarted catalong eists function here
             If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut)) : Exit Sub
 
             If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
@@ -273,11 +273,11 @@ Public Class frmEditCollectionDetails
 
             Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, _errOut)
+            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath, strModel, lngManId, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut)
+            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, _errOut)
+            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath, strGripType, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             Dim sReManDt As String = dtpReManDT.Value
