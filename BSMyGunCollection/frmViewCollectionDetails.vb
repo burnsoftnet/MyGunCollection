@@ -1236,7 +1236,7 @@ Public Class frmViewCollectionDetails
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -1283,7 +1283,7 @@ Public Class frmViewCollectionDetails
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
@@ -1349,5 +1349,9 @@ Public Class frmViewCollectionDetails
         Catch ex As Exception
             Call LogError(Name, "cmbRating_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
+    End Sub
+
+    Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
+
     End Sub
 End Class
