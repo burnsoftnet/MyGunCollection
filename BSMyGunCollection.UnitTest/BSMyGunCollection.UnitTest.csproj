@@ -42,9 +42,6 @@
     <Reference Include="Appium.Net, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.2.355.3458, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.2.355.3458\lib\net472\BurnSoft.MsgBox.dll</HintPath>
-    </Reference>
     <Reference Include="BurnSoft.Testing.Apps.Appium, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Testing.Apps.Appium.1.0.0.12-RC1\lib\net472\BurnSoft.Testing.Apps.Appium.dll</HintPath>
     </Reference>
