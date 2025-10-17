@@ -31,7 +31,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-### v7.x.x.x
+### v7.0.2.x
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
@@ -40,6 +40,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * FIXED - Issue when you add a new firearm, if the Model ID does not exist, then it is not added and links the ID as 0.  Added if the model does not exist then to add it and get the ID to link
 * FIXED - Issue with custom catalog ID when you edit a firearm, it was reporting that it existed and would display the firearm that you are editing.  Now it will detect that this is one in the same and not bother you with it.
 * ADDED - Raiting Systme per Firearm plus sorting in collection list.  Might make it easier to get rid of guns if you remember you didn't like them.
+* FIXED - Issue with viewing a document and it would save in a protected directory instead of the writable data path.
 
 ### v6.9.15.2 September 2022
 
