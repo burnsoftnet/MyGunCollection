@@ -310,44 +310,46 @@ Partial Class frmViewCollectionDetails
         Me.GunSmith_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.GunSmith_DetailsTableAdapter()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.Qry_DocsAndLinksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter()
-        Me.TabControl1.SuspendLayout
-        Me.TabPage5.SuspendLayout
-        CType(Me.pbStolen,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.pbSold,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage11.SuspendLayout
-        Me.TabPage1.SuspendLayout
-        Me.TabPage2.SuspendLayout
-        Me.TabPage3.SuspendLayout
-        Me.mnuPictre.SuspendLayout
-        Me.TabPage10.SuspendLayout
-        CType(Me.DataGridView5,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.mnuBarrel.SuspendLayout
-        CType(Me.GunCollectionExtBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage4.SuspendLayout
-        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.ContextMenuStrip1.SuspendLayout
-        CType(Me.GunCollectionAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage6.SuspendLayout
-        CType(Me.DataGridView2,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GunCollectionAmmoBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage7.SuspendLayout
-        CType(Me.DataGridView3,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.mnuMain.SuspendLayout
-        CType(Me.MaintanceDetailsBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage8.SuspendLayout
-        CType(Me.DataGridView4,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.mnuGunSmith.SuspendLayout
-        CType(Me.GunSmithDetailsBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.TabPage9.SuspendLayout
-        Me.GroupBox1.SuspendLayout
-        Me.TabPage12.SuspendLayout
-        CType(Me.DataGridView6,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.mnuDocsMenu.SuspendLayout
-        CType(Me.QryDocsAndLinksBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.ToolStrip1.SuspendLayout
-        Me.SuspendLayout
+        Me.Label64 = New System.Windows.Forms.Label()
+        Me.cmbRating = New System.Windows.Forms.ComboBox()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage5.SuspendLayout()
+        CType(Me.pbStolen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbSold, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage11.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.mnuPictre.SuspendLayout()
+        Me.TabPage10.SuspendLayout()
+        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnuBarrel.SuspendLayout()
+        CType(Me.GunCollectionExtBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
+        CType(Me.GunCollectionAccessoriesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage6.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GunCollectionAmmoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage7.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnuMain.SuspendLayout()
+        CType(Me.MaintanceDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage8.SuspendLayout()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnuGunSmith.SuspendLayout()
+        CType(Me.GunSmithDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage9.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TabPage12.SuspendLayout()
+        CType(Me.DataGridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.mnuDocsMenu.SuspendLayout()
+        CType(Me.QryDocsAndLinksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
+        Me.SuspendLayout()
         '
         'TabControl1
         '
@@ -366,7 +368,7 @@ Partial Class frmViewCollectionDetails
         Me.TabControl1.ImageList = Me.ImageList1
         Me.TabControl1.ItemSize = New System.Drawing.Size(112, 19)
         Me.TabControl1.Location = New System.Drawing.Point(0, 28)
-        Me.TabControl1.Multiline = true
+        Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1150, 467)
@@ -376,6 +378,8 @@ Partial Class frmViewCollectionDetails
         '
         Me.TabPage5.AccessibleDescription = "Standard Details"
         Me.TabPage5.AccessibleName = "TabPage5"
+        Me.TabPage5.Controls.Add(Me.cmbRating)
+        Me.TabPage5.Controls.Add(Me.Label64)
         Me.TabPage5.Controls.Add(Me.Label59)
         Me.TabPage5.Controls.Add(Me.txtCaliber3)
         Me.TabPage5.Controls.Add(Me.dtpPurchased)
@@ -440,11 +444,11 @@ Partial Class frmViewCollectionDetails
         Me.TabPage5.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Standard Details"
-        Me.TabPage5.UseVisualStyleBackColor = true
+        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'Label59
         '
-        Me.Label59.AutoSize = true
+        Me.Label59.AutoSize = True
         Me.Label59.Location = New System.Drawing.Point(14, 323)
         Me.Label59.Name = "Label59"
         Me.Label59.Size = New System.Drawing.Size(58, 13)
@@ -459,7 +463,7 @@ Partial Class frmViewCollectionDetails
         Me.txtCaliber3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCaliber3.Location = New System.Drawing.Point(114, 320)
         Me.txtCaliber3.Name = "txtCaliber3"
-        Me.txtCaliber3.ReadOnly = true
+        Me.txtCaliber3.ReadOnly = True
         Me.txtCaliber3.Size = New System.Drawing.Size(156, 20)
         Me.txtCaliber3.TabIndex = 228
         '
@@ -467,8 +471,8 @@ Partial Class frmViewCollectionDetails
         '
         Me.dtpPurchased.AccessibleDescription = "Purchase Date"
         Me.dtpPurchased.AccessibleName = "dtpPurchased"
-        Me.dtpPurchased.Checked = false
-        Me.dtpPurchased.Enabled = false
+        Me.dtpPurchased.Checked = False
+        Me.dtpPurchased.Enabled = False
         Me.dtpPurchased.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpPurchased.Location = New System.Drawing.Point(114, 267)
         Me.dtpPurchased.Name = "dtpPurchased"
@@ -477,7 +481,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label43
         '
-        Me.Label43.AutoSize = true
+        Me.Label43.AutoSize = True
         Me.Label43.Location = New System.Drawing.Point(14, 273)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(81, 13)
@@ -488,14 +492,14 @@ Partial Class frmViewCollectionDetails
         '
         Me.pbStolen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbStolen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbStolen.Image = CType(resources.GetObject("pbStolen.Image"),System.Drawing.Image)
+        Me.pbStolen.Image = CType(resources.GetObject("pbStolen.Image"), System.Drawing.Image)
         Me.pbStolen.Location = New System.Drawing.Point(665, 24)
         Me.pbStolen.Name = "pbStolen"
         Me.pbStolen.Size = New System.Drawing.Size(131, 70)
         Me.pbStolen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbStolen.TabIndex = 201
-        Me.pbStolen.TabStop = false
-        Me.pbStolen.Visible = false
+        Me.pbStolen.TabStop = False
+        Me.pbStolen.Visible = False
         '
         'txtChoke
         '
@@ -505,20 +509,20 @@ Partial Class frmViewCollectionDetails
         Me.txtChoke.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtChoke.Location = New System.Drawing.Point(457, 342)
         Me.txtChoke.Name = "txtChoke"
-        Me.txtChoke.ReadOnly = true
+        Me.txtChoke.ReadOnly = True
         Me.txtChoke.Size = New System.Drawing.Size(156, 20)
         Me.txtChoke.TabIndex = 200
-        Me.txtChoke.Visible = false
+        Me.txtChoke.Visible = False
         '
         'Label53
         '
-        Me.Label53.AutoSize = true
+        Me.Label53.AutoSize = True
         Me.Label53.Location = New System.Drawing.Point(336, 345)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(78, 13)
         Me.Label53.TabIndex = 199
         Me.Label53.Text = "Current Choke:"
-        Me.Label53.Visible = false
+        Me.Label53.Visible = False
         '
         'lblSold
         '
@@ -528,20 +532,20 @@ Partial Class frmViewCollectionDetails
         Me.lblSold.TabIndex = 198
         Me.lblSold.Text = "Sold On"
         Me.lblSold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.lblSold.Visible = false
+        Me.lblSold.Visible = False
         '
         'pbSold
         '
         Me.pbSold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbSold.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.pbSold.Image = CType(resources.GetObject("pbSold.Image"),System.Drawing.Image)
+        Me.pbSold.Image = CType(resources.GetObject("pbSold.Image"), System.Drawing.Image)
         Me.pbSold.Location = New System.Drawing.Point(665, 24)
         Me.pbSold.Name = "pbSold"
         Me.pbSold.Size = New System.Drawing.Size(131, 73)
         Me.pbSold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbSold.TabIndex = 197
-        Me.pbSold.TabStop = false
-        Me.pbSold.Visible = false
+        Me.pbSold.TabStop = False
+        Me.pbSold.Visible = False
         '
         'PictureBox1
         '
@@ -549,8 +553,8 @@ Partial Class frmViewCollectionDetails
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(100, 82)
         Me.PictureBox1.TabIndex = 196
-        Me.PictureBox1.TabStop = false
-        Me.PictureBox1.Visible = false
+        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.Visible = False
         '
         'txtImporter
         '
@@ -561,13 +565,13 @@ Partial Class frmViewCollectionDetails
         Me.txtImporter.BackColor = System.Drawing.SystemColors.Control
         Me.txtImporter.Location = New System.Drawing.Point(114, 50)
         Me.txtImporter.Name = "txtImporter"
-        Me.txtImporter.ReadOnly = true
+        Me.txtImporter.ReadOnly = True
         Me.txtImporter.Size = New System.Drawing.Size(156, 20)
         Me.txtImporter.TabIndex = 175
         '
         'Label44
         '
-        Me.Label44.AutoSize = true
+        Me.Label44.AutoSize = True
         Me.Label44.Location = New System.Drawing.Point(14, 53)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(55, 13)
@@ -576,7 +580,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label42
         '
-        Me.Label42.AutoSize = true
+        Me.Label42.AutoSize = True
         Me.Label42.Location = New System.Drawing.Point(14, 297)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(58, 13)
@@ -589,7 +593,7 @@ Partial Class frmViewCollectionDetails
         Me.txtPetLoads.AccessibleName = "txtPetLoads"
         Me.txtPetLoads.Location = New System.Drawing.Point(114, 294)
         Me.txtPetLoads.Name = "txtPetLoads"
-        Me.txtPetLoads.ReadOnly = true
+        Me.txtPetLoads.ReadOnly = True
         Me.txtPetLoads.Size = New System.Drawing.Size(156, 20)
         Me.txtPetLoads.TabIndex = 171
         '
@@ -599,7 +603,7 @@ Partial Class frmViewCollectionDetails
         Me.txtCondition.AccessibleName = "txtCondition"
         Me.txtCondition.Location = New System.Drawing.Point(114, 181)
         Me.txtCondition.Name = "txtCondition"
-        Me.txtCondition.ReadOnly = true
+        Me.txtCondition.ReadOnly = True
         Me.txtCondition.Size = New System.Drawing.Size(156, 20)
         Me.txtCondition.TabIndex = 168
         '
@@ -611,7 +615,7 @@ Partial Class frmViewCollectionDetails
         Me.txtPurPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurPrice.Location = New System.Drawing.Point(114, 237)
         Me.txtPurPrice.Name = "txtPurPrice"
-        Me.txtPurPrice.ReadOnly = true
+        Me.txtPurPrice.ReadOnly = True
         Me.txtPurPrice.Size = New System.Drawing.Size(156, 20)
         Me.txtPurPrice.TabIndex = 163
         '
@@ -621,11 +625,11 @@ Partial Class frmViewCollectionDetails
         Me.txtPurchasedFrom.AccessibleName = "txtPurchasedFrom"
         Me.txtPurchasedFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurchasedFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtPurchasedFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtPurchasedFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPurchasedFrom.ForeColor = System.Drawing.Color.Blue
         Me.txtPurchasedFrom.Location = New System.Drawing.Point(114, 211)
         Me.txtPurchasedFrom.Name = "txtPurchasedFrom"
-        Me.txtPurchasedFrom.ReadOnly = true
+        Me.txtPurchasedFrom.ReadOnly = True
         Me.txtPurchasedFrom.Size = New System.Drawing.Size(156, 20)
         Me.txtPurchasedFrom.TabIndex = 162
         '
@@ -637,7 +641,7 @@ Partial Class frmViewCollectionDetails
         Me.txtStorage.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtStorage.Location = New System.Drawing.Point(457, 181)
         Me.txtStorage.Name = "txtStorage"
-        Me.txtStorage.ReadOnly = true
+        Me.txtStorage.ReadOnly = True
         Me.txtStorage.Size = New System.Drawing.Size(156, 20)
         Me.txtStorage.TabIndex = 161
         '
@@ -649,7 +653,7 @@ Partial Class frmViewCollectionDetails
         Me.txtSights.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSights.Location = New System.Drawing.Point(457, 155)
         Me.txtSights.Name = "txtSights"
-        Me.txtSights.ReadOnly = true
+        Me.txtSights.ReadOnly = True
         Me.txtSights.Size = New System.Drawing.Size(156, 20)
         Me.txtSights.TabIndex = 160
         '
@@ -661,7 +665,7 @@ Partial Class frmViewCollectionDetails
         Me.txtFeed.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFeed.Location = New System.Drawing.Point(457, 129)
         Me.txtFeed.Name = "txtFeed"
-        Me.txtFeed.ReadOnly = true
+        Me.txtFeed.ReadOnly = True
         Me.txtFeed.Size = New System.Drawing.Size(156, 20)
         Me.txtFeed.TabIndex = 159
         '
@@ -673,7 +677,7 @@ Partial Class frmViewCollectionDetails
         Me.txtAction.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAction.Location = New System.Drawing.Point(457, 103)
         Me.txtAction.Name = "txtAction"
-        Me.txtAction.ReadOnly = true
+        Me.txtAction.ReadOnly = True
         Me.txtAction.Size = New System.Drawing.Size(156, 20)
         Me.txtAction.TabIndex = 158
         '
@@ -685,7 +689,7 @@ Partial Class frmViewCollectionDetails
         Me.txtProduced.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtProduced.Location = New System.Drawing.Point(457, 76)
         Me.txtProduced.Name = "txtProduced"
-        Me.txtProduced.ReadOnly = true
+        Me.txtProduced.ReadOnly = True
         Me.txtProduced.Size = New System.Drawing.Size(156, 20)
         Me.txtProduced.TabIndex = 157
         '
@@ -697,7 +701,7 @@ Partial Class frmViewCollectionDetails
         Me.txtGripType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtGripType.Location = New System.Drawing.Point(457, 50)
         Me.txtGripType.Name = "txtGripType"
-        Me.txtGripType.ReadOnly = true
+        Me.txtGripType.ReadOnly = True
         Me.txtGripType.Size = New System.Drawing.Size(156, 20)
         Me.txtGripType.TabIndex = 156
         '
@@ -709,7 +713,7 @@ Partial Class frmViewCollectionDetails
         Me.txtCustCatID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCustCatID.Location = New System.Drawing.Point(457, 24)
         Me.txtCustCatID.Name = "txtCustCatID"
-        Me.txtCustCatID.ReadOnly = true
+        Me.txtCustCatID.ReadOnly = True
         Me.txtCustCatID.Size = New System.Drawing.Size(156, 20)
         Me.txtCustCatID.TabIndex = 155
         '
@@ -719,10 +723,10 @@ Partial Class frmViewCollectionDetails
         Me.txtBarHei.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtBarHei.Location = New System.Drawing.Point(762, 393)
         Me.txtBarHei.Name = "txtBarHei"
-        Me.txtBarHei.ReadOnly = true
+        Me.txtBarHei.ReadOnly = True
         Me.txtBarHei.Size = New System.Drawing.Size(156, 20)
         Me.txtBarHei.TabIndex = 139
-        Me.txtBarHei.Visible = false
+        Me.txtBarHei.Visible = False
         '
         'txtBarWid
         '
@@ -730,10 +734,10 @@ Partial Class frmViewCollectionDetails
         Me.txtBarWid.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtBarWid.Location = New System.Drawing.Point(762, 367)
         Me.txtBarWid.Name = "txtBarWid"
-        Me.txtBarWid.ReadOnly = true
+        Me.txtBarWid.ReadOnly = True
         Me.txtBarWid.Size = New System.Drawing.Size(156, 20)
         Me.txtBarWid.TabIndex = 137
-        Me.txtBarWid.Visible = false
+        Me.txtBarWid.Visible = False
         '
         'txtBarLen
         '
@@ -743,7 +747,7 @@ Partial Class frmViewCollectionDetails
         Me.txtBarLen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtBarLen.Location = New System.Drawing.Point(457, 316)
         Me.txtBarLen.Name = "txtBarLen"
-        Me.txtBarLen.ReadOnly = true
+        Me.txtBarLen.ReadOnly = True
         Me.txtBarLen.Size = New System.Drawing.Size(156, 20)
         Me.txtBarLen.TabIndex = 135
         '
@@ -755,7 +759,7 @@ Partial Class frmViewCollectionDetails
         Me.txtLength.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtLength.Location = New System.Drawing.Point(457, 290)
         Me.txtLength.Name = "txtLength"
-        Me.txtLength.ReadOnly = true
+        Me.txtLength.ReadOnly = True
         Me.txtLength.Size = New System.Drawing.Size(156, 20)
         Me.txtLength.TabIndex = 134
         '
@@ -767,7 +771,7 @@ Partial Class frmViewCollectionDetails
         Me.txtWeight.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtWeight.Location = New System.Drawing.Point(457, 260)
         Me.txtWeight.Name = "txtWeight"
-        Me.txtWeight.ReadOnly = true
+        Me.txtWeight.ReadOnly = True
         Me.txtWeight.Size = New System.Drawing.Size(156, 20)
         Me.txtWeight.TabIndex = 133
         '
@@ -779,7 +783,7 @@ Partial Class frmViewCollectionDetails
         Me.txtNationality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtNationality.Location = New System.Drawing.Point(457, 234)
         Me.txtNationality.Name = "txtNationality"
-        Me.txtNationality.ReadOnly = true
+        Me.txtNationality.ReadOnly = True
         Me.txtNationality.Size = New System.Drawing.Size(156, 20)
         Me.txtNationality.TabIndex = 130
         '
@@ -791,13 +795,13 @@ Partial Class frmViewCollectionDetails
         Me.txtFinish.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFinish.Location = New System.Drawing.Point(457, 208)
         Me.txtFinish.Name = "txtFinish"
-        Me.txtFinish.ReadOnly = true
+        Me.txtFinish.ReadOnly = True
         Me.txtFinish.Size = New System.Drawing.Size(156, 20)
         Me.txtFinish.TabIndex = 126
         '
         'Label28
         '
-        Me.Label28.AutoSize = true
+        Me.Label28.AutoSize = True
         Me.Label28.Location = New System.Drawing.Point(14, 214)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(87, 13)
@@ -806,7 +810,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label27
         '
-        Me.Label27.AutoSize = true
+        Me.Label27.AutoSize = True
         Me.Label27.Location = New System.Drawing.Point(336, 184)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(91, 13)
@@ -815,7 +819,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label22
         '
-        Me.Label22.AutoSize = true
+        Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(14, 240)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(88, 13)
@@ -824,7 +828,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label20
         '
-        Me.Label20.AutoSize = true
+        Me.Label20.AutoSize = True
         Me.Label20.Location = New System.Drawing.Point(336, 158)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(39, 13)
@@ -833,7 +837,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label19
         '
-        Me.Label19.AutoSize = true
+        Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(336, 132)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(117, 13)
@@ -842,7 +846,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label18
         '
-        Me.Label18.AutoSize = true
+        Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(336, 106)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(40, 13)
@@ -851,27 +855,27 @@ Partial Class frmViewCollectionDetails
         '
         'Label17
         '
-        Me.Label17.AutoSize = true
+        Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(662, 396)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(71, 13)
         Me.Label17.TabIndex = 144
         Me.Label17.Text = "Barrel Height:"
-        Me.Label17.Visible = false
+        Me.Label17.Visible = False
         '
         'Label16
         '
-        Me.Label16.AutoSize = true
+        Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(662, 370)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(68, 13)
         Me.Label16.TabIndex = 143
         Me.Label16.Text = "Barrel Width:"
-        Me.Label16.Visible = false
+        Me.Label16.Visible = False
         '
         'Label15
         '
-        Me.Label15.AutoSize = true
+        Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(336, 319)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(73, 13)
@@ -880,7 +884,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label14
         '
-        Me.Label14.AutoSize = true
+        Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(336, 293)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(79, 13)
@@ -889,7 +893,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label13
         '
-        Me.Label13.AutoSize = true
+        Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(336, 263)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(44, 13)
@@ -898,7 +902,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label11
         '
-        Me.Label11.AutoSize = true
+        Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(336, 80)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(102, 13)
@@ -913,13 +917,13 @@ Partial Class frmViewCollectionDetails
         Me.txtCal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCal.Location = New System.Drawing.Point(114, 155)
         Me.txtCal.Name = "txtCal"
-        Me.txtCal.ReadOnly = true
+        Me.txtCal.ReadOnly = True
         Me.txtCal.Size = New System.Drawing.Size(156, 20)
         Me.txtCal.TabIndex = 123
         '
         'Label10
         '
-        Me.Label10.AutoSize = true
+        Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(336, 54)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(89, 13)
@@ -928,7 +932,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label9
         '
-        Me.Label9.AutoSize = true
+        Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(336, 211)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(37, 13)
@@ -937,7 +941,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label8
         '
-        Me.Label8.AutoSize = true
+        Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(14, 184)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(54, 13)
@@ -946,7 +950,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label7
         '
-        Me.Label7.AutoSize = true
+        Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(336, 27)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(104, 13)
@@ -955,7 +959,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
+        Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(336, 237)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(77, 13)
@@ -964,7 +968,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
+        Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(14, 158)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(98, 13)
@@ -979,7 +983,7 @@ Partial Class frmViewCollectionDetails
         Me.txtType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtType.Location = New System.Drawing.Point(114, 129)
         Me.txtType.Name = "txtType"
-        Me.txtType.ReadOnly = true
+        Me.txtType.ReadOnly = True
         Me.txtType.Size = New System.Drawing.Size(156, 20)
         Me.txtType.TabIndex = 122
         '
@@ -991,7 +995,7 @@ Partial Class frmViewCollectionDetails
         Me.txtSerial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSerial.Location = New System.Drawing.Point(114, 103)
         Me.txtSerial.Name = "txtSerial"
-        Me.txtSerial.ReadOnly = true
+        Me.txtSerial.ReadOnly = True
         Me.txtSerial.Size = New System.Drawing.Size(156, 20)
         Me.txtSerial.TabIndex = 121
         '
@@ -1003,7 +1007,7 @@ Partial Class frmViewCollectionDetails
         Me.txtModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtModel.Location = New System.Drawing.Point(114, 77)
         Me.txtModel.Name = "txtModel"
-        Me.txtModel.ReadOnly = true
+        Me.txtModel.ReadOnly = True
         Me.txtModel.Size = New System.Drawing.Size(156, 20)
         Me.txtModel.TabIndex = 120
         '
@@ -1015,13 +1019,13 @@ Partial Class frmViewCollectionDetails
         Me.txtManu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtManu.Location = New System.Drawing.Point(114, 25)
         Me.txtManu.Name = "txtManu"
-        Me.txtManu.ReadOnly = true
+        Me.txtManu.ReadOnly = True
         Me.txtManu.Size = New System.Drawing.Size(156, 20)
         Me.txtManu.TabIndex = 119
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
+        Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(14, 132)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
@@ -1030,7 +1034,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
+        Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(14, 106)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 13)
@@ -1039,7 +1043,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
+        Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(14, 80)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
@@ -1048,7 +1052,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
+        Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(14, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(80, 13)
@@ -1096,23 +1100,23 @@ Partial Class frmViewCollectionDetails
         Me.TabPage11.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage11.TabIndex = 10
         Me.TabPage11.Text = "Collector Details"
-        Me.TabPage11.UseVisualStyleBackColor = true
+        Me.TabPage11.UseVisualStyleBackColor = True
         '
         'chkNonLethal
         '
         Me.chkNonLethal.AccessibleDescription = "Non-Lethal Device?"
         Me.chkNonLethal.AccessibleName = "chkNonLethal"
-        Me.chkNonLethal.AutoSize = true
+        Me.chkNonLethal.AutoSize = True
         Me.chkNonLethal.Location = New System.Drawing.Point(109, 274)
         Me.chkNonLethal.Name = "chkNonLethal"
         Me.chkNonLethal.Size = New System.Drawing.Size(44, 17)
         Me.chkNonLethal.TabIndex = 236
         Me.chkNonLethal.Text = "Yes"
-        Me.chkNonLethal.UseVisualStyleBackColor = true
+        Me.chkNonLethal.UseVisualStyleBackColor = True
         '
         'Label63
         '
-        Me.Label63.AutoSize = true
+        Me.Label63.AutoSize = True
         Me.Label63.Location = New System.Drawing.Point(9, 275)
         Me.Label63.Name = "Label63"
         Me.Label63.Size = New System.Drawing.Size(102, 13)
@@ -1123,17 +1127,17 @@ Partial Class frmViewCollectionDetails
         '
         Me.chkIsCompeition.AccessibleDescription = "Competition Gun?"
         Me.chkIsCompeition.AccessibleName = "chkIsCompeition"
-        Me.chkIsCompeition.AutoSize = true
+        Me.chkIsCompeition.AutoSize = True
         Me.chkIsCompeition.Location = New System.Drawing.Point(109, 249)
         Me.chkIsCompeition.Name = "chkIsCompeition"
         Me.chkIsCompeition.Size = New System.Drawing.Size(44, 17)
         Me.chkIsCompeition.TabIndex = 234
         Me.chkIsCompeition.Text = "Yes"
-        Me.chkIsCompeition.UseVisualStyleBackColor = true
+        Me.chkIsCompeition.UseVisualStyleBackColor = True
         '
         'Label62
         '
-        Me.Label62.AutoSize = true
+        Me.Label62.AutoSize = True
         Me.Label62.Location = New System.Drawing.Point(9, 250)
         Me.Label62.Name = "Label62"
         Me.Label62.Size = New System.Drawing.Size(91, 13)
@@ -1144,8 +1148,8 @@ Partial Class frmViewCollectionDetails
         '
         Me.dtpDateofCR.AccessibleDescription = "Date of C&R"
         Me.dtpDateofCR.AccessibleName = "dtpDateofCR"
-        Me.dtpDateofCR.Checked = false
-        Me.dtpDateofCR.Enabled = false
+        Me.dtpDateofCR.Checked = False
+        Me.dtpDateofCR.Enabled = False
         Me.dtpDateofCR.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateofCR.Location = New System.Drawing.Point(442, 112)
         Me.dtpDateofCR.Name = "dtpDateofCR"
@@ -1158,13 +1162,13 @@ Partial Class frmViewCollectionDetails
         Me.txtClassIIIOwner.AccessibleName = "txtClassIIIOwner"
         Me.txtClassIIIOwner.Location = New System.Drawing.Point(109, 217)
         Me.txtClassIIIOwner.Name = "txtClassIIIOwner"
-        Me.txtClassIIIOwner.ReadOnly = true
+        Me.txtClassIIIOwner.ReadOnly = True
         Me.txtClassIIIOwner.Size = New System.Drawing.Size(156, 20)
         Me.txtClassIIIOwner.TabIndex = 231
         '
         'Label61
         '
-        Me.Label61.AutoSize = true
+        Me.Label61.AutoSize = True
         Me.Label61.Location = New System.Drawing.Point(9, 220)
         Me.Label61.Name = "Label61"
         Me.Label61.Size = New System.Drawing.Size(41, 13)
@@ -1175,18 +1179,18 @@ Partial Class frmViewCollectionDetails
         '
         Me.chkClassIII.AccessibleDescription = "Class III Item?"
         Me.chkClassIII.AccessibleName = "chkClassIII"
-        Me.chkClassIII.AutoSize = true
-        Me.chkClassIII.Enabled = false
+        Me.chkClassIII.AutoSize = True
+        Me.chkClassIII.Enabled = False
         Me.chkClassIII.Location = New System.Drawing.Point(108, 196)
         Me.chkClassIII.Name = "chkClassIII"
         Me.chkClassIII.Size = New System.Drawing.Size(44, 17)
         Me.chkClassIII.TabIndex = 229
         Me.chkClassIII.Text = "Yes"
-        Me.chkClassIII.UseVisualStyleBackColor = true
+        Me.chkClassIII.UseVisualStyleBackColor = True
         '
         'Label60
         '
-        Me.Label60.AutoSize = true
+        Me.Label60.AutoSize = True
         Me.Label60.Location = New System.Drawing.Point(8, 197)
         Me.Label60.Name = "Label60"
         Me.Label60.Size = New System.Drawing.Size(73, 13)
@@ -1201,7 +1205,7 @@ Partial Class frmViewCollectionDetails
         Me.txtTriggerPull.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTriggerPull.Location = New System.Drawing.Point(109, 167)
         Me.txtTriggerPull.Name = "txtTriggerPull"
-        Me.txtTriggerPull.ReadOnly = true
+        Me.txtTriggerPull.ReadOnly = True
         Me.txtTriggerPull.Size = New System.Drawing.Size(156, 20)
         Me.txtTriggerPull.TabIndex = 227
         '
@@ -1213,13 +1217,13 @@ Partial Class frmViewCollectionDetails
         Me.txtTwistOfRate.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTwistOfRate.Location = New System.Drawing.Point(109, 138)
         Me.txtTwistOfRate.Name = "txtTwistOfRate"
-        Me.txtTwistOfRate.ReadOnly = true
+        Me.txtTwistOfRate.ReadOnly = True
         Me.txtTwistOfRate.Size = New System.Drawing.Size(156, 20)
         Me.txtTwistOfRate.TabIndex = 226
         '
         'Label57
         '
-        Me.Label57.AutoSize = true
+        Me.Label57.AutoSize = True
         Me.Label57.Location = New System.Drawing.Point(9, 170)
         Me.Label57.Name = "Label57"
         Me.Label57.Size = New System.Drawing.Size(97, 13)
@@ -1228,7 +1232,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label58
         '
-        Me.Label58.AutoSize = true
+        Me.Label58.AutoSize = True
         Me.Label58.Location = New System.Drawing.Point(8, 141)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(73, 13)
@@ -1243,7 +1247,7 @@ Partial Class frmViewCollectionDetails
         Me.txtInsVal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtInsVal.Location = New System.Drawing.Point(108, 112)
         Me.txtInsVal.Name = "txtInsVal"
-        Me.txtInsVal.ReadOnly = true
+        Me.txtInsVal.ReadOnly = True
         Me.txtInsVal.Size = New System.Drawing.Size(156, 20)
         Me.txtInsVal.TabIndex = 223
         '
@@ -1253,10 +1257,10 @@ Partial Class frmViewCollectionDetails
         Me.txtAppBy.AccessibleName = "txtAppBy"
         Me.txtAppBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.txtAppBy.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.txtAppBy.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAppBy.Location = New System.Drawing.Point(108, 86)
         Me.txtAppBy.Name = "txtAppBy"
-        Me.txtAppBy.ReadOnly = true
+        Me.txtAppBy.ReadOnly = True
         Me.txtAppBy.Size = New System.Drawing.Size(156, 20)
         Me.txtAppBy.TabIndex = 222
         '
@@ -1264,8 +1268,8 @@ Partial Class frmViewCollectionDetails
         '
         Me.dtpAppDate.AccessibleDescription = "Appraisal Date:"
         Me.dtpAppDate.AccessibleName = "dtpAppDate"
-        Me.dtpAppDate.Checked = false
-        Me.dtpAppDate.Enabled = false
+        Me.dtpAppDate.Checked = False
+        Me.dtpAppDate.Enabled = False
         Me.dtpAppDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpAppDate.Location = New System.Drawing.Point(108, 59)
         Me.dtpAppDate.Name = "dtpAppDate"
@@ -1280,13 +1284,13 @@ Partial Class frmViewCollectionDetails
         Me.txtAppValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppValue.Location = New System.Drawing.Point(108, 30)
         Me.txtAppValue.Name = "txtAppValue"
-        Me.txtAppValue.ReadOnly = true
+        Me.txtAppValue.ReadOnly = True
         Me.txtAppValue.Size = New System.Drawing.Size(156, 20)
         Me.txtAppValue.TabIndex = 220
         '
         'Label26
         '
-        Me.Label26.AutoSize = true
+        Me.Label26.AutoSize = True
         Me.Label26.Location = New System.Drawing.Point(8, 115)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(75, 13)
@@ -1295,7 +1299,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label25
         '
-        Me.Label25.AutoSize = true
+        Me.Label25.AutoSize = True
         Me.Label25.Location = New System.Drawing.Point(8, 89)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(72, 13)
@@ -1304,7 +1308,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label24
         '
-        Me.Label24.AutoSize = true
+        Me.Label24.AutoSize = True
         Me.Label24.Location = New System.Drawing.Point(8, 63)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(79, 13)
@@ -1313,7 +1317,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label23
         '
-        Me.Label23.AutoSize = true
+        Me.Label23.AutoSize = True
         Me.Label23.Location = New System.Drawing.Point(8, 33)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(87, 13)
@@ -1322,7 +1326,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label56
         '
-        Me.Label56.AutoSize = true
+        Me.Label56.AutoSize = True
         Me.Label56.Location = New System.Drawing.Point(321, 115)
         Me.Label56.Name = "Label56"
         Me.Label56.Size = New System.Drawing.Size(75, 13)
@@ -1337,13 +1341,13 @@ Partial Class frmViewCollectionDetails
         Me.txtClassification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtClassification.Location = New System.Drawing.Point(442, 86)
         Me.txtClassification.Name = "txtClassification"
-        Me.txtClassification.ReadOnly = true
+        Me.txtClassification.ReadOnly = True
         Me.txtClassification.Size = New System.Drawing.Size(156, 20)
         Me.txtClassification.TabIndex = 205
         '
         'Label55
         '
-        Me.Label55.AutoSize = true
+        Me.Label55.AutoSize = True
         Me.Label55.Location = New System.Drawing.Point(321, 89)
         Me.Label55.Name = "Label55"
         Me.Label55.Size = New System.Drawing.Size(71, 13)
@@ -1354,20 +1358,20 @@ Partial Class frmViewCollectionDetails
         '
         Me.chkBoundBook.AccessibleDescription = "Add to Bound Book"
         Me.chkBoundBook.AccessibleName = "chkBoundBook"
-        Me.chkBoundBook.AutoSize = true
-        Me.chkBoundBook.Checked = true
+        Me.chkBoundBook.AutoSize = True
+        Me.chkBoundBook.Checked = True
         Me.chkBoundBook.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkBoundBook.Enabled = false
+        Me.chkBoundBook.Enabled = False
         Me.chkBoundBook.Location = New System.Drawing.Point(442, 62)
         Me.chkBoundBook.Name = "chkBoundBook"
         Me.chkBoundBook.Size = New System.Drawing.Size(44, 17)
         Me.chkBoundBook.TabIndex = 203
         Me.chkBoundBook.Text = "Yes"
-        Me.chkBoundBook.UseVisualStyleBackColor = true
+        Me.chkBoundBook.UseVisualStyleBackColor = True
         '
         'Label54
         '
-        Me.Label54.AutoSize = true
+        Me.Label54.AutoSize = True
         Me.Label54.Location = New System.Drawing.Point(321, 63)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(100, 13)
@@ -1378,18 +1382,18 @@ Partial Class frmViewCollectionDetails
         '
         Me.chkBoxCR.AccessibleDescription = "Is C && R Qualified"
         Me.chkBoxCR.AccessibleName = "chkBoxCR"
-        Me.chkBoxCR.AutoSize = true
-        Me.chkBoxCR.Enabled = false
+        Me.chkBoxCR.AutoSize = True
+        Me.chkBoxCR.Enabled = False
         Me.chkBoxCR.Location = New System.Drawing.Point(442, 32)
         Me.chkBoxCR.Name = "chkBoxCR"
         Me.chkBoxCR.Size = New System.Drawing.Size(44, 17)
         Me.chkBoxCR.TabIndex = 201
         Me.chkBoxCR.Text = "Yes"
-        Me.chkBoxCR.UseVisualStyleBackColor = true
+        Me.chkBoxCR.UseVisualStyleBackColor = True
         '
         'Label12
         '
-        Me.Label12.AutoSize = true
+        Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(321, 33)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(89, 13)
@@ -1404,7 +1408,7 @@ Partial Class frmViewCollectionDetails
         Me.txtPOI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPOI.Location = New System.Drawing.Point(442, 167)
         Me.txtPOI.Name = "txtPOI"
-        Me.txtPOI.ReadOnly = true
+        Me.txtPOI.ReadOnly = True
         Me.txtPOI.Size = New System.Drawing.Size(156, 20)
         Me.txtPOI.TabIndex = 199
         '
@@ -1412,8 +1416,8 @@ Partial Class frmViewCollectionDetails
         '
         Me.dtpReManDT.AccessibleDescription = "Remanufactured Date"
         Me.dtpReManDT.AccessibleName = "dtpReManDT"
-        Me.dtpReManDT.Checked = false
-        Me.dtpReManDT.Enabled = false
+        Me.dtpReManDT.Checked = False
+        Me.dtpReManDT.Enabled = False
         Me.dtpReManDT.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpReManDT.Location = New System.Drawing.Point(442, 138)
         Me.dtpReManDT.Name = "dtpReManDT"
@@ -1423,7 +1427,7 @@ Partial Class frmViewCollectionDetails
         'Label48
         '
         Me.Label48.AccessibleDescription = "Place Of Import:"
-        Me.Label48.AutoSize = true
+        Me.Label48.AutoSize = True
         Me.Label48.Location = New System.Drawing.Point(321, 170)
         Me.Label48.Name = "Label48"
         Me.Label48.Size = New System.Drawing.Size(83, 13)
@@ -1432,7 +1436,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label49
         '
-        Me.Label49.AutoSize = true
+        Me.Label49.AutoSize = True
         Me.Label49.Location = New System.Drawing.Point(321, 141)
         Me.Label49.Name = "Label49"
         Me.Label49.Size = New System.Drawing.Size(109, 13)
@@ -1451,16 +1455,16 @@ Partial Class frmViewCollectionDetails
         Me.TabPage1.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Condition Comments"
-        Me.TabPage1.UseVisualStyleBackColor = true
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'txtConCom
         '
         Me.txtConCom.AccessibleDescription = "Condition Comments"
         Me.txtConCom.AccessibleName = "txtConCom"
         Me.txtConCom.Location = New System.Drawing.Point(0, 6)
-        Me.txtConCom.Multiline = true
+        Me.txtConCom.Multiline = True
         Me.txtConCom.Name = "txtConCom"
-        Me.txtConCom.ReadOnly = true
+        Me.txtConCom.ReadOnly = True
         Me.txtConCom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtConCom.Size = New System.Drawing.Size(601, 401)
         Me.txtConCom.TabIndex = 62
@@ -1477,16 +1481,16 @@ Partial Class frmViewCollectionDetails
         Me.TabPage2.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Additional Notes"
-        Me.TabPage2.UseVisualStyleBackColor = true
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'txtAddNotes
         '
         Me.txtAddNotes.AccessibleDescription = "Additional Notes"
         Me.txtAddNotes.AccessibleName = "txtAddNotes"
         Me.txtAddNotes.Location = New System.Drawing.Point(1, 6)
-        Me.txtAddNotes.Multiline = true
+        Me.txtAddNotes.Multiline = True
         Me.txtAddNotes.Name = "txtAddNotes"
-        Me.txtAddNotes.ReadOnly = true
+        Me.txtAddNotes.ReadOnly = True
         Me.txtAddNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtAddNotes.Size = New System.Drawing.Size(600, 401)
         Me.txtAddNotes.TabIndex = 63
@@ -1506,7 +1510,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage3.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Picture(s)"
-        Me.TabPage3.UseVisualStyleBackColor = true
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'btnGalleryReport
         '
@@ -1517,7 +1521,7 @@ Partial Class frmViewCollectionDetails
         Me.btnGalleryReport.Size = New System.Drawing.Size(124, 21)
         Me.btnGalleryReport.TabIndex = 3
         Me.btnGalleryReport.Text = "View Gallery Report"
-        Me.btnGalleryReport.UseVisualStyleBackColor = true
+        Me.btnGalleryReport.UseVisualStyleBackColor = True
         '
         'btnRefreshPics
         '
@@ -1528,20 +1532,20 @@ Partial Class frmViewCollectionDetails
         Me.btnRefreshPics.Size = New System.Drawing.Size(76, 21)
         Me.btnRefreshPics.TabIndex = 2
         Me.btnRefreshPics.Text = "Refresh"
-        Me.btnRefreshPics.UseVisualStyleBackColor = true
+        Me.btnRefreshPics.UseVisualStyleBackColor = True
         '
         'ListView1
         '
         Me.ListView1.AccessibleDescription = "List of Pictures"
         Me.ListView1.AccessibleName = "ListView1"
         Me.ListView1.ContextMenuStrip = Me.mnuPictre
-        Me.ListView1.HideSelection = false
+        Me.ListView1.HideSelection = False
         Me.ListView1.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.ListView1.Location = New System.Drawing.Point(7, 36)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(592, 362)
         Me.ListView1.TabIndex = 1
-        Me.ListView1.UseCompatibleStateImageBehavior = false
+        Me.ListView1.UseCompatibleStateImageBehavior = False
         '
         'mnuPictre
         '
@@ -1549,14 +1553,14 @@ Partial Class frmViewCollectionDetails
         Me.mnuPictre.AccessibleName = "mnuPictre"
         Me.mnuPictre.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuPicItem_Show, Me.EditNotesToolStripMenuItem, Me.ToolStripSeparator1, Me.mnuPicItem_Delete})
         Me.mnuPictre.Name = "mnuPictre"
-        Me.mnuPictre.ShowItemToolTips = false
+        Me.mnuPictre.ShowItemToolTips = False
         Me.mnuPictre.Size = New System.Drawing.Size(129, 76)
         '
         'mnuPicItem_Show
         '
         Me.mnuPicItem_Show.AccessibleDescription = "Show Picture"
         Me.mnuPicItem_Show.AccessibleName = "mnuPicItem_Show"
-        Me.mnuPicItem_Show.Image = CType(resources.GetObject("mnuPicItem_Show.Image"),System.Drawing.Image)
+        Me.mnuPicItem_Show.Image = CType(resources.GetObject("mnuPicItem_Show.Image"), System.Drawing.Image)
         Me.mnuPicItem_Show.Name = "mnuPicItem_Show"
         Me.mnuPicItem_Show.Size = New System.Drawing.Size(128, 22)
         Me.mnuPicItem_Show.Text = "&Show"
@@ -1565,7 +1569,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.EditNotesToolStripMenuItem.AccessibleDescription = "Edit Notes"
         Me.EditNotesToolStripMenuItem.AccessibleName = "EditNotesToolStripMenuItem"
-        Me.EditNotesToolStripMenuItem.Image = CType(resources.GetObject("EditNotesToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.EditNotesToolStripMenuItem.Image = CType(resources.GetObject("EditNotesToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EditNotesToolStripMenuItem.Name = "EditNotesToolStripMenuItem"
         Me.EditNotesToolStripMenuItem.Size = New System.Drawing.Size(128, 22)
         Me.EditNotesToolStripMenuItem.Text = "Edit Notes"
@@ -1579,7 +1583,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.mnuPicItem_Delete.AccessibleDescription = "Delete"
         Me.mnuPicItem_Delete.AccessibleName = "mnuPicItem_Delete"
-        Me.mnuPicItem_Delete.Image = CType(resources.GetObject("mnuPicItem_Delete.Image"),System.Drawing.Image)
+        Me.mnuPicItem_Delete.Image = CType(resources.GetObject("mnuPicItem_Delete.Image"), System.Drawing.Image)
         Me.mnuPicItem_Delete.Name = "mnuPicItem_Delete"
         Me.mnuPicItem_Delete.Size = New System.Drawing.Size(128, 22)
         Me.mnuPicItem_Delete.Text = "Delete"
@@ -1593,7 +1597,7 @@ Partial Class frmViewCollectionDetails
         Me.btnAdd.Size = New System.Drawing.Size(83, 21)
         Me.btnAdd.TabIndex = 0
         Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = true
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'TabPage10
         '
@@ -1607,18 +1611,18 @@ Partial Class frmViewCollectionDetails
         Me.TabPage10.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage10.TabIndex = 9
         Me.TabPage10.Text = "Barrels/Conversion Kits"
-        Me.TabPage10.UseVisualStyleBackColor = true
+        Me.TabPage10.UseVisualStyleBackColor = True
         '
         'DataGridView5
         '
         Me.DataGridView5.AccessibleDescription = "List of Barrels and Conversion Kits"
         Me.DataGridView5.AccessibleName = "DataGridView5"
-        Me.DataGridView5.AllowUserToAddRows = false
-        Me.DataGridView5.AllowUserToDeleteRows = false
-        Me.DataGridView5.AutoGenerateColumns = false
+        Me.DataGridView5.AllowUserToAddRows = False
+        Me.DataGridView5.AllowUserToDeleteRows = False
+        Me.DataGridView5.AutoGenerateColumns = False
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -1630,7 +1634,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView5.DataSource = Me.GunCollectionExtBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -1639,7 +1643,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView5.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.ReadOnly = true
+        Me.DataGridView5.ReadOnly = True
         Me.DataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView5.Size = New System.Drawing.Size(1136, 415)
         Me.DataGridView5.TabIndex = 0
@@ -1647,12 +1651,12 @@ Partial Class frmViewCollectionDetails
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.FillWeight = 1!
+        Me.IDDataGridViewTextBoxColumn.FillWeight = 1.0!
         Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.IDDataGridViewTextBoxColumn.MinimumWidth = 2
         Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = true
-        Me.IDDataGridViewTextBoxColumn.Visible = false
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IDDataGridViewTextBoxColumn.Visible = False
         Me.IDDataGridViewTextBoxColumn.Width = 2
         '
         'ModelNameDataGridViewTextBoxColumn
@@ -1661,7 +1665,7 @@ Partial Class frmViewCollectionDetails
         Me.ModelNameDataGridViewTextBoxColumn.DataPropertyName = "ModelName"
         Me.ModelNameDataGridViewTextBoxColumn.HeaderText = "Model Name"
         Me.ModelNameDataGridViewTextBoxColumn.Name = "ModelNameDataGridViewTextBoxColumn"
-        Me.ModelNameDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ModelNameDataGridViewTextBoxColumn.ReadOnly = True
         Me.ModelNameDataGridViewTextBoxColumn.Width = 85
         '
         'CaliberDataGridViewTextBoxColumn
@@ -1670,9 +1674,9 @@ Partial Class frmViewCollectionDetails
         Me.CaliberDataGridViewTextBoxColumn.DataPropertyName = "Caliber"
         Me.CaliberDataGridViewTextBoxColumn.HeaderText = "Caliber"
         Me.CaliberDataGridViewTextBoxColumn.Name = "CaliberDataGridViewTextBoxColumn"
-        Me.CaliberDataGridViewTextBoxColumn.ReadOnly = true
+        Me.CaliberDataGridViewTextBoxColumn.ReadOnly = True
         Me.CaliberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CaliberDataGridViewTextBoxColumn.Width = 85
+        Me.CaliberDataGridViewTextBoxColumn.Width = 64
         '
         'TypeDataGridViewTextBoxColumn
         '
@@ -1680,9 +1684,9 @@ Partial Class frmViewCollectionDetails
         Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
         Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type"
         Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
-        Me.TypeDataGridViewTextBoxColumn.ReadOnly = true
+        Me.TypeDataGridViewTextBoxColumn.ReadOnly = True
         Me.TypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TypeDataGridViewTextBoxColumn.Width = 77
+        Me.TypeDataGridViewTextBoxColumn.Width = 56
         '
         'BarrelLengthDataGridViewTextBoxColumn
         '
@@ -1690,8 +1694,8 @@ Partial Class frmViewCollectionDetails
         Me.BarrelLengthDataGridViewTextBoxColumn.DataPropertyName = "BarrelLength"
         Me.BarrelLengthDataGridViewTextBoxColumn.HeaderText = "Barrel Length"
         Me.BarrelLengthDataGridViewTextBoxColumn.Name = "BarrelLengthDataGridViewTextBoxColumn"
-        Me.BarrelLengthDataGridViewTextBoxColumn.ReadOnly = true
-        Me.BarrelLengthDataGridViewTextBoxColumn.Width = 87
+        Me.BarrelLengthDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BarrelLengthDataGridViewTextBoxColumn.Width = 88
         '
         'PetLoadsDataGridViewTextBoxColumn
         '
@@ -1699,7 +1703,7 @@ Partial Class frmViewCollectionDetails
         Me.PetLoadsDataGridViewTextBoxColumn.DataPropertyName = "PetLoads"
         Me.PetLoadsDataGridViewTextBoxColumn.HeaderText = "Pet Loads"
         Me.PetLoadsDataGridViewTextBoxColumn.Name = "PetLoadsDataGridViewTextBoxColumn"
-        Me.PetLoadsDataGridViewTextBoxColumn.ReadOnly = true
+        Me.PetLoadsDataGridViewTextBoxColumn.ReadOnly = True
         Me.PetLoadsDataGridViewTextBoxColumn.Width = 74
         '
         'PurchasedPriceDataGridViewTextBoxColumn
@@ -1708,7 +1712,7 @@ Partial Class frmViewCollectionDetails
         Me.PurchasedPriceDataGridViewTextBoxColumn.DataPropertyName = "PurchasedPrice"
         Me.PurchasedPriceDataGridViewTextBoxColumn.HeaderText = "Purchased Price"
         Me.PurchasedPriceDataGridViewTextBoxColumn.Name = "PurchasedPriceDataGridViewTextBoxColumn"
-        Me.PurchasedPriceDataGridViewTextBoxColumn.ReadOnly = true
+        Me.PurchasedPriceDataGridViewTextBoxColumn.ReadOnly = True
         Me.PurchasedPriceDataGridViewTextBoxColumn.Width = 101
         '
         'mnuBarrel
@@ -1780,11 +1784,11 @@ Partial Class frmViewCollectionDetails
         Me.TabPage4.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Accessories"
-        Me.TabPage4.UseVisualStyleBackColor = true
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'lblTAV
         '
-        Me.lblTAV.AutoSize = true
+        Me.lblTAV.AutoSize = True
         Me.lblTAV.Location = New System.Drawing.Point(390, 418)
         Me.lblTAV.Name = "lblTAV"
         Me.lblTAV.Size = New System.Drawing.Size(0, 13)
@@ -1792,8 +1796,8 @@ Partial Class frmViewCollectionDetails
         '
         'Label52
         '
-        Me.Label52.AutoSize = true
-        Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label52.AutoSize = True
+        Me.Label52.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label52.Location = New System.Drawing.Point(247, 419)
         Me.Label52.Name = "Label52"
         Me.Label52.Size = New System.Drawing.Size(136, 13)
@@ -1802,7 +1806,7 @@ Partial Class frmViewCollectionDetails
         '
         'lblTPV
         '
-        Me.lblTPV.AutoSize = true
+        Me.lblTPV.AutoSize = True
         Me.lblTPV.Location = New System.Drawing.Point(147, 420)
         Me.lblTPV.Name = "lblTPV"
         Me.lblTPV.Size = New System.Drawing.Size(0, 13)
@@ -1810,8 +1814,8 @@ Partial Class frmViewCollectionDetails
         '
         'Label51
         '
-        Me.Label51.AutoSize = true
-        Me.Label51.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label51.AutoSize = True
+        Me.Label51.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label51.Location = New System.Drawing.Point(8, 420)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(133, 13)
@@ -1827,7 +1831,7 @@ Partial Class frmViewCollectionDetails
         Me.btnVwAccessReport.Size = New System.Drawing.Size(75, 23)
         Me.btnVwAccessReport.TabIndex = 3
         Me.btnVwAccessReport.Text = "View Report"
-        Me.btnVwAccessReport.UseVisualStyleBackColor = true
+        Me.btnVwAccessReport.UseVisualStyleBackColor = True
         '
         'btnRefresh
         '
@@ -1838,7 +1842,7 @@ Partial Class frmViewCollectionDetails
         Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
         Me.btnRefresh.TabIndex = 2
         Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = true
+        Me.btnRefresh.UseVisualStyleBackColor = True
         '
         'btnAddAccess
         '
@@ -1849,17 +1853,17 @@ Partial Class frmViewCollectionDetails
         Me.btnAddAccess.Size = New System.Drawing.Size(113, 23)
         Me.btnAddAccess.TabIndex = 1
         Me.btnAddAccess.Text = "Add Accessory"
-        Me.btnAddAccess.UseVisualStyleBackColor = true
+        Me.btnAddAccess.UseVisualStyleBackColor = True
         '
         'DataGridView1
         '
         Me.DataGridView1.AccessibleDescription = "List of Accessories"
         Me.DataGridView1.AccessibleName = "DataGridView1"
-        Me.DataGridView1.AllowUserToAddRows = false
-        Me.DataGridView1.AutoGenerateColumns = false
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AutoGenerateColumns = False
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -1871,16 +1875,16 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView1.DataSource = Me.GunCollectionAccessoriesBindingSource
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.Location = New System.Drawing.Point(8, 37)
-        Me.DataGridView1.MultiSelect = false
+        Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = true
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(775, 370)
         Me.DataGridView1.TabIndex = 0
@@ -1889,13 +1893,13 @@ Partial Class frmViewCollectionDetails
         '
         Me.DataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.DataGridViewTextBoxColumn1.FillWeight = 1!
+        Me.DataGridViewTextBoxColumn1.FillWeight = 1.0!
         Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
         Me.DataGridViewTextBoxColumn1.MinimumWidth = 2
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = true
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridViewTextBoxColumn1.Visible = false
+        Me.DataGridViewTextBoxColumn1.Visible = False
         Me.DataGridViewTextBoxColumn1.Width = 2
         '
         'ManufacturerDataGridViewTextBoxColumn
@@ -1903,7 +1907,7 @@ Partial Class frmViewCollectionDetails
         Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
-        Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = True
         Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'ModelDataGridViewTextBoxColumn
@@ -1912,7 +1916,7 @@ Partial Class frmViewCollectionDetails
         Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
         Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
         Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
-        Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = True
         Me.ModelDataGridViewTextBoxColumn.Width = 5
         '
         'SerialNumberDataGridViewTextBoxColumn
@@ -1920,14 +1924,14 @@ Partial Class frmViewCollectionDetails
         Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
         Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
         Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
-        Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = true
+        Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ConditionDataGridViewTextBoxColumn
         '
         Me.ConditionDataGridViewTextBoxColumn.DataPropertyName = "Condition"
         Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
         Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
-        Me.ConditionDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ConditionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'UseDataGridViewTextBoxColumn
         '
@@ -1935,7 +1939,7 @@ Partial Class frmViewCollectionDetails
         Me.UseDataGridViewTextBoxColumn.DataPropertyName = "Use"
         Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
         Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
-        Me.UseDataGridViewTextBoxColumn.ReadOnly = true
+        Me.UseDataGridViewTextBoxColumn.ReadOnly = True
         Me.UseDataGridViewTextBoxColumn.Width = 51
         '
         'PurValueDataGridViewTextBoxColumn
@@ -1943,14 +1947,14 @@ Partial Class frmViewCollectionDetails
         Me.PurValueDataGridViewTextBoxColumn.DataPropertyName = "PurValue"
         Me.PurValueDataGridViewTextBoxColumn.HeaderText = "Purchase Value"
         Me.PurValueDataGridViewTextBoxColumn.Name = "PurValueDataGridViewTextBoxColumn"
-        Me.PurValueDataGridViewTextBoxColumn.ReadOnly = true
+        Me.PurValueDataGridViewTextBoxColumn.ReadOnly = True
         '
         'AppValue
         '
         Me.AppValue.DataPropertyName = "AppValue"
         Me.AppValue.HeaderText = "Appraised Value"
         Me.AppValue.Name = "AppValue"
-        Me.AppValue.ReadOnly = true
+        Me.AppValue.ReadOnly = True
         '
         'NotesDataGridViewTextBoxColumn
         '
@@ -1958,7 +1962,7 @@ Partial Class frmViewCollectionDetails
         Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
         Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
         Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
-        Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
+        Me.NotesDataGridViewTextBoxColumn.ReadOnly = True
         Me.NotesDataGridViewTextBoxColumn.Width = 60
         '
         'ContextMenuStrip1
@@ -1973,7 +1977,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.EditToolStripMenuItem.AccessibleDescription = "Edit Accessory"
         Me.EditToolStripMenuItem.AccessibleName = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
         Me.EditToolStripMenuItem.Text = "&Edit"
@@ -1982,7 +1986,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.CopyToolStripMenuItem.AccessibleDescription = "Copy Accessory"
         Me.CopyToolStripMenuItem.AccessibleName = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.Image = CType(resources.GetObject("CopyToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.CopyToolStripMenuItem.Image = CType(resources.GetObject("CopyToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
         Me.CopyToolStripMenuItem.Text = "&Copy"
@@ -1996,7 +2000,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.TabPage6.AccessibleDescription = "Ammunition"
         Me.TabPage6.AccessibleName = "TabPage6"
-        Me.TabPage6.AutoScroll = true
+        Me.TabPage6.AutoScroll = True
         Me.TabPage6.Controls.Add(Me.btnAmmoReportByCal)
         Me.TabPage6.Controls.Add(Me.lblAmmoTotal)
         Me.TabPage6.Controls.Add(Me.Label45)
@@ -2009,7 +2013,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage6.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Ammunition"
-        Me.TabPage6.UseVisualStyleBackColor = true
+        Me.TabPage6.UseVisualStyleBackColor = True
         '
         'btnAmmoReportByCal
         '
@@ -2020,12 +2024,12 @@ Partial Class frmViewCollectionDetails
         Me.btnAmmoReportByCal.Size = New System.Drawing.Size(112, 23)
         Me.btnAmmoReportByCal.TabIndex = 6
         Me.btnAmmoReportByCal.Text = "Print Ammo List"
-        Me.btnAmmoReportByCal.UseVisualStyleBackColor = true
+        Me.btnAmmoReportByCal.UseVisualStyleBackColor = True
         '
         'lblAmmoTotal
         '
-        Me.lblAmmoTotal.AutoSize = true
-        Me.lblAmmoTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblAmmoTotal.AutoSize = True
+        Me.lblAmmoTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAmmoTotal.Location = New System.Drawing.Point(54, 387)
         Me.lblAmmoTotal.Name = "lblAmmoTotal"
         Me.lblAmmoTotal.Size = New System.Drawing.Size(0, 13)
@@ -2033,8 +2037,8 @@ Partial Class frmViewCollectionDetails
         '
         'Label45
         '
-        Me.Label45.AutoSize = true
-        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label45.AutoSize = True
+        Me.Label45.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label45.Location = New System.Drawing.Point(8, 387)
         Me.Label45.Name = "Label45"
         Me.Label45.Size = New System.Drawing.Size(40, 13)
@@ -2050,7 +2054,7 @@ Partial Class frmViewCollectionDetails
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Refresh"
-        Me.Button1.UseVisualStyleBackColor = true
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'btnAddAmmo
         '
@@ -2061,17 +2065,17 @@ Partial Class frmViewCollectionDetails
         Me.btnAddAmmo.Size = New System.Drawing.Size(75, 23)
         Me.btnAddAmmo.TabIndex = 1
         Me.btnAddAmmo.Text = "Add Ammunition"
-        Me.btnAddAmmo.UseVisualStyleBackColor = true
+        Me.btnAddAmmo.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
         Me.DataGridView2.AccessibleDescription = "Ammo List"
         Me.DataGridView2.AccessibleName = "DataGridView2"
-        Me.DataGridView2.AllowUserToAddRows = false
-        Me.DataGridView2.AutoGenerateColumns = false
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AutoGenerateColumns = False
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2082,7 +2086,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView2.DataSource = Me.GunCollectionAmmoBindingSource
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2090,9 +2094,9 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView2.Location = New System.Drawing.Point(11, 38)
-        Me.DataGridView2.MultiSelect = false
+        Me.DataGridView2.MultiSelect = False
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = true
+        Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(593, 346)
         Me.DataGridView2.TabIndex = 0
@@ -2102,7 +2106,7 @@ Partial Class frmViewCollectionDetails
         Me.Qty1.DataPropertyName = "Qty1"
         Me.Qty1.HeaderText = "Qty."
         Me.Qty1.Name = "Qty1"
-        Me.Qty1.ReadOnly = true
+        Me.Qty1.ReadOnly = True
         '
         'ManufacturerDataGridViewTextBoxColumn1
         '
@@ -2110,7 +2114,7 @@ Partial Class frmViewCollectionDetails
         Me.ManufacturerDataGridViewTextBoxColumn1.DataPropertyName = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn1.HeaderText = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn1.Name = "ManufacturerDataGridViewTextBoxColumn1"
-        Me.ManufacturerDataGridViewTextBoxColumn1.ReadOnly = true
+        Me.ManufacturerDataGridViewTextBoxColumn1.ReadOnly = True
         Me.ManufacturerDataGridViewTextBoxColumn1.Width = 95
         '
         'NameDataGridViewTextBoxColumn
@@ -2119,7 +2123,7 @@ Partial Class frmViewCollectionDetails
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
         Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
         Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        Me.NameDataGridViewTextBoxColumn.ReadOnly = true
+        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
         Me.NameDataGridViewTextBoxColumn.Width = 60
         '
         'CalDataGridViewTextBoxColumn
@@ -2128,7 +2132,7 @@ Partial Class frmViewCollectionDetails
         Me.CalDataGridViewTextBoxColumn.DataPropertyName = "Cal"
         Me.CalDataGridViewTextBoxColumn.HeaderText = "Caliber"
         Me.CalDataGridViewTextBoxColumn.Name = "CalDataGridViewTextBoxColumn"
-        Me.CalDataGridViewTextBoxColumn.ReadOnly = true
+        Me.CalDataGridViewTextBoxColumn.ReadOnly = True
         Me.CalDataGridViewTextBoxColumn.Width = 64
         '
         'GrainDataGridViewTextBoxColumn
@@ -2137,7 +2141,7 @@ Partial Class frmViewCollectionDetails
         Me.GrainDataGridViewTextBoxColumn.DataPropertyName = "Grain"
         Me.GrainDataGridViewTextBoxColumn.HeaderText = "Grain"
         Me.GrainDataGridViewTextBoxColumn.Name = "GrainDataGridViewTextBoxColumn"
-        Me.GrainDataGridViewTextBoxColumn.ReadOnly = true
+        Me.GrainDataGridViewTextBoxColumn.ReadOnly = True
         Me.GrainDataGridViewTextBoxColumn.Width = 57
         '
         'JacketDataGridViewTextBoxColumn
@@ -2146,7 +2150,7 @@ Partial Class frmViewCollectionDetails
         Me.JacketDataGridViewTextBoxColumn.DataPropertyName = "Jacket"
         Me.JacketDataGridViewTextBoxColumn.HeaderText = "Jacket"
         Me.JacketDataGridViewTextBoxColumn.Name = "JacketDataGridViewTextBoxColumn"
-        Me.JacketDataGridViewTextBoxColumn.ReadOnly = true
+        Me.JacketDataGridViewTextBoxColumn.ReadOnly = True
         Me.JacketDataGridViewTextBoxColumn.Width = 64
         '
         'GunCollectionAmmoBindingSource
@@ -2175,33 +2179,33 @@ Partial Class frmViewCollectionDetails
         Me.TabPage7.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Maintenance"
-        Me.TabPage7.UseVisualStyleBackColor = true
+        Me.TabPage7.UseVisualStyleBackColor = True
         '
         'lblTotalFirearm
         '
-        Me.lblTotalFirearm.AutoSize = true
-        Me.lblTotalFirearm.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblTotalFirearm.AutoSize = True
+        Me.lblTotalFirearm.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalFirearm.Location = New System.Drawing.Point(612, 389)
         Me.lblTotalFirearm.Name = "lblTotalFirearm"
         Me.lblTotalFirearm.Size = New System.Drawing.Size(0, 13)
         Me.lblTotalFirearm.TabIndex = 10
-        Me.lblTotalFirearm.Visible = false
+        Me.lblTotalFirearm.Visible = False
         '
         'Label50
         '
-        Me.Label50.AutoSize = true
-        Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label50.AutoSize = True
+        Me.Label50.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label50.Location = New System.Drawing.Point(468, 389)
         Me.Label50.Name = "Label50"
         Me.Label50.Size = New System.Drawing.Size(147, 13)
         Me.Label50.TabIndex = 9
         Me.Label50.Text = "Total Rounds of Firearm:"
-        Me.Label50.Visible = false
+        Me.Label50.Visible = False
         '
         'lblAvgRndsFired
         '
-        Me.lblAvgRndsFired.AutoSize = true
-        Me.lblAvgRndsFired.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblAvgRndsFired.AutoSize = True
+        Me.lblAvgRndsFired.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAvgRndsFired.Location = New System.Drawing.Point(384, 389)
         Me.lblAvgRndsFired.Name = "lblAvgRndsFired"
         Me.lblAvgRndsFired.Size = New System.Drawing.Size(0, 13)
@@ -2209,8 +2213,8 @@ Partial Class frmViewCollectionDetails
         '
         'Label47
         '
-        Me.Label47.AutoSize = true
-        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label47.AutoSize = True
+        Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label47.Location = New System.Drawing.Point(240, 390)
         Me.Label47.Name = "Label47"
         Me.Label47.Size = New System.Drawing.Size(137, 13)
@@ -2219,8 +2223,8 @@ Partial Class frmViewCollectionDetails
         '
         'lblTotalRndsFired
         '
-        Me.lblTotalRndsFired.AutoSize = true
-        Me.lblTotalRndsFired.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblTotalRndsFired.AutoSize = True
+        Me.lblTotalRndsFired.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalRndsFired.Location = New System.Drawing.Point(132, 391)
         Me.lblTotalRndsFired.Name = "lblTotalRndsFired"
         Me.lblTotalRndsFired.Size = New System.Drawing.Size(0, 13)
@@ -2228,8 +2232,8 @@ Partial Class frmViewCollectionDetails
         '
         'Label46
         '
-        Me.Label46.AutoSize = true
-        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label46.Location = New System.Drawing.Point(6, 391)
         Me.Label46.Name = "Label46"
         Me.Label46.Size = New System.Drawing.Size(119, 13)
@@ -2243,7 +2247,7 @@ Partial Class frmViewCollectionDetails
         Me.btnPrintPreviewMaintanceReport.Size = New System.Drawing.Size(129, 23)
         Me.btnPrintPreviewMaintanceReport.TabIndex = 4
         Me.btnPrintPreviewMaintanceReport.Text = "Print Preview Report"
-        Me.btnPrintPreviewMaintanceReport.UseVisualStyleBackColor = true
+        Me.btnPrintPreviewMaintanceReport.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -2252,16 +2256,16 @@ Partial Class frmViewCollectionDetails
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Refresh"
-        Me.Button2.UseVisualStyleBackColor = true
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'DataGridView3
         '
-        Me.DataGridView3.AllowUserToAddRows = false
-        Me.DataGridView3.AllowUserToDeleteRows = false
-        Me.DataGridView3.AutoGenerateColumns = false
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.AllowUserToDeleteRows = False
+        Me.DataGridView3.AutoGenerateColumns = False
         DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2273,7 +2277,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView3.DataSource = Me.MaintanceDetailsBindingSource
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2281,7 +2285,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView3.Location = New System.Drawing.Point(6, 38)
         Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = true
+        Me.DataGridView3.ReadOnly = True
         Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView3.Size = New System.Drawing.Size(629, 346)
         Me.DataGridView3.TabIndex = 1
@@ -2289,11 +2293,11 @@ Partial Class frmViewCollectionDetails
         'MaintID
         '
         Me.MaintID.DataPropertyName = "id"
-        Me.MaintID.FillWeight = 5!
+        Me.MaintID.FillWeight = 5.0!
         Me.MaintID.HeaderText = "MaintID"
         Me.MaintID.Name = "MaintID"
-        Me.MaintID.ReadOnly = true
-        Me.MaintID.Visible = false
+        Me.MaintID.ReadOnly = True
+        Me.MaintID.Visible = False
         Me.MaintID.Width = 5
         '
         'NameDataGridViewTextBoxColumn1
@@ -2302,9 +2306,9 @@ Partial Class frmViewCollectionDetails
         Me.NameDataGridViewTextBoxColumn1.DataPropertyName = "Name"
         Me.NameDataGridViewTextBoxColumn1.HeaderText = "Maintance Plan"
         Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
-        Me.NameDataGridViewTextBoxColumn1.ReadOnly = true
+        Me.NameDataGridViewTextBoxColumn1.ReadOnly = True
         Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NameDataGridViewTextBoxColumn1.Width = 118
+        Me.NameDataGridViewTextBoxColumn1.Width = 97
         '
         'OpDateDataGridViewTextBoxColumn
         '
@@ -2312,7 +2316,7 @@ Partial Class frmViewCollectionDetails
         Me.OpDateDataGridViewTextBoxColumn.DataPropertyName = "OpDate"
         Me.OpDateDataGridViewTextBoxColumn.HeaderText = "Operation Date"
         Me.OpDateDataGridViewTextBoxColumn.Name = "OpDateDataGridViewTextBoxColumn"
-        Me.OpDateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.OpDateDataGridViewTextBoxColumn.ReadOnly = True
         Me.OpDateDataGridViewTextBoxColumn.Width = 96
         '
         'OpDueDateDataGridViewTextBoxColumn
@@ -2321,7 +2325,7 @@ Partial Class frmViewCollectionDetails
         Me.OpDueDateDataGridViewTextBoxColumn.DataPropertyName = "OpDueDate"
         Me.OpDueDateDataGridViewTextBoxColumn.HeaderText = "Operation Due Date"
         Me.OpDueDateDataGridViewTextBoxColumn.Name = "OpDueDateDataGridViewTextBoxColumn"
-        Me.OpDueDateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.OpDueDateDataGridViewTextBoxColumn.ReadOnly = True
         Me.OpDueDateDataGridViewTextBoxColumn.Width = 96
         '
         'RndFiredDataGridViewTextBoxColumn
@@ -2330,15 +2334,15 @@ Partial Class frmViewCollectionDetails
         Me.RndFiredDataGridViewTextBoxColumn.DataPropertyName = "RndFired"
         Me.RndFiredDataGridViewTextBoxColumn.HeaderText = "Rounds Fired"
         Me.RndFiredDataGridViewTextBoxColumn.Name = "RndFiredDataGridViewTextBoxColumn"
-        Me.RndFiredDataGridViewTextBoxColumn.ReadOnly = true
-        Me.RndFiredDataGridViewTextBoxColumn.Width = 87
+        Me.RndFiredDataGridViewTextBoxColumn.ReadOnly = True
+        Me.RndFiredDataGridViewTextBoxColumn.Width = 88
         '
         'au
         '
         Me.au.DataPropertyName = "au"
         Me.au.HeaderText = "Ammo Used"
         Me.au.Name = "au"
-        Me.au.ReadOnly = true
+        Me.au.ReadOnly = True
         '
         'NotesDataGridViewTextBoxColumn1
         '
@@ -2346,7 +2350,7 @@ Partial Class frmViewCollectionDetails
         Me.NotesDataGridViewTextBoxColumn1.DataPropertyName = "Notes"
         Me.NotesDataGridViewTextBoxColumn1.HeaderText = "Notes"
         Me.NotesDataGridViewTextBoxColumn1.Name = "NotesDataGridViewTextBoxColumn1"
-        Me.NotesDataGridViewTextBoxColumn1.ReadOnly = true
+        Me.NotesDataGridViewTextBoxColumn1.ReadOnly = True
         Me.NotesDataGridViewTextBoxColumn1.Width = 60
         '
         'mnuMain
@@ -2357,14 +2361,14 @@ Partial Class frmViewCollectionDetails
         '
         'DeleteToolStripMenuItem1
         '
-        Me.DeleteToolStripMenuItem1.Image = CType(resources.GetObject("DeleteToolStripMenuItem1.Image"),System.Drawing.Image)
+        Me.DeleteToolStripMenuItem1.Image = CType(resources.GetObject("DeleteToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1"
         Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.DeleteToolStripMenuItem1.Text = "&Delete"
         '
         'EditToolStripMenuItem2
         '
-        Me.EditToolStripMenuItem2.Image = CType(resources.GetObject("EditToolStripMenuItem2.Image"),System.Drawing.Image)
+        Me.EditToolStripMenuItem2.Image = CType(resources.GetObject("EditToolStripMenuItem2.Image"), System.Drawing.Image)
         Me.EditToolStripMenuItem2.Name = "EditToolStripMenuItem2"
         Me.EditToolStripMenuItem2.Size = New System.Drawing.Size(107, 22)
         Me.EditToolStripMenuItem2.Text = "&Edit"
@@ -2381,7 +2385,7 @@ Partial Class frmViewCollectionDetails
         Me.btnAddMain.Size = New System.Drawing.Size(81, 23)
         Me.btnAddMain.TabIndex = 0
         Me.btnAddMain.Text = "Add Maintance"
-        Me.btnAddMain.UseVisualStyleBackColor = true
+        Me.btnAddMain.UseVisualStyleBackColor = True
         '
         'TabPage8
         '
@@ -2392,13 +2396,13 @@ Partial Class frmViewCollectionDetails
         Me.TabPage8.Controls.Add(Me.DataGridView4)
         Me.TabPage8.Controls.Add(Me.btnGSReport)
         Me.TabPage8.ImageIndex = 7
-        Me.TabPage8.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 42)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage8.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage8.TabIndex = 7
         Me.TabPage8.Text = "Gun Smith"
-        Me.TabPage8.UseVisualStyleBackColor = true
+        Me.TabPage8.UseVisualStyleBackColor = True
         '
         'btnRefreshGS
         '
@@ -2407,7 +2411,7 @@ Partial Class frmViewCollectionDetails
         Me.btnRefreshGS.Size = New System.Drawing.Size(75, 23)
         Me.btnRefreshGS.TabIndex = 3
         Me.btnRefreshGS.Text = "Refresh"
-        Me.btnRefreshGS.UseVisualStyleBackColor = true
+        Me.btnRefreshGS.UseVisualStyleBackColor = True
         '
         'btnGSLog
         '
@@ -2416,15 +2420,15 @@ Partial Class frmViewCollectionDetails
         Me.btnGSLog.Size = New System.Drawing.Size(137, 23)
         Me.btnGSLog.TabIndex = 0
         Me.btnGSLog.Text = "Add to Gun Smith Log"
-        Me.btnGSLog.UseVisualStyleBackColor = true
+        Me.btnGSLog.UseVisualStyleBackColor = True
         '
         'DataGridView4
         '
-        Me.DataGridView4.AllowUserToAddRows = false
-        Me.DataGridView4.AutoGenerateColumns = false
+        Me.DataGridView4.AllowUserToAddRows = False
+        Me.DataGridView4.AutoGenerateColumns = False
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2436,7 +2440,7 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView4.DataSource = Me.GunSmithDetailsBindingSource
         DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -2451,11 +2455,11 @@ Partial Class frmViewCollectionDetails
         '
         Me.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.ID.DataPropertyName = "ID"
-        Me.ID.FillWeight = 2!
+        Me.ID.FillWeight = 2.0!
         Me.ID.HeaderText = "ID"
         Me.ID.MinimumWidth = 2
         Me.ID.Name = "ID"
-        Me.ID.Visible = false
+        Me.ID.Visible = False
         Me.ID.Width = 2
         '
         'GsmithDataGridViewTextBoxColumn
@@ -2464,7 +2468,7 @@ Partial Class frmViewCollectionDetails
         Me.GsmithDataGridViewTextBoxColumn.DataPropertyName = "gsmith"
         Me.GsmithDataGridViewTextBoxColumn.HeaderText = "Gun Smith"
         Me.GsmithDataGridViewTextBoxColumn.Name = "GsmithDataGridViewTextBoxColumn"
-        Me.GsmithDataGridViewTextBoxColumn.ReadOnly = true
+        Me.GsmithDataGridViewTextBoxColumn.ReadOnly = True
         Me.GsmithDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.GsmithDataGridViewTextBoxColumn.Width = 75
         '
@@ -2474,7 +2478,7 @@ Partial Class frmViewCollectionDetails
         Me.SdateDataGridViewTextBoxColumn.DataPropertyName = "sdate"
         Me.SdateDataGridViewTextBoxColumn.HeaderText = "Ship Date"
         Me.SdateDataGridViewTextBoxColumn.Name = "SdateDataGridViewTextBoxColumn"
-        Me.SdateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.SdateDataGridViewTextBoxColumn.ReadOnly = True
         Me.SdateDataGridViewTextBoxColumn.Width = 73
         '
         'RdateDataGridViewTextBoxColumn
@@ -2483,7 +2487,7 @@ Partial Class frmViewCollectionDetails
         Me.RdateDataGridViewTextBoxColumn.DataPropertyName = "rdate"
         Me.RdateDataGridViewTextBoxColumn.HeaderText = "Receive Date"
         Me.RdateDataGridViewTextBoxColumn.Name = "RdateDataGridViewTextBoxColumn"
-        Me.RdateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.RdateDataGridViewTextBoxColumn.ReadOnly = True
         Me.RdateDataGridViewTextBoxColumn.Width = 90
         '
         'OdDataGridViewTextBoxColumn
@@ -2526,7 +2530,7 @@ Partial Class frmViewCollectionDetails
         Me.btnGSReport.Size = New System.Drawing.Size(122, 23)
         Me.btnGSReport.TabIndex = 1
         Me.btnGSReport.Text = "Print Preview Report"
-        Me.btnGSReport.UseVisualStyleBackColor = true
+        Me.btnGSReport.UseVisualStyleBackColor = True
         '
         'TabPage9
         '
@@ -2539,13 +2543,13 @@ Partial Class frmViewCollectionDetails
         Me.TabPage9.Controls.Add(Me.btnSold)
         Me.TabPage9.Controls.Add(Me.btnFlyer)
         Me.TabPage9.ImageIndex = 8
-        Me.TabPage9.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 42)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(1142, 440)
+        Me.TabPage9.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Sale/Disposition"
-        Me.TabPage9.UseVisualStyleBackColor = true
+        Me.TabPage9.UseVisualStyleBackColor = True
         '
         'btnPrintSale
         '
@@ -2554,7 +2558,7 @@ Partial Class frmViewCollectionDetails
         Me.btnPrintSale.Size = New System.Drawing.Size(122, 23)
         Me.btnPrintSale.TabIndex = 5
         Me.btnPrintSale.Text = "Print Simple Invoice"
-        Me.btnPrintSale.UseVisualStyleBackColor = true
+        Me.btnPrintSale.UseVisualStyleBackColor = True
         '
         'btnStolen
         '
@@ -2563,7 +2567,7 @@ Partial Class frmViewCollectionDetails
         Me.btnStolen.Size = New System.Drawing.Size(111, 24)
         Me.btnStolen.TabIndex = 4
         Me.btnStolen.Text = "Mark Item as Stolen"
-        Me.btnStolen.UseVisualStyleBackColor = true
+        Me.btnStolen.UseVisualStyleBackColor = True
         '
         'btnUnDoSale
         '
@@ -2572,7 +2576,7 @@ Partial Class frmViewCollectionDetails
         Me.btnUnDoSale.Size = New System.Drawing.Size(104, 23)
         Me.btnUnDoSale.TabIndex = 3
         Me.btnUnDoSale.Text = "Undo Disposition"
-        Me.btnUnDoSale.UseVisualStyleBackColor = true
+        Me.btnUnDoSale.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -2609,12 +2613,12 @@ Partial Class frmViewCollectionDetails
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(657, 251)
         Me.GroupBox1.TabIndex = 2
-        Me.GroupBox1.TabStop = false
+        Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Buyer Information"
         '
         'Label21
         '
-        Me.Label21.AutoSize = true
+        Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(309, 183)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(102, 13)
@@ -2623,7 +2627,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label29
         '
-        Me.Label29.AutoSize = true
+        Me.Label29.AutoSize = True
         Me.Label29.Location = New System.Drawing.Point(308, 158)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(69, 13)
@@ -2634,7 +2638,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtRes.Location = New System.Drawing.Point(426, 180)
         Me.txtRes.Name = "txtRes"
-        Me.txtRes.ReadOnly = true
+        Me.txtRes.ReadOnly = True
         Me.txtRes.Size = New System.Drawing.Size(171, 20)
         Me.txtRes.TabIndex = 113
         '
@@ -2642,7 +2646,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtDOB.Location = New System.Drawing.Point(426, 155)
         Me.txtDOB.Name = "txtDOB"
-        Me.txtDOB.ReadOnly = true
+        Me.txtDOB.ReadOnly = True
         Me.txtDOB.Size = New System.Drawing.Size(171, 20)
         Me.txtDOB.TabIndex = 112
         '
@@ -2650,13 +2654,13 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtDLic.Location = New System.Drawing.Point(426, 128)
         Me.txtDLic.Name = "txtDLic"
-        Me.txtDLic.ReadOnly = true
+        Me.txtDLic.ReadOnly = True
         Me.txtDLic.Size = New System.Drawing.Size(171, 20)
         Me.txtDLic.TabIndex = 111
         '
         'Label30
         '
-        Me.Label30.AutoSize = true
+        Me.Label30.AutoSize = True
         Me.Label30.Location = New System.Drawing.Point(308, 131)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(114, 13)
@@ -2665,7 +2669,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label31
         '
-        Me.Label31.AutoSize = true
+        Me.Label31.AutoSize = True
         Me.Label31.Location = New System.Drawing.Point(16, 158)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(53, 13)
@@ -2676,7 +2680,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtZip.Location = New System.Drawing.Point(85, 154)
         Me.txtZip.Name = "txtZip"
-        Me.txtZip.ReadOnly = true
+        Me.txtZip.ReadOnly = True
         Me.txtZip.Size = New System.Drawing.Size(171, 20)
         Me.txtZip.TabIndex = 108
         '
@@ -2684,7 +2688,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txteMail.Location = New System.Drawing.Point(426, 76)
         Me.txteMail.Name = "txteMail"
-        Me.txteMail.ReadOnly = true
+        Me.txteMail.ReadOnly = True
         Me.txteMail.Size = New System.Drawing.Size(171, 20)
         Me.txteMail.TabIndex = 107
         '
@@ -2692,7 +2696,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtName.Location = New System.Drawing.Point(85, 23)
         Me.txtName.Name = "txtName"
-        Me.txtName.ReadOnly = true
+        Me.txtName.ReadOnly = True
         Me.txtName.Size = New System.Drawing.Size(171, 20)
         Me.txtName.TabIndex = 106
         '
@@ -2700,7 +2704,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtAddress1.Location = New System.Drawing.Point(85, 50)
         Me.txtAddress1.Name = "txtAddress1"
-        Me.txtAddress1.ReadOnly = true
+        Me.txtAddress1.ReadOnly = True
         Me.txtAddress1.Size = New System.Drawing.Size(171, 20)
         Me.txtAddress1.TabIndex = 105
         '
@@ -2708,7 +2712,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtAddress2.Location = New System.Drawing.Point(85, 76)
         Me.txtAddress2.Name = "txtAddress2"
-        Me.txtAddress2.ReadOnly = true
+        Me.txtAddress2.ReadOnly = True
         Me.txtAddress2.Size = New System.Drawing.Size(171, 20)
         Me.txtAddress2.TabIndex = 104
         '
@@ -2716,7 +2720,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtCity.Location = New System.Drawing.Point(85, 102)
         Me.txtCity.Name = "txtCity"
-        Me.txtCity.ReadOnly = true
+        Me.txtCity.ReadOnly = True
         Me.txtCity.Size = New System.Drawing.Size(171, 20)
         Me.txtCity.TabIndex = 103
         '
@@ -2724,7 +2728,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtState.Location = New System.Drawing.Point(85, 128)
         Me.txtState.Name = "txtState"
-        Me.txtState.ReadOnly = true
+        Me.txtState.ReadOnly = True
         Me.txtState.Size = New System.Drawing.Size(171, 20)
         Me.txtState.TabIndex = 102
         '
@@ -2732,7 +2736,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtWebSite.Location = New System.Drawing.Point(426, 50)
         Me.txtWebSite.Name = "txtWebSite"
-        Me.txtWebSite.ReadOnly = true
+        Me.txtWebSite.ReadOnly = True
         Me.txtWebSite.Size = New System.Drawing.Size(171, 20)
         Me.txtWebSite.TabIndex = 101
         '
@@ -2740,7 +2744,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtCountry.Location = New System.Drawing.Point(85, 180)
         Me.txtCountry.Name = "txtCountry"
-        Me.txtCountry.ReadOnly = true
+        Me.txtCountry.ReadOnly = True
         Me.txtCountry.Size = New System.Drawing.Size(171, 20)
         Me.txtCountry.TabIndex = 100
         '
@@ -2748,7 +2752,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtFax.Location = New System.Drawing.Point(426, 24)
         Me.txtFax.Name = "txtFax"
-        Me.txtFax.ReadOnly = true
+        Me.txtFax.ReadOnly = True
         Me.txtFax.Size = New System.Drawing.Size(171, 20)
         Me.txtFax.TabIndex = 99
         '
@@ -2756,7 +2760,7 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtPhone.Location = New System.Drawing.Point(85, 206)
         Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.ReadOnly = true
+        Me.txtPhone.ReadOnly = True
         Me.txtPhone.Size = New System.Drawing.Size(171, 20)
         Me.txtPhone.TabIndex = 98
         '
@@ -2764,13 +2768,13 @@ Partial Class frmViewCollectionDetails
         '
         Me.txtLic.Location = New System.Drawing.Point(426, 102)
         Me.txtLic.Name = "txtLic"
-        Me.txtLic.ReadOnly = true
+        Me.txtLic.ReadOnly = True
         Me.txtLic.Size = New System.Drawing.Size(171, 20)
         Me.txtLic.TabIndex = 97
         '
         'Label32
         '
-        Me.Label32.AutoSize = true
+        Me.Label32.AutoSize = True
         Me.Label32.Location = New System.Drawing.Point(308, 105)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(47, 13)
@@ -2779,7 +2783,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label33
         '
-        Me.Label33.AutoSize = true
+        Me.Label33.AutoSize = True
         Me.Label33.Location = New System.Drawing.Point(308, 79)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(34, 13)
@@ -2788,7 +2792,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label34
         '
-        Me.Label34.AutoSize = true
+        Me.Label34.AutoSize = True
         Me.Label34.Location = New System.Drawing.Point(309, 53)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(49, 13)
@@ -2797,7 +2801,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label35
         '
-        Me.Label35.AutoSize = true
+        Me.Label35.AutoSize = True
         Me.Label35.Location = New System.Drawing.Point(308, 27)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(27, 13)
@@ -2806,7 +2810,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label36
         '
-        Me.Label36.AutoSize = true
+        Me.Label36.AutoSize = True
         Me.Label36.Location = New System.Drawing.Point(16, 210)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(41, 13)
@@ -2815,7 +2819,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label37
         '
-        Me.Label37.AutoSize = true
+        Me.Label37.AutoSize = True
         Me.Label37.Location = New System.Drawing.Point(16, 183)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(46, 13)
@@ -2824,7 +2828,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label38
         '
-        Me.Label38.AutoSize = true
+        Me.Label38.AutoSize = True
         Me.Label38.Location = New System.Drawing.Point(16, 131)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(35, 13)
@@ -2833,7 +2837,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label39
         '
-        Me.Label39.AutoSize = true
+        Me.Label39.AutoSize = True
         Me.Label39.Location = New System.Drawing.Point(16, 102)
         Me.Label39.Name = "Label39"
         Me.Label39.Size = New System.Drawing.Size(27, 13)
@@ -2842,7 +2846,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label40
         '
-        Me.Label40.AutoSize = true
+        Me.Label40.AutoSize = True
         Me.Label40.Location = New System.Drawing.Point(16, 53)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(48, 13)
@@ -2851,7 +2855,7 @@ Partial Class frmViewCollectionDetails
         '
         'Label41
         '
-        Me.Label41.AutoSize = true
+        Me.Label41.AutoSize = True
         Me.Label41.Location = New System.Drawing.Point(16, 27)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(38, 13)
@@ -2865,7 +2869,7 @@ Partial Class frmViewCollectionDetails
         Me.btnSold.Size = New System.Drawing.Size(120, 24)
         Me.btnSold.TabIndex = 1
         Me.btnSold.Text = "Mark Item as Sold"
-        Me.btnSold.UseVisualStyleBackColor = true
+        Me.btnSold.UseVisualStyleBackColor = True
         '
         'btnFlyer
         '
@@ -2874,7 +2878,7 @@ Partial Class frmViewCollectionDetails
         Me.btnFlyer.Size = New System.Drawing.Size(128, 23)
         Me.btnFlyer.TabIndex = 0
         Me.btnFlyer.Text = "Print Preview Flyer"
-        Me.btnFlyer.UseVisualStyleBackColor = true
+        Me.btnFlyer.UseVisualStyleBackColor = True
         '
         'TabPage12
         '
@@ -2890,7 +2894,7 @@ Partial Class frmViewCollectionDetails
         Me.TabPage12.Size = New System.Drawing.Size(1142, 421)
         Me.TabPage12.TabIndex = 11
         Me.TabPage12.Text = "Documents"
-        Me.TabPage12.UseVisualStyleBackColor = true
+        Me.TabPage12.UseVisualStyleBackColor = True
         '
         'btnAddExistingDoc
         '
@@ -2899,7 +2903,7 @@ Partial Class frmViewCollectionDetails
         Me.btnAddExistingDoc.Size = New System.Drawing.Size(75, 23)
         Me.btnAddExistingDoc.TabIndex = 2
         Me.btnAddExistingDoc.Text = "Add Existing"
-        Me.btnAddExistingDoc.UseVisualStyleBackColor = true
+        Me.btnAddExistingDoc.UseVisualStyleBackColor = True
         '
         'btnAddDocument
         '
@@ -2908,21 +2912,21 @@ Partial Class frmViewCollectionDetails
         Me.btnAddDocument.Size = New System.Drawing.Size(75, 23)
         Me.btnAddDocument.TabIndex = 1
         Me.btnAddDocument.Text = "Add New"
-        Me.btnAddDocument.UseVisualStyleBackColor = true
+        Me.btnAddDocument.UseVisualStyleBackColor = True
         '
         'DataGridView6
         '
-        Me.DataGridView6.AllowUserToAddRows = false
-        Me.DataGridView6.AllowUserToDeleteRows = false
-        Me.DataGridView6.AutoGenerateColumns = false
+        Me.DataGridView6.AllowUserToAddRows = False
+        Me.DataGridView6.AllowUserToDeleteRows = False
+        Me.DataGridView6.AutoGenerateColumns = False
         Me.DataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView6.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LinkIDDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn2, Me.DocnameDataGridViewTextBoxColumn, Me.DocdescriptionDataGridViewTextBoxColumn, Me.DocfilenameDataGridViewTextBoxColumn, Me.DocextDataGridViewTextBoxColumn, Me.DoccatDataGridViewTextBoxColumn, Me.DtaDataGridViewTextBoxColumn})
         Me.DataGridView6.ContextMenuStrip = Me.mnuDocsMenu
         Me.DataGridView6.DataSource = Me.QryDocsAndLinksBindingSource
         Me.DataGridView6.Location = New System.Drawing.Point(8, 41)
-        Me.DataGridView6.MultiSelect = false
+        Me.DataGridView6.MultiSelect = False
         Me.DataGridView6.Name = "DataGridView6"
-        Me.DataGridView6.ReadOnly = true
+        Me.DataGridView6.ReadOnly = True
         Me.DataGridView6.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView6.Size = New System.Drawing.Size(1116, 354)
         Me.DataGridView6.TabIndex = 0
@@ -2930,11 +2934,11 @@ Partial Class frmViewCollectionDetails
         'LinkIDDataGridViewTextBoxColumn
         '
         Me.LinkIDDataGridViewTextBoxColumn.DataPropertyName = "LinkID"
-        Me.LinkIDDataGridViewTextBoxColumn.FillWeight = 5!
+        Me.LinkIDDataGridViewTextBoxColumn.FillWeight = 5.0!
         Me.LinkIDDataGridViewTextBoxColumn.HeaderText = "LinkID"
         Me.LinkIDDataGridViewTextBoxColumn.Name = "LinkIDDataGridViewTextBoxColumn"
-        Me.LinkIDDataGridViewTextBoxColumn.ReadOnly = true
-        Me.LinkIDDataGridViewTextBoxColumn.Visible = false
+        Me.LinkIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.LinkIDDataGridViewTextBoxColumn.Visible = False
         Me.LinkIDDataGridViewTextBoxColumn.Width = 5
         '
         'DataGridViewTextBoxColumn2
@@ -2942,8 +2946,8 @@ Partial Class frmViewCollectionDetails
         Me.DataGridViewTextBoxColumn2.DataPropertyName = "ID"
         Me.DataGridViewTextBoxColumn2.HeaderText = "ID"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = true
-        Me.DataGridViewTextBoxColumn2.Visible = false
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
         '
         'DocnameDataGridViewTextBoxColumn
         '
@@ -2951,15 +2955,15 @@ Partial Class frmViewCollectionDetails
         Me.DocnameDataGridViewTextBoxColumn.DataPropertyName = "doc_name"
         Me.DocnameDataGridViewTextBoxColumn.HeaderText = "Title"
         Me.DocnameDataGridViewTextBoxColumn.Name = "DocnameDataGridViewTextBoxColumn"
-        Me.DocnameDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DocnameDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DocdescriptionDataGridViewTextBoxColumn
         '
         Me.DocdescriptionDataGridViewTextBoxColumn.DataPropertyName = "doc_description"
-        Me.DocdescriptionDataGridViewTextBoxColumn.FillWeight = 400!
+        Me.DocdescriptionDataGridViewTextBoxColumn.FillWeight = 400.0!
         Me.DocdescriptionDataGridViewTextBoxColumn.HeaderText = "Description"
         Me.DocdescriptionDataGridViewTextBoxColumn.Name = "DocdescriptionDataGridViewTextBoxColumn"
-        Me.DocdescriptionDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DocdescriptionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DocfilenameDataGridViewTextBoxColumn
         '
@@ -2967,7 +2971,7 @@ Partial Class frmViewCollectionDetails
         Me.DocfilenameDataGridViewTextBoxColumn.DataPropertyName = "doc_filename"
         Me.DocfilenameDataGridViewTextBoxColumn.HeaderText = "File Name"
         Me.DocfilenameDataGridViewTextBoxColumn.Name = "DocfilenameDataGridViewTextBoxColumn"
-        Me.DocfilenameDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DocfilenameDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DocextDataGridViewTextBoxColumn
         '
@@ -2975,7 +2979,7 @@ Partial Class frmViewCollectionDetails
         Me.DocextDataGridViewTextBoxColumn.DataPropertyName = "doc_ext"
         Me.DocextDataGridViewTextBoxColumn.HeaderText = "Doc Type"
         Me.DocextDataGridViewTextBoxColumn.Name = "DocextDataGridViewTextBoxColumn"
-        Me.DocextDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DocextDataGridViewTextBoxColumn.ReadOnly = True
         Me.DocextDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'DoccatDataGridViewTextBoxColumn
@@ -2984,7 +2988,7 @@ Partial Class frmViewCollectionDetails
         Me.DoccatDataGridViewTextBoxColumn.DataPropertyName = "doc_cat"
         Me.DoccatDataGridViewTextBoxColumn.HeaderText = "Category"
         Me.DoccatDataGridViewTextBoxColumn.Name = "DoccatDataGridViewTextBoxColumn"
-        Me.DoccatDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DoccatDataGridViewTextBoxColumn.ReadOnly = True
         Me.DoccatDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'DtaDataGridViewTextBoxColumn
@@ -2993,7 +2997,7 @@ Partial Class frmViewCollectionDetails
         Me.DtaDataGridViewTextBoxColumn.DataPropertyName = "dta"
         Me.DtaDataGridViewTextBoxColumn.HeaderText = "Date Added"
         Me.DtaDataGridViewTextBoxColumn.Name = "DtaDataGridViewTextBoxColumn"
-        Me.DtaDataGridViewTextBoxColumn.ReadOnly = true
+        Me.DtaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'mnuDocsMenu
         '
@@ -3003,21 +3007,21 @@ Partial Class frmViewCollectionDetails
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
         Me.ViewToolStripMenuItem.Text = "View"
         '
         'UnLinkToolStripMenuItem
         '
-        Me.UnLinkToolStripMenuItem.Image = CType(resources.GetObject("UnLinkToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.UnLinkToolStripMenuItem.Image = CType(resources.GetObject("UnLinkToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UnLinkToolStripMenuItem.Name = "UnLinkToolStripMenuItem"
         Me.UnLinkToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
         Me.UnLinkToolStripMenuItem.Text = "Unlink"
         '
         'EditToolStripMenuItem3
         '
-        Me.EditToolStripMenuItem3.Image = CType(resources.GetObject("EditToolStripMenuItem3.Image"),System.Drawing.Image)
+        Me.EditToolStripMenuItem3.Image = CType(resources.GetObject("EditToolStripMenuItem3.Image"), System.Drawing.Image)
         Me.EditToolStripMenuItem3.Name = "EditToolStripMenuItem3"
         Me.EditToolStripMenuItem3.Size = New System.Drawing.Size(108, 22)
         Me.EditToolStripMenuItem3.Text = "Edit"
@@ -3029,7 +3033,7 @@ Partial Class frmViewCollectionDetails
         '
         'ImageList1
         '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"),System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         Me.ImageList1.Images.SetKeyName(0, "2.ico")
         Me.ImageList1.Images.SetKeyName(1, "ITPRO_32_x_32.ico")
@@ -3055,8 +3059,8 @@ Partial Class frmViewCollectionDetails
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 114
         Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = true
-        Me.btnExit.Visible = false
+        Me.btnExit.UseVisualStyleBackColor = True
+        Me.btnExit.Visible = False
         '
         'btnEdit
         '
@@ -3065,8 +3069,8 @@ Partial Class frmViewCollectionDetails
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
         Me.btnEdit.TabIndex = 115
         Me.btnEdit.Text = "Edit Details"
-        Me.btnEdit.UseVisualStyleBackColor = true
-        Me.btnEdit.Visible = false
+        Me.btnEdit.UseVisualStyleBackColor = True
+        Me.btnEdit.Visible = False
         '
         'imgPics
         '
@@ -3093,7 +3097,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton1.AccessibleDescription = "Edit Details"
         Me.ToolStripButton1.AccessibleName = "ToolStripButton1"
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"),System.Drawing.Image)
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
@@ -3104,7 +3108,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton6.AccessibleDescription = "Add Barrel/Conversion Kit Display"
         Me.ToolStripButton6.AccessibleName = "ToolStripButton6"
         Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"),System.Drawing.Image)
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
         Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton6.Name = "ToolStripButton6"
         Me.ToolStripButton6.Size = New System.Drawing.Size(23, 22)
@@ -3115,7 +3119,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton7.AccessibleDescription = "Refresh"
         Me.ToolStripButton7.AccessibleName = "ToolStripButton7"
         Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"),System.Drawing.Image)
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
         Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton7.Name = "ToolStripButton7"
         Me.ToolStripButton7.Size = New System.Drawing.Size(23, 22)
@@ -3131,7 +3135,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton2.AccessibleDescription = "Print Preview Detail"
         Me.ToolStripButton2.AccessibleName = "ToolStripButton2"
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"),System.Drawing.Image)
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
@@ -3142,7 +3146,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton5.AccessibleDescription = "Print Preview Complete Details Report"
         Me.ToolStripButton5.AccessibleName = "ToolStripButton5"
         Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"),System.Drawing.Image)
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
         Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton5.Name = "ToolStripButton5"
         Me.ToolStripButton5.Size = New System.Drawing.Size(23, 22)
@@ -3153,7 +3157,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton3.AccessibleDescription = "Export to XML"
         Me.ToolStripButton3.AccessibleName = "ToolStripButton3"
         Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"),System.Drawing.Image)
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
         Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton3.Name = "ToolStripButton3"
         Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
@@ -3169,7 +3173,7 @@ Partial Class frmViewCollectionDetails
         Me.ToolStripButton4.AccessibleDescription = "Close Details"
         Me.ToolStripButton4.AccessibleName = "ToolStripButton4"
         Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"),System.Drawing.Image)
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
         Me.ToolStripButton4.Size = New System.Drawing.Size(23, 22)
@@ -3177,27 +3181,44 @@ Partial Class frmViewCollectionDetails
         '
         'Gun_Collection_AccessoriesTableAdapter
         '
-        Me.Gun_Collection_AccessoriesTableAdapter.ClearBeforeFill = true
+        Me.Gun_Collection_AccessoriesTableAdapter.ClearBeforeFill = True
         '
         'Gun_Collection_AmmoTableAdapter
         '
-        Me.Gun_Collection_AmmoTableAdapter.ClearBeforeFill = true
+        Me.Gun_Collection_AmmoTableAdapter.ClearBeforeFill = True
         '
         'Maintance_DetailsTableAdapter
         '
-        Me.Maintance_DetailsTableAdapter.ClearBeforeFill = true
+        Me.Maintance_DetailsTableAdapter.ClearBeforeFill = True
         '
         'GunSmith_DetailsTableAdapter
         '
-        Me.GunSmith_DetailsTableAdapter.ClearBeforeFill = true
+        Me.GunSmith_DetailsTableAdapter.ClearBeforeFill = True
         '
         'Gun_Collection_ExtTableAdapter
         '
-        Me.Gun_Collection_ExtTableAdapter.ClearBeforeFill = true
+        Me.Gun_Collection_ExtTableAdapter.ClearBeforeFill = True
         '
         'Qry_DocsAndLinksTableAdapter
         '
-        Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = true
+        Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = True
+        '
+        'Label64
+        '
+        Me.Label64.AutoSize = True
+        Me.Label64.Location = New System.Drawing.Point(14, 349)
+        Me.Label64.Name = "Label64"
+        Me.Label64.Size = New System.Drawing.Size(41, 13)
+        Me.Label64.TabIndex = 230
+        Me.Label64.Text = "Rating:"
+        '
+        'cmbRating
+        '
+        Me.cmbRating.FormattingEnabled = True
+        Me.cmbRating.Location = New System.Drawing.Point(114, 346)
+        Me.cmbRating.Name = "cmbRating"
+        Me.cmbRating.Size = New System.Drawing.Size(156, 21)
+        Me.cmbRating.TabIndex = 231
         '
         'frmViewCollectionDetails
         '
@@ -3539,4 +3560,6 @@ End Sub
     Friend WithEvents Label62 As Label
     Friend WithEvents chkNonLethal As CheckBox
     Friend WithEvents Label63 As Label
+    Friend WithEvents cmbRating As ComboBox
+    Friend WithEvents Label64 As Label
 End Class
