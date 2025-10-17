@@ -2,6 +2,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
+Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -64,7 +65,7 @@ Public Class frmViewCollectionDetails
     ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim _errOut as String
+    Dim _errOut As String
 #Region " General Form Subs "
     ''' <summary>
     ''' Handles the Disposed event of the frmViewCollectionDetails control. Save the form size to the config file so that it will be the same size when the user opens it back up
@@ -91,6 +92,11 @@ Public Class frmViewCollectionDetails
             Label42.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
             Lastviewedfirearm = GunId
+            Dim lstRatings As List(Of Ratings) = MyCollection.GetRatingList()
+            For Each r As Ratings In lstRatings
+                cmbRating.Items.Add(r)
+            Next
+
             If Len(GunId) <> 0 Then
                 Call LoadData()
                 If IsSold Or IsStolen Then
@@ -1223,7 +1229,7 @@ Public Class frmViewCollectionDetails
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -1270,7 +1276,7 @@ Public Class frmViewCollectionDetails
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
@@ -1283,7 +1289,7 @@ Public Class frmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
