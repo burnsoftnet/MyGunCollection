@@ -230,8 +230,8 @@ Public Class frmEditCollectionDetails
             If Len(Trim(strCustCatId)) > 0 Then
                 If UseNumberCatOnly Then
                     custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,Convert.ToInt32(strCustCatId), _errOut)
-                Else 
-                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                Else
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIdExists(DatabasePath, strCustCatId, _errOut, Convert.ToInt32(ItemId))
                 End If
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
@@ -261,7 +261,6 @@ Public Class frmEditCollectionDetails
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCr As String = dtpDateofCR.Value
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
-            '' TODO: #98 Apply the smarted catalong eists function here
             If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut, Convert.ToInt32(ItemId))) : Exit Sub
 
             If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
