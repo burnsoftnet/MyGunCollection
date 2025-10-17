@@ -2,6 +2,7 @@ Imports System.ComponentModel
 Imports System.IO
 Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
+Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -62,9 +63,13 @@ Public Class frmViewCollectionDetails
     ''' </summary>
     Public HasDocuments As Boolean
     ''' <summary>
+    ''' The is loading switch
+    ''' </summary>
+    Public IsLoading As Boolean
+    ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim _errOut as String
+    Dim _errOut As String
 #Region " General Form Subs "
     ''' <summary>
     ''' Handles the Disposed event of the frmViewCollectionDetails control. Save the form size to the config file so that it will be the same size when the user opens it back up
@@ -86,11 +91,17 @@ Public Class frmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewCollectionDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
+            IsLoading = True
             Dim objS As New ViewSizeSettings
             objS.LoadViewCollectionDetails(Height, Width, Location)
             Label42.Visible = UsePetLoads
             txtPetLoads.Visible = UsePetLoads
             Lastviewedfirearm = GunId
+            Dim lstRatings As List(Of Ratings) = MyCollection.GetRatingList()
+            For Each r As Ratings In lstRatings
+                cmbRating.Items.Add(r)
+            Next
+
             If Len(GunId) <> 0 Then
                 Call LoadData()
                 If IsSold Or IsStolen Then
@@ -116,6 +127,7 @@ Public Class frmViewCollectionDetails
         Catch ex As Exception
             Call LogError(Name, "frmViewCollectionDetails_Load", Err.Number, ex.Message.ToString)
         End Try
+        IsLoading = False
     End Sub
     ''' <summary>
     ''' Forms the is double tab. Action to take when the form is double clicked
@@ -698,6 +710,7 @@ Public Class frmViewCollectionDetails
                 IsStolen = l.WasStolen
                 chkNonLethal.Checked = l.IsNonLethal
                 chkIsCompeition.Checked = l.IsCompetition
+                cmbRating.SelectedIndex = l.Rating
             Next
 
             If Not BsHasmultibarrels Then
@@ -1223,7 +1236,7 @@ Public Class frmViewCollectionDetails
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -1270,7 +1283,7 @@ Public Class frmViewCollectionDetails
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
@@ -1283,7 +1296,7 @@ Public Class frmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
@@ -1322,6 +1335,19 @@ Public Class frmViewCollectionDetails
             If Not MyCollection.SetAsNonLethal(DatabasePath, Convert.ToInt32(GunId), chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "chkNonLethal_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub cmbRating_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRating.SelectedIndexChanged
+        Try
+            If Not IsLoading Then
+                Dim SelectedText As String = cmbRating.SelectedItem.ToString
+                Dim RatingId As Integer = cmbRating.SelectedIndex
+                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), RatingId, _errOut) Then Throw New Exception(_errOut)
+            End If
+
+        Catch ex As Exception
+            Call LogError(Name, "cmbRating_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
