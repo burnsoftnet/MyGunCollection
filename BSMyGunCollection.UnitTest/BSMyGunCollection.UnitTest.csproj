@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BSMyGunCollection.UnitTest</RootNamespace>
     <AssemblyName>BSMyGunCollection.UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -20,6 +20,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +42,9 @@
   <ItemGroup>
     <Reference Include="Appium.Net, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.2.21, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.2.22-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Testing.Apps.Appium, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Testing.Apps.Appium.1.0.0.12-RC1\lib\net472\BurnSoft.Testing.Apps.Appium.dll</HintPath>
