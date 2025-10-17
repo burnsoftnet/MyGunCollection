@@ -63,6 +63,10 @@ Public Class frmViewCollectionDetails
     ''' </summary>
     Public HasDocuments As Boolean
     ''' <summary>
+    ''' The is loading switch
+    ''' </summary>
+    Public IsLoading As Boolean
+    ''' <summary>
     ''' The error out
     ''' </summary>
     Dim _errOut As String
@@ -87,6 +91,7 @@ Public Class frmViewCollectionDetails
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewCollectionDetails_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
+            IsLoading = True
             Dim objS As New ViewSizeSettings
             objS.LoadViewCollectionDetails(Height, Width, Location)
             Label42.Visible = UsePetLoads
@@ -122,6 +127,7 @@ Public Class frmViewCollectionDetails
         Catch ex As Exception
             Call LogError(Name, "frmViewCollectionDetails_Load", Err.Number, ex.Message.ToString)
         End Try
+        IsLoading = False
     End Sub
     ''' <summary>
     ''' Forms the is double tab. Action to take when the form is double clicked
@@ -704,6 +710,7 @@ Public Class frmViewCollectionDetails
                 IsStolen = l.WasStolen
                 chkNonLethal.Checked = l.IsNonLethal
                 chkIsCompeition.Checked = l.IsCompetition
+                cmbRating.SelectedIndex = l.Rating
             Next
 
             If Not BsHasmultibarrels Then
@@ -1328,6 +1335,19 @@ Public Class frmViewCollectionDetails
             If Not MyCollection.SetAsNonLethal(DatabasePath, Convert.ToInt32(GunId), chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "chkNonLethal_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub cmbRating_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRating.SelectedIndexChanged
+        Try
+            If Not IsLoading Then
+                Dim SelectedText As String = cmbRating.SelectedItem.ToString
+                Dim RatingId As Integer = cmbRating.SelectedIndex
+                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), RatingId, _errOut) Then Throw New Exception(_errOut)
+            End If
+
+        Catch ex As Exception
+            Call LogError(Name, "cmbRating_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
