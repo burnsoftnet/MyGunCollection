@@ -740,7 +740,7 @@ Public Class frmViewCollectionDetails
             ListView1.Clear()
             imgPics.Images.Clear()
             Dim i As Long = 1
-            Dim lst as List(Of PictureDetails) = Pictures.GetList(DatabasePath, GunId, _errOut)
+            Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, Convert.ToInt32(GunId), _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each o As PictureDetails In lst
                 GetPicsId(o.Id, i)
