@@ -44,7 +44,10 @@ Public Class frmAddPicture
             Dim sName As String = FluffContent(txtName.Text, " ")
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             Dim errOut As String = ""
-            If Not Pictures.Save(DatabasePath, OpenFileDialog1.FileName, ApplicationPathData, Convert.ToInt32(ItemId), sName, sNotes, errOut) Then Throw New Exception(errOut)
+            Dim newOrder As Integer = nudOrder.Value
+            If Not Pictures.Save(DatabasePath, OpenFileDialog1.FileName,
+                                 ApplicationPathData, Convert.ToInt32(ItemId),
+                                 sName, sNotes, newOrder, errOut) Then Throw New Exception(errOut)
             Cursor = Cursors.Arrow
             Enabled = True
             Close()
