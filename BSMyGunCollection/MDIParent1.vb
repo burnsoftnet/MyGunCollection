@@ -669,7 +669,7 @@ Public Class MDIParent1
                     Dim applied As String = ""
                     If BurnSoft.Applications.MGC.hotixes.HotFix.ApplyMissingHotFixes(DatabasePath, _errOut, applied) Then
                         If applied.Length > 0 Then
-                            MsgBox($"Applied Hotfix: {applied}")
+                            MsgBox($"Applied Hotfix: {applied}{Environment.NewLine}Restart your application to apply.")
                         Else 
                             MsgBox($"No Updates applied")
                         End If
