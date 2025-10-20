@@ -1157,6 +1157,7 @@ Public Class frmViewCollectionDetails
         Dim frmNew As New FrmEditPicturedetails
         frmNew.MdiParent = MdiParent
         frmNew.Pid = CLng(myText)
+        frmNew.GunId = CLng(GunId)
         frmNew.Show()
     End Sub
     ''' <summary>

@@ -1,3 +1,4 @@
+Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -13,7 +14,11 @@ Public Class frmEditPicturedetails
     ''' <summary>
     ''' The error out
     ''' </summary>
-    Dim _errOut as String
+    Dim _errOut As String
+    ''' <summary>
+    ''' The gun identifier
+    ''' </summary>
+    Public GunId As Long
     ''' <summary>
     ''' Handles the Click event of the btnCancel control.
     ''' </summary>
@@ -27,11 +32,16 @@ Public Class frmEditPicturedetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim lst As List(Of PictureDetails) = BurnSoft.Applications.MGC.Firearms.Pictures.GetList(DatabasePath, Pid, _errOut, false, true)
+            Dim lst As List(Of PictureDetails) = Pictures.GetList(DatabasePath, Pid, _errOut, False, True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
             For Each l As PictureDetails In lst
                 txtName.Text = l.PictureDisplayName
                 txtNotes.Text = l.PictureNotes
+                If l.PicOrder = 0 Then
+                    nudOrder.Value = Pictures.GetNextOrderNumber(DatabasePath, GunId, _errOut)
+                Else
+                    nudOrder.Value = l.PicOrder
+                End If
             Next
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
@@ -46,8 +56,11 @@ Public Class frmEditPicturedetails
         Try
             Dim sTitle As String = FluffContent(txtName.Text)
             Dim sNotes As String = FluffContent(txtNotes.Text)
-            If Not BurnSoft.Applications.MGC.Firearms.Pictures.UpdatePictureDetails(DatabasePath, Pid, sTitle, sNotes, _errOut) Then Throw New Exception(_errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Dim picOrder As Integer = nudOrder.Value
+
+            If Not Pictures.UpdatePictureDetails(DatabasePath, Pid, sTitle, sNotes, _errOut) Then Throw New Exception(_errOut)
+            If Not Pictures.SetPictureOrder(DatabasePath, Pid, picOrder, _errOut) Then Throw New Exception(_errOut)
+
         Catch ex As Exception
             Call LogError(Name, "btnUpdate.Click", Err.Number, ex.Message.ToString)
         End Try
