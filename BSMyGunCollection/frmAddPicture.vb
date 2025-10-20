@@ -48,6 +48,8 @@ Public Class frmAddPicture
             If Not Pictures.Save(DatabasePath, OpenFileDialog1.FileName,
                                  ApplicationPathData, Convert.ToInt32(ItemId),
                                  sName, sNotes, errOut) Then Throw New Exception(errOut)
+            Dim picId = Pictures.GetLastPicture(DatabasePath, Convert.ToInt32(ItemId), errOut)
+            If Not Pictures.SetPictureOrder(DatabasePath, picId, newOrder, errOut) Then Throw New Exception(errOut)
             Cursor = Cursors.Arrow
             Enabled = True
             Close()
