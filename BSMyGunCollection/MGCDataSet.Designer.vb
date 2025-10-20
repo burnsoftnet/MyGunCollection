@@ -37458,7 +37458,7 @@ Namespace MGCDataSetTableAdapters
                 "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID"
+                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID DESC"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
@@ -37470,7 +37470,7 @@ Namespace MGCDataSetTableAdapters
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
                 "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Cust"& _ 
-                "omID"
+                "omID DESC"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
