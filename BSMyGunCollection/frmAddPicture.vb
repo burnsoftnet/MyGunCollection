@@ -47,7 +47,7 @@ Public Class frmAddPicture
             Dim newOrder As Integer = nudOrder.Value
             If Not Pictures.Save(DatabasePath, OpenFileDialog1.FileName,
                                  ApplicationPathData, Convert.ToInt32(ItemId),
-                                 sName, sNotes, newOrder, errOut) Then Throw New Exception(errOut)
+                                 sName, sNotes, errOut) Then Throw New Exception(errOut)
             Cursor = Cursors.Arrow
             Enabled = True
             Close()
