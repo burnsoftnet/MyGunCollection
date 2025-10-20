@@ -849,6 +849,8 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillByCompetitionGuns(MGCDataSet.Gun_Collection)
                 Case "SOLD/STOLEN"
                     Gun_CollectionTableAdapter.FillBySold(MGCDataSet.Gun_Collection)
+                Case UCase("Sold/Stolen - By Date")
+                    Gun_CollectionTableAdapter.FillBySoldByDate(MGCDataSet.Gun_Collection)
                 Case "C & R"
                     Gun_CollectionTableAdapter.FillByCandR(MGCDataSet.Gun_Collection)
                 Case "NON C & R"

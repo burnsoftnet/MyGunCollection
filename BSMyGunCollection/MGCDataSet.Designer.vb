@@ -37420,7 +37420,7 @@ Namespace MGCDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(19) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(20) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Cal"& _ 
@@ -37639,6 +37639,18 @@ Namespace MGCDataSetTableAdapters
                 "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY Ful"& _ 
                 "lName"
             Me._commandCollection(19).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(20) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(20).Connection = Me.Connection
+            Me._commandCollection(20).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY dtS"& _ 
+                "old ASC"
+            Me._commandCollection(20).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -38166,6 +38178,30 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySold() As MGCDataSet.Gun_CollectionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(19)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySoldByDate(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBySoldByDate() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

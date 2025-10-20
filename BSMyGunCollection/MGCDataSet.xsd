@@ -1032,6 +1032,14 @@ ORDER BY FullName</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySoldByDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySoldByDate" GeneratorSourceName="FillBySoldByDate" GetMethodModifier="Public" GetMethodName="GetDataBySoldByDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySoldByDate" UserSourceName="FillBySoldByDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold &lt;&gt; 0) ORDER BY dtSold ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="qryCollectionReportTableAdapter" GeneratorDataComponentClassName="qryCollectionReportTableAdapter" Name="qryCollectionReport" UserDataComponentName="qryCollectionReportTableAdapter">
