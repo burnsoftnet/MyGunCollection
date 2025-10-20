@@ -44,6 +44,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * ADDED - The Ability to set the order of the pictures displayed for the selected firearm.
 * ADDED - Sort Option for Instock By Purchase Date
 * ADDED - Sort Option for Sold/Stolen by Date Sold
+* UPDATED - Sort order of Cusom ID's to put the ones that have a custom ID at the top in descending order and the ones that don't have anything at the bottom.
 
 ### v6.9.15.2 September 2022
 
