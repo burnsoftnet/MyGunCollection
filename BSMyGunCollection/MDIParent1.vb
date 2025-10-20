@@ -833,6 +833,8 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
                 Case "IN STOCK"
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
+                Case UCase("In Stock - By Date Purchased")
+                    Gun_CollectionTableAdapter.FillByInStockOrderbyDatePurchased(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - RATING"
                     Gun_CollectionTableAdapter.FillByInStockRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - LETHAL"
