@@ -37420,7 +37420,7 @@ Namespace MGCDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(18) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(20) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Cal"& _ 
@@ -37458,7 +37458,7 @@ Namespace MGCDataSetTableAdapters
                 "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID"
+                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID DESC"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
@@ -37470,7 +37470,7 @@ Namespace MGCDataSetTableAdapters
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
                 "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Cust"& _ 
-                "omID"
+                "omID DESC"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
@@ -37594,8 +37594,8 @@ Namespace MGCDataSetTableAdapters
                 "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Rati"& _ 
-                "ng DESC"
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY DTP "& _ 
+                "ASC"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(16) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(16).Connection = Me.Connection
@@ -37606,18 +37606,30 @@ Namespace MGCDataSetTableAdapters
                 "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
                 "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullN"& _ 
-                "ame"
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Rati"& _ 
+                "ng DESC"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(17) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(17).Connection = Me.Connection
-            Me._commandCollection(17).CommandText = "SELECT     ID, FullName, SerialNumber, Type, Caliber, AppraisedValue, BID, dtSold"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection where SID=@SID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(17).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullN"& _ 
+                "ame"
             Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(17).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@SID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(18) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(18).Connection = Me.Connection
-            Me._commandCollection(18).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+            Me._commandCollection(18).CommandText = "SELECT     ID, FullName, SerialNumber, Type, Caliber, AppraisedValue, BID, dtSold"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection where SID=@SID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(18).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@SID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(19) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(19).Connection = Me.Connection
+            Me._commandCollection(19).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
                 "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
@@ -37626,7 +37638,19 @@ Namespace MGCDataSetTableAdapters
                 " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
                 "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY Ful"& _ 
                 "lName"
-            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(19).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(20) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(20).Connection = Me.Connection
+            Me._commandCollection(20).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
+                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
+                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
+                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
+                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY dtS"& _ 
+                "old ASC"
+            Me._commandCollection(20).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -38033,8 +38057,32 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByInStockRating(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+        Public Overloads Overridable Function FillByInStockOrderbyDatePurchased(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInStockOrderbyDatePurchased() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStockRating(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -38047,7 +38095,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByInStockRating() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -38058,7 +38106,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByNonCAndR(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -38071,7 +38119,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNonCAndR() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -38082,7 +38130,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByShop(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable, ByVal __SID As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             If (__SID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -38100,7 +38148,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByShop(ByVal __SID As String) As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             If (__SID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -38116,7 +38164,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBySold(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(18)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -38129,7 +38177,31 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySold() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(18)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySoldByDate(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBySoldByDate() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

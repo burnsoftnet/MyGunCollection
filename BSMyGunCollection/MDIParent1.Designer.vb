@@ -173,19 +173,19 @@ Partial Class MDIParent1
         Me.CopyFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenameDisplayNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GunCollectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MGCDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.MenuStrip.SuspendLayout
-        Me.ToolStrip.SuspendLayout
-        Me.StatusStrip.SuspendLayout
-        Me.Panel1.SuspendLayout
-        Me.ListStrip.SuspendLayout
-        CType(Me.GunCollectionBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSetBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.MenuStrip.SuspendLayout()
+        Me.ToolStrip.SuspendLayout()
+        Me.StatusStrip.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.ListStrip.SuspendLayout()
+        CType(Me.GunCollectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'MenuStrip
         '
@@ -209,7 +209,7 @@ Partial Class MDIParent1
         'ImportFirearmToolStripMenuItem
         '
         Me.ImportFirearmToolStripMenuItem.AccessibleName = "Import"
-        Me.ImportFirearmToolStripMenuItem.Image = CType(resources.GetObject("ImportFirearmToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ImportFirearmToolStripMenuItem.Image = CType(resources.GetObject("ImportFirearmToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ImportFirearmToolStripMenuItem.Name = "ImportFirearmToolStripMenuItem"
         Me.ImportFirearmToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ImportFirearmToolStripMenuItem.Text = "&Import Firearm"
@@ -1293,7 +1293,7 @@ Partial Class MDIParent1
         Me.cmbView.AccessibleDescription = "Select Firearm View"
         Me.cmbView.AccessibleName = "cmbView"
         Me.cmbView.FormattingEnabled = True
-        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen"})
+        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen", "Sold/Stolen - By Date"})
         Me.cmbView.Location = New System.Drawing.Point(6, 9)
         Me.cmbView.Name = "cmbView"
         Me.cmbView.Size = New System.Drawing.Size(141, 21)
@@ -1307,8 +1307,8 @@ Partial Class MDIParent1
         Me.ListBox1.ContextMenuStrip = Me.ListStrip
         Me.ListBox1.DataSource = Me.GunCollectionBindingSource
         Me.ListBox1.DisplayMember = "FullName"
-        Me.ListBox1.FormattingEnabled = true
-        Me.ListBox1.HorizontalScrollbar = true
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.HorizontalScrollbar = True
         Me.ListBox1.Location = New System.Drawing.Point(6, 36)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(141, 329)
@@ -1323,14 +1323,14 @@ Partial Class MDIParent1
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ViewToolStripMenuItem.Image = CType(resources.GetObject("ViewToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.ViewToolStripMenuItem.Text = "&View Details"
         '
         'EditToolStripMenuItem
         '
-        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
         Me.EditToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.EditToolStripMenuItem.Text = "&Edit"
@@ -1342,21 +1342,21 @@ Partial Class MDIParent1
         '
         'ViewDetailedReportToolStripMenuItem
         '
-        Me.ViewDetailedReportToolStripMenuItem.Image = CType(resources.GetObject("ViewDetailedReportToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ViewDetailedReportToolStripMenuItem.Image = CType(resources.GetObject("ViewDetailedReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewDetailedReportToolStripMenuItem.Name = "ViewDetailedReportToolStripMenuItem"
         Me.ViewDetailedReportToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.ViewDetailedReportToolStripMenuItem.Text = "View Detailed Report"
         '
         'ViewFullDetailedReportToolStripMenuItem
         '
-        Me.ViewFullDetailedReportToolStripMenuItem.Image = CType(resources.GetObject("ViewFullDetailedReportToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ViewFullDetailedReportToolStripMenuItem.Image = CType(resources.GetObject("ViewFullDetailedReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewFullDetailedReportToolStripMenuItem.Name = "ViewFullDetailedReportToolStripMenuItem"
         Me.ViewFullDetailedReportToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.ViewFullDetailedReportToolStripMenuItem.Text = "View Complete Detailed Report"
         '
         'ViewGunSmithReportToolStripMenuItem
         '
-        Me.ViewGunSmithReportToolStripMenuItem.Image = CType(resources.GetObject("ViewGunSmithReportToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.ViewGunSmithReportToolStripMenuItem.Image = CType(resources.GetObject("ViewGunSmithReportToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ViewGunSmithReportToolStripMenuItem.Name = "ViewGunSmithReportToolStripMenuItem"
         Me.ViewGunSmithReportToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.ViewGunSmithReportToolStripMenuItem.Text = "View &Gun Smith Report"
@@ -1368,14 +1368,14 @@ Partial Class MDIParent1
         '
         'DeleteToolStripMenuItem
         '
-        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
         Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.DeleteToolStripMenuItem.Text = "&Delete"
         '
         'CopyFirearmToolStripMenuItem
         '
-        Me.CopyFirearmToolStripMenuItem.Image = CType(resources.GetObject("CopyFirearmToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.CopyFirearmToolStripMenuItem.Image = CType(resources.GetObject("CopyFirearmToolStripMenuItem.Image"), System.Drawing.Image)
         Me.CopyFirearmToolStripMenuItem.Name = "CopyFirearmToolStripMenuItem"
         Me.CopyFirearmToolStripMenuItem.Size = New System.Drawing.Size(238, 22)
         Me.CopyFirearmToolStripMenuItem.Text = "&Copy Firearm"
@@ -1391,6 +1391,10 @@ Partial Class MDIParent1
         Me.GunCollectionBindingSource.DataMember = "Gun_Collection"
         Me.GunCollectionBindingSource.DataSource = Me.MGCDataSetBindingSource
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
+        '
         'MGCDataSetBindingSource
         '
         Me.MGCDataSetBindingSource.DataSource = Me.MGCDataSet
@@ -1403,11 +1407,7 @@ Partial Class MDIParent1
         '
         'Gun_CollectionTableAdapter
         '
-        Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
-        '
-        'HelpProvider1
-        '
-        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
+        Me.Gun_CollectionTableAdapter.ClearBeforeFill = True
         '
         'MDIParent1
         '

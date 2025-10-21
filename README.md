@@ -41,7 +41,10 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * FIXED - Issue with custom catalog ID when you edit a firearm, it was reporting that it existed and would display the firearm that you are editing.  Now it will detect that this is one in the same and not bother you with it.
 * ADDED - Raiting Systme per Firearm plus sorting in collection list.  Might make it easier to get rid of guns if you remember you didn't like them.
 * FIXED - Issue with viewing a document and it would save in a protected directory instead of the writable data path.
-* ADDED - The Ability to set the order of the pictures isplayed for the selected firearm.
+* ADDED - The Ability to set the order of the pictures displayed for the selected firearm.
+* ADDED - Sort Option for Instock By Purchase Date
+* ADDED - Sort Option for Sold/Stolen by Date Sold
+* UPDATED - Sort order of Cusom ID's to put the ones that have a custom ID at the top in descending order and the ones that don't have anything at the bottom.
 
 ### v6.9.15.2 September 2022
 

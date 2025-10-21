@@ -669,7 +669,7 @@ Public Class MDIParent1
                     Dim applied As String = ""
                     If BurnSoft.Applications.MGC.hotixes.HotFix.ApplyMissingHotFixes(DatabasePath, _errOut, applied) Then
                         If applied.Length > 0 Then
-                            MsgBox($"Applied Hotfix: {applied}")
+                            MsgBox($"Applied Hotfix: {applied}{Environment.NewLine}Restart your application to apply.")
                         Else 
                             MsgBox($"No Updates applied")
                         End If
@@ -833,6 +833,8 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
                 Case "IN STOCK"
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
+                Case UCase("In Stock - By Date Purchased")
+                    Gun_CollectionTableAdapter.FillByInStockOrderbyDatePurchased(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - RATING"
                     Gun_CollectionTableAdapter.FillByInStockRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - LETHAL"
@@ -847,6 +849,8 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillByCompetitionGuns(MGCDataSet.Gun_Collection)
                 Case "SOLD/STOLEN"
                     Gun_CollectionTableAdapter.FillBySold(MGCDataSet.Gun_Collection)
+                Case UCase("Sold/Stolen - By Date")
+                    Gun_CollectionTableAdapter.FillBySoldByDate(MGCDataSet.Gun_Collection)
                 Case "C & R"
                     Gun_CollectionTableAdapter.FillByCandR(MGCDataSet.Gun_Collection)
                 Case "NON C & R"
