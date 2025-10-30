@@ -265,6 +265,10 @@
     <Compile Include="frmViewDocuments.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmViewGeneralAccessories.Designer.vb">
+      <DependentUpon>frmViewGeneralAccessories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewGeneralAccessories.vb" />
     <Compile Include="frmViewGunSmithDetails.Designer.vb">
       <DependentUpon>frmViewGunSmithDetails.vb</DependentUpon>
     </Compile>
@@ -798,6 +802,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewDocuments.resx">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewGeneralAccessories.resx">
+      <DependentUpon>frmViewGeneralAccessories.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewReport_BoundBook2.resx">
       <DependentUpon>frmViewReport_BoundBook2.vb</DependentUpon>
