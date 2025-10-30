@@ -1442,4 +1442,9 @@ Public Class MDIParent1
     Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub GeneralAccessoriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem.Click
+        frmViewGeneralAccessories.MdiParent = Me
+        frmViewGeneralAccessories.Show()
+    End Sub
 End Class

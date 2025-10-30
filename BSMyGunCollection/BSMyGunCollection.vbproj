@@ -268,7 +268,9 @@
     <Compile Include="frmViewGeneralAccessories.Designer.vb">
       <DependentUpon>frmViewGeneralAccessories.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewGeneralAccessories.vb" />
+    <Compile Include="frmViewGeneralAccessories.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmViewGunSmithDetails.Designer.vb">
       <DependentUpon>frmViewGunSmithDetails.vb</DependentUpon>
     </Compile>

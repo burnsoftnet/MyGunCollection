@@ -173,10 +173,11 @@ Partial Class MDIParent1
         Me.CopyFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RenameDisplayNameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GunCollectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.MGCDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
+        Me.GeneralAccessoriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
@@ -438,7 +439,7 @@ Partial Class MDIParent1
         '
         Me.ViewMenu.AccessibleDescription = "ViewItems"
         Me.ViewMenu.AccessibleName = "ViewItems"
-        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.ToolStripSeparator11, Me.AmmunitionInventroyToolStripMenuItem, Me.WishlistToolStripMenuItem, Me.MaintancePlanToolStripMenuItem1, Me.ListedShopsToolStripMenuItem, Me.ListedBuyersToolStripMenuItem, Me.ListedGunsmithsToolStripMenuItem, Me.ListedAppriasersToolStripMenuItem, Me.DocumentsToolStripMenuItem, Me.PickerToolStripMenuItem})
+        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.ToolStripSeparator11, Me.AmmunitionInventroyToolStripMenuItem, Me.WishlistToolStripMenuItem, Me.MaintancePlanToolStripMenuItem1, Me.ListedShopsToolStripMenuItem, Me.ListedBuyersToolStripMenuItem, Me.ListedGunsmithsToolStripMenuItem, Me.ListedAppriasersToolStripMenuItem, Me.DocumentsToolStripMenuItem, Me.PickerToolStripMenuItem, Me.GeneralAccessoriesToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
         Me.ViewMenu.Size = New System.Drawing.Size(44, 20)
         Me.ViewMenu.Text = "&View"
@@ -1391,10 +1392,6 @@ Partial Class MDIParent1
         Me.GunCollectionBindingSource.DataMember = "Gun_Collection"
         Me.GunCollectionBindingSource.DataSource = Me.MGCDataSetBindingSource
         '
-        'HelpProvider1
-        '
-        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
-        '
         'MGCDataSetBindingSource
         '
         Me.MGCDataSetBindingSource.DataSource = Me.MGCDataSet
@@ -1405,9 +1402,19 @@ Partial Class MDIParent1
         Me.MGCDataSet.DataSetName = "MGCDataSet"
         Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
+        '
         'Gun_CollectionTableAdapter
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = True
+        '
+        'GeneralAccessoriesToolStripMenuItem
+        '
+        Me.GeneralAccessoriesToolStripMenuItem.Name = "GeneralAccessoriesToolStripMenuItem"
+        Me.GeneralAccessoriesToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.GeneralAccessoriesToolStripMenuItem.Text = "General Accessories"
         '
         'MDIParent1
         '
@@ -1593,4 +1600,5 @@ End Sub
     Friend WithEvents SecurityToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DisablePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnablePasswordToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GeneralAccessoriesToolStripMenuItem As ToolStripMenuItem
 End Class
