@@ -1,6 +1,8 @@
+Imports System.Diagnostics.Eventing.Reader
 Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
+Imports BurnSoft.Applications.MGC.Other
 
 Public Class frmAddAccessory
     ''' <summary>
@@ -11,6 +13,10 @@ Public Class frmAddAccessory
     ''' The is shot gun
     ''' </summary>
     Public IsShotGun As Boolean
+    ''' <summary>
+    ''' Toggle on when used for General Accessories, otherwise it assumes for firearm.
+    ''' </summary>
+    Public IsGeneral as Boolean = False
    
     ''' <summary>
     ''' Handles the Click event of the btnCancel control.
@@ -40,7 +46,16 @@ Public Class frmAddAccessory
             If Not Helpers.IsRequired(strMan, "Manufacturer", Text, errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, errOut) Then Exit Sub
 
-            If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
+            If Not IsGeneral Then
+                If Not Accessories.Add(DatabasePath,Convert.ToInt32(ItemId),strMan,strModel, strSerial, strCondition,
+                                       strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, 
+                                       chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
+            Else 
+                If Not GeneralAccessories.Add(DatabasePath, strMan,strModel, strSerial, strCondition,
+                                              strNotes, strUse, Convert.ToDouble(strPurVal), dAppValue, chkCIV.Checked, 
+                                              chkIsChoke.Checked, errOut) Then Throw New Exception(errOut)
+            End If
+
             Close()
         Catch ex As Exception
             Call LogError(Name, "btnAdd.Click", Err.Number, ex.Message.ToString)
@@ -52,6 +67,21 @@ Public Class frmAddAccessory
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmAddAccessory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Try
+            If IsGeneral Then
+                LoadForGeneral()
+            Else 
+                LoadForFirearm()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Loads for firearm when Settings is not for general
+    ''' </summary>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub LoadForFirearm()
         Try
             Label10.Visible = IsShotGun
             chkIsChoke.Visible = IsShotGun
@@ -65,7 +95,29 @@ Public Class frmAddAccessory
             txtPurVal.AutoCompleteCustomSource = Accessory.PurchaseValue(DatabasePath, errOut)
             If errOut.Length > 0 then Throw New Exception(errOut)
         Catch ex As Exception
-            Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
+            Call LogError(Name, "LoadForFirearm", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Loads for general accessory use.
+    ''' </summary>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub LoadForGeneral()
+        Try
+            IsShotGun = True
+            Label10.Visible = IsShotGun
+            chkIsChoke.Visible = IsShotGun
+            Dim errOut As String = ""
+            txtMan.AutoCompleteCustomSource = Accessory.Manufacturer(DatabasePath, errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
+            txtModel.AutoCompleteCustomSource = Accessory.Model(DatabasePath, errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
+            txtUse.AutoCompleteCustomSource = Accessory.Use(DatabasePath, errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
+            txtPurVal.AutoCompleteCustomSource = Accessory.PurchaseValue(DatabasePath, errOut)
+            If errOut.Length > 0 then Throw New Exception(errOut)
+        Catch ex As Exception
+            Call LogError(Name, "LoadForGeneral", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
