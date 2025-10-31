@@ -38,11 +38,16 @@ Partial Class frmViewGeneralAccessories
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        Me.cmnuAccessory = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AttachToFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.cmnuAccessory.SuspendLayout
         Me.SuspendLayout
         '
         'ToolStrip1
@@ -73,11 +78,13 @@ Partial Class frmViewGeneralAccessories
         Me.dgvGeneralTable.AutoGenerateColumns = false
         Me.dgvGeneralTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGeneralTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ManufacturerDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.SerialNumberDataGridViewTextBoxColumn, Me.ConditionDataGridViewTextBoxColumn, Me.UseDataGridViewTextBoxColumn, Me.NotesDataGridViewTextBoxColumn})
+        Me.dgvGeneralTable.ContextMenuStrip = Me.cmnuAccessory
         Me.dgvGeneralTable.DataSource = Me.GeneralAccessoriesBindingSource1
         Me.dgvGeneralTable.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvGeneralTable.Location = New System.Drawing.Point(0, 25)
         Me.dgvGeneralTable.Name = "dgvGeneralTable"
         Me.dgvGeneralTable.ReadOnly = true
+        Me.dgvGeneralTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvGeneralTable.Size = New System.Drawing.Size(1172, 447)
         Me.dgvGeneralTable.TabIndex = 1
         '
@@ -157,6 +164,33 @@ Partial Class frmViewGeneralAccessories
         '
         Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
         '
+        'cmnuAccessory
+        '
+        Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem})
+        Me.cmnuAccessory.Name = "cmnuAccessory"
+        Me.cmnuAccessory.Size = New System.Drawing.Size(168, 70)
+        '
+        'EditToolStripMenuItem
+        '
+        Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.EditToolStripMenuItem.Text = "&Edit"
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.DeleteToolStripMenuItem.Text = "&Delete"
+        '
+        'AttachToFirearmToolStripMenuItem
+        '
+        Me.AttachToFirearmToolStripMenuItem.Image = CType(resources.GetObject("AttachToFirearmToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.AttachToFirearmToolStripMenuItem.Name = "AttachToFirearmToolStripMenuItem"
+        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.AttachToFirearmToolStripMenuItem.Text = "&Attach To Firearm"
+        '
         'frmViewGeneralAccessories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -173,6 +207,7 @@ Partial Class frmViewGeneralAccessories
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        Me.cmnuAccessory.ResumeLayout(false)
         Me.ResumeLayout(false)
         Me.PerformLayout
 
@@ -192,4 +227,8 @@ End Sub
     Friend WithEvents ConditionDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents cmnuAccessory As ContextMenuStrip
+    Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AttachToFirearmToolStripMenuItem As ToolStripMenuItem
 End Class
