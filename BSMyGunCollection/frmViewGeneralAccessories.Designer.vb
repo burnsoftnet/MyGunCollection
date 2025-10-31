@@ -22,13 +22,28 @@ Partial Class frmViewGeneralAccessories
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewGeneralAccessories))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsBtnAdd = New System.Windows.Forms.ToolStripButton()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ToolStrip1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.dgvGeneralTable = New System.Windows.Forms.DataGridView()
+        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ManufacturerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SerialNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ConditionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UseDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolStrip1.SuspendLayout
+        CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'ToolStrip1
         '
@@ -42,42 +57,128 @@ Partial Class frmViewGeneralAccessories
         'tsBtnAdd
         '
         Me.tsBtnAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsBtnAdd.Image = CType(resources.GetObject("tsBtnAdd.Image"), System.Drawing.Image)
+        Me.tsBtnAdd.Image = CType(resources.GetObject("tsBtnAdd.Image"),System.Drawing.Image)
         Me.tsBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.tsBtnAdd.Name = "tsBtnAdd"
         Me.tsBtnAdd.Size = New System.Drawing.Size(23, 22)
         Me.tsBtnAdd.Text = "Add Accessory"
         '
-        'DataGridView1
+        'dgvGeneralTable
         '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 25)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(1172, 447)
-        Me.DataGridView1.TabIndex = 1
+        Me.dgvGeneralTable.AllowUserToAddRows = false
+        Me.dgvGeneralTable.AllowUserToDeleteRows = false
+        Me.dgvGeneralTable.AllowUserToOrderColumns = true
+        Me.dgvGeneralTable.AutoGenerateColumns = false
+        Me.dgvGeneralTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvGeneralTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ManufacturerDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.SerialNumberDataGridViewTextBoxColumn, Me.ConditionDataGridViewTextBoxColumn, Me.UseDataGridViewTextBoxColumn, Me.NotesDataGridViewTextBoxColumn})
+        Me.dgvGeneralTable.DataSource = Me.GeneralAccessoriesBindingSource1
+        Me.dgvGeneralTable.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvGeneralTable.Location = New System.Drawing.Point(0, 25)
+        Me.dgvGeneralTable.Name = "dgvGeneralTable"
+        Me.dgvGeneralTable.ReadOnly = true
+        Me.dgvGeneralTable.Size = New System.Drawing.Size(1172, 447)
+        Me.dgvGeneralTable.TabIndex = 1
+        '
+        'GeneralAccessoriesBindingSource
+        '
+        Me.GeneralAccessoriesBindingSource.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'General_AccessoriesTableAdapter
+        '
+        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'ManufacturerDataGridViewTextBoxColumn
+        '
+        Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
+        Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'SerialNumberDataGridViewTextBoxColumn
+        '
+        Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
+        Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
+        Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
+        Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'ConditionDataGridViewTextBoxColumn
+        '
+        Me.ConditionDataGridViewTextBoxColumn.DataPropertyName = "Condition"
+        Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
+        Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
+        Me.ConditionDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'UseDataGridViewTextBoxColumn
+        '
+        Me.UseDataGridViewTextBoxColumn.DataPropertyName = "Use"
+        Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
+        Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
+        Me.UseDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'NotesDataGridViewTextBoxColumn
+        '
+        Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
+        Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
+        Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
+        '
+        'GeneralAccessoriesBindingSource1
+        '
+        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
         '
         'frmViewGeneralAccessories
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1172, 472)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvGeneralTable)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "frmViewGeneralAccessories"
         Me.Text = "General Accessories"
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(false)
+        Me.ToolStrip1.PerformLayout
+        CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
 
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents tsBtnAdd As ToolStripButton
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvGeneralTable As DataGridView
+    Friend WithEvents MGCDataSet As MGCDataSet
+    Friend WithEvents GeneralAccessoriesBindingSource As BindingSource
+    Friend WithEvents General_AccessoriesTableAdapter As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ManufacturerDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SerialNumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ConditionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents GeneralAccessoriesBindingSource1 As BindingSource
 End Class
