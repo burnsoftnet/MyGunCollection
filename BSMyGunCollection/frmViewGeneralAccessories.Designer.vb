@@ -34,25 +34,26 @@ Partial Class frmViewGeneralAccessories
         Me.ConditionDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.UseDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
         Me.cmnuAccessory = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AttachToFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        Me.tsbRefresh = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.cmnuAccessory.SuspendLayout
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.cmnuAccessory.SuspendLayout
         Me.SuspendLayout
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsBtnAdd})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsBtnAdd, Me.tsbRefresh})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1172, 25)
@@ -145,25 +146,6 @@ Partial Class frmViewGeneralAccessories
         Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
         Me.NotesDataGridViewTextBoxColumn.Width = 300
         '
-        'GeneralAccessoriesBindingSource1
-        '
-        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
-        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
-        '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'GeneralAccessoriesBindingSource
-        '
-        Me.GeneralAccessoriesBindingSource.DataMember = "General_Accessories"
-        Me.GeneralAccessoriesBindingSource.DataSource = Me.MGCDataSet
-        '
-        'General_AccessoriesTableAdapter
-        '
-        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
-        '
         'cmnuAccessory
         '
         Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem})
@@ -191,6 +173,36 @@ Partial Class frmViewGeneralAccessories
         Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.AttachToFirearmToolStripMenuItem.Text = "&Attach To Firearm"
         '
+        'GeneralAccessoriesBindingSource1
+        '
+        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GeneralAccessoriesBindingSource
+        '
+        Me.GeneralAccessoriesBindingSource.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource.DataSource = Me.MGCDataSet
+        '
+        'General_AccessoriesTableAdapter
+        '
+        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
+        '
+        'tsbRefresh
+        '
+        Me.tsbRefresh.AccessibleDescription = "Refresh Data"
+        Me.tsbRefresh.AccessibleName = "tsbRefresh"
+        Me.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsbRefresh.Image = CType(resources.GetObject("tsbRefresh.Image"),System.Drawing.Image)
+        Me.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbRefresh.Name = "tsbRefresh"
+        Me.tsbRefresh.Size = New System.Drawing.Size(23, 22)
+        Me.tsbRefresh.Text = "Refresh Data"
+        '
         'frmViewGeneralAccessories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -204,10 +216,10 @@ Partial Class frmViewGeneralAccessories
         Me.ToolStrip1.ResumeLayout(false)
         Me.ToolStrip1.PerformLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).EndInit
+        Me.cmnuAccessory.ResumeLayout(false)
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        Me.cmnuAccessory.ResumeLayout(false)
         Me.ResumeLayout(false)
         Me.PerformLayout
 
@@ -231,4 +243,5 @@ End Sub
     Friend WithEvents EditToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AttachToFirearmToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsbRefresh As ToolStripButton
 End Class
