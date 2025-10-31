@@ -14,4 +14,26 @@ Public Class frmViewGeneralAccessories
         General_AccessoriesTableAdapter.Fill(MGCDataSet.General_Accessories)
         ' dgvGeneralTable.DataSource = dt
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the tsBtnAdd control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub tsBtnAdd_Click(sender As Object, e As EventArgs) Handles tsBtnAdd.Click
+        'Using frmNew As New FrmAddAccessory
+        '    frmNew.MdiParent = MdiParent
+        '    frmNew.IsGeneral = True
+        '    frmNew.ShowDialog()
+        'End Using
+
+        'Dim frmNew As New FrmAddAccessory
+        FrmAddAccessory.MdiParent = MdiParent
+        FrmAddAccessory.IsGeneral = True
+        FrmAddAccessory.Show()
+        'dgvGeneralTable.Refresh()
+    End Sub
+
+    Private Sub tsbRefresh_Click(sender As Object, e As EventArgs) Handles tsbRefresh.Click
+        dgvGeneralTable.Refresh()
+    End Sub
 End Class
