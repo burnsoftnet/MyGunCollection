@@ -27,10 +27,6 @@ Partial Class frmViewGeneralAccessories
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsBtnAdd = New System.Windows.Forms.ToolStripButton()
         Me.dgvGeneralTable = New System.Windows.Forms.DataGridView()
-        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.ModelDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
@@ -38,11 +34,15 @@ Partial Class frmViewGeneralAccessories
         Me.ConditionDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.UseDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'ToolStrip1
@@ -80,25 +80,6 @@ Partial Class frmViewGeneralAccessories
         Me.dgvGeneralTable.ReadOnly = true
         Me.dgvGeneralTable.Size = New System.Drawing.Size(1172, 447)
         Me.dgvGeneralTable.TabIndex = 1
-        '
-        'GeneralAccessoriesBindingSource
-        '
-        Me.GeneralAccessoriesBindingSource.DataMember = "General_Accessories"
-        Me.GeneralAccessoriesBindingSource.DataSource = Me.MGCDataSet
-        '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'General_AccessoriesTableAdapter
-        '
-        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
-        '
-        'GeneralAccessoriesBindingSource1
-        '
-        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
-        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -157,6 +138,25 @@ Partial Class frmViewGeneralAccessories
         Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
         Me.NotesDataGridViewTextBoxColumn.Width = 300
         '
+        'GeneralAccessoriesBindingSource1
+        '
+        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'GeneralAccessoriesBindingSource
+        '
+        Me.GeneralAccessoriesBindingSource.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource.DataSource = Me.MGCDataSet
+        '
+        'General_AccessoriesTableAdapter
+        '
+        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
+        '
         'frmViewGeneralAccessories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -164,14 +164,15 @@ Partial Class frmViewGeneralAccessories
         Me.ClientSize = New System.Drawing.Size(1172, 472)
         Me.Controls.Add(Me.dgvGeneralTable)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewGeneralAccessories"
         Me.Text = "General Accessories"
         Me.ToolStrip1.ResumeLayout(false)
         Me.ToolStrip1.PerformLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GeneralAccessoriesBindingSource1,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
         Me.PerformLayout
 
