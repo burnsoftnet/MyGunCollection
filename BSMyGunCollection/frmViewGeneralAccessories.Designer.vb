@@ -30,14 +30,14 @@ Partial Class frmViewGeneralAccessories
         Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ManufacturerDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ModelDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SerialNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ConditionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UseDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.ModelDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.SerialNumberDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.ConditionDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.UseDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GeneralAccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
@@ -65,6 +65,8 @@ Partial Class frmViewGeneralAccessories
         '
         'dgvGeneralTable
         '
+        Me.dgvGeneralTable.AccessibleDescription = "View General Accessories List in Database"
+        Me.dgvGeneralTable.AccessibleName = "dgvGeneralTable"
         Me.dgvGeneralTable.AllowUserToAddRows = false
         Me.dgvGeneralTable.AllowUserToDeleteRows = false
         Me.dgvGeneralTable.AllowUserToOrderColumns = true
@@ -93,12 +95,18 @@ Partial Class frmViewGeneralAccessories
         '
         Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
         '
+        'GeneralAccessoriesBindingSource1
+        '
+        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
+        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
+        '
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
         Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
         Me.IDDataGridViewTextBoxColumn.ReadOnly = true
+        Me.IDDataGridViewTextBoxColumn.Visible = false
         '
         'ManufacturerDataGridViewTextBoxColumn
         '
@@ -106,6 +114,7 @@ Partial Class frmViewGeneralAccessories
         Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
         Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'ModelDataGridViewTextBoxColumn
         '
@@ -113,6 +122,7 @@ Partial Class frmViewGeneralAccessories
         Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
         Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
         Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ModelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'SerialNumberDataGridViewTextBoxColumn
         '
@@ -120,6 +130,7 @@ Partial Class frmViewGeneralAccessories
         Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
         Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
         Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = true
+        Me.SerialNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'ConditionDataGridViewTextBoxColumn
         '
@@ -127,6 +138,7 @@ Partial Class frmViewGeneralAccessories
         Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
         Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
         Me.ConditionDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ConditionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'UseDataGridViewTextBoxColumn
         '
@@ -134,18 +146,16 @@ Partial Class frmViewGeneralAccessories
         Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
         Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
         Me.UseDataGridViewTextBoxColumn.ReadOnly = true
+        Me.UseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'NotesDataGridViewTextBoxColumn
         '
         Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn.FillWeight = 300!
         Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
         Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
         Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
-        '
-        'GeneralAccessoriesBindingSource1
-        '
-        Me.GeneralAccessoriesBindingSource1.DataMember = "General_Accessories"
-        Me.GeneralAccessoriesBindingSource1.DataSource = Me.MGCDataSet
+        Me.NotesDataGridViewTextBoxColumn.Width = 300
         '
         'frmViewGeneralAccessories
         '
@@ -173,12 +183,12 @@ End Sub
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents GeneralAccessoriesBindingSource As BindingSource
     Friend WithEvents General_AccessoriesTableAdapter As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
-    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ManufacturerDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SerialNumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ConditionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GeneralAccessoriesBindingSource1 As BindingSource
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ManufacturerDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents SerialNumberDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents ConditionDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
