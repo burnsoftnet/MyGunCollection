@@ -75,16 +75,30 @@ Public Class frmEditAccessory
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditAccessory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Label10.Visible = IsShotGun
-            chkIsChoke.Visible = IsShotGun
-            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Manufacturer(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtModel.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Model(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtUse.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Use(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtPurVal.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.PurchaseValue(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            If Not IsGeneral Then
+                Label10.Visible = IsShotGun
+                chkIsChoke.Visible = IsShotGun
+                txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Manufacturer(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtModel.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Model(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtUse.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Use(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtPurVal.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.PurchaseValue(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Else 
+                IsShotGun = True
+                Label10.Visible = IsShotGun
+                chkIsChoke.Visible = IsShotGun
+                txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GeneralAccessories.Manufacturer(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtModel.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GeneralAccessories.Model(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtUse.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GeneralAccessories.Use(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtPurVal.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.GeneralAccessories.PurchaseValue(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            End If
             Call LoadData()
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
