@@ -1,12 +1,13 @@
-﻿Imports BSMyGunCollection.MGCDataSetTableAdapters
-Imports BurnSoft.Applications.MGC
-Imports Microsoft.ReportingServices.RdlExpressions.ExpressionHostObjectModel
+﻿Imports BurnSoft.Applications.MGC
+Imports BurnSoft.Applications.MGC.Types
+
 ''' <summary>
 ''' Class frmViewGeneralAccessories.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmViewGeneralAccessories
+    Private errOut as String 
     Private Sub frmViewGeneralAccessories_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RefreshData()
     End Sub
@@ -87,5 +88,48 @@ Public Class frmViewGeneralAccessories
     Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
         Dim itemId As String = dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value
         OpenfrmEditAccessoryAndWait(itemId)
+    End Sub
+    ''' <summary>
+    ''' Determines whether the specified item is attached to other firearms.
+    ''' </summary>
+    ''' <param name="item">The item.</param>
+    ''' <returns><c>true</c> if the specified item is attached; otherwise, <c>false</c>.</returns>
+    ''' <exception cref="System.Exception"></exception>
+    Private Function IsAttached(item As Integer) As Boolean
+        Dim bAns  As Boolean = False
+        Try
+            Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, errOut)
+            If errOut.Length > 0 Then Throw New Exception(errOut)
+            bAns = lst.Count > 0
+        Catch ex As Exception
+            Call LogError(Name, "IsAttached", Err.Number, ex.Message.ToString)
+        End Try
+        Return bAns
+    End Function
+    ''' <summary>
+    ''' Handles the Click event of the DeleteToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        Try
+            Dim itemId As String = dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value
+            Dim deleteAll As Boolean = False
+            Dim msgAnsMain As String = MsgBox("Are you sure you want to delete this accessory?", MsgBoxStyle.YesNo, "Delete Accessory")
+            If msgAnsMain = vbYes Then
+                If IsAttached(CInt(itemId)) Then
+                    Dim msgAns As String = MsgBox("Do you want to delete this accessory from attached firearms?", MsgBoxStyle.YesNo, "Delete Accessory")
+                    If msgAns = vbYes Then
+                        deleteAll = True
+                    End If
+                End If
+                if Not Other.GeneralAccessories.Delete(DatabasePath, cint(itemId), deleteAll, errOut) Then Throw New Exception(errOut)
+                MsgBox("Accessory was Deleted!")
+                RefreshData()
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 End Class
