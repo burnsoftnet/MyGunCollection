@@ -126,6 +126,7 @@ Public Class frmViewGeneralAccessories
                 End If
                 if Not Other.GeneralAccessories.Delete(DatabasePath, cint(itemId), deleteAll, errOut) Then Throw New Exception(errOut)
                 MsgBox("Accessory was Deleted!")
+                RefreshData()
             End If
         Catch ex As Exception
             Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
