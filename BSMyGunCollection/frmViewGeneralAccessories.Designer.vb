@@ -26,6 +26,7 @@ Partial Class frmViewGeneralAccessories
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewGeneralAccessories))
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.tsBtnAdd = New System.Windows.Forms.ToolStripButton()
+        Me.tsbRefresh = New System.Windows.Forms.ToolStripButton()
         Me.dgvGeneralTable = New System.Windows.Forms.DataGridView()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
@@ -42,7 +43,6 @@ Partial Class frmViewGeneralAccessories
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        Me.tsbRefresh = New System.Windows.Forms.ToolStripButton()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         Me.cmnuAccessory.SuspendLayout
@@ -68,6 +68,17 @@ Partial Class frmViewGeneralAccessories
         Me.tsBtnAdd.Name = "tsBtnAdd"
         Me.tsBtnAdd.Size = New System.Drawing.Size(23, 22)
         Me.tsBtnAdd.Text = "Add Accessory"
+        '
+        'tsbRefresh
+        '
+        Me.tsbRefresh.AccessibleDescription = "Refresh Data"
+        Me.tsbRefresh.AccessibleName = "tsbRefresh"
+        Me.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.tsbRefresh.Image = CType(resources.GetObject("tsbRefresh.Image"),System.Drawing.Image)
+        Me.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.tsbRefresh.Name = "tsbRefresh"
+        Me.tsbRefresh.Size = New System.Drawing.Size(23, 22)
+        Me.tsbRefresh.Text = "Refresh Data"
         '
         'dgvGeneralTable
         '
@@ -150,27 +161,27 @@ Partial Class frmViewGeneralAccessories
         '
         Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem})
         Me.cmnuAccessory.Name = "cmnuAccessory"
-        Me.cmnuAccessory.Size = New System.Drawing.Size(168, 70)
+        Me.cmnuAccessory.Size = New System.Drawing.Size(181, 92)
         '
         'EditToolStripMenuItem
         '
         Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EditToolStripMenuItem.Text = "&Edit"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"),System.Drawing.Image)
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.DeleteToolStripMenuItem.Text = "&Delete"
         '
         'AttachToFirearmToolStripMenuItem
         '
         Me.AttachToFirearmToolStripMenuItem.Image = CType(resources.GetObject("AttachToFirearmToolStripMenuItem.Image"),System.Drawing.Image)
         Me.AttachToFirearmToolStripMenuItem.Name = "AttachToFirearmToolStripMenuItem"
-        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AttachToFirearmToolStripMenuItem.Text = "&Attach To Firearm"
         '
         'GeneralAccessoriesBindingSource1
@@ -191,17 +202,6 @@ Partial Class frmViewGeneralAccessories
         'General_AccessoriesTableAdapter
         '
         Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
-        '
-        'tsbRefresh
-        '
-        Me.tsbRefresh.AccessibleDescription = "Refresh Data"
-        Me.tsbRefresh.AccessibleName = "tsbRefresh"
-        Me.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.tsbRefresh.Image = CType(resources.GetObject("tsbRefresh.Image"),System.Drawing.Image)
-        Me.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.tsbRefresh.Name = "tsbRefresh"
-        Me.tsbRefresh.Size = New System.Drawing.Size(23, 22)
-        Me.tsbRefresh.Text = "Refresh Data"
         '
         'frmViewGeneralAccessories
         '
