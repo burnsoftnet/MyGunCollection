@@ -129,7 +129,17 @@ Public Class frmEditAccessory
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
             If Not Helpers.IsRequired(strMan, "Manufacturer", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
-            If Not BurnSoft.Applications.MGC.Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, strModel, strSerial, strCondition, strNotes, strUse, Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            if Not IsGeneral Then
+                If Not BurnSoft.Applications.MGC.Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, 
+                                                                             strModel, strSerial, strCondition, strNotes, strUse, 
+                                                                             Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
+                                                                             chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            Else
+                If Not BurnSoft.Applications.MGC.Other.GeneralAccessories.Update(DatabasePath, Convert.ToInt32(ItemId), strMan, 
+                                                                             strModel, strSerial, strCondition, strNotes, strUse, 
+                                                                             Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
+                                                                             chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            End If
             Close()
         Catch ex As Exception
             Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
