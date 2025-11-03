@@ -24,24 +24,46 @@ Public Class frmEditAccessory
     ''' </summary>
     Dim _errOut As String
     ''' <summary>
+    ''' Toggle on when used for General Accessories, otherwise it assumes for firearm.
+    ''' </summary>
+    Public IsGeneral as Boolean = False
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
         Try
-            Dim lst As List(Of AccessoriesList) = BurnSoft.Applications.MGC.Firearms.Accessories.List(DatabasePath, cInt(ItemId), _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            For Each o As AccessoriesList In lst
-                txtMan.Text = o.Manufacturer
-                txtModel.Text = o.Model
-                txtSerial.Text = o.SerialNumber
-                cmdCondition.Text = o.Condition
-                txtUse.Text = o.Use
-                txtPurVal.Text = o.PurchaseValue
-                txtNotes.Text = o.Notes
-                txtAppValue.Text = o.AppriasedValue
-                chkCIV.Checked = o.CountInValue
-                chkIsChoke.Checked = o.IsChoke
-            Next
+            If Not IsGeneral Then
+                Dim lst As List(Of AccessoriesList) = BurnSoft.Applications.MGC.Firearms.Accessories.List(DatabasePath, cInt(ItemId), _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                For Each o As AccessoriesList In lst
+                    txtMan.Text = o.Manufacturer
+                    txtModel.Text = o.Model
+                    txtSerial.Text = o.SerialNumber
+                    cmdCondition.Text = o.Condition
+                    txtUse.Text = o.Use
+                    txtPurVal.Text = o.PurchaseValue
+                    txtNotes.Text = o.Notes
+                    txtAppValue.Text = o.AppriasedValue
+                    chkCIV.Checked = o.CountInValue
+                    chkIsChoke.Checked = o.IsChoke
+                Next
+            Else 
+                Dim lst As List(Of GeneralAccessoriesList) = BurnSoft.Applications.MGC.Other.GeneralAccessories.Lists(DatabasePath, CInt(ItemId), _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                For Each o As GeneralAccessoriesList In lst
+                    txtMan.Text = o.Manufacturer
+                    txtModel.Text = o.Model
+                    txtSerial.Text = o.SerialNumber
+                    cmdCondition.Text = o.Condition
+                    txtUse.Text = o.Use
+                    txtPurVal.Text = o.PurchaseValue
+                    txtNotes.Text = o.Notes
+                    txtAppValue.Text = o.AppriasedValue
+                    chkCIV.Checked = o.CountInValue
+                    chkIsChoke.Checked = o.IsChoke
+                Next
+            End If
+            
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
