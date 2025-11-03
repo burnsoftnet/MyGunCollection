@@ -42,7 +42,6 @@ Public Class frmViewGeneralAccessories
         child.IsGeneral = True
         ' Attach handler for when the child closes
         AddHandler child.FormClosed, AddressOf ChildFormClosed
-
         ' Show the child form
         child.Show()
     End Sub
@@ -64,5 +63,29 @@ Public Class frmViewGeneralAccessories
     ''' </summary>
     Private Sub NextFunction()
         RefreshData()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add accessory and wait.
+    ''' </summary>
+    Private Sub OpenfrmEditAccessoryAndWait(itemId As String)
+        ' Create the child form
+        Dim child As New frmEditAccessory
+        child.MdiParent = MdiParent
+        child.ItemId = itemId
+        child.IsGeneral = True
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the EditToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub EditToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditToolStripMenuItem.Click
+        Dim itemId As String = dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value
+        OpenfrmEditAccessoryAndWait(itemId)
     End Sub
 End Class
