@@ -23,11 +23,12 @@ Partial Class FrmLinkAccessoryToFirearm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLinkAccessoryToFirearm))
         Me.btnAttach = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GunCollectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         CType(Me.GunCollectionBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
@@ -58,14 +59,6 @@ Partial Class FrmLinkAccessoryToFirearm
         Me.ComboBox1.TabIndex = 7
         Me.ComboBox1.ValueMember = "ID"
         '
-        'Label1
-        '
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(279, 21)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Select the firearm listed below to link this Accessory to:"
-        '
         'GunCollectionBindingSource
         '
         Me.GunCollectionBindingSource.DataMember = "Gun_Collection"
@@ -75,6 +68,14 @@ Partial Class FrmLinkAccessoryToFirearm
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
         Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(279, 21)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Select the firearm listed below to link this Accessory to:"
         '
         'Gun_CollectionTableAdapter
         '
@@ -90,6 +91,7 @@ Partial Class FrmLinkAccessoryToFirearm
         Me.Controls.Add(Me.btnAttach)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "FrmLinkAccessoryToFirearm"
         Me.Text = "Link Accessory to Firearm"
         CType(Me.GunCollectionBindingSource,System.ComponentModel.ISupportInitialize).EndInit
