@@ -223,6 +223,12 @@
     <Compile Include="frmFirearmImagePicker.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmLinkAccessoryToFirearm.Designer.vb">
+      <DependentUpon>FrmLinkAccessoryToFirearm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLinkAccessoryToFirearm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLinkDocToFirearm.Designer.vb">
       <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
     </Compile>
@@ -792,6 +798,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFirearmImagePicker.resx">
       <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLinkAccessoryToFirearm.resx">
+      <DependentUpon>FrmLinkAccessoryToFirearm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLinkDocToFirearm.resx">
       <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
