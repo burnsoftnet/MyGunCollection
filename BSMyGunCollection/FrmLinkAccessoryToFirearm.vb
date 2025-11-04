@@ -30,7 +30,7 @@ Public Class FrmLinkAccessoryToFirearm
         Try
             Dim strFireArmId As String = ComboBox1.SelectedValue.ToString
             Dim strFireArmName As String = ComboBox1.Text
-            If Not Other.GeneralAccessoriesLinking.AttachToFirearm(DatabasePath, AccessoryId, CLng(strFireArmId), _errOut) Then
+            If Other.GeneralAccessoriesLinking.AttachToFirearm(DatabasePath, AccessoryId, CLng(strFireArmId), _errOut) Then
                 Dim strMsg As String = "Accessory was copied to " & strFireArmName
                 Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?", MsgBoxStyle.YesNo, Text)
                 If sAns = vbNo Then Close()
