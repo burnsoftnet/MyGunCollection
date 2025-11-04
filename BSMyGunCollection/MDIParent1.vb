@@ -1447,4 +1447,8 @@ Public Class MDIParent1
         frmViewGeneralAccessories.MdiParent = Me
         frmViewGeneralAccessories.Show()
     End Sub
+
+    Private Sub TsBtnViewGenAccessories_Click(sender As Object, e As EventArgs) Handles TsBtnViewGenAccessories.Click
+
+    End Sub
 End Class
