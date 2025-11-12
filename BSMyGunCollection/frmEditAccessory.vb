@@ -141,35 +141,10 @@ Public Class frmEditAccessory
                                                                              strModel, strSerial, strCondition, strNotes, strUse, 
                                                                              Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
                                                                              chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
-                'If IsAttached(item) Then
-                '    Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, _errOut)
-                '    If _errOut.Length > 0 Then Throw New Exception(_errOut)
-                '    For Each o As GeneralAccessoriesLinkers In lst
-                '        If Not Other.GeneralAccessoriesLinking.UpdateFirearm(DatabasePath, item, o.Gid, _errOut) Then Throw New Exception(_errOut)
-                '    Next
-                'End If
             End If
             Close()
         Catch ex As Exception
             Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
-    ''' <summary>
-    ''' Determines whether the specified item is attached to other firearms.
-    ''' </summary>
-    ''' <param name="item">The item.</param>
-    ''' <returns><c>true</c> if the specified item is attached; otherwise, <c>false</c>.</returns>
-    ''' <exception cref="System.Exception"></exception>
-    'Private Function IsAttached(item As Integer) As Boolean
-    '    Dim bAns As Boolean = False
-    '    Try
-    '        Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, _errOut)
-    '        If _errOut.Length > 0 Then Throw New Exception(_errOut)
-    '        bAns = lst.Count > 0
-    '    Catch ex As Exception
-    '        Call LogError(Name, "IsAttached", Err.Number, ex.Message.ToString)
-    '    End Try
-    '    Return bAns
-    'End Function
 End Class
