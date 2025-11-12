@@ -162,7 +162,7 @@ Public Class frmEditAccessory
     ''' <returns><c>true</c> if the specified item is attached; otherwise, <c>false</c>.</returns>
     ''' <exception cref="System.Exception"></exception>
     Private Function IsAttached(item As Integer) As Boolean
-        Dim bAns  As Boolean = False
+        Dim bAns As Boolean = False
         Try
             Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
