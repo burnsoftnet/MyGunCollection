@@ -100,13 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
-        "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
+        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
-        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
+        "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,13 +130,13 @@
         "Entry"
         {
         "MsmKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
-        "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
+        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
-        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
+        "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -280,12 +280,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E51793B6BD8C4A7AB20A55F82B2D02A9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -311,18 +305,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -359,6 +341,24 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_80360301D7444145A15FF8975D797AA8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1610,15 +1610,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{54CE48EA-5CA8-4510-B6CC-F54D7CE40405}"
-        "PackageCode" = "8:{D10C1B7E-161B-42AC-B430-E57DA3A3AA3A}"
+        "ProductCode" = "8:{3244591C-57DE-4D1F-BE8C-B102830BC90E}"
+        "PackageCode" = "8:{EC13AFE4-746B-4AB2-94A2-92BA2C715A4A}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:7.0.2"
+        "ProductVersion" = "8:7.0.3"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
