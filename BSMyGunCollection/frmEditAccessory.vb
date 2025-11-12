@@ -127,18 +127,27 @@ Public Class frmEditAccessory
             Dim strPurVal As String = FluffContent(txtPurVal.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
+            Dim item As Long = Convert.ToInt32(ItemId)
+
             If Not Helpers.IsRequired(strMan, "Manufacturer", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
             if Not IsGeneral Then
-                If Not Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, 
+                If Not Firearms.Accessories.Update(DatabasePath, item, GunId, strMan, 
                                                                              strModel, strSerial, strCondition, strNotes, strUse, 
                                                                              Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
                                                                              chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
             Else
-                If Not Other.GeneralAccessories.Update(DatabasePath, Convert.ToInt32(ItemId), strMan, 
+                If Not Other.GeneralAccessories.Update(DatabasePath, item, strMan, 
                                                                              strModel, strSerial, strCondition, strNotes, strUse, 
                                                                              Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
                                                                              chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+                If IsAttached(item) Then
+                    Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, _errOut)
+                    If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                    For Each o As GeneralAccessoriesLinkers In lst
+                        If Not Other.GeneralAccessoriesLinking.UpdateFirearm(DatabasePath, item, o.Gid, _errOut) Then Throw New Exception(_errOut)
+                    Next
+                End If
             End If
             Close()
         Catch ex As Exception
