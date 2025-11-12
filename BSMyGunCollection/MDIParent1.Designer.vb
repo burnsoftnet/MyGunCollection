@@ -178,6 +178,7 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
+        Me.TsBtnViewGenAccessories = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -999,7 +1000,7 @@ Partial Class MDIParent1
         '
         Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.HelpToolStripButton})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.TsBtnViewGenAccessories, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -1417,6 +1418,17 @@ Partial Class MDIParent1
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
         '
+        'TsBtnViewGenAccessories
+        '
+        Me.TsBtnViewGenAccessories.AccessibleDescription = "Tool Bar View General Accessories"
+        Me.TsBtnViewGenAccessories.AccessibleName = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.TsBtnViewGenAccessories.Image = CType(resources.GetObject("TsBtnViewGenAccessories.Image"),System.Drawing.Image)
+        Me.TsBtnViewGenAccessories.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.TsBtnViewGenAccessories.Name = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.Size = New System.Drawing.Size(36, 36)
+        Me.TsBtnViewGenAccessories.Text = " View General Accessories"
+        '
         'MDIParent1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -1602,4 +1614,5 @@ End Sub
     Friend WithEvents DisablePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnablePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GeneralAccessoriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TsBtnViewGenAccessories As ToolStripButton
 End Class

@@ -132,4 +132,20 @@ Public Class frmViewGeneralAccessories
             Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the AttachToFirearmToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub AttachToFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AttachToFirearmToolStripMenuItem.Click
+        Try 
+            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+            Dim frmNew As New FrmLinkAccessoryToFirearm
+            frmNew.AccessoryId = itemId
+            frmNew.MdiParent = MdiParent
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "AttachToFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
 End Class
