@@ -25,9 +25,6 @@ Partial Class frmViewBarrelSystemData
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewBarrelSystemData))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.GunCollectionExtBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GIDDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.ModelNameDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
@@ -44,6 +41,9 @@ Partial Class frmViewBarrelSystemData
         Me.HeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IsDefaultDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GunCollectionExtBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GunCollectionExtBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
@@ -52,7 +52,6 @@ Partial Class frmViewBarrelSystemData
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = false
-        Me.DataGridView1.AllowUserToDeleteRows = false
         Me.DataGridView1.AutoGenerateColumns = false
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.GIDDataGridViewTextBoxColumn, Me.ModelNameDataGridViewTextBoxColumn, Me.CaliberDataGridViewTextBoxColumn, Me.FinishDataGridViewTextBoxColumn, Me.BarrelLengthDataGridViewTextBoxColumn, Me.PetLoadsDataGridViewTextBoxColumn, Me.ActionDataGridViewTextBoxColumn, Me.FeedsystemDataGridViewTextBoxColumn, Me.SightsDataGridViewTextBoxColumn, Me.PurchasedPriceDataGridViewTextBoxColumn, Me.PurchasedFromDataGridViewTextBoxColumn, Me.DtpDataGridViewTextBoxColumn, Me.HeightDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn, Me.IsDefaultDataGridViewTextBoxColumn})
@@ -62,20 +61,6 @@ Partial Class frmViewBarrelSystemData
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1572, 450)
         Me.DataGridView1.TabIndex = 0
-        '
-        'GunCollectionExtBindingSource
-        '
-        Me.GunCollectionExtBindingSource.DataMember = "Gun_Collection_Ext"
-        Me.GunCollectionExtBindingSource.DataSource = Me.MGCDataSet
-        '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Gun_Collection_ExtTableAdapter
-        '
-        Me.Gun_Collection_ExtTableAdapter.ClearBeforeFill = true
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -176,6 +161,20 @@ Partial Class frmViewBarrelSystemData
         Me.IsDefaultDataGridViewTextBoxColumn.DataPropertyName = "IsDefault"
         Me.IsDefaultDataGridViewTextBoxColumn.HeaderText = "IsDefault"
         Me.IsDefaultDataGridViewTextBoxColumn.Name = "IsDefaultDataGridViewTextBoxColumn"
+        '
+        'GunCollectionExtBindingSource
+        '
+        Me.GunCollectionExtBindingSource.DataMember = "Gun_Collection_Ext"
+        Me.GunCollectionExtBindingSource.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Gun_Collection_ExtTableAdapter
+        '
+        Me.Gun_Collection_ExtTableAdapter.ClearBeforeFill = true
         '
         'frmViewBarrelSystemData
         '
