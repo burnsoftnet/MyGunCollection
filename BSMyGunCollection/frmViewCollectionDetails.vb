@@ -408,10 +408,30 @@ Public Class frmViewCollectionDetails
         Close()
     End Sub
     Private Sub btnAddAmmo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAmmo.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        'TODO: Delete Once Tested
+        'Dim frmNew As New FrmAddCollectionAmmo
+        'frmNew.MdiParent = MdiParent
+        'frmNew.Show()
+        OpenFrmAddCollectionAmmoAndWait()
     End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add accessory and wait.
+    ''' </summary>
+    Private Sub OpenFrmAddCollectionAmmoAndWait()
+        ' Create the child form
+        Dim child As New FrmAddCollectionAmmo
+        child.MdiParent = MdiParent
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button1 control, which refreshes the Ammo List
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         Call LoadAmmoData()
     End Sub
@@ -1375,5 +1395,6 @@ Public Class frmViewCollectionDetails
         RefreshAccessories()
         GetPics()
         RefreshGunSmith()
+        LoadAmmoData()
     End Sub
 End Class
