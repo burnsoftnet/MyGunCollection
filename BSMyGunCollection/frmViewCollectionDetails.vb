@@ -2,7 +2,6 @@ Imports System.ComponentModel
 Imports System.IO
 Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
-Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -13,7 +12,9 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+#Disable Warning InconsistentNaming
 Public Class frmViewCollectionDetails
+#Enable Warning InconsistentNaming
     ''' <summary>
     ''' The Gun Collection identifier
     ''' </summary>
@@ -335,19 +336,34 @@ Public Class frmViewCollectionDetails
         newForm.Show()
     End Sub
     ''' <summary>
-    ''' Handles the Enter event of the TabPage3 control.
+    ''' Handles the Enter event of the TabPage3 control. Pictures Tab
     ''' </summary>
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage3_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage3.Enter
         Call GetPics()
     End Sub
+    ''' <summary>
+    ''' Handles the Enter event of the TabPage6 control. Ammo Tab
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage6_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage6.Enter
         Call LoadAmmoData()
     End Sub
+    ''' <summary>
+    ''' Handles the Enter event of the TabPage7 control. Maintance Details Tab
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage7_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage7.Enter
         Call LoadMaintData()
     End Sub
+    ''' <summary>
+    ''' Handles the Enter event of the TabPage8 control. Gunsmith Tab
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage8_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage8.Enter
         Try
             GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
@@ -358,25 +374,80 @@ Public Class frmViewCollectionDetails
     End Sub
 #End Region
 #Region " Button Subs "
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control to add a picture
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
-        frmAddPicture.ItemId = GunId
-        frmAddPicture.MdiParent = MdiParent
-        frmAddPicture.Show()
+        OpenfrmAddPictureAndWait()
     End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add picture and wait.
+    ''' </summary>
+    Private Sub OpenfrmAddPictureAndWait()
+        ' Create the child form
+        Dim child As New frmAddPicture
+        child.MdiParent = MdiParent
+        child.ItemId = GunId
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAddAccess control. Add Accessory Button
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddAccess_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAccess.Click
-        Dim frmNew As New FrmAddAccessory
-        frmNew.MdiParent = MdiParent
-        frmNew.ItemId = GunId
-        frmNew.IsShotGun = IsShotGun
-        frmNew.Show()
+        OpenFrmAddAccessoryAndWait()
     End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add accessory and wait.
+    ''' </summary>
+    Private Sub OpenFrmAddAccessoryAndWait()
+        ' Create the child form
+        Dim child As New FrmAddAccessory
+        child.MdiParent = MdiParent
+        child.IsGeneral = False
+        child.ItemId = GunId
+        child.IsShotGun = IsShotGun
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnExit control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
         Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnRefresh control. Refresh Accessories button
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnRefresh_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefresh.Click
+        RefreshAccessories()
+    End Sub
+    ''' <summary>
+    ''' Refreshes the accessories.
+    ''' </summary>
+    Private Sub RefreshAccessories()
         Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, GunId)
         Call LoadAddAccessories()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnEdit control. Edit firearm Details form
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnEdit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEdit.Click
         Dim frmNew As New FrmEditCollectionDetails
         frmNew.ItemId = GunId
@@ -384,17 +455,50 @@ Public Class frmViewCollectionDetails
         frmNew.Show()
         Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAddAmmo control.  Add Ammo button
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddAmmo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAmmo.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = MdiParent
-        frmNew.Show()
+        OpenFrmAddCollectionAmmoAndWait()
     End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add accessory and wait.
+    ''' </summary>
+    Private Sub OpenFrmAddCollectionAmmoAndWait()
+        ' Create the child form
+        Dim child As New FrmAddCollectionAmmo
+        child.MdiParent = MdiParent
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button1 control, which refreshes the Ammo List
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button1.Click
         Call LoadAmmoData()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnRefreshPics control. Refresh Pictures Button
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnRefreshPics_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshPics.Click
         Call GetPics()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAddMain control To add a Maintence Log
+    ''' NOTE: This Already Refresshes after add and does not need it, plus it opens another window which when you added the
+    ''' wait function, the other windows does not pass the information back
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddMain_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddMain.Click
         frmAddMaintance.MdiParent = MdiParent
         frmAddMaintance.Gid = GunId
@@ -404,14 +508,31 @@ Public Class frmViewCollectionDetails
         frmAddMaintance.AmmoTypeCal3 = txtCaliber3.Text
         frmAddMaintance.Show()
     End Sub
+
+    ''' <summary>
+    ''' Handles the Click event of the Button2 control for the refresh maintance data
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         Call LoadMaintData()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnGSLog control to add to the gunsmith log
+    ''' NOTE:  This already refreshes the data after add so the wait function is not needed
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSLog_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSLog.Click
         frmAddGunSmithLog.MdiParent = MdiParent
         frmAddGunSmithLog.Gid = GunId
         frmAddGunSmithLog.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnGSReport control to view the report for the gunsmith log to print out if needed
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSReport.Click
         Cursor = Cursors.WaitCursor
         frmViewReport_GunSmith.MdiParent = MdiParent
@@ -420,9 +541,25 @@ Public Class frmViewCollectionDetails
         frmViewReport_GunSmith.Show()
         Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnRefreshGS control. To Refresh the data for the Gun Smith
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnRefreshGS_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshGS.Click
+        RefreshGunSmith()
+    End Sub
+    ''' <summary>
+    ''' Refreshes the gun smith Central Function
+    ''' </summary>
+    Private Sub RefreshGunSmith()
         GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnPrintPreviewMaintanceReport control To bring up the report for the Mainance Report
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Cursor = Cursors.WaitCursor
         Dim newForm As New frmViewReport_Maintenance
@@ -432,12 +569,22 @@ Public Class frmViewCollectionDetails
         newForm.Show()
         Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button3 control. To print he for sale flyer
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFlyer.Click
         Dim frmNew As New FrmForSale
         frmNew.MdiParent = MdiParent
         frmNew.MyId = GunId
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnSold control. To Start the process to mark the firearm as sold
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
         Dim frmNew As New FrmSold
         frmNew.MdiParent = MdiParent
@@ -445,6 +592,12 @@ Public Class frmViewCollectionDetails
         frmNew.Show()
         Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnUnDoSale control to undo the sale if you get it back
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
         Try
             Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
@@ -511,7 +664,11 @@ Public Class frmViewCollectionDetails
             Call LogError(Name, "LoadMaintData", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-    'Populate the selling information in the disposition tab.
+  
+    ''' <summary>
+    ''' Populate the selling information in the disposition tab.
+    ''' </summary>
+    ''' <exception cref="System.Exception"></exception>
     Sub LoadSellerData()
         Try
             Dim lst as List (Of BuyersList) = Buyers.Get(DatabasePath,Convert.ToInt32(SellerId), _errOut )
@@ -1210,7 +1367,7 @@ Public Class frmViewCollectionDetails
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -1257,7 +1414,7 @@ Public Class frmViewCollectionDetails
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
@@ -1270,7 +1427,7 @@ Public Class frmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
@@ -1303,7 +1460,12 @@ Public Class frmViewCollectionDetails
             Call LogError(Name, "chkIsCompetition_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' CHKs the non lethal checked changed.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">_errOut</exception>
     Private Sub chkNonLethal_CheckedChanged(sender As Object, e As EventArgs) Handles chkNonLethal.CheckedChanged
         Try
             If Not MyCollection.SetAsNonLethal(DatabasePath, Convert.ToInt32(GunId), chkNonLethal.Checked, _errOut) Then Throw New Exception(_errOut)
@@ -1311,13 +1473,17 @@ Public Class frmViewCollectionDetails
             Call LogError(Name, "chkNonLethal_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' CMBs the rating selected index changed.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">_errOut</exception>
     Private Sub cmbRating_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRating.SelectedIndexChanged
         Try
             If Not IsLoading Then
-                Dim SelectedText As String = cmbRating.SelectedItem.ToString
-                Dim RatingId As Integer = cmbRating.SelectedIndex
-                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), RatingId, _errOut) Then Throw New Exception(_errOut)
+                Dim ratingId As Integer = cmbRating.SelectedIndex
+                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), ratingId, _errOut) Then Throw New Exception(_errOut)
             End If
 
         Catch ex As Exception
@@ -1327,5 +1493,26 @@ Public Class frmViewCollectionDetails
 
     Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
 
+    End Sub
+
+    ''' <summary>
+    ''' This runs AFTER the child form is closed
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+    Private Sub ChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        ' Remove handler to avoid memory leaks
+        RemoveHandler DirectCast(sender, Form).FormClosed, AddressOf ChildFormClosed
+
+        ' Call the next function
+        NextFunction()
+    End Sub
+    ''' <summary>
+    ''' Nexts the function.
+    ''' </summary>
+    Private Sub NextFunction()
+        RefreshAccessories()
+        GetPics()
+        LoadAmmoData()
     End Sub
 End Class
