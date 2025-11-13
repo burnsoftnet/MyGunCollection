@@ -1452,4 +1452,9 @@ Public Class MDIParent1
         frmViewGeneralAccessories.MdiParent = Me
         frmViewGeneralAccessories.Show()
     End Sub
+
+    Private Sub mnuBarrelSystemData_Click(sender As Object, e As EventArgs) Handles mnuBarrelSystemData.Click
+        frmViewBarrelSystemData.MdiParent = Me
+        frmViewBarrelSystemData.Show()
+    End Sub
 End Class
