@@ -365,11 +365,29 @@ Public Class frmViewCollectionDetails
         frmAddPicture.Show()
     End Sub
     Private Sub btnAddAccess_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAccess.Click
-        Dim frmNew As New FrmAddAccessory
-        frmNew.MdiParent = MdiParent
-        frmNew.ItemId = GunId
-        frmNew.IsShotGun = IsShotGun
-        frmNew.Show()
+        ' TODO: Delete once tested
+        'Dim frmNew As New FrmAddAccessory
+        'frmNew.MdiParent = MdiParent
+        'frmNew.ItemId = GunId
+        'frmNew.IsShotGun = IsShotGun
+        'frmNew.Show()
+        OpenFrmAddAccessoryAndWait()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add accessory and wait.
+    ''' </summary>
+    Private Sub OpenFrmAddAccessoryAndWait()
+        ' Create the child form
+        Dim child As New FrmAddAccessory
+        child.MdiParent = MdiParent
+        child.IsGeneral = False
+        child.ItemId = GunId
+        child.IsShotGun = IsShotGun
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
     End Sub
     Private Sub btnExit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnExit.Click
         Close()
