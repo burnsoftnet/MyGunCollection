@@ -39,7 +39,7 @@ Partial Class frmViewBarrelSystemData
         Me.FeedsystemDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SightsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PurchasedPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PurchasedFromDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PurchasedFromDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.DtpDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HeightDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,7 +60,7 @@ Partial Class frmViewBarrelSystemData
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1229, 450)
+        Me.DataGridView1.Size = New System.Drawing.Size(1572, 450)
         Me.DataGridView1.TabIndex = 0
         '
         'GunCollectionExtBindingSource
@@ -151,6 +151,7 @@ Partial Class frmViewBarrelSystemData
         Me.PurchasedFromDataGridViewTextBoxColumn.DataPropertyName = "PurchasedFrom"
         Me.PurchasedFromDataGridViewTextBoxColumn.HeaderText = "PurchasedFrom"
         Me.PurchasedFromDataGridViewTextBoxColumn.Name = "PurchasedFromDataGridViewTextBoxColumn"
+        Me.PurchasedFromDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'DtpDataGridViewTextBoxColumn
         '
@@ -181,12 +182,11 @@ Partial Class frmViewBarrelSystemData
         Me.AccessibleName = "frmViewBarrelSystemData"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1229, 450)
+        Me.ClientSize = New System.Drawing.Size(1572, 450)
         Me.Controls.Add(Me.DataGridView1)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewBarrelSystemData"
         Me.Text = "Raw Barrel System Data"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GunCollectionExtBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
@@ -209,7 +209,7 @@ End Sub
     Friend WithEvents FeedsystemDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SightsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PurchasedPriceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PurchasedFromDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PurchasedFromDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents DtpDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents HeightDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TypeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
