@@ -265,6 +265,12 @@
     <Compile Include="FrmViewAppraisers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmViewBarrelSystemData.Designer.vb">
+      <DependentUpon>frmViewBarrelSystemData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewBarrelSystemData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmViewDocuments.Designer.vb">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>
     </Compile>
@@ -810,6 +816,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMoveBarrelConKit.resx">
       <DependentUpon>frmMoveBarrelConKit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewBarrelSystemData.resx">
+      <DependentUpon>frmViewBarrelSystemData.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewDocuments.resx">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>

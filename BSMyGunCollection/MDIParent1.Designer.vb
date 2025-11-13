@@ -146,6 +146,7 @@ Partial Class MDIParent1
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
+        Me.TsBtnViewGenAccessories = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton8 = New System.Windows.Forms.ToolStripSplitButton()
         Me.BoundBook1ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BoundBookVersion2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -178,7 +179,7 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
-        Me.TsBtnViewGenAccessories = New System.Windows.Forms.ToolStripButton()
+        Me.mnuBarrelSystemData = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -257,7 +258,7 @@ Partial Class MDIParent1
         'EditMenu
         '
         Me.EditMenu.AccessibleName = "Edit"
-        Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ManufacturersToolStripMenuItem, Me.AmmunitionTypeToolStripMenuItem, Me.ModelToolStripMenuItem, Me.PlaceOfOriginToolStripMenuItem, Me.GripTypesToolStripMenuItem, Me.FirearmConditionsToolStripMenuItem, Me.FirearmTypesToolStripMenuItem, Me.ClassificationToolStripMenuItem})
+        Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ManufacturersToolStripMenuItem, Me.AmmunitionTypeToolStripMenuItem, Me.ModelToolStripMenuItem, Me.PlaceOfOriginToolStripMenuItem, Me.GripTypesToolStripMenuItem, Me.FirearmConditionsToolStripMenuItem, Me.FirearmTypesToolStripMenuItem, Me.ClassificationToolStripMenuItem, Me.mnuBarrelSystemData})
         Me.EditMenu.Name = "EditMenu"
         Me.EditMenu.Size = New System.Drawing.Size(39, 20)
         Me.EditMenu.Text = "&Edit"
@@ -1173,6 +1174,17 @@ Partial Class MDIParent1
         Me.ToolStripButton7.Text = "ToolStripButton7"
         Me.ToolStripButton7.ToolTipText = "Ammunition Inventory Report"
         '
+        'TsBtnViewGenAccessories
+        '
+        Me.TsBtnViewGenAccessories.AccessibleDescription = "Tool Bar View General Accessories"
+        Me.TsBtnViewGenAccessories.AccessibleName = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.TsBtnViewGenAccessories.Image = CType(resources.GetObject("TsBtnViewGenAccessories.Image"),System.Drawing.Image)
+        Me.TsBtnViewGenAccessories.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.TsBtnViewGenAccessories.Name = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.Size = New System.Drawing.Size(36, 36)
+        Me.TsBtnViewGenAccessories.Text = " View General Accessories"
+        '
         'ToolStripButton8
         '
         Me.ToolStripButton8.AccessibleDescription = "Bound Book Tryle LIsts"
@@ -1418,16 +1430,14 @@ Partial Class MDIParent1
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
         '
-        'TsBtnViewGenAccessories
+        'mnuBarrelSystemData
         '
-        Me.TsBtnViewGenAccessories.AccessibleDescription = "Tool Bar View General Accessories"
-        Me.TsBtnViewGenAccessories.AccessibleName = "TsBtnViewGenAccessories"
-        Me.TsBtnViewGenAccessories.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.TsBtnViewGenAccessories.Image = CType(resources.GetObject("TsBtnViewGenAccessories.Image"),System.Drawing.Image)
-        Me.TsBtnViewGenAccessories.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.TsBtnViewGenAccessories.Name = "TsBtnViewGenAccessories"
-        Me.TsBtnViewGenAccessories.Size = New System.Drawing.Size(36, 36)
-        Me.TsBtnViewGenAccessories.Text = " View General Accessories"
+        Me.mnuBarrelSystemData.AccessibleDescription = "Raw Barrel System Data"
+        Me.mnuBarrelSystemData.AccessibleName = "mnuBarrelSystemData"
+        Me.mnuBarrelSystemData.Image = CType(resources.GetObject("mnuBarrelSystemData.Image"),System.Drawing.Image)
+        Me.mnuBarrelSystemData.Name = "mnuBarrelSystemData"
+        Me.mnuBarrelSystemData.Size = New System.Drawing.Size(186, 22)
+        Me.mnuBarrelSystemData.Text = "Barrel System Data"
         '
         'MDIParent1
         '
@@ -1615,4 +1625,5 @@ End Sub
     Friend WithEvents EnablePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GeneralAccessoriesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TsBtnViewGenAccessories As ToolStripButton
+    Friend WithEvents mnuBarrelSystemData As ToolStripMenuItem
 End Class

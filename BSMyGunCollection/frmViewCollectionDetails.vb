@@ -755,10 +755,10 @@ Public Class frmViewCollectionDetails
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             For Each l As GunCollectionFullList In lst
-                BsDefaultbarrelsystemid = l.Bid
+                BsDefaultbarrelsystemid = l.DbId
                 BsHasmultibarrels = l.HasExtraBarrels
                 HasDocuments = l.HasDocuments
-                Text = l.FullName
+                Text = l.FullName + $"  ( ID: {GunId} )"
                 txtManu.Text = l.Manufacturer
                 txtModel.Text = l.ModelName
                 txtSerial.Text = l.SerialNumber
