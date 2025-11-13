@@ -2,7 +2,6 @@ Imports System.ComponentModel
 Imports System.IO
 Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Ammo
-Imports BurnSoft.Applications.MGC.AutoFill
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.PeopleAndPlaces
@@ -13,7 +12,9 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+#Disable Warning InconsistentNaming
 Public Class frmViewCollectionDetails
+#Enable Warning InconsistentNaming
     ''' <summary>
     ''' The Gun Collection identifier
     ''' </summary>
@@ -374,6 +375,10 @@ Public Class frmViewCollectionDetails
         Close()
     End Sub
     Private Sub btnRefresh_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefresh.Click
+        RefreshAccessories()
+    End Sub
+
+    Private Sub RefreshAccessories()
         Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, GunId)
         Call LoadAddAccessories()
     End Sub
@@ -421,8 +426,13 @@ Public Class frmViewCollectionDetails
         Cursor = Cursors.Arrow
     End Sub
     Private Sub btnRefreshGS_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshGS.Click
+        RefreshGunSmith()
+    End Sub
+
+    Private Sub RefreshGunSmith()
         GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
     End Sub
+
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Cursor = Cursors.WaitCursor
         Dim newForm As New frmViewReport_Maintenance
@@ -1210,7 +1220,7 @@ Public Class frmViewCollectionDetails
     Private Sub DataGridView6_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentDoubleClick
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView6_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -1257,7 +1267,7 @@ Public Class frmViewCollectionDetails
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(1).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, did, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "ViewToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
@@ -1270,7 +1280,7 @@ Public Class frmViewCollectionDetails
     Private Sub UnLinkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnLinkToolStripMenuItem.Click
         Try
             Dim did As String = DataGridView6.SelectedRows.Item(0).Cells.Item(0).Value
-            If Not BurnSoft.Applications.MGC.Firearms.Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.DeleteDocLink(DatabasePath, did, _errOut) Then Throw New Exception(_errOut)
             MsgBox("Document was unlinked!")
             Call LoadData()
         Catch ex As Exception
@@ -1315,9 +1325,8 @@ Public Class frmViewCollectionDetails
     Private Sub cmbRating_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbRating.SelectedIndexChanged
         Try
             If Not IsLoading Then
-                Dim SelectedText As String = cmbRating.SelectedItem.ToString
-                Dim RatingId As Integer = cmbRating.SelectedIndex
-                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), RatingId, _errOut) Then Throw New Exception(_errOut)
+                Dim ratingId As Integer = cmbRating.SelectedIndex
+                If Not MyCollection.SetFirearmRating(DatabasePath, Convert.ToInt32(GunId), ratingId, _errOut) Then Throw New Exception(_errOut)
             End If
 
         Catch ex As Exception
@@ -1327,5 +1336,26 @@ Public Class frmViewCollectionDetails
 
     Private Sub DataGridView6_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView6.CellContentClick
 
+    End Sub
+
+    ''' <summary>
+    ''' This runs AFTER the child form is closed
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+    Private Sub ChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        ' Remove handler to avoid memory leaks
+        RemoveHandler DirectCast(sender, Form).FormClosed, AddressOf ChildFormClosed
+
+        ' Call the next function
+        NextFunction()
+    End Sub
+    ''' <summary>
+    ''' Nexts the function.
+    ''' </summary>
+    Private Sub NextFunction()
+        RefreshAccessories()
+        GetPics()
+        RefreshGunSmith()
     End Sub
 End Class
