@@ -26,81 +26,77 @@ Partial Class frmEditFirearmType
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditFirearmType))
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GunTypeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.Gun_TypeTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_TypeTableAdapter()
-        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.GunTypeBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.components = New Container
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmEditFirearmType))
+        Me.DataGridView1 = New DataGridView
+        Me.MGCDataSet = New MGCDataSet
+        Me.GunTypeBindingSource = New BindingSource(Me.components)
+        Me.Gun_TypeTableAdapter = New Gun_TypeTableAdapter
+        Me.IDDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        Me.TypeDataGridViewTextBoxColumn = New DataGridViewTextBoxColumn
+        CType(Me.DataGridView1, ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
+        CType(Me.GunTypeBindingSource, ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'DataGridView1
         '
-        Me.DataGridView1.AccessibleDescription = "List of Fiream Types"
-        Me.DataGridView1.AccessibleName = "DataGridView1"
-        Me.DataGridView1.AutoGenerateColumns = false
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn})
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.TypeDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.GunTypeBindingSource
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Dock = DockStyle.Fill
+        Me.DataGridView1.Location = New Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(292, 396)
+        Me.DataGridView1.Size = New Size(292, 396)
         Me.DataGridView1.TabIndex = 0
         '
-        'IDDataGridViewTextBoxColumn
+        'MGCDataSet
         '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.Visible = false
-        '
-        'TypeDataGridViewTextBoxColumn
-        '
-        Me.TypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
-        Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type"
-        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
-        Me.TypeDataGridViewTextBoxColumn.Width = 56
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
         '
         'GunTypeBindingSource
         '
         Me.GunTypeBindingSource.DataMember = "Gun_Type"
         Me.GunTypeBindingSource.DataSource = Me.MGCDataSet
         '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'Gun_TypeTableAdapter
         '
-        Me.Gun_TypeTableAdapter.ClearBeforeFill = true
+        Me.Gun_TypeTableAdapter.ClearBeforeFill = True
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.Visible = False
+        '
+        'TypeDataGridViewTextBoxColumn
+        '
+        Me.TypeDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Me.TypeDataGridViewTextBoxColumn.DataPropertyName = "Type"
+        Me.TypeDataGridViewTextBoxColumn.HeaderText = "Type"
+        Me.TypeDataGridViewTextBoxColumn.Name = "TypeDataGridViewTextBoxColumn"
+        Me.TypeDataGridViewTextBoxColumn.Width = 56
         '
         'frmEditFirearmType
         '
-        Me.AccessibleDescription = "Firearm Types"
-        Me.AccessibleName = "frmEditFirearmType"
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(292, 396)
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.ClientSize = New Size(292, 396)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.MaximizeBox = false
-        Me.MinimizeBox = false
-        Me.Name = "frmEditFirearmType"
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "FrmEditFirearmType"
         Me.Text = "Firearm Types"
-        CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.GunTypeBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
+        CType(Me.DataGridView1, ISupportInitialize).EndInit()
+        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
+        CType(Me.GunTypeBindingSource, ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents GunTypeBindingSource As BindingSource

@@ -25,50 +25,43 @@ Partial Class frmAddPicture
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddPicture))
-        Me.btnBrowse = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtNotes = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.nudOrder = New System.Windows.Forms.NumericUpDown()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudOrder, System.ComponentModel.ISupportInitialize).BeginInit()
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddPicture))
+        Me.btnBrowse = New Button
+        Me.btnAdd = New Button
+        Me.PictureBox1 = New PictureBox
+        Me.OpenFileDialog1 = New OpenFileDialog
+        Me.HelpProvider1 = New HelpProvider
+        Me.Label1 = New Label
+        Me.Label2 = New Label
+        Me.txtName = New TextBox
+        Me.txtNotes = New TextBox
+        CType(Me.PictureBox1, ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBrowse
         '
-        Me.btnBrowse.AccessibleDescription = "Browser Computer for Picture"
-        Me.btnBrowse.AccessibleName = "btnBrowse"
-        Me.btnBrowse.Location = New System.Drawing.Point(12, 12)
+        Me.btnBrowse.Location = New Point(12, 12)
         Me.btnBrowse.Name = "btnBrowse"
-        Me.btnBrowse.Size = New System.Drawing.Size(100, 25)
+        Me.btnBrowse.Size = New Size(100, 25)
         Me.btnBrowse.TabIndex = 0
         Me.btnBrowse.Text = "Browse"
         Me.btnBrowse.UseVisualStyleBackColor = True
         '
         'btnAdd
         '
-        Me.btnAdd.AccessibleDescription = "Save Picture to Database"
-        Me.btnAdd.AccessibleName = "btnAdd"
-        Me.btnAdd.Location = New System.Drawing.Point(161, 12)
+        Me.btnAdd.Location = New Point(161, 12)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(91, 25)
+        Me.btnAdd.Size = New Size(91, 25)
         Me.btnAdd.TabIndex = 1
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(4, 43)
+        Me.PictureBox1.Location = New Point(4, 43)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(311, 265)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.Size = New Size(311, 265)
+        Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
@@ -79,66 +72,42 @@ Partial Class frmAddPicture
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 325)
+        Me.Label1.Location = New Point(4, 325)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.Size = New Size(74, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Picture Name:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(4, 381)
+        Me.Label2.Location = New Point(4, 351)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 13)
+        Me.Label2.Size = New Size(38, 13)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Notes:"
         '
         'txtName
         '
-        Me.txtName.AccessibleDescription = "Optional Picture Name"
-        Me.txtName.AccessibleName = "txtName"
-        Me.txtName.Location = New System.Drawing.Point(84, 322)
+        Me.txtName.Location = New Point(84, 322)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(226, 20)
+        Me.txtName.Size = New Size(226, 20)
         Me.txtName.TabIndex = 5
         '
         'txtNotes
         '
-        Me.txtNotes.AccessibleDescription = "Optional Picture Notes"
-        Me.txtNotes.AccessibleName = "txtNotes"
-        Me.txtNotes.Location = New System.Drawing.Point(10, 400)
+        Me.txtNotes.Location = New Point(10, 370)
         Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.Size = New System.Drawing.Size(299, 75)
+        Me.txtNotes.Size = New Size(299, 75)
         Me.txtNotes.TabIndex = 6
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 355)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 7
-        Me.Label3.Text = "Order: "
-        '
-        'nudOrder
-        '
-        Me.nudOrder.Location = New System.Drawing.Point(84, 353)
-        Me.nudOrder.Name = "nudOrder"
-        Me.nudOrder.Size = New System.Drawing.Size(120, 20)
-        Me.nudOrder.TabIndex = 8
         '
         'frmAddPicture
         '
         Me.AcceptButton = Me.btnAdd
-        Me.AccessibleDescription = "Add Picture"
-        Me.AccessibleName = "frmAddPicture"
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(322, 489)
-        Me.Controls.Add(Me.nudOrder)
-        Me.Controls.Add(Me.Label3)
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.ClientSize = New Size(322, 450)
         Me.Controls.Add(Me.txtNotes)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.Label2)
@@ -147,21 +116,20 @@ Partial Class frmAddPicture
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnBrowse)
         Me.HelpProvider1.SetHelpKeyword(Me, "Adding Pictures")
-        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
+        Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Adding Pictures")
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmAddPicture"
+        Me.Name = "FrmAddPicture"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = FormStartPosition.CenterParent
         Me.Text = "Add Picture"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudOrder, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents btnBrowse As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents PictureBox1 As PictureBox
@@ -171,6 +139,4 @@ End Sub
     Friend WithEvents Label2 As Label
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtNotes As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents nudOrder As NumericUpDown
 End Class

@@ -25,7 +25,7 @@ Partial Class frmAddAccessory
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddAccessory))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAddAccessory))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -123,7 +123,6 @@ Partial Class frmAddAccessory
         '
         'txtMan
         '
-        Me.txtMan.AccessibleDescription = "Manufacturer"
         Me.txtMan.AccessibleName = "txtMan"
         Me.txtMan.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtMan.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -134,7 +133,6 @@ Partial Class frmAddAccessory
         '
         'txtModel
         '
-        Me.txtModel.AccessibleDescription = "Accessory Model"
         Me.txtModel.AccessibleName = "txtModel"
         Me.txtModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -145,7 +143,6 @@ Partial Class frmAddAccessory
         '
         'txtSerial
         '
-        Me.txtSerial.AccessibleDescription = "Optional Serial Number"
         Me.txtSerial.AccessibleName = "txtSerial"
         Me.txtSerial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSerial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -156,7 +153,6 @@ Partial Class frmAddAccessory
         '
         'txtUse
         '
-        Me.txtUse.AccessibleDescription = "General Use of Accessory"
         Me.txtUse.AccessibleName = "txtUse"
         Me.txtUse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtUse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -167,7 +163,6 @@ Partial Class frmAddAccessory
         '
         'cmdCondition
         '
-        Me.cmdCondition.AccessibleDescription = "Select Condition of Accessory"
         Me.cmdCondition.AccessibleName = "cmdCondition"
         Me.cmdCondition.FormattingEnabled = true
         Me.cmdCondition.Items.AddRange(New Object() {"New", "New, Discontinued", "Perfect", "Excellent", "Very Good", "Good", "Fair", "Poor", "Antique Factory New", "Antique Excellent", "Antique Fine", "Antique Very Good", "Antique Good", "Antique Fair", "Antique Poor"})
@@ -179,7 +174,6 @@ Partial Class frmAddAccessory
         '
         'txtPurVal
         '
-        Me.txtPurVal.AccessibleDescription = "Purchase Value"
         Me.txtPurVal.AccessibleName = "txtPurVal"
         Me.txtPurVal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurVal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -190,7 +184,6 @@ Partial Class frmAddAccessory
         '
         'txtNotes
         '
-        Me.txtNotes.AccessibleDescription = "Notes about Accessory"
         Me.txtNotes.AccessibleName = "txtNotes"
         Me.txtNotes.Location = New System.Drawing.Point(16, 267)
         Me.txtNotes.Multiline = true
@@ -201,7 +194,6 @@ Partial Class frmAddAccessory
         '
         'btnAdd
         '
-        Me.btnAdd.AccessibleDescription = "Click on Add button"
         Me.btnAdd.AccessibleName = "btnAdd"
         Me.btnAdd.Location = New System.Drawing.Point(45, 347)
         Me.btnAdd.Name = "btnAdd"
@@ -212,7 +204,6 @@ Partial Class frmAddAccessory
         '
         'btnCancel
         '
-        Me.btnCancel.AccessibleDescription = "Click on Cancel to exit form without saving"
         Me.btnCancel.AccessibleName = "btnCancel"
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(213, 347)
@@ -238,7 +229,6 @@ Partial Class frmAddAccessory
         '
         'txtAppValue
         '
-        Me.txtAppValue.AccessibleDescription = "Optional Appriased Value"
         Me.txtAppValue.AccessibleName = "txtAppValue"
         Me.txtAppValue.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -259,7 +249,6 @@ Partial Class frmAddAccessory
         '
         'chkCIV
         '
-        Me.chkCIV.AccessibleDescription = "Imclude the Appraised Value in the Summary report"
         Me.chkCIV.AccessibleName = "chkCIV"
         Me.chkCIV.AutoSize = true
         Me.chkCIV.Location = New System.Drawing.Point(181, 202)
@@ -282,7 +271,6 @@ Partial Class frmAddAccessory
         '
         'chkIsChoke
         '
-        Me.chkIsChoke.AccessibleDescription = "Is this a shotgun choke?"
         Me.chkIsChoke.AccessibleName = "chkIsChoke"
         Me.chkIsChoke.AutoSize = true
         Me.chkIsChoke.Location = New System.Drawing.Point(181, 228)
@@ -296,8 +284,6 @@ Partial Class frmAddAccessory
         'frmAddAccessory
         '
         Me.AcceptButton = Me.btnAdd
-        Me.AccessibleDescription = "Add Accessory Window"
-        Me.AccessibleName = "AddAccessoryWindow"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
@@ -332,7 +318,7 @@ Partial Class frmAddAccessory
         Me.KeyPreview = true
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "frmAddAccessory"
+        Me.Name = "FrmAddAccessory"
         Me.HelpProvider1.SetShowHelp(Me, true)
         Me.Text = "Add Accessory"
         Me.ResumeLayout(false)

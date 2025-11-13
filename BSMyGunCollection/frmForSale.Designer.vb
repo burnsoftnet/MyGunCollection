@@ -27,23 +27,23 @@ Partial Class frmForSale
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmForSale))
-        Me.ForSaleDataBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.Owner_InfoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.qryGunForSaleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.qryGunForSaleTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qryGunForSaleTableAdapter()
-        Me.Owner_InfoTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Owner_InfoTableAdapter()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.ForSaleDataTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.ForSaleDataTableAdapter()
-        CType(Me.ForSaleDataBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.Owner_InfoBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.qryGunForSaleBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.components = New Container
+        Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
+        Dim ReportDataSource2 As ReportDataSource = New ReportDataSource
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmForSale))
+        Me.ForSaleDataBindingSource = New BindingSource(Me.components)
+        Me.MGCDataSet = New MGCDataSet
+        Me.Owner_InfoBindingSource = New BindingSource(Me.components)
+        Me.qryGunForSaleBindingSource = New BindingSource(Me.components)
+        Me.qryGunForSaleTableAdapter = New qryGunForSaleTableAdapter
+        Me.Owner_InfoTableAdapter = New Owner_InfoTableAdapter
+        Me.ReportViewer1 = New ReportViewer
+        Me.ForSaleDataTableAdapter = New ForSaleDataTableAdapter
+        CType(Me.ForSaleDataBindingSource, ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
+        CType(Me.Owner_InfoBindingSource, ISupportInitialize).BeginInit()
+        CType(Me.qryGunForSaleBindingSource, ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'ForSaleDataBindingSource
         '
@@ -53,7 +53,7 @@ Partial Class frmForSale
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
         '
         'Owner_InfoBindingSource
         '
@@ -67,15 +67,15 @@ Partial Class frmForSale
         '
         'qryGunForSaleTableAdapter
         '
-        Me.qryGunForSaleTableAdapter.ClearBeforeFill = true
+        Me.qryGunForSaleTableAdapter.ClearBeforeFill = True
         '
         'Owner_InfoTableAdapter
         '
-        Me.Owner_InfoTableAdapter.ClearBeforeFill = true
+        Me.Owner_InfoTableAdapter.ClearBeforeFill = True
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.Dock = DockStyle.Fill
         ReportDataSource1.Name = "MGCDataSet_qryGunForSale"
         ReportDataSource1.Value = Me.ForSaleDataBindingSource
         ReportDataSource2.Name = "MGCDataSet_Owner_Info"
@@ -83,33 +83,31 @@ Partial Class frmForSale
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_ForSale.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Location = New Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(613, 471)
+        Me.ReportViewer1.Size = New Size(613, 471)
         Me.ReportViewer1.TabIndex = 0
         '
         'ForSaleDataTableAdapter
         '
-        Me.ForSaleDataTableAdapter.ClearBeforeFill = true
+        Me.ForSaleDataTableAdapter.ClearBeforeFill = True
         '
         'frmForSale
         '
-        Me.AccessibleDescription = "Firearm For Sale!!"
-        Me.AccessibleName = "frmForSale"
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(613, 471)
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
+        Me.ClientSize = New Size(613, 471)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.Name = "frmForSale"
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.Name = "FrmForSale"
         Me.Text = "Firearm For Sale!!"
-        CType(Me.ForSaleDataBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.Owner_InfoBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.qryGunForSaleBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
+        CType(Me.ForSaleDataBindingSource, ISupportInitialize).EndInit()
+        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
+        CType(Me.Owner_InfoBindingSource, ISupportInitialize).EndInit()
+        CType(Me.qryGunForSaleBindingSource, ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
 
-End Sub
+    End Sub
     Friend WithEvents qryGunForSaleBindingSource As BindingSource
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents qryGunForSaleTableAdapter As qryGunForSaleTableAdapter

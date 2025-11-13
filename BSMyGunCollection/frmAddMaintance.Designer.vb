@@ -26,54 +26,52 @@ Partial Class frmAddMaintance
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddMaintance))
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.MaintancePlansBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.Maintance_PlansTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Maintance_PlansTableAdapter()
-        Me.btnViewPlans = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.txtNotes = New System.Windows.Forms.TextBox()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtAmmoUsed = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.chkInAVG = New System.Windows.Forms.CheckBox()
-        CType(Me.MaintancePlansBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.NumericUpDown1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.components = New Container
+        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmAddMaintance))
+        Me.Label1 = New Label
+        Me.ComboBox1 = New ComboBox
+        Me.MaintancePlansBindingSource = New BindingSource(Me.components)
+        Me.MGCDataSet = New MGCDataSet
+        Me.Maintance_PlansTableAdapter = New Maintance_PlansTableAdapter
+        Me.btnViewPlans = New Button
+        Me.Label2 = New Label
+        Me.Label3 = New Label
+        Me.Label4 = New Label
+        Me.Label5 = New Label
+        Me.DateTimePicker1 = New DateTimePicker
+        Me.DateTimePicker2 = New DateTimePicker
+        Me.NumericUpDown1 = New NumericUpDown
+        Me.txtNotes = New TextBox
+        Me.btnAdd = New Button
+        Me.btnCancel = New Button
+        Me.Button1 = New Button
+        Me.HelpProvider1 = New HelpProvider
+        Me.Label6 = New Label
+        Me.txtAmmoUsed = New TextBox
+        Me.Label7 = New Label
+        Me.chkInAVG = New CheckBox
+        CType(Me.MaintancePlansBindingSource, ISupportInitialize).BeginInit()
+        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown1, ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Location = New System.Drawing.Point(12, 12)
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New Point(12, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(96, 13)
+        Me.Label1.Size = New Size(96, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Maintenance Plan:"
         '
         'ComboBox1
         '
-        Me.ComboBox1.AccessibleDescription = "Select Maintenance Plan"
-        Me.ComboBox1.AccessibleName = "SelectMaintenancePlan"
         Me.ComboBox1.DataSource = Me.MaintancePlansBindingSource
         Me.ComboBox1.DisplayMember = "Name"
-        Me.ComboBox1.FormattingEnabled = true
-        Me.ComboBox1.Location = New System.Drawing.Point(204, 9)
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New Point(204, 9)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(164, 21)
+        Me.ComboBox1.Size = New Size(164, 21)
         Me.ComboBox1.TabIndex = 1
         Me.ComboBox1.ValueMember = "ID"
         '
@@ -85,136 +83,120 @@ Partial Class frmAddMaintance
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
         '
         'Maintance_PlansTableAdapter
         '
-        Me.Maintance_PlansTableAdapter.ClearBeforeFill = true
+        Me.Maintance_PlansTableAdapter.ClearBeforeFill = True
         '
         'btnViewPlans
         '
-        Me.btnViewPlans.AccessibleDescription = "Show Maintenance Plan Details"
-        Me.btnViewPlans.AccessibleName = "ShowMaintenanceDetails"
-        Me.btnViewPlans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnViewPlans.Image = CType(resources.GetObject("btnViewPlans.Image"),System.Drawing.Image)
-        Me.btnViewPlans.Location = New System.Drawing.Point(374, 2)
+        Me.btnViewPlans.BackgroundImageLayout = ImageLayout.Stretch
+        Me.btnViewPlans.Image = CType(resources.GetObject("btnViewPlans.Image"), Image)
+        Me.btnViewPlans.Location = New Point(374, 2)
         Me.btnViewPlans.Name = "btnViewPlans"
-        Me.btnViewPlans.Size = New System.Drawing.Size(30, 32)
+        Me.btnViewPlans.Size = New Size(30, 32)
         Me.btnViewPlans.TabIndex = 2
-        Me.btnViewPlans.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
-        Me.btnViewPlans.UseVisualStyleBackColor = true
+        Me.btnViewPlans.TextImageRelation = TextImageRelation.ImageAboveText
+        Me.btnViewPlans.UseVisualStyleBackColor = True
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
-        Me.Label2.Location = New System.Drawing.Point(12, 43)
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New Point(12, 43)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 13)
+        Me.Label2.Size = New Size(82, 13)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Operation Date:"
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
-        Me.Label3.Location = New System.Drawing.Point(12, 69)
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New Point(12, 69)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(105, 13)
+        Me.Label3.Size = New Size(105, 13)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Operation Due Date:"
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
-        Me.Label4.Location = New System.Drawing.Point(12, 94)
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New Point(12, 94)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(189, 13)
+        Me.Label4.Size = New Size(189, 13)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Rounds Fired since Last Maintenance:"
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
-        Me.Label5.Location = New System.Drawing.Point(12, 143)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New Point(12, 143)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(38, 13)
+        Me.Label5.Size = New Size(38, 13)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Notes:"
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.AccessibleDescription = "Start date of Maintenance Operations"
-        Me.DateTimePicker1.AccessibleName = "StartDate"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(204, 39)
+        Me.DateTimePicker1.Format = DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New Point(204, 39)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(163, 20)
+        Me.DateTimePicker1.Size = New Size(163, 20)
         Me.DateTimePicker1.TabIndex = 3
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.AccessibleDescription = "End Date of Maintenance Operations"
-        Me.DateTimePicker2.AccessibleName = "EndDate"
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(204, 65)
+        Me.DateTimePicker2.Format = DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New Point(204, 65)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(163, 20)
+        Me.DateTimePicker2.Size = New Size(163, 20)
         Me.DateTimePicker2.TabIndex = 4
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.AccessibleDescription = "Total Number of Rounds Fired"
-        Me.NumericUpDown1.AccessibleName = "TotalRoundsFired"
-        Me.NumericUpDown1.Location = New System.Drawing.Point(204, 92)
+        Me.NumericUpDown1.Location = New Point(204, 92)
         Me.NumericUpDown1.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(163, 20)
+        Me.NumericUpDown1.Size = New Size(163, 20)
         Me.NumericUpDown1.TabIndex = 5
         '
         'txtNotes
         '
-        Me.txtNotes.AccessibleDescription = "Notes about range session"
-        Me.txtNotes.AccessibleName = "txtRangeSessionNotes"
-        Me.txtNotes.Location = New System.Drawing.Point(12, 159)
-        Me.txtNotes.Multiline = true
+        Me.txtNotes.Location = New Point(12, 159)
+        Me.txtNotes.Multiline = True
         Me.txtNotes.Name = "txtNotes"
-        Me.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNotes.Size = New System.Drawing.Size(392, 98)
+        Me.txtNotes.ScrollBars = ScrollBars.Vertical
+        Me.txtNotes.Size = New Size(392, 98)
         Me.txtNotes.TabIndex = 8
         '
         'btnAdd
         '
-        Me.btnAdd.AccessibleDescription = "Add Maintenance Details"
-        Me.btnAdd.AccessibleName = "AddMaintenanceDetails"
-        Me.btnAdd.Location = New System.Drawing.Point(64, 297)
+        Me.btnAdd.Location = New Point(64, 297)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 23)
+        Me.btnAdd.Size = New Size(75, 23)
         Me.btnAdd.TabIndex = 10
         Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = true
+        Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnCancel
         '
-        Me.btnCancel.AccessibleDescription = "Exit without Saving"
-        Me.btnCancel.AccessibleName = "btnCancelAdd"
-        Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(251, 297)
+        Me.btnCancel.DialogResult = DialogResult.Cancel
+        Me.btnCancel.Location = New Point(251, 297)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New Size(75, 23)
         Me.btnCancel.TabIndex = 11
         Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = true
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.AccessibleDescription = "Select Rounds from Inventory"
-        Me.Button1.AccessibleName = "SelectAmoFromInventory"
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"),System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(373, 84)
+        Me.Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), Image)
+        Me.Button1.Location = New Point(373, 84)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(29, 33)
+        Me.Button1.Size = New Size(29, 33)
         Me.Button1.TabIndex = 6
-        Me.Button1.UseVisualStyleBackColor = true
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'HelpProvider1
         '
@@ -222,54 +204,48 @@ Partial Class frmAddMaintance
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
-        Me.Label6.Location = New System.Drawing.Point(12, 271)
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New Point(12, 271)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(67, 13)
+        Me.Label6.Size = New Size(67, 13)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Ammo Used:"
         '
         'txtAmmoUsed
         '
-        Me.txtAmmoUsed.AccessibleDescription = "Note about the Ammo used for this session"
-        Me.txtAmmoUsed.AccessibleName = "txtAmmoUsed"
-        Me.txtAmmoUsed.Location = New System.Drawing.Point(86, 268)
+        Me.txtAmmoUsed.Location = New Point(86, 268)
         Me.txtAmmoUsed.Name = "txtAmmoUsed"
-        Me.txtAmmoUsed.Size = New System.Drawing.Size(316, 20)
+        Me.txtAmmoUsed.Size = New Size(316, 20)
         Me.txtAmmoUsed.TabIndex = 9
         '
         'Label7
         '
-        Me.Label7.AutoSize = true
-        Me.Label7.Location = New System.Drawing.Point(12, 121)
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New Point(12, 121)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(117, 13)
+        Me.Label7.Size = New Size(117, 13)
         Me.Label7.TabIndex = 12
         Me.Label7.Text = "Count in Final Average:"
         '
         'chkInAVG
         '
-        Me.chkInAVG.AccessibleDescription = "Checkbox to Count in Average total in summary"
-        Me.chkInAVG.AccessibleName = "chkCountInFinalAverage"
-        Me.chkInAVG.AutoSize = true
-        Me.chkInAVG.Checked = true
-        Me.chkInAVG.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkInAVG.Location = New System.Drawing.Point(204, 116)
+        Me.chkInAVG.AutoSize = True
+        Me.chkInAVG.Checked = True
+        Me.chkInAVG.CheckState = CheckState.Checked
+        Me.chkInAVG.Location = New Point(204, 116)
         Me.chkInAVG.Name = "chkInAVG"
-        Me.chkInAVG.Size = New System.Drawing.Size(44, 17)
+        Me.chkInAVG.Size = New Size(44, 17)
         Me.chkInAVG.TabIndex = 7
         Me.chkInAVG.Text = "Yes"
-        Me.chkInAVG.UseVisualStyleBackColor = true
+        Me.chkInAVG.UseVisualStyleBackColor = True
         '
         'frmAddMaintance
         '
         Me.AcceptButton = Me.btnAdd
-        Me.AccessibleDescription = "Add Maintenance Details Window"
-        Me.AccessibleName = "AddMaintenanceDetailsWindow"
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(415, 331)
+        Me.ClientSize = New Size(415, 331)
         Me.Controls.Add(Me.chkInAVG)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.txtAmmoUsed)
@@ -289,21 +265,21 @@ Partial Class frmAddMaintance
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label1)
         Me.HelpProvider1.SetHelpKeyword(Me, "Adding Maintenance Details")
-        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.KeywordIndex)
+        Me.HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         Me.HelpProvider1.SetHelpString(Me, "Adding Maintenance Details")
-        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.MaximizeBox = false
-        Me.MinimizeBox = false
-        Me.Name = "frmAddMaintance"
-        Me.HelpProvider1.SetShowHelp(Me, true)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "FrmAddMaintance"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Add Maintenance Details"
-        CType(Me.MaintancePlansBindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.NumericUpDown1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        CType(Me.MaintancePlansBindingSource, ISupportInitialize).EndInit()
+        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown1, ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents Label1 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents MGCDataSet As MGCDataSet

@@ -41,8 +41,7 @@ Partial Class EditGunClassications
         '
         'DataGridView1
         '
-        Me.DataGridView1.AccessibleDescription = "Gun Classification List"
-        Me.DataGridView1.AccessibleName = "ClassificationList"
+        Me.DataGridView1.AccessibleName = "DataGridView1"
         Me.DataGridView1.AllowUserToAddRows = false
         Me.DataGridView1.AutoGenerateColumns = false
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize

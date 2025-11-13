@@ -25,7 +25,7 @@ Partial Class frmEditGunSmithLog
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditGunSmithLog))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEditGunSmithLog))
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.txtNotes = New System.Windows.Forms.TextBox()
@@ -43,7 +43,6 @@ Partial Class frmEditGunSmithLog
         '
         'btnCancel
         '
-        Me.btnCancel.AccessibleDescription = "Exit for without Saving"
         Me.btnCancel.AccessibleName = "btnCancel"
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(148, 283)
@@ -55,7 +54,6 @@ Partial Class frmEditGunSmithLog
         '
         'btnUpdate
         '
-        Me.btnUpdate.AccessibleDescription = "Save changes to Database"
         Me.btnUpdate.AccessibleName = "btnUpdate"
         Me.btnUpdate.Location = New System.Drawing.Point(28, 283)
         Me.btnUpdate.Name = "btnUpdate"
@@ -66,7 +64,6 @@ Partial Class frmEditGunSmithLog
         '
         'txtNotes
         '
-        Me.txtNotes.AccessibleDescription = "NOtes"
         Me.txtNotes.AccessibleName = "txtNotes"
         Me.txtNotes.Location = New System.Drawing.Point(15, 201)
         Me.txtNotes.Multiline = true
@@ -77,7 +74,6 @@ Partial Class frmEditGunSmithLog
         '
         'txtOD
         '
-        Me.txtOD.AccessibleDescription = "Operation Details"
         Me.txtOD.AccessibleName = "txtOD"
         Me.txtOD.Location = New System.Drawing.Point(15, 106)
         Me.txtOD.Multiline = true
@@ -88,7 +84,6 @@ Partial Class frmEditGunSmithLog
         '
         'DateTimePicker2
         '
-        Me.DateTimePicker2.AccessibleDescription = "Return Date"
         Me.DateTimePicker2.AccessibleName = "DateTimePicker2"
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker2.Location = New System.Drawing.Point(108, 60)
@@ -98,7 +93,6 @@ Partial Class frmEditGunSmithLog
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.AccessibleDescription = "Ship Date"
         Me.DateTimePicker1.AccessibleName = "DateTimePicker1"
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker1.Location = New System.Drawing.Point(108, 34)
@@ -108,7 +102,6 @@ Partial Class frmEditGunSmithLog
         '
         'txtGS
         '
-        Me.txtGS.AccessibleDescription = "Gun Smith Name"
         Me.txtGS.AccessibleName = "txtGS"
         Me.txtGS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtGS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -168,8 +161,6 @@ Partial Class frmEditGunSmithLog
         '
         'frmEditGunSmithLog
         '
-        Me.AccessibleDescription = "Edit the Gun Smith Log"
-        Me.AccessibleName = "frmEditGunSmithLog"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(268, 329)
@@ -188,7 +179,7 @@ Partial Class frmEditGunSmithLog
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "frmEditGunSmithLog"
+        Me.Name = "FrmEditGunSmithLog"
         Me.Text = "Edit the Gun Smith Log"
         Me.ResumeLayout(false)
         Me.PerformLayout

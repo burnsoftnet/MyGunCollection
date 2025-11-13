@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BurnSoft.Security.RegularEncryption</name>
+    </assembly>
+    <members>
+        <member name="T:BurnSoft.Security.RegularEncryption.DES.Do">
+            <summary>
+            Perform/Do a DES Encryption or Decryption.
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.DES.Do.Encrypt(System.String,System.String)">
+            <summary>
+            Encrypts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="key">The key.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.DES.Do.Decrypt(System.String,System.String)">
+            <summary>
+            Decrypts the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="key">The key.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:BurnSoft.Security.RegularEncryption.MD5.Do">
+            <summary>
+            Perform a MD5 Encryption
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.MD5.Do.Encrypt(System.String)">
+            <summary>
+            Pass a string to Encrypt using MD5
+            </summary>
+            <param name="cleanString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BurnSoft.Security.RegularEncryption.SHA.One">
+            <summary>
+            Perform a SHA1 Encryption. decryption 
+            </summary>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.SHA.One.Encrypt(System.String)">
+            <summary>
+            Pass string to Encrypt using SHA
+            </summary>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.SHA.One.EncryptURL(System.String,System.String)">
+            <summary>
+            Encrypt the details of a url using SHA
+            </summary>
+            <param name="strUrl"></param>
+            <param name="strSessionID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.SHA.One.Decrypt(System.String)">
+            <summary>
+            Pass string to decrypt Using SHA
+            </summary>
+            <param name="Data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BurnSoft.Security.RegularEncryption.SHA.One.DecryptURL(System.String)">
+            <summary>
+            Decrypt a URL using SHA
+            </summary>
+            <param name="strUrl"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
