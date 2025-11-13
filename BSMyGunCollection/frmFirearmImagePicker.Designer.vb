@@ -25,73 +25,81 @@ Partial Class frmFirearmImagePicker
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(FrmFirearmImagePicker))
-        Me.btnLeft = New Button()
-        Me.btnRight = New Button()
-        Me.txtName = New TextBox()
-        Me.PictureBox1 = New PictureBox()
-        CType(Me.PictureBox1, ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFirearmImagePicker))
+        Me.btnLeft = New System.Windows.Forms.Button()
+        Me.btnRight = New System.Windows.Forms.Button()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'btnLeft
         '
-        Me.btnLeft.Font = New Font("Microsoft Sans Serif", 10.0!, FontStyle.Bold, GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLeft.Location = New Point(-7, 0)
+        Me.btnLeft.AccessibleDescription = "Scroll Left"
+        Me.btnLeft.AccessibleName = "btnLeft"
+        Me.btnLeft.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnLeft.Location = New System.Drawing.Point(-7, 0)
         Me.btnLeft.Name = "btnLeft"
-        Me.btnLeft.Size = New Size(31, 448)
+        Me.btnLeft.Size = New System.Drawing.Size(31, 448)
         Me.btnLeft.TabIndex = 1
         Me.btnLeft.Text = "<"
-        Me.btnLeft.UseVisualStyleBackColor = True
+        Me.btnLeft.UseVisualStyleBackColor = true
         '
         'btnRight
         '
-        Me.btnRight.Font = New Font("Microsoft Sans Serif", 10.0!, FontStyle.Bold, GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRight.Location = New Point(758, 0)
+        Me.btnRight.AccessibleDescription = "Scroll Right"
+        Me.btnRight.AccessibleName = "btnRight"
+        Me.btnRight.Font = New System.Drawing.Font("Microsoft Sans Serif", 10!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.btnRight.Location = New System.Drawing.Point(758, 0)
         Me.btnRight.Name = "btnRight"
-        Me.btnRight.Size = New Size(31, 448)
+        Me.btnRight.Size = New System.Drawing.Size(31, 448)
         Me.btnRight.TabIndex = 2
         Me.btnRight.Text = ">"
-        Me.btnRight.UseVisualStyleBackColor = True
+        Me.btnRight.UseVisualStyleBackColor = true
         '
         'txtName
         '
-        Me.txtName.BorderStyle = BorderStyle.FixedSingle
-        Me.txtName.Location = New Point(46, 5)
+        Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtName.Location = New System.Drawing.Point(46, 5)
         Me.txtName.Name = "txtName"
-        Me.txtName.ReadOnly = True
-        Me.txtName.Size = New Size(693, 20)
+        Me.txtName.ReadOnly = true
+        Me.txtName.Size = New System.Drawing.Size(693, 20)
         Me.txtName.TabIndex = 3
-        Me.txtName.TextAlign = HorizontalAlignment.Center
+        Me.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New Point(21, 31)
+        Me.PictureBox1.AccessibleDescription = "picture"
+        Me.PictureBox1.AccessibleName = "PictureBox1"
+        Me.PictureBox1.Location = New System.Drawing.Point(21, 31)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New Size(739, 417)
-        Me.PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.Size = New System.Drawing.Size(739, 417)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 4
-        Me.PictureBox1.TabStop = False
+        Me.PictureBox1.TabStop = false
         '
         'frmFirearmImagePicker
         '
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(786, 448)
+        Me.AccessibleDescription = "Firearm Chooser"
+        Me.AccessibleName = "frmFirearmImagePicker"
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(786, 448)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.btnRight)
         Me.Controls.Add(Me.btnLeft)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
-        Me.MaximizeBox = False
-        Me.MinimizeBox = False
-        Me.Name = "FrmFirearmImagePicker"
-        Me.StartPosition = FormStartPosition.Manual
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.MaximizeBox = false
+        Me.MinimizeBox = false
+        Me.Name = "frmFirearmImagePicker"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Firearm Chooser"
-        CType(Me.PictureBox1, ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents btnLeft As Button
     Friend WithEvents btnRight As Button
     Friend WithEvents txtName As TextBox

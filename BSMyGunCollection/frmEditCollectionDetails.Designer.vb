@@ -27,7 +27,7 @@ Partial Class frmEditCollectionDetails
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEditCollectionDetails))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEditCollectionDetails))
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.txtBarHei = New System.Windows.Forms.TextBox()
@@ -93,6 +93,10 @@ Partial Class frmEditCollectionDetails
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.chkNonLethal = New System.Windows.Forms.CheckBox()
+        Me.Label63 = New System.Windows.Forms.Label()
+        Me.chkIsCompeition = New System.Windows.Forms.CheckBox()
+        Me.Label62 = New System.Windows.Forms.Label()
         Me.txtClassIIIOwner = New System.Windows.Forms.TextBox()
         Me.Label61 = New System.Windows.Forms.Label()
         Me.chkClassIII = New System.Windows.Forms.CheckBox()
@@ -128,10 +132,6 @@ Partial Class frmEditCollectionDetails
         Me.txtAddNotes = New System.Windows.Forms.TextBox()
         Me.Gun_Collection_ConditionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ConditionTableAdapter()
         Me.Gun_Collection_ClassificationTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ClassificationTableAdapter()
-        Me.chkNonLethal = New System.Windows.Forms.CheckBox()
-        Me.Label63 = New System.Windows.Forms.Label()
-        Me.chkIsCompeition = New System.Windows.Forms.CheckBox()
-        Me.Label62 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout
         Me.TabPage1.SuspendLayout
         CType(Me.GunCollectionConditionBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
@@ -144,6 +144,8 @@ Partial Class frmEditCollectionDetails
         '
         'btnCancel
         '
+        Me.btnCancel.AccessibleDescription = "Exut without Saving"
+        Me.btnCancel.AccessibleName = "btnCancel"
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(424, 493)
         Me.btnCancel.Name = "btnCancel"
@@ -154,6 +156,8 @@ Partial Class frmEditCollectionDetails
         '
         'btnUpdate
         '
+        Me.btnUpdate.AccessibleDescription = "Save Changes to Database"
+        Me.btnUpdate.AccessibleName = "btnUpdate"
         Me.btnUpdate.Location = New System.Drawing.Point(55, 493)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(173, 23)
@@ -219,6 +223,8 @@ Partial Class frmEditCollectionDetails
         '
         'TabPage1
         '
+        Me.TabPage1.AccessibleDescription = "Details"
+        Me.TabPage1.AccessibleName = "TabPage1"
         Me.TabPage1.Controls.Add(Me.Label39)
         Me.TabPage1.Controls.Add(Me.txtCaliber3)
         Me.TabPage1.Controls.Add(Me.txtChoke)
@@ -291,6 +297,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtCaliber3
         '
+        Me.txtCaliber3.AccessibleDescription = "Caliber #3"
+        Me.txtCaliber3.AccessibleName = "txtCaliber3"
         Me.txtCaliber3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCaliber3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCaliber3.Location = New System.Drawing.Point(116, 316)
@@ -300,6 +308,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtChoke
         '
+        Me.txtChoke.AccessibleDescription = "Current Choke"
+        Me.txtChoke.AccessibleName = "txtChoke"
         Me.txtChoke.Location = New System.Drawing.Point(440, 342)
         Me.txtChoke.Name = "txtChoke"
         Me.txtChoke.Size = New System.Drawing.Size(156, 20)
@@ -318,6 +328,8 @@ Partial Class frmEditCollectionDetails
         '
         'dtpSold
         '
+        Me.dtpSold.AccessibleDescription = "Date of Sale"
+        Me.dtpSold.AccessibleName = "dtpSold"
         Me.dtpSold.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpSold.Location = New System.Drawing.Point(116, 344)
         Me.dtpSold.Name = "dtpSold"
@@ -337,6 +349,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtImporter
         '
+        Me.txtImporter.AccessibleDescription = "Importer"
+        Me.txtImporter.AccessibleName = "txtImporter"
         Me.txtImporter.AllowDrop = true
         Me.txtImporter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtImporter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -356,6 +370,8 @@ Partial Class frmEditCollectionDetails
         '
         'dtpPurchased
         '
+        Me.dtpPurchased.AccessibleDescription = "Date Purchased"
+        Me.dtpPurchased.AccessibleName = "dtpPurchased"
         Me.dtpPurchased.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpPurchased.Location = New System.Drawing.Point(116, 264)
         Me.dtpPurchased.Name = "dtpPurchased"
@@ -374,6 +390,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtPetLoads
         '
+        Me.txtPetLoads.AccessibleDescription = "Caliber #2"
+        Me.txtPetLoads.AccessibleName = "txtPetLoads"
         Me.txtPetLoads.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPetLoads.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPetLoads.Location = New System.Drawing.Point(116, 291)
@@ -402,6 +420,8 @@ Partial Class frmEditCollectionDetails
         '
         'cmdCondition
         '
+        Me.cmdCondition.AccessibleDescription = "Gun Condition"
+        Me.cmdCondition.AccessibleName = "cmdCondition"
         Me.cmdCondition.DataSource = Me.GunCollectionConditionBindingSource
         Me.cmdCondition.DisplayMember = "Name"
         Me.cmdCondition.FormattingEnabled = true
@@ -423,6 +443,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtPurPrice
         '
+        Me.txtPurPrice.AccessibleDescription = "Purchase Price"
+        Me.txtPurPrice.AccessibleName = "txtPurPrice"
         Me.txtPurPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurPrice.Location = New System.Drawing.Point(116, 238)
@@ -432,6 +454,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtPurchasedFrom
         '
+        Me.txtPurchasedFrom.AccessibleDescription = "Purchase From"
+        Me.txtPurchasedFrom.AccessibleName = "txtPurchasedFrom"
         Me.txtPurchasedFrom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPurchasedFrom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPurchasedFrom.Location = New System.Drawing.Point(116, 212)
@@ -441,6 +465,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtStorage
         '
+        Me.txtStorage.AccessibleDescription = "Storage Location"
+        Me.txtStorage.AccessibleName = "txtStorage"
         Me.txtStorage.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtStorage.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtStorage.Location = New System.Drawing.Point(440, 186)
@@ -450,6 +476,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtSights
         '
+        Me.txtSights.AccessibleDescription = "Sights"
+        Me.txtSights.AccessibleName = "txtSights"
         Me.txtSights.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSights.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSights.Location = New System.Drawing.Point(440, 160)
@@ -459,6 +487,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtFeed
         '
+        Me.txtFeed.AccessibleDescription = "Feed System/Capacity"
+        Me.txtFeed.AccessibleName = "txtFeed"
         Me.txtFeed.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtFeed.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFeed.Location = New System.Drawing.Point(440, 134)
@@ -468,6 +498,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtAction
         '
+        Me.txtAction.AccessibleDescription = "Action"
+        Me.txtAction.AccessibleName = "txtAction"
         Me.txtAction.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAction.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAction.Location = New System.Drawing.Point(440, 108)
@@ -477,6 +509,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtProduced
         '
+        Me.txtProduced.AccessibleDescription = "Manufactured Date"
+        Me.txtProduced.AccessibleName = "txtProduced"
         Me.txtProduced.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtProduced.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtProduced.Location = New System.Drawing.Point(440, 81)
@@ -486,6 +520,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtGripType
         '
+        Me.txtGripType.AccessibleDescription = "Stock/Grip Type"
+        Me.txtGripType.AccessibleName = "txtGripType"
         Me.txtGripType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtGripType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtGripType.Location = New System.Drawing.Point(440, 55)
@@ -495,6 +531,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtCustCatID
         '
+        Me.txtCustCatID.AccessibleDescription = "Custom Catalog No."
+        Me.txtCustCatID.AccessibleName = "txtCustCatID"
         Me.txtCustCatID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCustCatID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCustCatID.Location = New System.Drawing.Point(440, 29)
@@ -504,6 +542,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtBarLen
         '
+        Me.txtBarLen.AccessibleDescription = "Barrel Length"
+        Me.txtBarLen.AccessibleName = "txtBarLen"
         Me.txtBarLen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtBarLen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtBarLen.Location = New System.Drawing.Point(440, 316)
@@ -513,6 +553,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtLength
         '
+        Me.txtLength.AccessibleDescription = "Overall Length"
+        Me.txtLength.AccessibleName = "txtLength"
         Me.txtLength.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtLength.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtLength.Location = New System.Drawing.Point(440, 291)
@@ -522,6 +564,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtWeight
         '
+        Me.txtWeight.AccessibleDescription = "Weight"
+        Me.txtWeight.AccessibleName = "txtWeight"
         Me.txtWeight.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtWeight.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtWeight.Location = New System.Drawing.Point(440, 264)
@@ -531,6 +575,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtNationality
         '
+        Me.txtNationality.AccessibleDescription = "Country of Origin"
+        Me.txtNationality.AccessibleName = "txtNationality"
         Me.txtNationality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtNationality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtNationality.Location = New System.Drawing.Point(440, 239)
@@ -540,6 +586,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtFinish
         '
+        Me.txtFinish.AccessibleDescription = "Finish"
+        Me.txtFinish.AccessibleName = "txtFinish"
         Me.txtFinish.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtFinish.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtFinish.Location = New System.Drawing.Point(440, 212)
@@ -639,6 +687,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtCal
         '
+        Me.txtCal.AccessibleDescription = "Caliber Or Gauge"
+        Me.txtCal.AccessibleName = "txtCal"
         Me.txtCal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtCal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtCal.Location = New System.Drawing.Point(116, 159)
@@ -702,6 +752,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtType
         '
+        Me.txtType.AccessibleDescription = "Type"
+        Me.txtType.AccessibleName = "txtType"
         Me.txtType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtType.Location = New System.Drawing.Point(116, 133)
@@ -711,6 +763,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtSerial
         '
+        Me.txtSerial.AccessibleDescription = "Serial Number"
+        Me.txtSerial.AccessibleName = "txtSerial"
         Me.txtSerial.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtSerial.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtSerial.Location = New System.Drawing.Point(116, 107)
@@ -720,6 +774,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtModel
         '
+        Me.txtModel.AccessibleDescription = "Model"
+        Me.txtModel.AccessibleName = "txtModel"
         Me.txtModel.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtModel.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtModel.Location = New System.Drawing.Point(116, 81)
@@ -729,6 +785,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtManu
         '
+        Me.txtManu.AccessibleDescription = "Manufacturer"
+        Me.txtManu.AccessibleName = "txtManu"
         Me.txtManu.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtManu.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtManu.Location = New System.Drawing.Point(116, 30)
@@ -774,6 +832,8 @@ Partial Class frmEditCollectionDetails
         '
         'TabPage4
         '
+        Me.TabPage4.AccessibleDescription = "Collector Details"
+        Me.TabPage4.AccessibleName = "TabPage4"
         Me.TabPage4.Controls.Add(Me.chkNonLethal)
         Me.TabPage4.Controls.Add(Me.Label63)
         Me.TabPage4.Controls.Add(Me.chkIsCompeition)
@@ -814,8 +874,52 @@ Partial Class frmEditCollectionDetails
         Me.TabPage4.Text = "Collector Details"
         Me.TabPage4.UseVisualStyleBackColor = true
         '
+        'chkNonLethal
+        '
+        Me.chkNonLethal.AccessibleDescription = "Non-Lethal Device?"
+        Me.chkNonLethal.AccessibleName = "chkNonLethal"
+        Me.chkNonLethal.AutoSize = true
+        Me.chkNonLethal.Location = New System.Drawing.Point(110, 257)
+        Me.chkNonLethal.Name = "chkNonLethal"
+        Me.chkNonLethal.Size = New System.Drawing.Size(44, 17)
+        Me.chkNonLethal.TabIndex = 243
+        Me.chkNonLethal.Text = "Yes"
+        Me.chkNonLethal.UseVisualStyleBackColor = true
+        '
+        'Label63
+        '
+        Me.Label63.AutoSize = true
+        Me.Label63.Location = New System.Drawing.Point(10, 258)
+        Me.Label63.Name = "Label63"
+        Me.Label63.Size = New System.Drawing.Size(102, 13)
+        Me.Label63.TabIndex = 242
+        Me.Label63.Text = "Non-Lethal Device?"
+        '
+        'chkIsCompeition
+        '
+        Me.chkIsCompeition.AccessibleDescription = "Competition Gun?"
+        Me.chkIsCompeition.AccessibleName = "chkIsCompeition"
+        Me.chkIsCompeition.AutoSize = true
+        Me.chkIsCompeition.Location = New System.Drawing.Point(110, 232)
+        Me.chkIsCompeition.Name = "chkIsCompeition"
+        Me.chkIsCompeition.Size = New System.Drawing.Size(44, 17)
+        Me.chkIsCompeition.TabIndex = 241
+        Me.chkIsCompeition.Text = "Yes"
+        Me.chkIsCompeition.UseVisualStyleBackColor = true
+        '
+        'Label62
+        '
+        Me.Label62.AutoSize = true
+        Me.Label62.Location = New System.Drawing.Point(10, 233)
+        Me.Label62.Name = "Label62"
+        Me.Label62.Size = New System.Drawing.Size(91, 13)
+        Me.Label62.TabIndex = 240
+        Me.Label62.Text = "Competition Gun?"
+        '
         'txtClassIIIOwner
         '
+        Me.txtClassIIIOwner.AccessibleDescription = "Class 3 Owner Name"
+        Me.txtClassIIIOwner.AccessibleName = "txtClassIIIOwner"
         Me.txtClassIIIOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtClassIIIOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtClassIIIOwner.Location = New System.Drawing.Point(110, 206)
@@ -834,6 +938,8 @@ Partial Class frmEditCollectionDetails
         '
         'chkClassIII
         '
+        Me.chkClassIII.AccessibleDescription = "Class III Item?"
+        Me.chkClassIII.AccessibleName = "chkClassIII"
         Me.chkClassIII.AutoSize = true
         Me.chkClassIII.Location = New System.Drawing.Point(109, 185)
         Me.chkClassIII.Name = "chkClassIII"
@@ -853,6 +959,8 @@ Partial Class frmEditCollectionDetails
         '
         'cmbClassification
         '
+        Me.cmbClassification.AccessibleDescription = "Classification:"
+        Me.cmbClassification.AccessibleName = "cmbClassification"
         Me.cmbClassification.AllowDrop = true
         Me.cmbClassification.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.cmbClassification.DataSource = Me.GunCollectionClassificationBindingSource
@@ -871,6 +979,8 @@ Partial Class frmEditCollectionDetails
         '
         'dtpDateofCR
         '
+        Me.dtpDateofCR.AccessibleDescription = "Date of C && R:"
+        Me.dtpDateofCR.AccessibleName = "dtpDateofCR"
         Me.dtpDateofCR.Checked = false
         Me.dtpDateofCR.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpDateofCR.Location = New System.Drawing.Point(429, 99)
@@ -890,6 +1000,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtTriggerPull
         '
+        Me.txtTriggerPull.AccessibleDescription = "Trigger pull in pounds"
+        Me.txtTriggerPull.AccessibleName = "txtTriggerPull"
         Me.txtTriggerPull.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtTriggerPull.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTriggerPull.Location = New System.Drawing.Point(108, 158)
@@ -899,6 +1011,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtTwistOfRate
         '
+        Me.txtTwistOfRate.AccessibleDescription = "Twist of Rate"
+        Me.txtTwistOfRate.AccessibleName = "txtTwistOfRate"
         Me.txtTwistOfRate.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtTwistOfRate.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtTwistOfRate.Location = New System.Drawing.Point(108, 129)
@@ -926,6 +1040,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtInsVal
         '
+        Me.txtInsVal.AccessibleDescription = "Insured Value"
+        Me.txtInsVal.AccessibleName = "txtInsVal"
         Me.txtInsVal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtInsVal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtInsVal.Location = New System.Drawing.Point(107, 99)
@@ -944,6 +1060,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtAppBy
         '
+        Me.txtAppBy.AccessibleDescription = "Appraised By"
+        Me.txtAppBy.AccessibleName = "txtAppBy"
         Me.txtAppBy.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppBy.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppBy.Location = New System.Drawing.Point(107, 73)
@@ -953,6 +1071,8 @@ Partial Class frmEditCollectionDetails
         '
         'dtpAppDate
         '
+        Me.dtpAppDate.AccessibleDescription = "Appraisal Date"
+        Me.dtpAppDate.AccessibleName = "dtpAppDate"
         Me.dtpAppDate.Checked = false
         Me.dtpAppDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpAppDate.Location = New System.Drawing.Point(107, 47)
@@ -963,6 +1083,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtAppValue
         '
+        Me.txtAppValue.AccessibleDescription = "Appraised Value"
+        Me.txtAppValue.AccessibleName = "txtAppValue"
         Me.txtAppValue.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAppValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtAppValue.Location = New System.Drawing.Point(107, 21)
@@ -1029,6 +1151,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtPOI
         '
+        Me.txtPOI.AccessibleDescription = "Place Of Import:"
+        Me.txtPOI.AccessibleName = "txtPOI"
         Me.txtPOI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPOI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.txtPOI.Location = New System.Drawing.Point(429, 158)
@@ -1038,6 +1162,8 @@ Partial Class frmEditCollectionDetails
         '
         'dtpReManDT
         '
+        Me.dtpReManDT.AccessibleDescription = "Remanufacture Date:"
+        Me.dtpReManDT.AccessibleName = "dtpReManDT"
         Me.dtpReManDT.Checked = false
         Me.dtpReManDT.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpReManDT.Location = New System.Drawing.Point(429, 129)
@@ -1066,6 +1192,8 @@ Partial Class frmEditCollectionDetails
         '
         'chkBoxCR
         '
+        Me.chkBoxCR.AccessibleDescription = "Is C && R Qualified"
+        Me.chkBoxCR.AccessibleName = "chkBoxCR"
         Me.chkBoxCR.AutoSize = true
         Me.chkBoxCR.Location = New System.Drawing.Point(429, 24)
         Me.chkBoxCR.Name = "chkBoxCR"
@@ -1085,6 +1213,8 @@ Partial Class frmEditCollectionDetails
         '
         'TabPage2
         '
+        Me.TabPage2.AccessibleDescription = "Condition Comments"
+        Me.TabPage2.AccessibleName = "TabPage2"
         Me.TabPage2.Controls.Add(Me.txtConCom)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
@@ -1096,6 +1226,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtConCom
         '
+        Me.txtConCom.AccessibleDescription = "Condition Notes Textbox"
+        Me.txtConCom.AccessibleName = "txtConCom"
         Me.txtConCom.Location = New System.Drawing.Point(3, 5)
         Me.txtConCom.Multiline = true
         Me.txtConCom.Name = "txtConCom"
@@ -1105,6 +1237,8 @@ Partial Class frmEditCollectionDetails
         '
         'TabPage3
         '
+        Me.TabPage3.AccessibleDescription = "Additional Notes"
+        Me.TabPage3.AccessibleName = "TabPage3"
         Me.TabPage3.Controls.Add(Me.txtAddNotes)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
@@ -1115,6 +1249,8 @@ Partial Class frmEditCollectionDetails
         '
         'txtAddNotes
         '
+        Me.txtAddNotes.AccessibleDescription = "Additional Notes Textbox"
+        Me.txtAddNotes.AccessibleName = "txtAddNotes"
         Me.txtAddNotes.Location = New System.Drawing.Point(0, 5)
         Me.txtAddNotes.Multiline = true
         Me.txtAddNotes.Name = "txtAddNotes"
@@ -1129,46 +1265,6 @@ Partial Class frmEditCollectionDetails
         'Gun_Collection_ClassificationTableAdapter
         '
         Me.Gun_Collection_ClassificationTableAdapter.ClearBeforeFill = true
-        '
-        'chkNonLethal
-        '
-        Me.chkNonLethal.AccessibleName = "chkNonLethal"
-        Me.chkNonLethal.AutoSize = true
-        Me.chkNonLethal.Location = New System.Drawing.Point(110, 257)
-        Me.chkNonLethal.Name = "chkNonLethal"
-        Me.chkNonLethal.Size = New System.Drawing.Size(44, 17)
-        Me.chkNonLethal.TabIndex = 243
-        Me.chkNonLethal.Text = "Yes"
-        Me.chkNonLethal.UseVisualStyleBackColor = true
-        '
-        'Label63
-        '
-        Me.Label63.AutoSize = true
-        Me.Label63.Location = New System.Drawing.Point(10, 258)
-        Me.Label63.Name = "Label63"
-        Me.Label63.Size = New System.Drawing.Size(102, 13)
-        Me.Label63.TabIndex = 242
-        Me.Label63.Text = "Non-Lethal Device?"
-        '
-        'chkIsCompeition
-        '
-        Me.chkIsCompeition.AccessibleName = "chkIsCompeition"
-        Me.chkIsCompeition.AutoSize = true
-        Me.chkIsCompeition.Location = New System.Drawing.Point(110, 232)
-        Me.chkIsCompeition.Name = "chkIsCompeition"
-        Me.chkIsCompeition.Size = New System.Drawing.Size(44, 17)
-        Me.chkIsCompeition.TabIndex = 241
-        Me.chkIsCompeition.Text = "Yes"
-        Me.chkIsCompeition.UseVisualStyleBackColor = true
-        '
-        'Label62
-        '
-        Me.Label62.AutoSize = true
-        Me.Label62.Location = New System.Drawing.Point(10, 233)
-        Me.Label62.Name = "Label62"
-        Me.Label62.Size = New System.Drawing.Size(91, 13)
-        Me.Label62.TabIndex = 240
-        Me.Label62.Text = "Competition Gun?"
         '
         'frmEditCollectionDetails
         '
@@ -1189,7 +1285,7 @@ Partial Class frmEditCollectionDetails
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "FrmEditCollectionDetails"
+        Me.Name = "frmEditCollectionDetails"
         Me.HelpProvider1.SetShowHelp(Me, true)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Edit Firearm in my Collection"

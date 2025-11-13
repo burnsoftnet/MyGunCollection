@@ -68,14 +68,14 @@ Public Class frmEditCollectionDetails
                 txtTriggerPull.Text = o.TriggerPullInPounds
                 txtCaliber3.Text = o.Caliber3
                 cmbClassification.Text = o.Classification
-                If o.DateOfCAndR.Length > 0 Then
+                chkBoxCR.Checked = o.IsCAndR
+                If o.IsCAndR Then
                     dtpDateofCR.Checked = True
                     dtpDateofCR.Value = o.DateOfCAndR
                     dtpDateofCR.Enabled = True
                 End If
                 txtClassIIIOwner.Text = o.Class3Owner
                 chkClassIII.Checked = o.IsClass3Item
-                chkBoxCR.Checked = o.IsCAndR
                 If o.RemanufactureDate.Length > 0 Then
                     dtpReManDT.Checked = True
                     dtpReManDT.Value = o.RemanufactureDate
@@ -230,8 +230,8 @@ Public Class frmEditCollectionDetails
             If Len(Trim(strCustCatId)) > 0 Then
                 If UseNumberCatOnly Then
                     custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,Convert.ToInt32(strCustCatId), _errOut)
-                Else 
-                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIDExists(DatabasePath,strCustCatId, _errOut)
+                Else
+                    custIdExists = BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogIdExists(DatabasePath, strCustCatId, _errOut, Convert.ToInt32(ItemId))
                 End If
                 If _errOut.Length > 0 Then Throw New Exception(_errOut)
             End If
@@ -261,8 +261,7 @@ Public Class frmEditCollectionDetails
             Dim sClassification As String = FluffContent(cmbClassification.Text)
             Dim sDateOfCr As String = dtpDateofCR.Value
             Dim sClassIiiOwner As String = FluffContent(txtClassIIIOwner.Text)
-            
-            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut)) : Exit Sub
+            If Not Disableuniquecustcatid Then If custIdExists Then MsgBox(BurnSoft.Applications.MGC.Firearms.MyCollection.CatalogExistsDetails(DatabasePath, strCustCatId, _errOut, Convert.ToInt32(ItemId))) : Exit Sub
 
             If Not Helpers.IsRequired(strManu, "Manufacturer", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
@@ -273,11 +272,11 @@ Public Class frmEditCollectionDetails
 
             Dim lngManId As Long = BurnSoft.Applications.MGC.Firearms.Manufacturers.GetId(DatabasePath,strManu, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath,strModel, lngManId, _errOut)
+            Dim lngModelId As Long = BurnSoft.Applications.MGC.Firearms.Models.GetId(DatabasePath, strModel, lngManId, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut)
+            Dim lngNationalityId As Long = BurnSoft.Applications.MGC.Firearms.Nationality.GetId(DatabasePath, strRegion, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath,strGripType, _errOut)
+            Dim lngGripId As Long = BurnSoft.Applications.MGC.Firearms.Grips.GetId(DatabasePath, strGripType, _errOut, AddIfNotExists:=True)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             Dim sReManDt As String = dtpReManDT.Value

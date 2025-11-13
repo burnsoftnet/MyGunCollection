@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("The BurnSoft My Gun Collection application allows you to store information about your gun collection safely and in a well-organized fashion.  It contains reports which allows you to print a hard copy of your information.  It will also allow you to store pictures of your firearm collection, and keep track of the ammunition that you have in-stock.")> 
 <Assembly: AssemblyCompany("BurnSoft")> 
 <Assembly: AssemblyProduct("BurnSoft My Gun Collection")>
-<Assembly: AssemblyCopyright("Copyright © Burnsoft. 2007 - 2023")>
+<Assembly: AssemblyCopyright("Copyright © Burnsoft. 2007 - 2025")>
 <Assembly: AssemblyTrademark("BurnSoft, www.burnsoft.net, www.burnsoft.org")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("6.9.156.7")>
-<Assembly: AssemblyFileVersion("6.9.156.7")>
+<Assembly: AssemblyVersion("7.0.4.33")>
+<Assembly: AssemblyFileVersion("7.0.4.33")>

@@ -33,9 +33,6 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnImport(verify));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
-                //TODO: Functions do not Work Try to Fix Later
-                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnExit(true));
-                //cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnRestore(true));
                 cmd.AddRange(FrmMain.Menu.FileMenu.ClickOnMain(verify));
                 return cmd;
             }

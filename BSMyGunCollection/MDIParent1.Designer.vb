@@ -69,6 +69,7 @@ Partial Class MDIParent1
         Me.ListedAppriasersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DocumentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PickerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GeneralAccessoriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickCollectionReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QuickCollectionReportWNotesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -175,8 +176,9 @@ Partial Class MDIParent1
         Me.GunCollectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
+        Me.TsBtnViewGenAccessories = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -211,7 +213,7 @@ Partial Class MDIParent1
         Me.ImportFirearmToolStripMenuItem.AccessibleName = "Import"
         Me.ImportFirearmToolStripMenuItem.Image = CType(resources.GetObject("ImportFirearmToolStripMenuItem.Image"),System.Drawing.Image)
         Me.ImportFirearmToolStripMenuItem.Name = "ImportFirearmToolStripMenuItem"
-        Me.ImportFirearmToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ImportFirearmToolStripMenuItem.Size = New System.Drawing.Size(154, 22)
         Me.ImportFirearmToolStripMenuItem.Text = "&Import Firearm"
         '
         'OpenToolStripMenuItem
@@ -438,7 +440,7 @@ Partial Class MDIParent1
         '
         Me.ViewMenu.AccessibleDescription = "ViewItems"
         Me.ViewMenu.AccessibleName = "ViewItems"
-        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.ToolStripSeparator11, Me.AmmunitionInventroyToolStripMenuItem, Me.WishlistToolStripMenuItem, Me.MaintancePlanToolStripMenuItem1, Me.ListedShopsToolStripMenuItem, Me.ListedBuyersToolStripMenuItem, Me.ListedGunsmithsToolStripMenuItem, Me.ListedAppriasersToolStripMenuItem, Me.DocumentsToolStripMenuItem, Me.PickerToolStripMenuItem})
+        Me.ViewMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolBarToolStripMenuItem, Me.StatusBarToolStripMenuItem, Me.ToolStripSeparator11, Me.AmmunitionInventroyToolStripMenuItem, Me.WishlistToolStripMenuItem, Me.MaintancePlanToolStripMenuItem1, Me.ListedShopsToolStripMenuItem, Me.ListedBuyersToolStripMenuItem, Me.ListedGunsmithsToolStripMenuItem, Me.ListedAppriasersToolStripMenuItem, Me.DocumentsToolStripMenuItem, Me.PickerToolStripMenuItem, Me.GeneralAccessoriesToolStripMenuItem})
         Me.ViewMenu.Name = "ViewMenu"
         Me.ViewMenu.Size = New System.Drawing.Size(44, 20)
         Me.ViewMenu.Text = "&View"
@@ -546,6 +548,13 @@ Partial Class MDIParent1
         Me.PickerToolStripMenuItem.Name = "PickerToolStripMenuItem"
         Me.PickerToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.PickerToolStripMenuItem.Text = "Image Picker"
+        '
+        'GeneralAccessoriesToolStripMenuItem
+        '
+        Me.GeneralAccessoriesToolStripMenuItem.Image = CType(resources.GetObject("GeneralAccessoriesToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.GeneralAccessoriesToolStripMenuItem.Name = "GeneralAccessoriesToolStripMenuItem"
+        Me.GeneralAccessoriesToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
+        Me.GeneralAccessoriesToolStripMenuItem.Text = "General Accessories"
         '
         'ReportsToolStripMenuItem
         '
@@ -991,7 +1000,7 @@ Partial Class MDIParent1
         '
         Me.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
         Me.ToolStrip.ImageScalingSize = New System.Drawing.Size(32, 32)
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.HelpToolStripButton})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripButton6, Me.ToolStripSeparator1, Me.ToolStripButton4, Me.ToolStripButton9, Me.ToolStripButton10, Me.ToolStripButton11, Me.ToolStripButton5, Me.ToolStripSeparator2, Me.ToolStripButton1, Me.ToolStripButton15, Me.ToolStripButton13, Me.ToolStripButton2, Me.ToolStripSeparator9, Me.ToolStripButton7, Me.TsBtnViewGenAccessories, Me.ToolStripButton8, Me.ToolStripButton14, Me.ToolStripButton12, Me.ToolStripSeparator16, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -1293,7 +1302,7 @@ Partial Class MDIParent1
         Me.cmbView.AccessibleDescription = "Select Firearm View"
         Me.cmbView.AccessibleName = "cmbView"
         Me.cmbView.FormattingEnabled = true
-        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - Lethal", "In Stock - Non-Lethal", "Competition", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen"})
+        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Class III", "C & R", "Non C & R", "Cust. Catalog #", "Sold/Stolen", "Sold/Stolen - By Date"})
         Me.cmbView.Location = New System.Drawing.Point(6, 9)
         Me.cmbView.Name = "cmbView"
         Me.cmbView.Size = New System.Drawing.Size(141, 21)
@@ -1401,13 +1410,24 @@ Partial Class MDIParent1
         Me.MGCDataSet.DataSetName = "MGCDataSet"
         Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'HelpProvider1
+        '
+        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
+        '
         'Gun_CollectionTableAdapter
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
         '
-        'HelpProvider1
+        'TsBtnViewGenAccessories
         '
-        Me.HelpProvider1.HelpNamespace = "my_gun_collection_help.chm"
+        Me.TsBtnViewGenAccessories.AccessibleDescription = "Tool Bar View General Accessories"
+        Me.TsBtnViewGenAccessories.AccessibleName = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.TsBtnViewGenAccessories.Image = CType(resources.GetObject("TsBtnViewGenAccessories.Image"),System.Drawing.Image)
+        Me.TsBtnViewGenAccessories.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.TsBtnViewGenAccessories.Name = "TsBtnViewGenAccessories"
+        Me.TsBtnViewGenAccessories.Size = New System.Drawing.Size(36, 36)
+        Me.TsBtnViewGenAccessories.Text = " View General Accessories"
         '
         'MDIParent1
         '
@@ -1593,4 +1613,6 @@ End Sub
     Friend WithEvents SecurityToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DisablePasswordToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EnablePasswordToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GeneralAccessoriesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TsBtnViewGenAccessories As ToolStripButton
 End Class

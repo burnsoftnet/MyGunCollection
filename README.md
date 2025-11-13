@@ -31,12 +31,28 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-v6.9.15.2 September 2022
+### v7.0.2.x
+
+* FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
+* UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
+* Optimed how the data pulled for the View Firearms Window
+* Fixed issue with C&R date when you edit a firearm.  If this was not set before, when you edit a firearm it will enable the C&R date and set a new date when you apply your changes.  Fixed it where it doesn't come up as enabled when you edit a firearm that is not a C&R Firearm.
+* FIXED - Issue when you add a new firearm, if the Model ID does not exist, then it is not added and links the ID as 0.  Added if the model does not exist then to add it and get the ID to link
+* FIXED - Issue with custom catalog ID when you edit a firearm, it was reporting that it existed and would display the firearm that you are editing.  Now it will detect that this is one in the same and not bother you with it.
+* ADDED - Raiting Systme per Firearm plus sorting in collection list.  Might make it easier to get rid of guns if you remember you didn't like them.
+* FIXED - Issue with viewing a document and it would save in a protected directory instead of the writable data path.
+* ADDED - The Ability to set the order of the pictures displayed for the selected firearm.
+* ADDED - Sort Option for Instock By Purchase Date
+* ADDED - Sort Option for Sold/Stolen by Date Sold
+* UPDATED - Sort order of Cusom ID's to put the ones that have a custom ID at the top in descending order and the ones that don't have anything at the bottom.
+* ADDED - General Accessories Section with ability to Attach to one or more firearms.  This section is the General Section for Misc Accessories that you have that can be used for anything or any firearm.  So extra mags scopes, lights, etc you can store here and attach to the firearm if you want but manage it from the Main section.
+
+### v6.9.15.2 September 2022
 
 * FIXED - Issue with when you have login Enabled
 * FIXED - Issue with updates constaly asking you to apply when  you already applied.
 
-v6.9.14.1 August 2022
+### v6.9.14.1 August 2022
 
 - Optimize functions by converting alot of the code to use a seperate library
 - FIXED - Custom Catalog Sorting issue - Items sold or stolen showed up in the sort list.
@@ -50,7 +66,7 @@ v6.9.14.1 August 2022
 - UPDATED - Wording and Spelling.
 - ADDED - Before when you used the ammo calculator to subtract the rounds you used with the count in your inventory, it will now append how much of that ammo was used in the maintenance window.
 
-v6.5  March 2021
+### v6.5  March 2021
 
 - Release as 100% Free, no longer a pay app
 - Spell Checked

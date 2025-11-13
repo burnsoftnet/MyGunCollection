@@ -1,13 +1,9 @@
-﻿Imports System.ComponentModel
-Imports BSMyGunCollection.MGCDataSetTableAdapters
-Imports Microsoft.VisualBasic.CompilerServices
-
-<DesignerGenerated()> _
-Partial Class frmMoveBarrelConKit
-    Inherits Form
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class FrmLinkAccessoryToFirearm
+    Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -19,17 +15,17 @@ Partial Class frmMoveBarrelConKit
     End Sub
 
     'Required by the Windows Form Designer
-    Private components As IContainer
+    Private components As System.ComponentModel.IContainer
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMoveBarrelConKit))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLinkAccessoryToFirearm))
         Me.btnAttach = New System.Windows.Forms.Button()
-        Me.cmbFirearm = New System.Windows.Forms.ComboBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.GunCollectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,28 +36,28 @@ Partial Class frmMoveBarrelConKit
         '
         'btnAttach
         '
-        Me.btnAttach.AccessibleDescription = "Move, and close form"
+        Me.btnAttach.AccessibleDescription = "Attach selected foc to firearm"
         Me.btnAttach.AccessibleName = "btnAttach"
-        Me.btnAttach.Location = New System.Drawing.Point(245, 45)
+        Me.btnAttach.Location = New System.Drawing.Point(214, 45)
         Me.btnAttach.Name = "btnAttach"
         Me.btnAttach.Size = New System.Drawing.Size(63, 22)
         Me.btnAttach.TabIndex = 8
-        Me.btnAttach.Text = "Move"
+        Me.btnAttach.Text = "Attach"
         Me.btnAttach.UseVisualStyleBackColor = true
         '
-        'cmbFirearm
+        'ComboBox1
         '
-        Me.cmbFirearm.AccessibleDescription = "Select the firearm listed below to link this Document to:"
-        Me.cmbFirearm.AccessibleName = "cmbFirearm"
-        Me.cmbFirearm.DataSource = Me.GunCollectionBindingSource
-        Me.cmbFirearm.DisplayMember = "FullName"
-        Me.cmbFirearm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbFirearm.FormattingEnabled = true
-        Me.cmbFirearm.Location = New System.Drawing.Point(15, 47)
-        Me.cmbFirearm.Name = "cmbFirearm"
-        Me.cmbFirearm.Size = New System.Drawing.Size(209, 21)
-        Me.cmbFirearm.TabIndex = 7
-        Me.cmbFirearm.ValueMember = "ID"
+        Me.ComboBox1.AccessibleDescription = "Select the firearm listed below to link this Document to:"
+        Me.ComboBox1.AccessibleName = "ComboBox1"
+        Me.ComboBox1.DataSource = Me.GunCollectionBindingSource
+        Me.ComboBox1.DisplayMember = "FullName"
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = true
+        Me.ComboBox1.Location = New System.Drawing.Point(15, 47)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(180, 21)
+        Me.ComboBox1.TabIndex = 7
+        Me.ComboBox1.ValueMember = "ID"
         '
         'GunCollectionBindingSource
         '
@@ -79,36 +75,35 @@ Partial Class frmMoveBarrelConKit
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(279, 21)
         Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Select the firearm listed below to link this Document to:"
+        Me.Label1.Text = "Select the firearm listed below to link this Accessory to:"
         '
         'Gun_CollectionTableAdapter
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
         '
-        'frmMoveBarrelConKit
+        'FrmLinkAccessoryToFirearm
         '
-        Me.AccessibleDescription = "Move Barrel/Conversion Kit"
-        Me.AccessibleName = "frmMoveBarrelConKit"
+        Me.AccessibleDescription = "Link Accessory to Firearm"
+        Me.AccessibleName = "FrmLinkAccessoryToFirearm"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(320, 83)
+        Me.ClientSize = New System.Drawing.Size(307, 98)
         Me.Controls.Add(Me.btnAttach)
-        Me.Controls.Add(Me.cmbFirearm)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
-        Me.MaximizeBox = false
-        Me.MinimizeBox = false
-        Me.Name = "frmMoveBarrelConKit"
-        Me.Text = "Move Barrel/Conversion Kit"
+        Me.Name = "FrmLinkAccessoryToFirearm"
+        Me.Text = "Link Accessory to Firearm"
         CType(Me.GunCollectionBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
 
 End Sub
+
     Friend WithEvents btnAttach As Button
-    Friend WithEvents cmbFirearm As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents GunCollectionBindingSource As BindingSource
-    Friend WithEvents Gun_CollectionTableAdapter As Gun_CollectionTableAdapter
+    Friend WithEvents MGCDataSet As MGCDataSet
+    Friend WithEvents Gun_CollectionTableAdapter As MGCDataSetTableAdapters.Gun_CollectionTableAdapter
 End Class

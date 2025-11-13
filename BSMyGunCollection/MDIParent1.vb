@@ -669,7 +669,7 @@ Public Class MDIParent1
                     Dim applied As String = ""
                     If BurnSoft.Applications.MGC.hotixes.HotFix.ApplyMissingHotFixes(DatabasePath, _errOut, applied) Then
                         If applied.Length > 0 Then
-                            MsgBox($"Applied Hotfix: {applied}")
+                            MsgBox($"Applied Hotfix: {applied}{Environment.NewLine}Restart your application to apply.")
                         Else 
                             MsgBox($"No Updates applied")
                         End If
@@ -833,14 +833,24 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
                 Case "IN STOCK"
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
+                Case UCase("In Stock - By Date Purchased")
+                    Gun_CollectionTableAdapter.FillByInStockOrderbyDatePurchased(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - RATING"
+                    Gun_CollectionTableAdapter.FillByInStockRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - LETHAL"
                     Gun_CollectionTableAdapter.FillByInStockLethal(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - LETHAL RATING"
+                    Gun_CollectionTableAdapter.FillByInStockLethalRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - NON-LETHAL"
                     Gun_CollectionTableAdapter.FillByInStockNonLethal(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - NON-LETHAL RATING"
+                    Gun_CollectionTableAdapter.FillByInStockNonLethalRating(MGCDataSet.Gun_Collection)
                 Case "COMPETITION"
                     Gun_CollectionTableAdapter.FillByCompetitionGuns(MGCDataSet.Gun_Collection)
                 Case "SOLD/STOLEN"
                     Gun_CollectionTableAdapter.FillBySold(MGCDataSet.Gun_Collection)
+                Case UCase("Sold/Stolen - By Date")
+                    Gun_CollectionTableAdapter.FillBySoldByDate(MGCDataSet.Gun_Collection)
                 Case "C & R"
                     Gun_CollectionTableAdapter.FillByCandR(MGCDataSet.Gun_Collection)
                 Case "NON C & R"
@@ -1431,5 +1441,15 @@ Public Class MDIParent1
 
     Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
 
+    End Sub
+
+    Private Sub GeneralAccessoriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem.Click
+        frmViewGeneralAccessories.MdiParent = Me
+        frmViewGeneralAccessories.Show()
+    End Sub
+
+    Private Sub TsBtnViewGenAccessories_Click(sender As Object, e As EventArgs) Handles TsBtnViewGenAccessories.Click
+        frmViewGeneralAccessories.MdiParent = Me
+        frmViewGeneralAccessories.Show()
     End Sub
 End Class

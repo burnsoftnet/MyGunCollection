@@ -11,7 +11,6 @@
 Option Strict On
 Option Explicit On
 
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Namespace My
     
@@ -22,23 +21,29 @@ Namespace My
     '
     Partial Friend Class MyApplication
         
-        <DebuggerStepThrough()>  _
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Public Sub New()
-            MyBase.New(AuthenticationMode.Windows)
+            MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
             Me.IsSingleInstance = false
             Me.EnableVisualStyles = true
             Me.SaveMySettingsOnExit = true
-            Me.ShutDownStyle = ShutdownMode.AfterAllFormsClose
+            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterAllFormsClose
         End Sub
         
-        <DebuggerStepThrough()>  _
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = BSMyGunCollection.MDIParent1
+            Me.MainForm = Global.BSMyGunCollection.MDIParent1
         End Sub
         
-        <DebuggerStepThrough()>  _
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateSplashScreen()
-            Me.SplashScreen = BSMyGunCollection.SplashScreen1
+            Me.SplashScreen = Global.BSMyGunCollection.SplashScreen1
         End Sub
+        
+        ''<Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        ''Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+        ''    Me.MinimumSplashScreenDisplayTime = 0
+        ''    Return MyBase.OnInitialize(commandLineArgs)
+        ''End Function
     End Class
 End Namespace
