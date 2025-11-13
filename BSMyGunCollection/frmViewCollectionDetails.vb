@@ -438,6 +438,13 @@ Public Class frmViewCollectionDetails
     Private Sub btnRefreshPics_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshPics.Click
         Call GetPics()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnAddMain control To add a Maintence Log
+    ''' NOTE: This Already Refresshes after add and does not need it, plus it opens another window which when you added the
+    ''' wait function, the other windows does not pass the information back
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAddMain_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddMain.Click
         frmAddMaintance.MdiParent = MdiParent
         frmAddMaintance.Gid = GunId
@@ -447,14 +454,31 @@ Public Class frmViewCollectionDetails
         frmAddMaintance.AmmoTypeCal3 = txtCaliber3.Text
         frmAddMaintance.Show()
     End Sub
+
+    ''' <summary>
+    ''' Handles the Click event of the Button2 control for the refresh maintance data
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles Button2.Click
         Call LoadMaintData()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnGSLog control to add to the gunsmith log
+    ''' NOTE:  This already refreshes the data after add so the wait function is not needed
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSLog_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSLog.Click
         frmAddGunSmithLog.MdiParent = MdiParent
         frmAddGunSmithLog.Gid = GunId
         frmAddGunSmithLog.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnGSReport control to view the report for the gunsmith log to print out if needed
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnGSReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGSReport.Click
         Cursor = Cursors.WaitCursor
         frmViewReport_GunSmith.MdiParent = MdiParent
@@ -463,14 +487,25 @@ Public Class frmViewCollectionDetails
         frmViewReport_GunSmith.Show()
         Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnRefreshGS control. To Refresh the data for the Gun Smith
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnRefreshGS_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnRefreshGS.Click
         RefreshGunSmith()
     End Sub
-
+    ''' <summary>
+    ''' Refreshes the gun smith Central Function
+    ''' </summary>
     Private Sub RefreshGunSmith()
         GunSmith_DetailsTableAdapter.FillBy(MGCDataSet.GunSmith_Details, GunId)
     End Sub
-
+    ''' <summary>
+    ''' Handles the Click event of the btnPrintPreviewMaintanceReport control To bring up the report for the Mainance Report
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnPrintPreviewMaintanceReport_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnPrintPreviewMaintanceReport.Click
         Cursor = Cursors.WaitCursor
         Dim newForm As New frmViewReport_Maintenance
@@ -480,12 +515,22 @@ Public Class frmViewCollectionDetails
         newForm.Show()
         Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the Button3 control. To print he for sale flyer
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub Button3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFlyer.Click
         Dim frmNew As New FrmForSale
         frmNew.MdiParent = MdiParent
         frmNew.MyId = GunId
         frmNew.Show()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnSold control. To Start the process to mark the firearm as sold
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnSold_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSold.Click
         Dim frmNew As New FrmSold
         frmNew.MdiParent = MdiParent
@@ -493,6 +538,12 @@ Public Class frmViewCollectionDetails
         frmNew.Show()
         Close()
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the btnUnDoSale control to undo the sale if you get it back
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
     Private Sub btnUnDoSale_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUnDoSale.Click
         Try
             Dim meAns As String = MsgBox("Are you sure you want to undo this sale?", MsgBoxStyle.YesNo, Text)
@@ -1394,7 +1445,6 @@ Public Class frmViewCollectionDetails
     Private Sub NextFunction()
         RefreshAccessories()
         GetPics()
-        RefreshGunSmith()
         LoadAmmoData()
     End Sub
 End Class
