@@ -596,33 +596,6 @@ Public Class frmViewCollectionDetails
 
             Dim lst As List(Of GunCollectionFullList) = MyCollection.GetFullList(DatabasePath, GunId, _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            'TODO: Delete Code Before Release
-
-            'Check to see if the firearm has extra barrels, if not remove the tab, otherwise populate the table.
-            'BsHasmultibarrels = ExtraBarrelConvoKits.HasMultiBarrelsListed(DatabasePath, GunId, _errOut)
-            'if _errOut.Length >0 Then Throw New Exception(_errOut)
-            'BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
-            'if _errOut.Length >0 Then Throw New Exception(_errOut)
-
-            'If Not BsHasmultibarrels Then
-            '    TabControl1.TabPages.Remove(TabPage10)
-            'Else
-            '    Gun_Collection_ExtTableAdapter.FillBy_GID(MGCDataSet.Gun_Collection_Ext, GunId)
-            '    DataGridView5.Columns(0).Visible = False
-            'End If
-            'Check to see if there are documents attached, if not remove the tab, otherwise populate the tab.
-            'HasDocuments = Documents.HasDocumentsAttached(DatabasePath, GunId, _errOut)
-            'BsDefaultbarrelsystemid = ExtraBarrelConvoKits.GetDefaultBarrelId(DatabasePath, GunId, _errOut)
-
-            'If Not HasDocuments Then
-            '    TabControl1.TabPages.Remove(TabPage12)
-            'Else
-            '    Qry_DocsAndLinksTableAdapter.FillBy_GID(MGCDataSet.qry_DocsAndLinks, GunId)
-
-            'End If
-
-            'Dim lst as List(Of GunCollectionList) = MyCollection.GetList(DatabasePath, GunId, _errOut)
-            'if _errOut.Length >0 Then Throw New Exception(_errOut)
 
             For Each l As GunCollectionFullList In lst
                 BsDefaultbarrelsystemid = l.Bid
