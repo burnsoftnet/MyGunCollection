@@ -31,7 +31,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-### v7.0.2.x
+### v7.0.5.x
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
@@ -46,6 +46,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * ADDED - Sort Option for Sold/Stolen by Date Sold
 * UPDATED - Sort order of Cusom ID's to put the ones that have a custom ID at the top in descending order and the ones that don't have anything at the bottom.
 * ADDED - General Accessories Section with ability to Attach to one or more firearms.  This section is the General Section for Misc Accessories that you have that can be used for anything or any firearm.  So extra mags scopes, lights, etc you can store here and attach to the firearm if you want but manage it from the Main section.
+* ADDED - Barrel System Raw Data View - this way you can view all the Barrel systems in the database and manually edit things if you had to.
 
 ### v6.9.15.2 September 2022
 
