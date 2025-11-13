@@ -359,10 +359,31 @@ Public Class frmViewCollectionDetails
     End Sub
 #End Region
 #Region " Button Subs "
+    ''' <summary>
+    ''' Handles the Click event of the btnAdd control to add a picture
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAdd.Click
-        frmAddPicture.ItemId = GunId
-        frmAddPicture.MdiParent = MdiParent
-        frmAddPicture.Show()
+        'TODO: Delete after tested
+        'frmAddPicture.ItemId = GunId
+        'frmAddPicture.MdiParent = MdiParent
+        'frmAddPicture.Show()
+        OpenfrmAddPictureAndWait()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM add picture and wait.
+    ''' </summary>
+    Private Sub OpenfrmAddPictureAndWait()
+        ' Create the child form
+        Dim child As New frmAddPicture
+        child.MdiParent = MdiParent
+        child.ItemId = GunId
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
     End Sub
     Private Sub btnAddAccess_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAddAccess.Click
         ' TODO: Delete once tested
