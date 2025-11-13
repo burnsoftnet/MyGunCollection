@@ -25,13 +25,13 @@ Partial Class frmViewBarrelSystemData
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewBarrelSystemData))
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.GunCollectionExtBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ModelNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CaliberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GIDDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.ModelNameDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.CaliberDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.FinishDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BarrelLengthDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PetLoadsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,8 +45,8 @@ Partial Class frmViewBarrelSystemData
         Me.TypeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IsDefaultDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.GunCollectionExtBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'DataGridView1
@@ -63,15 +63,15 @@ Partial Class frmViewBarrelSystemData
         Me.DataGridView1.Size = New System.Drawing.Size(1229, 450)
         Me.DataGridView1.TabIndex = 0
         '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'GunCollectionExtBindingSource
         '
         Me.GunCollectionExtBindingSource.DataMember = "Gun_Collection_Ext"
         Me.GunCollectionExtBindingSource.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Gun_Collection_ExtTableAdapter
         '
@@ -88,18 +88,21 @@ Partial Class frmViewBarrelSystemData
         Me.GIDDataGridViewTextBoxColumn.DataPropertyName = "GID"
         Me.GIDDataGridViewTextBoxColumn.HeaderText = "GID"
         Me.GIDDataGridViewTextBoxColumn.Name = "GIDDataGridViewTextBoxColumn"
+        Me.GIDDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'ModelNameDataGridViewTextBoxColumn
         '
         Me.ModelNameDataGridViewTextBoxColumn.DataPropertyName = "ModelName"
         Me.ModelNameDataGridViewTextBoxColumn.HeaderText = "ModelName"
         Me.ModelNameDataGridViewTextBoxColumn.Name = "ModelNameDataGridViewTextBoxColumn"
+        Me.ModelNameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'CaliberDataGridViewTextBoxColumn
         '
         Me.CaliberDataGridViewTextBoxColumn.DataPropertyName = "Caliber"
         Me.CaliberDataGridViewTextBoxColumn.HeaderText = "Caliber"
         Me.CaliberDataGridViewTextBoxColumn.Name = "CaliberDataGridViewTextBoxColumn"
+        Me.CaliberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'FinishDataGridViewTextBoxColumn
         '
@@ -183,9 +186,10 @@ Partial Class frmViewBarrelSystemData
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewBarrelSystemData"
         Me.Text = "Raw Barrel System Data"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.GunCollectionExtBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
 
 End Sub
@@ -195,9 +199,9 @@ End Sub
     Friend WithEvents GunCollectionExtBindingSource As BindingSource
     Friend WithEvents Gun_Collection_ExtTableAdapter As MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents GIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ModelNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CaliberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents GIDDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents ModelNameDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
+    Friend WithEvents CaliberDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents FinishDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BarrelLengthDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PetLoadsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

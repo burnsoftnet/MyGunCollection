@@ -758,7 +758,7 @@ Public Class frmViewCollectionDetails
                 BsDefaultbarrelsystemid = l.Bid
                 BsHasmultibarrels = l.HasExtraBarrels
                 HasDocuments = l.HasDocuments
-                Text = l.FullName
+                Text = l.FullName + $"  ( ID: {GunId} )"
                 txtManu.Text = l.Manufacturer
                 txtModel.Text = l.ModelName
                 txtSerial.Text = l.SerialNumber
