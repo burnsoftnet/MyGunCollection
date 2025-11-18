@@ -1,4 +1,5 @@
 ﻿Imports BurnSoft.Applications.MGC
+Imports BurnSoft.Applications.MGC.Other
 Imports BurnSoft.Applications.MGC.Types
 
 ''' <summary>
@@ -146,6 +147,22 @@ Public Class frmViewGeneralAccessories
             frmNew.Show()
         Catch ex As Exception
             Call LogError(Name, "AttachToFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the DuplicateToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub DuplicateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DuplicateToolStripMenuItem.Click
+        Try 
+            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+            if Not GeneralAccessories.Duplicate(DatabasePath, itemId, errOut) Then Throw New Exception(errOut)
+            MsgBox("Accessory was Duplicated!")
+            RefreshData()
+        Catch ex As Exception
+            Call LogError(Name, "DuplicateToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
