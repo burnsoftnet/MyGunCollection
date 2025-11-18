@@ -43,6 +43,7 @@ Partial Class frmViewGeneralAccessories
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        Me.DuplicateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         Me.cmnuAccessory.SuspendLayout
@@ -159,9 +160,9 @@ Partial Class frmViewGeneralAccessories
         '
         'cmnuAccessory
         '
-        Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem})
+        Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem, Me.DuplicateToolStripMenuItem})
         Me.cmnuAccessory.Name = "cmnuAccessory"
-        Me.cmnuAccessory.Size = New System.Drawing.Size(181, 92)
+        Me.cmnuAccessory.Size = New System.Drawing.Size(181, 114)
         '
         'EditToolStripMenuItem
         '
@@ -202,6 +203,13 @@ Partial Class frmViewGeneralAccessories
         'General_AccessoriesTableAdapter
         '
         Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
+        '
+        'DuplicateToolStripMenuItem
+        '
+        Me.DuplicateToolStripMenuItem.Image = CType(resources.GetObject("DuplicateToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.DuplicateToolStripMenuItem.Name = "DuplicateToolStripMenuItem"
+        Me.DuplicateToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DuplicateToolStripMenuItem.Text = "D&uplicate"
         '
         'frmViewGeneralAccessories
         '
@@ -244,4 +252,5 @@ End Sub
     Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AttachToFirearmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsbRefresh As ToolStripButton
+    Friend WithEvents DuplicateToolStripMenuItem As ToolStripMenuItem
 End Class
