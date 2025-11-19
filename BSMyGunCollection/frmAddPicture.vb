@@ -78,7 +78,7 @@ Public Class frmAddPicture
 
         Try
             Dim nextOrder As Integer = Pictures.GetNextOrderNumber(DatabasePath, Convert.ToInt32(ItemId), errOut)
-            If errOut.Length > 0 Then Throw New Exception(errOut)
+            If errOut.Length > 0 Then nextOrder = 1
             nudOrder.Value = nextOrder
         Catch ex As Exception
             Call LogError(Name, "frmAddPicture.Load", Err.Number, ex.Message.ToString)

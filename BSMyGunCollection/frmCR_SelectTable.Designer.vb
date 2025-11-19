@@ -68,6 +68,7 @@ Partial Class frmCR_SelectTable
         Me.ComboBox1.AccessibleDescription = "Select the Table that you wish to gather Data From:"
         Me.ComboBox1.AccessibleName = "ComboBox1"
         Me.ComboBox1.DataSource = Me.CRTableListBindingSource
+        Me.ComboBox1.DisplayMember = "DN"
         Me.ComboBox1.FormattingEnabled = true
         Me.HelpProvider1.SetHelpKeyword(Me.ComboBox1, "Custom Reports")
         Me.HelpProvider1.SetHelpNavigator(Me.ComboBox1, System.Windows.Forms.HelpNavigator.KeywordIndex)
