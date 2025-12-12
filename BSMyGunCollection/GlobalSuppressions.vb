@@ -510,3 +510,18 @@ Imports System.Diagnostics.CodeAnalysis
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmLogin")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_FirearmSaleInvoice")>
 <Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmViewReport_Insurance_ApprisedValue")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="type", Target:="~T:BSMyGunCollection.frmEditPicturedetails")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.FrmLinkAccessoryToFirearm.btnAttach_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewCollectionDetails.OpenfrmAddPictureAndWait")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewCollectionDetails.OpenFrmAddAccessoryAndWait")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewCollectionDetails.OpenFrmAddCollectionAmmoAndWait")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.AttachToFirearmToolStripMenuItem_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.frmViewGeneralAccessories_Load(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.OpenFrmAddAccessoryAndWait")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.OpenfrmEditAccessoryAndWait(System.String)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.tsbRefresh_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.frmViewGeneralAccessories.tsBtnAdd_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.MDIParent1.AddModelToolStripMenuItem_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.MDIParent1.AmmToolStripMenuItem_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.MDIParent1.mnuBarrelSystemData_Click(System.Object,System.EventArgs)")>
+<Assembly: SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification:="<Pending>", Scope:="member", Target:="~M:BSMyGunCollection.MDIParent1.RunAddAmmoToCollection")>

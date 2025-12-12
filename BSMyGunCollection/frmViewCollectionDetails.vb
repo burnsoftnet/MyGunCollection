@@ -12,9 +12,7 @@ Imports BurnSoft.Applications.MGC.Types
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
-#Disable Warning InconsistentNaming
 Public Class frmViewCollectionDetails
-#Enable Warning InconsistentNaming
     ''' <summary>
     ''' The Gun Collection identifier
     ''' </summary>
