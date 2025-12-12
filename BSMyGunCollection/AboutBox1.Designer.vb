@@ -104,9 +104,9 @@ Partial Class AboutBox1
         Me.LabelVersion.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LabelVersion.Location = New System.Drawing.Point(136, 23)
         Me.LabelVersion.Margin = New System.Windows.Forms.Padding(6, 0, 3, 0)
-        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 17)
+        Me.LabelVersion.MaximumSize = New System.Drawing.Size(0, 34)
         Me.LabelVersion.Name = "LabelVersion"
-        Me.LabelVersion.Size = New System.Drawing.Size(257, 17)
+        Me.LabelVersion.Size = New System.Drawing.Size(257, 34)
         Me.LabelVersion.TabIndex = 0
         Me.LabelVersion.Text = "Version"
         Me.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

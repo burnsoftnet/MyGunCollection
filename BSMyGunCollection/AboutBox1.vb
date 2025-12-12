@@ -13,16 +13,19 @@ Public NotInheritable Class AboutBox1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub AboutBox1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-        ' Set the title of the form.
         Dim applicationTitle As String
         If My.Application.Info.Title <> "" Then
             applicationTitle = My.Application.Info.Title
         Else
             applicationTitle = Path.GetFileNameWithoutExtension(My.Application.Info.AssemblyName)
         End If
+        Dim mainDllVersion as FileVersionInfo = FileVersionInfo.GetVersionInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BurnSoft.Applications.MGC.dll"))
+        Dim AppVersion As String = $"App Version: {Application.ProductVersion}"
+        Dim dbVersion as String = String.Format("DB Version: {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, errOut := ""))
+        Dim dllVersion As String = $"Library Version: {mainDllVersion.FileVersion}"
         Text = String.Format("About {0}", applicationTitle)
         LabelProductName.Text = My.Application.Info.ProductName
-        LabelVersion.Text = String.Format("App Version {0}", Application.ProductVersion.ToString) & $"  ,  " & String.Format("DB Version {0}", DatabaseRelated.GetDatabaseVersion(DatabasePath, errOut := ""))
+        LabelVersion.Text = $"{AppVersion}, {dbVersion} {Environment.NewLine}{dllVersion}"
         LabelCopyright.Text = My.Application.Info.Copyright
         LabelCompanyName.Text = My.Application.Info.CompanyName
         TextBoxDescription.Text = My.Application.Info.Description
