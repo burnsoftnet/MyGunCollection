@@ -1516,7 +1516,39 @@ Public Class frmViewCollectionDetails
         LoadAmmoData()
     End Sub
 
+    ''' <summary>
+    ''' Moves to general tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">errOut</exception>
     Private Sub MoveToGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToGeneralToolStripMenuItem.Click
+        Try
+            Dim itemId As Long =CLng(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value)
+            Dim errOut As String = ""
+            If Not Accessories.MoveToGeneralAccessories(DatabasePath, itemId, errOut) Then
+                Throw New Exception(errOut)
+            Else 
+                MsgBox("Item was moved to General Accessories!")
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "MoveToGeneralToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+            MsgBox("ERROR! Item was not moved to General Accessories!")
+        End Try
+    End Sub
 
+    Private Sub CopyToGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToGeneralToolStripMenuItem.Click
+        Try
+            Dim itemId As Long =CLng(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value)
+            Dim errOut As String = ""
+            If Not Accessories.CopyToGeneralAccessories(DatabasePath, itemId, errOut) Then
+                Throw New Exception(errOut)
+            Else 
+                MsgBox("Item was Copied to General Accessories!")
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "CopyToGeneralToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+            MsgBox("ERROR! Item was not copied to General Accessories!")
+        End Try
     End Sub
 End Class
