@@ -49,6 +49,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * ADDED - Barrel System Raw Data View - this way you can view all the Barrel systems in the database and manually edit things if you had to.
 * FIXED - Issue with default barrel system maintance showing for the selected firearm 
 * ADDED - Included the Firearm ID in the window title when you click and view a firearm.
+* ADDED - Main Library Version to the About Window for support
 
 ### v6.9.15.2 September 2022
 
