@@ -23,3 +23,8 @@ Namespace MGCDataSetTableAdapters
     Partial Public Class FullDetailsTableAdapter
     End Class
 End Namespace
+
+Namespace MGCDataSetTableAdapters
+    Partial Public Class General_AccessoriesTableAdapter
+    End Class
+End Namespace

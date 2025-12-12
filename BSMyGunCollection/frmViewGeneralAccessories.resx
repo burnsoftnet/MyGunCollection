@@ -144,6 +144,9 @@
         TkSuQmCC
 </value>
   </data>
+  <metadata name="IsLinked.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="cmnuAccessory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>952, 17</value>
   </metadata>
@@ -187,7 +190,7 @@
   </data>
   <data name="DuplicateToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        R0lGODlhIAAgAPUAAP///wBkxvL//8Lg9Ovz+snk9ZHB6Fmd2k6W2JjF6SF5zV2f27bY8Or6/WKf24m8
+        R0lGODlhIAAgAIUAAP///wBkxvL//8Lg9Ovz+snk9ZHB6Fmd2k6W2JjF6SF5zV2f27bY8Or6/WKf24m8
         5s3n9nqy4tju+aDK6zCD0dvw+UKO1eP1+yyA0DuK09Tr+HOt4X+y4mim3id7zqvR7rrb8ub3/NDp92up
         32Sk3UaR1hNvygtryIW55Xew4h13zbPW8Nfn9q/U7wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAuACwAAAAAIAAg
@@ -202,9 +205,6 @@
   </data>
   <metadata name="GeneralAccessoriesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>710, 17</value>
-  </metadata>
-  <metadata name="MGCDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>123, 17</value>
   </metadata>
   <metadata name="MGCDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>123, 17</value>
