@@ -1515,4 +1515,8 @@ Public Class frmViewCollectionDetails
         GetPics()
         LoadAmmoData()
     End Sub
+
+    Private Sub MoveToGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToGeneralToolStripMenuItem.Click
+
+    End Sub
 End Class
