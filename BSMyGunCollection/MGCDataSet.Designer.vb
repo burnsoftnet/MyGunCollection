@@ -5284,6 +5284,12 @@ Partial Public Class MGCDataSet
         
         Private columnCIV As Global.System.Data.DataColumn
         
+        Private columnIC As Global.System.Data.DataColumn
+        
+        Private columnGALID As Global.System.Data.DataColumn
+        
+        Private columnIsLinked As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -5408,6 +5414,30 @@ Partial Public Class MGCDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ICColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property GALIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGALID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsLinkedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLinked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5444,9 +5474,9 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddGun_Collection_AccessoriesRow(ByVal GID As Integer, ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer) As Gun_Collection_AccessoriesRow
+        Public Overloads Function AddGun_Collection_AccessoriesRow(ByVal GID As Integer, ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer, ByVal IC As Integer, ByVal GALID As Integer, ByVal IsLinked As Boolean) As Gun_Collection_AccessoriesRow
             Dim rowGun_Collection_AccessoriesRow As Gun_Collection_AccessoriesRow = CType(Me.NewRow,Gun_Collection_AccessoriesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV}
+            Dim columnValuesArray() As Object = New Object() {Nothing, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, GALID, IsLinked}
             rowGun_Collection_AccessoriesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGun_Collection_AccessoriesRow)
             Return rowGun_Collection_AccessoriesRow
@@ -5486,6 +5516,9 @@ Partial Public Class MGCDataSet
             Me.columnPurValue = MyBase.Columns("PurValue")
             Me.columnAppValue = MyBase.Columns("AppValue")
             Me.columnCIV = MyBase.Columns("CIV")
+            Me.columnIC = MyBase.Columns("IC")
+            Me.columnGALID = MyBase.Columns("GALID")
+            Me.columnIsLinked = MyBase.Columns("IsLinked")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5513,6 +5546,12 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnAppValue)
             Me.columnCIV = New Global.System.Data.DataColumn("CIV", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCIV)
+            Me.columnIC = New Global.System.Data.DataColumn("IC", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIC)
+            Me.columnGALID = New Global.System.Data.DataColumn("GALID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGALID)
+            Me.columnIsLinked = New Global.System.Data.DataColumn("IsLinked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLinked)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -19271,6 +19310,10 @@ Partial Public Class MGCDataSet
         
         Private columnsync_lastupdate As Global.System.Data.DataColumn
         
+        Private columnIsLinked As Global.System.Data.DataColumn
+        
+        Private columnFAID As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -19403,6 +19446,22 @@ Partial Public Class MGCDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsLinkedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLinked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property FAIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFAID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -19439,9 +19498,9 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddGeneral_AccessoriesRow(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer, ByVal IC As Integer, ByVal sync_lastupdate As Date) As General_AccessoriesRow
+        Public Overloads Function AddGeneral_AccessoriesRow(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer, ByVal IC As Integer, ByVal sync_lastupdate As Date, ByVal IsLinked As Boolean, ByVal FAID As Integer) As General_AccessoriesRow
             Dim rowGeneral_AccessoriesRow As General_AccessoriesRow = CType(Me.NewRow,General_AccessoriesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, sync_lastupdate}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, sync_lastupdate, IsLinked, FAID}
             rowGeneral_AccessoriesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGeneral_AccessoriesRow)
             Return rowGeneral_AccessoriesRow
@@ -19482,6 +19541,8 @@ Partial Public Class MGCDataSet
             Me.columnCIV = MyBase.Columns("CIV")
             Me.columnIC = MyBase.Columns("IC")
             Me.columnsync_lastupdate = MyBase.Columns("sync_lastupdate")
+            Me.columnIsLinked = MyBase.Columns("IsLinked")
+            Me.columnFAID = MyBase.Columns("FAID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19511,6 +19572,10 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnIC)
             Me.columnsync_lastupdate = New Global.System.Data.DataColumn("sync_lastupdate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsync_lastupdate)
+            Me.columnIsLinked = New Global.System.Data.DataColumn("IsLinked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLinked)
+            Me.columnFAID = New Global.System.Data.DataColumn("FAID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFAID)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -22502,6 +22567,51 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IC() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.ICColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IC' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.ICColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property GALID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.GALIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'GALID' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.GALIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsLinked() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.IsLinkedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsLinked' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.IsLinkedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsGIDNull() As Boolean
             Return Me.IsNull(Me.tableGun_Collection_Accessories.GIDColumn)
         End Function
@@ -22618,6 +22728,42 @@ Partial Public Class MGCDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetCIVNull()
             Me(Me.tableGun_Collection_Accessories.CIVColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsICNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.ICColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetICNull()
+            Me(Me.tableGun_Collection_Accessories.ICColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsGALIDNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.GALIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetGALIDNull()
+            Me(Me.tableGun_Collection_Accessories.GALIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsLinkedNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.IsLinkedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsLinkedNull()
+            Me(Me.tableGun_Collection_Accessories.IsLinkedColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -33888,6 +34034,36 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsLinked() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.IsLinkedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsLinked' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.IsLinkedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property FAID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.FAIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FAID' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.FAIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsManufacturerNull() As Boolean
             Return Me.IsNull(Me.tableGeneral_Accessories.ManufacturerColumn)
         End Function
@@ -34016,6 +34192,30 @@ Partial Public Class MGCDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setsync_lastupdateNull()
             Me(Me.tableGeneral_Accessories.sync_lastupdateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsLinkedNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.IsLinkedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsLinkedNull()
+            Me(Me.tableGeneral_Accessories.IsLinkedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsFAIDNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.FAIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetFAIDNull()
+            Me(Me.tableGeneral_Accessories.FAIDColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -41415,6 +41615,9 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("PurValue", "PurValue")
             tableMapping.ColumnMappings.Add("AppValue", "AppValue")
             tableMapping.ColumnMappings.Add("CIV", "CIV")
+            tableMapping.ColumnMappings.Add("IC", "IC")
+            tableMapping.ColumnMappings.Add("GALID", "GALID")
+            tableMapping.ColumnMappings.Add("IsLinked", "IsLinked")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -41424,7 +41627,9 @@ Namespace MGCDataSetTableAdapters
                 "rialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NUL"& _ 
                 "L) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? "& _ 
                 "= 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS N"& _ 
-                "ULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))"
+                "ULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((?"& _ 
+                " = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `GALID` IS NULL) OR (`GALI"& _ 
+                "D` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -41445,11 +41650,17 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gun_Collection_Accessories` (`GID`, `Manufacturer`, `Model`, `Serial"& _ 
-                "Number`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`) VALUES (?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "Number`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `GALI"& _ 
+                "D`, `IsLinked`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -41461,17 +41672,23 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Gun_Collection_Accessories` SET `GID` = ?, `Manufacturer` = ?, `Model` = "& _ 
                 "?, `SerialNumber` = ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, "& _ 
-                "`AppValue` = ?, `CIV` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`"& _ 
-                "GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND "& _ 
-                "((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS"& _ 
-                " NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condit"& _ 
-                "ion` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurVa"& _ 
-                "lue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppV"& _ 
-                "alue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))"
+                "`AppValue` = ?, `CIV` = ?, `IC` = ?, `GALID` = ?, `IsLinked` = ? WHERE ((`ID` = "& _ 
+                "?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer`"& _ 
+                " IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` "& _ 
+                "= ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? ="& _ 
+                " 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL)"& _ 
+                " OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND (("& _ 
+                "? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL"& _ 
+                ") OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `"& _ 
+                "GALID` IS NULL) OR (`GALID` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLin"& _ 
+                "ked` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -41483,6 +41700,9 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -41502,6 +41722,12 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -41518,12 +41744,13 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValu"& _ 
-                "e,AppValue,CIV FROM Gun_Collection_Accessories"
+                "e,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValu"& _ 
-                "e,AppValue,CIV FROM Gun_Collection_Accessories where GID=@GID"
+                "e,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories where GID=@G"& _ 
+                "ID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@GID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -41618,7 +41845,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Integer), ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Integer), ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Integer), ByVal Original_GALID As Global.System.Nullable(Of Integer), ByVal Original_IsLinked As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_GID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -41683,6 +41910,22 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_GALID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_GALID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41702,7 +41945,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal GID As Global.System.Nullable(Of Integer), ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal GID As Global.System.Nullable(Of Integer), ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer), ByVal IC As Global.System.Nullable(Of Integer), ByVal GALID As Global.System.Nullable(Of Integer), ByVal IsLinked As Boolean) As Integer
             If (GID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(GID.Value,Integer)
             Else
@@ -41753,6 +41996,17 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
+            If (IC.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(IC.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (GALID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(GALID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(12).Value = CType(IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -41783,6 +42037,9 @@ Namespace MGCDataSetTableAdapters
                     ByVal PurValue As String,  _
                     ByVal AppValue As Global.System.Nullable(Of Double),  _
                     ByVal CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal IC As Global.System.Nullable(Of Integer),  _
+                    ByVal GALID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsLinked As Boolean,  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_GID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Manufacturer As String,  _
@@ -41792,7 +42049,10 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_Use As String,  _
                     ByVal Original_PurValue As String,  _
                     ByVal Original_AppValue As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CIV As Global.System.Nullable(Of Integer)) As Integer
+                    ByVal Original_CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IC As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_GALID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsLinked As Boolean) As Integer
             If (GID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(GID.Value,Integer)
             Else
@@ -41843,70 +42103,97 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID,Integer)
-            If (Original_GID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_GID.Value,Integer)
+            If (IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(IC.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (GALID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(GALID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(IsLinked,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ID,Integer)
+            If (Original_GID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_GID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Manufacturer Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Manufacturer,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Manufacturer,String)
             End If
             If (Original_Model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Model,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Model,String)
             End If
             If (Original_SerialNumber Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SerialNumber,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_SerialNumber,String)
             End If
             If (Original_Condition Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Condition,String)
             End If
             If (Original_Use Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Use,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Use,String)
             End If
             If (Original_PurValue Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_PurValue,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_PurValue,String)
             End If
             If (Original_AppValue.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_AppValue.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_AppValue.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
             If (Original_CIV.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_CIV.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_CIV.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            End If
+            If (Original_GALID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_GALID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -56398,6 +56685,8 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("CIV", "CIV")
             tableMapping.ColumnMappings.Add("IC", "IC")
             tableMapping.ColumnMappings.Add("sync_lastupdate", "sync_lastupdate")
+            tableMapping.ColumnMappings.Add("IsLinked", "IsLinked")
+            tableMapping.ColumnMappings.Add("FAID", "FAID")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -56408,7 +56697,9 @@ Namespace MGCDataSetTableAdapters
                 ") OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ("& _ 
                 "(? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NUL"& _ 
                 "L) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND "& _ 
-                "`sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))"
+                "`IsLinked` IS NULL) OR (`IsLinked` = ?)) AND ((? = 1 AND `FAID` IS NULL) OR (`FA"& _ 
+                "ID` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?))"& _ 
+                ")"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Manufacturer", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -56429,13 +56720,17 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `General_Accessories` (`Manufacturer`, `Model`, `SerialNumber`, `Cond"& _ 
-                "ition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `sync_lastupdate`) "& _ 
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "ition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `IsLinked`, `FAID`,"& _ 
+                " `sync_lastupdate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -56447,19 +56742,23 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `General_Accessories` SET `Manufacturer` = ?, `Model` = ?, `SerialNumber` "& _ 
                 "= ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, `AppValue` = ?, `C"& _ 
-                "IV` = ?, `IC` = ?, `sync_lastupdate` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Manu"& _ 
-                "facturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR "& _ 
-                "(`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) "& _ 
-                "AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use`"& _ 
-                " IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?"& _ 
-                ")) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV"& _ 
-                "` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? "& _ 
-                "= 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))"
+                "IV` = ?, `IC` = ?, `IsLinked` = ?, `FAID` = ?, `sync_lastupdate` = ? WHERE ((`ID"& _ 
+                "` = ?) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? "& _ 
+                "= 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NUL"& _ 
+                "L) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition`"& _ 
+                " = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue`"& _ 
+                " IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue"& _ 
+                "` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS N"& _ 
+                "ULL) OR (`IC` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)) AND"& _ 
+                " ((? = 1 AND `FAID` IS NULL) OR (`FAID` = ?)) AND ((? = 1 AND `sync_lastupdate` "& _ 
+                "IS NULL) OR (`sync_lastupdate` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -56471,6 +56770,8 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Manufacturer", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -56491,6 +56792,10 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
@@ -56509,7 +56814,7 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, Ap"& _ 
-                "pValue, CIV, IC, sync_lastupdate FROM General_Accessories"
+                "pValue, CIV, IC, IsLinked, FAID, sync_lastupdate FROM General_Accessories"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -56569,7 +56874,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Integer), ByVal Original_sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Integer), ByVal Original_IsLinked As Boolean, ByVal Original_FAID As Global.System.Nullable(Of Integer), ByVal Original_sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Manufacturer Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -56634,12 +56939,21 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            If (Original_sync_lastupdate.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_sync_lastupdate.Value,Date)
+            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_IsLinked,Boolean)
+            If (Original_FAID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_FAID.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_sync_lastupdate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(24).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -56660,7 +56974,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer), ByVal IC As Global.System.Nullable(Of Integer), ByVal sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Insert(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer), ByVal IC As Global.System.Nullable(Of Integer), ByVal IsLinked As Boolean, ByVal FAID As Global.System.Nullable(Of Integer), ByVal sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
             If (Manufacturer Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -56711,10 +57025,16 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (sync_lastupdate.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(sync_lastupdate.Value,Date)
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(IsLinked,Boolean)
+            If (FAID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(FAID.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (sync_lastupdate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(12).Value = CType(sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -56746,6 +57066,8 @@ Namespace MGCDataSetTableAdapters
                     ByVal AppValue As Global.System.Nullable(Of Double),  _
                     ByVal CIV As Global.System.Nullable(Of Integer),  _
                     ByVal IC As Global.System.Nullable(Of Integer),  _
+                    ByVal IsLinked As Boolean,  _
+                    ByVal FAID As Global.System.Nullable(Of Integer),  _
                     ByVal sync_lastupdate As Global.System.Nullable(Of Date),  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_Manufacturer As String,  _
@@ -56757,6 +57079,8 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_AppValue As Global.System.Nullable(Of Double),  _
                     ByVal Original_CIV As Global.System.Nullable(Of Integer),  _
                     ByVal Original_IC As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsLinked As Boolean,  _
+                    ByVal Original_FAID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
             If (Manufacturer Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -56808,81 +57132,96 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(IsLinked,Boolean)
+            If (FAID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(FAID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
             If (sync_lastupdate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(sync_lastupdate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(sync_lastupdate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ID,Integer)
             If (Original_Manufacturer Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Manufacturer,String)
-            End If
-            If (Original_Model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Model,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Manufacturer,String)
             End If
-            If (Original_SerialNumber Is Nothing) Then
+            If (Original_Model Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_SerialNumber,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Model,String)
             End If
-            If (Original_Condition Is Nothing) Then
+            If (Original_SerialNumber Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_SerialNumber,String)
             End If
-            If (Original_Use Is Nothing) Then
+            If (Original_Condition Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Use,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Condition,String)
             End If
-            If (Original_PurValue Is Nothing) Then
+            If (Original_Use Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_PurValue,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Use,String)
             End If
-            If (Original_AppValue.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_AppValue.Value,Double)
-            Else
+            If (Original_PurValue Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_PurValue,String)
             End If
-            If (Original_CIV.HasValue = true) Then
+            If (Original_AppValue.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_CIV.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_AppValue.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
-            If (Original_IC.HasValue = true) Then
+            If (Original_CIV.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_IC.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_CIV.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
-            If (Original_sync_lastupdate.HasValue = true) Then
+            If (Original_IC.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_sync_lastupdate.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_IC.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_IsLinked,Boolean)
+            If (Original_FAID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_FAID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            End If
+            If (Original_sync_lastupdate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
