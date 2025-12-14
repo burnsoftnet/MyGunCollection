@@ -289,8 +289,9 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub TabPage4_Enter(ByVal sender As Object, ByVal e As EventArgs) Handles TabPage4.Enter
-        Gun_Collection_AccessoriesTableAdapter.FillBy(MGCDataSet.Gun_Collection_Accessories, GunId)
+        RefreshAccessories()
     End Sub
+
     ''' <summary>
     ''' Handles the Click event of the mnuPicItem_Show control.
     ''' </summary>
@@ -1548,6 +1549,7 @@ Public Class frmViewCollectionDetails
                 Throw New Exception(errOut)
             Else 
                 MsgBox("Item was moved to General Accessories!")
+                RefreshAccessories()
             End If
         Catch ex As Exception
             Call LogError(Name, "MoveToGeneralToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
@@ -1587,7 +1589,7 @@ Public Class frmViewCollectionDetails
             If Not Accessories.Delete(DatabasePath, itemId, errOut) Then
                 Throw New Exception(errOut)
             Else 
-                MsgBox("Accessory Was Deleted")
+                RefreshAccessories()
             End If
         Catch ex As Exception
             Call LogError(Name, "DeleteToolStripMenuItem2_Click", Err.Number, ex.Message.ToString)
