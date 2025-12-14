@@ -1554,7 +1554,12 @@ Public Class frmViewCollectionDetails
             MsgBox("ERROR! Item was not moved to General Accessories!")
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Copies to general tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">errOut</exception>
     Private Sub CopyToGeneralToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToGeneralToolStripMenuItem.Click
         Try
             Dim itemId As Long =CLng(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value)
@@ -1567,6 +1572,26 @@ Public Class frmViewCollectionDetails
         Catch ex As Exception
             Call LogError(Name, "CopyToGeneralToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
             MsgBox("ERROR! Item was not copied to General Accessories!")
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Deletes the tool strip menu item2 click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">errOut</exception>
+    Private Sub DeleteToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem2.Click
+        Try
+            Dim itemId As Long =CLng(DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value)
+            Dim errOut As String = ""
+            If Not Accessories.Delete(DatabasePath, itemId, errOut) Then
+                Throw New Exception(errOut)
+            Else 
+                MsgBox("Accessory Was Deleted")
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DeleteToolStripMenuItem2_Click", Err.Number, ex.Message.ToString)
+            MsgBox("ERROR! Was not able to Delete Accessory.  Check log for details")
         End Try
     End Sub
 End Class
