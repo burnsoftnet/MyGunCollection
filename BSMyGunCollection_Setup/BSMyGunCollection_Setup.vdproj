@@ -599,7 +599,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.41, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.43, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1EECA0302DCD4C6C8536E1993CAA69DD"
@@ -1082,7 +1082,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.41, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.43, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_92F31A5DCA454FD035980E2BCB2D9C81"
@@ -1164,7 +1164,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.0.7.40, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.0.8.44, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_A5029518DFAE4D2395998A239FFCC941"
@@ -1610,15 +1610,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{F6B17D00-A547-4AD8-B075-109ACA46C3DC}"
-        "PackageCode" = "8:{601E04B9-BCA8-4347-ABFE-978C970DAFE7}"
+        "ProductCode" = "8:{43588198-33B7-4940-BFFF-7062615171BE}"
+        "PackageCode" = "8:{B92AAD56-E35B-479F-813A-F8E40A1ED57B}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:7.0.8"
+        "ProductVersion" = "8:7.0.9"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
