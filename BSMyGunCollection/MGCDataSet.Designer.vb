@@ -41749,7 +41749,8 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValu"& _ 
-                "e,AppValue,CIV FROM Gun_Collection_Accessories where GID=@GID"
+                "e,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories where GID=@G"& _ 
+                "ID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@GID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
