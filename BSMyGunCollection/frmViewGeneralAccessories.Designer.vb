@@ -206,7 +206,7 @@ Partial Class frmViewGeneralAccessories
         'IsLinked
         '
         Me.IsLinked.DataPropertyName = "IsLinked"
-        Me.IsLinked.HeaderText = "IsLinked"
+        Me.IsLinked.HeaderText = "Copied Firearm Accessory"
         Me.IsLinked.Name = "IsLinked"
         Me.IsLinked.ReadOnly = true
         '
