@@ -928,10 +928,14 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView1_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.RowValidated
-        If UpdatePedningAss Then
-            Gun_Collection_AccessoriesTableAdapter.Update(MGCDataSet.Gun_Collection_Accessories)
-            UpdatePedningAss = False
-        End If
+        Try
+            If UpdatePedningAss Then
+                Gun_Collection_AccessoriesTableAdapter.Update(MGCDataSet.Gun_Collection_Accessories)
+                UpdatePedningAss = False
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DataGridView1_RowValidated", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the ListChanged event of the GunCollectionAmmoBindingSource control.
@@ -939,9 +943,13 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="ListChangedEventArgs"/> instance containing the event data.</param>
     Private Sub GunCollectionAmmoBindingSource_ListChanged(ByVal sender As Object, ByVal e As ListChangedEventArgs) Handles GunCollectionAmmoBindingSource.ListChanged
-        If MGCDataSet.HasChanges Then
-            UpdatePending = True
-        End If
+        Try
+            If MGCDataSet.HasChanges Then
+                UpdatePending = True
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "GunCollectionAmmoBindingSource_ListChanged", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the RowValidated event of the DataGridView2 control.
@@ -949,10 +957,14 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="DataGridViewCellEventArgs"/> instance containing the event data.</param>
     Private Sub DataGridView2_RowValidated(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView2.RowValidated
-        If UpdatePending Then
-            Gun_Collection_AmmoTableAdapter.Update(MGCDataSet.Gun_Collection_Ammo)
-            UpdatePending = False
-        End If
+        Try
+            If UpdatePending Then
+                Gun_Collection_AmmoTableAdapter.Update(MGCDataSet.Gun_Collection_Ammo)
+                UpdatePending = False
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "DataGridView2_RowValidated", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the ListChanged event of the GunCollectionAccessoriesBindingSource control.
@@ -960,9 +972,13 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="ListChangedEventArgs"/> instance containing the event data.</param>
     Private Sub GunCollectionAccessoriesBindingSource_ListChanged(ByVal sender As Object, ByVal e As ListChangedEventArgs) Handles GunCollectionAccessoriesBindingSource.ListChanged
-        If MGCDataSet.HasChanges Then
-            UpdatePedningAss = True
-        End If
+        Try
+            If MGCDataSet.HasChanges Then
+                UpdatePedningAss = True
+            End If
+        Catch ex As Exception
+            Call LogError(Name, "GunCollectionAccessoriesBindingSource_ListChanged", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the CellContentDoubleClick event of the DataGridView3 control.
@@ -1060,13 +1076,15 @@ Public Class frmViewCollectionDetails
     ''' Does the edit ass item.
     ''' </summary>
     Sub DoEditAssItem()
-' ReSharper disable LocalVariableHidesMember
-        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-' ReSharper restore LocalVariableHidesMember
-        frmEditAccessory.MdiParent = MdiParent
-        frmEditAccessory.ItemId = itemId
-        FrmEditAccessory.GunId = Convert.ToInt32(GunId)
-        frmEditAccessory.Show()
+        Try
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            frmEditAccessory.MdiParent = MdiParent
+            frmEditAccessory.ItemId = itemId
+            FrmEditAccessory.GunId = Convert.ToInt32(GunId)
+            frmEditAccessory.Show()
+        Catch ex As Exception
+            Call LogError(Name,  "DoEditAssItem", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the EditToolStripMenuItem control.
@@ -1082,12 +1100,14 @@ Public Class frmViewCollectionDetails
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CopyToolStripMenuItem.Click
-' ReSharper disable LocalVariableHidesMember
-        Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-' ReSharper restore LocalVariableHidesMember
-        frmCopyAccessory.MdiParent = MdiParent
-        frmCopyAccessory.ItemId = itemId
-        frmCopyAccessory.Show()
+        Try
+            Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
+            frmCopyAccessory.MdiParent = MdiParent
+            frmCopyAccessory.ItemId = itemId
+            frmCopyAccessory.Show()
+        Catch ex As Exception
+            Call LogError(Name,  "CopyToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
     ''' <summary>
     ''' Handles the Click event of the ToolStripButton4 control.
