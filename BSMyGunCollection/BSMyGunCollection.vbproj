@@ -745,6 +745,12 @@
     <Compile Include="frmViewWishList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmView_Report_GeneralCollection.Designer.vb">
+      <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmView_Report_GeneralCollection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="GlobalVars.vb" />
     <Compile Include="LogginAndSettings.vb" />
@@ -832,6 +838,10 @@
     <EmbeddedResource Include="frmViewReport_BoundBook2.resx">
       <DependentUpon>frmViewReport_BoundBook2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmView_Report_GeneralCollection.resx">
+      <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_GeneralAccessories.rdlc" />
     <EmbeddedResource Include="Report_BoundBook2.rdlc" />
     <EmbeddedResource Include="frmAddDocument.resx">
       <DependentUpon>frmAddDocument.vb</DependentUpon>
