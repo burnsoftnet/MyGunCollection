@@ -1171,6 +1171,17 @@
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <Language>en-US</Language>
+  <Variables>
+    <Variable Name="ReportTitle">
+      <Value />
+    </Variable>
+    <Variable Name="UserName">
+      <Value />
+    </Variable>
+    <Variable Name="Firearm">
+      <Value />
+    </Variable>
+  </Variables>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>3c3aa3d0-ef53-41d7-88a5-b0c2d2742ce8</rd:ReportID>
