@@ -23,17 +23,21 @@ Partial Class frmView_Report_GeneralCollection
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.MgcDataSet1 = New BSMyGunCollection.MGCDataSet()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.General_AccessoriesTableAdapter1 = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        CType(Me.MgcDataSet1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.BindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.General_AccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.General_AccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.General_AccessoriesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_GeneralAccessories.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -41,19 +45,19 @@ Partial Class frmView_Report_GeneralCollection
         Me.ReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.ReportViewer1.TabIndex = 0
         '
-        'MgcDataSet1
+        'MGCDataSet
         '
-        Me.MgcDataSet1.DataSetName = "MGCDataSet"
-        Me.MgcDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'BindingSource1
+        'General_AccessoriesBindingSource
         '
-        Me.BindingSource1.DataSource = Me.MgcDataSet1
-        Me.BindingSource1.Position = 0
+        Me.General_AccessoriesBindingSource.DataMember = "General_Accessories"
+        Me.General_AccessoriesBindingSource.DataSource = Me.MGCDataSet
         '
-        'General_AccessoriesTableAdapter1
+        'General_AccessoriesTableAdapter
         '
-        Me.General_AccessoriesTableAdapter1.ClearBeforeFill = true
+        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
         '
         'frmView_Report_GeneralCollection
         '
@@ -63,14 +67,14 @@ Partial Class frmView_Report_GeneralCollection
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmView_Report_GeneralCollection"
         Me.Text = "frmView_Report_GeneralCollection"
-        CType(Me.MgcDataSet1,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.BindingSource1,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.General_AccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
 
 End Sub
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents MgcDataSet1 As MGCDataSet
-    Friend WithEvents BindingSource1 As BindingSource
-    Friend WithEvents General_AccessoriesTableAdapter1 As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
+    Friend WithEvents General_AccessoriesBindingSource As BindingSource
+    Friend WithEvents MGCDataSet As MGCDataSet
+    Friend WithEvents General_AccessoriesTableAdapter As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
 End Class

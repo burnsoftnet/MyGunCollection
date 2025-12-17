@@ -20,8 +20,7 @@ Public Class frmView_Report_GeneralCollection
         Try
             _reportTitle = "General Accessories Report"
             Text = _reportTitle
-            ''General_AccessoriesTableAdapter
-            General_AccessoriesTableAdapter1.FillBy(MgcDataSet1.General_Accessories)
+            General_AccessoriesTableAdapter.FillBy(MGCDataSet.General_Accessories)
             If PersonalMark Then
                 Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
