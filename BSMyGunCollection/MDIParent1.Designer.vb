@@ -43,6 +43,7 @@ Partial Class MDIParent1
         Me.FirearmConditionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FirearmTypesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClassificationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuBarrelSystemData = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddMmunitionToMyCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -179,7 +180,7 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
-        Me.mnuBarrelSystemData = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GeneralAccessoriesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -326,6 +327,15 @@ Partial Class MDIParent1
         Me.ClassificationToolStripMenuItem.Name = "ClassificationToolStripMenuItem"
         Me.ClassificationToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.ClassificationToolStripMenuItem.Text = "Classification"
+        '
+        'mnuBarrelSystemData
+        '
+        Me.mnuBarrelSystemData.AccessibleDescription = "Raw Barrel System Data"
+        Me.mnuBarrelSystemData.AccessibleName = "mnuBarrelSystemData"
+        Me.mnuBarrelSystemData.Image = CType(resources.GetObject("mnuBarrelSystemData.Image"),System.Drawing.Image)
+        Me.mnuBarrelSystemData.Name = "mnuBarrelSystemData"
+        Me.mnuBarrelSystemData.Size = New System.Drawing.Size(186, 22)
+        Me.mnuBarrelSystemData.Text = "Barrel System Data"
         '
         'AddItemToolStripMenuItem
         '
@@ -561,7 +571,7 @@ Partial Class MDIParent1
         '
         Me.ReportsToolStripMenuItem.AccessibleDescription = "Reports"
         Me.ReportsToolStripMenuItem.AccessibleName = "mnuViewReports"
-        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickCollectionReportToolStripMenuItem, Me.QuickCollectionReportWNotesToolStripMenuItem, Me.AmmunitionCollectionReportToolStripMenuItem, Me.BoundBookToolStripMenuItem, Me.PrintOutWishlistToolStripMenuItem, Me.InsuranceReportToolStripMenuItem, Me.InsuraceReportWithTotalToolStripMenuItem, Me.CustomReportToolStripMenuItem, Me.BlankReportsToolStripMenuItem})
+        Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuickCollectionReportToolStripMenuItem, Me.QuickCollectionReportWNotesToolStripMenuItem, Me.AmmunitionCollectionReportToolStripMenuItem, Me.BoundBookToolStripMenuItem, Me.PrintOutWishlistToolStripMenuItem, Me.InsuranceReportToolStripMenuItem, Me.InsuraceReportWithTotalToolStripMenuItem, Me.CustomReportToolStripMenuItem, Me.BlankReportsToolStripMenuItem, Me.GeneralAccessoriesToolStripMenuItem1})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.ReportsToolStripMenuItem.Text = "&Reports"
@@ -1430,14 +1440,11 @@ Partial Class MDIParent1
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
         '
-        'mnuBarrelSystemData
+        'GeneralAccessoriesToolStripMenuItem1
         '
-        Me.mnuBarrelSystemData.AccessibleDescription = "Raw Barrel System Data"
-        Me.mnuBarrelSystemData.AccessibleName = "mnuBarrelSystemData"
-        Me.mnuBarrelSystemData.Image = CType(resources.GetObject("mnuBarrelSystemData.Image"),System.Drawing.Image)
-        Me.mnuBarrelSystemData.Name = "mnuBarrelSystemData"
-        Me.mnuBarrelSystemData.Size = New System.Drawing.Size(186, 22)
-        Me.mnuBarrelSystemData.Text = "Barrel System Data"
+        Me.GeneralAccessoriesToolStripMenuItem1.Name = "GeneralAccessoriesToolStripMenuItem1"
+        Me.GeneralAccessoriesToolStripMenuItem1.Size = New System.Drawing.Size(251, 22)
+        Me.GeneralAccessoriesToolStripMenuItem1.Text = "General Accessories"
         '
         'MDIParent1
         '
@@ -1626,4 +1633,5 @@ End Sub
     Friend WithEvents GeneralAccessoriesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TsBtnViewGenAccessories As ToolStripButton
     Friend WithEvents mnuBarrelSystemData As ToolStripMenuItem
+    Friend WithEvents GeneralAccessoriesToolStripMenuItem1 As ToolStripMenuItem
 End Class

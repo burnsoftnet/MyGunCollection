@@ -1457,4 +1457,12 @@ Public Class MDIParent1
         frmViewBarrelSystemData.MdiParent = Me
         frmViewBarrelSystemData.Show()
     End Sub
+
+    Private Sub GeneralAccessoriesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem1.Click
+        Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmView_Report_GeneralCollection
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Cursor = Cursors.Arrow
+    End Sub
 End Class
