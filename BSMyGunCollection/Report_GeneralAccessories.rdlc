@@ -11,10 +11,10 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="MGCDataSet_Gun_Collection_Accessories">
+    <DataSet Name="MGCDataSet_General_Accessories">
       <Query>
         <DataSourceName>MGCConnectionString</DataSourceName>
-        <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV FROM Gun_Collection_Accessories</CommandText>
+        <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV FROM General_Accessories</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
       <Fields>
@@ -65,10 +65,10 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>MGCDataSet</rd:DataSetName>
-        <rd:TableName>Gun_Collection_Accessories</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableName>General_Accessories</rd:TableName>
+        <rd:TableAdapterFillMethod>FillBy</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Gun_Collection_AccessoriesTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>General_AccessoriesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -1007,7 +1007,7 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>MGCDataSet_Gun_Collection_Accessories</DataSetName>
+            <DataSetName>MGCDataSet_General_Accessories</DataSetName>
             <Top>0.125in</Top>
             <Height>0.875in</Height>
             <Width>10.625in</Width>
