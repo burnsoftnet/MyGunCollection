@@ -23,7 +23,8 @@ Partial Class frmView_Report_GeneralCollection
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmView_Report_GeneralCollection))
         Me.General_AccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -45,9 +46,9 @@ Partial Class frmView_Report_GeneralCollection
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "DataSet1"
-        ReportDataSource1.Value = Me.General_AccessoriesBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "DataSet1"
+        ReportDataSource2.Value = Me.General_AccessoriesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_GeneralAccessories.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -65,8 +66,9 @@ Partial Class frmView_Report_GeneralCollection
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(917, 450)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmView_Report_GeneralCollection"
-        Me.Text = "frmView_Report_GeneralCollection"
+        Me.Text = "General Accessories Report"
         CType(Me.General_AccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
