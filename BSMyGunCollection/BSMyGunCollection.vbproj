@@ -841,7 +841,6 @@
     <EmbeddedResource Include="frmView_Report_GeneralCollection.resx">
       <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Report_FirearmAccessories.rdlc" />
     <EmbeddedResource Include="Reports\Report_GeneralAccessories.rdlc" />
     <EmbeddedResource Include="Report_BoundBook2.rdlc" />
     <EmbeddedResource Include="frmAddDocument.resx">
