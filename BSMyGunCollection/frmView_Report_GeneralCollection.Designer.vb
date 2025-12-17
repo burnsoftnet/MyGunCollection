@@ -24,15 +24,11 @@ Partial Class frmView_Report_GeneralCollection
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.General_Accessories_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Gun_Collection_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_AccessoriesTableAdapter()
-        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        Me.FillByToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.FillByToolStripButton = New System.Windows.Forms.ToolStripButton()
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.General_Accessories_BindingSource,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.FillByToolStrip.SuspendLayout
+        Me.MgcDataSet1 = New BSMyGunCollection.MGCDataSet()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.General_AccessoriesTableAdapter1 = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
+        CType(Me.MgcDataSet1,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.BindingSource1,System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'ReportViewer1
@@ -45,63 +41,36 @@ Partial Class frmView_Report_GeneralCollection
         Me.ReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.ReportViewer1.TabIndex = 0
         '
-        'MGCDataSet
+        'MgcDataSet1
         '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.MgcDataSet1.DataSetName = "MGCDataSet"
+        Me.MgcDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'General_Accessories_BindingSource
+        'BindingSource1
         '
-        Me.General_Accessories_BindingSource.DataSource = Me.MGCDataSet
-        Me.General_Accessories_BindingSource.Position = 0
+        Me.BindingSource1.DataSource = Me.MgcDataSet1
+        Me.BindingSource1.Position = 0
         '
-        'Gun_Collection_AccessoriesTableAdapter
+        'General_AccessoriesTableAdapter1
         '
-        Me.Gun_Collection_AccessoriesTableAdapter.ClearBeforeFill = true
-        '
-        'General_AccessoriesTableAdapter
-        '
-        Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
-        '
-        'FillByToolStrip
-        '
-        Me.FillByToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByToolStripButton})
-        Me.FillByToolStrip.Location = New System.Drawing.Point(0, 0)
-        Me.FillByToolStrip.Name = "FillByToolStrip"
-        Me.FillByToolStrip.Size = New System.Drawing.Size(111, 25)
-        Me.FillByToolStrip.TabIndex = 1
-        Me.FillByToolStrip.Text = "FillByToolStrip"
-        '
-        'FillByToolStripButton
-        '
-        Me.FillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.FillByToolStripButton.Name = "FillByToolStripButton"
-        Me.FillByToolStripButton.Size = New System.Drawing.Size(39, 22)
-        Me.FillByToolStripButton.Text = "FillBy"
+        Me.General_AccessoriesTableAdapter1.ClearBeforeFill = true
         '
         'frmView_Report_GeneralCollection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.FillByToolStrip)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmView_Report_GeneralCollection"
         Me.Text = "frmView_Report_GeneralCollection"
-        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.General_Accessories_BindingSource,System.ComponentModel.ISupportInitialize).EndInit
-        Me.FillByToolStrip.ResumeLayout(false)
-        Me.FillByToolStrip.PerformLayout
+        CType(Me.MgcDataSet1,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.BindingSource1,System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(false)
-        Me.PerformLayout
 
 End Sub
 
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents MGCDataSet As MGCDataSet
-    Friend WithEvents General_Accessories_BindingSource As BindingSource
-    Friend WithEvents Gun_Collection_AccessoriesTableAdapter As MGCDataSetTableAdapters.Gun_Collection_AccessoriesTableAdapter
-    Friend WithEvents General_AccessoriesTableAdapter As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
-    Friend WithEvents FillByToolStrip As ToolStrip
-    Friend WithEvents FillByToolStripButton As ToolStripButton
+    Friend WithEvents MgcDataSet1 As MGCDataSet
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents General_AccessoriesTableAdapter1 As MGCDataSetTableAdapters.General_AccessoriesTableAdapter
 End Class

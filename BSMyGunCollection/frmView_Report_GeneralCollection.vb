@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Reporting.WinForms
+﻿Imports BSMyGunCollection.MGCDataSetTableAdapters
+Imports Microsoft.Reporting.WinForms
 ''' <summary>
 ''' The Report Viewer for the General Collection
 ''' </summary>
@@ -17,10 +18,10 @@ Public Class frmView_Report_GeneralCollection
     Dim _reportTitle As String
     Private Sub frmView_Report_GeneralCollection_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
             _reportTitle = "General Accessories Report"
             Text = _reportTitle
-            General_AccessoriesTableAdapter.FillBy(MGCDataSet.General_Accessories)
+            ''General_AccessoriesTableAdapter
+            General_AccessoriesTableAdapter1.FillBy(MgcDataSet1.General_Accessories)
             If PersonalMark Then
                 Dim parmList As New List(Of ReportParameter)
                 parmList.Add(New ReportParameter("UserName", OwnerName))
@@ -32,18 +33,5 @@ Public Class frmView_Report_GeneralCollection
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
         End Try
-    End Sub
-
-    Private Sub BindingSource1_CurrentChanged(sender As Object, e As EventArgs) Handles General_Accessories_BindingSource.CurrentChanged
-
-    End Sub
-
-    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton.Click
-        Try
-            Me.General_AccessoriesTableAdapter.FillBy(Me.MGCDataSet.General_Accessories)
-        Catch ex As System.Exception
-            System.Windows.Forms.MessageBox.Show(ex.Message)
-        End Try
-
     End Sub
 End Class
