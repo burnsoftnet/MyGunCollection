@@ -21,13 +21,6 @@ Public Class frmView_Report_GeneralCollection
             _reportTitle = "General Accessories Report"
             Text = _reportTitle
             General_AccessoriesTableAdapter.FillBy(MGCDataSet.General_Accessories)
-            If PersonalMark Then
-                Dim parmList As New List(Of ReportParameter)
-                parmList.Add(New ReportParameter("UserName", OwnerName))
-                parmList.Add(New ReportParameter("ReportTitle", _reportTitle & " for " & Title))
-                parmList.Add(New ReportParameter("Firearm", Title))
-                ReportViewer1.LocalReport.SetParameters(parmList)
-            End If
             ReportViewer1.RefreshReport()
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
