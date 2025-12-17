@@ -92,6 +92,7 @@ Partial Class MDIParent1
         Me.BoundBookToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShootersCardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ShootersCardToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GeneralAccessoriesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckForUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -180,7 +181,6 @@ Partial Class MDIParent1
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Gun_CollectionTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_CollectionTableAdapter()
-        Me.GeneralAccessoriesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout
         Me.ToolStrip.SuspendLayout
         Me.StatusStrip.SuspendLayout
@@ -712,6 +712,7 @@ Partial Class MDIParent1
         '
         Me.BlankReportsToolStripMenuItem.AccessibleName = "mnuBlankReports"
         Me.BlankReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BoundBookToolStripMenuItem1, Me.ShootersCardToolStripMenuItem, Me.ShootersCardToolStripMenuItem1})
+        Me.BlankReportsToolStripMenuItem.Image = CType(resources.GetObject("BlankReportsToolStripMenuItem.Image"),System.Drawing.Image)
         Me.BlankReportsToolStripMenuItem.Name = "BlankReportsToolStripMenuItem"
         Me.BlankReportsToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
         Me.BlankReportsToolStripMenuItem.Text = "Blank Reports"
@@ -736,6 +737,13 @@ Partial Class MDIParent1
         Me.ShootersCardToolStripMenuItem1.Name = "ShootersCardToolStripMenuItem1"
         Me.ShootersCardToolStripMenuItem1.Size = New System.Drawing.Size(200, 22)
         Me.ShootersCardToolStripMenuItem1.Text = "Shooters Card"
+        '
+        'GeneralAccessoriesToolStripMenuItem1
+        '
+        Me.GeneralAccessoriesToolStripMenuItem1.Image = CType(resources.GetObject("GeneralAccessoriesToolStripMenuItem1.Image"),System.Drawing.Image)
+        Me.GeneralAccessoriesToolStripMenuItem1.Name = "GeneralAccessoriesToolStripMenuItem1"
+        Me.GeneralAccessoriesToolStripMenuItem1.Size = New System.Drawing.Size(251, 22)
+        Me.GeneralAccessoriesToolStripMenuItem1.Text = "General Accessories"
         '
         'ToolsMenu
         '
@@ -1439,12 +1447,6 @@ Partial Class MDIParent1
         'Gun_CollectionTableAdapter
         '
         Me.Gun_CollectionTableAdapter.ClearBeforeFill = true
-        '
-        'GeneralAccessoriesToolStripMenuItem1
-        '
-        Me.GeneralAccessoriesToolStripMenuItem1.Name = "GeneralAccessoriesToolStripMenuItem1"
-        Me.GeneralAccessoriesToolStripMenuItem1.Size = New System.Drawing.Size(251, 22)
-        Me.GeneralAccessoriesToolStripMenuItem1.Text = "General Accessories"
         '
         'MDIParent1
         '
