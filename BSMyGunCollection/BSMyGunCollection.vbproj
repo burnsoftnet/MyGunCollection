@@ -842,7 +842,7 @@
       <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report_GeneralAccessories.rdlc" />
-    <EmbeddedResource Include="Report_BoundBook2.rdlc" />
+    <EmbeddedResource Include="Reports\Report_BoundBook2.rdlc" />
     <EmbeddedResource Include="frmAddDocument.resx">
       <DependentUpon>frmAddDocument.vb</DependentUpon>
     </EmbeddedResource>
@@ -874,7 +874,7 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_FirearmSaleInvoice.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Blank_ShootersCard2.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_ShootersCard2.rdlc" />
     <EmbeddedResource Include="frmAddBarrelSystem.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmAddBarrelSystem.vb</DependentUpon>
@@ -927,8 +927,8 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_Quickinv_w_DetailNotes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Accessories.rdlc" />
-    <EmbeddedResource Include="Report_Ammo_Inventory_By_Caliber.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Accessories.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Ammo_Inventory_By_Caliber.rdlc" />
     <EmbeddedResource Include="frmViewReport_Ammo_By_Caliber.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_Ammo_By_Caliber.vb</DependentUpon>
@@ -937,21 +937,21 @@
       <DependentUpon>frmViewReport_Insurance_ApprisedValue_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Blank_BoundBook.rdlc" />
-    <EmbeddedResource Include="Report_Blank_ShootersCard.rdlc" />
-    <EmbeddedResource Include="Report_FirearmSaleInvoice.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_AppraisedValue_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_BoundBook.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_ShootersCard.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmSaleInvoice.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_AppraisedValue_wTotal.rdlc" />
     <EmbeddedResource Include="frmViewReport_Insurance_InsuredValue_wTotal.resx">
       <DependentUpon>frmViewReport_Insurance_InsuredValue_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Insurance_InsuredValue_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_InsuredValue_wTotal.rdlc" />
     <EmbeddedResource Include="frmViewReport_Insurance_wTotal.resx">
       <DependentUpon>frmViewReport_Insurance_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Insurance_wTotal.rdlc" />
-    <EmbeddedResource Include="Report_FirearmFullDetailsER.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmFullDetailsER.rdlc" />
     <EmbeddedResource Include="frmAddAccessory.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmAddAccessory.vb</DependentUpon>
@@ -1182,19 +1182,19 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Ammo_Inventory.rdlc" />
-    <EmbeddedResource Include="Report_BoundBook.rdlc" />
-    <EmbeddedResource Include="Report_FirearmDetails.rdlc" />
-    <EmbeddedResource Include="Report_ForSale.rdlc" />
-    <EmbeddedResource Include="Report_GunMaintance.rdlc" />
-    <EmbeddedResource Include="Report_GunSmith.rdlc" />
-    <EmbeddedResource Include="Report_Insurance.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_AppraisedValue.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_InsuredValue.rdlc" />
-    <EmbeddedResource Include="Report_Pictures_AllPictureDetails.rdlc" />
-    <EmbeddedResource Include="Report_QuickDetails.rdlc" />
-    <EmbeddedResource Include="Report_QuickInventoryListing.rdlc" />
-    <EmbeddedResource Include="Report_Wishlist.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Ammo_Inventory.rdlc" />
+    <EmbeddedResource Include="Reports\Report_BoundBook.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_ForSale.rdlc" />
+    <EmbeddedResource Include="Reports\Report_GunMaintance.rdlc" />
+    <EmbeddedResource Include="Reports\Report_GunSmith.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_AppraisedValue.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_InsuredValue.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Pictures_AllPictureDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_QuickDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_QuickInventoryListing.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Wishlist.rdlc" />
     <EmbeddedResource Include="SplashScreen1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreen1.vb</DependentUpon>
