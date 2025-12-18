@@ -106,6 +106,18 @@
         "Entry"
         {
         "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "OwnerKey" = "8:_1B89403C674C45278B999F8DC00AB023"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
         "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -143,6 +155,18 @@
         {
         "MsmKey" = "8:_80360301D7444145A15FF8975D797AA8"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_868E93D58AFCA673258735BDDEF15135"
+        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_868E93D58AFCA673258735BDDEF15135"
+        "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -213,12 +237,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
-        "OwnerKey" = "8:_C8DFFD6411364E7C9CD67D884E744E69"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C8DFFD6411364E7C9CD67D884E744E69"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -275,6 +293,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1B89403C674C45278B999F8DC00AB023"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1047,6 +1071,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_868E93D58AFCA673258735BDDEF15135"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_868E93D58AFCA673258735BDDEF15135"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.DataVisualization.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.ReportViewer.DataVisualization.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9A77D86BA1FB4DA1A737E88CF141F4C3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8DC8CD73FF144F619C4D9C0E78F0D4E7"
             {
             "AssemblyRegister" = "3:1"
@@ -1610,15 +1665,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{43588198-33B7-4940-BFFF-7062615171BE}"
-        "PackageCode" = "8:{B92AAD56-E35B-479F-813A-F8E40A1ED57B}"
+        "ProductCode" = "8:{FE6C6C6E-85DA-4025-B8B5-BCCBB37543D0}"
+        "PackageCode" = "8:{2F5F68D1-D1B0-46A0-B000-50069E5513F8}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:7.0.9"
+        "ProductVersion" = "8:7.1.10"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
