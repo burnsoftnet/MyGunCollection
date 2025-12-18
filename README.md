@@ -50,6 +50,9 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * FIXED - Issue with default barrel system maintance showing for the selected firearm 
 * ADDED - Included the Firearm ID in the window title when you click and view a firearm.
 * ADDED - Main Library Version to the About Window for support
+* ADDED - General Accessories Report
+* UPDATED - Reports to newest version
+* UPDATED - Window size for reports where adjusted to be used on todays larger monitors.
 
 ### v6.9.15.2 September 2022
 

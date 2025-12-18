@@ -27,16 +27,16 @@ Partial Class frmViewReport_FirearmDetails
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New Container
-        Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_FirearmDetails))
-        Me.FullDetailsBindingSource = New BindingSource(Me.components)
-        Me.MGCDataSet = New MGCDataSet
-        Me.ReportViewer1 = New ReportViewer
-        Me.FullDetailsTableAdapter = New FullDetailsTableAdapter
-        CType(Me.FullDetailsBindingSource, ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewReport_FirearmDetails))
+        Me.FullDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.FullDetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.FullDetailsTableAdapter()
+        CType(Me.FullDetailsBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'FullDetailsBindingSource
         '
@@ -46,39 +46,40 @@ Partial Class frmViewReport_FirearmDetails
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Dock = DockStyle.Fill
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "MGCDataSet_FullDetails"
         ReportDataSource1.Value = Me.FullDetailsBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_FirearmDetails.rdlc"
-        Me.ReportViewer1.Location = New Point(0, 0)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New Size(522, 459)
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(872, 636)
         Me.ReportViewer1.TabIndex = 0
         '
         'FullDetailsTableAdapter
         '
-        Me.FullDetailsTableAdapter.ClearBeforeFill = True
+        Me.FullDetailsTableAdapter.ClearBeforeFill = true
         '
         'frmViewReport_FirearmDetails
         '
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(522, 459)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(872, 636)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewReport_FirearmDetails"
-        Me.StartPosition = FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Firearm Detailed Report"
-        CType(Me.FullDetailsBindingSource, ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        CType(Me.FullDetailsBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents FullDetailsBindingSource As BindingSource
     Friend WithEvents MGCDataSet As MGCDataSet

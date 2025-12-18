@@ -1434,27 +1434,59 @@ Public Class MDIParent1
         End If
         RefreshCollection()
     End Sub
-
+    ''' <summary>
+    ''' Insurances the report tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub InsuranceReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuranceReportToolStripMenuItem.Click
 
     End Sub
-
+    ''' <summary>
+    ''' Insuraces the report with total tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
 
     End Sub
-
+    ''' <summary>
+    ''' Generals the accessories tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub GeneralAccessoriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem.Click
         frmViewGeneralAccessories.MdiParent = Me
         frmViewGeneralAccessories.Show()
     End Sub
-
+    ''' <summary>
+    ''' Tses the BTN view gen accessories click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub TsBtnViewGenAccessories_Click(sender As Object, e As EventArgs) Handles TsBtnViewGenAccessories.Click
         frmViewGeneralAccessories.MdiParent = Me
         frmViewGeneralAccessories.Show()
     End Sub
-
+    ''' <summary>
+    ''' Mnus the barrel system data click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub mnuBarrelSystemData_Click(sender As Object, e As EventArgs) Handles mnuBarrelSystemData.Click
         frmViewBarrelSystemData.MdiParent = Me
         frmViewBarrelSystemData.Show()
+    End Sub
+    ''' <summary>
+    ''' Generals the accessories tool strip menu item1 click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub GeneralAccessoriesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem1.Click
+        Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmView_Report_GeneralCollection
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Cursor = Cursors.Arrow
     End Sub
 End Class

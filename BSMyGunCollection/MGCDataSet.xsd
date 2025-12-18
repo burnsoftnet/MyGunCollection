@@ -4394,7 +4394,16 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
               <Mapping SourceColumn="IsLinked" DataSetColumn="IsLinked" />
               <Mapping SourceColumn="FAID" DataSetColumn="FAID" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="General_Accessories" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, IsLinked, FAID, sync_lastupdate FROM General_Accessories</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="General_Accessories_LinkTableAdapter" GeneratorDataComponentClassName="General_Accessories_LinkTableAdapter" Name="General_Accessories_Link" UserDataComponentName="General_Accessories_LinkTableAdapter">
             <MainSource>
@@ -7218,7 +7227,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="General_Accessories" msprop:Generator_TableClassName="General_AccessoriesDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories" msprop:Generator_TablePropName="General_Accessories" msprop:Generator_RowDeletingName="General_AccessoriesRowDeleting" msprop:Generator_RowChangingName="General_AccessoriesRowChanging" msprop:Generator_RowEvHandlerName="General_AccessoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="General_AccessoriesRowDeleted" msprop:Generator_UserTableName="General_Accessories" msprop:Generator_RowChangedName="General_AccessoriesRowChanged" msprop:Generator_RowEvArgName="General_AccessoriesRowChangeEvent" msprop:Generator_RowClassName="General_AccessoriesRow">
+        <xs:element name="General_Accessories" msprop:Generator_TableClassName="General_AccessoriesDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories" msprop:Generator_RowChangedName="General_AccessoriesRowChanged" msprop:Generator_TablePropName="General_Accessories" msprop:Generator_RowDeletingName="General_AccessoriesRowDeleting" msprop:Generator_RowChangingName="General_AccessoriesRowChanging" msprop:Generator_RowEvHandlerName="General_AccessoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="General_AccessoriesRowDeleted" msprop:Generator_RowClassName="General_AccessoriesRow" msprop:Generator_UserTableName="General_Accessories" msprop:Generator_RowEvArgName="General_AccessoriesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -7280,7 +7289,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="General_Accessories_Link" msprop:Generator_TableClassName="General_Accessories_LinkDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories_Link" msprop:Generator_TablePropName="General_Accessories_Link" msprop:Generator_RowDeletingName="General_Accessories_LinkRowDeleting" msprop:Generator_RowChangingName="General_Accessories_LinkRowChanging" msprop:Generator_RowEvHandlerName="General_Accessories_LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="General_Accessories_LinkRowDeleted" msprop:Generator_UserTableName="General_Accessories_Link" msprop:Generator_RowChangedName="General_Accessories_LinkRowChanged" msprop:Generator_RowEvArgName="General_Accessories_LinkRowChangeEvent" msprop:Generator_RowClassName="General_Accessories_LinkRow">
+        <xs:element name="General_Accessories_Link" msprop:Generator_TableClassName="General_Accessories_LinkDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories_Link" msprop:Generator_RowChangedName="General_Accessories_LinkRowChanged" msprop:Generator_TablePropName="General_Accessories_Link" msprop:Generator_RowDeletingName="General_Accessories_LinkRowDeleting" msprop:Generator_RowChangingName="General_Accessories_LinkRowChanging" msprop:Generator_RowEvHandlerName="General_Accessories_LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="General_Accessories_LinkRowDeleted" msprop:Generator_RowClassName="General_Accessories_LinkRow" msprop:Generator_UserTableName="General_Accessories_Link" msprop:Generator_RowEvArgName="General_Accessories_LinkRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
