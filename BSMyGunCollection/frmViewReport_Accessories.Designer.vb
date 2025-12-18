@@ -27,17 +27,17 @@ Partial Class frmViewReport_Accessories
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New Container
-        Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Accessories))
-        Me.Gun_Collection_AccessoriesBindingSource = New BindingSource(Me.components)
-        Me.MGCDataSet = New MGCDataSet
-        Me.Gun_Collection_AccessoriesTableAdapter = New Gun_Collection_AccessoriesTableAdapter
-        Me.ToolStrip1 = New ToolStrip
-        Me.ReportViewer1 = New ReportViewer
-        CType(Me.Gun_Collection_AccessoriesBindingSource, ISupportInitialize).BeginInit()
-        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewReport_Accessories))
+        Me.Gun_Collection_AccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.Gun_Collection_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_AccessoriesTableAdapter()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        CType(Me.Gun_Collection_AccessoriesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'Gun_Collection_AccessoriesBindingSource
         '
@@ -47,50 +47,51 @@ Partial Class frmViewReport_Accessories
         'MGCDataSet
         '
         Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Gun_Collection_AccessoriesTableAdapter
         '
-        Me.Gun_Collection_AccessoriesTableAdapter.ClearBeforeFill = True
+        Me.Gun_Collection_AccessoriesTableAdapter.ClearBeforeFill = true
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.GripStyle = ToolStripGripStyle.Hidden
-        Me.ToolStrip1.Location = New Point(0, 0)
+        Me.ToolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.RenderMode = ToolStripRenderMode.Professional
-        Me.ToolStrip1.Size = New Size(737, 25)
+        Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.ToolStrip1.Size = New System.Drawing.Size(1154, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
         'ReportViewer1
         '
-        Me.ReportViewer1.Dock = DockStyle.Fill
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "MGCDataSet_Gun_Collection_Accessories"
         ReportDataSource1.Value = Me.Gun_Collection_AccessoriesBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_Accessories.rdlc"
-        Me.ReportViewer1.Location = New Point(0, 25)
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 25)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New Size(737, 326)
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(1154, 416)
         Me.ReportViewer1.TabIndex = 2
         '
         'frmViewReport_Accessories
         '
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(737, 351)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1154, 441)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewReport_Accessories"
         Me.Text = "frmViewReport_Accessories"
-        CType(Me.Gun_Collection_AccessoriesBindingSource, ISupportInitialize).EndInit()
-        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        CType(Me.Gun_Collection_AccessoriesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents Gun_Collection_AccessoriesBindingSource As BindingSource
     Friend WithEvents MGCDataSet As MGCDataSet
     Friend WithEvents Gun_Collection_AccessoriesTableAdapter As Gun_Collection_AccessoriesTableAdapter
