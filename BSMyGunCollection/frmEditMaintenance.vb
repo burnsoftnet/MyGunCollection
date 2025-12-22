@@ -7,23 +7,23 @@ Imports BurnSoft.Applications.MGC.Types
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmEditMaintenance
     ''' <summary>
-    ''' The gid
+    ''' The The firearm ID
     ''' </summary>
     Public Gid As String
     ''' <summary>
-    ''' The ammo type
+    ''' The ammo type caliber that is used right now
     ''' </summary>
     Public AmmoType As String
     ''' <summary>
-    ''' The ammo type pet
+    ''' The ammo type got yjr secondary caliber that is used right now
     ''' </summary>
     Public AmmoTypePet As String
     ''' <summary>
-    ''' The bsid
+    ''' The Barrel System ID
     ''' </summary>
     Public Bsid As String
     ''' <summary>
-    ''' The mid
+    ''' The Maintenance ID
     ''' </summary>
     Public Mid As Long
     ''' <summary>
