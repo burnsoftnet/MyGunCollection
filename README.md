@@ -31,7 +31,7 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 
 ## Release Notes:
 
-### v7.0.6.x
+### v7.1.11.x
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
