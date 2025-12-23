@@ -173,13 +173,24 @@ Public Class frmViewGeneralAccessories
     Private Sub MoveToAFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToAFirearmToolStripMenuItem.Click
         Try 
             Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
-            Dim frmNew As New FrmLinkAccessoryToFirearm
-            frmNew.AccessoryId = itemId
-            frmNew.MdiParent = MdiParent
-            frmNew.MoveMode = True
-            frmNew.Show()
+            OpenFrmLinkAccessoryToFirearmAndWait(itemId)
         Catch ex As Exception
             Call LogError(Name, "MoveToAFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
+    End Sub
+    ''' <summary>
+    ''' Opens the FRM link accessory to firearm and wait.
+    ''' </summary>
+    ''' <param name="accessoryId">The accessory identifier.</param>
+    Private Sub OpenFrmLinkAccessoryToFirearmAndWait(accessoryId As Long)
+        ' Create the child form
+        Dim child As New FrmLinkAccessoryToFirearm
+        child.MdiParent = MdiParent
+        child.AccessoryId = accessoryId
+        child.MoveMode = True
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
     End Sub
 End Class
