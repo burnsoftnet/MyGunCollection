@@ -165,4 +165,32 @@ Public Class frmViewGeneralAccessories
             Call LogError(Name, "DuplicateToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the MoveToAFirearmToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub MoveToAFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToAFirearmToolStripMenuItem.Click
+        Try 
+            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+            OpenFrmLinkAccessoryToFirearmAndWait(itemId)
+        Catch ex As Exception
+            Call LogError(Name, "MoveToAFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' Opens the FRM link accessory to firearm and wait.
+    ''' </summary>
+    ''' <param name="accessoryId">The accessory identifier.</param>
+    Private Sub OpenFrmLinkAccessoryToFirearmAndWait(accessoryId As Long)
+        ' Create the child form
+        Dim child As New FrmLinkAccessoryToFirearm
+        child.MdiParent = MdiParent
+        child.AccessoryId = accessoryId
+        child.MoveMode = True
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
 End Class
