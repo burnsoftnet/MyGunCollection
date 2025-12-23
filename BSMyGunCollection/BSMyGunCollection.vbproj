@@ -126,11 +126,11 @@
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.3.44, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.2.44-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.4.46, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.4.46-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3463\lib\net481\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3462, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3462\lib\net481\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.1.1.2\lib\net481\BurnSoft.Security.RegularEncryption.dll</HintPath>
