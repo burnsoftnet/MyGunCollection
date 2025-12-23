@@ -165,4 +165,21 @@ Public Class frmViewGeneralAccessories
             Call LogError(Name, "DuplicateToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the MoveToAFirearmToolStripMenuItem control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub MoveToAFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToAFirearmToolStripMenuItem.Click
+        Try 
+            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+            Dim frmNew As New FrmLinkAccessoryToFirearm
+            frmNew.AccessoryId = itemId
+            frmNew.MdiParent = MdiParent
+            frmNew.MoveMode = True
+            frmNew.Show()
+        Catch ex As Exception
+            Call LogError(Name, "MoveToAFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
 End Class
