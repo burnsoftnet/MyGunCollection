@@ -1,7 +1,5 @@
 title: [My Gun Collection]
 description: [Open Source Personal Gun Collection Application!]
-
 remote_theme: pages-themes/leap-day@v0.2.0
 plugins:
   - jekyll-remote-theme
-  
