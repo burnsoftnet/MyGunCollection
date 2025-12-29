@@ -237,5 +237,43 @@ Namespace LogginAndSettings
             Settings.Save()
         End Sub
 
+        ''' <summary>
+        ''' Loads the view documents.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="location">The location.</param>
+        ''' <example>
+        ''' Dim objVs As New ViewSizeSettings
+        ''' objVs.LoadViewWishList(Height, Width, Location)
+        ''' </example>
+        Sub LoadViewDocuments(ByRef height As Long, ByRef width As Long, ByVal location As Point)
+            If Settings.frmViewDocuments_Width.Length > 0 And Settings.frmViewDocuments_Height.Length > 0 Then
+                height = Settings.frmViewDocuments_Height
+                width = Settings.frmViewDocuments_Width
+            End If
+            If Settings.frmViewDocuments_X.Length > 0 And Settings.frmViewDocuments_Y.Length > 0 Then
+                location = New Point(Settings.frmViewDocuments_X, Settings.frmViewDocuments_Y)
+            End If
+        End Sub
+
+        ''' <summary>
+        ''' Saves the view documents.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="x">The x.</param>
+        ''' <param name="y">The y.</param>
+        ''' <example>
+        ''' Dim objVs As New ViewSizeSettings
+        ''' objVs.SaveViewDocuments(Height, Width, Location.X, Location.Y)
+        ''' </example>
+        Sub SaveViewDocuments(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
+            Settings.frmViewDocuments_Height = height
+            Settings.frmViewDocuments_Width = width
+            Settings.frmViewDocuments_X = x
+            Settings.frmViewDocuments_Y = y
+            Settings.Save()
+        End Sub
     End Class
 End Namespace

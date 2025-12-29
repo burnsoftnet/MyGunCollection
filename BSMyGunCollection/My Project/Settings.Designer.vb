@@ -410,6 +410,54 @@ Namespace My
                 Me("FrmViewWishList_Y") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Height() As String
+            Get
+                Return CType(Me("frmViewDocuments_Height"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Width() As String
+            Get
+                Return CType(Me("frmViewDocuments_Width"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_X() As String
+            Get
+                Return CType(Me("frmViewDocuments_X"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_X") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Y() As String
+            Get
+                Return CType(Me("frmViewDocuments_Y"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Y") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
