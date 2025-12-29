@@ -166,6 +166,10 @@ Namespace LogginAndSettings
         ''' <param name="height">The height.</param>
         ''' <param name="width">The width.</param>
         ''' <param name="location">The location.</param>
+        ''' <example>
+        ''' Dim objVs As New ViewSizeSettings
+        ''' objVs.LoadViewGeneralAccessories(Height, Width, Location)
+        ''' </example>
         Sub LoadViewGeneralAccessories(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If My.Settings.frmViewGeneralAccessories_Width.Length > 0 And My.Settings.frmViewGeneralAccessories_Height.Length > 0 Then
                 height = My.Settings.frmViewGeneralAccessories_Height
@@ -182,6 +186,10 @@ Namespace LogginAndSettings
         ''' <param name="width">The width.</param>
         ''' <param name="x">The x.</param>
         ''' <param name="y">The y.</param>
+        ''' <example>
+        ''' Dim objVs As New ViewSizeSettings
+        ''' objVs.SaveViewGeneralAccessories(Height, Width, Location.X, Location.Y)
+        ''' </example>
         Sub SaveViewGeneralAccessories(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
             My.Settings.frmViewGeneralAccessories_Height = height
             My.Settings.frmViewGeneralAccessories_Width = width
