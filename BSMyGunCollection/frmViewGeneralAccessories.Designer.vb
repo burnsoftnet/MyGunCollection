@@ -185,24 +185,25 @@ Partial Class frmViewGeneralAccessories
         '
         'ManufacturerDataGridViewTextBoxColumn
         '
+        Me.ManufacturerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
         Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
         Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
         Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ManufacturerDataGridViewTextBoxColumn.Width = 150
         '
         'ModelDataGridViewTextBoxColumn
         '
+        Me.ModelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
         Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
         Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
         Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
         Me.ModelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ModelDataGridViewTextBoxColumn.Width = 200
         '
         'SerialNumberDataGridViewTextBoxColumn
         '
+        Me.SerialNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
         Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
         Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
@@ -211,6 +212,7 @@ Partial Class frmViewGeneralAccessories
         '
         'ConditionDataGridViewTextBoxColumn
         '
+        Me.ConditionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.ConditionDataGridViewTextBoxColumn.DataPropertyName = "Condition"
         Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
         Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
@@ -219,6 +221,7 @@ Partial Class frmViewGeneralAccessories
         '
         'UseDataGridViewTextBoxColumn
         '
+        Me.UseDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.UseDataGridViewTextBoxColumn.DataPropertyName = "Use"
         Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
         Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
@@ -234,12 +237,12 @@ Partial Class frmViewGeneralAccessories
         '
         'NotesDataGridViewTextBoxColumn
         '
+        Me.NotesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
         Me.NotesDataGridViewTextBoxColumn.FillWeight = 300!
         Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
         Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
         Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
-        Me.NotesDataGridViewTextBoxColumn.Width = 300
         '
         'frmViewGeneralAccessories
         '
