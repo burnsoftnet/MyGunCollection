@@ -28,7 +28,7 @@ Public Class frmViewDocuments
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewDocuments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim objVs As New ViewSizeSettings
-        objVs.LoadViewWishList(Height, Width, Location)
+        objVs.LoadViewDocuments(Height, Width, Location)
         Call RefreshData()
     End Sub
     ''' <summary>

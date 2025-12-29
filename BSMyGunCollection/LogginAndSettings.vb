@@ -245,7 +245,7 @@ Namespace LogginAndSettings
         ''' <param name="location">The location.</param>
         ''' <example>
         ''' Dim objVs As New ViewSizeSettings
-        ''' objVs.LoadViewWishList(Height, Width, Location)
+        ''' objVs.LoadViewDocuments(Height, Width, Location)
         ''' </example>
         Sub LoadViewDocuments(ByRef height As Long, ByRef width As Long, ByVal location As Point)
             If Settings.frmViewDocuments_Width.Length > 0 And Settings.frmViewDocuments_Height.Length > 0 Then
