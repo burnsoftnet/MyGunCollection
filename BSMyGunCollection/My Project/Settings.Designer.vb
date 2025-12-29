@@ -362,6 +362,54 @@ Namespace My
                 Me("frmViewGeneralAccessories_Y") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Height() As String
+            Get
+                Return CType(Me("FrmViewWishList_Height"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Width() As String
+            Get
+                Return CType(Me("FrmViewWishList_Width"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_X() As String
+            Get
+                Return CType(Me("FrmViewWishList_X"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_X") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Y() As String
+            Get
+                Return CType(Me("FrmViewWishList_Y"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Y") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
