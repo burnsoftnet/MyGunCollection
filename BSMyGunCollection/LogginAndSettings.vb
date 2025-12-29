@@ -1,5 +1,6 @@
 Imports System.IO
 Imports System.Text
+Imports BSMyGunCollection.My
 
 Namespace LogginAndSettings
 
@@ -159,5 +160,35 @@ Namespace LogginAndSettings
             My.Settings.ViewAmmoInv_Y = y
             My.Settings.Save()
         End Sub
+        ''' <summary>
+        ''' Loads the view general accessories.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="location">The location.</param>
+        Sub LoadViewGeneralAccessories(ByRef height As Long, ByRef width As Long, ByVal location As Point)
+            If My.Settings.frmViewGeneralAccessories_Width.Length > 0 And My.Settings.frmViewGeneralAccessories_Height.Length > 0 Then
+                height = My.Settings.frmViewGeneralAccessories_Height
+                width = My.Settings.frmViewGeneralAccessories_Width
+            End If
+            If My.Settings.frmViewGeneralAccessories_X.Length > 0 And My.Settings.frmViewGeneralAccessories_Y.Length > 0 Then
+                location = New Point(My.Settings.frmViewGeneralAccessories_X, My.Settings.frmViewGeneralAccessories_Y)
+            End If
+        End Sub
+        ''' <summary>
+        ''' Saves the view general accessories.
+        ''' </summary>
+        ''' <param name="height">The height.</param>
+        ''' <param name="width">The width.</param>
+        ''' <param name="x">The x.</param>
+        ''' <param name="y">The y.</param>
+        Sub SaveViewGeneralAccessories(ByVal height As Long, ByVal width As Long, ByVal x As Long, ByVal y As Long)
+            My.Settings.frmViewGeneralAccessories_Height = height
+            My.Settings.frmViewGeneralAccessories_Width = width
+            My.Settings.frmViewGeneralAccessories_X = x
+            My.Settings.frmViewGeneralAccessories_Y = y
+            My.Settings.Save()
+        End Sub
+
     End Class
 End Namespace
