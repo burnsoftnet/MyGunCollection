@@ -84,22 +84,22 @@ FROM         Gun_Collection_Ammo</CommandText>
                   <Width>1.625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5in</Width>
+                  <Width>2.19792in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.375in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5in</Width>
+                  <Width>1.26042in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.125in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.75in</Width>
+                  <Width>2.04167in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.75in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.61458in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -937,7 +937,7 @@ FROM         Gun_Collection_Ammo</CommandText>
             </TablixRowHierarchy>
             <DataSetName>MGCDataSet_Gun_Collection_Ammo</DataSetName>
             <Height>0.75in</Height>
-            <Width>10.625in</Width>
+            <Width>9.86458in</Width>
             <Style>
               <TopBorder>
                 <Width>1pt</Width>
@@ -961,7 +961,7 @@ FROM         Gun_Collection_Ammo</CommandText>
         <Height>0.75in</Height>
         <Style />
       </Body>
-      <Width>10.69in</Width>
+      <Width>9.96083in</Width>
       <Page>
         <PageHeader>
           <Height>0.5in</Height>
@@ -996,9 +996,9 @@ FROM         Gun_Collection_Ammo</CommandText>
             </Textbox>
             <Line Name="line1">
               <Top>0.375in</Top>
-              <Left>10.625in</Left>
+              <Left>9.8125in</Left>
               <Height>0in</Height>
-              <Width>-10.625in</Width>
+              <Width>-9.8125in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1011,7 +1011,7 @@ FROM         Gun_Collection_Ammo</CommandText>
           <Style />
         </PageHeader>
         <PageFooter>
-          <Height>0.25in</Height>
+          <Height>0.35417in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1059,7 +1059,7 @@ FROM         Gun_Collection_Ammo</CommandText>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>textbox60</rd:DefaultName>
-              <Left>9.375in</Left>
+              <Left>8.6875in</Left>
               <Height>0.25in</Height>
               <Width>1.125in</Width>
               <ZIndex>1</ZIndex>
@@ -1104,7 +1104,7 @@ FROM         Gun_Collection_Ammo</CommandText>
         <PageWidth>11.69in</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>0.5in</LeftMargin>
+        <LeftMargin>1in</LeftMargin>
         <RightMargin>0.5in</RightMargin>
         <TopMargin>0.5in</TopMargin>
         <BottomMargin>0.5in</BottomMargin>
