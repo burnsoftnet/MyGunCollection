@@ -1,7 +1,6 @@
 ---
-sort: 2
+layout: default
 ---
-
 # View And Submit Issues
 
 The Issues Sections of the Project contains Bugs that was found and Future enhancements that is wanted in the application.

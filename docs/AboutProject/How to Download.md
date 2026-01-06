@@ -1,5 +1,5 @@
 ---
-sort: 1
+layout: default
 ---
 # How to Download
 
