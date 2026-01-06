@@ -30,6 +30,9 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 ![](images/bsmgc0015.jpg)
 ![](images/bsmgc0016.jpg)
 
+## [About the Project](AboutProject/README.md)
+
+
 ## Release Notes:
 
 v6.9.15.2 September 2022
