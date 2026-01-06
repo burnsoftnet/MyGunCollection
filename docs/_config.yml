@@ -1,5 +1,6 @@
 title: My Gun Collection
 description: Open Source Personal Gun Collection Application!
+installer_download: https://github.com/burnsoftnet/MyGunCollection/releases/download/v6.9.15.2/BSMyGunCollection_Setup.msi
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-leap-day
