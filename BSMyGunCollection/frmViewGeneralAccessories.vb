@@ -1,4 +1,5 @@
-﻿Imports BurnSoft.Applications.MGC
+﻿Imports BSMyGunCollection.LogginAndSettings
+Imports BurnSoft.Applications.MGC
 Imports BurnSoft.Applications.MGC.Other
 Imports BurnSoft.Applications.MGC.Types
 
@@ -8,8 +9,15 @@ Imports BurnSoft.Applications.MGC.Types
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
 Public Class frmViewGeneralAccessories
-    Private errOut as String 
+    Private errOut As String
+    ''' <summary>
+    ''' Handles the Load event of the frmViewGeneralAccessories control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewGeneralAccessories_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim objVs As New ViewSizeSettings
+        objVs.LoadViewGeneralAccessories(Height, Width, Location)
         RefreshData()
     End Sub
     ''' <summary>
@@ -39,7 +47,7 @@ Public Class frmViewGeneralAccessories
     ''' </summary>
     Private Sub OpenFrmAddAccessoryAndWait()
         ' Create the child form
-        Dim child As New FrmAddAccessory
+        Dim child As New frmAddAccessory
         child.MdiParent = MdiParent
         child.IsGeneral = True
         ' Attach handler for when the child closes
@@ -97,7 +105,7 @@ Public Class frmViewGeneralAccessories
     ''' <returns><c>true</c> if the specified item is attached; otherwise, <c>false</c>.</returns>
     ''' <exception cref="System.Exception"></exception>
     Private Function IsAttached(item As Integer) As Boolean
-        Dim bAns  As Boolean = False
+        Dim bAns As Boolean = False
         Try
             Dim lst As List(Of GeneralAccessoriesLinkers) = Other.GeneralAccessoriesLinking.Lists(DatabasePath, item, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
@@ -125,7 +133,7 @@ Public Class frmViewGeneralAccessories
                         deleteAll = True
                     End If
                 End If
-                if Not Other.GeneralAccessories.Delete(DatabasePath, cint(itemId), deleteAll, errOut) Then Throw New Exception(errOut)
+                If Not Other.GeneralAccessories.Delete(DatabasePath, CInt(itemId), deleteAll, errOut) Then Throw New Exception(errOut)
                 MsgBox("Accessory was Deleted!")
                 RefreshData()
             End If
@@ -139,8 +147,8 @@ Public Class frmViewGeneralAccessories
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub AttachToFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AttachToFirearmToolStripMenuItem.Click
-        Try 
-            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+        Try
+            Dim itemId As Long = CLng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
             Dim frmNew As New FrmLinkAccessoryToFirearm
             frmNew.AccessoryId = itemId
             frmNew.MdiParent = MdiParent
@@ -156,9 +164,9 @@ Public Class frmViewGeneralAccessories
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     ''' <exception cref="System.Exception"></exception>
     Private Sub DuplicateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DuplicateToolStripMenuItem.Click
-        Try 
-            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
-            if Not GeneralAccessories.Duplicate(DatabasePath, itemId, errOut) Then Throw New Exception(errOut)
+        Try
+            Dim itemId As Long = CLng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+            If Not GeneralAccessories.Duplicate(DatabasePath, itemId, errOut) Then Throw New Exception(errOut)
             MsgBox("Accessory was Duplicated!")
             RefreshData()
         Catch ex As Exception
@@ -171,8 +179,8 @@ Public Class frmViewGeneralAccessories
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub MoveToAFirearmToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MoveToAFirearmToolStripMenuItem.Click
-        Try 
-            Dim itemId As Long = Clng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
+        Try
+            Dim itemId As Long = CLng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
             OpenFrmLinkAccessoryToFirearmAndWait(itemId)
         Catch ex As Exception
             Call LogError(Name, "MoveToAFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
@@ -192,5 +200,14 @@ Public Class frmViewGeneralAccessories
         AddHandler child.FormClosed, AddressOf ChildFormClosed
         ' Show the child form
         child.Show()
+    End Sub
+    ''' <summary>
+    ''' Handles the Disposed event of the frmViewGeneralAccessories control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewGeneralAccessories_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Dim objVs As New ViewSizeSettings
+        objVs.SaveViewGeneralAccessories(Height, Width, Location.X, Location.Y)
     End Sub
 End Class

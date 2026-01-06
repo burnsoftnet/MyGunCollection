@@ -1,3 +1,5 @@
+Imports BSMyGunCollection.LogginAndSettings
+
 ''' <summary>
 ''' Class frmViewWishList.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -45,6 +47,8 @@ Public Class FrmViewWishList
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewWishList_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+        Dim objVs As New ViewSizeSettings
+        objVs.LoadViewWishList(Height, Width, Location)
         Call RefreshData()
     End Sub
     ''' <summary>
@@ -110,5 +114,15 @@ Public Class FrmViewWishList
             Call LogError(Name, "DeleteToolStripMenuItem_Click", Err.Number, ex.Message.ToString)
         End Try
         Call RefreshData()
+    End Sub
+
+    ''' <summary>
+    ''' Handles the Disposed event of the ToolStripButton2 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton2_Disposed(sender As Object, e As EventArgs) Handles ToolStripButton2.Disposed
+        Dim objVs As New ViewSizeSettings
+        objVs.SaveViewWishList(Height, Width, Location.X, Location.Y)
     End Sub
 End Class

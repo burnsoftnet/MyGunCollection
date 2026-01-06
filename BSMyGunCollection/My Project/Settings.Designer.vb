@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -312,6 +312,150 @@ Namespace My
             End Get
             Set
                 Me("frmFirearmImagePicker_Y") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewGeneralAccessories_Height() As String
+            Get
+                Return CType(Me("frmViewGeneralAccessories_Height"),String)
+            End Get
+            Set
+                Me("frmViewGeneralAccessories_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewGeneralAccessories_Width() As String
+            Get
+                Return CType(Me("frmViewGeneralAccessories_Width"),String)
+            End Get
+            Set
+                Me("frmViewGeneralAccessories_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewGeneralAccessories_X() As String
+            Get
+                Return CType(Me("frmViewGeneralAccessories_X"),String)
+            End Get
+            Set
+                Me("frmViewGeneralAccessories_X") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewGeneralAccessories_Y() As String
+            Get
+                Return CType(Me("frmViewGeneralAccessories_Y"),String)
+            End Get
+            Set
+                Me("frmViewGeneralAccessories_Y") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Height() As String
+            Get
+                Return CType(Me("FrmViewWishList_Height"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Width() As String
+            Get
+                Return CType(Me("FrmViewWishList_Width"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_X() As String
+            Get
+                Return CType(Me("FrmViewWishList_X"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_X") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FrmViewWishList_Y() As String
+            Get
+                Return CType(Me("FrmViewWishList_Y"),String)
+            End Get
+            Set
+                Me("FrmViewWishList_Y") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Height() As String
+            Get
+                Return CType(Me("frmViewDocuments_Height"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Height") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Width() As String
+            Get
+                Return CType(Me("frmViewDocuments_Width"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Width") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_X() As String
+            Get
+                Return CType(Me("frmViewDocuments_X"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_X") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property frmViewDocuments_Y() As String
+            Get
+                Return CType(Me("frmViewDocuments_Y"),String)
+            End Get
+            Set
+                Me("frmViewDocuments_Y") = value
             End Set
         End Property
     End Class

@@ -28,6 +28,16 @@ Partial Class frmViewGeneralAccessories
         Me.tsBtnAdd = New System.Windows.Forms.ToolStripButton()
         Me.tsbRefresh = New System.Windows.Forms.ToolStripButton()
         Me.dgvGeneralTable = New System.Windows.Forms.DataGridView()
+        Me.cmnuAccessory = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AttachToFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DuplicateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MoveToAFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ManufacturerDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.ModelDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
@@ -36,16 +46,6 @@ Partial Class frmViewGeneralAccessories
         Me.UseDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.IsLinked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cmnuAccessory = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AttachToFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DuplicateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GeneralAccessoriesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
-        Me.GeneralAccessoriesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.General_AccessoriesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.General_AccessoriesTableAdapter()
-        Me.MoveToAFirearmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         Me.cmnuAccessory.SuspendLayout
@@ -103,77 +103,13 @@ Partial Class frmViewGeneralAccessories
         Me.dgvGeneralTable.Size = New System.Drawing.Size(1172, 447)
         Me.dgvGeneralTable.TabIndex = 1
         '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        Me.IDDataGridViewTextBoxColumn.ReadOnly = true
-        Me.IDDataGridViewTextBoxColumn.Visible = false
-        '
-        'ManufacturerDataGridViewTextBoxColumn
-        '
-        Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
-        Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
-        Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
-        Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
-        Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'ModelDataGridViewTextBoxColumn
-        '
-        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
-        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
-        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
-        Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
-        Me.ModelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'SerialNumberDataGridViewTextBoxColumn
-        '
-        Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
-        Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
-        Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
-        Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = true
-        Me.SerialNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'ConditionDataGridViewTextBoxColumn
-        '
-        Me.ConditionDataGridViewTextBoxColumn.DataPropertyName = "Condition"
-        Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
-        Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
-        Me.ConditionDataGridViewTextBoxColumn.ReadOnly = true
-        Me.ConditionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'UseDataGridViewTextBoxColumn
-        '
-        Me.UseDataGridViewTextBoxColumn.DataPropertyName = "Use"
-        Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
-        Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
-        Me.UseDataGridViewTextBoxColumn.ReadOnly = true
-        Me.UseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        '
-        'IsLinked
-        '
-        Me.IsLinked.DataPropertyName = "IsLinked"
-        Me.IsLinked.HeaderText = "Copied Firearm Accessory"
-        Me.IsLinked.Name = "IsLinked"
-        Me.IsLinked.ReadOnly = true
-        '
-        'NotesDataGridViewTextBoxColumn
-        '
-        Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
-        Me.NotesDataGridViewTextBoxColumn.FillWeight = 300!
-        Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
-        Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
-        Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
-        Me.NotesDataGridViewTextBoxColumn.Width = 300
-        '
         'cmnuAccessory
         '
         Me.cmnuAccessory.AccessibleDescription = "Selected Item in Grid Menu"
         Me.cmnuAccessory.AccessibleName = "mnuContextMenu"
         Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem, Me.DuplicateToolStripMenuItem, Me.MoveToAFirearmToolStripMenuItem})
         Me.cmnuAccessory.Name = "cmnuAccessory"
-        Me.cmnuAccessory.Size = New System.Drawing.Size(181, 136)
+        Me.cmnuAccessory.Size = New System.Drawing.Size(171, 114)
         '
         'EditToolStripMenuItem
         '
@@ -181,7 +117,7 @@ Partial Class frmViewGeneralAccessories
         Me.EditToolStripMenuItem.AccessibleName = "mnuEdit"
         Me.EditToolStripMenuItem.Image = CType(resources.GetObject("EditToolStripMenuItem.Image"),System.Drawing.Image)
         Me.EditToolStripMenuItem.Name = "EditToolStripMenuItem"
-        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.EditToolStripMenuItem.Text = "&Edit"
         '
         'DeleteToolStripMenuItem
@@ -190,7 +126,7 @@ Partial Class frmViewGeneralAccessories
         Me.DeleteToolStripMenuItem.AccessibleName = "mnuDelete"
         Me.DeleteToolStripMenuItem.Image = CType(resources.GetObject("DeleteToolStripMenuItem.Image"),System.Drawing.Image)
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.DeleteToolStripMenuItem.Text = "&Delete"
         '
         'AttachToFirearmToolStripMenuItem
@@ -199,7 +135,7 @@ Partial Class frmViewGeneralAccessories
         Me.AttachToFirearmToolStripMenuItem.AccessibleName = "mnuAttatchToFirearm"
         Me.AttachToFirearmToolStripMenuItem.Image = CType(resources.GetObject("AttachToFirearmToolStripMenuItem.Image"),System.Drawing.Image)
         Me.AttachToFirearmToolStripMenuItem.Name = "AttachToFirearmToolStripMenuItem"
-        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AttachToFirearmToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.AttachToFirearmToolStripMenuItem.Text = "&Attach To Firearm"
         '
         'DuplicateToolStripMenuItem
@@ -208,8 +144,17 @@ Partial Class frmViewGeneralAccessories
         Me.DuplicateToolStripMenuItem.AccessibleName = "mnuduplicate"
         Me.DuplicateToolStripMenuItem.Image = CType(resources.GetObject("DuplicateToolStripMenuItem.Image"),System.Drawing.Image)
         Me.DuplicateToolStripMenuItem.Name = "DuplicateToolStripMenuItem"
-        Me.DuplicateToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DuplicateToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
         Me.DuplicateToolStripMenuItem.Text = "D&uplicate"
+        '
+        'MoveToAFirearmToolStripMenuItem
+        '
+        Me.MoveToAFirearmToolStripMenuItem.AccessibleDescription = "Move to a firearm"
+        Me.MoveToAFirearmToolStripMenuItem.AccessibleName = "mnuMoveToAFirearm"
+        Me.MoveToAFirearmToolStripMenuItem.Image = CType(resources.GetObject("MoveToAFirearmToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.MoveToAFirearmToolStripMenuItem.Name = "MoveToAFirearmToolStripMenuItem"
+        Me.MoveToAFirearmToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.MoveToAFirearmToolStripMenuItem.Text = "&Move to a Firearm"
         '
         'GeneralAccessoriesBindingSource1
         '
@@ -230,14 +175,74 @@ Partial Class frmViewGeneralAccessories
         '
         Me.General_AccessoriesTableAdapter.ClearBeforeFill = true
         '
-        'MoveToAFirearmToolStripMenuItem
+        'IDDataGridViewTextBoxColumn
         '
-        Me.MoveToAFirearmToolStripMenuItem.AccessibleDescription = "Move to a firearm"
-        Me.MoveToAFirearmToolStripMenuItem.AccessibleName = "mnuMoveToAFirearm"
-        Me.MoveToAFirearmToolStripMenuItem.Image = CType(resources.GetObject("MoveToAFirearmToolStripMenuItem.Image"),System.Drawing.Image)
-        Me.MoveToAFirearmToolStripMenuItem.Name = "MoveToAFirearmToolStripMenuItem"
-        Me.MoveToAFirearmToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.MoveToAFirearmToolStripMenuItem.Text = "&Move to a Firearm"
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        Me.IDDataGridViewTextBoxColumn.ReadOnly = true
+        Me.IDDataGridViewTextBoxColumn.Visible = false
+        '
+        'ManufacturerDataGridViewTextBoxColumn
+        '
+        Me.ManufacturerDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ManufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer"
+        Me.ManufacturerDataGridViewTextBoxColumn.Name = "ManufacturerDataGridViewTextBoxColumn"
+        Me.ManufacturerDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ManufacturerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'ModelDataGridViewTextBoxColumn
+        '
+        Me.ModelDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ModelDataGridViewTextBoxColumn.DataPropertyName = "Model"
+        Me.ModelDataGridViewTextBoxColumn.HeaderText = "Model"
+        Me.ModelDataGridViewTextBoxColumn.Name = "ModelDataGridViewTextBoxColumn"
+        Me.ModelDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ModelDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'SerialNumberDataGridViewTextBoxColumn
+        '
+        Me.SerialNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SerialNumberDataGridViewTextBoxColumn.DataPropertyName = "SerialNumber"
+        Me.SerialNumberDataGridViewTextBoxColumn.HeaderText = "Serial Number"
+        Me.SerialNumberDataGridViewTextBoxColumn.Name = "SerialNumberDataGridViewTextBoxColumn"
+        Me.SerialNumberDataGridViewTextBoxColumn.ReadOnly = true
+        Me.SerialNumberDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'ConditionDataGridViewTextBoxColumn
+        '
+        Me.ConditionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ConditionDataGridViewTextBoxColumn.DataPropertyName = "Condition"
+        Me.ConditionDataGridViewTextBoxColumn.HeaderText = "Condition"
+        Me.ConditionDataGridViewTextBoxColumn.Name = "ConditionDataGridViewTextBoxColumn"
+        Me.ConditionDataGridViewTextBoxColumn.ReadOnly = true
+        Me.ConditionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'UseDataGridViewTextBoxColumn
+        '
+        Me.UseDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.UseDataGridViewTextBoxColumn.DataPropertyName = "Use"
+        Me.UseDataGridViewTextBoxColumn.HeaderText = "Use"
+        Me.UseDataGridViewTextBoxColumn.Name = "UseDataGridViewTextBoxColumn"
+        Me.UseDataGridViewTextBoxColumn.ReadOnly = true
+        Me.UseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'IsLinked
+        '
+        Me.IsLinked.DataPropertyName = "IsLinked"
+        Me.IsLinked.HeaderText = "Copied Firearm Accessory"
+        Me.IsLinked.Name = "IsLinked"
+        Me.IsLinked.ReadOnly = true
+        '
+        'NotesDataGridViewTextBoxColumn
+        '
+        Me.NotesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.NotesDataGridViewTextBoxColumn.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn.FillWeight = 300!
+        Me.NotesDataGridViewTextBoxColumn.HeaderText = "Notes"
+        Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
+        Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
         '
         'frmViewGeneralAccessories
         '
@@ -274,6 +279,7 @@ End Sub
     Friend WithEvents AttachToFirearmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents tsbRefresh As ToolStripButton
     Friend WithEvents DuplicateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MoveToAFirearmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ManufacturerDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents ModelDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
@@ -282,5 +288,4 @@ End Sub
     Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents IsLinked As DataGridViewCheckBoxColumn
     Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents MoveToAFirearmToolStripMenuItem As ToolStripMenuItem
 End Class
