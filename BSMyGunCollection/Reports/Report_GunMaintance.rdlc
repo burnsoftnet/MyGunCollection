@@ -84,13 +84,13 @@
                   <Width>1.5in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1in</Width>
+                  <Width>0.76042in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1.5in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5in</Width>
+                  <Width>2.38542in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -872,14 +872,14 @@
             <DataSetName>MGCDataSet_gryGunMaintance</DataSetName>
             <Top>0.125in</Top>
             <Height>0.75in</Height>
-            <Width>10.375in</Width>
+            <Width>10.02083in</Width>
             <Style />
           </Tablix>
         </ReportItems>
         <Height>0.875in</Height>
         <Style />
       </Body>
-      <Width>10.5in</Width>
+      <Width>10.08333in</Width>
       <Page>
         <PageHeader>
           <Height>0.375in</Height>
@@ -919,7 +919,7 @@
             <Line Name="line1">
               <Top>0.375in</Top>
               <Height>0in</Height>
-              <Width>10.375in</Width>
+              <Width>10.02083in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1025,7 +1025,7 @@
         <PageWidth>11.69in</PageWidth>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
-        <LeftMargin>0.5in</LeftMargin>
+        <LeftMargin>1in</LeftMargin>
         <RightMargin>0.5in</RightMargin>
         <TopMargin>0.5in</TopMargin>
         <BottomMargin>0.5in</BottomMargin>
