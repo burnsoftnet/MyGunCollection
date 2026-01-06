@@ -3,6 +3,3 @@ description: Open Source Personal Gun Collection Application!
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-leap-day
-github:
-	zip_url: "https://github.com/burnsoftnet/MyGunCollection/releases/download/v6.9.15.2/BSMyGunCollection_Setup.msi"
-	tar_url: "https://github.com/burnsoftnet/MyGunCollection/archive/refs/tags/v6.9.15.2.zip" #
