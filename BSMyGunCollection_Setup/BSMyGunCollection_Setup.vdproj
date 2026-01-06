@@ -100,18 +100,6 @@
         "Entry"
         {
         "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
-        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
-        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
         "OwnerKey" = "8:_1B89403C674C45278B999F8DC00AB023"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -119,6 +107,18 @@
         {
         "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
         "OwnerKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "OwnerKey" = "8:_616E0A6B3E304FDF8EE06012A7AE753B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -298,12 +298,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E51793B6BD8C4A7AB20A55F82B2D02A9"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -376,13 +370,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
+        "OwnerKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
+        "OwnerKey" = "8:_868E93D58AFCA673258735BDDEF15135"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -431,6 +425,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E3347E5EF9AF93E45BC6162140B333DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_587515A2301E85606DB54F5D7FCCE06A"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -623,7 +623,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.44, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.4.46, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1EECA0302DCD4C6C8536E1993CAA69DD"
@@ -685,7 +685,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.3.356.3462, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_369E273C281C46BD9942B334898A2879"
@@ -792,11 +792,11 @@
                 {
                     "_4E9157D9268FB60087288E0B542856E8"
                     {
-                    "Name" = "8:Microsoft.ReportViewer.WinForms.DLL"
+                    "Name" = "8:Microsoft.ReportViewer.WinForms.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.ReportViewer.WinForms.DLL"
+            "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A77D86BA1FB4DA1A737E88CF141F4C3"
@@ -982,7 +982,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.MsgBox, Version=2.3.356.3462, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_6919C560F6525C83D62996BC51BC1BF7"
@@ -1018,11 +1018,11 @@
                 {
                     "_7F1C0EDB9B7E769F5494FC0D6A7BCD13"
                     {
-                    "Name" = "8:Microsoft.ReportViewer.ProcessingObjectModel.DLL"
+                    "Name" = "8:Microsoft.ReportViewer.ProcessingObjectModel.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.ReportViewer.ProcessingObjectModel.DLL"
+            "SourcePath" = "8:Microsoft.ReportViewer.ProcessingObjectModel.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9A77D86BA1FB4DA1A737E88CF141F4C3"
@@ -1137,7 +1137,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.3.44, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.4.46, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_92F31A5DCA454FD035980E2BCB2D9C81"
@@ -1219,7 +1219,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.1.11.60, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.1.12.61, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_A5029518DFAE4D2395998A239FFCC941"
@@ -1665,15 +1665,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{A6CE0048-E3A1-4A09-8EB8-09545BC5A40B}"
-        "PackageCode" = "8:{547C52CA-74C9-4191-9FA8-5812C0AF361A}"
+        "ProductCode" = "8:{5527B10B-D088-4B3A-BDB0-55DDF9C40935}"
+        "PackageCode" = "8:{32DF8565-FE73-4FED-8C74-F2E47FC907AF}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:7.1.12"
+        "ProductVersion" = "8:7.1.13"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
