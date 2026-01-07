@@ -1,5 +1,5 @@
 ---
-sort: 2
+layout: defaultHelp
 ---
 
 # My Gun Collection Help Home
@@ -19,6 +19,3 @@ Details Information about the firearm. (Make, model, serial number, length, Appr
 * Insurance Reports
 * Wish List
 
-## Help Sections
-
-{% include list.liquid all=true %}
