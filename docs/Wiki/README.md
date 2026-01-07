@@ -1,5 +1,5 @@
 ---
-layout: default Wiki
+layout: defaultWiki
 ---
 
 
