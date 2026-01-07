@@ -1,7 +1,3 @@
----
-layout: defaultWiki
----
-
 # Custom Reports - Using T SQL to view data
 
 ## Introduction

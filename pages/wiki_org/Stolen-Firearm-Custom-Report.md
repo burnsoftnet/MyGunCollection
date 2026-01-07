@@ -1,7 +1,3 @@
----
-layout: defaultWiki
----
-
 # Stolen Firearm Custom Report
 
 To create a Custom Report/List for Stolen Firearm 
