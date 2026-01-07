@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Notes
 
 ![](images/ViewFullDetails_NOtes.jpg)

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Buyer Information
 
 When you click on the *Mark Item as Sold* from the details window of the selected firearm, it will bring up the following window:

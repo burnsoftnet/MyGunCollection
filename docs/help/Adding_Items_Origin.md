@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Place of Origin
 
 Right now, the Place of Origin is an Auto Suggest feature that is used when you are entering a new or editing a firearm.  The Place of Origin is the country of the manufacturer.  We currently have 247 Countries entered in the database, so chances are you will not have to enter in anything new any time soon.

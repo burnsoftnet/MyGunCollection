@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing an Accessory
 
 As you already know, when you are view the details of a selected firearm, you can add Accessories that go with that firearm.  From that same tab, you can now edit, copy and Delete items from that list.

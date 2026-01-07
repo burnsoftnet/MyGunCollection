@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Removing a Firearm from your Collection
 
 Sometimes we all want to do a little house cleaning, and get rid of the things that are no longer needed.  You can quickly delete a firearm and everything that is tied to it (Accessories, Gun Smith Details, Maintenance Detail, and Pictures) from the database.

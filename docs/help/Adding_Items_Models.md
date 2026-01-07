@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Model
 
 The Model feature was added to complement the Manufacturers Information.  This also helps with the auto suggest when adding a firearm.  We currently have 118 models tied to 5 manufacturers.  This was another way to quickly Add firearms to your collection.

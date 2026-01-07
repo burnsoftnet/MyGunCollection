@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Barrel or Conversion Kit to a Firearm
 
 Here is a regular view of an AR-15 with both .223 and 5.56 calibers listed, this is what you currently see in the regular version.

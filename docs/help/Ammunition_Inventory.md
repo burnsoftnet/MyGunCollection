@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Ammunition Inventory
 
 ![](images/View_Ammunition_Inventory.jpg)

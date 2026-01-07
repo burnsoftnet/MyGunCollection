@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Condition Comments
 
 ![](images/ViewFullDetails_ConditionComments.jpg)

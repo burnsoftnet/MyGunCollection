@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Maintenance Details
 
 ![](images/Adding_Maintenance_Details_Details_List.jpg)

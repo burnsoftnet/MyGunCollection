@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing Condition Types
 
 Since the release of the My Gun Collection version 5.x, you are now able to manage, edit or delete the Condition Types of a firearm.  If you wish to edit the current information for the condition types, just click on "*Edit | Condition Types*"

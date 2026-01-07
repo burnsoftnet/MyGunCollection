@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Maintenance Plans
 
 There are two ways to add a maintenance plan, if you are currently viewing the *Maintenance Plan List*, you can just click on *Add* in the menu bar of that window.  You can also click on *Add Item* in the menu bar, and click on *Maintenance Plan*.

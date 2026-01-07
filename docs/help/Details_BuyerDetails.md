@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Buyer Details
 
 ![](images/ViewFullDetails_BuyerDetails.jpg)

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Ammunition Type
 
 This is another feature to help with the Auto Suggestion when you are adding a new firearm or adding ammunition to your collect.  This will allow you to add in the Caliber or gauge that you have or want to put in the database.  The Ammunition type is very important in this application since you ammunition inventory will also tie in with the ammunition that your firearm requires.  We currently have 118 different kinds of Ammunition listed in the database.

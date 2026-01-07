@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding to the Gun Smith Log
 
 When you click on the *Add to Gun Smith Log*, it will bring up the following window.

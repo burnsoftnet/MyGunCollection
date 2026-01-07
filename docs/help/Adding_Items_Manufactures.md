@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Manufacturers
 
 This feature was added for those that have a huge collection of firearms from the same or other manufactures.  This feature will allow you to enter in the manufactures in the database, this list is mostly used when you are adding a firearm to your collection, is it part of the Auto Suggest feature.  If the manufacture does not exist when you are adding a firearm, it will still add the Manufacturer to the list for future use.  So this feature might be useless for most users.  Currently we do have about 66 manufactures listed in the database.

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Accessories
 
 ![](images/ViewFullDetails_Accessories.jpg)

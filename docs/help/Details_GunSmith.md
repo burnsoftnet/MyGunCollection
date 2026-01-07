@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Gun Smith Details
 
 ![](images/ViewFullDetails_GunSmith.jpg)

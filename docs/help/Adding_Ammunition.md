@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding Ammunition
 
 You can add ammunition to your collection by clicking on the **Add** button in the Ammunition section when you are viewing the details of the firearm, or you can also add ammunition to your collect by going to the **Add Item** on the Menu Bar, and clicking on the **Add Ammunition to my Collection**.  Once you click on any one of those methods, the following window will appear.

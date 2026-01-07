@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # View Details
 
 ![](images/ViewFullDetails_Main.jpg)

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # How to Copy a Firearm
 
 This section will tell you how to copy a firearm.  Sometimes we may get another or newer version of a firearm that we have in our collection.  Even though the specs for the firearm are pretty much the same, it is still a pain to fill out all the information again.  So to help with this issue, we added the ability to copy the details of a previous firearm.

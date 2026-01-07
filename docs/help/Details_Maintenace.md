@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Maintenance
 
 ![](images/ViewFullDetails_Maintance.jpg)

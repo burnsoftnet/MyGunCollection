@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Database Clean Up
 
 The database clean utility was created to help wipe out the entire database of all the pre-loaded data.  You can have it perform a Remove All Data, which will wipe out everything, allowing you to start 100% fresh or you can select certain preloaded categories to remove from the database. 

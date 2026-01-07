@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Backing up your Database
 
 Why would I need to Backup my Database (dB)?  Well this is just a safety measure for your day to day business operations.  If you had to restore your current PC, which involves wiping out everything and reinstalling it, or if you PC crashes, at least you will have your dB handy once you reinstall this program.

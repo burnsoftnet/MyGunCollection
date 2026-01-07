@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Delete Model Types
 
 This section will tell you how you can delete the Models that are stored in the database.  Since the MGC comes with a small list of Manufacturers and Models for the auto complete, this section will allow you to delete certain models that you are not interested in.  If you wanted to delete all the models listed, then we recommend using the [Database Cleanup Wizard](Database_Cleanup.md), which is a lot quicker.
