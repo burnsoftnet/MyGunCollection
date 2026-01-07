@@ -30,10 +30,6 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 ![](images/bsmgc0015.jpg)
 ![](images/bsmgc0016.jpg)
 
-# [About Project](AboutProject/README.md)
-
-[Click here](AboutProject/README.md)
-
 
 ## Release Notes:
 
