@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Table of Contents
 
 * [Adding Accessories](Adding_Accessory.md)
