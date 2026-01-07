@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Starting Out - Adding a Firearm
 
 You can add one of your firearms to the application by clicking on the the Add Item then Add Firearm  from the menu of by clicking on the Gun Icon ( ![](images/MILITA~2.jpg) ) on the Tool Bar.

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Firearm - Full Details Print Out
 
 The Firearm Full Detail Report is a printer friendly way of printing out all the specs for the selected firearm.  It will use the first picture or default picture that you assigned to that firearm as the display picture, then it will print out all the details that you would first see when you click on the firearm. 

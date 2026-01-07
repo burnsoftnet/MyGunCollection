@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Viewing Listed Buyers
 
 Since this application is keeping track of who you sold your firearm to, we thought it was best to make a quick and easy way to view the people that have bought your firearms.

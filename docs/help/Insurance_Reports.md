@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Insurance Reports
 
 The Insurance reports are like the Quick Inventory Print out Reports, except that will include the Purchased, insured value or appraised value of the firearm.

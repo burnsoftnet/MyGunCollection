@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing Place of Origin
 
 To edit and view the Place of Origin list, just click on Edit and Click on Place of Origin

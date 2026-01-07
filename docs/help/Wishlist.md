@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # WishList
 
 ![](images/Wishlist_ViewingList.jpg)

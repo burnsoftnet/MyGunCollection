@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Adding a Shop to the List
 
 By Default, when you are adding or editing a firearm in your collection and you put a shop in the "Purchased From" field, it will automatically add the Shop to the database.  This section will show you how to add a shop to the database without having to enter in a firearm.

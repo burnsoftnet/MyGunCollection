@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing Manufactures
 
 To edit and view the manufacturers list, just click on Edit and Click on Manufacturers

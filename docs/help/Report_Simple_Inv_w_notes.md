@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Reports - Quick Collection Report w/ Notes
 
 The Simple Inventory List will give you a list of the firearms in your collection.   This will display the Manufacture, model Name, Serial Number, Type, Custom ID, Condition, Action, Feed System, Sights, Storage Location, Purchase Price, Additional Notes, Condition Comments and Caliber.   To Access this report, just click on Reports on the menu bar, and click on Quick Collection Report w/ Notes.

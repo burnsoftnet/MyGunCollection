@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Starting Out
 
 ![](images/Main_Busy.jpg)

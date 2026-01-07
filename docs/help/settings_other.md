@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Other Settings
 
 Optional Viewing Settings have been put in place since Version 3.x, due to conflicts of interest in what people like to see in the application and some that do not care about that option, we decided to put some options out there that will allow you to use the feature or not.  Right now we just have 2 items on that list.

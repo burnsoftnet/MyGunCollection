@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Firearm Complete Detailed Report
 
 The FirearmComplete Detailed Report is a printer friendly way of printing out all the specs for the selected firearm. It's the same as the [Full Detailed Report](report_fulldetails.md), but it will include more.  It will use the first picture or default picture that you assigned to that firearm as the display picture, then it will print out all the details that you would first see when you click on the firearm. It will also include all the Accessories, Maintenance and Gun Smith Details that has occurred. 

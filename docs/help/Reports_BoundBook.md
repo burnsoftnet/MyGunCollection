@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Bound Book Report
 
 The Bound Book Report will give you a list of the firearms in your collection, when and where it was bought, and when it was sold and who it was sold to.  To Access this report, just click on Reports on the menu bar, and click on Bound Book.  Or you can click on the Notepad looking Icon( ![](images/l-Office_(Office)_Offices_3_32x32.gif) ) on the Tool Bar.

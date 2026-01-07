@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing a Maintenance Plan
 
 ![](images/Maintance_Plan_Details1_View.jpg)

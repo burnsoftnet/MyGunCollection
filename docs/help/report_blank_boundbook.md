@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Blank Reports - Bound Book
 
 We have had a number of requests for a blank bound book, so you manually enter in data in the sheet, then plug it into the program later on.  Now we have create a blank bound book that will allow you to print out as many copies are you need for you manual input needs.

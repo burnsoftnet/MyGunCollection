@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Viewing Listed Shops
 
 The Shops are added to the database when you put in the place that you got the firearm in the Purchased From field in the Add/Edit Firearm form, this information is mostly kept for the Bound Book report.  But if this a regular gun store that you purchase from, we decided to also allow you to enter in detail information about the store, so you can quickly look them up if you had to.

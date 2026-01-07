@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Blank Reports - Shooters Card with Target
 
 We really didn't get any requests for this report, but in the spirit of creating blank forms for manual entry, we decided to put in these blank shooters card for those that currently keep a shooters book or for those that wish to start.

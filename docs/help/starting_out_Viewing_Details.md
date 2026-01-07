@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Starting Out - Viewing Details
 
 We attempted to make the use of the application quick and easy by tying in everything that is related to your gun in one window grouped by tabs. From one Window you can:

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Managing Grip Types
 
 Since the Grips Types are stored in the database and are mostly used when adding a firearm, we have now added the ability for you to be able to edit, delete and add Grip types to the database.

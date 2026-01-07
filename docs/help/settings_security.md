@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Security Settings
 
 In version 1.x and 2.x in order to lock the application, you can set a password in the Settings section for the application so when the next time you ran the application, it will ask you for a username and password (See Logging In Instructions for more details ).  Only problem with that method it that the default user name was "admin"  which was forgot our just unknown to those that used it.  Since we try to make this application more personal to you, we got rid of the default "admin" user name and allow you to create your own username as well as a password.  In the older Versions of My Gun Collection, the Second Tab in the Settings window was called "Password", which has been changed to "Security" in version 3.x.

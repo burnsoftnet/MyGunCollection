@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Searching Your Collection
 
 In version 5.x, we added the ability for you to search for a firearm(s) that machine the criteria that you are looking for.

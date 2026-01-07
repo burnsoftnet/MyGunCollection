@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Logging In
 
 You can lock down the application by apply a password in the Setting Section.   Once you apply the password, you will be prompted with the following window next time you start up the application

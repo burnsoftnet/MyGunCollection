@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Restoring a Database
 
 Why would I need to Import (Restore) my Database?   Well, in the case of installing this program on a new PC, or your current system crashed and you are restore the program, this will help you retrieve the information that you backed up.

@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Exporting Reports to PDF or Excel Files
 
 Besides being able to print all the stock reports, you are also allow to save/export those reports to a PDF or Excel file.

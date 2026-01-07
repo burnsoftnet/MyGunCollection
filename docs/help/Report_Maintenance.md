@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Maintenance Report
 
 The Maintenance Report is a printer friendly way of printing out the Maintenance Details for the selected firearm.  If you also have print outs of each firearm in folders, this will allow you to put this report for that firearm.  To get the Report, just go to the Maintenance section on the firearm details, and click on the Print Preview Report to bring up the following window:

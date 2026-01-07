@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing a Firearm
 
 Editing a Firearm is as easy as entering one in.  To Edit a firearm you can Either click on the Edit button when you are viewing the firearm details, or you can right click on the firearm from the main window and click on Edit in the menu.

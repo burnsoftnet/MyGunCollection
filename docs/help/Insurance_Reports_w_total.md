@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Insurance Reports with Total
 
 The Insurance reports with Total is the same as the regular Insurance Report, except that the total of all the firearms in your collection are added at the end of the report.

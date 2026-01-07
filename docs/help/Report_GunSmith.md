@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Gun Smith Details Report
 
 The Gun Smith Retails Report is a printer friendly way of printing out the Gun Smith Details for the selected firearm.  If you also have print outs of each firearm in folders, this will allow you to put this report for that firearm.  To get the Report, just go to the Gun Smith section on the firearm details, and click on the Print Preview Report to bring up the following window:

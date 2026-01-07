@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Viewing a Maintenance Plan
 
 The Maintenance Plans are steps that you take to take care of your firearm, in order to keep it in working condition.  This application comes with 3 maintenance plans that are commonly used among other firearm collectors.

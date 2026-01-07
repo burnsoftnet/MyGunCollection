@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Custom Reporting
 
 The ability to do custom reporting didn't come about until version 3.1.  The custom reports are not as nice as the stock reports that come with the My Gun Collection application due to some customization that we had to do in order to provide custom reports, but they are still pretty effective depending on what you wish to report on.  The Custom Reporting option is new to this application so we are sure there will be future fixes for this section.

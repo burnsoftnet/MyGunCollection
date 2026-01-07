@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Importing/Exporting Firearm Details
 
 The ability to Import and Export the Detail of a firearm was created to allow users to export the firearm's details, accessories, maintenance, and gun smith details to a XML file, which can be used to import into another database, application or on the web. 

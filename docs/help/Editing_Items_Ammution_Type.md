@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Editing Ammunition Type
 
 To edit and view the ammunition type list, just click on Edit and Click on Ammunition Type

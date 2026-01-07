@@ -1,3 +1,7 @@
+---
+layout: defaultHelp
+---
+
 # Starting Out - On Load Settings
 
 ![](images/Main_Blank.jpg)
