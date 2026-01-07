@@ -1,3 +1,9 @@
+---
+layout: default
+---
+
+# Installer Details
+
 Incase the Installer needs to be rebuilt, this folder contains the information for the project
 
 BSMyGunCollection_Setup
