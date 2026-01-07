@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: defaultAbout
 ---
 # About The Project
 
