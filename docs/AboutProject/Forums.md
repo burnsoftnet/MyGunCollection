@@ -1,6 +1,7 @@
 ---
-layout: default
+layout: defaultAbout
 ---
+
 # Forums
 
 Github Allows Sections in the Repository for Announcements and Discussions about the project.
