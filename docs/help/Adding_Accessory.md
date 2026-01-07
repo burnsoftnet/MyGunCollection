@@ -1,3 +1,6 @@
+---
+layout: defaultHelp
+---
 
 # Adding Accessories
 
