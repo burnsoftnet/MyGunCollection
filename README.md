@@ -35,7 +35,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 
 ## Release Notes:
 
-### v7.1.14.70-BETA
+### v7.1.14.71-BETA
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
@@ -60,6 +60,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 * ADDED - New Option to Mark a Firearm that is ready or in the process of being sold, in the Gun Details Window
 * ADDED - New Option to Mark a Firearm that is a Gun Smith Project that you are working on and will return to owner once down in the Gun Details Window
 * ADDED - Drop Down Option for the new Feature os Firearms Ready to Sell and Gunsmith Projects
+* ADDED - Options to both bound books with the ability to onlu show Firearms that where sold, gunsmith projects or are ready for sale.
 
 ### v6.9.15.2 September 2022
 
