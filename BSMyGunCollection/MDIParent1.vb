@@ -859,6 +859,10 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillBy_CustomIDList(MGCDataSet.Gun_Collection)
                 Case UCase("Class III")
                     Gun_CollectionTableAdapter.FillBy_IsClassIII(MGCDataSet.Gun_Collection)
+                Case UCase("Ready To Sell")
+                    Gun_CollectionTableAdapter.FillByReadyToSell(MGCDataSet.Gun_Collection)
+                Case UCase("Gunsmith Prjects")
+                    Gun_CollectionTableAdapter.FillByGunsmithProject(MGCDataSet.Gun_Collection)
                 Case Else
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
             End Select
