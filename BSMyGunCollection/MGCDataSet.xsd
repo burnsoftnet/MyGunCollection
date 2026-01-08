@@ -2832,6 +2832,25 @@ ORDER BY Gun_Shop_Details.Name ASC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGunsmithProject" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGunsmithProject" GeneratorSourceName="FillByGunsmithProject" GetMethodModifier="Public" GetMethodName="GetDataByGunsmithProject" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGunsmithProject" UserSourceName="FillByGunsmithProject">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.GunSmithJob = true) ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPurchaseDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByPurchaseDate" GeneratorSourceName="FillByPurchaseDate" GetMethodModifier="Public" GetMethodName="GetDataByPurchaseDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByPurchaseDate" UserSourceName="FillByPurchaseDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -2848,6 +2867,44 @@ FROM         ((((Gun_Collection INNER JOIN
                       Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
                       Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1
 ORDER BY Gun_Collection.dtp</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByReadyToSell" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReadyToSell" GeneratorSourceName="FillByReadyToSell" GetMethodModifier="Public" GetMethodName="GetDataByReadyToSell" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReadyToSell" UserSourceName="FillByReadyToSell">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.ToSell = true) ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySoldOnly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySoldOnly" GeneratorSourceName="FillBySoldOnly" GetMethodModifier="Public" GetMethodName="GetDataBySoldOnly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySoldOnly" UserSourceName="FillBySoldOnly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.ItemSold &lt;&gt; 0) ORDER BY dtp ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -7250,7 +7307,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="General_Accessories" msprop:Generator_TableClassName="General_AccessoriesDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories" msprop:Generator_TablePropName="General_Accessories" msprop:Generator_RowDeletingName="General_AccessoriesRowDeleting" msprop:Generator_RowChangingName="General_AccessoriesRowChanging" msprop:Generator_RowEvHandlerName="General_AccessoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="General_AccessoriesRowDeleted" msprop:Generator_UserTableName="General_Accessories" msprop:Generator_RowChangedName="General_AccessoriesRowChanged" msprop:Generator_RowEvArgName="General_AccessoriesRowChangeEvent" msprop:Generator_RowClassName="General_AccessoriesRow">
+        <xs:element name="General_Accessories" msprop:Generator_TableClassName="General_AccessoriesDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories" msprop:Generator_RowChangedName="General_AccessoriesRowChanged" msprop:Generator_TablePropName="General_Accessories" msprop:Generator_RowDeletingName="General_AccessoriesRowDeleting" msprop:Generator_RowChangingName="General_AccessoriesRowChanging" msprop:Generator_RowEvHandlerName="General_AccessoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="General_AccessoriesRowDeleted" msprop:Generator_RowClassName="General_AccessoriesRow" msprop:Generator_UserTableName="General_Accessories" msprop:Generator_RowEvArgName="General_AccessoriesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -7312,7 +7369,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="General_Accessories_Link" msprop:Generator_TableClassName="General_Accessories_LinkDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories_Link" msprop:Generator_TablePropName="General_Accessories_Link" msprop:Generator_RowDeletingName="General_Accessories_LinkRowDeleting" msprop:Generator_RowChangingName="General_Accessories_LinkRowChanging" msprop:Generator_RowEvHandlerName="General_Accessories_LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="General_Accessories_LinkRowDeleted" msprop:Generator_UserTableName="General_Accessories_Link" msprop:Generator_RowChangedName="General_Accessories_LinkRowChanged" msprop:Generator_RowEvArgName="General_Accessories_LinkRowChangeEvent" msprop:Generator_RowClassName="General_Accessories_LinkRow">
+        <xs:element name="General_Accessories_Link" msprop:Generator_TableClassName="General_Accessories_LinkDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories_Link" msprop:Generator_RowChangedName="General_Accessories_LinkRowChanged" msprop:Generator_TablePropName="General_Accessories_Link" msprop:Generator_RowDeletingName="General_Accessories_LinkRowDeleting" msprop:Generator_RowChangingName="General_Accessories_LinkRowChanging" msprop:Generator_RowEvHandlerName="General_Accessories_LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="General_Accessories_LinkRowDeleted" msprop:Generator_RowClassName="General_Accessories_LinkRow" msprop:Generator_UserTableName="General_Accessories_Link" msprop:Generator_RowEvArgName="General_Accessories_LinkRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
