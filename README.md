@@ -1,7 +1,5 @@
----
-sort: 1
----
 # My Gun Collection
+
 The My Gun Collection (MGC) application was create back in 2007 to help manage your gun collection.  The My Gun Collection application was carefully designed to allow you to quickly get details about a specific firearm all with the click of the mouse.   With an easy to Use interface - the firearms in your collection are listed on the side of the application sorted by the Name alphabetically.  You have the option to view all the firearms in stock, the ones you sold or by all.  It has the ability to save data entry time by using an auto suggest feature for common information (Manufactures, Models, stores, caliber, etc.).
 
 Print out reports such as: BATFE C&R (Curio and Relic) Bound Book Report, Quick Firearm Inventory Report, Ammunition Inventory Report, and For Sale Flyer.  Keep track of the cost and value (both appraised and realized) of your collection.  Easy to use Backup and Restore Applications are provided with this application.  The Pictures that you provided will also be backed up.
@@ -28,6 +26,12 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 ![](images/bsmgc0014.jpg)
 ![](images/bsmgc0015.jpg)
 ![](images/bsmgc0016.jpg)
+
+## Additional Information
+
+If you are working or updating this project, please use the [Developer Notes](apidocs/README.md) for help.
+Any New Pre-Release code will be in the *develop* branch, if you want to see if this project has been updated recently.
+
 
 ## Release Notes:
 
