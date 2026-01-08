@@ -37,6 +37,12 @@ Public Class frmViewReport_BoundBook
                     BoundBooksTableAdapter.FillByGun_Shop_Name(MGCDataSet.BoundBooks)
                 Case LCase("Class III")
                     BoundBooksTableAdapter.FillBy_ClassIII(MGCDataSet.BoundBooks)
+                Case LCase("Sold Only")
+                    BoundBooksTableAdapter.FillBySoldOnly(MGCDataSet.BoundBooks)
+                Case LCase("Ready To Sell")
+                    BoundBooksTableAdapter.FillByReadyToSell(MGCDataSet.BoundBooks)
+                Case LCase("Gunsmith Projects")
+                    BoundBooksTableAdapter.FillByGunsmithProject(MGCDataSet.BoundBooks)
                 Case Else
                     BoundBooksTableAdapter.Fill(MGCDataSet.BoundBooks)
             End Select
