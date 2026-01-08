@@ -840,6 +840,8 @@ Public Class frmViewCollectionDetails
                 chkNonLethal.Checked = l.IsNonLethal
                 chkIsCompeition.Checked = l.IsCompetition
                 cmbRating.SelectedIndex = l.Rating
+                chkMarkedForSale.Checked = l.ToSell
+                chkGunSmithProject.Checked = l.GunSmithJob
             Next
 
             If Not BsHasmultibarrels Then
