@@ -840,6 +840,8 @@ Public Class frmViewCollectionDetails
                 chkNonLethal.Checked = l.IsNonLethal
                 chkIsCompeition.Checked = l.IsCompetition
                 cmbRating.SelectedIndex = l.Rating
+                chkMarkedForSale.Checked = l.ToSell
+                chkGunSmithProject.Checked = l.GunSmithJob
             Next
 
             If Not BsHasmultibarrels Then
@@ -1594,6 +1596,32 @@ Public Class frmViewCollectionDetails
         Catch ex As Exception
             Call LogError(Name, "DeleteToolStripMenuItem2_Click", Err.Number, ex.Message.ToString)
             MsgBox("ERROR! Was not able to Delete Accessory.  Check log for details")
+        End Try
+    End Sub
+    ''' <summary>
+    ''' CHKs the marked for sale checked changed.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">_errOut</exception>
+    Private Sub chkMarkedForSale_CheckedChanged(sender As Object, e As EventArgs) Handles chkMarkedForSale.CheckedChanged
+        Try
+            If Not MyCollection.SetAsToBeSold(DatabasePath, Convert.ToInt32(GunId), chkMarkedForSale.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkMarkedForSale_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+    ''' <summary>
+    ''' CHKs the gun smith project checked changed.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">_errOut</exception>
+    Private Sub chkGunSmithProject_CheckedChanged(sender As Object, e As EventArgs) Handles chkGunSmithProject.CheckedChanged
+        Try
+            If Not MyCollection.SetAsGunSmithJob(DatabasePath, Convert.ToInt32(GunId), chkGunSmithProject.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkGunSmithProject_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class

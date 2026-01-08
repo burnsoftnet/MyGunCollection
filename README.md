@@ -1,7 +1,5 @@
----
-sort: 1
----
 # My Gun Collection
+
 The My Gun Collection (MGC) application was create back in 2007 to help manage your gun collection.  The My Gun Collection application was carefully designed to allow you to quickly get details about a specific firearm all with the click of the mouse.   With an easy to Use interface - the firearms in your collection are listed on the side of the application sorted by the Name alphabetically.  You have the option to view all the firearms in stock, the ones you sold or by all.  It has the ability to save data entry time by using an auto suggest feature for common information (Manufactures, Models, stores, caliber, etc.).
 
 Print out reports such as: BATFE C&R (Curio and Relic) Bound Book Report, Quick Firearm Inventory Report, Ammunition Inventory Report, and For Sale Flyer.  Keep track of the cost and value (both appraised and realized) of your collection.  Easy to use Backup and Restore Applications are provided with this application.  The Pictures that you provided will also be backed up.
@@ -29,9 +27,15 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 ![](images/bsmgc0015.jpg)
 ![](images/bsmgc0016.jpg)
 
+## Additional Information
+
+If you are working or updating this project, please use the [Developer Notes](apidocs/README.md) for help.
+Any New Pre-Release code will be in the *develop* branch, if you want to see if this project has been updated recently.
+
+
 ## Release Notes:
 
-### v7.1.11.x
+### v7.1.15.72-BETA
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
@@ -53,6 +57,10 @@ Over all, whether or not you have a huge gun collection or just a few firearms o
 * ADDED - General Accessories Report
 * UPDATED - Reports to newest version and adjusted margins
 * UPDATED - Window size for reports where adjusted to be used on todays larger monitors.
+* ADDED - New Option to Mark a Firearm that is ready or in the process of being sold, in the Gun Details Window
+* ADDED - New Option to Mark a Firearm that is a Gun Smith Project that you are working on and will return to owner once down in the Gun Details Window
+* ADDED - Drop Down Option for the new Feature os Firearms Ready to Sell and Gunsmith Projects
+* ADDED - Options to both bound books with the ability to onlu show Firearms that where sold, gunsmith projects or are ready for sale.
 
 ### v6.9.15.2 September 2022
 
