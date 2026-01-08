@@ -944,6 +944,18 @@ ORDER BY FullName</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByGunSmithProject" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGunSmithProject" GeneratorSourceName="FillByGunSmithProject" GetMethodModifier="Public" GetMethodName="GetDataByGunSmithProject" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGunSmithProject" UserSourceName="FillByGunSmithProject">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsystem, Sights, 
+                         PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, 
+                         ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompetition, Rating, ToSell, GunSmithJob 
+FROM            Gun_Collection where GunSmithJob=True
+ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStock" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStock" GeneratorSourceName="FillByInStock" GetMethodModifier="Public" GetMethodName="GetDataByInStock" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStock" UserSourceName="FillByInStock">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -1004,6 +1016,18 @@ ORDER BY FullName</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReadyToSell" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReadyToSell" GeneratorSourceName="FillByReadyToSell" GetMethodModifier="Public" GetMethodName="GetDataByReadyToSell" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReadyToSell" UserSourceName="FillByReadyToSell">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsystem, Sights, 
+                         PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, 
+                         ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompetition, Rating, ToSell, GunSmithJob 
+FROM            Gun_Collection where ToSell=True
+ORDER BY FullName </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
