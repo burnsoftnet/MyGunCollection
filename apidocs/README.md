@@ -19,6 +19,16 @@ So any updates that is needed will need to be taken from that github repo.
 
 Below is a list of customized items for the leapday theme that I modified for my use.
 Things that will have to be backedup or updated if a newer lead day theme was used.
+All located in the docs folder
+
+* _includes/about_menu.html
+* _includes/main_menu.html
+* _includes/onlinehelp_menu.html
+* _includes/wiki_menu.html
+* _layouts/default.html
+* _layouts/defaultAbout.html
+* _layouts/defaultHelp.html
+* _layouts/defaultWiki.html
 
 
 ## Things to Do Before Release
