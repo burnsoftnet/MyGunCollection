@@ -214,6 +214,13 @@ Partial Class frmViewCollectionDetails
         Me.btnPrintPreviewMaintanceReport = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.MaintID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn1 = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
+        Me.OpDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OpDueDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RndFiredDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.au = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mnuMain = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -309,13 +316,10 @@ Partial Class frmViewCollectionDetails
         Me.GunSmith_DetailsTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.GunSmith_DetailsTableAdapter()
         Me.Gun_Collection_ExtTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_ExtTableAdapter()
         Me.Qry_DocsAndLinksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.qry_DocsAndLinksTableAdapter()
-        Me.MaintID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn1 = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
-        Me.OpDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OpDueDateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RndFiredDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.au = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NotesDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label65 = New System.Windows.Forms.Label()
+        Me.chkMarkedForSale = New System.Windows.Forms.CheckBox()
+        Me.chkGunSmithProject = New System.Windows.Forms.CheckBox()
+        Me.Label66 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout
         Me.TabPage5.SuspendLayout
         CType(Me.pbStolen,System.ComponentModel.ISupportInitialize).BeginInit
@@ -1084,6 +1088,10 @@ Partial Class frmViewCollectionDetails
         '
         Me.TabPage11.AccessibleDescription = "Collector Details"
         Me.TabPage11.AccessibleName = "TabPage11"
+        Me.TabPage11.Controls.Add(Me.Label66)
+        Me.TabPage11.Controls.Add(Me.chkGunSmithProject)
+        Me.TabPage11.Controls.Add(Me.chkMarkedForSale)
+        Me.TabPage11.Controls.Add(Me.Label65)
         Me.TabPage11.Controls.Add(Me.chkNonLethal)
         Me.TabPage11.Controls.Add(Me.Label63)
         Me.TabPage11.Controls.Add(Me.chkIsCompeition)
@@ -2339,6 +2347,68 @@ Partial Class frmViewCollectionDetails
         Me.DataGridView3.Size = New System.Drawing.Size(629, 346)
         Me.DataGridView3.TabIndex = 1
         '
+        'MaintID
+        '
+        Me.MaintID.DataPropertyName = "id"
+        Me.MaintID.FillWeight = 5!
+        Me.MaintID.HeaderText = "MaintID"
+        Me.MaintID.Name = "MaintID"
+        Me.MaintID.ReadOnly = true
+        Me.MaintID.Width = 5
+        '
+        'NameDataGridViewTextBoxColumn1
+        '
+        Me.NameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.NameDataGridViewTextBoxColumn1.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn1.HeaderText = "Maintance Plan"
+        Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
+        Me.NameDataGridViewTextBoxColumn1.ReadOnly = true
+        Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NameDataGridViewTextBoxColumn1.Width = 97
+        '
+        'OpDateDataGridViewTextBoxColumn
+        '
+        Me.OpDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.OpDateDataGridViewTextBoxColumn.DataPropertyName = "OpDate"
+        Me.OpDateDataGridViewTextBoxColumn.HeaderText = "Operation Date"
+        Me.OpDateDataGridViewTextBoxColumn.Name = "OpDateDataGridViewTextBoxColumn"
+        Me.OpDateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.OpDateDataGridViewTextBoxColumn.Width = 96
+        '
+        'OpDueDateDataGridViewTextBoxColumn
+        '
+        Me.OpDueDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.OpDueDateDataGridViewTextBoxColumn.DataPropertyName = "OpDueDate"
+        Me.OpDueDateDataGridViewTextBoxColumn.HeaderText = "Operation Due Date"
+        Me.OpDueDateDataGridViewTextBoxColumn.Name = "OpDueDateDataGridViewTextBoxColumn"
+        Me.OpDueDateDataGridViewTextBoxColumn.ReadOnly = true
+        Me.OpDueDateDataGridViewTextBoxColumn.Width = 96
+        '
+        'RndFiredDataGridViewTextBoxColumn
+        '
+        Me.RndFiredDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.RndFiredDataGridViewTextBoxColumn.DataPropertyName = "RndFired"
+        Me.RndFiredDataGridViewTextBoxColumn.HeaderText = "Rounds Fired"
+        Me.RndFiredDataGridViewTextBoxColumn.Name = "RndFiredDataGridViewTextBoxColumn"
+        Me.RndFiredDataGridViewTextBoxColumn.ReadOnly = true
+        Me.RndFiredDataGridViewTextBoxColumn.Width = 87
+        '
+        'au
+        '
+        Me.au.DataPropertyName = "au"
+        Me.au.HeaderText = "Ammo Used"
+        Me.au.Name = "au"
+        Me.au.ReadOnly = true
+        '
+        'NotesDataGridViewTextBoxColumn1
+        '
+        Me.NotesDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.NotesDataGridViewTextBoxColumn1.DataPropertyName = "Notes"
+        Me.NotesDataGridViewTextBoxColumn1.HeaderText = "Notes"
+        Me.NotesDataGridViewTextBoxColumn1.Name = "NotesDataGridViewTextBoxColumn1"
+        Me.NotesDataGridViewTextBoxColumn1.ReadOnly = true
+        Me.NotesDataGridViewTextBoxColumn1.Width = 60
+        '
         'mnuMain
         '
         Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DeleteToolStripMenuItem1, Me.EditToolStripMenuItem2})
@@ -3189,67 +3259,43 @@ Partial Class frmViewCollectionDetails
         '
         Me.Qry_DocsAndLinksTableAdapter.ClearBeforeFill = true
         '
-        'MaintID
+        'Label65
         '
-        Me.MaintID.DataPropertyName = "id"
-        Me.MaintID.FillWeight = 5!
-        Me.MaintID.HeaderText = "MaintID"
-        Me.MaintID.Name = "MaintID"
-        Me.MaintID.ReadOnly = true
-        Me.MaintID.Width = 5
+        Me.Label65.AutoSize = true
+        Me.Label65.Location = New System.Drawing.Point(9, 298)
+        Me.Label65.Name = "Label65"
+        Me.Label65.Size = New System.Drawing.Size(82, 13)
+        Me.Label65.TabIndex = 237
+        Me.Label65.Text = "Marked for Sale"
         '
-        'NameDataGridViewTextBoxColumn1
+        'chkMarkedForSale
         '
-        Me.NameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.NameDataGridViewTextBoxColumn1.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn1.HeaderText = "Maintance Plan"
-        Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
-        Me.NameDataGridViewTextBoxColumn1.ReadOnly = true
-        Me.NameDataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NameDataGridViewTextBoxColumn1.Width = 118
+        Me.chkMarkedForSale.AutoSize = true
+        Me.chkMarkedForSale.Location = New System.Drawing.Point(109, 297)
+        Me.chkMarkedForSale.Name = "chkMarkedForSale"
+        Me.chkMarkedForSale.Size = New System.Drawing.Size(44, 17)
+        Me.chkMarkedForSale.TabIndex = 238
+        Me.chkMarkedForSale.Text = "Yes"
+        Me.chkMarkedForSale.UseVisualStyleBackColor = true
         '
-        'OpDateDataGridViewTextBoxColumn
+        'chkGunSmithProject
         '
-        Me.OpDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.OpDateDataGridViewTextBoxColumn.DataPropertyName = "OpDate"
-        Me.OpDateDataGridViewTextBoxColumn.HeaderText = "Operation Date"
-        Me.OpDateDataGridViewTextBoxColumn.Name = "OpDateDataGridViewTextBoxColumn"
-        Me.OpDateDataGridViewTextBoxColumn.ReadOnly = true
-        Me.OpDateDataGridViewTextBoxColumn.Width = 96
+        Me.chkGunSmithProject.AutoSize = true
+        Me.chkGunSmithProject.Location = New System.Drawing.Point(109, 321)
+        Me.chkGunSmithProject.Name = "chkGunSmithProject"
+        Me.chkGunSmithProject.Size = New System.Drawing.Size(44, 17)
+        Me.chkGunSmithProject.TabIndex = 239
+        Me.chkGunSmithProject.Text = "Yes"
+        Me.chkGunSmithProject.UseVisualStyleBackColor = true
         '
-        'OpDueDateDataGridViewTextBoxColumn
+        'Label66
         '
-        Me.OpDueDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.OpDueDateDataGridViewTextBoxColumn.DataPropertyName = "OpDueDate"
-        Me.OpDueDateDataGridViewTextBoxColumn.HeaderText = "Operation Due Date"
-        Me.OpDueDateDataGridViewTextBoxColumn.Name = "OpDueDateDataGridViewTextBoxColumn"
-        Me.OpDueDateDataGridViewTextBoxColumn.ReadOnly = true
-        Me.OpDueDateDataGridViewTextBoxColumn.Width = 96
-        '
-        'RndFiredDataGridViewTextBoxColumn
-        '
-        Me.RndFiredDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.RndFiredDataGridViewTextBoxColumn.DataPropertyName = "RndFired"
-        Me.RndFiredDataGridViewTextBoxColumn.HeaderText = "Rounds Fired"
-        Me.RndFiredDataGridViewTextBoxColumn.Name = "RndFiredDataGridViewTextBoxColumn"
-        Me.RndFiredDataGridViewTextBoxColumn.ReadOnly = true
-        Me.RndFiredDataGridViewTextBoxColumn.Width = 87
-        '
-        'au
-        '
-        Me.au.DataPropertyName = "au"
-        Me.au.HeaderText = "Ammo Used"
-        Me.au.Name = "au"
-        Me.au.ReadOnly = true
-        '
-        'NotesDataGridViewTextBoxColumn1
-        '
-        Me.NotesDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.NotesDataGridViewTextBoxColumn1.DataPropertyName = "Notes"
-        Me.NotesDataGridViewTextBoxColumn1.HeaderText = "Notes"
-        Me.NotesDataGridViewTextBoxColumn1.Name = "NotesDataGridViewTextBoxColumn1"
-        Me.NotesDataGridViewTextBoxColumn1.ReadOnly = true
-        Me.NotesDataGridViewTextBoxColumn1.Width = 60
+        Me.Label66.AutoSize = true
+        Me.Label66.Location = New System.Drawing.Point(8, 321)
+        Me.Label66.Name = "Label66"
+        Me.Label66.Size = New System.Drawing.Size(87, 13)
+        Me.Label66.TabIndex = 240
+        Me.Label66.Text = "Gunsmith Project"
         '
         'frmViewCollectionDetails
         '
@@ -3597,4 +3643,8 @@ End Sub
     Friend WithEvents RndFiredDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents au As DataGridViewTextBoxColumn
     Friend WithEvents NotesDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents Label66 As Label
+    Friend WithEvents chkGunSmithProject As CheckBox
+    Friend WithEvents chkMarkedForSale As CheckBox
+    Friend WithEvents Label65 As Label
 End Class
