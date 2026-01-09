@@ -61,6 +61,9 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 * ADDED - New Option to Mark a Firearm that is a Gun Smith Project that you are working on and will return to owner once down in the Gun Details Window
 * ADDED - Drop Down Option for the new Feature os Firearms Ready to Sell and Gunsmith Projects
 * ADDED - Options to both bound books with the ability to onlu show Firearms that where sold, gunsmith projects or are ready for sale.
+* ADDED - New Calibers to Caliber List Table: 6.8x51mm SIG Fury, 7 PRC, 6mm ARC, 6.8 Western, .30 Super Carry, 25 RPM, .350 Legend, 6.5 PRC, and 6mm Creedmoor
+* ADDED - The Ability to Mark a Firearm as in a Collection, meaning that this is something that is just to collect value and is hardy shot or easily sold.
+* ADDED - Hotfix 11 to Update the Database
 
 ### v6.9.15.2 September 2022
 
