@@ -44,11 +44,11 @@
     <Reference Include="Appium.Net, Version=4.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Appium.WebDriver.4.3.1\lib\net45\Appium.Net.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.5.48, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.5.48-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.15.55, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.15.55-beta\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3462, Culture=neutral, processorArchitecture=x86">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3462\lib\net481\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3463\lib\net481\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.Testing.Apps.Appium, Version=1.0.0.12, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Testing.Apps.Appium.1.0.0.12-RC1\lib\net472\BurnSoft.Testing.Apps.Appium.dll</HintPath>
