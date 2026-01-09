@@ -8,6 +8,7 @@ Imports BurnSoft.MsgBox
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class MDIParent1
     ''' <summary>
     ''' The error out
@@ -639,6 +640,8 @@ Public Class MDIParent1
             For Each o As HotFixList In hotfixList
                 if Not o.Id.Equals("LastUpdate") Then
                     Select o.Id
+                        case 11
+                            Hotfix11ToolStripMenuItem.Enabled = False
                         Case 10
                             Hotfix10ToolStripMenuItem.Enabled = False
                         Case 9
@@ -863,6 +866,8 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillByReadyToSell(MGCDataSet.Gun_Collection)
                 Case UCase("Gunsmith Prjects")
                     Gun_CollectionTableAdapter.FillByGunsmithProject(MGCDataSet.Gun_Collection)
+                Case uCase("Collecting Only")
+                    Gun_CollectionTableAdapter.FillByForCollecting(MGCDataSet.Gun_Collection)
                 Case Else
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
             End Select

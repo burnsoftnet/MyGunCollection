@@ -842,6 +842,7 @@ Public Class frmViewCollectionDetails
                 cmbRating.SelectedIndex = l.Rating
                 chkMarkedForSale.Checked = l.ToSell
                 chkGunSmithProject.Checked = l.GunSmithJob
+                chkCollectorsItem.Checked = l.ForCollecting
             Next
 
             If Not BsHasmultibarrels Then
@@ -1622,6 +1623,20 @@ Public Class frmViewCollectionDetails
             If Not MyCollection.SetAsGunSmithJob(DatabasePath, Convert.ToInt32(GunId), chkGunSmithProject.Checked, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "chkGunSmithProject_CheckedChanged", Err.Number, ex.Message.ToString)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' CHKs the collectors item checked changed.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="Exception">_errOut</exception>
+    Private Sub chkCollectorsItem_CheckedChanged(sender As Object, e As EventArgs) Handles chkCollectorsItem.CheckedChanged
+        Try
+            If Not MyCollection.SetAsForCollecting(DatabasePath, Convert.ToInt32(GunId), chkCollectorsItem.Checked, _errOut) Then Throw New Exception(_errOut)
+        Catch ex As Exception
+            Call LogError(Name, "chkCollectorsItem_CheckedChanged", Err.Number, ex.Message.ToString)
         End Try
     End Sub
 End Class
