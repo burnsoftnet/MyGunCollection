@@ -36,6 +36,6 @@ All located in the docs folder
 * Update the Change Log with Release Version and any additional information
 * Update the Online Help with Any new Pages that are needed
 * Build the Setup MSI Package
-* Create the Release On Github with Chnage Log Details
+* Create the Release On Github with Change Log Details
 * Update the Github Pages Main README with the Change Log Information.
 * 
