@@ -1493,4 +1493,12 @@ Public Class MDIParent1
         frmNew.Show()
         Cursor = Cursors.Arrow
     End Sub
+    ''' <summary>
+    ''' Hotfix11s the tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub Hotfix11ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix11ToolStripMenuItem.Click
+        ApplyHotFix(11)
+    End Sub
 End Class
