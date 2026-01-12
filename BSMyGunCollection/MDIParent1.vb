@@ -1520,4 +1520,12 @@ Public Class MDIParent1
     Private Sub Hotfix11ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix11ToolStripMenuItem.Click
         ApplyHotFix(11)
     End Sub
+
+    Private Sub TsmiFirearmListFilterMenu_Click(sender As Object, e As EventArgs) Handles TsmiFirearmListFilterMenu.Click
+        Dim obj as New FormData
+        Dim frmNew as New FrmFirearmDropDownListFilter
+        frmNew.CurrentFilter = obj.LoadFilterList()
+        frmNew.MdiParent = Me
+        frmNew.Show()
+    End Sub
 End Class
