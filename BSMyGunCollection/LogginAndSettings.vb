@@ -320,7 +320,7 @@ Namespace LogginAndSettings
                    "In Stock - Non-Lethal", 
                    "In Stock - Non-Lethal Rating", 
                    "Competition", 
-                   "Gunsmith Prjects", 
+                   "Gunsmith Projects", 
                    "Class III", 
                    "C & R", 
                    "Collecting Only", 

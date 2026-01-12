@@ -1348,7 +1348,7 @@ Partial Class MDIParent1
         Me.cmbView.AccessibleDescription = "Select Firearm View"
         Me.cmbView.AccessibleName = "cmbView"
         Me.cmbView.FormattingEnabled = true
-        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Gunsmith Prjects", "Class III", "C & R", "Collecting Only", "Non C & R", "Cust. Catalog #", "Ready To Sell", "Sold/Stolen", "Sold/Stolen - By Date"})
+        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Gunsmith Projects", "Class III", "C & R", "Collecting Only", "Non C & R", "Cust. Catalog #", "Ready To Sell", "Sold/Stolen", "Sold/Stolen - By Date"})
         Me.cmbView.Location = New System.Drawing.Point(6, 9)
         Me.cmbView.Name = "cmbView"
         Me.cmbView.Size = New System.Drawing.Size(141, 21)
