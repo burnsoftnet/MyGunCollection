@@ -461,7 +461,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("In Stock - Lethal, Competition, Gunsmith Prjects")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property FirearmDropDownFilter() As String
             Get
                 Return CType(Me("FirearmDropDownFilter"),String)

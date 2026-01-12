@@ -832,33 +832,12 @@ Public Class MDIParent1
         Dim obj As New FormData
         Dim strFilter As String() = obj.LoadFilterList()
         If strFilter.Length.Equals(0) Then
-            cmbView.DataSource = GenerateDropDownList
+            cmbView.DataSource = obj.GenerateDropDownList
         Else 
             cmbView.DataSource = strFilter
         End If
         cmbView.Refresh()
     End Sub
-
-    Function GenerateDropDownList() As String()
-        Return {"ALL", 
-                "In Stock", 
-                "In Stock - By Date Purchased", 
-                "In Stock - Rating", 
-                "In Stock - Lethal", 
-                "In Stock - Lethal Rating", 
-                "In Stock - Non-Lethal", 
-                "In Stock - Non-Lethal Rating", 
-                "Competition", 
-                "Gunsmith Prjects", 
-                "Class III", 
-                "C & R", 
-                "Collecting Only", 
-                "Non C & R", 
-                "Cust. Catalog #", 
-                "Ready To Sell", 
-                "Sold/Stolen", 
-                "Sold/Stolen - By Date"}
-    End Function
 
     ''' <summary>
     ''' Refresh the collection
