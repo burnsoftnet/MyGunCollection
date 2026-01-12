@@ -827,15 +827,12 @@ Public Class MDIParent1
             Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
-
+    ''' <summary>
+    ''' Loads the drop down.
+    ''' </summary>
     Sub LoadDropDown()
         Dim obj As New FormData
-        Dim strFilter As String() = obj.LoadFilterList()
-        If strFilter.Length.Equals(0) Then
-            cmbView.DataSource = obj.GenerateDropDownList
-        Else 
-            cmbView.DataSource = strFilter
-        End If
+        cmbView.DataSource = obj.LoadFilterList()
         cmbView.Refresh()
     End Sub
 

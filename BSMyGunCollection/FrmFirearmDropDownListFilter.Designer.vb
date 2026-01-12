@@ -23,6 +23,7 @@ Partial Class FrmFirearmDropDownListFilter
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.ChkLstBxItems = New System.Windows.Forms.CheckedListBox()
+        Me.BtnSave = New System.Windows.Forms.Button()
         Me.SuspendLayout
         '
         'ChkLstBxItems
@@ -35,19 +36,32 @@ Partial Class FrmFirearmDropDownListFilter
         Me.ChkLstBxItems.Size = New System.Drawing.Size(309, 424)
         Me.ChkLstBxItems.TabIndex = 0
         '
+        'BtnSave
+        '
+        Me.BtnSave.AccessibleDescription = "Save Changes"
+        Me.BtnSave.AccessibleName = "BtnSave"
+        Me.BtnSave.Location = New System.Drawing.Point(130, 442)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSave.TabIndex = 1
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.UseVisualStyleBackColor = true
+        '
         'FrmFirearmDropDownListFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(333, 475)
+        Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.ChkLstBxItems)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
         Me.Name = "FrmFirearmDropDownListFilter"
-        Me.Text = "FrmFirearmDropDownListFilter"
+        Me.Text = "Select the Firearm Filters to See"
         Me.ResumeLayout(false)
 
 End Sub
 
     Friend WithEvents ChkLstBxItems As CheckedListBox
+    Friend WithEvents BtnSave As Button
 End Class

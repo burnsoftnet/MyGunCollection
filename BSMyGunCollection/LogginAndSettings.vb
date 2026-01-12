@@ -285,9 +285,18 @@ Namespace LogginAndSettings
         ''' </summary>
         ''' <returns>System.String().</returns>
         Public Function LoadFilterList() As String()
-           Dim source As String = Settings.FirearmDropDownFilter
-           Dim delimiters() As Char = {","c} 
-           return source.Split(delimiters)
+            Dim source As String = Settings.FirearmDropDownFilter
+            Dim strFilter As String() = Nothing
+            If source.Equals("") Then
+                source = Nothing
+            End If
+            Dim delimiters() As Char = {","c} 
+            If source <> Nothing Then
+                strFilter =source.Split(delimiters)
+                return strFilter
+            Else 
+                return GenerateDropDownList
+            End If
        End Function
         ''' <summary>
         ''' Saves the filter list.
