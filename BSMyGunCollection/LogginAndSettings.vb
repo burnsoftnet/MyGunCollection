@@ -276,14 +276,32 @@ Namespace LogginAndSettings
             Settings.Save()
         End Sub
     End Class
+    ''' <summary>
+    ''' Class FormData.
+    ''' </summary>
     Public Class FormData
-       Public Function LoadFilterList() As String()
+        ''' <summary>
+        ''' Loads the filter list.
+        ''' </summary>
+        ''' <returns>System.String().</returns>
+        Public Function LoadFilterList() As String()
            Dim source As String = Settings.FirearmDropDownFilter
            Dim delimiters() As Char = {","c} 
            return source.Split(delimiters)
        End Function
-
-       Function GenerateDropDownList() As String()
+        ''' <summary>
+        ''' Saves the filter list.
+        ''' </summary>
+        ''' <param name="value">The value.</param>
+        Public Sub SaveFilterList(value As String)
+           Settings.FirearmDropDownFilter = value
+           Settings.Save()
+       End Sub
+        ''' <summary>
+        ''' Generates the drop down list.
+        ''' </summary>
+        ''' <returns>System.String().</returns>
+        Function GenerateDropDownList() As String()
            Return {"ALL", 
                    "In Stock", 
                    "In Stock - By Date Purchased", 
