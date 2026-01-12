@@ -59,8 +59,9 @@ Public Class FrmFirearmDropDownListFilter
             Next
             Dim charsToTrim() As Char = {","c}
             obj.SaveFilterList(selectedLists.TrimEnd(charsToTrim))
+            Close()
         Else 
-            MessageBox.Show("You Must select as 1 Item!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            MessageBox.Show("You Must select a min. of 1 Item!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End If
     End Sub
 End Class

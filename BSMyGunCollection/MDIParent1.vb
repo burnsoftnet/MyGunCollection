@@ -1519,10 +1519,40 @@ Public Class MDIParent1
     End Sub
 
     Private Sub TsmiFirearmListFilterMenu_Click(sender As Object, e As EventArgs) Handles TsmiFirearmListFilterMenu.Click
+        OpenFrmFirearmDropDownListFilterAndWait()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM filter list and wait.
+    ''' </summary>
+    Private Sub OpenFrmFirearmDropDownListFilterAndWait()
+        ' Create the child form
         Dim obj as New FormData
-        Dim frmNew as New FrmFirearmDropDownListFilter
-        frmNew.CurrentFilter = obj.LoadFilterList()
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        Dim child As New FrmFirearmDropDownListFilter
+        child.MdiParent = MdiParent
+        child.CurrentFilter = obj.LoadFilterList()
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+
+    ''' <summary>
+    ''' This runs AFTER the child form is closed
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+    Private Sub ChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        ' Remove handler to avoid memory leaks
+        RemoveHandler DirectCast(sender, Form).FormClosed, AddressOf ChildFormClosed
+
+        ' Call the next function
+        NextFunction()
+    End Sub
+    ''' <summary>
+    ''' Nexts the function.
+    ''' </summary>
+    Private Sub NextFunction()
+        LoadDropDown()
     End Sub
 End Class
