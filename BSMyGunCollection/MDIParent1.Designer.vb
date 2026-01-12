@@ -44,6 +44,7 @@ Partial Class MDIParent1
         Me.FirearmTypesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClassificationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuBarrelSystemData = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TsmiFirearmListFilterMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddMmunitionToMyCollectionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -260,7 +261,7 @@ Partial Class MDIParent1
         'EditMenu
         '
         Me.EditMenu.AccessibleName = "Edit"
-        Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ManufacturersToolStripMenuItem, Me.AmmunitionTypeToolStripMenuItem, Me.ModelToolStripMenuItem, Me.PlaceOfOriginToolStripMenuItem, Me.GripTypesToolStripMenuItem, Me.FirearmConditionsToolStripMenuItem, Me.FirearmTypesToolStripMenuItem, Me.ClassificationToolStripMenuItem, Me.mnuBarrelSystemData})
+        Me.EditMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ManufacturersToolStripMenuItem, Me.AmmunitionTypeToolStripMenuItem, Me.ModelToolStripMenuItem, Me.PlaceOfOriginToolStripMenuItem, Me.GripTypesToolStripMenuItem, Me.FirearmConditionsToolStripMenuItem, Me.FirearmTypesToolStripMenuItem, Me.ClassificationToolStripMenuItem, Me.mnuBarrelSystemData, Me.TsmiFirearmListFilterMenu})
         Me.EditMenu.Name = "EditMenu"
         Me.EditMenu.Size = New System.Drawing.Size(39, 20)
         Me.EditMenu.Text = "&Edit"
@@ -337,6 +338,14 @@ Partial Class MDIParent1
         Me.mnuBarrelSystemData.Name = "mnuBarrelSystemData"
         Me.mnuBarrelSystemData.Size = New System.Drawing.Size(186, 22)
         Me.mnuBarrelSystemData.Text = "Barrel System Data"
+        '
+        'TsmiFirearmListFilterMenu
+        '
+        Me.TsmiFirearmListFilterMenu.AccessibleName = "TsmiFirearmListFilterMenu"
+        Me.TsmiFirearmListFilterMenu.Image = CType(resources.GetObject("TsmiFirearmListFilterMenu.Image"),System.Drawing.Image)
+        Me.TsmiFirearmListFilterMenu.Name = "TsmiFirearmListFilterMenu"
+        Me.TsmiFirearmListFilterMenu.Size = New System.Drawing.Size(186, 22)
+        Me.TsmiFirearmListFilterMenu.Text = "Firearm List Filters"
         '
         'AddItemToolStripMenuItem
         '
@@ -1339,7 +1348,7 @@ Partial Class MDIParent1
         Me.cmbView.AccessibleDescription = "Select Firearm View"
         Me.cmbView.AccessibleName = "cmbView"
         Me.cmbView.FormattingEnabled = true
-        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Gunsmith Prjects", "Class III", "C & R", "Collecting Only", "Non C & R", "Cust. Catalog #", "Ready To Sell", "Sold/Stolen", "Sold/Stolen - By Date"})
+        Me.cmbView.Items.AddRange(New Object() {"ALL", "In Stock", "In Stock - By Date Purchased", "In Stock - Rating", "In Stock - Lethal", "In Stock - Lethal Rating", "In Stock - Non-Lethal", "In Stock - Non-Lethal Rating", "Competition", "Gunsmith Projects", "Class III", "C & R", "Collecting Only", "Non C & R", "Cust. Catalog #", "Ready To Sell", "Sold/Stolen", "Sold/Stolen - By Date"})
         Me.cmbView.Location = New System.Drawing.Point(6, 9)
         Me.cmbView.Name = "cmbView"
         Me.cmbView.Size = New System.Drawing.Size(141, 21)
@@ -1644,4 +1653,5 @@ End Sub
     Friend WithEvents mnuBarrelSystemData As ToolStripMenuItem
     Friend WithEvents GeneralAccessoriesToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents Hotfix11ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TsmiFirearmListFilterMenu As ToolStripMenuItem
 End Class

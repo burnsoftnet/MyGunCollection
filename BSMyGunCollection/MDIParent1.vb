@@ -1,3 +1,4 @@
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.hotixes.types
@@ -624,6 +625,7 @@ Public Class MDIParent1
             ToolStripSeparator4.Visible = False
             'End of mock registration
 
+            LoadDropDown()
             IsReady = True
             cmbView.Text = MyRegistry.GetViewSettings("VIEW_FirearmList",_errOut, "In Stock")
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
@@ -826,6 +828,15 @@ Public Class MDIParent1
         End Try
     End Sub
     ''' <summary>
+    ''' Loads the drop down.
+    ''' </summary>
+    Sub LoadDropDown()
+        Dim obj As New FormData
+        cmbView.DataSource = obj.LoadFilterList()
+        cmbView.Refresh()
+    End Sub
+
+    ''' <summary>
     ''' Refresh the collection
     ''' </summary>
     Public Sub RefreshCollection()
@@ -864,7 +875,7 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillBy_IsClassIII(MGCDataSet.Gun_Collection)
                 Case UCase("Ready To Sell")
                     Gun_CollectionTableAdapter.FillByReadyToSell(MGCDataSet.Gun_Collection)
-                Case UCase("Gunsmith Prjects")
+                Case UCase("Gunsmith Projects")
                     Gun_CollectionTableAdapter.FillByGunsmithProject(MGCDataSet.Gun_Collection)
                 Case uCase("Collecting Only")
                     Gun_CollectionTableAdapter.FillByForCollecting(MGCDataSet.Gun_Collection)
@@ -1505,5 +1516,43 @@ Public Class MDIParent1
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub Hotfix11ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix11ToolStripMenuItem.Click
         ApplyHotFix(11)
+    End Sub
+
+    Private Sub TsmiFirearmListFilterMenu_Click(sender As Object, e As EventArgs) Handles TsmiFirearmListFilterMenu.Click
+        OpenFrmFirearmDropDownListFilterAndWait()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM filter list and wait.
+    ''' </summary>
+    Private Sub OpenFrmFirearmDropDownListFilterAndWait()
+        ' Create the child form
+        Dim obj as New FormData
+        Dim child As New FrmFirearmDropDownListFilter
+        child.MdiParent = MdiParent
+        child.CurrentFilter = obj.LoadFilterList()
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+
+    ''' <summary>
+    ''' This runs AFTER the child form is closed
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+    Private Sub ChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        ' Remove handler to avoid memory leaks
+        RemoveHandler DirectCast(sender, Form).FormClosed, AddressOf ChildFormClosed
+
+        ' Call the next function
+        NextFunction()
+    End Sub
+    ''' <summary>
+    ''' Nexts the function.
+    ''' </summary>
+    Private Sub NextFunction()
+        LoadDropDown()
     End Sub
 End Class

@@ -276,4 +276,60 @@ Namespace LogginAndSettings
             Settings.Save()
         End Sub
     End Class
+    ''' <summary>
+    ''' Class FormData.
+    ''' </summary>
+    Public Class FormData
+        ''' <summary>
+        ''' Loads the filter list.
+        ''' </summary>
+        ''' <returns>System.String().</returns>
+        Public Function LoadFilterList() As String()
+            Dim source As String = Settings.FirearmDropDownFilter
+            Dim strFilter As String() = Nothing
+            If source.Equals("") Then
+                source = Nothing
+            End If
+            Dim delimiters() As Char = {","c} 
+            If source <> Nothing Then
+                strFilter =source.Split(delimiters)
+                return strFilter
+            Else 
+                return GenerateDropDownList
+            End If
+       End Function
+        ''' <summary>
+        ''' Saves the filter list.
+        ''' </summary>
+        ''' <param name="value">The value.</param>
+        Public Sub SaveFilterList(value As String)
+           Settings.FirearmDropDownFilter = value
+           Settings.Save()
+       End Sub
+        ''' <summary>
+        ''' Generates the drop down list.
+        ''' </summary>
+        ''' <returns>System.String().</returns>
+        public Function GenerateDropDownList() As String()
+           Return {"ALL", 
+                   "In Stock", 
+                   "In Stock - By Date Purchased", 
+                   "In Stock - Rating", 
+                   "In Stock - Lethal", 
+                   "In Stock - Lethal Rating", 
+                   "In Stock - Non-Lethal", 
+                   "In Stock - Non-Lethal Rating", 
+                   "Competition", 
+                   "Gunsmith Projects", 
+                   "Class III", 
+                   "C & R", 
+                   "Collecting Only", 
+                   "Non C & R", 
+                   "Cust. Catalog #", 
+                   "Ready To Sell", 
+                   "Sold/Stolen", 
+                   "Sold/Stolen - By Date"}
+       End Function
+
+    End Class
 End Namespace

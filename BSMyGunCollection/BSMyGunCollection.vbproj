@@ -220,6 +220,12 @@
     <Compile Include="frmEditModelTypes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmFirearmDropDownListFilter.Designer.vb">
+      <DependentUpon>FrmFirearmDropDownListFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFirearmDropDownListFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFirearmImagePicker.Designer.vb">
       <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
     </Compile>
@@ -810,6 +816,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCR_EditSQL.resx">
       <DependentUpon>frmCR_EditSQL.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFirearmDropDownListFilter.resx">
+      <DependentUpon>FrmFirearmDropDownListFilter.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFirearmImagePicker.resx">
       <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>

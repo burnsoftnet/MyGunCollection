@@ -109,5 +109,8 @@
     <Setting Name="frmViewDocuments_Y" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="FirearmDropDownFilter" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
