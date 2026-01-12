@@ -49,7 +49,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 * ADDED - Sort Option for In-stock By Purchase Date
 * ADDED - Sort Option for Sold/Stolen by Date Sold
 * UPDATED - Sort order of Custom ID's to put the ones that have a custom ID at the top in descending order and the ones that don't have anything at the bottom.
-* ADDED - General Accessories Section with ability to Attach to one or more firearms.  This section is the General Section for Misc Accessories that you have that can be used for anything or any firearm.  So extra mags scopes, lights, etc you can store here and attach to the firearm if you want but manage it from the Main section.
+* ADDED - [General Accessories Section](docs/help/GeneralAccessories.md) with ability to Attach to one or more firearms.  This section is the General Section for Misc Accessories that you have that can be used for anything or any firearm.  So extra mags scopes, lights, etc you can store here and attach to the firearm if you want but manage it from the Main section.
 * ADDED - Barrel System Raw Data View - this way you can view all the Barrel systems in the database and manually edit things if you had to.
 * FIXED - Issue with default barrel system maintenance showing for the selected firearm 
 * ADDED - Included the Firearm ID in the window title when you click and view a firearm.
