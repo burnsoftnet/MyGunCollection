@@ -301,7 +301,7 @@ Namespace LogginAndSettings
         ''' Generates the drop down list.
         ''' </summary>
         ''' <returns>System.String().</returns>
-        Function GenerateDropDownList() As String()
+        public Function GenerateDropDownList() As String()
            Return {"ALL", 
                    "In Stock", 
                    "In Stock - By Date Purchased", 
