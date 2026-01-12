@@ -458,6 +458,18 @@ Namespace My
                 Me("frmViewDocuments_Y") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("In Stock - Lethal, Competition, Gunsmith Prjects")>  _
+        Public Property FirearmDropDownFilter() As String
+            Get
+                Return CType(Me("FirearmDropDownFilter"),String)
+            End Get
+            Set
+                Me("FirearmDropDownFilter") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

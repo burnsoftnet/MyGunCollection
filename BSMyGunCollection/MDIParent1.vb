@@ -1,3 +1,4 @@
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.hotixes.types
@@ -624,6 +625,7 @@ Public Class MDIParent1
             ToolStripSeparator4.Visible = False
             'End of mock registration
 
+            LoadDropDown()
             IsReady = True
             cmbView.Text = MyRegistry.GetViewSettings("VIEW_FirearmList",_errOut, "In Stock")
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
@@ -825,6 +827,39 @@ Public Class MDIParent1
             Call LogError(Name, strProcedure, Err.Number, ex.Message.ToString)
         End Try
     End Sub
+
+    Sub LoadDropDown()
+        Dim obj As New FormData
+        Dim strFilter As String() = obj.LoadFilterList()
+        If strFilter.Length.Equals(0) Then
+            cmbView.DataSource = GenerateDropDownList
+        Else 
+            cmbView.DataSource = strFilter
+        End If
+        cmbView.Refresh()
+    End Sub
+
+    Function GenerateDropDownList() As String()
+        Return {"ALL", 
+                "In Stock", 
+                "In Stock - By Date Purchased", 
+                "In Stock - Rating", 
+                "In Stock - Lethal", 
+                "In Stock - Lethal Rating", 
+                "In Stock - Non-Lethal", 
+                "In Stock - Non-Lethal Rating", 
+                "Competition", 
+                "Gunsmith Prjects", 
+                "Class III", 
+                "C & R", 
+                "Collecting Only", 
+                "Non C & R", 
+                "Cust. Catalog #", 
+                "Ready To Sell", 
+                "Sold/Stolen", 
+                "Sold/Stolen - By Date"}
+    End Function
+
     ''' <summary>
     ''' Refresh the collection
     ''' </summary>

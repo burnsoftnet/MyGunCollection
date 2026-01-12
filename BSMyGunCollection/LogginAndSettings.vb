@@ -276,4 +276,11 @@ Namespace LogginAndSettings
             Settings.Save()
         End Sub
     End Class
+    Public Class FormData
+       Public Function LoadFilterList() As String()
+           Dim source As String = Settings.FirearmDropDownFilter
+           Dim delimiters() As Char = {","c} 
+           return source.Split(delimiters)
+       End Function
+    End Class
 End Namespace
