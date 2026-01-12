@@ -342,6 +342,7 @@ Partial Class MDIParent1
         'TsmiFirearmListFilterMenu
         '
         Me.TsmiFirearmListFilterMenu.AccessibleName = "TsmiFirearmListFilterMenu"
+        Me.TsmiFirearmListFilterMenu.Image = CType(resources.GetObject("TsmiFirearmListFilterMenu.Image"),System.Drawing.Image)
         Me.TsmiFirearmListFilterMenu.Name = "TsmiFirearmListFilterMenu"
         Me.TsmiFirearmListFilterMenu.Size = New System.Drawing.Size(186, 22)
         Me.TsmiFirearmListFilterMenu.Text = "Firearm List Filters"
