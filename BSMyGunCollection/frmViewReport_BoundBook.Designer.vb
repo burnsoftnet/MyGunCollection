@@ -29,7 +29,9 @@ Partial Class frmViewReport_BoundBook
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewReport_BoundBook))
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.BoundBooksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
@@ -38,13 +40,21 @@ Partial Class frmViewReport_BoundBook
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.BoundBooksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.BoundBooksTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.BoundBooksTableAdapter()
-        Me.ToolStrip1.SuspendLayout
         CType(Me.BoundBooksBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ToolStrip1.SuspendLayout
         Me.SuspendLayout
+        '
+        'BoundBooksBindingSource
+        '
+        Me.BoundBooksBindingSource.DataMember = "BoundBooks"
+        Me.BoundBooksBindingSource.DataSource = Me.MGCDataSet
+        '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ToolStrip1
         '
@@ -64,7 +74,7 @@ Partial Class frmViewReport_BoundBook
         '
         'ToolStripComboBox1
         '
-        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Class III", "Brand", "Type", "Caliber", "Gun Shop", "Sold Only", "Ready To Sell", "Gunsmith Projects"})
+        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Class III", "Brand", "Type", "Caliber", "Gun Shop", "Sold Only", "Ready To Sell", "Gunsmith Projects", "In-Stock Only"})
         Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
         Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 25)
         Me.ToolStripComboBox1.Text = "Default"
@@ -84,7 +94,7 @@ Partial Class frmViewReport_BoundBook
         '
         Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(125, 25)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(300, 25)
         '
         'ToolStripButton1
         '
@@ -98,25 +108,15 @@ Partial Class frmViewReport_BoundBook
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "MGCDataSet_BoundBooks"
-        ReportDataSource1.Value = Me.BoundBooksBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "MGCDataSet_BoundBooks"
+        ReportDataSource2.Value = Me.BoundBooksBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_BoundBook.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 25)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.Size = New System.Drawing.Size(1102, 565)
         Me.ReportViewer1.TabIndex = 2
-        '
-        'BoundBooksBindingSource
-        '
-        Me.BoundBooksBindingSource.DataMember = "BoundBooks"
-        Me.BoundBooksBindingSource.DataSource = Me.MGCDataSet
-        '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'BoundBooksTableAdapter
         '
@@ -132,10 +132,10 @@ Partial Class frmViewReport_BoundBook
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewReport_BoundBook"
         Me.Text = "Bound Book Report"
-        Me.ToolStrip1.ResumeLayout(false)
-        Me.ToolStrip1.PerformLayout
         CType(Me.BoundBooksBindingSource,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ToolStrip1.ResumeLayout(false)
+        Me.ToolStrip1.PerformLayout
         Me.ResumeLayout(false)
         Me.PerformLayout
 

@@ -21,6 +21,7 @@ Public Class FrmLinkAccessoryToFirearm
             If MoveMode Then
                 Label1.Text = "Select the firearm listed below to move this Accessory to:"
                 Me.Text = "Move Accessory to Firearm"
+                btnAttach.Text = "Move"
             End If
             Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
         Catch ex As Exception

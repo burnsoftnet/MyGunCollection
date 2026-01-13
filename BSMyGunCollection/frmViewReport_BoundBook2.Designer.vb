@@ -74,7 +74,7 @@ Partial Class frmViewReport_BoundBook2
         '
         'ToolStripComboBox1
         '
-        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Class III", "Brand", "Type", "Caliber", "Gun Shop", "Sold Only", "Ready To Sell", "Gunsmith Projects"})
+        Me.ToolStripComboBox1.Items.AddRange(New Object() {"Default", "Custom Catalog No.", "Purchase Date", "C & R Only", "Class III", "Brand", "Type", "Caliber", "Gun Shop", "Sold Only", "Ready To Sell", "Gunsmith Projects", "In-Stock Only"})
         Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
         Me.ToolStripComboBox1.Size = New System.Drawing.Size(121, 25)
         Me.ToolStripComboBox1.Text = "Default"
@@ -94,7 +94,7 @@ Partial Class frmViewReport_BoundBook2
         '
         Me.ToolStripTextBox1.Font = New System.Drawing.Font("Segoe UI", 9!)
         Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
-        Me.ToolStripTextBox1.Size = New System.Drawing.Size(100, 25)
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(300, 25)
         '
         'ToolStripButton1
         '

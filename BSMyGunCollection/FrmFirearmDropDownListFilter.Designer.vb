@@ -25,6 +25,8 @@ Partial Class FrmFirearmDropDownListFilter
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFirearmDropDownListFilter))
         Me.ChkLstBxItems = New System.Windows.Forms.CheckedListBox()
         Me.BtnSave = New System.Windows.Forms.Button()
+        Me.BtnSelectAll = New System.Windows.Forms.Button()
+        Me.BtnDeSelectAll = New System.Windows.Forms.Button()
         Me.SuspendLayout
         '
         'ChkLstBxItems
@@ -41,18 +43,42 @@ Partial Class FrmFirearmDropDownListFilter
         '
         Me.BtnSave.AccessibleDescription = "Save Changes"
         Me.BtnSave.AccessibleName = "BtnSave"
-        Me.BtnSave.Location = New System.Drawing.Point(130, 442)
+        Me.BtnSave.Location = New System.Drawing.Point(246, 442)
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.Size = New System.Drawing.Size(75, 23)
         Me.BtnSave.TabIndex = 1
         Me.BtnSave.Text = "Save"
         Me.BtnSave.UseVisualStyleBackColor = true
         '
+        'BtnSelectAll
+        '
+        Me.BtnSelectAll.AccessibleDescription = "Select All"
+        Me.BtnSelectAll.AccessibleName = "BtnSelectAll"
+        Me.BtnSelectAll.Location = New System.Drawing.Point(13, 442)
+        Me.BtnSelectAll.Name = "BtnSelectAll"
+        Me.BtnSelectAll.Size = New System.Drawing.Size(75, 23)
+        Me.BtnSelectAll.TabIndex = 2
+        Me.BtnSelectAll.Text = "Select All"
+        Me.BtnSelectAll.UseVisualStyleBackColor = true
+        '
+        'BtnDeSelectAll
+        '
+        Me.BtnDeSelectAll.AccessibleDescription = "Deselect All"
+        Me.BtnDeSelectAll.AccessibleName = "BtnDeSelectAll"
+        Me.BtnDeSelectAll.Location = New System.Drawing.Point(129, 442)
+        Me.BtnDeSelectAll.Name = "BtnDeSelectAll"
+        Me.BtnDeSelectAll.Size = New System.Drawing.Size(75, 23)
+        Me.BtnDeSelectAll.TabIndex = 3
+        Me.BtnDeSelectAll.Text = "Deselect All"
+        Me.BtnDeSelectAll.UseVisualStyleBackColor = true
+        '
         'FrmFirearmDropDownListFilter
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(333, 475)
+        Me.Controls.Add(Me.BtnDeSelectAll)
+        Me.Controls.Add(Me.BtnSelectAll)
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(Me.ChkLstBxItems)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
@@ -66,4 +92,6 @@ End Sub
 
     Friend WithEvents ChkLstBxItems As CheckedListBox
     Friend WithEvents BtnSave As Button
+    Friend WithEvents BtnSelectAll As Button
+    Friend WithEvents BtnDeSelectAll As Button
 End Class
