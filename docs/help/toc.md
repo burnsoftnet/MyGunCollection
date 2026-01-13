@@ -17,6 +17,7 @@ layout: defaultHelp
 * [Adding to the Gun Smith Log](Adding_To_GunSmith_Log.md)
 * [Ammunition Inventory](Ammunition_Inventory.md)
 * [Adding Condition Types](Condition_Types_Adding.md)
+* [General Accessories](GeneralAccessories.md)
 * [Deleting Condition Types](Condition_Types_deleting.md)
 * [Editing Condition Types](Condition_Types_editing.md)
 * [Copying an Accessory](Copy_An_Accessory.md)
