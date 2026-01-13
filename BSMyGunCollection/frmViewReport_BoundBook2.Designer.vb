@@ -29,7 +29,7 @@ Partial Class frmViewReport_BoundBook2
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewReport_BoundBook2))
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.BoundBooksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -108,9 +108,9 @@ Partial Class frmViewReport_BoundBook2
         'ReportViewer1
         '
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "MGCDataSet_BoundBooks"
-        ReportDataSource2.Value = Me.BoundBooksBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "MGCDataSet_BoundBooks"
+        ReportDataSource1.Value = Me.BoundBooksBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_BoundBook2.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 25)
         Me.ReportViewer1.Name = "ReportViewer1"
