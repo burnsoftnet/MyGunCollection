@@ -43,6 +43,8 @@ Public Class frmViewReport_BoundBook2
                     BoundBooksTableAdapter.FillByReadyToSell(MGCDataSet.BoundBooks)
                 Case LCase("Gunsmith Projects")
                     BoundBooksTableAdapter.FillByGunsmithProject(MGCDataSet.BoundBooks)
+                Case LCase("In-Stock Only")
+                    BoundBooksTableAdapter.FillByInInventory(MGCDataSet.BoundBooks)
                 Case Else
                     BoundBooksTableAdapter.Fill(MGCDataSet.BoundBooks)
             End Select
