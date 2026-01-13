@@ -64,4 +64,28 @@ Public Class FrmFirearmDropDownListFilter
             MessageBox.Show("You Must select a min. of 1 Item!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         End If
     End Sub
+    ''' <summary>
+    ''' Handles the Click event of the BtnSelectAll control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub BtnSelectAll_Click(sender As Object, e As EventArgs) Handles BtnSelectAll.Click
+        For i As Integer = 0 To ChkLstBxItems.Items.Count - 1
+            If Not ChkLstBxItems.GetItemChecked(i) Then
+                ChkLstBxItems.SetItemChecked(i, True)
+            End If
+        Next
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the BtnDeSelectAll control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub BtnDeSelectAll_Click(sender As Object, e As EventArgs) Handles BtnDeSelectAll.Click
+        For i As Integer = 0 To ChkLstBxItems.Items.Count - 1
+            If ChkLstBxItems.GetItemChecked(i) Then
+                ChkLstBxItems.SetItemChecked(i, False)
+            End If
+        Next
+    End Sub
 End Class
