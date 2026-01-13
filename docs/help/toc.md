@@ -85,3 +85,4 @@ layout: defaultHelp
 * [Security Settings](settings_security.md)
 * [Starting Out](starting_out.md)
 * [Starting Out - Viewing Details](starting_out_Viewing_Details.md)
+* [Firearm Category Filter List](FirearmCategoryFilterList.md)
