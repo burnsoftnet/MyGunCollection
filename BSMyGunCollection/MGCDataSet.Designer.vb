@@ -39296,7 +39296,8 @@ Namespace MGCDataSetTableAdapters
                 "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
                 " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
                 " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
-                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY Rating DESC"
+                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY Rating DESC, FullN"& _ 
+                "ame ASC"
             Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(17) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(17).Connection = Me.Connection
@@ -39308,7 +39309,7 @@ Namespace MGCDataSetTableAdapters
                 "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
                 " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
                 " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
-                "ollection WHERE (ItemSold = 0) ORDER BY dtp"
+                "ollection WHERE (ItemSold = 0) ORDER BY dtp, FullName ASC"
             Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(18) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(18).Connection = Me.Connection
@@ -39320,7 +39321,7 @@ Namespace MGCDataSetTableAdapters
                 "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
                 " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
                 " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
-                "ollection WHERE (ItemSold = 0) ORDER BY Rating DESC"
+                "ollection WHERE (ItemSold = 0) ORDER BY Rating DESC, FullName ASC"
             Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(19) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(19).Connection = Me.Connection
