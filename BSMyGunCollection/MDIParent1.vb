@@ -1448,7 +1448,7 @@ Public Class MDIParent1
     Private Sub EnablePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePasswordToolStripMenuItem.Click
         CloseConnection()
         If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.AddPassword(DatabasePath, _errOut) Then
-            MsgBox("Password Removed")
+            MsgBox("Password Was Set")
         Else 
             MsgBox(_errOut)
         End If
