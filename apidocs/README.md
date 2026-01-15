@@ -39,3 +39,9 @@ All located in the docs folder
 * Create the Release On Github with Change Log Details
 * Update the Github Pages Main README with the Change Log Information.
 * 
+
+## Reporting
+
+The Report Viewer is Currently running version 11.  Which the newer report viewer and Crystal Reports require the 
+SQL Server Type library of version 14.0.314.76.  If the SQL Server Type library is upgraded to the latest version then, the reports will break
+More Information on what needs to be upgraded to the latests if it comes down to it later
