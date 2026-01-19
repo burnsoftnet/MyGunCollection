@@ -28,6 +28,41 @@ But if you wanted to check out the code that helps this application run.  The Re
 * [BurnSoftDBRestore](https://github.com/burnsoftnet/BurnSoftDBRestore)
 * [BurnSoftDBBackup](https://github.com/burnsoftnet/BurnSoftDBBackup)
 
+## Configs Files
+
+Since the Restore and Backup applications have been created to be a nuget package, the config that is currently in the project will
+probably get written over.  Below are the Backup settings of those config files, so if you hade to upgrade and lsot the config,
+You can get it from what is listed below.
+
+### DBBackup.exe.config 
+
+```xml
+<appSettings>
+    <add key="AppName" value="DBBackup"/>
+    <add key="MainAppName" value="My Gun Collection"/>
+    <add key="DBName" value="MGC.mdb"/>
+    <add key="RegKey" value="Software\BurnSoft\BSMGC\"/>
+    <add key="CheckProcess" value="false"/>
+    <add key="LogFilename" value="dbbackup.err.log"/>
+    <add key="AppABV" value="MGC"/>
+</appSettings>
+```
+
+### DBRestore.exe.config
+
+```xml
+<appSettings>
+	<add key="AppName" value="DBRestore" />
+	<add key="MainAppName" value="My Gun Collection" />
+	<add key="MainAppNameEXE" value="BSMyGunCollection.exe" />
+	<add key="DBName" value="MGC.mdb" />
+	<add key="RegKey" value="Software\BurnSoft\BSMGC\" />
+	<add key="CheckProcess" value="false" />
+	<add key="LogFilename" value="dbrestore.err.log" />
+	<add key="AppABV" value="MGC" />
+</appSettings>
+```
+
 ## GitHub Pages
 
 Currently this is using the [leapday theme](https://github.com/pages-themes/leap-day)  
