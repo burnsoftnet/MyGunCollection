@@ -141,6 +141,12 @@
     <Reference Include="DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DataGridViewAutoFilter.4.7.2.34861\lib\net472\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
+    <Reference Include="DBBackup, Version=4.12.2.11, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoftDBBackup.4.12.2.11\lib\net481\DBBackup.exe</HintPath>
+    </Reference>
+    <Reference Include="DBRestore, Version=4.12.2.11, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoftDBRestore.4.12.2.11\lib\net481\DBRestore.exe</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
