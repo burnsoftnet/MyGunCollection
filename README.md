@@ -35,7 +35,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 
 ## Release Notes:
 
-### v7.1.19.85-RC1
+### v7.1.20.85-RC1
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1
@@ -67,6 +67,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 * ADDED - The ability to select the filters that you mostly use, so if you just use InStock, Gunsmith and Sold then you can just have those options in the list. For more information you can view the online help [Firearm Category Filter List](docs/help/FirearmCategoryFilterList.md)
 * ADDED - New Option in Bound Books 1 and 2 to only print the items that are lethal and In Stock.
 * FIXED - The ability to change the Title in the Bound Book 2 Window.
+* UPDATED - Updated the Backup and Restore Application to use .Net Framework 4.8.1, Alsp had them install via nuget packages to be able to keep up with updating the programs a little easier from now on.
 
 ### v6.9.15.2 September 2022
 
