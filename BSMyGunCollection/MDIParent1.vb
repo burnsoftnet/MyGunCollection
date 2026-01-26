@@ -608,7 +608,7 @@ Public Class MDIParent1
                 Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
                 frmLogin.Show()
             End If
-
+            cmbView.DropDownStyle = ComboBoxStyle.DropDownList
             Lastviewedfirearm = 0
             OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)
             if _errOut.Length > 0 Then Throw New Exception(_errOut)
