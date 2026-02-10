@@ -47,6 +47,7 @@ Partial Class frmViewGeneralAccessories
         Me.IsLinked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.IsGALinked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MarkAsAttachedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
         Me.cmnuAccessory.SuspendLayout
@@ -108,9 +109,9 @@ Partial Class frmViewGeneralAccessories
         '
         Me.cmnuAccessory.AccessibleDescription = "Selected Item in Grid Menu"
         Me.cmnuAccessory.AccessibleName = "mnuContextMenu"
-        Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem, Me.DuplicateToolStripMenuItem, Me.MoveToAFirearmToolStripMenuItem})
+        Me.cmnuAccessory.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.AttachToFirearmToolStripMenuItem, Me.DuplicateToolStripMenuItem, Me.MoveToAFirearmToolStripMenuItem, Me.MarkAsAttachedToolStripMenuItem})
         Me.cmnuAccessory.Name = "cmnuAccessory"
-        Me.cmnuAccessory.Size = New System.Drawing.Size(171, 114)
+        Me.cmnuAccessory.Size = New System.Drawing.Size(181, 158)
         '
         'EditToolStripMenuItem
         '
@@ -252,6 +253,15 @@ Partial Class frmViewGeneralAccessories
         Me.NotesDataGridViewTextBoxColumn.Name = "NotesDataGridViewTextBoxColumn"
         Me.NotesDataGridViewTextBoxColumn.ReadOnly = true
         '
+        'MarkAsAttachedToolStripMenuItem
+        '
+        Me.MarkAsAttachedToolStripMenuItem.Image = CType(resources.GetObject("MarkAsAttachedToolStripMenuItem.Image"),System.Drawing.Image)
+        Me.MarkAsAttachedToolStripMenuItem.Name = "MarkAsAttachedToolStripMenuItem"
+        Me.MarkAsAttachedToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MarkAsAttachedToolStripMenuItem.Text = "Mark as Attached"
+        Me.MarkAsAttachedToolStripMenuItem.ToolTipText = "Check to see if it is attached to anything if it is it will Mark it as Yes otherw"& _ 
+    "ise it will mark it as No"
+        '
         'frmViewGeneralAccessories
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -297,4 +307,5 @@ End Sub
     Friend WithEvents IsLinked As DataGridViewCheckBoxColumn
     Friend WithEvents IsGALinked As DataGridViewCheckBoxColumn
     Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents MarkAsAttachedToolStripMenuItem As ToolStripMenuItem
 End Class
