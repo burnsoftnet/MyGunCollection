@@ -45,6 +45,7 @@ Partial Class frmViewGeneralAccessories
         Me.ConditionDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.UseDataGridViewTextBoxColumn = New DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn()
         Me.IsLinked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.IsGALinked = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.NotesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout
         CType(Me.dgvGeneralTable,System.ComponentModel.ISupportInitialize).BeginInit
@@ -92,7 +93,7 @@ Partial Class frmViewGeneralAccessories
         Me.dgvGeneralTable.AllowUserToOrderColumns = true
         Me.dgvGeneralTable.AutoGenerateColumns = false
         Me.dgvGeneralTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvGeneralTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ManufacturerDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.SerialNumberDataGridViewTextBoxColumn, Me.ConditionDataGridViewTextBoxColumn, Me.UseDataGridViewTextBoxColumn, Me.IsLinked, Me.NotesDataGridViewTextBoxColumn})
+        Me.dgvGeneralTable.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.ManufacturerDataGridViewTextBoxColumn, Me.ModelDataGridViewTextBoxColumn, Me.SerialNumberDataGridViewTextBoxColumn, Me.ConditionDataGridViewTextBoxColumn, Me.UseDataGridViewTextBoxColumn, Me.IsLinked, Me.IsGALinked, Me.NotesDataGridViewTextBoxColumn})
         Me.dgvGeneralTable.ContextMenuStrip = Me.cmnuAccessory
         Me.dgvGeneralTable.DataSource = Me.GeneralAccessoriesBindingSource1
         Me.dgvGeneralTable.Dock = System.Windows.Forms.DockStyle.Fill
@@ -235,6 +236,13 @@ Partial Class frmViewGeneralAccessories
         Me.IsLinked.Name = "IsLinked"
         Me.IsLinked.ReadOnly = true
         '
+        'IsGALinked
+        '
+        Me.IsGALinked.DataPropertyName = "IsGALinked"
+        Me.IsGALinked.HeaderText = "Linked To Firearm"
+        Me.IsGALinked.Name = "IsGALinked"
+        Me.IsGALinked.ReadOnly = true
+        '
         'NotesDataGridViewTextBoxColumn
         '
         Me.NotesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -287,5 +295,6 @@ End Sub
     Friend WithEvents ConditionDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents UseDataGridViewTextBoxColumn As DataGridViewAutoFilter.DataGridViewAutoFilterTextBoxColumn
     Friend WithEvents IsLinked As DataGridViewCheckBoxColumn
+    Friend WithEvents IsGALinked As DataGridViewCheckBoxColumn
     Friend WithEvents NotesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
