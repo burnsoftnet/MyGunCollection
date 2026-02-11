@@ -219,9 +219,7 @@ Public Class frmViewGeneralAccessories
     Private Sub MarkAsAttachedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MarkAsAttachedToolStripMenuItem.Click
         Try
             Dim itemId As Long = CLng(dgvGeneralTable.SelectedRows.Item(0).Cells.Item(0).Value)
-            Dim isAttached as Boolean = GeneralAccessoriesLinking.IsAttached(DatabasePath, itemId, errOut)
-            if errOut.Length > 0 Then Throw New Exception(errOut)
-            if Not GeneralAccessories.SetLinkFromGaStatus(DatabasePath, Convert.ToInt32(itemId), isAttached, errOut) then Throw New Exception(errOut)
+            if Not GeneralAccessories.MarkAsLinkedIfLinked(DatabasePath, itemId, errOut) then Throw New Exception(errOut)
             RefreshData()
         Catch ex As Exception
             Call LogError(Name, "MoveToAFirearmToolStripMenuItem_Click", Err.Number, ex.Message.ToString)

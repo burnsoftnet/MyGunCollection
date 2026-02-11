@@ -49,9 +49,11 @@ Public Class FrmLinkAccessoryToFirearm
             Else 
                 If GeneralAccessoriesLinking.AttachToFirearm(DatabasePath, AccessoryId, CLng(strFireArmId), _errOut) Then
                     Dim strMsg As String = "Accessory was copied to " & strFireArmName
-                    GeneralAccessories.SetLinkFromGaStatus(DatabasePath, AccessoryId, true, _errOut)
-                    If _errOut.Length > 0 Then Call LogError(Name, "btnAttach.Click", Err.Number, _errOut)
-                    Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?", MsgBoxStyle.YesNo, Text)
+                    GeneralAccessories.MarkAsLinkedIfLinked(DatabasePath, AccessoryId, _errOut)
+                    If _errOut.Length > 0 Then Call LogError(Name, "btnAttach.Click.GeneralAccessories.MarkAsLinkedIfLinked", 
+                                                             Err.Number, _errOut)
+                    Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?",
+                                                MsgBoxStyle.YesNo, Text)
                     If sAns = vbNo Then Close()
                 Else 
                     MsgBox("Was unable to link Accessory, see error log for more details", MsgBoxStyle.Critical, Text)
