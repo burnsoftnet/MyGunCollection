@@ -35,7 +35,7 @@ Any New Pre-Release code will be in the *develop* branch, if you want to see if 
 
 ## Release Notes:
 
-### v7.1.22.91-RC1
+### v7.1.22.92-RC1
 
 * FIXED - Issue with Barrel Systems Display when only the default is present.  This Tab was suppose to only display if there is more than 1 barrel present and the default is added in the table by default just incase more barrels are added later.
 * UPGRADED - Upgrade .Net Framework from 4.7.2 to 4.8.1

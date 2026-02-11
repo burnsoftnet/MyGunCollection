@@ -23,7 +23,7 @@ Public Class FrmLinkAccessoryToFirearm
                 Me.Text = "Move Accessory to Firearm"
                 btnAttach.Text = "Move"
             End If
-            Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
+            Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
         Catch ex As Exception
             Call LogError(Name, "FrmLinkAccessoryToFirearm_Load", Err.Number, ex.Message.ToString)
         End Try
