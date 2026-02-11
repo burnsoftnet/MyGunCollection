@@ -125,6 +125,9 @@
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BurnSoft.Applications.MGC, Version=1.7.15.57, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.15.57\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
