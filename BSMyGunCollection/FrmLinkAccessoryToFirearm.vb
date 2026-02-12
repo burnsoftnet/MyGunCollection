@@ -23,7 +23,7 @@ Public Class FrmLinkAccessoryToFirearm
                 Me.Text = "Move Accessory to Firearm"
                 btnAttach.Text = "Move"
             End If
-            Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
+            Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
         Catch ex As Exception
             Call LogError(Name, "FrmLinkAccessoryToFirearm_Load", Err.Number, ex.Message.ToString)
         End Try
@@ -49,7 +49,11 @@ Public Class FrmLinkAccessoryToFirearm
             Else 
                 If GeneralAccessoriesLinking.AttachToFirearm(DatabasePath, AccessoryId, CLng(strFireArmId), _errOut) Then
                     Dim strMsg As String = "Accessory was copied to " & strFireArmName
-                    Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?", MsgBoxStyle.YesNo, Text)
+                    GeneralAccessories.MarkAsLinkedIfLinked(DatabasePath, AccessoryId, _errOut)
+                    If _errOut.Length > 0 Then Call LogError(Name, "btnAttach.Click.GeneralAccessories.MarkAsLinkedIfLinked", 
+                                                             Err.Number, _errOut)
+                    Dim sAns As String = MsgBox(strMsg & Chr(10) & "Do you want to link it to another firearm?",
+                                                MsgBoxStyle.YesNo, Text)
                     If sAns = vbNo Then Close()
                 Else 
                     MsgBox("Was unable to link Accessory, see error log for more details", MsgBoxStyle.Critical, Text)
