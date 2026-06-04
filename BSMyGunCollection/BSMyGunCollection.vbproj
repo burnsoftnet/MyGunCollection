@@ -129,8 +129,8 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.15.57, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.15.57\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.16.58, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.16.58\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
     <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3463\lib\net481\BurnSoft.MsgBox.dll</HintPath>
