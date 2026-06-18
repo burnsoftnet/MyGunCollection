@@ -232,13 +232,13 @@
         "Entry"
         {
         "MsmKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
-        "OwnerKey" = "8:_C8DFFD6411364E7C9CD67D884E744E69"
+        "OwnerKey" = "8:_E51793B6BD8C4A7AB20A55F82B2D02A9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C37A94F381B71E467C50A3E4B3701085"
-        "OwnerKey" = "8:_E51793B6BD8C4A7AB20A55F82B2D02A9"
+        "OwnerKey" = "8:_C8DFFD6411364E7C9CD67D884E744E69"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -629,7 +629,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.15.57, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.16.58, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_1EECA0302DCD4C6C8536E1993CAA69DD"
@@ -1143,7 +1143,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.15.57, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BurnSoft.Applications.MGC, Version=1.7.16.58, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_92F31A5DCA454FD035980E2BCB2D9C81"
@@ -1225,7 +1225,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.1.22.91, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:BSMyGunCollection, Version=7.1.23.92, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_A5029518DFAE4D2395998A239FFCC941"
@@ -1671,15 +1671,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:My Gun Collection"
-        "ProductCode" = "8:{04EF5B5D-9A42-470E-94BB-72C5CA88265B}"
-        "PackageCode" = "8:{24E8CBB1-40F5-48FD-B4F7-2FD85AE2FEF6}"
+        "ProductCode" = "8:{C65BE166-D439-4280-9322-E186C5320906}"
+        "PackageCode" = "8:{B7D0331C-FD51-4235-BFEE-BB3D9C90E3D6}"
         "UpgradeCode" = "8:{412CFF32-E3BA-4409-B4C3-E934083569A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:7.1.23"
+        "ProductVersion" = "8:7.1.24"
         "Manufacturer" = "8:BurnSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.burnsoft.net"
