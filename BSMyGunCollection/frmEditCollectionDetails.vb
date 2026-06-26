@@ -31,7 +31,7 @@ Public Class frmEditCollectionDetails
     ''' </summary>
     Sub LoadData()
         Try
-            Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(DatabasePath, ItemId, _errOut)
+            Dim lst As List(Of GunCollectionList) = BurnSoft.Applications.MGC.Firearms.MyCollection.GetList(DatabasePath, Clng(ItemId), _errOut)
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
 
             For Each o As GunCollectionList In lst
