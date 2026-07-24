@@ -12,11 +12,6 @@ Option Strict On
 Option Explicit On
 
 Imports System
-Imports System.CodeDom.Compiler
-Imports System.ComponentModel
-Imports System.Globalization
-Imports System.Resources
-Imports System.Runtime.CompilerServices
 
 Namespace My.Resources
     
@@ -27,24 +22,24 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <GeneratedCode("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
-     DebuggerNonUserCode(),  _
-     CompilerGenerated(),  _
-     HideModuleName()>  _
-    Friend Module Resources
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
+     Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
+    Public Module Resources
         
-        Private resourceMan As ResourceManager
+        Private resourceMan As Global.System.Resources.ResourceManager
         
-        Private resourceCulture As CultureInfo
+        Private resourceCulture As Global.System.Globalization.CultureInfo
         
         '''<summary>
         '''  Returns the cached ResourceManager instance used by this class.
         '''</summary>
-        <EditorBrowsable(EditorBrowsableState.Advanced)>  _
-        Friend ReadOnly Property ResourceManager() As ResourceManager
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
-                If ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As ResourceManager = New ResourceManager("BSMyGunCollection.Resources", GetType(Resources).Assembly)
+                If Object.ReferenceEquals(resourceMan, Nothing) Then
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("BSMyGunCollection.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -55,8 +50,8 @@ Namespace My.Resources
         '''  Overrides the current thread's CurrentUICulture property for all
         '''  resource lookups using this strongly typed resource class.
         '''</summary>
-        <EditorBrowsable(EditorBrowsableState.Advanced)>  _
-        Friend Property Culture() As CultureInfo
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
             End Get
@@ -68,60 +63,60 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_16_x_16() As Icon
+        Public ReadOnly Property My_GunCollection_16_x_16() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_16_x_16", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_32_x_32() As Icon
+        Public ReadOnly Property My_GunCollection_32_x_32() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_32_x_32", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_48_x_48() As Icon
+        Public ReadOnly Property My_GunCollection_48_x_48() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_48_x_48", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_64_x_64() As Icon
+        Public ReadOnly Property My_GunCollection_64_x_64() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_64_x_64", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_72_x_72() As Icon
+        Public ReadOnly Property My_GunCollection_72_x_72() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_72_x_72", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
         
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         '''</summary>
-        Friend ReadOnly Property My_GunCollection_Multi_Icon() As Icon
+        Public ReadOnly Property My_GunCollection_Multi_Icon() As System.Drawing.Icon
             Get
                 Dim obj As Object = ResourceManager.GetObject("My_GunCollection_Multi_Icon", resourceCulture)
-                Return CType(obj,Icon)
+                Return CType(obj,System.Drawing.Icon)
             End Get
         End Property
     End Module

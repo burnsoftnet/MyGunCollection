@@ -77,13 +77,21 @@ Public Class frmSold
             If Not Helpers.IsRequired(strRes, "Residency/Alien ID", Text, errOut) Then Exit Sub
             If Not Helpers.IsRequired(sFinalPrice, "Final Sale Price", Text, errOut) Then Exit Sub
 
-            if Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Exists(DatabasePath,strName, strAddress1, strAddress2, strCity, strState, strZip, strDob, strDLic, errOut) Then
-                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Add(DatabasePath, strName, strAddress1, strAddress2, strCity, strState, strZip, strPhone, strCountry, stremail, strLic, strWebsite, strFax, strDob, strDLic, strRes, errOut) then Throw New Exception(errOut)
+            if Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Exists(DatabasePath,strName, strAddress1, 
+                                                                           strAddress2, strCity, strState, strZip, 
+                                                                           strDob, strDLic, errOut) Then
+                If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.Add(DatabasePath, strName, strAddress1, 
+                                                                            strAddress2, strCity, strState, strZip, 
+                                                                            strPhone, strCountry, stremail, strLic, 
+                                                                            strWebsite, strFax, strDob, strDLic, 
+                                                                            strRes, errOut) then Throw New Exception(errOut)
             End If
             bid = BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.GetId(DatabasePath, strName, errOut)
             If errOut.Length > 0 Then Throw New Exception(errOut)
-            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.FirearmBought(DatabasePath, ItemId, bid, dtpSale.Value, sFinalPrice, errOut) Then Throw New Exception(errOut)
-
+            If Not BurnSoft.Applications.MGC.PeopleAndPlaces.Buyers.FirearmBought(DatabasePath, ItemId, bid, 
+                                                                                  dtpSale.Value, sFinalPrice, errOut) Then Throw New Exception(errOut)
+            If Not BurnSoft.Applications.MGC.Firearms.MyCollection.SetAsToBeSold(DatabasePath, Convert.ToInt16(ItemId), 
+                                                                                 False, errOut) Then Throw New Exception(errOut)
             MDIParent1.RefreshCollection()
             Close()
         Catch ex As Exception

@@ -25,7 +25,7 @@ Partial Class frmAddBarrelSystem
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAddBarrelSystem))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddBarrelSystem))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -346,6 +346,8 @@ Partial Class frmAddBarrelSystem
         '
         'frmAddBarrelSystem
         '
+        Me.AccessibleDescription = "Add Barrel/Conversion Kit System"
+        Me.AccessibleName = "AddBarrelWindow"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(339, 425)
@@ -381,7 +383,7 @@ Partial Class frmAddBarrelSystem
         Me.Controls.Add(Me.Label1)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
-        Me.Name = "FrmAddBarrelSystem"
+        Me.Name = "frmAddBarrelSystem"
         Me.Text = "Add Barrel/Conversion Kit System"
         Me.ResumeLayout(false)
         Me.PerformLayout

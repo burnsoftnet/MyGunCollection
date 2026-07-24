@@ -37,6 +37,14 @@ Public Class frmViewReport_BoundBook2
                     BoundBooksTableAdapter.FillByGun_Shop_Name(MGCDataSet.BoundBooks)
                 Case LCase("Class III")
                     BoundBooksTableAdapter.FillBy_ClassIII(MGCDataSet.BoundBooks)
+                Case LCase("Sold Only")
+                    BoundBooksTableAdapter.FillBySoldOnly(MGCDataSet.BoundBooks)
+                Case LCase("Ready To Sell")
+                    BoundBooksTableAdapter.FillByReadyToSell(MGCDataSet.BoundBooks)
+                Case LCase("Gunsmith Projects")
+                    BoundBooksTableAdapter.FillByGunsmithProject(MGCDataSet.BoundBooks)
+                Case LCase("In-Stock Only")
+                    BoundBooksTableAdapter.FillByInInventory(MGCDataSet.BoundBooks)
                 Case Else
                     BoundBooksTableAdapter.Fill(MGCDataSet.BoundBooks)
             End Select
@@ -80,5 +88,13 @@ Public Class frmViewReport_BoundBook2
         Catch ex As Exception
             Call LogError(Name, "ToolStripComboBox1_SelectedIndexChanged", Err.Number, ex.Message.ToString)
         End Try
+    End Sub
+    ''' <summary>
+    ''' Handles the Click event of the ToolStripButton1 control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        Call LoadData()
     End Sub
 End Class

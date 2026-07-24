@@ -1,6 +1,6 @@
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.Types
-
+Imports BurnSoft.Applications.MGC
 ''' <summary>
 ''' Class frmEditAccessory.
 ''' Implements the <see cref="System.Windows.Forms.Form" />
@@ -24,24 +24,46 @@ Public Class frmEditAccessory
     ''' </summary>
     Dim _errOut As String
     ''' <summary>
+    ''' Toggle on when used for General Accessories, otherwise it assumes for firearm.
+    ''' </summary>
+    Public IsGeneral as Boolean = False
+    ''' <summary>
     ''' Loads the data.
     ''' </summary>
     Sub LoadData()
         Try
-            Dim lst As List(Of AccessoriesList) = BurnSoft.Applications.MGC.Firearms.Accessories.List(DatabasePath, cInt(ItemId), _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            For Each o As AccessoriesList In lst
-                txtMan.Text = o.Manufacturer
-                txtModel.Text = o.Model
-                txtSerial.Text = o.SerialNumber
-                cmdCondition.Text = o.Condition
-                txtUse.Text = o.Use
-                txtPurVal.Text = o.PurchaseValue
-                txtNotes.Text = o.Notes
-                txtAppValue.Text = o.AppriasedValue
-                chkCIV.Checked = o.CountInValue
-                chkIsChoke.Checked = o.IsChoke
-            Next
+            If Not IsGeneral Then
+                Dim lst As List(Of AccessoriesList) = Firearms.Accessories.List(DatabasePath, cInt(ItemId), _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                For Each o As AccessoriesList In lst
+                    txtMan.Text = o.Manufacturer
+                    txtModel.Text = o.Model
+                    txtSerial.Text = o.SerialNumber
+                    cmdCondition.Text = o.Condition
+                    txtUse.Text = o.Use
+                    txtPurVal.Text = o.PurchaseValue
+                    txtNotes.Text = o.Notes
+                    txtAppValue.Text = o.AppriasedValue
+                    chkCIV.Checked = o.CountInValue
+                    chkIsChoke.Checked = o.IsChoke
+                Next
+            Else 
+                Dim lst As List(Of GeneralAccessoriesList) = Other.GeneralAccessories.Lists(DatabasePath, CInt(ItemId), _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                For Each o As GeneralAccessoriesList In lst
+                    txtMan.Text = o.Manufacturer
+                    txtModel.Text = o.Model
+                    txtSerial.Text = o.SerialNumber
+                    cmdCondition.Text = o.Condition
+                    txtUse.Text = o.Use
+                    txtPurVal.Text = o.PurchaseValue
+                    txtNotes.Text = o.Notes
+                    txtAppValue.Text = o.AppriasedValue
+                    chkCIV.Checked = o.CountInValue
+                    chkIsChoke.Checked = o.IsChoke
+                Next
+            End If
+            
         Catch ex As Exception
             Call LogError(Name, "LoadData", Err.Number, ex.Message.ToString)
         End Try
@@ -53,16 +75,30 @@ Public Class frmEditAccessory
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub frmEditAccessory_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
         Try
-            Label10.Visible = IsShotGun
-            chkIsChoke.Visible = IsShotGun
-            txtMan.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Manufacturer(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtModel.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Model(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtUse.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.Use(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
-            txtPurVal.AutoCompleteCustomSource = BurnSoft.Applications.MGC.AutoFill.Accessory.PurchaseValue(DatabasePath, _errOut)
-            If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            If Not IsGeneral Then
+                Label10.Visible = IsShotGun
+                chkIsChoke.Visible = IsShotGun
+                txtMan.AutoCompleteCustomSource = AutoFill.Accessory.Manufacturer(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtModel.AutoCompleteCustomSource = AutoFill.Accessory.Model(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtUse.AutoCompleteCustomSource = AutoFill.Accessory.Use(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtPurVal.AutoCompleteCustomSource = AutoFill.Accessory.PurchaseValue(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            Else 
+                IsShotGun = True
+                Label10.Visible = IsShotGun
+                chkIsChoke.Visible = IsShotGun
+                txtMan.AutoCompleteCustomSource = AutoFill.GeneralAccessories.Manufacturer(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtModel.AutoCompleteCustomSource = AutoFill.GeneralAccessories.Model(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtUse.AutoCompleteCustomSource = AutoFill.GeneralAccessories.Use(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+                txtPurVal.AutoCompleteCustomSource = AutoFill.GeneralAccessories.PurchaseValue(DatabasePath, _errOut)
+                If _errOut.Length > 0 Then Throw New Exception(_errOut)
+            End If
             Call LoadData()
         Catch ex As Exception
             Call LogError(Name, "Load", Err.Number, ex.Message.ToString)
@@ -91,9 +127,21 @@ Public Class frmEditAccessory
             Dim strPurVal As String = FluffContent(txtPurVal.Text)
             Dim strNotes As String = FluffContent(txtNotes.Text)
             Dim dAppValue As Double = FluffContent(txtAppValue.Text, 0.0)
+            Dim item As Long = Convert.ToInt32(ItemId)
+
             If Not Helpers.IsRequired(strMan, "Manufacturer", Text, _errOut) Then Exit Sub
             If Not Helpers.IsRequired(strModel, "Model", Text, _errOut) Then Exit Sub
-            If Not BurnSoft.Applications.MGC.Firearms.Accessories.Update(DatabasePath, Convert.ToInt32(ItemId),GunId, strMan, strModel, strSerial, strCondition, strNotes, strUse, Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            if Not IsGeneral Then
+                If Not Firearms.Accessories.Update(DatabasePath, item, GunId, strMan, 
+                                                                             strModel, strSerial, strCondition, strNotes, strUse, 
+                                                                             Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
+                                                                             chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            Else
+                If Not Other.GeneralAccessories.Update(DatabasePath, item, strMan, 
+                                                                             strModel, strSerial, strCondition, strNotes, strUse, 
+                                                                             Convert.ToDouble(strPurVal),dAppValue, chkCIV.Checked, 
+                                                                             chkIsChoke.Checked, _errOut) Then Throw New Exception(_errOut)
+            End If
             Close()
         Catch ex As Exception
             Call LogError(Name, "btnEdit.Click", Err.Number, ex.Message.ToString)

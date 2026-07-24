@@ -112,52 +112,51 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="GunCollectionSoldToBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="GunCollectionSoldToBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>131, 17</value>
   </metadata>
-  <metadata name="MGCDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="MGCDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="Gun_Collection_SoldToTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="Gun_Collection_SoldToTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>356, 17</value>
   </metadata>
-  <metadata name="HelpProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="HelpProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 54</value>
   </metadata>
-  <metadata name="ToolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ToolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>138, 54</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ToolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAQxJREFUOE9jYBg0
-        4IGs4//7vhn/yXbQE7+s/7eZtf9fjC8h35A7Xql4Dfm+/+T/K3xG/08uW4PbEpA3QC75ePw8iqKXwfn/
-        Dwsa/Z9cUknYhSCXXBcw/f/h7OX/v67f/f/UMf7/GgWr/6uXLCWsGRaID91T/t/gMwbj6dr2/y9fvky8
-        ZpAh3w+f+X+fQfP/VRat/7uXrSJdMygcms1c/4O8Awq4t+eIdAEopEE2d+rZ/7916xbY5vs+6cQZAnI2
-        yOb58mYYfoa55MOVm9i98+P0ZbDmI9y6/9etXo1VESiRgWIHPYrBAf++eTrY6XVGDngD7HxCyf8TQibY
-        1axcufL/9evXSQtxsjMPVCMAT3qwlRA5068AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEFSURBVDhPYxg84IGs4//7vhn/oVzSwRO/rP+3mbX/X4wv
+        Id+QO16peA35vv/k/yt8Rv9PLluD2xKQN0CGfDx+HkXRy+D8/4cFjf5PLqkk7EKQS64LmP7/cPby/1/X
+        7/5/6hj/f42C1f/VS5YS772H7in/b/AZg/F0bfv/ly9fJl4zCHw/fOb/fQbN/1dZtP7vXraKdM2gcGg2
+        c/0P8g4o4N6eI9IFoJAG2dypZ///1q1bYE33fdKJMwRm83x5Mww/w1zy4cpN7Ib8OH0ZrPkIt+7/datX
+        Y1UESh+g2EGPYjB43zwd7PQ6Iwe8zjyfUPL/hJAJdjUrV678f/36dbwGUBkwMAAAT3qwlaCyWvYAAAAA
+        SUVORK5CYII=
 </value>
   </data>
   <data name="ToolStripButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAiBJREFUWEftl0Fu
-        gzAQRTlKjsJROApH8aLqOVj3FByh+0p15008aGJsDCSpskikLxIgnueZ7zF03fvzChnohykO41VjuNXn
-        13d8hoijcw/y5dJPTwmyBQ4A1xWADPzG2ISIP9/xEfKxbgCg6qUMpkF+qyYpi6g0IyvZkTJVARiE4BeD
-        MAB39B7hfvOO+WcPyBpAAtrJHKC3rEiZKNVKybycx0uAtCBWAPypCEA2GDhJgxTUSWA7z1ihUi4Ds1j4
-        ST2QA5gHGNQPznk84cug98p9Z0rQBOgASDMm8KNNWAQgkPnAAPjtVwFZm7Z0TwkMgKA1gGkY49z3ceZY
-        kQJWQDY94AFYjrYkfQamMQXmWJJCCaBcK5XtEIAuQ4zqPEAJcvmSKBQAkiVgc4jdAOrwFNy64p7OR+q1
-        NJRJdB4gGTKHWFp0grMs+UDMXLa7OF+6lRf2Z8DNvgWRL9MQPhQA5WY8DiApzTcjul3N5WSClXLNgPgg
-        Ww3HAeh+bhDtAxIgSJoZfCW5rvUn/XLfXR7w2zEG1KDJXJM4nVrfKLlfVwAq9IJzGSA4A8qsru6249Xp
-        iwAADFXa9+Z27BuRNx4lwFghNZg5yDITrTIgGbHS1LblzQeSIkBmQkDMA629f6sTVp8J/TqvPYqp0xub
-        zuEMkJr/EoZeMmCPUsvzHcvOdHKWrdJY49J3g+WlRHr/EjiD2CpFK1h+nSZGL3mFl7I3Q/cHuvMSIbmb
-        DA4AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHzSURBVFhH7ZfNcYMwFIQpxaVQCqVQig6Z1ME5VVBC7pmJ
+        svvQZh4SkvmJkxzMzDfICGn3/YDt7nn8i6MfpjiMC2NY8/r2/hC4t4kHDG7944RqKDgzwAx8xljclBM/
+        fgavtTJAVz3KIAZ8NiaUA3gz4kypqgZ4gcI3mZABhwQlqt5R/2jjFqUBLK4ZMDiGyU0wR3GO2Usca/Ma
+        hQEu2jTAMTdOmMgGHYQ15l6hUi4hLfbDpgEv7jfntbwMdm8SPlqCuwY6GkjiFPabCBnZmqvRNEAhirMM
+        MsDP/ingmqnFlRLIgM9AbmAaxjj3fZx5rtAystsAs6CGXBkYkxDPW5gJGMRYazyHDOhR9D3ANTm+BIsJ
+        GECWaFbrxG4DBucde5qOqbcssEwgn99vQGPe00BZ8iKMHF93cb51RS8cMuBFNK7hRUJ4MQPkugFskH8Z
+        8W3Xetz4pCwZQB9cNgCK9wAEAtLMzQswb/Vn+nGf1onTGWDzmWhqrgmdzlqvSN1v8wTrvDg5lwEQuCGi
+        WgR0zqABGiNY44WFtIgZoNhdA4iEjRUogEjnsFBkAKg0EskpDeB12zSQSqBFNKIe0LUjNA0QRa3IdT2n
+        FWWLqoHfRG9TM6CfUt8wcnEyyntQg2f7byDhkXhxkfXAVfgSY+Am/jz+9ui6L7rzEiHz7XNnAAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

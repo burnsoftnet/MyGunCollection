@@ -9,6 +9,15 @@ namespace BSMyGunCollection.UnitTest.Command.Helpers.UI.Collection
     /// </summary>
     public class ViewWindow
     {
+        /// <summary>
+        /// Runs the test.
+        /// </summary>
+        /// <param name="firearmName">Name of the firearm.</param>
+        /// <param name="walkWindow">if set to <c>true</c> [walk window].</param>
+        /// <param name="addAsCompetitionGun">if set to <c>true</c> [add as competition gun].</param>
+        /// <param name="addAsNonLethal">if set to <c>true</c> [add as non lethal].</param>
+        /// <param name="verify">if set to <c>true</c> [verify].</param>
+        /// <returns>List&lt;BatchCommandList&gt;.</returns>
         public static List<BatchCommandList> RunTest(string firearmName,bool walkWindow, bool addAsCompetitionGun, bool addAsNonLethal, bool verify = false)
         {
             List<BatchCommandList> cmd = new List<BatchCommandList>();

@@ -17,6 +17,7 @@ Public Class frmCR_SelectTable
         Try
             CR_SavedReportsTableAdapter.Fill(MGCDataSet.CR_SavedReports)
             CR_TableListTableAdapter.Fill(MGCDataSet.CR_TableList)
+
             If CustomReports.HasSavedReports(DatabasePath, _errOut) Then
                 Height = 157
             Else

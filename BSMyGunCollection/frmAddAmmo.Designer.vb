@@ -22,7 +22,7 @@ Partial Class frmAddAmmo
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmAddAmmo))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddAmmo))
         Me.txtAmmo = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -34,6 +34,7 @@ Partial Class frmAddAmmo
         '
         'txtAmmo
         '
+        Me.txtAmmo.AccessibleDescription = "Ammo"
         Me.txtAmmo.AccessibleName = "txtAmmo"
         Me.txtAmmo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtAmmo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -44,7 +45,8 @@ Partial Class frmAddAmmo
         '
         'Button1
         '
-        Me.Button1.AccessibleName = "Button1"
+        Me.Button1.AccessibleDescription = "Add Ammo Button"
+        Me.Button1.AccessibleName = "AddAmmoButton"
         Me.Button1.Location = New System.Drawing.Point(54, 121)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
@@ -81,7 +83,8 @@ Partial Class frmAddAmmo
         '
         'Button2
         '
-        Me.Button2.AccessibleName = "Button2"
+        Me.Button2.AccessibleDescription = "Cancel"
+        Me.Button2.AccessibleName = "CancelButton"
         Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button2.Location = New System.Drawing.Point(180, 121)
         Me.Button2.Name = "Button2"
@@ -97,6 +100,8 @@ Partial Class frmAddAmmo
         'frmAddAmmo
         '
         Me.AcceptButton = Me.Button1
+        Me.AccessibleDescription = "AddAmmoWindow"
+        Me.AccessibleName = "AddAmmoWindow"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Button2
@@ -113,7 +118,7 @@ Partial Class frmAddAmmo
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MaximizeBox = false
         Me.MinimizeBox = false
-        Me.Name = "FrmAddAmmo"
+        Me.Name = "frmAddAmmo"
         Me.HelpProvider1.SetShowHelp(Me, true)
         Me.Text = "Add Ammunition Caliber to Database"
         Me.ResumeLayout(false)

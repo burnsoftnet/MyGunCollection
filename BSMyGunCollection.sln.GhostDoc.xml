@@ -20,6 +20,7 @@
     <CleanupOutputPath>true</CleanupOutputPath>
     <HelpFileName>BSMyGunCollection</HelpFileName>
     <HelpFileNamingMethod>MemberName</HelpFileNamingMethod>
+    <HelpFileLoadIndexPanelOnDemand>false</HelpFileLoadIndexPanelOnDemand>
     <ImageFolderPath>..\..\..\..\..\..\..\..\..\</ImageFolderPath>
     <Theme />
     <HtmlFormats>

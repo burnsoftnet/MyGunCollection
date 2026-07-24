@@ -22,7 +22,7 @@
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>
     </AssemblyOriginatorKeyFile>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
@@ -125,39 +125,51 @@
   <PropertyGroup>
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.0.4, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.0.4\lib\net472\BurnSoft.Applications.MGC.dll</HintPath>
+    <Reference Include="BurnSoft.Applications.MGC, Version=1.7.16.58, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Applications.MGC.1.7.16.58\lib\net481\BurnSoft.Applications.MGC.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.MsgBox, Version=2.2.354.3457, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.MsgBox.2.2.354.3457\lib\net472\BurnSoft.MsgBox.dll</HintPath>
+    <Reference Include="BurnSoft.MsgBox, Version=2.3.356.3463, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoft.MsgBox.2.32.356.3463\lib\net481\BurnSoft.MsgBox.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.0.0\lib\net452\BurnSoft.Security.RegularEncryption.dll</HintPath>
+    <Reference Include="BurnSoft.Security.RegularEncryption, Version=1.1.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Security.RegularEncryption.1.1.1.2\lib\net481\BurnSoft.Security.RegularEncryption.dll</HintPath>
     </Reference>
-    <Reference Include="BurnSoft.Universal, Version=4.0.32.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\BurnSoft.Universal.4.0.32.5\lib\net472\BurnSoft.Universal.dll</HintPath>
+    <Reference Include="BurnSoft.Universal, Version=4.1.33.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BurnSoft.Universal.4.1.33.9\lib\net481\BurnSoft.Universal.dll</HintPath>
     </Reference>
-    <Reference Include="DataGridViewAutoFilter, Version=4.7.2.34861, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DataGridViewAutoFilter.4.7.2.34861\lib\net472\DataGridViewAutoFilter.dll</HintPath>
+    <Reference Include="DataGridViewAutoFilter, Version=4.8.3.882, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGridViewAutoFilter.4.8.3.882\lib\net481\DataGridViewAutoFilter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="DBBackup, Version=4.12.2.11, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoftDBBackup.4.12.2.11\lib\net481\DBBackup.exe</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    <Reference Include="DBRestore, Version=4.12.2.11, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\BurnSoftDBRestore.4.12.2.11\lib\net481\DBRestore.exe</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
@@ -217,10 +229,22 @@
     <Compile Include="frmEditModelTypes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmFirearmDropDownListFilter.Designer.vb">
+      <DependentUpon>FrmFirearmDropDownListFilter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFirearmDropDownListFilter.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFirearmImagePicker.Designer.vb">
       <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
     </Compile>
     <Compile Include="frmFirearmImagePicker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLinkAccessoryToFirearm.Designer.vb">
+      <DependentUpon>FrmLinkAccessoryToFirearm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLinkAccessoryToFirearm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLinkDocToFirearm.Designer.vb">
@@ -259,10 +283,22 @@
     <Compile Include="FrmViewAppraisers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmViewBarrelSystemData.Designer.vb">
+      <DependentUpon>frmViewBarrelSystemData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewBarrelSystemData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmViewDocuments.Designer.vb">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>
     </Compile>
     <Compile Include="frmViewDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewGeneralAccessories.Designer.vb">
+      <DependentUpon>frmViewGeneralAccessories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewGeneralAccessories.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmViewGunSmithDetails.Designer.vb">
@@ -724,6 +760,12 @@
     <Compile Include="frmViewWishList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmView_Report_GeneralCollection.Designer.vb">
+      <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmView_Report_GeneralCollection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GlobalSuppressions.vb" />
     <Compile Include="GlobalVars.vb" />
     <Compile Include="LogginAndSettings.vb" />
@@ -751,6 +793,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -783,8 +826,14 @@
     <EmbeddedResource Include="frmCR_EditSQL.resx">
       <DependentUpon>frmCR_EditSQL.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmFirearmDropDownListFilter.resx">
+      <DependentUpon>FrmFirearmDropDownListFilter.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFirearmImagePicker.resx">
       <DependentUpon>frmFirearmImagePicker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLinkAccessoryToFirearm.resx">
+      <DependentUpon>FrmLinkAccessoryToFirearm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLinkDocToFirearm.resx">
       <DependentUpon>frmLinkDocToFirearm.vb</DependentUpon>
@@ -795,13 +844,23 @@
     <EmbeddedResource Include="frmMoveBarrelConKit.resx">
       <DependentUpon>frmMoveBarrelConKit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmViewBarrelSystemData.resx">
+      <DependentUpon>frmViewBarrelSystemData.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewDocuments.resx">
       <DependentUpon>frmViewDocuments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewGeneralAccessories.resx">
+      <DependentUpon>frmViewGeneralAccessories.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewReport_BoundBook2.resx">
       <DependentUpon>frmViewReport_BoundBook2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_BoundBook2.rdlc" />
+    <EmbeddedResource Include="frmView_Report_GeneralCollection.resx">
+      <DependentUpon>frmView_Report_GeneralCollection.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report_GeneralAccessories.rdlc" />
+    <EmbeddedResource Include="Reports\Report_BoundBook2.rdlc" />
     <EmbeddedResource Include="frmAddDocument.resx">
       <DependentUpon>frmAddDocument.vb</DependentUpon>
     </EmbeddedResource>
@@ -833,7 +892,7 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_FirearmSaleInvoice.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Blank_ShootersCard2.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_ShootersCard2.rdlc" />
     <EmbeddedResource Include="frmAddBarrelSystem.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmAddBarrelSystem.vb</DependentUpon>
@@ -886,8 +945,8 @@
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_Quickinv_w_DetailNotes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Accessories.rdlc" />
-    <EmbeddedResource Include="Report_Ammo_Inventory_By_Caliber.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Accessories.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Ammo_Inventory_By_Caliber.rdlc" />
     <EmbeddedResource Include="frmViewReport_Ammo_By_Caliber.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmViewReport_Ammo_By_Caliber.vb</DependentUpon>
@@ -896,21 +955,21 @@
       <DependentUpon>frmViewReport_Insurance_ApprisedValue_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Blank_BoundBook.rdlc" />
-    <EmbeddedResource Include="Report_Blank_ShootersCard.rdlc" />
-    <EmbeddedResource Include="Report_FirearmSaleInvoice.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_AppraisedValue_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_BoundBook.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Blank_ShootersCard.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmSaleInvoice.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_AppraisedValue_wTotal.rdlc" />
     <EmbeddedResource Include="frmViewReport_Insurance_InsuredValue_wTotal.resx">
       <DependentUpon>frmViewReport_Insurance_InsuredValue_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Insurance_InsuredValue_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_InsuredValue_wTotal.rdlc" />
     <EmbeddedResource Include="frmViewReport_Insurance_wTotal.resx">
       <DependentUpon>frmViewReport_Insurance_wTotal.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Insurance_wTotal.rdlc" />
-    <EmbeddedResource Include="Report_FirearmFullDetailsER.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_wTotal.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmFullDetailsER.rdlc" />
     <EmbeddedResource Include="frmAddAccessory.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmAddAccessory.vb</DependentUpon>
@@ -1136,30 +1195,33 @@
       <DependentUpon>MDIParent1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
-      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <Generator>PublicVbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Ammo_Inventory.rdlc" />
-    <EmbeddedResource Include="Report_BoundBook.rdlc" />
-    <EmbeddedResource Include="Report_FirearmDetails.rdlc" />
-    <EmbeddedResource Include="Report_ForSale.rdlc" />
-    <EmbeddedResource Include="Report_GunMaintance.rdlc" />
-    <EmbeddedResource Include="Report_GunSmith.rdlc" />
-    <EmbeddedResource Include="Report_Insurance.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_AppraisedValue.rdlc" />
-    <EmbeddedResource Include="Report_Insurance_InsuredValue.rdlc" />
-    <EmbeddedResource Include="Report_Pictures_AllPictureDetails.rdlc" />
-    <EmbeddedResource Include="Report_QuickDetails.rdlc" />
-    <EmbeddedResource Include="Report_QuickInventoryListing.rdlc" />
-    <EmbeddedResource Include="Report_Wishlist.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Ammo_Inventory.rdlc" />
+    <EmbeddedResource Include="Reports\Report_BoundBook.rdlc" />
+    <EmbeddedResource Include="Reports\Report_FirearmDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_ForSale.rdlc" />
+    <EmbeddedResource Include="Reports\Report_GunMaintance.rdlc" />
+    <EmbeddedResource Include="Reports\Report_GunSmith.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_AppraisedValue.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Insurance_InsuredValue.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Pictures_AllPictureDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_QuickDetails.rdlc" />
+    <EmbeddedResource Include="Reports\Report_QuickInventoryListing.rdlc" />
+    <EmbeddedResource Include="Reports\Report_Wishlist.rdlc" />
     <EmbeddedResource Include="SplashScreen1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
@@ -1194,6 +1256,20 @@
     <Content Include="Help_32_x_32.ico" />
     <Content Include="icon.png" />
     <Content Include="MyMsgBox.ico" />
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Resources\My_GunCollection_Multi_Icon.ico" />
     <None Include="ClassDiagram1.cd" />
@@ -1286,6 +1362,7 @@
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

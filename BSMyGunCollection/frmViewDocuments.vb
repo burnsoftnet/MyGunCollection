@@ -1,4 +1,5 @@
-﻿Imports BurnSoft.Applications.MGC.Firearms
+﻿Imports BSMyGunCollection.LogginAndSettings
+Imports BurnSoft.Applications.MGC.Firearms
 
 ''' <summary>
 ''' Class frmViewDocuments.
@@ -26,6 +27,8 @@ Public Class frmViewDocuments
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     Private Sub frmViewDocuments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim objVs As New ViewSizeSettings
+        objVs.LoadViewDocuments(Height, Width, Location)
         Call RefreshData()
     End Sub
     ''' <summary>
@@ -46,7 +49,7 @@ Public Class frmViewDocuments
     Private Sub DataGridView1_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
         Try
             Dim itemId As String = DataGridView1.SelectedRows.Item(0).Cells.Item(0).Value
-            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPath, itemId, _errOut) Then Throw New Exception(_errOut)
+            If Not Documents.GetDocumentFromDb(DatabasePath, ApplicationPathData, itemId, _errOut) Then Throw New Exception(_errOut)
         Catch ex As Exception
             Call LogError(Name, "DataGridView1_CellContentDoubleClick", Err.Number, ex.Message.ToString)
         End Try
@@ -130,5 +133,15 @@ Public Class frmViewDocuments
         frmNew.EditMode = True
         frmNew.MdiParent = MdiParent
         frmNew.Show()
+    End Sub
+
+    ''' <summary>
+    ''' Handles the Disposed event of the frmViewDocuments control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    Private Sub frmViewDocuments_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        Dim objVs As New ViewSizeSettings
+        objVs.SaveViewDocuments(Height, Width, Location.X, Location.Y)
     End Sub
 End Class

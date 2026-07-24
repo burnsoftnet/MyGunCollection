@@ -70,6 +70,7 @@ Partial Class frmAddAmmoAudit
         '
         'txtPrice
         '
+        Me.txtPrice.AccessibleDescription = "Price of Ammo"
         Me.txtPrice.AccessibleName = "txtPrice"
         Me.txtPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -80,6 +81,7 @@ Partial Class frmAddAmmoAudit
         '
         'nudQty
         '
+        Me.nudQty.AccessibleDescription = "Total Qty of box"
         Me.nudQty.AccessibleName = "nudQty"
         Me.nudQty.Location = New System.Drawing.Point(79, 14)
         Me.nudQty.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -89,6 +91,7 @@ Partial Class frmAddAmmoAudit
         '
         'dtpPurchased
         '
+        Me.dtpPurchased.AccessibleDescription = "Date Purchased"
         Me.dtpPurchased.AccessibleName = "dtpPurchased"
         Me.dtpPurchased.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpPurchased.Location = New System.Drawing.Point(79, 65)
@@ -98,6 +101,7 @@ Partial Class frmAddAmmoAudit
         '
         'btnAdd
         '
+        Me.btnAdd.AccessibleDescription = "Add information to database and exit"
         Me.btnAdd.AccessibleName = "btnAdd"
         Me.btnAdd.Location = New System.Drawing.Point(12, 149)
         Me.btnAdd.Name = "btnAdd"
@@ -108,6 +112,7 @@ Partial Class frmAddAmmoAudit
         '
         'btnCancel
         '
+        Me.btnCancel.AccessibleDescription = "Exit without Saving"
         Me.btnCancel.AccessibleName = "btnCancel"
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(117, 149)
@@ -128,6 +133,7 @@ Partial Class frmAddAmmoAudit
         '
         'nudNumBox
         '
+        Me.nudNumBox.AccessibleDescription = "Number of Boxes"
         Me.nudNumBox.AccessibleName = "nudNumBox"
         Me.nudNumBox.Location = New System.Drawing.Point(79, 91)
         Me.nudNumBox.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -139,6 +145,7 @@ Partial Class frmAddAmmoAudit
         '
         'txtStore
         '
+        Me.txtStore.AccessibleDescription = "Store that this was bought from"
         Me.txtStore.AccessibleName = "txtStore"
         Me.txtStore.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.txtStore.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
@@ -159,6 +166,8 @@ Partial Class frmAddAmmoAudit
         'frmAddAmmoAudit
         '
         Me.AcceptButton = Me.btnAdd
+        Me.AccessibleDescription = "Add Ammo to Audit Window"
+        Me.AccessibleName = "AddAmmoWindow"
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
@@ -176,7 +185,7 @@ Partial Class frmAddAmmoAudit
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "FrmAddAmmoAudit"
+        Me.Name = "frmAddAmmoAudit"
         Me.Text = "Add Ammo - Audit"
         CType(Me.nudQty,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.nudNumBox,System.ComponentModel.ISupportInitialize).EndInit

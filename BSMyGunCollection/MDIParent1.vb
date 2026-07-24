@@ -1,3 +1,4 @@
+Imports BSMyGunCollection.LogginAndSettings
 Imports BurnSoft.Applications.MGC.Firearms
 Imports BurnSoft.Applications.MGC.Global
 Imports BurnSoft.Applications.MGC.hotixes.types
@@ -8,6 +9,7 @@ Imports BurnSoft.MsgBox
 ''' Implements the <see cref="System.Windows.Forms.Form" />
 ''' </summary>
 ''' <seealso cref="System.Windows.Forms.Form" />
+' ReSharper disable once InconsistentNaming
 Public Class MDIParent1
     ''' <summary>
     ''' The error out
@@ -100,7 +102,8 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AmmToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AmmToolStripMenuItem.Click
-        Dim frmNew As New FrmAddAmmo
+        Dim frmNew As New frmAddAmmo
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -129,7 +132,8 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AddModelToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddModelToolStripMenuItem.Click
-        Dim frmNew As New FrmAddModel
+        Dim frmNew As New frmAddModel
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
     ''' <summary>
@@ -379,10 +383,17 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub AddMmunitionToMyCollectionToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AddMmunitionToMyCollectionToolStripMenuItem.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = MdiParent
+        RunAddAmmoToCollection()
+    End Sub
+    ''' <summary>
+    ''' Run the Add Ammo Collection Window Function
+    ''' </summary>
+    Public Sub RunAddAmmoToCollection()
+        Dim frmNew As New frmAddCollectionAmmo
+        frmNew.MdiParent = Me
         frmNew.Show()
     End Sub
+
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
     ''' </summary>
@@ -455,9 +466,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub ToolStripButton9_Click(ByVal sender As Object, ByVal e As EventArgs) Handles ToolStripButton9.Click
-        Dim frmNew As New FrmAddCollectionAmmo
-        frmNew.MdiParent = Me
-        frmNew.Show()
+        RunAddAmmoToCollection()
     End Sub
     ''' <summary>
     ''' Converts to olstripbutton10_click.
@@ -599,7 +608,7 @@ Public Class MDIParent1
                 Call Buggerme("mdiparent1.load", "Password Protected! Loading login for")
                 frmLogin.Show()
             End If
-
+            cmbView.DropDownStyle = ComboBoxStyle.DropDownList
             Lastviewedfirearm = 0
             OwnerId = OwnerInformation.GetOwnerId(DatabasePath, OwnerName, OwnerLic, _errOut)
             if _errOut.Length > 0 Then Throw New Exception(_errOut)
@@ -616,6 +625,7 @@ Public Class MDIParent1
             ToolStripSeparator4.Visible = False
             'End of mock registration
 
+            LoadDropDown()
             IsReady = True
             cmbView.Text = MyRegistry.GetViewSettings("VIEW_FirearmList",_errOut, "In Stock")
             If _errOut.Length > 0 Then Throw New Exception(_errOut)
@@ -632,6 +642,8 @@ Public Class MDIParent1
             For Each o As HotFixList In hotfixList
                 if Not o.Id.Equals("LastUpdate") Then
                     Select o.Id
+                        case 11
+                            Hotfix11ToolStripMenuItem.Enabled = False
                         Case 10
                             Hotfix10ToolStripMenuItem.Enabled = False
                         Case 9
@@ -662,7 +674,7 @@ Public Class MDIParent1
                     Dim applied As String = ""
                     If BurnSoft.Applications.MGC.hotixes.HotFix.ApplyMissingHotFixes(DatabasePath, _errOut, applied) Then
                         If applied.Length > 0 Then
-                            MsgBox($"Applied Hotfix: {applied}")
+                            MsgBox($"Applied Hotfix: {applied}{Environment.NewLine}Restart your application to apply.")
                         Else 
                             MsgBox($"No Updates applied")
                         End If
@@ -691,7 +703,8 @@ Public Class MDIParent1
             If Not alertOnBackUp Then Exit Sub
             Dim myLastDateDiff As Long = DateDiff(DateInterval.Day, CDate(lastSucBackup), DateTime.Now)
             Dim obj As New MsgClass
-            If myLastDateDiff > trackHistoryDays Then obj.DoMessage("It has been " & myLastDateDiff & " days since your last backup.", MgboxStyle.Inf_OK, MgBtnStyle.mb_Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
+            If myLastDateDiff > trackHistoryDays Then obj.DoMessage("It has been " & myLastDateDiff & " days since your last backup.", MgboxStyle.Ok, MgBtnStyle.Exclamantion, "Last Backup Notice", , True, "Backup Warning", False)
+            
         Catch ex As Exception
             Call LogError(Name, "CheckBackup", Err.Number, ex.Message.ToString)
         End Try
@@ -815,6 +828,15 @@ Public Class MDIParent1
         End Try
     End Sub
     ''' <summary>
+    ''' Loads the drop down.
+    ''' </summary>
+    Sub LoadDropDown()
+        Dim obj As New FormData
+        cmbView.DataSource = obj.LoadFilterList()
+        cmbView.Refresh()
+    End Sub
+
+    ''' <summary>
     ''' Refresh the collection
     ''' </summary>
     Public Sub RefreshCollection()
@@ -825,14 +847,24 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.Fill(MGCDataSet.Gun_Collection)
                 Case "IN STOCK"
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
+                Case UCase("In Stock - By Date Purchased")
+                    Gun_CollectionTableAdapter.FillByInStockOrderbyDatePurchased(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - RATING"
+                    Gun_CollectionTableAdapter.FillByInStockRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - LETHAL"
                     Gun_CollectionTableAdapter.FillByInStockLethal(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - LETHAL RATING"
+                    Gun_CollectionTableAdapter.FillByInStockLethalRating(MGCDataSet.Gun_Collection)
                 Case "IN STOCK - NON-LETHAL"
                     Gun_CollectionTableAdapter.FillByInStockNonLethal(MGCDataSet.Gun_Collection)
+                Case "IN STOCK - NON-LETHAL RATING"
+                    Gun_CollectionTableAdapter.FillByInStockNonLethalRating(MGCDataSet.Gun_Collection)
                 Case "COMPETITION"
                     Gun_CollectionTableAdapter.FillByCompetitionGuns(MGCDataSet.Gun_Collection)
                 Case "SOLD/STOLEN"
                     Gun_CollectionTableAdapter.FillBySold(MGCDataSet.Gun_Collection)
+                Case UCase("Sold/Stolen - By Date")
+                    Gun_CollectionTableAdapter.FillBySoldByDate(MGCDataSet.Gun_Collection)
                 Case "C & R"
                     Gun_CollectionTableAdapter.FillByCandR(MGCDataSet.Gun_Collection)
                 Case "NON C & R"
@@ -841,6 +873,12 @@ Public Class MDIParent1
                     Gun_CollectionTableAdapter.FillBy_CustomIDList(MGCDataSet.Gun_Collection)
                 Case UCase("Class III")
                     Gun_CollectionTableAdapter.FillBy_IsClassIII(MGCDataSet.Gun_Collection)
+                Case UCase("Ready To Sell")
+                    Gun_CollectionTableAdapter.FillByReadyToSell(MGCDataSet.Gun_Collection)
+                Case UCase("Gunsmith Projects")
+                    Gun_CollectionTableAdapter.FillByGunsmithProject(MGCDataSet.Gun_Collection)
+                Case uCase("Collecting Only")
+                    Gun_CollectionTableAdapter.FillByForCollecting(MGCDataSet.Gun_Collection)
                 Case Else
                     Gun_CollectionTableAdapter.FillByInStock(MGCDataSet.Gun_Collection)
             End Select
@@ -887,11 +925,7 @@ Public Class MDIParent1
     ''' <param name="sender">The source of the event.</param>
     ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
     Private Sub BoundBookToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BoundBookToolStripMenuItem.Click
-        Cursor = Cursors.WaitCursor
-        Dim frmNew As New frmViewReport_BoundBook
-        frmNew.MdiParent = Me
-        frmNew.Show()
-        Cursor = Cursors.Arrow
+
     End Sub
     ''' <summary>
     ''' Converts to olstripmenuitem_click.
@@ -1414,10 +1448,111 @@ Public Class MDIParent1
     Private Sub EnablePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnablePasswordToolStripMenuItem.Click
         CloseConnection()
         If BurnSoft.Applications.MGC.hotixes.HfDatabase.Security.AddPassword(DatabasePath, _errOut) Then
-            MsgBox("Password Removed")
+            MsgBox("Password Was Set")
         Else 
             MsgBox(_errOut)
         End If
         RefreshCollection()
+    End Sub
+    ''' <summary>
+    ''' Insurances the report tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub InsuranceReportToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuranceReportToolStripMenuItem.Click
+
+    End Sub
+    ''' <summary>
+    ''' Insuraces the report with total tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub InsuraceReportWithTotalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsuraceReportWithTotalToolStripMenuItem.Click
+
+    End Sub
+    ''' <summary>
+    ''' Generals the accessories tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub GeneralAccessoriesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem.Click
+        frmViewGeneralAccessories.MdiParent = Me
+        frmViewGeneralAccessories.Show()
+    End Sub
+    ''' <summary>
+    ''' Tses the BTN view gen accessories click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub TsBtnViewGenAccessories_Click(sender As Object, e As EventArgs) Handles TsBtnViewGenAccessories.Click
+        frmViewGeneralAccessories.MdiParent = Me
+        frmViewGeneralAccessories.Show()
+    End Sub
+    ''' <summary>
+    ''' Mnus the barrel system data click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub mnuBarrelSystemData_Click(sender As Object, e As EventArgs) Handles mnuBarrelSystemData.Click
+        frmViewBarrelSystemData.MdiParent = Me
+        frmViewBarrelSystemData.Show()
+    End Sub
+    ''' <summary>
+    ''' Generals the accessories tool strip menu item1 click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub GeneralAccessoriesToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles GeneralAccessoriesToolStripMenuItem1.Click
+        Cursor = Cursors.WaitCursor
+        Dim frmNew As New frmView_Report_GeneralCollection
+        frmNew.MdiParent = Me
+        frmNew.Show()
+        Cursor = Cursors.Arrow
+    End Sub
+    ''' <summary>
+    ''' Hotfix11s the tool strip menu item click.
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+    Private Sub Hotfix11ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles Hotfix11ToolStripMenuItem.Click
+        ApplyHotFix(11)
+    End Sub
+
+    Private Sub TsmiFirearmListFilterMenu_Click(sender As Object, e As EventArgs) Handles TsmiFirearmListFilterMenu.Click
+        OpenFrmFirearmDropDownListFilterAndWait()
+    End Sub
+
+    ''' <summary>
+    ''' Opens the FRM filter list and wait.
+    ''' </summary>
+    Private Sub OpenFrmFirearmDropDownListFilterAndWait()
+        ' Create the child form
+        Dim obj as New FormData
+        Dim child As New FrmFirearmDropDownListFilter
+        child.MdiParent = MdiParent
+        child.CurrentFilter = obj.LoadFilterList()
+        ' Attach handler for when the child closes
+        AddHandler child.FormClosed, AddressOf ChildFormClosed
+        ' Show the child form
+        child.Show()
+    End Sub
+
+    ''' <summary>
+    ''' This runs AFTER the child form is closed
+    ''' </summary>
+    ''' <param name="sender">The sender.</param>
+    ''' <param name="e">The <see cref="FormClosedEventArgs"/> instance containing the event data.</param>
+    Private Sub ChildFormClosed(sender As Object, e As FormClosedEventArgs)
+        ' Remove handler to avoid memory leaks
+        RemoveHandler DirectCast(sender, Form).FormClosed, AddressOf ChildFormClosed
+
+        ' Call the next function
+        NextFunction()
+    End Sub
+    ''' <summary>
+    ''' Nexts the function.
+    ''' </summary>
+    Private Sub NextFunction()
+        LoadDropDown()
     End Sub
 End Class

@@ -430,7 +430,7 @@ ORDER BY grip asc</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `Gun_Collection` WHERE ((`ID` = ?) AND ((? = 1 AND `OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR (`Caliber` = ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS NULL) OR (`CustomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND ((? = 1 AND `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL) OR (`Qty` = ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = 1 AND `Height` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) OR (`StockType` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength` = ?)) AND ((? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = 1 AND `BarrelHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` IS NULL) OR (`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsystem` = ?)) AND ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `PurchasedPrice` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFrom` IS NULL) OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) OR (`AppraisedValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`AppraisalDate` = ?)) AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND ((? = 1 AND `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `StorageLocation` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS NULL) OR (`HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?)) AND ((? = 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NULL) OR (`ItemSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? = 1 AND `BID` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dtSold` = ?)) AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1 AND `dtp` IS NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCandR` = ?)) AND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AND `POI` IS NULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`IsInBoundBook` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition` = ?)))</CommandText>
+                    <CommandText>DELETE FROM `Gun_Collection` WHERE ((`ID` = ?) AND ((? = 1 AND `OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR (`Caliber` = ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS NULL) OR (`CustomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND ((? = 1 AND `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL) OR (`Qty` = ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = 1 AND `Height` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) OR (`StockType` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength` = ?)) AND ((? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = 1 AND `BarrelHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` IS NULL) OR (`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsystem` = ?)) AND ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `PurchasedPrice` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFrom` IS NULL) OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) OR (`AppraisedValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`AppraisalDate` = ?)) AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND ((? = 1 AND `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `StorageLocation` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS NULL) OR (`HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?)) AND ((? = 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NULL) OR (`ItemSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? = 1 AND `BID` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dtSold` = ?)) AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1 AND `dtp` IS NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCandR` = ?)) AND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AND `POI` IS NULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`IsInBoundBook` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition` = ?)) AND ((? = 1 AND `Rating` IS NULL) OR (`Rating` = ?)) AND ((? = 1 AND `ToSell` IS NULL) OR (`ToSell` = ?)) AND ((? = 1 AND `GunSmithJob` IS NULL) OR (`GunSmithJob` = ?)) AND ((? = 1 AND `ForCollecting` IS NULL) OR (`ForCollecting` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_OID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="OID" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -537,12 +537,20 @@ ORDER BY grip asc</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_ClassIII_owner" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ClassIII_owner" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_isCompetition" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_isCompetition" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_ToSell" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_ToSell" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GunSmithJob" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_GunSmithJob" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_ForCollecting" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_ForCollecting" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `Gun_Collection` (`OID`, `MID`, `FullName`, `ModelName`, `ModelID`, `SerialNumber`, `Type`, `Caliber`, `Finish`, `Condition`, `CustomID`, `NatID`, `GripID`, `Qty`, `Weight`, `Height`, `StockType`, `BarrelLength`, `BarrelWidth`, `BarrelHeight`, `Action`, `Feedsystem`, `Sights`, `PurchasedPrice`, `PurchasedFrom`, `AppraisedValue`, `AppraisalDate`, `AppraisedBy`, `InsuredValue`, `StorageLocation`, `ConditionComments`, `AdditionalNotes`, `HasAss`, `Produced`, `dt`, `ItemSold`, `SID`, `BID`, `dtSold`, `PetLoads`, `dtp`, `IsCandR`, `ReManDT`, `POI`, `IsInBoundBook`, `TwistRate`, `lbs_trigger`, `Caliber3`, `Classification`, `DateofCR`, `IsNoLeathal`, `IsClassIII`, `ClassIII_owner`, `isCompetition`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <CommandText>INSERT INTO `Gun_Collection` (`OID`, `MID`, `FullName`, `ModelName`, `ModelID`, `SerialNumber`, `Type`, `Caliber`, `Finish`, `Condition`, `CustomID`, `NatID`, `GripID`, `Qty`, `Weight`, `Height`, `StockType`, `BarrelLength`, `BarrelWidth`, `BarrelHeight`, `Action`, `Feedsystem`, `Sights`, `PurchasedPrice`, `PurchasedFrom`, `AppraisedValue`, `AppraisalDate`, `AppraisedBy`, `InsuredValue`, `StorageLocation`, `ConditionComments`, `AdditionalNotes`, `HasAss`, `Produced`, `dt`, `ItemSold`, `SID`, `BID`, `dtSold`, `PetLoads`, `dtp`, `IsCandR`, `ReManDT`, `POI`, `IsInBoundBook`, `TwistRate`, `lbs_trigger`, `Caliber3`, `Classification`, `DateofCR`, `IsNoLeathal`, `IsClassIII`, `ClassIII_owner`, `isCompetition`, `Rating`, `ToSell`, `GunSmithJob`, `ForCollecting`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="OID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="OID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="MID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="MID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -598,14 +606,18 @@ ORDER BY grip asc</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsClassIII" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsClassIII" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="ClassIII_owner" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ClassIII_owner" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="isCompetition" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="ToSell" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="GunSmithJob" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="ForCollecting" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, [Action], Feedsystem, Sights, 
                          PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, 
-                         ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompetition
+                         ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompetition, Rating, ToSell, GunSmithJob, ForCollecting  
 FROM            Gun_Collection
 ORDER BY FullName</CommandText>
                     <Parameters />
@@ -613,7 +625,7 @@ ORDER BY FullName</CommandText>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `Gun_Collection` SET `OID` = ?, `MID` = ?, `FullName` = ?, `ModelName` = ?, `ModelID` = ?, `SerialNumber` = ?, `Type` = ?, `Caliber` = ?, `Finish` = ?, `Condition` = ?, `CustomID` = ?, `NatID` = ?, `GripID` = ?, `Qty` = ?, `Weight` = ?, `Height` = ?, `StockType` = ?, `BarrelLength` = ?, `BarrelWidth` = ?, `BarrelHeight` = ?, `Action` = ?, `Feedsystem` = ?, `Sights` = ?, `PurchasedPrice` = ?, `PurchasedFrom` = ?, `AppraisedValue` = ?, `AppraisalDate` = ?, `AppraisedBy` = ?, `InsuredValue` = ?, `StorageLocation` = ?, `ConditionComments` = ?, `AdditionalNotes` = ?, `HasAss` = ?, `Produced` = ?, `dt` = ?, `ItemSold` = ?, `SID` = ?, `BID` = ?, `dtSold` = ?, `PetLoads` = ?, `dtp` = ?, `IsCandR` = ?, `ReManDT` = ?, `POI` = ?, `IsInBoundBook` = ?, `TwistRate` = ?, `lbs_trigger` = ?, `Caliber3` = ?, `Classification` = ?, `DateofCR` = ?, `IsNoLeathal` = ?, `IsClassIII` = ?, `ClassIII_owner` = ?, `isCompetition` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR (`Caliber` = ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS NULL) OR (`CustomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND ((? = 1 AND `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL) OR (`Qty` = ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = 1 AND `Height` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) OR (`StockType` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength` = ?)) AND ((? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = 1 AND `BarrelHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` IS NULL) OR (`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsystem` = ?)) AND ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `PurchasedPrice` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFrom` IS NULL) OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) OR (`AppraisedValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`AppraisalDate` = ?)) AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND ((? = 1 AND `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `StorageLocation` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS NULL) OR (`HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?)) AND ((? = 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NULL) OR (`ItemSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? = 1 AND `BID` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dtSold` = ?)) AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1 AND `dtp` IS NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCandR` = ?)) AND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AND `POI` IS NULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`IsInBoundBook` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition` = ?)))</CommandText>
+                    <CommandText>UPDATE `Gun_Collection` SET `OID` = ?, `MID` = ?, `FullName` = ?, `ModelName` = ?, `ModelID` = ?, `SerialNumber` = ?, `Type` = ?, `Caliber` = ?, `Finish` = ?, `Condition` = ?, `CustomID` = ?, `NatID` = ?, `GripID` = ?, `Qty` = ?, `Weight` = ?, `Height` = ?, `StockType` = ?, `BarrelLength` = ?, `BarrelWidth` = ?, `BarrelHeight` = ?, `Action` = ?, `Feedsystem` = ?, `Sights` = ?, `PurchasedPrice` = ?, `PurchasedFrom` = ?, `AppraisedValue` = ?, `AppraisalDate` = ?, `AppraisedBy` = ?, `InsuredValue` = ?, `StorageLocation` = ?, `ConditionComments` = ?, `AdditionalNotes` = ?, `HasAss` = ?, `Produced` = ?, `dt` = ?, `ItemSold` = ?, `SID` = ?, `BID` = ?, `dtSold` = ?, `PetLoads` = ?, `dtp` = ?, `IsCandR` = ?, `ReManDT` = ?, `POI` = ?, `IsInBoundBook` = ?, `TwistRate` = ?, `lbs_trigger` = ?, `Caliber3` = ?, `Classification` = ?, `DateofCR` = ?, `IsNoLeathal` = ?, `IsClassIII` = ?, `ClassIII_owner` = ?, `isCompetition` = ?, `Rating` = ?, `ToSell` = ?, `GunSmithJob` = ?, `ForCollecting` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR (`Caliber` = ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS NULL) OR (`CustomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND ((? = 1 AND `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL) OR (`Qty` = ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = 1 AND `Height` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) OR (`StockType` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength` = ?)) AND ((? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = 1 AND `BarrelHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` IS NULL) OR (`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsystem` = ?)) AND ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `PurchasedPrice` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFrom` IS NULL) OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) OR (`AppraisedValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`AppraisalDate` = ?)) AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND ((? = 1 AND `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `StorageLocation` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS NULL) OR (`HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?)) AND ((? = 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NULL) OR (`ItemSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? = 1 AND `BID` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dtSold` = ?)) AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1 AND `dtp` IS NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCandR` = ?)) AND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AND `POI` IS NULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`IsInBoundBook` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition` = ?)) AND ((? = 1 AND `Rating` IS NULL) OR (`Rating` = ?)) AND ((? = 1 AND `ToSell` IS NULL) OR (`ToSell` = ?)) AND ((? = 1 AND `GunSmithJob` IS NULL) OR (`GunSmithJob` = ?)) AND ((? = 1 AND `ForCollecting` IS NULL) OR (`ForCollecting` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="OID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="OID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="MID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="MID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -669,6 +681,10 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsClassIII" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsClassIII" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="ClassIII_owner" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ClassIII_owner" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="isCompetition" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="ToSell" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="GunSmithJob" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="ForCollecting" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_OID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="OID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_OID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="OID" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -774,6 +790,14 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_ClassIII_owner" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="ClassIII_owner" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_isCompetition" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_isCompetition" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="isCompetition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_Rating" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_ToSell" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_ToSell" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ToSell" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GunSmithJob" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_GunSmithJob" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="GunSmithJob" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_ForCollecting" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_ForCollecting" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="ForCollecting" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -835,6 +859,10 @@ ORDER BY FullName</CommandText>
               <Mapping SourceColumn="ReManDT" DataSetColumn="ReManDT" />
               <Mapping SourceColumn="IsNoLeathal" DataSetColumn="IsNoLeathal" />
               <Mapping SourceColumn="isCompetition" DataSetColumn="isCompetition" />
+              <Mapping SourceColumn="Rating" DataSetColumn="Rating" />
+              <Mapping SourceColumn="ToSell" DataSetColumn="ToSell" />
+              <Mapping SourceColumn="GunSmithJob" DataSetColumn="GunSmithJob" />
+              <Mapping SourceColumn="ForCollecting" DataSetColumn="ForCollecting" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -862,7 +890,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_CustomID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_CustomID" GeneratorSourceName="FillBy_CustomID" GetMethodModifier="Public" GetMethodName="GetDataBy_CustomID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_CustomID" UserSourceName="FillBy_CustomID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -870,7 +898,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_CustomIDList" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_CustomIDList" GeneratorSourceName="FillBy_CustomIDList" GetMethodModifier="Public" GetMethodName="GetDataBy_CustomIDList" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_CustomIDList" UserSourceName="FillBy_CustomIDList">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY CustomID</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY CustomID DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -878,7 +906,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_IsClassIII" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_IsClassIII" GeneratorSourceName="FillBy_IsClassIII" GetMethodModifier="Public" GetMethodName="GetDataBy_IsClassIII" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_IsClassIII" UserSourceName="FillBy_IsClassIII">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsClassIII = 1) ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsClassIII = 1) ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -910,7 +938,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCandR" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCandR" GeneratorSourceName="FillByCandR" GetMethodModifier="Public" GetMethodName="GetDataByCandR" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCandR" UserSourceName="FillByCandR">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 1) ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 1) ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -918,12 +946,23 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByCompetitionGuns" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCompetitionGuns" GeneratorSourceName="FillByCompetitionGuns" GetMethodModifier="Public" GetMethodName="GetDataByCompetitionGuns" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCompetitionGuns" UserSourceName="FillByCompetitionGuns">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, 
-                         Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, 
-                         PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger
-FROM            Gun_Collection
-WHERE        ItemSold = 0 and isCompetition=1
-ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) AND (isCompetition = 1) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByForCollecting" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByForCollecting" GeneratorSourceName="FillByForCollecting" GetMethodModifier="Public" GetMethodName="GetDataByForCollecting" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByForCollecting" UserSourceName="FillByForCollecting">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ForCollecting = True) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByGunSmithProject" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGunSmithProject" GeneratorSourceName="FillByGunSmithProject" GetMethodModifier="Public" GetMethodName="GetDataByGunSmithProject" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGunSmithProject" UserSourceName="FillByGunSmithProject">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (GunSmithJob = True) ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -931,7 +970,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStock" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStock" GeneratorSourceName="FillByInStock" GetMethodModifier="Public" GetMethodName="GetDataByInStock" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStock" UserSourceName="FillByInStock">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -939,12 +978,15 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockLethal" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockLethal" GeneratorSourceName="FillByInStockLethal" GetMethodModifier="Public" GetMethodName="GetDataByInStockLethal" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockLethal" UserSourceName="FillByInStockLethal">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, 
-                         Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, 
-                         PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger
-FROM            Gun_Collection
-WHERE        ItemSold = 0 and IsNoLeathal=0
-ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockLethalRating" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockLethalRating" GeneratorSourceName="FillByInStockLethalRating" GetMethodModifier="Public" GetMethodName="GetDataByInStockLethalRating" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockLethalRating" UserSourceName="FillByInStockLethalRating">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY Rating DESC, FullName ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -952,12 +994,31 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockNonLethal" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockNonLethal" GeneratorSourceName="FillByInStockNonLethal" GetMethodModifier="Public" GetMethodName="GetDataByInStockNonLethal" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockNonLethal" UserSourceName="FillByInStockNonLethal">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, 
-                         Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, 
-                         PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger
-FROM            Gun_Collection
-WHERE        ItemSold = 0 and IsNoLeathal=1
-ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockNonLethalRating" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockNonLethalRating" GeneratorSourceName="FillByInStockNonLethalRating" GetMethodModifier="Public" GetMethodName="GetDataByInStockNonLethalRating" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockNonLethalRating" UserSourceName="FillByInStockNonLethalRating">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY Rating DESC, FullName ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockOrderbyDatePurchased" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockOrderbyDatePurchased" GeneratorSourceName="FillByInStockOrderbyDatePurchased" GetMethodModifier="Public" GetMethodName="GetDataByInStockOrderbyDatePurchased" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockOrderbyDatePurchased" UserSourceName="FillByInStockOrderbyDatePurchased">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY dtp, FullName ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByInStockRating" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInStockRating" GeneratorSourceName="FillByInStockRating" GetMethodModifier="Public" GetMethodName="GetDataByInStockRating" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInStockRating" UserSourceName="FillByInStockRating">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Rating DESC, FullName ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -965,7 +1026,15 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNonCAndR" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNonCAndR" GeneratorSourceName="FillByNonCAndR" GetMethodModifier="Public" GetMethodName="GetDataByNonCAndR" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNonCAndR" UserSourceName="FillByNonCAndR">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByReadyToSell" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReadyToSell" GeneratorSourceName="FillByReadyToSell" GetMethodModifier="Public" GetMethodName="GetDataByReadyToSell" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReadyToSell" UserSourceName="FillByReadyToSell">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ToSell = True) ORDER BY FullName</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -985,7 +1054,15 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySold" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySold" GeneratorSourceName="FillBySold" GetMethodModifier="Public" GetMethodName="GetDataBySold" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySold" UserSourceName="FillBySold">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold &lt;&gt; 0) ORDER BY FullName</CommandText>
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold &lt;&gt; 0) ORDER BY FullName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBySoldByDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySoldByDate" GeneratorSourceName="FillBySoldByDate" GetMethodModifier="Public" GetMethodName="GetDataBySoldByDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySoldByDate" UserSourceName="FillBySoldByDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Classification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Finish, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty, Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold &lt;&gt; 0) ORDER BY dtSold</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -1042,7 +1119,7 @@ ORDER BY FullName</CommandText>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="Gun_Collection_Accessories" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM `Gun_Collection_Accessories` WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))</CommandText>
+                    <CommandText>DELETE FROM `Gun_Collection_Accessories` WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `GALID` IS NULL) OR (`GALID` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -1063,12 +1140,18 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsLinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `Gun_Collection_Accessories` (`GID`, `Manufacturer`, `Model`, `SerialNumber`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <CommandText>INSERT INTO `Gun_Collection_Accessories` (`GID`, `Manufacturer`, `Model`, `SerialNumber`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `GALID`, `IsLinked`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1080,18 +1163,21 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV FROM Gun_Collection_Accessories</CommandText>
+                    <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `Gun_Collection_Accessories` SET `GID` = ?, `Manufacturer` = ?, `Model` = ?, `SerialNumber` = ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, `AppValue` = ?, `CIV` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))</CommandText>
+                    <CommandText>UPDATE `Gun_Collection_Accessories` SET `GID` = ?, `Manufacturer` = ?, `Model` = ?, `SerialNumber` = ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, `AppValue` = ?, `CIV` = ?, `IC` = ?, `GALID` = ?, `IsLinked` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `GALID` IS NULL) OR (`GALID` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -1103,6 +1189,9 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -1122,6 +1211,12 @@ ORDER BY FullName</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_GALID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GALID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsLinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -1139,12 +1234,15 @@ ORDER BY FullName</CommandText>
               <Mapping SourceColumn="PurValue" DataSetColumn="PurValue" />
               <Mapping SourceColumn="AppValue" DataSetColumn="AppValue" />
               <Mapping SourceColumn="CIV" DataSetColumn="CIV" />
+              <Mapping SourceColumn="IC" DataSetColumn="IC" />
+              <Mapping SourceColumn="GALID" DataSetColumn="GALID" />
+              <Mapping SourceColumn="IsLinked" DataSetColumn="IsLinked" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByID" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByID" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV FROM Gun_Collection_Accessories where GID=@GID</CommandText>
+                    <CommandText>SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories where GID=@GID</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@GID" Precision="0" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -2741,6 +2839,44 @@ ORDER BY Gun_Shop_Details.Name ASC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByGunsmithProject" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByGunsmithProject" GeneratorSourceName="FillByGunsmithProject" GetMethodModifier="Public" GetMethodName="GetDataByGunsmithProject" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByGunsmithProject" UserSourceName="FillByGunsmithProject">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.GunSmithJob = true) ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByInInventory" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByInInventory" GeneratorSourceName="FillByInInventory" GetMethodModifier="Public" GetMethodName="GetDataByInInventory" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByInInventory" UserSourceName="FillByInInventory">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByPurchaseDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByPurchaseDate" GeneratorSourceName="FillByPurchaseDate" GetMethodModifier="Public" GetMethodName="GetDataByPurchaseDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByPurchaseDate" UserSourceName="FillByPurchaseDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -2757,6 +2893,44 @@ FROM         ((((Gun_Collection INNER JOIN
                       Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
                       Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1
 ORDER BY Gun_Collection.dtp</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByReadyToSell" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByReadyToSell" GeneratorSourceName="FillByReadyToSell" GetMethodModifier="Public" GetMethodName="GetDataByReadyToSell" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByReadyToSell" UserSourceName="FillByReadyToSell">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.ToSell = true) ORDER BY dtp ASC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBySoldOnly" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySoldOnly" GeneratorSourceName="FillBySoldOnly" GetMethodModifier="Public" GetMethodName="GetDataBySoldOnly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySoldOnly" UserSourceName="FillBySoldOnly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     cStr(Gun_Manufacturer.Brand &amp; Chr(10) &amp; Gun_Collection.Importer) AS Brand, Gun_Model.Model, 
+                      cStr([Gun_Shop_Details.Name] &amp; ',' &amp; [Gun_Shop_Details.Address1] &amp; '  ' &amp; [Gun_Shop_Details.City] &amp; ',' &amp; [Gun_Shop_Details.State]) 
+                      AS Gun_Shop_Name,Gun_Shop_Details.Lic as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, 
+                      cStr(Gun_Collection_SoldTo.Name &amp; ',' &amp; Gun_Collection_SoldTo.Address1 &amp; '   ' &amp; Gun_Collection_SoldTo.City &amp; ',' &amp; Gun_Collection_SoldTo.State) 
+                      AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, 
+                      Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dtp) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, 
+                      Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR
+FROM         ((((Gun_Collection INNER JOIN
+                      Gun_Manufacturer ON Gun_Manufacturer.ID = Gun_Collection.MID) INNER JOIN
+                      Gun_Model ON Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN
+                      Gun_Shop_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN
+                      Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID) where IsInBoundBook=1 and (Gun_Collection.ItemSold &lt;&gt; 0) ORDER BY dtp ASC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -3228,7 +3402,7 @@ WHERE     (qryGunCollectionDetails.ItemSold = 0) order by qryGunCollectionDetail
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `CR_TableList` WHERE ((`ID` = ?) AND ((? = 1 AND `Tables` IS NULL) OR (`Tables` = ?)) AND ((? = 1 AND `DN` IS NULL) OR (`DN` = ?)))</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Tables" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Tables" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_DN" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="DN" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -3238,26 +3412,28 @@ WHERE     (qryGunCollectionDetails.ItemSold = 0) order by qryGunCollectionDetail
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO `CR_TableList` (`Tables`, `DN`) VALUES (?, ?)</CommandText>
+                    <CommandText>INSERT INTO `CR_TableList` (`ID`, `Tables`, `DN`) VALUES (?, ?, ?)</CommandText>
                     <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Tables" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="DN" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="DN" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT ID, Tables, DN FROM CR_TableList</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE `CR_TableList` SET `Tables` = ?, `DN` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Tables` IS NULL) OR (`Tables` = ?)) AND ((? = 1 AND `DN` IS NULL) OR (`DN` = ?)))</CommandText>
+                    <CommandText>UPDATE `CR_TableList` SET `ID` = ?, `Tables` = ?, `DN` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Tables` IS NULL) OR (`Tables` = ?)) AND ((? = 1 AND `DN` IS NULL) OR (`DN` = ?)))</CommandText>
                     <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Tables" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="DN" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="DN" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Tables" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Tables" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Tables" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_DN" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="DN" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -4197,6 +4373,208 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="General_AccessoriesTableAdapter" GeneratorDataComponentClassName="General_AccessoriesTableAdapter" Name="General_Accessories" UserDataComponentName="General_AccessoriesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="General_Accessories" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `General_Accessories` WHERE ((`ID` = ?) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)) AND ((? = 1 AND `FAID` IS NULL) OR (`FAID` = ?)) AND ((? = 1 AND `IsGALinked` IS NULL) OR (`IsGALinked` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Manufacturer" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Model" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Model" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SerialNumber" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SerialNumber" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Condition" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Condition" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Use" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Use" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_PurValue" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_AppValue" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsLinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsGALinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsGALinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_sync_lastupdate" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `General_Accessories` (`Manufacturer`, `Model`, `SerialNumber`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `IsLinked`, `FAID`, `IsGALinked`, `sync_lastupdate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Model" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SerialNumber" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Condition" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Notes" Precision="0" ProviderType="LongVarWChar" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Use" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsGALinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT ID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, IsLinked, FAID, IsGALinked, sync_lastupdate FROM General_Accessories</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `General_Accessories` SET `Manufacturer` = ?, `Model` = ?, `SerialNumber` = ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, `AppValue` = ?, `CIV` = ?, `IC` = ?, `IsLinked` = ?, `FAID` = ?, `IsGALinked` = ?, `sync_lastupdate` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)) AND ((? = 1 AND `FAID` IS NULL) OR (`FAID` = ?)) AND ((? = 1 AND `IsGALinked` IS NULL) OR (`IsGALinked` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Model" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="SerialNumber" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Condition" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Notes" Precision="0" ProviderType="LongVarWChar" Scale="0" Size="0" SourceColumn="Notes" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Use" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="IsGALinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Manufacturer" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Manufacturer" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Manufacturer" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Model" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Model" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Model" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_SerialNumber" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_SerialNumber" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="SerialNumber" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Condition" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Condition" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Condition" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_Use" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_Use" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="Use" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_PurValue" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="Original_PurValue" Precision="0" ProviderType="VarWChar" Scale="0" Size="0" SourceColumn="PurValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_AppValue" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AppValue" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AppValue" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_CIV" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="CIV" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_IC" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IC" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsLinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsLinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsLinked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_FAID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="FAID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_IsGALinked" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="Original_IsGALinked" Precision="0" ProviderType="Boolean" Scale="0" Size="0" SourceColumn="IsGALinked" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_sync_lastupdate" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Manufacturer" DataSetColumn="Manufacturer" />
+              <Mapping SourceColumn="Model" DataSetColumn="Model" />
+              <Mapping SourceColumn="SerialNumber" DataSetColumn="SerialNumber" />
+              <Mapping SourceColumn="Condition" DataSetColumn="Condition" />
+              <Mapping SourceColumn="Notes" DataSetColumn="Notes" />
+              <Mapping SourceColumn="Use" DataSetColumn="Use" />
+              <Mapping SourceColumn="PurValue" DataSetColumn="PurValue" />
+              <Mapping SourceColumn="AppValue" DataSetColumn="AppValue" />
+              <Mapping SourceColumn="CIV" DataSetColumn="CIV" />
+              <Mapping SourceColumn="IC" DataSetColumn="IC" />
+              <Mapping SourceColumn="sync_lastupdate" DataSetColumn="sync_lastupdate" />
+              <Mapping SourceColumn="IsLinked" DataSetColumn="IsLinked" />
+              <Mapping SourceColumn="FAID" DataSetColumn="FAID" />
+              <Mapping SourceColumn="IsGALinked" DataSetColumn="IsGALinked" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="General_Accessories" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT AppValue, CIV, Condition, FAID, IC, ID, IsGALinked, IsLinked, Manufacturer, Model, Notes, PurValue, SerialNumber, Use, sync_lastupdate FROM General_Accessories</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="General_Accessories_LinkTableAdapter" GeneratorDataComponentClassName="General_Accessories_LinkTableAdapter" Name="General_Accessories_Link" UserDataComponentName="General_Accessories_LinkTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectName="General_Accessories_Link" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM `General_Accessories_Link` WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `AID` IS NULL) OR (`AID` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_GID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_AID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_sync_lastupdate" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO `General_Accessories_Link` (`GID`, `AID`, `sync_lastupdate`) VALUES (?, ?, ?)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="GID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, GID, AID, sync_lastupdate FROM General_Accessories_Link</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE `General_Accessories_Link` SET `GID` = ?, `AID` = ?, `sync_lastupdate` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `AID` IS NULL) OR (`AID` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="GID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="AID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="Original_ID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_GID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_GID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="GID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_AID" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="Original_AID" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="AID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="IsNull_sync_lastupdate" Precision="0" ProviderType="Integer" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="Original_sync_lastupdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="sync_lastupdate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="GID" DataSetColumn="GID" />
+              <Mapping SourceColumn="AID" DataSetColumn="AID" />
+              <Mapping SourceColumn="sync_lastupdate" DataSetColumn="sync_lastupdate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources>
           <DbSource ConnectionRef="MGCConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="qry_InsuranceReport" MethodsParameterType="CLR" Modifier="Public" Name="qry_InsuranceReport" QueryType="NoData" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="qry_InsuranceReport">
@@ -4674,6 +5052,10 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
               <xs:element name="ReManDT" msprop:Generator_ColumnVarNameInTable="columnReManDT" msprop:Generator_ColumnPropNameInRow="ReManDT" msprop:Generator_ColumnPropNameInTable="ReManDTColumn" msprop:Generator_UserColumnName="ReManDT" type="xs:dateTime" minOccurs="0" />
               <xs:element name="IsNoLeathal" msprop:Generator_ColumnVarNameInTable="columnIsNoLeathal" msprop:Generator_ColumnPropNameInRow="IsNoLeathal" msprop:Generator_ColumnPropNameInTable="IsNoLeathalColumn" msprop:Generator_UserColumnName="IsNoLeathal" type="xs:double" minOccurs="0" />
               <xs:element name="isCompetition" msprop:Generator_ColumnVarNameInTable="columnisCompetition" msprop:Generator_ColumnPropNameInRow="isCompetition" msprop:Generator_ColumnPropNameInTable="isCompetitionColumn" msprop:Generator_UserColumnName="isCompetition" type="xs:double" minOccurs="0" />
+              <xs:element name="Rating" msprop:Generator_ColumnVarNameInTable="columnRating" msprop:Generator_ColumnPropNameInRow="Rating" msprop:Generator_ColumnPropNameInTable="RatingColumn" msprop:Generator_UserColumnName="Rating" type="xs:int" minOccurs="0" />
+              <xs:element name="ToSell" msprop:Generator_ColumnVarNameInTable="columnToSell" msprop:Generator_ColumnPropNameInRow="ToSell" msprop:Generator_ColumnPropNameInTable="ToSellColumn" msprop:Generator_UserColumnName="ToSell" type="xs:boolean" minOccurs="0" />
+              <xs:element name="GunSmithJob" msprop:Generator_ColumnVarNameInTable="columnGunSmithJob" msprop:Generator_ColumnPropNameInRow="GunSmithJob" msprop:Generator_ColumnPropNameInTable="GunSmithJobColumn" msprop:Generator_UserColumnName="GunSmithJob" type="xs:boolean" minOccurs="0" />
+              <xs:element name="ForCollecting" msprop:Generator_ColumnVarNameInTable="columnForCollecting" msprop:Generator_ColumnPropNameInRow="ForCollecting" msprop:Generator_ColumnPropNameInTable="ForCollectingColumn" msprop:Generator_UserColumnName="ForCollecting" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -4774,6 +5156,9 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
               </xs:element>
               <xs:element name="AppValue" msprop:Generator_ColumnVarNameInTable="columnAppValue" msprop:Generator_ColumnPropNameInRow="AppValue" msprop:Generator_ColumnPropNameInTable="AppValueColumn" msprop:Generator_UserColumnName="AppValue" type="xs:double" minOccurs="0" />
               <xs:element name="CIV" msprop:Generator_ColumnVarNameInTable="columnCIV" msprop:Generator_ColumnPropNameInRow="CIV" msprop:Generator_ColumnPropNameInTable="CIVColumn" msprop:Generator_UserColumnName="CIV" type="xs:int" minOccurs="0" />
+              <xs:element name="IC" msprop:Generator_ColumnVarNameInTable="columnIC" msprop:Generator_ColumnPropNameInRow="IC" msprop:Generator_ColumnPropNameInTable="ICColumn" msprop:Generator_UserColumnName="IC" type="xs:int" minOccurs="0" />
+              <xs:element name="GALID" msprop:Generator_ColumnVarNameInTable="columnGALID" msprop:Generator_ColumnPropNameInRow="GALID" msprop:Generator_ColumnPropNameInTable="GALIDColumn" msprop:Generator_UserColumnName="GALID" type="xs:int" minOccurs="0" />
+              <xs:element name="IsLinked" msprop:Generator_ColumnVarNameInTable="columnIsLinked" msprop:Generator_ColumnPropNameInRow="IsLinked" msprop:Generator_ColumnPropNameInTable="IsLinkedColumn" msprop:Generator_UserColumnName="IsLinked" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -6646,7 +7031,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GunSmith_Contact_Details" msprop:Generator_TableClassName="GunSmith_Contact_DetailsDataTable" msprop:Generator_TableVarName="tableGunSmith_Contact_Details" msprop:Generator_TablePropName="GunSmith_Contact_Details" msprop:Generator_RowDeletingName="GunSmith_Contact_DetailsRowDeleting" msprop:Generator_RowChangingName="GunSmith_Contact_DetailsRowChanging" msprop:Generator_RowEvHandlerName="GunSmith_Contact_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="GunSmith_Contact_DetailsRowDeleted" msprop:Generator_UserTableName="GunSmith_Contact_Details" msprop:Generator_RowChangedName="GunSmith_Contact_DetailsRowChanged" msprop:Generator_RowEvArgName="GunSmith_Contact_DetailsRowChangeEvent" msprop:Generator_RowClassName="GunSmith_Contact_DetailsRow">
+        <xs:element name="GunSmith_Contact_Details" msprop:Generator_UserTableName="GunSmith_Contact_Details" msprop:Generator_RowEvArgName="GunSmith_Contact_DetailsRowChangeEvent" msprop:Generator_TableVarName="tableGunSmith_Contact_Details" msprop:Generator_TablePropName="GunSmith_Contact_Details" msprop:Generator_RowDeletingName="GunSmith_Contact_DetailsRowDeleting" msprop:Generator_RowChangingName="GunSmith_Contact_DetailsRowChanging" msprop:Generator_RowDeletedName="GunSmith_Contact_DetailsRowDeleted" msprop:Generator_RowEvHandlerName="GunSmith_Contact_DetailsRowChangeEventHandler" msprop:Generator_TableClassName="GunSmith_Contact_DetailsDataTable" msprop:Generator_RowChangedName="GunSmith_Contact_DetailsRowChanged" msprop:Generator_RowClassName="GunSmith_Contact_DetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -6739,7 +7124,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Appriaser_Contact_Details" msprop:Generator_TableClassName="Appriaser_Contact_DetailsDataTable" msprop:Generator_TableVarName="tableAppriaser_Contact_Details" msprop:Generator_TablePropName="Appriaser_Contact_Details" msprop:Generator_RowDeletingName="Appriaser_Contact_DetailsRowDeleting" msprop:Generator_RowChangingName="Appriaser_Contact_DetailsRowChanging" msprop:Generator_RowEvHandlerName="Appriaser_Contact_DetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="Appriaser_Contact_DetailsRowDeleted" msprop:Generator_UserTableName="Appriaser_Contact_Details" msprop:Generator_RowChangedName="Appriaser_Contact_DetailsRowChanged" msprop:Generator_RowEvArgName="Appriaser_Contact_DetailsRowChangeEvent" msprop:Generator_RowClassName="Appriaser_Contact_DetailsRow">
+        <xs:element name="Appriaser_Contact_Details" msprop:Generator_UserTableName="Appriaser_Contact_Details" msprop:Generator_RowEvArgName="Appriaser_Contact_DetailsRowChangeEvent" msprop:Generator_TableVarName="tableAppriaser_Contact_Details" msprop:Generator_TablePropName="Appriaser_Contact_Details" msprop:Generator_RowDeletingName="Appriaser_Contact_DetailsRowDeleting" msprop:Generator_RowChangingName="Appriaser_Contact_DetailsRowChanging" msprop:Generator_RowDeletedName="Appriaser_Contact_DetailsRowDeleted" msprop:Generator_RowEvHandlerName="Appriaser_Contact_DetailsRowChangeEventHandler" msprop:Generator_TableClassName="Appriaser_Contact_DetailsDataTable" msprop:Generator_RowChangedName="Appriaser_Contact_DetailsRowChanged" msprop:Generator_RowClassName="Appriaser_Contact_DetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -6832,7 +7217,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Gun_Collection_GunSmiths" msprop:Generator_TableClassName="Gun_Collection_GunSmithsDataTable" msprop:Generator_TableVarName="tableGun_Collection_GunSmiths" msprop:Generator_TablePropName="Gun_Collection_GunSmiths" msprop:Generator_RowDeletingName="Gun_Collection_GunSmithsRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_GunSmithsRowChanging" msprop:Generator_RowEvHandlerName="Gun_Collection_GunSmithsRowChangeEventHandler" msprop:Generator_RowDeletedName="Gun_Collection_GunSmithsRowDeleted" msprop:Generator_UserTableName="Gun_Collection_GunSmiths" msprop:Generator_RowChangedName="Gun_Collection_GunSmithsRowChanged" msprop:Generator_RowEvArgName="Gun_Collection_GunSmithsRowChangeEvent" msprop:Generator_RowClassName="Gun_Collection_GunSmithsRow">
+        <xs:element name="Gun_Collection_GunSmiths" msprop:Generator_UserTableName="Gun_Collection_GunSmiths" msprop:Generator_RowEvArgName="Gun_Collection_GunSmithsRowChangeEvent" msprop:Generator_TableVarName="tableGun_Collection_GunSmiths" msprop:Generator_TablePropName="Gun_Collection_GunSmiths" msprop:Generator_RowDeletingName="Gun_Collection_GunSmithsRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_GunSmithsRowChanging" msprop:Generator_RowDeletedName="Gun_Collection_GunSmithsRowDeleted" msprop:Generator_RowEvHandlerName="Gun_Collection_GunSmithsRowChangeEventHandler" msprop:Generator_TableClassName="Gun_Collection_GunSmithsDataTable" msprop:Generator_RowChangedName="Gun_Collection_GunSmithsRowChanged" msprop:Generator_RowClassName="Gun_Collection_GunSmithsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" minOccurs="0">
@@ -6845,7 +7230,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Gun_Collection_Classification" msprop:Generator_TableClassName="Gun_Collection_ClassificationDataTable" msprop:Generator_TableVarName="tableGun_Collection_Classification" msprop:Generator_TablePropName="Gun_Collection_Classification" msprop:Generator_RowDeletingName="Gun_Collection_ClassificationRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_ClassificationRowChanging" msprop:Generator_RowEvHandlerName="Gun_Collection_ClassificationRowChangeEventHandler" msprop:Generator_RowDeletedName="Gun_Collection_ClassificationRowDeleted" msprop:Generator_UserTableName="Gun_Collection_Classification" msprop:Generator_RowChangedName="Gun_Collection_ClassificationRowChanged" msprop:Generator_RowEvArgName="Gun_Collection_ClassificationRowChangeEvent" msprop:Generator_RowClassName="Gun_Collection_ClassificationRow">
+        <xs:element name="Gun_Collection_Classification" msprop:Generator_UserTableName="Gun_Collection_Classification" msprop:Generator_RowEvArgName="Gun_Collection_ClassificationRowChangeEvent" msprop:Generator_TableVarName="tableGun_Collection_Classification" msprop:Generator_TablePropName="Gun_Collection_Classification" msprop:Generator_RowDeletingName="Gun_Collection_ClassificationRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_ClassificationRowChanging" msprop:Generator_RowDeletedName="Gun_Collection_ClassificationRowDeleted" msprop:Generator_RowEvHandlerName="Gun_Collection_ClassificationRowChangeEventHandler" msprop:Generator_TableClassName="Gun_Collection_ClassificationDataTable" msprop:Generator_RowChangedName="Gun_Collection_ClassificationRowChanged" msprop:Generator_RowClassName="Gun_Collection_ClassificationRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -6860,7 +7245,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Gun_Collection_Docs" msprop:Generator_TableClassName="Gun_Collection_DocsDataTable" msprop:Generator_TableVarName="tableGun_Collection_Docs" msprop:Generator_RowChangedName="Gun_Collection_DocsRowChanged" msprop:Generator_TablePropName="Gun_Collection_Docs" msprop:Generator_RowDeletingName="Gun_Collection_DocsRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_DocsRowChanging" msprop:Generator_RowEvHandlerName="Gun_Collection_DocsRowChangeEventHandler" msprop:Generator_RowDeletedName="Gun_Collection_DocsRowDeleted" msprop:Generator_RowClassName="Gun_Collection_DocsRow" msprop:Generator_UserTableName="Gun_Collection_Docs" msprop:Generator_RowEvArgName="Gun_Collection_DocsRowChangeEvent">
+        <xs:element name="Gun_Collection_Docs" msprop:Generator_UserTableName="Gun_Collection_Docs" msprop:Generator_RowEvArgName="Gun_Collection_DocsRowChangeEvent" msprop:Generator_TableVarName="tableGun_Collection_Docs" msprop:Generator_TablePropName="Gun_Collection_Docs" msprop:Generator_RowDeletingName="Gun_Collection_DocsRowDeleting" msprop:Generator_RowChangingName="Gun_Collection_DocsRowChanging" msprop:Generator_RowDeletedName="Gun_Collection_DocsRowDeleted" msprop:Generator_RowEvHandlerName="Gun_Collection_DocsRowChangeEventHandler" msprop:Generator_TableClassName="Gun_Collection_DocsDataTable" msprop:Generator_RowChangedName="Gun_Collection_DocsRowChanged" msprop:Generator_RowClassName="Gun_Collection_DocsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -6907,7 +7292,7 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="qry_DocsAndLinks" msprop:Generator_TableClassName="qry_DocsAndLinksDataTable" msprop:Generator_TableVarName="tableqry_DocsAndLinks" msprop:Generator_TablePropName="qry_DocsAndLinks" msprop:Generator_RowDeletingName="qry_DocsAndLinksRowDeleting" msprop:Generator_RowChangingName="qry_DocsAndLinksRowChanging" msprop:Generator_RowEvHandlerName="qry_DocsAndLinksRowChangeEventHandler" msprop:Generator_RowDeletedName="qry_DocsAndLinksRowDeleted" msprop:Generator_UserTableName="qry_DocsAndLinks" msprop:Generator_RowChangedName="qry_DocsAndLinksRowChanged" msprop:Generator_RowEvArgName="qry_DocsAndLinksRowChangeEvent" msprop:Generator_RowClassName="qry_DocsAndLinksRow">
+        <xs:element name="qry_DocsAndLinks" msprop:Generator_UserTableName="qry_DocsAndLinks" msprop:Generator_RowEvArgName="qry_DocsAndLinksRowChangeEvent" msprop:Generator_TableVarName="tableqry_DocsAndLinks" msprop:Generator_TablePropName="qry_DocsAndLinks" msprop:Generator_RowDeletingName="qry_DocsAndLinksRowDeleting" msprop:Generator_RowChangingName="qry_DocsAndLinksRowChanging" msprop:Generator_RowDeletedName="qry_DocsAndLinksRowDeleted" msprop:Generator_RowEvHandlerName="qry_DocsAndLinksRowChangeEventHandler" msprop:Generator_TableClassName="qry_DocsAndLinksDataTable" msprop:Generator_RowChangedName="qry_DocsAndLinksRowChanged" msprop:Generator_RowClassName="qry_DocsAndLinksRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LinkID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnLinkID" msprop:Generator_ColumnPropNameInRow="LinkID" msprop:Generator_ColumnPropNameInTable="LinkIDColumn" msprop:Generator_UserColumnName="LinkID" type="xs:int" minOccurs="0" />
@@ -6952,6 +7337,79 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="sync_lastupdate" msprop:Generator_ColumnVarNameInTable="columnsync_lastupdate" msprop:Generator_ColumnPropNameInRow="sync_lastupdate" msprop:Generator_ColumnPropNameInTable="sync_lastupdateColumn" msprop:Generator_UserColumnName="sync_lastupdate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="General_Accessories" msprop:Generator_TableClassName="General_AccessoriesDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories" msprop:Generator_RowChangedName="General_AccessoriesRowChanged" msprop:Generator_TablePropName="General_Accessories" msprop:Generator_RowDeletingName="General_AccessoriesRowDeleting" msprop:Generator_RowChangingName="General_AccessoriesRowChanging" msprop:Generator_RowEvHandlerName="General_AccessoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="General_AccessoriesRowDeleted" msprop:Generator_RowClassName="General_AccessoriesRow" msprop:Generator_UserTableName="General_Accessories" msprop:Generator_RowEvArgName="General_AccessoriesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Manufacturer" msprop:Generator_ColumnVarNameInTable="columnManufacturer" msprop:Generator_ColumnPropNameInRow="Manufacturer" msprop:Generator_ColumnPropNameInTable="ManufacturerColumn" msprop:Generator_UserColumnName="Manufacturer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SerialNumber" msprop:Generator_ColumnVarNameInTable="columnSerialNumber" msprop:Generator_ColumnPropNameInRow="SerialNumber" msprop:Generator_ColumnPropNameInTable="SerialNumberColumn" msprop:Generator_UserColumnName="SerialNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Condition" msprop:Generator_ColumnVarNameInTable="columnCondition" msprop:Generator_ColumnPropNameInRow="Condition" msprop:Generator_ColumnPropNameInTable="ConditionColumn" msprop:Generator_UserColumnName="Condition" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Use" msprop:Generator_ColumnVarNameInTable="columnUse" msprop:Generator_ColumnPropNameInRow="Use" msprop:Generator_ColumnPropNameInTable="UseColumn" msprop:Generator_UserColumnName="Use" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurValue" msprop:Generator_ColumnVarNameInTable="columnPurValue" msprop:Generator_ColumnPropNameInRow="PurValue" msprop:Generator_ColumnPropNameInTable="PurValueColumn" msprop:Generator_UserColumnName="PurValue" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AppValue" msprop:Generator_ColumnVarNameInTable="columnAppValue" msprop:Generator_ColumnPropNameInRow="AppValue" msprop:Generator_ColumnPropNameInTable="AppValueColumn" msprop:Generator_UserColumnName="AppValue" type="xs:double" minOccurs="0" />
+              <xs:element name="CIV" msprop:Generator_ColumnVarNameInTable="columnCIV" msprop:Generator_ColumnPropNameInRow="CIV" msprop:Generator_ColumnPropNameInTable="CIVColumn" msprop:Generator_UserColumnName="CIV" type="xs:int" minOccurs="0" />
+              <xs:element name="IC" msprop:Generator_ColumnVarNameInTable="columnIC" msprop:Generator_ColumnPropNameInRow="IC" msprop:Generator_ColumnPropNameInTable="ICColumn" msprop:Generator_UserColumnName="IC" type="xs:int" minOccurs="0" />
+              <xs:element name="sync_lastupdate" msprop:Generator_ColumnVarNameInTable="columnsync_lastupdate" msprop:Generator_ColumnPropNameInRow="sync_lastupdate" msprop:Generator_ColumnPropNameInTable="sync_lastupdateColumn" msprop:Generator_UserColumnName="sync_lastupdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsLinked" msprop:Generator_ColumnVarNameInTable="columnIsLinked" msprop:Generator_ColumnPropNameInRow="IsLinked" msprop:Generator_ColumnPropNameInTable="IsLinkedColumn" msprop:Generator_UserColumnName="IsLinked" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FAID" msprop:Generator_ColumnVarNameInTable="columnFAID" msprop:Generator_ColumnPropNameInRow="FAID" msprop:Generator_ColumnPropNameInTable="FAIDColumn" msprop:Generator_UserColumnName="FAID" type="xs:int" minOccurs="0" />
+              <xs:element name="IsGALinked" msprop:Generator_ColumnVarNameInTable="columnIsGALinked" msprop:Generator_ColumnPropNameInRow="IsGALinked" msprop:Generator_ColumnPropNameInTable="IsGALinkedColumn" msprop:Generator_UserColumnName="IsGALinked" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="General_Accessories_Link" msprop:Generator_TableClassName="General_Accessories_LinkDataTable" msprop:Generator_TableVarName="tableGeneral_Accessories_Link" msprop:Generator_RowChangedName="General_Accessories_LinkRowChanged" msprop:Generator_TablePropName="General_Accessories_Link" msprop:Generator_RowDeletingName="General_Accessories_LinkRowDeleting" msprop:Generator_RowChangingName="General_Accessories_LinkRowChanging" msprop:Generator_RowEvHandlerName="General_Accessories_LinkRowChangeEventHandler" msprop:Generator_RowDeletedName="General_Accessories_LinkRowDeleted" msprop:Generator_RowClassName="General_Accessories_LinkRow" msprop:Generator_UserTableName="General_Accessories_Link" msprop:Generator_RowEvArgName="General_Accessories_LinkRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="GID" msprop:Generator_ColumnVarNameInTable="columnGID" msprop:Generator_ColumnPropNameInRow="GID" msprop:Generator_ColumnPropNameInTable="GIDColumn" msprop:Generator_UserColumnName="GID" type="xs:double" minOccurs="0" />
+              <xs:element name="AID" msprop:Generator_ColumnVarNameInTable="columnAID" msprop:Generator_ColumnPropNameInRow="AID" msprop:Generator_ColumnPropNameInTable="AIDColumn" msprop:Generator_UserColumnName="AID" type="xs:double" minOccurs="0" />
               <xs:element name="sync_lastupdate" msprop:Generator_ColumnVarNameInTable="columnsync_lastupdate" msprop:Generator_ColumnPropNameInRow="sync_lastupdate" msprop:Generator_ColumnPropNameInTable="sync_lastupdateColumn" msprop:Generator_UserColumnName="sync_lastupdate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -7076,6 +7534,14 @@ WHERE        (GunSmith_Details.gsmith = @SmithName)</CommandText>
     </xs:unique>
     <xs:unique name="Gun_Collection_Docs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Gun_Collection_Docs" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="General_Accessories_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:General_Accessories" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="General_Accessories_Link_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:General_Accessories_Link" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>

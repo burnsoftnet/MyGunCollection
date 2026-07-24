@@ -109,6 +109,10 @@ Partial Public Class MGCDataSet
     
     Private tableqry_DocsAndLinks As qry_DocsAndLinksDataTable
     
+    Private tableGeneral_Accessories As General_AccessoriesDataTable
+    
+    Private tableGeneral_Accessories_Link As General_Accessories_LinkDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -263,6 +267,12 @@ Partial Public Class MGCDataSet
             End If
             If (Not (ds.Tables("qry_DocsAndLinks")) Is Nothing) Then
                 MyBase.Tables.Add(New qry_DocsAndLinksDataTable(ds.Tables("qry_DocsAndLinks")))
+            End If
+            If (Not (ds.Tables("General_Accessories")) Is Nothing) Then
+                MyBase.Tables.Add(New General_AccessoriesDataTable(ds.Tables("General_Accessories")))
+            End If
+            If (Not (ds.Tables("General_Accessories_Link")) Is Nothing) Then
+                MyBase.Tables.Add(New General_Accessories_LinkDataTable(ds.Tables("General_Accessories_Link")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -703,6 +713,26 @@ Partial Public Class MGCDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property General_Accessories() As General_AccessoriesDataTable
+        Get
+            Return Me.tableGeneral_Accessories
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property General_Accessories_Link() As General_Accessories_LinkDataTable
+        Get
+            Return Me.tableGeneral_Accessories_Link
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -893,6 +923,12 @@ Partial Public Class MGCDataSet
             End If
             If (Not (ds.Tables("qry_DocsAndLinks")) Is Nothing) Then
                 MyBase.Tables.Add(New qry_DocsAndLinksDataTable(ds.Tables("qry_DocsAndLinks")))
+            End If
+            If (Not (ds.Tables("General_Accessories")) Is Nothing) Then
+                MyBase.Tables.Add(New General_AccessoriesDataTable(ds.Tables("General_Accessories")))
+            End If
+            If (Not (ds.Tables("General_Accessories_Link")) Is Nothing) Then
+                MyBase.Tables.Add(New General_Accessories_LinkDataTable(ds.Tables("General_Accessories_Link")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -1178,6 +1214,18 @@ Partial Public Class MGCDataSet
                 Me.tableqry_DocsAndLinks.InitVars
             End If
         End If
+        Me.tableGeneral_Accessories = CType(MyBase.Tables("General_Accessories"),General_AccessoriesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableGeneral_Accessories) Is Nothing) Then
+                Me.tableGeneral_Accessories.InitVars
+            End If
+        End If
+        Me.tableGeneral_Accessories_Link = CType(MyBase.Tables("General_Accessories_Link"),General_Accessories_LinkDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableGeneral_Accessories_Link) Is Nothing) Then
+                Me.tableGeneral_Accessories_Link.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1272,6 +1320,10 @@ Partial Public Class MGCDataSet
         MyBase.Tables.Add(Me.tableGun_Collection_Docs)
         Me.tableqry_DocsAndLinks = New qry_DocsAndLinksDataTable()
         MyBase.Tables.Add(Me.tableqry_DocsAndLinks)
+        Me.tableGeneral_Accessories = New General_AccessoriesDataTable()
+        MyBase.Tables.Add(Me.tableGeneral_Accessories)
+        Me.tableGeneral_Accessories_Link = New General_Accessories_LinkDataTable()
+        MyBase.Tables.Add(Me.tableGeneral_Accessories_Link)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1528,6 +1580,18 @@ Partial Public Class MGCDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializeGeneral_Accessories() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializeGeneral_Accessories_Link() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -1709,6 +1773,12 @@ Partial Public Class MGCDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub qry_DocsAndLinksRowChangeEventHandler(ByVal sender As Object, ByVal e As qry_DocsAndLinksRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub General_AccessoriesRowChangeEventHandler(ByVal sender As Object, ByVal e As General_AccessoriesRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub General_Accessories_LinkRowChangeEventHandler(ByVal sender As Object, ByVal e As General_Accessories_LinkRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -3928,6 +3998,14 @@ Partial Public Class MGCDataSet
         
         Private columnisCompetition As Global.System.Data.DataColumn
         
+        Private columnRating As Global.System.Data.DataColumn
+        
+        Private columnToSell As Global.System.Data.DataColumn
+        
+        Private columnGunSmithJob As Global.System.Data.DataColumn
+        
+        Private columnForCollecting As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -4412,6 +4490,38 @@ Partial Public Class MGCDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property RatingColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRating
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ToSellColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnToSell
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property GunSmithJobColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGunSmithJob
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ForCollectingColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnForCollecting
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4503,9 +4613,13 @@ Partial Public Class MGCDataSet
                     ByVal IsClassIII As Integer,  _
                     ByVal ReManDT As Date,  _
                     ByVal IsNoLeathal As Double,  _
-                    ByVal isCompetition As Double) As Gun_CollectionRow
+                    ByVal isCompetition As Double,  _
+                    ByVal Rating As Integer,  _
+                    ByVal ToSell As Boolean,  _
+                    ByVal GunSmithJob As Boolean,  _
+                    ByVal ForCollecting As Boolean) As Gun_CollectionRow
             Dim rowGun_CollectionRow As Gun_CollectionRow = CType(Me.NewRow,Gun_CollectionRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, Action, Feedsystem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, IsCandR1, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, ClassIII_owner, IsClassIII, ReManDT, IsNoLeathal, isCompetition}
+            Dim columnValuesArray() As Object = New Object() {Nothing, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Caliber, Finish, Condition, CustomID, NatID, GripID, Qty, Weight, Height, StockType, BarrelLength, BarrelWidth, BarrelHeight, Action, Feedsystem, Sights, PurchasedPrice, PurchasedFrom, AppraisedValue, AppraisalDate, AppraisedBy, InsuredValue, StorageLocation, ConditionComments, AdditionalNotes, HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, IsCandR1, POI, IsInBoundBook, TwistRate, lbs_trigger, Caliber3, Classification, DateofCR, ClassIII_owner, IsClassIII, ReManDT, IsNoLeathal, isCompetition, Rating, ToSell, GunSmithJob, ForCollecting}
             rowGun_CollectionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGun_CollectionRow)
             Return rowGun_CollectionRow
@@ -4590,6 +4704,10 @@ Partial Public Class MGCDataSet
             Me.columnReManDT = MyBase.Columns("ReManDT")
             Me.columnIsNoLeathal = MyBase.Columns("IsNoLeathal")
             Me.columnisCompetition = MyBase.Columns("isCompetition")
+            Me.columnRating = MyBase.Columns("Rating")
+            Me.columnToSell = MyBase.Columns("ToSell")
+            Me.columnGunSmithJob = MyBase.Columns("GunSmithJob")
+            Me.columnForCollecting = MyBase.Columns("ForCollecting")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4707,6 +4825,14 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnIsNoLeathal)
             Me.columnisCompetition = New Global.System.Data.DataColumn("isCompetition", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnisCompetition)
+            Me.columnRating = New Global.System.Data.DataColumn("Rating", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRating)
+            Me.columnToSell = New Global.System.Data.DataColumn("ToSell", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnToSell)
+            Me.columnGunSmithJob = New Global.System.Data.DataColumn("GunSmithJob", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGunSmithJob)
+            Me.columnForCollecting = New Global.System.Data.DataColumn("ForCollecting", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnForCollecting)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -5214,6 +5340,12 @@ Partial Public Class MGCDataSet
         
         Private columnCIV As Global.System.Data.DataColumn
         
+        Private columnIC As Global.System.Data.DataColumn
+        
+        Private columnGALID As Global.System.Data.DataColumn
+        
+        Private columnIsLinked As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -5338,6 +5470,30 @@ Partial Public Class MGCDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ICColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property GALIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGALID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsLinkedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLinked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5374,9 +5530,9 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddGun_Collection_AccessoriesRow(ByVal GID As Integer, ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer) As Gun_Collection_AccessoriesRow
+        Public Overloads Function AddGun_Collection_AccessoriesRow(ByVal GID As Integer, ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer, ByVal IC As Integer, ByVal GALID As Integer, ByVal IsLinked As Boolean) As Gun_Collection_AccessoriesRow
             Dim rowGun_Collection_AccessoriesRow As Gun_Collection_AccessoriesRow = CType(Me.NewRow,Gun_Collection_AccessoriesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV}
+            Dim columnValuesArray() As Object = New Object() {Nothing, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, GALID, IsLinked}
             rowGun_Collection_AccessoriesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGun_Collection_AccessoriesRow)
             Return rowGun_Collection_AccessoriesRow
@@ -5416,6 +5572,9 @@ Partial Public Class MGCDataSet
             Me.columnPurValue = MyBase.Columns("PurValue")
             Me.columnAppValue = MyBase.Columns("AppValue")
             Me.columnCIV = MyBase.Columns("CIV")
+            Me.columnIC = MyBase.Columns("IC")
+            Me.columnGALID = MyBase.Columns("GALID")
+            Me.columnIsLinked = MyBase.Columns("IsLinked")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5443,6 +5602,12 @@ Partial Public Class MGCDataSet
             MyBase.Columns.Add(Me.columnAppValue)
             Me.columnCIV = New Global.System.Data.DataColumn("CIV", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCIV)
+            Me.columnIC = New Global.System.Data.DataColumn("IC", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIC)
+            Me.columnGALID = New Global.System.Data.DataColumn("GALID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGALID)
+            Me.columnIsLinked = New Global.System.Data.DataColumn("IsLinked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLinked)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AllowDBNull = false
@@ -19170,6 +19335,762 @@ Partial Public Class MGCDataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class General_AccessoriesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of General_AccessoriesRow)
+        
+        Private columnID As Global.System.Data.DataColumn
+        
+        Private columnManufacturer As Global.System.Data.DataColumn
+        
+        Private columnModel As Global.System.Data.DataColumn
+        
+        Private columnSerialNumber As Global.System.Data.DataColumn
+        
+        Private columnCondition As Global.System.Data.DataColumn
+        
+        Private columnNotes As Global.System.Data.DataColumn
+        
+        Private columnUse As Global.System.Data.DataColumn
+        
+        Private columnPurValue As Global.System.Data.DataColumn
+        
+        Private columnAppValue As Global.System.Data.DataColumn
+        
+        Private columnCIV As Global.System.Data.DataColumn
+        
+        Private columnIC As Global.System.Data.DataColumn
+        
+        Private columnsync_lastupdate As Global.System.Data.DataColumn
+        
+        Private columnIsLinked As Global.System.Data.DataColumn
+        
+        Private columnFAID As Global.System.Data.DataColumn
+        
+        Private columnIsGALinked As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "General_Accessories"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ManufacturerColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnManufacturer
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ModelColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnModel
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SerialNumberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSerialNumber
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ConditionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCondition
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property NotesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNotes
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property UseColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUse
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PurValueColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPurValue
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property AppValueColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAppValue
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CIVColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCIV
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ICColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIC
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property sync_lastupdateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsync_lastupdate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsLinkedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsLinked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property FAIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFAID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IsGALinkedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsGALinked
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As General_AccessoriesRow
+            Get
+                Return CType(Me.Rows(index),General_AccessoriesRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_AccessoriesRowChanging As General_AccessoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_AccessoriesRowChanged As General_AccessoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_AccessoriesRowDeleting As General_AccessoriesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_AccessoriesRowDeleted As General_AccessoriesRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddGeneral_AccessoriesRow(ByVal row As General_AccessoriesRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddGeneral_AccessoriesRow(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Double, ByVal CIV As Integer, ByVal IC As Integer, ByVal sync_lastupdate As Date, ByVal IsLinked As Boolean, ByVal FAID As Integer, ByVal IsGALinked As Boolean) As General_AccessoriesRow
+            Dim rowGeneral_AccessoriesRow As General_AccessoriesRow = CType(Me.NewRow,General_AccessoriesRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, AppValue, CIV, IC, sync_lastupdate, IsLinked, FAID, IsGALinked}
+            rowGeneral_AccessoriesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowGeneral_AccessoriesRow)
+            Return rowGeneral_AccessoriesRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByID(ByVal ID As Integer) As General_AccessoriesRow
+            Return CType(Me.Rows.Find(New Object() {ID}),General_AccessoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As General_AccessoriesDataTable = CType(MyBase.Clone,General_AccessoriesDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New General_AccessoriesDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnID = MyBase.Columns("ID")
+            Me.columnManufacturer = MyBase.Columns("Manufacturer")
+            Me.columnModel = MyBase.Columns("Model")
+            Me.columnSerialNumber = MyBase.Columns("SerialNumber")
+            Me.columnCondition = MyBase.Columns("Condition")
+            Me.columnNotes = MyBase.Columns("Notes")
+            Me.columnUse = MyBase.Columns("Use")
+            Me.columnPurValue = MyBase.Columns("PurValue")
+            Me.columnAppValue = MyBase.Columns("AppValue")
+            Me.columnCIV = MyBase.Columns("CIV")
+            Me.columnIC = MyBase.Columns("IC")
+            Me.columnsync_lastupdate = MyBase.Columns("sync_lastupdate")
+            Me.columnIsLinked = MyBase.Columns("IsLinked")
+            Me.columnFAID = MyBase.Columns("FAID")
+            Me.columnIsGALinked = MyBase.Columns("IsGALinked")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnManufacturer = New Global.System.Data.DataColumn("Manufacturer", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnManufacturer)
+            Me.columnModel = New Global.System.Data.DataColumn("Model", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnModel)
+            Me.columnSerialNumber = New Global.System.Data.DataColumn("SerialNumber", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSerialNumber)
+            Me.columnCondition = New Global.System.Data.DataColumn("Condition", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCondition)
+            Me.columnNotes = New Global.System.Data.DataColumn("Notes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNotes)
+            Me.columnUse = New Global.System.Data.DataColumn("Use", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUse)
+            Me.columnPurValue = New Global.System.Data.DataColumn("PurValue", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPurValue)
+            Me.columnAppValue = New Global.System.Data.DataColumn("AppValue", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAppValue)
+            Me.columnCIV = New Global.System.Data.DataColumn("CIV", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCIV)
+            Me.columnIC = New Global.System.Data.DataColumn("IC", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIC)
+            Me.columnsync_lastupdate = New Global.System.Data.DataColumn("sync_lastupdate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsync_lastupdate)
+            Me.columnIsLinked = New Global.System.Data.DataColumn("IsLinked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsLinked)
+            Me.columnFAID = New Global.System.Data.DataColumn("FAID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFAID)
+            Me.columnIsGALinked = New Global.System.Data.DataColumn("IsGALinked", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsGALinked)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
+            Me.columnID.AllowDBNull = false
+            Me.columnID.Unique = true
+            Me.columnManufacturer.MaxLength = 50
+            Me.columnModel.MaxLength = 255
+            Me.columnSerialNumber.MaxLength = 255
+            Me.columnCondition.MaxLength = 50
+            Me.columnNotes.MaxLength = 536870910
+            Me.columnUse.MaxLength = 255
+            Me.columnPurValue.MaxLength = 50
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewGeneral_AccessoriesRow() As General_AccessoriesRow
+            Return CType(Me.NewRow,General_AccessoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New General_AccessoriesRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(General_AccessoriesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.General_AccessoriesRowChangedEvent) Is Nothing) Then
+                RaiseEvent General_AccessoriesRowChanged(Me, New General_AccessoriesRowChangeEvent(CType(e.Row,General_AccessoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.General_AccessoriesRowChangingEvent) Is Nothing) Then
+                RaiseEvent General_AccessoriesRowChanging(Me, New General_AccessoriesRowChangeEvent(CType(e.Row,General_AccessoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.General_AccessoriesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent General_AccessoriesRowDeleted(Me, New General_AccessoriesRowChangeEvent(CType(e.Row,General_AccessoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.General_AccessoriesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent General_AccessoriesRowDeleting(Me, New General_AccessoriesRowChangeEvent(CType(e.Row,General_AccessoriesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemoveGeneral_AccessoriesRow(ByVal row As General_AccessoriesRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As MGCDataSet = New MGCDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "General_AccessoriesDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class General_Accessories_LinkDataTable
+        Inherits Global.System.Data.TypedTableBase(Of General_Accessories_LinkRow)
+        
+        Private columnID As Global.System.Data.DataColumn
+        
+        Private columnGID As Global.System.Data.DataColumn
+        
+        Private columnAID As Global.System.Data.DataColumn
+        
+        Private columnsync_lastupdate As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "General_Accessories_Link"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property GIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property AIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnAID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property sync_lastupdateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsync_lastupdate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As General_Accessories_LinkRow
+            Get
+                Return CType(Me.Rows(index),General_Accessories_LinkRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_Accessories_LinkRowChanging As General_Accessories_LinkRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_Accessories_LinkRowChanged As General_Accessories_LinkRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_Accessories_LinkRowDeleting As General_Accessories_LinkRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event General_Accessories_LinkRowDeleted As General_Accessories_LinkRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddGeneral_Accessories_LinkRow(ByVal row As General_Accessories_LinkRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddGeneral_Accessories_LinkRow(ByVal GID As Double, ByVal AID As Double, ByVal sync_lastupdate As Date) As General_Accessories_LinkRow
+            Dim rowGeneral_Accessories_LinkRow As General_Accessories_LinkRow = CType(Me.NewRow,General_Accessories_LinkRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, GID, AID, sync_lastupdate}
+            rowGeneral_Accessories_LinkRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowGeneral_Accessories_LinkRow)
+            Return rowGeneral_Accessories_LinkRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByID(ByVal ID As Integer) As General_Accessories_LinkRow
+            Return CType(Me.Rows.Find(New Object() {ID}),General_Accessories_LinkRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As General_Accessories_LinkDataTable = CType(MyBase.Clone,General_Accessories_LinkDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New General_Accessories_LinkDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnID = MyBase.Columns("ID")
+            Me.columnGID = MyBase.Columns("GID")
+            Me.columnAID = MyBase.Columns("AID")
+            Me.columnsync_lastupdate = MyBase.Columns("sync_lastupdate")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnGID = New Global.System.Data.DataColumn("GID", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGID)
+            Me.columnAID = New Global.System.Data.DataColumn("AID", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAID)
+            Me.columnsync_lastupdate = New Global.System.Data.DataColumn("sync_lastupdate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsync_lastupdate)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
+            Me.columnID.AllowDBNull = false
+            Me.columnID.Unique = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewGeneral_Accessories_LinkRow() As General_Accessories_LinkRow
+            Return CType(Me.NewRow,General_Accessories_LinkRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New General_Accessories_LinkRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(General_Accessories_LinkRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.General_Accessories_LinkRowChangedEvent) Is Nothing) Then
+                RaiseEvent General_Accessories_LinkRowChanged(Me, New General_Accessories_LinkRowChangeEvent(CType(e.Row,General_Accessories_LinkRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.General_Accessories_LinkRowChangingEvent) Is Nothing) Then
+                RaiseEvent General_Accessories_LinkRowChanging(Me, New General_Accessories_LinkRowChangeEvent(CType(e.Row,General_Accessories_LinkRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.General_Accessories_LinkRowDeletedEvent) Is Nothing) Then
+                RaiseEvent General_Accessories_LinkRowDeleted(Me, New General_Accessories_LinkRowChangeEvent(CType(e.Row,General_Accessories_LinkRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.General_Accessories_LinkRowDeletingEvent) Is Nothing) Then
+                RaiseEvent General_Accessories_LinkRowDeleting(Me, New General_Accessories_LinkRowChangeEvent(CType(e.Row,General_Accessories_LinkRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemoveGeneral_Accessories_LinkRow(ByVal row As General_Accessories_LinkRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As MGCDataSet = New MGCDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "General_Accessories_LinkDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class Gun_CalRow
@@ -20724,6 +21645,66 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Rating() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.RatingColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Rating' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.RatingColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ToSell() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.ToSellColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ToSell' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.ToSellColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property GunSmithJob() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.GunSmithJobColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'GunSmithJob' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.GunSmithJobColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ForCollecting() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection.ForCollectingColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ForCollecting' in table 'Gun_Collection' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection.ForCollectingColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsOIDNull() As Boolean
             Return Me.IsNull(Me.tableGun_Collection.OIDColumn)
         End Function
@@ -21381,6 +22362,54 @@ Partial Public Class MGCDataSet
         Public Sub SetisCompetitionNull()
             Me(Me.tableGun_Collection.isCompetitionColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsRatingNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.RatingColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetRatingNull()
+            Me(Me.tableGun_Collection.RatingColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsToSellNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.ToSellColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetToSellNull()
+            Me(Me.tableGun_Collection.ToSellColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsGunSmithJobNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.GunSmithJobColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetGunSmithJobNull()
+            Me(Me.tableGun_Collection.GunSmithJobColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsForCollectingNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection.ForCollectingColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetForCollectingNull()
+            Me(Me.tableGun_Collection.ForCollectingColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -21715,6 +22744,51 @@ Partial Public Class MGCDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IC() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.ICColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IC' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.ICColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property GALID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.GALIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'GALID' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.GALIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsLinked() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGun_Collection_Accessories.IsLinkedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsLinked' in table 'Gun_Collection_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGun_Collection_Accessories.IsLinkedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsGIDNull() As Boolean
             Return Me.IsNull(Me.tableGun_Collection_Accessories.GIDColumn)
         End Function
@@ -21831,6 +22905,42 @@ Partial Public Class MGCDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetCIVNull()
             Me(Me.tableGun_Collection_Accessories.CIVColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsICNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.ICColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetICNull()
+            Me(Me.tableGun_Collection_Accessories.ICColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsGALIDNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.GALIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetGALIDNull()
+            Me(Me.tableGun_Collection_Accessories.GALIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsLinkedNull() As Boolean
+            Return Me.IsNull(Me.tableGun_Collection_Accessories.IsLinkedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsLinkedNull()
+            Me(Me.tableGun_Collection_Accessories.IsLinkedColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -32909,6 +34019,520 @@ Partial Public Class MGCDataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class General_AccessoriesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableGeneral_Accessories As General_AccessoriesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableGeneral_Accessories = CType(Me.Table,General_AccessoriesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableGeneral_Accessories.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Manufacturer() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.ManufacturerColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Manufacturer' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.ManufacturerColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Model() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.ModelColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Model' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.ModelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property SerialNumber() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.SerialNumberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SerialNumber' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.SerialNumberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Condition() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.ConditionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Condition' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.ConditionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Notes() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.NotesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Notes' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.NotesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Use() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.UseColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Use' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.UseColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property PurValue() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.PurValueColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PurValue' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.PurValueColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property AppValue() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.AppValueColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AppValue' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.AppValueColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CIV() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.CIVColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CIV' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.CIVColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IC() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.ICColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IC' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.ICColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property sync_lastupdate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.sync_lastupdateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sync_lastupdate' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.sync_lastupdateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsLinked() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.IsLinkedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsLinked' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.IsLinkedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property FAID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.FAIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'FAID' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.FAIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IsGALinked() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories.IsGALinkedColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsGALinked' in table 'General_Accessories' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories.IsGALinkedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsManufacturerNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.ManufacturerColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetManufacturerNull()
+            Me(Me.tableGeneral_Accessories.ManufacturerColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsModelNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.ModelColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetModelNull()
+            Me(Me.tableGeneral_Accessories.ModelColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSerialNumberNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.SerialNumberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSerialNumberNull()
+            Me(Me.tableGeneral_Accessories.SerialNumberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsConditionNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.ConditionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetConditionNull()
+            Me(Me.tableGeneral_Accessories.ConditionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsNotesNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.NotesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetNotesNull()
+            Me(Me.tableGeneral_Accessories.NotesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsUseNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.UseColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetUseNull()
+            Me(Me.tableGeneral_Accessories.UseColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsPurValueNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.PurValueColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetPurValueNull()
+            Me(Me.tableGeneral_Accessories.PurValueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsAppValueNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.AppValueColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetAppValueNull()
+            Me(Me.tableGeneral_Accessories.AppValueColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCIVNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.CIVColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCIVNull()
+            Me(Me.tableGeneral_Accessories.CIVColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsICNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.ICColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetICNull()
+            Me(Me.tableGeneral_Accessories.ICColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Issync_lastupdateNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.sync_lastupdateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setsync_lastupdateNull()
+            Me(Me.tableGeneral_Accessories.sync_lastupdateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsLinkedNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.IsLinkedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsLinkedNull()
+            Me(Me.tableGeneral_Accessories.IsLinkedColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsFAIDNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.FAIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetFAIDNull()
+            Me(Me.tableGeneral_Accessories.FAIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsIsGALinkedNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories.IsGALinkedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetIsGALinkedNull()
+            Me(Me.tableGeneral_Accessories.IsGALinkedColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class General_Accessories_LinkRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableGeneral_Accessories_Link As General_Accessories_LinkDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableGeneral_Accessories_Link = CType(Me.Table,General_Accessories_LinkDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableGeneral_Accessories_Link.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories_Link.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property GID() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories_Link.GIDColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'GID' in table 'General_Accessories_Link' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories_Link.GIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property AID() As Double
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories_Link.AIDColumn),Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'AID' in table 'General_Accessories_Link' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories_Link.AIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property sync_lastupdate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableGeneral_Accessories_Link.sync_lastupdateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sync_lastupdate' in table 'General_Accessories_Link' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableGeneral_Accessories_Link.sync_lastupdateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsGIDNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories_Link.GIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetGIDNull()
+            Me(Me.tableGeneral_Accessories_Link.GIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsAIDNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories_Link.AIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetAIDNull()
+            Me(Me.tableGeneral_Accessories_Link.AIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Issync_lastupdateNull() As Boolean
+            Return Me.IsNull(Me.tableGeneral_Accessories_Link.sync_lastupdateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setsync_lastupdateNull()
+            Me(Me.tableGeneral_Accessories_Link.sync_lastupdateColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -34406,6 +36030,78 @@ Partial Public Class MGCDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property Row() As qry_DocsAndLinksRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class General_AccessoriesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As General_AccessoriesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As General_AccessoriesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As General_AccessoriesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class General_Accessories_LinkRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As General_Accessories_LinkRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As General_Accessories_LinkRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As General_Accessories_LinkRow
             Get
                 Return Me.eventRow
             End Get
@@ -36979,6 +38675,10 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("ReManDT", "ReManDT")
             tableMapping.ColumnMappings.Add("IsNoLeathal", "IsNoLeathal")
             tableMapping.ColumnMappings.Add("isCompetition", "isCompetition")
+            tableMapping.ColumnMappings.Add("Rating", "Rating")
+            tableMapping.ColumnMappings.Add("ToSell", "ToSell")
+            tableMapping.ColumnMappings.Add("GunSmithJob", "GunSmithJob")
+            tableMapping.ColumnMappings.Add("ForCollecting", "ForCollecting")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -37020,7 +38720,10 @@ Namespace MGCDataSetTableAdapters
                 "AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClassIII` "& _ 
                 "IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) OR (`C"& _ 
                 "lassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompetition"& _ 
-                "` = ?)))"
+                "` = ?)) AND ((? = 1 AND `Rating` IS NULL) OR (`Rating` = ?)) AND ((? = 1 AND `To"& _ 
+                "Sell` IS NULL) OR (`ToSell` = ?)) AND ((? = 1 AND `GunSmithJob` IS NULL) OR (`Gu"& _ 
+                "nSmithJob` = ?)) AND ((? = 1 AND `ForCollecting` IS NULL) OR (`ForCollecting` = "& _ 
+                "?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -37127,6 +38830,14 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_isCompetition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ToSell", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ToSell", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GunSmithJob", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GunSmithJob", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ForCollecting", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ForCollecting", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gun_Collection` (`OID`, `MID`, `FullName`, `ModelName`, `ModelID`, `"& _ 
@@ -37137,10 +38848,10 @@ Namespace MGCDataSetTableAdapters
                 "cation`, `ConditionComments`, `AdditionalNotes`, `HasAss`, `Produced`, `dt`, `It"& _ 
                 "emSold`, `SID`, `BID`, `dtSold`, `PetLoads`, `dtp`, `IsCandR`, `ReManDT`, `POI`,"& _ 
                 " `IsInBoundBook`, `TwistRate`, `lbs_trigger`, `Caliber3`, `Classification`, `Dat"& _ 
-                "eofCR`, `IsNoLeathal`, `IsClassIII`, `ClassIII_owner`, `isCompetition`) VALUES ("& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
-                ")"
+                "eofCR`, `IsNoLeathal`, `IsClassIII`, `ClassIII_owner`, `isCompetition`, `Rating`"& _ 
+                ", `ToSell`, `GunSmithJob`, `ForCollecting`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?"& _ 
+                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("MID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "MID", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37196,6 +38907,10 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ToSell", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GunSmithJob", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ForCollecting", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Gun_Collection` SET `OID` = ?, `MID` = ?, `FullName` = ?, `ModelName` = ?"& _ 
@@ -37209,45 +38924,49 @@ Namespace MGCDataSetTableAdapters
                 ", `BID` = ?, `dtSold` = ?, `PetLoads` = ?, `dtp` = ?, `IsCandR` = ?, `ReManDT` ="& _ 
                 " ?, `POI` = ?, `IsInBoundBook` = ?, `TwistRate` = ?, `lbs_trigger` = ?, `Caliber"& _ 
                 "3` = ?, `Classification` = ?, `DateofCR` = ?, `IsNoLeathal` = ?, `IsClassIII` = "& _ 
-                "?, `ClassIII_owner` = ?, `isCompetition` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `"& _ 
-                "OID` IS NULL) OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND"& _ 
-                " ((? = 1 AND `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName"& _ 
-                "` IS NULL) OR (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID"& _ 
-                "` = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((?"& _ 
-                " = 1 AND `Type` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR "& _ 
-                "(`Caliber` = ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = "& _ 
-                "1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS N"& _ 
-                "ULL) OR (`CustomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND"& _ 
-                " ((? = 1 AND `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL)"& _ 
-                " OR (`Qty` = ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = "& _ 
-                "1 AND `Height` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) "& _ 
-                "OR (`StockType` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength`"& _ 
-                " = ?)) AND ((? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = "& _ 
-                "1 AND `BarrelHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` "& _ 
-                "IS NULL) OR (`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsyste"& _ 
-                "m` = ?)) AND ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `P"& _ 
-                "urchasedPrice` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFro"& _ 
-                "m` IS NULL) OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) "& _ 
-                "OR (`AppraisedValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`Apprais"& _ 
-                "alDate` = ?)) AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND"& _ 
-                " ((? = 1 AND `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `S"& _ 
-                "torageLocation` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS"& _ 
-                " NULL) OR (`HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?"& _ 
-                ")) AND ((? = 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NU"& _ 
-                "LL) OR (`ItemSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? "& _ 
-                "= 1 AND `BID` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dt"& _ 
-                "Sold` = ?)) AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1"& _ 
-                " AND `dtp` IS NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCa"& _ 
-                "ndR` = ?)) AND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AN"& _ 
-                "D `POI` IS NULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`I"& _ 
-                "sInBoundBook` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) A"& _ 
-                "ND ((? = 1 AND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `C"& _ 
-                "aliber3` IS NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL)"& _ 
-                " OR (`Classification` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` ="& _ 
-                " ?)) AND ((? = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 "& _ 
-                "AND `IsClassIII` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner"& _ 
-                "` IS NULL) OR (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) O"& _ 
-                "R (`isCompetition` = ?)))"
+                "?, `ClassIII_owner` = ?, `isCompetition` = ?, `Rating` = ?, `ToSell` = ?, `GunSm"& _ 
+                "ithJob` = ?, `ForCollecting` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `OID` IS NULL"& _ 
+                ") OR (`OID` = ?)) AND ((? = 1 AND `MID` IS NULL) OR (`MID` = ?)) AND ((? = 1 AND"& _ 
+                " `FullName` IS NULL) OR (`FullName` = ?)) AND ((? = 1 AND `ModelName` IS NULL) O"& _ 
+                "R (`ModelName` = ?)) AND ((? = 1 AND `ModelID` IS NULL) OR (`ModelID` = ?)) AND "& _ 
+                "((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Ty"& _ 
+                "pe` IS NULL) OR (`Type` = ?)) AND ((? = 1 AND `Caliber` IS NULL) OR (`Caliber` ="& _ 
+                " ?)) AND ((? = 1 AND `Finish` IS NULL) OR (`Finish` = ?)) AND ((? = 1 AND `Condi"& _ 
+                "tion` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `CustomID` IS NULL) OR (`Cu"& _ 
+                "stomID` = ?)) AND ((? = 1 AND `NatID` IS NULL) OR (`NatID` = ?)) AND ((? = 1 AND"& _ 
+                " `GripID` IS NULL) OR (`GripID` = ?)) AND ((? = 1 AND `Qty` IS NULL) OR (`Qty` ="& _ 
+                " ?)) AND ((? = 1 AND `Weight` IS NULL) OR (`Weight` = ?)) AND ((? = 1 AND `Heigh"& _ 
+                "t` IS NULL) OR (`Height` = ?)) AND ((? = 1 AND `StockType` IS NULL) OR (`StockTy"& _ 
+                "pe` = ?)) AND ((? = 1 AND `BarrelLength` IS NULL) OR (`BarrelLength` = ?)) AND ("& _ 
+                "(? = 1 AND `BarrelWidth` IS NULL) OR (`BarrelWidth` = ?)) AND ((? = 1 AND `Barre"& _ 
+                "lHeight` IS NULL) OR (`BarrelHeight` = ?)) AND ((? = 1 AND `Action` IS NULL) OR "& _ 
+                "(`Action` = ?)) AND ((? = 1 AND `Feedsystem` IS NULL) OR (`Feedsystem` = ?)) AND"& _ 
+                " ((? = 1 AND `Sights` IS NULL) OR (`Sights` = ?)) AND ((? = 1 AND `PurchasedPric"& _ 
+                "e` IS NULL) OR (`PurchasedPrice` = ?)) AND ((? = 1 AND `PurchasedFrom` IS NULL) "& _ 
+                "OR (`PurchasedFrom` = ?)) AND ((? = 1 AND `AppraisedValue` IS NULL) OR (`Apprais"& _ 
+                "edValue` = ?)) AND ((? = 1 AND `AppraisalDate` IS NULL) OR (`AppraisalDate` = ?)"& _ 
+                ") AND ((? = 1 AND `AppraisedBy` IS NULL) OR (`AppraisedBy` = ?)) AND ((? = 1 AND"& _ 
+                " `InsuredValue` IS NULL) OR (`InsuredValue` = ?)) AND ((? = 1 AND `StorageLocati"& _ 
+                "on` IS NULL) OR (`StorageLocation` = ?)) AND ((? = 1 AND `HasAss` IS NULL) OR (`"& _ 
+                "HasAss` = ?)) AND ((? = 1 AND `Produced` IS NULL) OR (`Produced` = ?)) AND ((? ="& _ 
+                " 1 AND `dt` IS NULL) OR (`dt` = ?)) AND ((? = 1 AND `ItemSold` IS NULL) OR (`Ite"& _ 
+                "mSold` = ?)) AND ((? = 1 AND `SID` IS NULL) OR (`SID` = ?)) AND ((? = 1 AND `BID"& _ 
+                "` IS NULL) OR (`BID` = ?)) AND ((? = 1 AND `dtSold` IS NULL) OR (`dtSold` = ?)) "& _ 
+                "AND ((? = 1 AND `PetLoads` IS NULL) OR (`PetLoads` = ?)) AND ((? = 1 AND `dtp` I"& _ 
+                "S NULL) OR (`dtp` = ?)) AND ((? = 1 AND `IsCandR` IS NULL) OR (`IsCandR` = ?)) A"& _ 
+                "ND ((? = 1 AND `ReManDT` IS NULL) OR (`ReManDT` = ?)) AND ((? = 1 AND `POI` IS N"& _ 
+                "ULL) OR (`POI` = ?)) AND ((? = 1 AND `IsInBoundBook` IS NULL) OR (`IsInBoundBook"& _ 
+                "` = ?)) AND ((? = 1 AND `TwistRate` IS NULL) OR (`TwistRate` = ?)) AND ((? = 1 A"& _ 
+                "ND `lbs_trigger` IS NULL) OR (`lbs_trigger` = ?)) AND ((? = 1 AND `Caliber3` IS "& _ 
+                "NULL) OR (`Caliber3` = ?)) AND ((? = 1 AND `Classification` IS NULL) OR (`Classi"& _ 
+                "fication` = ?)) AND ((? = 1 AND `DateofCR` IS NULL) OR (`DateofCR` = ?)) AND ((?"& _ 
+                " = 1 AND `IsNoLeathal` IS NULL) OR (`IsNoLeathal` = ?)) AND ((? = 1 AND `IsClass"& _ 
+                "III` IS NULL) OR (`IsClassIII` = ?)) AND ((? = 1 AND `ClassIII_owner` IS NULL) O"& _ 
+                "R (`ClassIII_owner` = ?)) AND ((? = 1 AND `isCompetition` IS NULL) OR (`isCompet"& _ 
+                "ition` = ?)) AND ((? = 1 AND `Rating` IS NULL) OR (`Rating` = ?)) AND ((? = 1 AN"& _ 
+                "D `ToSell` IS NULL) OR (`ToSell` = ?)) AND ((? = 1 AND `GunSmithJob` IS NULL) OR"& _ 
+                " (`GunSmithJob` = ?)) AND ((? = 1 AND `ForCollecting` IS NULL) OR (`ForCollectin"& _ 
+                "g` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("MID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "MID", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -37303,6 +39022,10 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsClassIII", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsClassIII", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ToSell", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GunSmithJob", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ForCollecting", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_OID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "OID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -37408,6 +39131,14 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ClassIII_owner", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ClassIII_owner", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_isCompetition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_isCompetition", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "isCompetition", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Rating", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Rating", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ToSell", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ToSell", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ToSell", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GunSmithJob", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GunSmithJob", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GunSmithJob", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ForCollecting", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ForCollecting", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ForCollecting", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -37420,7 +39151,7 @@ Namespace MGCDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(15) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(23) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ID, OID, MID, FullName, ModelName, ModelID, SerialNumber, Type, Cal"& _ 
@@ -37431,7 +39162,8 @@ Namespace MGCDataSetTableAdapters
                 ", HasAss, Produced, dt, ItemSold, SID, BID, dtSold, PetLoads, dtp, IsCandR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
                 "                       ReManDT, POI, IsInBoundBook, TwistRate, lbs_trigger, Cali"& _ 
                 "ber3, Classification, DateofCR, IsNoLeathal, IsClassIII, ClassIII_owner, isCompe"& _ 
-                "tition"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+                "tition, Rating, ToSell, GunSmithJob, ForCollecting  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collec"& _ 
+                "tion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -37454,35 +39186,36 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(3).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection ORDER BY CustomID"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection ORDER BY CustomID DESC"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Cust"& _ 
-                "omID"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) ORDER BY CustomID DESC"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsClassIII = 1) ORDER BY Fu"& _ 
-                "llName"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (IsClassIII = 1) ORDER BY FullName"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = Me.Connection
@@ -37501,94 +39234,189 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(8).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 1) ORDER BY FullN"& _ 
-                "ame"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (IsCandR = 1) ORDER BY FullName"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(9).Connection = Me.Connection
-            Me._commandCollection(9).CommandText = "SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedVal"& _ 
-                "ue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_ow"& _ 
-                "ner, Classification, Condition, ConditionComments, CustomID, DateofCR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, Insu"& _ 
-                "redValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelI"& _ 
-                "D, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "             PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType,"& _ 
-                " StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_t"& _ 
-                "rigger"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ItemSold = 0 and isCompetit"& _ 
-                "ion=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(9).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) AND (isCompetition = 1) ORDER BY FullName"
             Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(10).Connection = Me.Connection
             Me._commandCollection(10).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold = 0) ORDER BY Full"& _ 
-                "Name"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ForCollecting = True) ORDER BY FullName"
             Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(11) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(11).Connection = Me.Connection
-            Me._commandCollection(11).CommandText = "SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedVal"& _ 
-                "ue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_ow"& _ 
-                "ner, Classification, Condition, ConditionComments, CustomID, DateofCR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, Insu"& _ 
-                "redValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelI"& _ 
-                "D, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "             PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType,"& _ 
-                " StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_t"& _ 
-                "rigger"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ItemSold = 0 and IsNoLeatha"& _ 
-                "l=0"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(11).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (GunSmithJob = True) ORDER BY FullName"
             Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(12) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(12).Connection = Me.Connection
-            Me._commandCollection(12).CommandText = "SELECT        [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedVal"& _ 
-                "ue, BID, BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_ow"& _ 
-                "ner, Classification, Condition, ConditionComments, CustomID, DateofCR, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  Feedsystem, Finish, FullName, GripID, HasAss, Height, ID, Insu"& _ 
-                "redValue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelI"& _ 
-                "D, ModelName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "             PurchasedPrice, Qty, ReManDT, SID, SerialNumber, Sights, StockType,"& _ 
-                " StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_t"& _ 
-                "rigger"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Gun_Collection"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ItemSold = 0 and IsNoLeatha"& _ 
-                "l=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(12).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) ORDER BY FullName"
             Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(13) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(13).Connection = Me.Connection
             Me._commandCollection(13).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (IsCandR = 0) ORDER BY FullN"& _ 
-                "ame"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY FullName"
             Me._commandCollection(13).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(14) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(14).Connection = Me.Connection
-            Me._commandCollection(14).CommandText = "SELECT     ID, FullName, SerialNumber, Type, Caliber, AppraisedValue, BID, dtSold"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection where SID=@SID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(14).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY Rating DESC, FullN"& _ 
+                "ame ASC"
             Me._commandCollection(14).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(14).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@SID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(15) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(15).Connection = Me.Connection
             Me._commandCollection(15).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
                 ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
                 "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
-                "sh, FullName, GripID, HasAss, Height, ID, InsuredValue, IsCandR, IsClassIII, IsI"& _ 
-                "nBoundBook, IsNoLeathal, ItemSold, MID, ModelID, ModelName, NatID, OID, POI, Pet"& _ 
-                "Loads, Produced, PurchasedFrom, PurchasedPrice, Qty, ReManDT, SID, SerialNumber,"& _ 
-                " Sights, StockType, StorageLocation, TwistRate, Type, Weight, dt, dtSold, dtp, i"& _ 
-                "sCompetition, lbs_trigger FROM Gun_Collection WHERE (ItemSold <> 0) ORDER BY Ful"& _ 
-                "lName"
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY FullName"
             Me._commandCollection(15).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(16) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(16).Connection = Me.Connection
+            Me._commandCollection(16).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) AND (IsNoLeathal = 1) ORDER BY Rating DESC, FullN"& _ 
+                "ame ASC"
+            Me._commandCollection(16).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(17) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(17).Connection = Me.Connection
+            Me._commandCollection(17).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) ORDER BY dtp, FullName ASC"
+            Me._commandCollection(17).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(18) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(18).Connection = Me.Connection
+            Me._commandCollection(18).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold = 0) ORDER BY Rating DESC, FullName ASC"
+            Me._commandCollection(18).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(19) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(19).Connection = Me.Connection
+            Me._commandCollection(19).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (IsCandR = 0) ORDER BY FullName"
+            Me._commandCollection(19).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(20) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(20).Connection = Me.Connection
+            Me._commandCollection(20).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ToSell = True) ORDER BY FullName"
+            Me._commandCollection(20).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(21) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(21).Connection = Me.Connection
+            Me._commandCollection(21).CommandText = "SELECT     ID, FullName, SerialNumber, Type, Caliber, AppraisedValue, BID, dtSold"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         Gun_Collection where SID=@SID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY FullName"
+            Me._commandCollection(21).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(21).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@SID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(22) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(22).Connection = Me.Connection
+            Me._commandCollection(22).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold <> 0) ORDER BY FullName"
+            Me._commandCollection(22).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(23) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(23).Connection = Me.Connection
+            Me._commandCollection(23).CommandText = "SELECT [Action], AdditionalNotes, AppraisalDate, AppraisedBy, AppraisedValue, BID"& _ 
+                ", BarrelHeight, BarrelLength, BarrelWidth, Caliber, Caliber3, ClassIII_owner, Cl"& _ 
+                "assification, Condition, ConditionComments, CustomID, DateofCR, Feedsystem, Fini"& _ 
+                "sh, ForCollecting, FullName, GripID, GunSmithJob, HasAss, Height, ID, InsuredVal"& _ 
+                "ue, IsCandR, IsClassIII, IsInBoundBook, IsNoLeathal, ItemSold, MID, ModelID, Mod"& _ 
+                "elName, NatID, OID, POI, PetLoads, Produced, PurchasedFrom, PurchasedPrice, Qty,"& _ 
+                " Rating, ReManDT, SID, SerialNumber, Sights, StockType, StorageLocation, ToSell,"& _ 
+                " TwistRate, Type, Weight, dt, dtSold, dtp, isCompetition, lbs_trigger FROM Gun_C"& _ 
+                "ollection WHERE (ItemSold <> 0) ORDER BY dtSold"
+            Me._commandCollection(23).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -37875,8 +39703,56 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByInStock(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+        Public Overloads Overridable Function FillByForCollecting(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByForCollecting() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByGunSmithProject(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByGunSmithProject() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStock(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -37889,7 +39765,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByInStock() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -37900,7 +39776,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByInStockLethal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -37913,7 +39789,31 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByInStockLethal() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStockLethalRating(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInStockLethalRating() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(14)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -37924,7 +39824,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByInStockNonLethal(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -37937,7 +39837,79 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByInStockNonLethal() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(12)
+            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStockNonLethalRating(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInStockNonLethalRating() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(16)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStockOrderbyDatePurchased(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInStockOrderbyDatePurchased() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(17)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInStockRating(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInStockRating() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(18)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -37948,7 +39920,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByNonCAndR(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -37961,7 +39933,31 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNonCAndR() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(13)
+            Me.Adapter.SelectCommand = Me.CommandCollection(19)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByReadyToSell(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByReadyToSell() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(20)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -37972,7 +39968,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByShop(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable, ByVal __SID As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(21)
             If (__SID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -37990,7 +39986,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByShop(ByVal __SID As String) As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(14)
+            Me.Adapter.SelectCommand = Me.CommandCollection(21)
             If (__SID Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -38006,7 +40002,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillBySold(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(22)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -38019,7 +40015,31 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataBySold() As MGCDataSet.Gun_CollectionDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(15)
+            Me.Adapter.SelectCommand = Me.CommandCollection(22)
+            Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySoldByDate(ByVal dataTable As MGCDataSet.Gun_CollectionDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(23)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBySoldByDate() As MGCDataSet.Gun_CollectionDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(23)
             Dim dataTable As MGCDataSet.Gun_CollectionDataTable = New MGCDataSet.Gun_CollectionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -38110,7 +40130,11 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_IsNoLeathal As Global.System.Nullable(Of Double),  _
                     ByVal Original_IsClassIII As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ClassIII_owner As String,  _
-                    ByVal Original_isCompetition As Global.System.Nullable(Of Double)) As Integer
+                    ByVal Original_isCompetition As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Rating As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ToSell As Boolean,  _
+                    ByVal Original_GunSmithJob As Boolean,  _
+                    ByVal Original_ForCollecting As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_OID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -38476,6 +40500,19 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(103).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(104).Value = Global.System.DBNull.Value
             End If
+            If (Original_Rating.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = CType(Original_Rating.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(105).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(106).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(107).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(108).Value = CType(Original_ToSell,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(109).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(110).Value = CType(Original_GunSmithJob,Boolean)
+            Me.Adapter.DeleteCommand.Parameters(111).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(112).Value = CType(Original_ForCollecting,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -38549,7 +40586,11 @@ Namespace MGCDataSetTableAdapters
                     ByVal IsNoLeathal As Global.System.Nullable(Of Double),  _
                     ByVal IsClassIII As Global.System.Nullable(Of Integer),  _
                     ByVal ClassIII_owner As String,  _
-                    ByVal isCompetition As Global.System.Nullable(Of Double)) As Integer
+                    ByVal isCompetition As Global.System.Nullable(Of Double),  _
+                    ByVal Rating As Global.System.Nullable(Of Integer),  _
+                    ByVal ToSell As Boolean,  _
+                    ByVal GunSmithJob As Boolean,  _
+                    ByVal ForCollecting As Boolean) As Integer
             If (OID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(OID.Value,Integer)
             Else
@@ -38820,6 +40861,14 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(53).Value = Global.System.DBNull.Value
             End If
+            If (Rating.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(54).Value = CType(Rating.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(54).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(55).Value = CType(ToSell,Boolean)
+            Me.Adapter.InsertCommand.Parameters(56).Value = CType(GunSmithJob,Boolean)
+            Me.Adapter.InsertCommand.Parameters(57).Value = CType(ForCollecting,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -38894,6 +40943,10 @@ Namespace MGCDataSetTableAdapters
                     ByVal IsClassIII As Global.System.Nullable(Of Integer),  _
                     ByVal ClassIII_owner As String,  _
                     ByVal isCompetition As Global.System.Nullable(Of Double),  _
+                    ByVal Rating As Global.System.Nullable(Of Integer),  _
+                    ByVal ToSell As Boolean,  _
+                    ByVal GunSmithJob As Boolean,  _
+                    ByVal ForCollecting As Boolean,  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_OID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_MID As Global.System.Nullable(Of Integer),  _
@@ -38946,7 +40999,11 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_IsNoLeathal As Global.System.Nullable(Of Double),  _
                     ByVal Original_IsClassIII As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ClassIII_owner As String,  _
-                    ByVal Original_isCompetition As Global.System.Nullable(Of Double)) As Integer
+                    ByVal Original_isCompetition As Global.System.Nullable(Of Double),  _
+                    ByVal Original_Rating As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ToSell As Boolean,  _
+                    ByVal Original_GunSmithJob As Boolean,  _
+                    ByVal Original_ForCollecting As Boolean) As Integer
             If (OID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(OID.Value,Integer)
             Else
@@ -39217,371 +41274,392 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_ID,Integer)
+            If (Rating.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Rating.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(55).Value = CType(ToSell,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(56).Value = CType(GunSmithJob,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(ForCollecting,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_ID,Integer)
             If (Original_OID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_OID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_OID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            End If
-            If (Original_MID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_MID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
-            End If
-            If (Original_FullName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_FullName,String)
             End If
-            If (Original_ModelName Is Nothing) Then
+            If (Original_MID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_MID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ModelName,String)
             End If
-            If (Original_ModelID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ModelID.Value,Integer)
-            Else
+            If (Original_FullName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_FullName,String)
             End If
-            If (Original_SerialNumber Is Nothing) Then
+            If (Original_ModelName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_SerialNumber,String)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_ModelName,String)
             End If
-            If (Original_Type Is Nothing) Then
+            If (Original_ModelID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_ModelID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_Type,String)
             End If
-            If (Original_Caliber Is Nothing) Then
+            If (Original_SerialNumber Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_Caliber,String)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_SerialNumber,String)
             End If
-            If (Original_Finish Is Nothing) Then
+            If (Original_Type Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Finish,String)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_Type,String)
             End If
-            If (Original_Condition Is Nothing) Then
+            If (Original_Caliber Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_Caliber,String)
             End If
-            If (Original_CustomID Is Nothing) Then
+            If (Original_Finish Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_CustomID,String)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_Finish,String)
             End If
-            If (Original_NatID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_NatID.Value,Integer)
-            Else
+            If (Original_Condition Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
-            End If
-            If (Original_GripID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_GripID.Value,Integer)
             Else
+                Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_Condition,String)
+            End If
+            If (Original_CustomID Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_CustomID,String)
             End If
-            If (Original_Qty.HasValue = true) Then
+            If (Original_NatID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_Qty.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_NatID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
             End If
-            If (Original_Weight Is Nothing) Then
+            If (Original_GripID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_GripID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_Weight,String)
             End If
-            If (Original_Height Is Nothing) Then
+            If (Original_Qty.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_Qty.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_Height,String)
             End If
-            If (Original_StockType Is Nothing) Then
+            If (Original_Weight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_StockType,String)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_Weight,String)
             End If
-            If (Original_BarrelLength Is Nothing) Then
+            If (Original_Height Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(89).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(90).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(89).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_BarrelLength,String)
+                Me.Adapter.UpdateCommand.Parameters(90).Value = CType(Original_Height,String)
             End If
-            If (Original_BarrelWidth Is Nothing) Then
+            If (Original_StockType Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(91).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(92).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(91).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_BarrelWidth,String)
+                Me.Adapter.UpdateCommand.Parameters(92).Value = CType(Original_StockType,String)
             End If
-            If (Original_BarrelHeight Is Nothing) Then
+            If (Original_BarrelLength Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(93).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(94).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(93).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_BarrelHeight,String)
+                Me.Adapter.UpdateCommand.Parameters(94).Value = CType(Original_BarrelLength,String)
             End If
-            If (Original_Action Is Nothing) Then
+            If (Original_BarrelWidth Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(95).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(96).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(95).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_Action,String)
+                Me.Adapter.UpdateCommand.Parameters(96).Value = CType(Original_BarrelWidth,String)
             End If
-            If (Original_Feedsystem Is Nothing) Then
+            If (Original_BarrelHeight Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(97).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(98).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(97).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_Feedsystem,String)
+                Me.Adapter.UpdateCommand.Parameters(98).Value = CType(Original_BarrelHeight,String)
             End If
-            If (Original_Sights Is Nothing) Then
+            If (Original_Action Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(99).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(100).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(99).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_Sights,String)
+                Me.Adapter.UpdateCommand.Parameters(100).Value = CType(Original_Action,String)
             End If
-            If (Original_PurchasedPrice Is Nothing) Then
+            If (Original_Feedsystem Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(101).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(102).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(101).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_PurchasedPrice,String)
+                Me.Adapter.UpdateCommand.Parameters(102).Value = CType(Original_Feedsystem,String)
             End If
-            If (Original_PurchasedFrom Is Nothing) Then
+            If (Original_Sights Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(103).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(104).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(103).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_PurchasedFrom,String)
+                Me.Adapter.UpdateCommand.Parameters(104).Value = CType(Original_Sights,String)
             End If
-            If (Original_AppraisedValue Is Nothing) Then
+            If (Original_PurchasedPrice Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(105).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(106).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(105).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_AppraisedValue,String)
+                Me.Adapter.UpdateCommand.Parameters(106).Value = CType(Original_PurchasedPrice,String)
             End If
-            If (Original_AppraisalDate Is Nothing) Then
+            If (Original_PurchasedFrom Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(107).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(108).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(107).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_AppraisalDate,String)
+                Me.Adapter.UpdateCommand.Parameters(108).Value = CType(Original_PurchasedFrom,String)
             End If
-            If (Original_AppraisedBy Is Nothing) Then
+            If (Original_AppraisedValue Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(109).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(110).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(109).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_AppraisedBy,String)
+                Me.Adapter.UpdateCommand.Parameters(110).Value = CType(Original_AppraisedValue,String)
             End If
-            If (Original_InsuredValue Is Nothing) Then
+            If (Original_AppraisalDate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(111).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(112).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(111).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_InsuredValue,String)
+                Me.Adapter.UpdateCommand.Parameters(112).Value = CType(Original_AppraisalDate,String)
             End If
-            If (Original_StorageLocation Is Nothing) Then
+            If (Original_AppraisedBy Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(113).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(114).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(113).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_StorageLocation,String)
+                Me.Adapter.UpdateCommand.Parameters(114).Value = CType(Original_AppraisedBy,String)
             End If
-            If (Original_HasAss.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_HasAss.Value,Integer)
-            Else
+            If (Original_InsuredValue Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(115).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(116).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(115).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(116).Value = CType(Original_InsuredValue,String)
             End If
-            If (Original_Produced Is Nothing) Then
+            If (Original_StorageLocation Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(117).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(118).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(117).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_Produced,String)
+                Me.Adapter.UpdateCommand.Parameters(118).Value = CType(Original_StorageLocation,String)
             End If
-            If (Original_dt.HasValue = true) Then
+            If (Original_HasAss.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(119).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_dt.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(120).Value = CType(Original_HasAss.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(119).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(120).Value = Global.System.DBNull.Value
             End If
-            If (Original_ItemSold.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_ItemSold.Value,Integer)
-            Else
+            If (Original_Produced Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(121).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(122).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(121).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(122).Value = CType(Original_Produced,String)
             End If
-            If (Original_SID.HasValue = true) Then
+            If (Original_dt.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(123).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_SID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(124).Value = CType(Original_dt.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(123).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(124).Value = Global.System.DBNull.Value
             End If
-            If (Original_BID.HasValue = true) Then
+            If (Original_ItemSold.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(125).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_BID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(126).Value = CType(Original_ItemSold.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(125).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(126).Value = Global.System.DBNull.Value
             End If
-            If (Original_dtSold.HasValue = true) Then
+            If (Original_SID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(127).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_dtSold.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(128).Value = CType(Original_SID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(127).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(128).Value = Global.System.DBNull.Value
             End If
-            If (Original_PetLoads Is Nothing) Then
+            If (Original_BID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_BID.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(129).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(130).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(129).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(130).Value = CType(Original_PetLoads,String)
             End If
-            If (Original_dtp.HasValue = true) Then
+            If (Original_dtSold.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(131).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_dtp.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(132).Value = CType(Original_dtSold.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(131).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(132).Value = Global.System.DBNull.Value
             End If
-            If (Original_IsCandR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_IsCandR.Value,Integer)
-            Else
+            If (Original_PetLoads Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(133).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(134).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(133).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(134).Value = CType(Original_PetLoads,String)
             End If
-            If (Original_ReManDT.HasValue = true) Then
+            If (Original_dtp.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(135).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_ReManDT.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(136).Value = CType(Original_dtp.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(135).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(136).Value = Global.System.DBNull.Value
             End If
-            If (Original_POI Is Nothing) Then
+            If (Original_IsCandR.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_IsCandR.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(137).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(138).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(137).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(138).Value = CType(Original_POI,String)
             End If
-            If (Original_IsInBoundBook.HasValue = true) Then
+            If (Original_ReManDT.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(139).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_IsInBoundBook.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(140).Value = CType(Original_ReManDT.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(139).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(140).Value = Global.System.DBNull.Value
             End If
-            If (Original_TwistRate Is Nothing) Then
+            If (Original_POI Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(141).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(142).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(141).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_TwistRate,String)
+                Me.Adapter.UpdateCommand.Parameters(142).Value = CType(Original_POI,String)
             End If
-            If (Original_lbs_trigger Is Nothing) Then
+            If (Original_IsInBoundBook.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_IsInBoundBook.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(143).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(144).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(143).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(144).Value = CType(Original_lbs_trigger,String)
             End If
-            If (Original_Caliber3 Is Nothing) Then
+            If (Original_TwistRate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(145).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(146).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(145).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_Caliber3,String)
+                Me.Adapter.UpdateCommand.Parameters(146).Value = CType(Original_TwistRate,String)
             End If
-            If (Original_Classification Is Nothing) Then
+            If (Original_lbs_trigger Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(147).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(148).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(147).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_Classification,String)
+                Me.Adapter.UpdateCommand.Parameters(148).Value = CType(Original_lbs_trigger,String)
             End If
-            If (Original_DateofCR.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_DateofCR.Value,Date)
-            Else
+            If (Original_Caliber3 Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(149).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(150).Value = Global.System.DBNull.Value
-            End If
-            If (Original_IsNoLeathal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_IsNoLeathal.Value,Double)
             Else
+                Me.Adapter.UpdateCommand.Parameters(149).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(150).Value = CType(Original_Caliber3,String)
+            End If
+            If (Original_Classification Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(151).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(152).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(151).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(152).Value = CType(Original_Classification,String)
             End If
-            If (Original_IsClassIII.HasValue = true) Then
+            If (Original_DateofCR.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(153).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_IsClassIII.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(154).Value = CType(Original_DateofCR.Value,Date)
             Else
                 Me.Adapter.UpdateCommand.Parameters(153).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(154).Value = Global.System.DBNull.Value
             End If
-            If (Original_ClassIII_owner Is Nothing) Then
+            If (Original_IsNoLeathal.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_IsNoLeathal.Value,Double)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(155).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(156).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(155).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(156).Value = CType(Original_ClassIII_owner,String)
             End If
-            If (Original_isCompetition.HasValue = true) Then
+            If (Original_IsClassIII.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(157).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_isCompetition.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(158).Value = CType(Original_IsClassIII.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(157).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(158).Value = Global.System.DBNull.Value
             End If
+            If (Original_ClassIII_owner Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(159).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(160).Value = CType(Original_ClassIII_owner,String)
+            End If
+            If (Original_isCompetition.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = CType(Original_isCompetition.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(161).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(162).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Rating.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = CType(Original_Rating.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(163).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(164).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(165).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(166).Value = CType(Original_ToSell,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(167).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(168).Value = CType(Original_GunSmithJob,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(169).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(170).Value = CType(Original_ForCollecting,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -39941,6 +42019,9 @@ Namespace MGCDataSetTableAdapters
             tableMapping.ColumnMappings.Add("PurValue", "PurValue")
             tableMapping.ColumnMappings.Add("AppValue", "AppValue")
             tableMapping.ColumnMappings.Add("CIV", "CIV")
+            tableMapping.ColumnMappings.Add("IC", "IC")
+            tableMapping.ColumnMappings.Add("GALID", "GALID")
+            tableMapping.ColumnMappings.Add("IsLinked", "IsLinked")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -39950,7 +42031,9 @@ Namespace MGCDataSetTableAdapters
                 "rialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NUL"& _ 
                 "L) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? "& _ 
                 "= 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS N"& _ 
-                "ULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))"
+                "ULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((?"& _ 
+                " = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `GALID` IS NULL) OR (`GALI"& _ 
+                "D` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLinked` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -39971,11 +42054,17 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gun_Collection_Accessories` (`GID`, `Manufacturer`, `Model`, `Serial"& _ 
-                "Number`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`) VALUES (?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "Number`, `Condition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `GALI"& _ 
+                "D`, `IsLinked`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -39987,17 +42076,23 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Gun_Collection_Accessories` SET `GID` = ?, `Manufacturer` = ?, `Model` = "& _ 
                 "?, `SerialNumber` = ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, "& _ 
-                "`AppValue` = ?, `CIV` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`"& _ 
-                "GID` = ?)) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufacturer` = ?)) AND "& _ 
-                "((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `SerialNumber` IS"& _ 
-                " NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NULL) OR (`Condit"& _ 
-                "ion` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? = 1 AND `PurVa"& _ 
-                "lue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS NULL) OR (`AppV"& _ 
-                "alue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)))"
+                "`AppValue` = ?, `CIV` = ?, `IC` = ?, `GALID` = ?, `IsLinked` = ? WHERE ((`ID` = "& _ 
+                "?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AND `Manufacturer`"& _ 
+                " IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` "& _ 
+                "= ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? ="& _ 
+                " 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL)"& _ 
+                " OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND (("& _ 
+                "? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL"& _ 
+                ") OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `"& _ 
+                "GALID` IS NULL) OR (`GALID` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`IsLin"& _ 
+                "ked` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -40009,6 +42104,9 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -40028,6 +42126,12 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GALID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GALID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -40044,12 +42148,13 @@ Namespace MGCDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValu"& _ 
-                "e,AppValue,CIV FROM Gun_Collection_Accessories"
+                "e,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT ID, GID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValu"& _ 
-                "e,AppValue,CIV FROM Gun_Collection_Accessories where GID=@GID"
+                "e,AppValue,CIV, IC, GALID, IsLinked FROM Gun_Collection_Accessories where GID=@G"& _ 
+                "ID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("@GID", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
@@ -40144,7 +42249,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Integer), ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Integer), ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Integer), ByVal Original_GALID As Global.System.Nullable(Of Integer), ByVal Original_IsLinked As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_GID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -40209,6 +42314,22 @@ Namespace MGCDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_GALID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_GALID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -40228,7 +42349,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal GID As Global.System.Nullable(Of Integer), ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal GID As Global.System.Nullable(Of Integer), ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer), ByVal IC As Global.System.Nullable(Of Integer), ByVal GALID As Global.System.Nullable(Of Integer), ByVal IsLinked As Boolean) As Integer
             If (GID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(GID.Value,Integer)
             Else
@@ -40279,6 +42400,17 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
+            If (IC.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(IC.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (GALID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(GALID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(12).Value = CType(IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -40309,6 +42441,9 @@ Namespace MGCDataSetTableAdapters
                     ByVal PurValue As String,  _
                     ByVal AppValue As Global.System.Nullable(Of Double),  _
                     ByVal CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal IC As Global.System.Nullable(Of Integer),  _
+                    ByVal GALID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsLinked As Boolean,  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_GID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Manufacturer As String,  _
@@ -40318,7 +42453,10 @@ Namespace MGCDataSetTableAdapters
                     ByVal Original_Use As String,  _
                     ByVal Original_PurValue As String,  _
                     ByVal Original_AppValue As Global.System.Nullable(Of Double),  _
-                    ByVal Original_CIV As Global.System.Nullable(Of Integer)) As Integer
+                    ByVal Original_CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IC As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_GALID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsLinked As Boolean) As Integer
             If (GID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(GID.Value,Integer)
             Else
@@ -40369,70 +42507,97 @@ Namespace MGCDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID,Integer)
-            If (Original_GID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_GID.Value,Integer)
+            If (IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(IC.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (GALID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(GALID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(IsLinked,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ID,Integer)
+            If (Original_GID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_GID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Manufacturer Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Manufacturer,String)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Manufacturer,String)
             End If
             If (Original_Model Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Model,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Model,String)
             End If
             If (Original_SerialNumber Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SerialNumber,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_SerialNumber,String)
             End If
             If (Original_Condition Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Condition,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Condition,String)
             End If
             If (Original_Use Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Use,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Use,String)
             End If
             If (Original_PurValue Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_PurValue,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_PurValue,String)
             End If
             If (Original_AppValue.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_AppValue.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_AppValue.Value,Double)
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
             If (Original_CIV.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_CIV.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_CIV.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+            End If
+            If (Original_GALID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_GALID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_IsLinked,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -47451,7 +49616,7 @@ Namespace MGCDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(8) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(12) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT     cStr(Gun_Manufacturer.Brand & Chr(10) & Gun_Collection.Importer) AS Br"& _ 
@@ -47626,7 +49791,8 @@ Namespace MGCDataSetTableAdapters
                 " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
                 "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
                 "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
-                ") where IsInBoundBook=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Gun_Collection.dtp"
+                ") where IsInBoundBook=1 and (Gun_Collection.GunSmithJob = true) ORDER BY dtp ASC"& _ 
+                ""
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(8) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(8).Connection = Me.Connection
@@ -47648,8 +49814,97 @@ Namespace MGCDataSetTableAdapters
                 " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
                 "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
                 "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
-                ") where IsInBoundBook=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Gun_Collection.Type ASC"
+                ") where IsInBoundBook=1 and (ItemSold = 0) AND (IsNoLeathal = 0) ORDER BY dtp AS"& _ 
+                "C"
             Me._commandCollection(8).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(9) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(9).Connection = Me.Connection
+            Me._commandCollection(9).CommandText = "SELECT     cStr(Gun_Manufacturer.Brand & Chr(10) & Gun_Collection.Importer) AS Br"& _ 
+                "and, Gun_Model.Model, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      cStr([Gun_Shop_Details.Name] & ','"& _ 
+                " & [Gun_Shop_Details.Address1] & '  ' & [Gun_Shop_Details.City] & ',' & [Gun_Sho"& _ 
+                "p_Details.State]) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      AS Gun_Shop_Name,Gun_Shop_Details.Lic "& _ 
+                "as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "         cStr(Gun_Collection_SoldTo.Name & ',' & Gun_Collection_SoldTo.Address1 "& _ 
+                "& '   ' & Gun_Collection_SoldTo.City & ',' & Gun_Collection_SoldTo.State) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                  AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic"& _ 
+                " as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun"& _ 
+                "_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "               Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dt"& _ 
+                "p) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         ("& _ 
+                "(((Gun_Collection INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Manufacturer ON Gun_Manu"& _ 
+                "facturer.ID = Gun_Collection.MID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Model ON"& _ 
+                " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
+                "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
+                ") where IsInBoundBook=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Gun_Collection.dtp"
+            Me._commandCollection(9).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(10) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(10).Connection = Me.Connection
+            Me._commandCollection(10).CommandText = "SELECT     cStr(Gun_Manufacturer.Brand & Chr(10) & Gun_Collection.Importer) AS Br"& _ 
+                "and, Gun_Model.Model, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      cStr([Gun_Shop_Details.Name] & ','"& _ 
+                " & [Gun_Shop_Details.Address1] & '  ' & [Gun_Shop_Details.City] & ',' & [Gun_Sho"& _ 
+                "p_Details.State]) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      AS Gun_Shop_Name,Gun_Shop_Details.Lic "& _ 
+                "as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "         cStr(Gun_Collection_SoldTo.Name & ',' & Gun_Collection_SoldTo.Address1 "& _ 
+                "& '   ' & Gun_Collection_SoldTo.City & ',' & Gun_Collection_SoldTo.State) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                  AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic"& _ 
+                " as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun"& _ 
+                "_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "               Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dt"& _ 
+                "p) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         ("& _ 
+                "(((Gun_Collection INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Manufacturer ON Gun_Manu"& _ 
+                "facturer.ID = Gun_Collection.MID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Model ON"& _ 
+                " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
+                "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
+                ") where IsInBoundBook=1 and (Gun_Collection.ToSell = true) ORDER BY dtp ASC"
+            Me._commandCollection(10).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(11) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(11).Connection = Me.Connection
+            Me._commandCollection(11).CommandText = "SELECT     cStr(Gun_Manufacturer.Brand & Chr(10) & Gun_Collection.Importer) AS Br"& _ 
+                "and, Gun_Model.Model, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      cStr([Gun_Shop_Details.Name] & ','"& _ 
+                " & [Gun_Shop_Details.Address1] & '  ' & [Gun_Shop_Details.City] & ',' & [Gun_Sho"& _ 
+                "p_Details.State]) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      AS Gun_Shop_Name,Gun_Shop_Details.Lic "& _ 
+                "as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "         cStr(Gun_Collection_SoldTo.Name & ',' & Gun_Collection_SoldTo.Address1 "& _ 
+                "& '   ' & Gun_Collection_SoldTo.City & ',' & Gun_Collection_SoldTo.State) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                  AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic"& _ 
+                " as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun"& _ 
+                "_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "               Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dt"& _ 
+                "p) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         ("& _ 
+                "(((Gun_Collection INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Manufacturer ON Gun_Manu"& _ 
+                "facturer.ID = Gun_Collection.MID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Model ON"& _ 
+                " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
+                "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
+                ") where IsInBoundBook=1 and (Gun_Collection.ItemSold <> 0) ORDER BY dtp ASC"
+            Me._commandCollection(11).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(12) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(12).Connection = Me.Connection
+            Me._commandCollection(12).CommandText = "SELECT     cStr(Gun_Manufacturer.Brand & Chr(10) & Gun_Collection.Importer) AS Br"& _ 
+                "and, Gun_Model.Model, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      cStr([Gun_Shop_Details.Name] & ','"& _ 
+                " & [Gun_Shop_Details.Address1] & '  ' & [Gun_Shop_Details.City] & ',' & [Gun_Sho"& _ 
+                "p_Details.State]) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      AS Gun_Shop_Name,Gun_Shop_Details.Lic "& _ 
+                "as FFL,Gun_Shop_Details.Name as GSName, Gun_Collection.FullName, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "         cStr(Gun_Collection_SoldTo.Name & ',' & Gun_Collection_SoldTo.Address1 "& _ 
+                "& '   ' & Gun_Collection_SoldTo.City & ',' & Gun_Collection_SoldTo.State) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                  AS Gun_Collection_SoldTo_FullDetails,Gun_Collection_SoldTo.lic"& _ 
+                " as B_FFL, Gun_Collection_SoldTo.Name as BuyerName,Gun_Collection.ModelName, Gun"& _ 
+                "_Collection.SerialNumber, Gun_Collection.Type, Gun_Collection.Caliber, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "               Gun_Collection.dt, Gun_Collection.dtSold, cdate(Gun_Collection.dt"& _ 
+                "p) AS dtp, Gun_Collection_SoldTo.DOB, Gun_Collection_SoldTo.Dlic, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo.Resident, Gun_Collection.IsCandR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         ("& _ 
+                "(((Gun_Collection INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Manufacturer ON Gun_Manu"& _ 
+                "facturer.ID = Gun_Collection.MID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Model ON"& _ 
+                " Gun_Model.ID = Gun_Collection.ModelID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      Gun_Sh"& _ 
+                "op_Details ON Gun_Shop_Details.ID = Gun_Collection.SID) INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "          Gun_Collection_SoldTo ON Gun_Collection_SoldTo.ID = Gun_Collection.BID"& _ 
+                ") where IsInBoundBook=1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Gun_Collection.Type ASC"
+            Me._commandCollection(12).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -47824,8 +50079,56 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByPurchaseDate(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
+        Public Overloads Overridable Function FillByGunsmithProject(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByGunsmithProject() As MGCDataSet.BoundBooksDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByInInventory(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByInInventory() As MGCDataSet.BoundBooksDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByPurchaseDate(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -47838,7 +50141,55 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByPurchaseDate() As MGCDataSet.BoundBooksDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(7)
+            Me.Adapter.SelectCommand = Me.CommandCollection(9)
+            Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByReadyToSell(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByReadyToSell() As MGCDataSet.BoundBooksDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(10)
+            Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBySoldOnly(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBySoldOnly() As MGCDataSet.BoundBooksDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(11)
             Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -47849,7 +50200,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByType(ByVal dataTable As MGCDataSet.BoundBooksDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -47862,7 +50213,7 @@ Namespace MGCDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByType() As MGCDataSet.BoundBooksDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(8)
+            Me.Adapter.SelectCommand = Me.CommandCollection(12)
             Dim dataTable As MGCDataSet.BoundBooksDataTable = New MGCDataSet.BoundBooksDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -49466,16 +51817,18 @@ Namespace MGCDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DN", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DN", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `CR_TableList` (`Tables`, `DN`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `CR_TableList` (`ID`, `Tables`, `DN`) VALUES (?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tables", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tables", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DN", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `CR_TableList` SET `Tables` = ?, `DN` = ? WHERE ((`ID` = ?) AND ((? = 1 AN"& _ 
-                "D `Tables` IS NULL) OR (`Tables` = ?)) AND ((? = 1 AND `DN` IS NULL) OR (`DN` = "& _ 
-                "?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `CR_TableList` SET `ID` = ?, `Tables` = ?, `DN` = ? WHERE ((`ID` = ?) AND "& _ 
+                "((? = 1 AND `Tables` IS NULL) OR (`Tables` = ?)) AND ((? = 1 AND `DN` IS NULL) O"& _ 
+                "R (`DN` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tables", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tables", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DN", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DN", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -49558,8 +51911,12 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Tables As String, ByVal Original_DN As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Global.System.Nullable(Of Integer), ByVal Original_Tables As String, ByVal Original_DN As String) As Integer
+            If (Original_ID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
             If (Original_Tables Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
@@ -49593,16 +51950,21 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Tables As String, ByVal DN As String) As Integer
-            If (Tables Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+        Public Overloads Overridable Function Insert(ByVal ID As Global.System.Nullable(Of Integer), ByVal Tables As String, ByVal DN As String) As Integer
+            If (ID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Tables,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DN Is Nothing) Then
+            If (Tables Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DN,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Tables,String)
+            End If
+            If (DN Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DN,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -49623,31 +51985,40 @@ Namespace MGCDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Tables As String, ByVal DN As String, ByVal Original_ID As Integer, ByVal Original_Tables As String, ByVal Original_DN As String) As Integer
-            If (Tables Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+        Public Overloads Overridable Function Update(ByVal ID As Global.System.Nullable(Of Integer), ByVal Tables As String, ByVal DN As String, ByVal Original_ID As Global.System.Nullable(Of Integer), ByVal Original_Tables As String, ByVal Original_DN As String) As Integer
+            If (ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Tables,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (DN Is Nothing) Then
+            If (Tables Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DN,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Tables,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ID,Integer)
-            If (Original_Tables Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            If (DN Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Tables,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DN,String)
+            End If
+            If (Original_ID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Tables Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Tables,String)
             End If
             If (Original_DN Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_DN,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_DN,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -49662,6 +52033,14 @@ Namespace MGCDataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal Tables As String, ByVal DN As String, ByVal Original_ID As Global.System.Nullable(Of Integer), ByVal Original_Tables As String, ByVal Original_DN As String) As Integer
+            Return Me.Update(Original_ID, Tables, DN, Original_ID, Original_Tables, Original_DN)
         End Function
     End Class
     
@@ -54784,6 +57163,1034 @@ Namespace MGCDataSetTableAdapters
             Dim dataTable As MGCDataSet.qry_DocsAndLinksDataTable = New MGCDataSet.qry_DocsAndLinksDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class General_AccessoriesTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "General_Accessories"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("Manufacturer", "Manufacturer")
+            tableMapping.ColumnMappings.Add("Model", "Model")
+            tableMapping.ColumnMappings.Add("SerialNumber", "SerialNumber")
+            tableMapping.ColumnMappings.Add("Condition", "Condition")
+            tableMapping.ColumnMappings.Add("Notes", "Notes")
+            tableMapping.ColumnMappings.Add("Use", "Use")
+            tableMapping.ColumnMappings.Add("PurValue", "PurValue")
+            tableMapping.ColumnMappings.Add("AppValue", "AppValue")
+            tableMapping.ColumnMappings.Add("CIV", "CIV")
+            tableMapping.ColumnMappings.Add("IC", "IC")
+            tableMapping.ColumnMappings.Add("sync_lastupdate", "sync_lastupdate")
+            tableMapping.ColumnMappings.Add("IsLinked", "IsLinked")
+            tableMapping.ColumnMappings.Add("FAID", "FAID")
+            tableMapping.ColumnMappings.Add("IsGALinked", "IsGALinked")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `General_Accessories` WHERE ((`ID` = ?) AND ((? = 1 AND `Manufacturer"& _ 
+                "` IS NULL) OR (`Manufacturer` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model`"& _ 
+                " = ?)) AND ((? = 1 AND `SerialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? "& _ 
+                "= 1 AND `Condition` IS NULL) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL"& _ 
+                ") OR (`Use` = ?)) AND ((? = 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ("& _ 
+                "(? = 1 AND `AppValue` IS NULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NUL"& _ 
+                "L) OR (`CIV` = ?)) AND ((? = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND "& _ 
+                "`IsLinked` IS NULL) OR (`IsLinked` = ?)) AND ((? = 1 AND `FAID` IS NULL) OR (`FA"& _ 
+                "ID` = ?)) AND ((? = 1 AND `IsGALinked` IS NULL) OR (`IsGALinked` = ?)) AND ((? ="& _ 
+                " 1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Manufacturer", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SerialNumber", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SerialNumber", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Condition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Condition", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Use", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Use", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PurValue", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_AppValue", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsGALinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsGALinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `General_Accessories` (`Manufacturer`, `Model`, `SerialNumber`, `Cond"& _ 
+                "ition`, `Notes`, `Use`, `PurValue`, `AppValue`, `CIV`, `IC`, `IsLinked`, `FAID`,"& _ 
+                " `IsGALinked`, `sync_lastupdate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,"& _ 
+                " ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SerialNumber", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Condition", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Notes", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Use", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsGALinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `General_Accessories` SET `Manufacturer` = ?, `Model` = ?, `SerialNumber` "& _ 
+                "= ?, `Condition` = ?, `Notes` = ?, `Use` = ?, `PurValue` = ?, `AppValue` = ?, `C"& _ 
+                "IV` = ?, `IC` = ?, `IsLinked` = ?, `FAID` = ?, `IsGALinked` = ?, `sync_lastupdat"& _ 
+                "e` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `Manufacturer` IS NULL) OR (`Manufactur"& _ 
+                "er` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `Se"& _ 
+                "rialNumber` IS NULL) OR (`SerialNumber` = ?)) AND ((? = 1 AND `Condition` IS NUL"& _ 
+                "L) OR (`Condition` = ?)) AND ((? = 1 AND `Use` IS NULL) OR (`Use` = ?)) AND ((? "& _ 
+                "= 1 AND `PurValue` IS NULL) OR (`PurValue` = ?)) AND ((? = 1 AND `AppValue` IS N"& _ 
+                "ULL) OR (`AppValue` = ?)) AND ((? = 1 AND `CIV` IS NULL) OR (`CIV` = ?)) AND ((?"& _ 
+                " = 1 AND `IC` IS NULL) OR (`IC` = ?)) AND ((? = 1 AND `IsLinked` IS NULL) OR (`I"& _ 
+                "sLinked` = ?)) AND ((? = 1 AND `FAID` IS NULL) OR (`FAID` = ?)) AND ((? = 1 AND "& _ 
+                "`IsGALinked` IS NULL) OR (`IsGALinked` = ?)) AND ((? = 1 AND `sync_lastupdate` I"& _ 
+                "S NULL) OR (`sync_lastupdate` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SerialNumber", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Condition", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Notes", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Use", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsGALinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Manufacturer", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Manufacturer", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Manufacturer", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Model", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Model", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Model", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_SerialNumber", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_SerialNumber", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SerialNumber", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Condition", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Condition", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Condition", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Use", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Use", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Use", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PurValue", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PurValue", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PurValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_AppValue", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AppValue", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AppValue", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CIV", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CIV", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsLinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsLinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsLinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_FAID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "FAID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IsGALinked", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IsGALinked", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IsGALinked", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
+            Me._connection.ConnectionString = Global.BSMyGunCollection.My.MySettings.Default.MGCConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID, Manufacturer, Model, SerialNumber, Condition, Notes, Use, PurValue, Ap"& _ 
+                "pValue, CIV, IC, IsLinked, FAID, IsGALinked, sync_lastupdate FROM General_Access"& _ 
+                "ories"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT AppValue, CIV, Condition, FAID, IC, ID, IsGALinked, IsLinked, Manufacturer"& _ 
+                ", Model, Notes, PurValue, SerialNumber, Use, sync_lastupdate FROM General_Access"& _ 
+                "ories"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As MGCDataSet.General_AccessoriesDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As MGCDataSet.General_AccessoriesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MGCDataSet.General_AccessoriesDataTable = New MGCDataSet.General_AccessoriesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillBy(ByVal dataTable As MGCDataSet.General_AccessoriesDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As MGCDataSet.General_AccessoriesDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As MGCDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "General_Accessories")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Manufacturer As String, ByVal Original_Model As String, ByVal Original_SerialNumber As String, ByVal Original_Condition As String, ByVal Original_Use As String, ByVal Original_PurValue As String, ByVal Original_AppValue As Global.System.Nullable(Of Double), ByVal Original_CIV As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Integer), ByVal Original_IsLinked As Boolean, ByVal Original_FAID As Global.System.Nullable(Of Integer), ByVal Original_IsGALinked As Boolean, ByVal Original_sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            If (Original_Manufacturer Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Manufacturer,String)
+            End If
+            If (Original_Model Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Model,String)
+            End If
+            If (Original_SerialNumber Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_SerialNumber,String)
+            End If
+            If (Original_Condition Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Condition,String)
+            End If
+            If (Original_Use Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Use,String)
+            End If
+            If (Original_PurValue Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_PurValue,String)
+            End If
+            If (Original_AppValue.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_AppValue.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_CIV.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_CIV.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_IsLinked,Boolean)
+            If (Original_FAID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_FAID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_IsGALinked,Boolean)
+            If (Original_sync_lastupdate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = CType(Original_sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal Manufacturer As String, ByVal Model As String, ByVal SerialNumber As String, ByVal Condition As String, ByVal Notes As String, ByVal Use As String, ByVal PurValue As String, ByVal AppValue As Global.System.Nullable(Of Double), ByVal CIV As Global.System.Nullable(Of Integer), ByVal IC As Global.System.Nullable(Of Integer), ByVal IsLinked As Boolean, ByVal FAID As Global.System.Nullable(Of Integer), ByVal IsGALinked As Boolean, ByVal sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
+            If (Manufacturer Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Manufacturer,String)
+            End If
+            If (Model Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Model,String)
+            End If
+            If (SerialNumber Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(SerialNumber,String)
+            End If
+            If (Condition Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Condition,String)
+            End If
+            If (Notes Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Notes,String)
+            End If
+            If (Use Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Use,String)
+            End If
+            If (PurValue Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(PurValue,String)
+            End If
+            If (AppValue.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(AppValue.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (CIV.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(CIV.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (IC.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(IC.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(IsLinked,Boolean)
+            If (FAID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(11).Value = CType(FAID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(12).Value = CType(IsGALinked,Boolean)
+            If (sync_lastupdate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(13).Value = CType(sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal Manufacturer As String,  _
+                    ByVal Model As String,  _
+                    ByVal SerialNumber As String,  _
+                    ByVal Condition As String,  _
+                    ByVal Notes As String,  _
+                    ByVal Use As String,  _
+                    ByVal PurValue As String,  _
+                    ByVal AppValue As Global.System.Nullable(Of Double),  _
+                    ByVal CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal IC As Global.System.Nullable(Of Integer),  _
+                    ByVal IsLinked As Boolean,  _
+                    ByVal FAID As Global.System.Nullable(Of Integer),  _
+                    ByVal IsGALinked As Boolean,  _
+                    ByVal sync_lastupdate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ID As Integer,  _
+                    ByVal Original_Manufacturer As String,  _
+                    ByVal Original_Model As String,  _
+                    ByVal Original_SerialNumber As String,  _
+                    ByVal Original_Condition As String,  _
+                    ByVal Original_Use As String,  _
+                    ByVal Original_PurValue As String,  _
+                    ByVal Original_AppValue As Global.System.Nullable(Of Double),  _
+                    ByVal Original_CIV As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IC As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsLinked As Boolean,  _
+                    ByVal Original_FAID As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_IsGALinked As Boolean,  _
+                    ByVal Original_sync_lastupdate As Global.System.Nullable(Of Date)) As Integer
+            If (Manufacturer Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Manufacturer,String)
+            End If
+            If (Model Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Model,String)
+            End If
+            If (SerialNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(SerialNumber,String)
+            End If
+            If (Condition Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Condition,String)
+            End If
+            If (Notes Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Notes,String)
+            End If
+            If (Use Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Use,String)
+            End If
+            If (PurValue Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(PurValue,String)
+            End If
+            If (AppValue.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(AppValue.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (CIV.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(CIV.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(IC.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(IsLinked,Boolean)
+            If (FAID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(FAID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(IsGALinked,Boolean)
+            If (sync_lastupdate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_ID,Integer)
+            If (Original_Manufacturer Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Manufacturer,String)
+            End If
+            If (Original_Model Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Model,String)
+            End If
+            If (Original_SerialNumber Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_SerialNumber,String)
+            End If
+            If (Original_Condition Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Condition,String)
+            End If
+            If (Original_Use Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Use,String)
+            End If
+            If (Original_PurValue Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_PurValue,String)
+            End If
+            If (Original_AppValue.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_AppValue.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (Original_CIV.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_CIV.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (Original_IC.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_IC.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_IsLinked,Boolean)
+            If (Original_FAID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_FAID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_IsGALinked,Boolean)
+            If (Original_sync_lastupdate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_sync_lastupdate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class General_Accessories_LinkTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "General_Accessories_Link"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("GID", "GID")
+            tableMapping.ColumnMappings.Add("AID", "AID")
+            tableMapping.ColumnMappings.Add("sync_lastupdate", "sync_lastupdate")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `General_Accessories_Link` WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS"& _ 
+                " NULL) OR (`GID` = ?)) AND ((? = 1 AND `AID` IS NULL) OR (`AID` = ?)) AND ((? = "& _ 
+                "1 AND `sync_lastupdate` IS NULL) OR (`sync_lastupdate` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_AID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `General_Accessories_Link` (`GID`, `AID`, `sync_lastupdate`) VALUES ("& _ 
+                "?, ?, ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `General_Accessories_Link` SET `GID` = ?, `AID` = ?, `sync_lastupdate` = ?"& _ 
+                " WHERE ((`ID` = ?) AND ((? = 1 AND `GID` IS NULL) OR (`GID` = ?)) AND ((? = 1 AN"& _ 
+                "D `AID` IS NULL) OR (`AID` = ?)) AND ((? = 1 AND `sync_lastupdate` IS NULL) OR ("& _ 
+                "`sync_lastupdate` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("GID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("AID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_GID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_GID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "GID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_AID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_AID", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "AID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_sync_lastupdate", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "sync_lastupdate", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
+            Me._connection.ConnectionString = Global.BSMyGunCollection.My.MySettings.Default.MGCConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID, GID, AID, sync_lastupdate FROM General_Accessories_Link"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As MGCDataSet.General_Accessories_LinkDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As MGCDataSet.General_Accessories_LinkDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MGCDataSet.General_Accessories_LinkDataTable = New MGCDataSet.General_Accessories_LinkDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As MGCDataSet.General_Accessories_LinkDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As MGCDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "General_Accessories_Link")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Double), ByVal Original_AID As Global.System.Nullable(Of Double), ByVal Original_sync_lastupdate As Date) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            If (Original_GID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_GID.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_AID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_AID.Value,Double)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_sync_lastupdate,Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal GID As Global.System.Nullable(Of Double), ByVal AID As Global.System.Nullable(Of Double), ByVal sync_lastupdate As Date) As Integer
+            If (GID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(GID.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (AID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(AID.Value,Double)
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(sync_lastupdate,Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal GID As Global.System.Nullable(Of Double), ByVal AID As Global.System.Nullable(Of Double), ByVal sync_lastupdate As Date, ByVal Original_ID As Integer, ByVal Original_GID As Global.System.Nullable(Of Double), ByVal Original_AID As Global.System.Nullable(Of Double), ByVal Original_sync_lastupdate As Date) As Integer
+            If (GID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(GID.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (AID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(AID.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(sync_lastupdate,Date)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
+            If (Original_GID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_GID.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Original_AID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_AID.Value,Double)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_sync_lastupdate,Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
         End Function
     End Class
     

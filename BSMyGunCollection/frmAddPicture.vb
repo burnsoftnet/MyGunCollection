@@ -18,7 +18,11 @@ Public Class frmAddPicture
         Try
             OpenFileDialog1.FilterIndex = 3
             OpenFileDialog1.Filter = Pictures.FileFilterList
-            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then PictureBox1.Image = Image.FromFile(OpenFileDialog1.FileName)
+            If OpenFileDialog1.ShowDialog() <> DialogResult.Cancel Then
+                Dim file As String = OpenFileDialog1.FileName
+                OpenFileDialog1.Dispose()
+                PictureBox1.Image = Image.FromFile(file)
+            End If
         Catch ex As Exception
             Call LogError(Name, "btnBrowse.Click", Err.Number, ex.Message.ToString)
         End Try
@@ -40,8 +44,12 @@ Public Class frmAddPicture
             Dim sName As String = FluffContent(txtName.Text, " ")
             Dim sNotes As String = FluffContent(txtNotes.Text, " ")
             Dim errOut As String = ""
-            If Not Pictures.Save(DatabasePath,OpenFileDialog1.FileName,ApplicationPathData,Convert.ToInt32(ItemId),sName, sNotes, errOut) Then Throw New Exception(errOut)
-            
+            Dim newOrder As Integer = nudOrder.Value
+            If Not Pictures.Save(DatabasePath, OpenFileDialog1.FileName,
+                                 ApplicationPathData, Convert.ToInt32(ItemId),
+                                 sName, sNotes, errOut) Then Throw New Exception(errOut)
+            Dim picId = Pictures.GetLastPicture(DatabasePath, Convert.ToInt32(ItemId), errOut)
+            If Not Pictures.SetPictureOrder(DatabasePath, picId, newOrder, errOut) Then Throw New Exception(errOut)
             Cursor = Cursors.Arrow
             Enabled = True
             Close()
@@ -57,5 +65,23 @@ Public Class frmAddPicture
         End Try
         Cursor = Cursors.Arrow
         Enabled = True
+    End Sub
+
+    ''' <summary>
+    ''' Handles the Load event of the frmAddPicture control.
+    ''' </summary>
+    ''' <param name="sender">The source of the event.</param>
+    ''' <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    ''' <exception cref="System.Exception"></exception>
+    Private Sub frmAddPicture_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim errOut As String = ""
+
+        Try
+            Dim nextOrder As Integer = Pictures.GetNextOrderNumber(DatabasePath, Convert.ToInt32(ItemId), errOut)
+            If errOut.Length > 0 Then nextOrder = 1
+            nudOrder.Value = nextOrder
+        Catch ex As Exception
+            Call LogError(Name, "frmAddPicture.Load", Err.Number, ex.Message.ToString)
+        End Try
     End Sub
 End Class

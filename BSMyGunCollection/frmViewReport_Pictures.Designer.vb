@@ -27,57 +27,58 @@ Partial Class frmViewReport_Pictures
     'Do not modify it using the code editor.
     <DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New Container
-        Dim ReportDataSource1 As ReportDataSource = New ReportDataSource
-        Dim resources As ComponentResourceManager = New ComponentResourceManager(GetType(frmViewReport_Pictures))
-        Me.ReportViewer1 = New ReportViewer
-        Me.MGCDataSet = New MGCDataSet
-        Me.Gun_Collection_PicturesBindingSource = New BindingSource(Me.components)
-        Me.Gun_Collection_PicturesTableAdapter = New Gun_Collection_PicturesTableAdapter
-        CType(Me.MGCDataSet, ISupportInitialize).BeginInit()
-        CType(Me.Gun_Collection_PicturesBindingSource, ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = DockStyle.Fill
-        ReportDataSource1.Name = "MGCDataSet_Gun_Collection_Pictures"
-        ReportDataSource1.Value = Me.Gun_Collection_PicturesBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_Pictures_AllPictureDetails.rdlc"
-        Me.ReportViewer1.Location = New Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New Size(680, 471)
-        Me.ReportViewer1.TabIndex = 0
-        '
-        'MGCDataSet
-        '
-        Me.MGCDataSet.DataSetName = "MGCDataSet"
-        Me.MGCDataSet.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
+        Me.components = New System.ComponentModel.Container()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmViewReport_Pictures))
+        Me.Gun_Collection_PicturesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MGCDataSet = New BSMyGunCollection.MGCDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.Gun_Collection_PicturesTableAdapter = New BSMyGunCollection.MGCDataSetTableAdapters.Gun_Collection_PicturesTableAdapter()
+        CType(Me.Gun_Collection_PicturesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'Gun_Collection_PicturesBindingSource
         '
         Me.Gun_Collection_PicturesBindingSource.DataMember = "Gun_Collection_Pictures"
         Me.Gun_Collection_PicturesBindingSource.DataSource = Me.MGCDataSet
         '
+        'MGCDataSet
+        '
+        Me.MGCDataSet.DataSetName = "MGCDataSet"
+        Me.MGCDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "MGCDataSet_Gun_Collection_Pictures"
+        ReportDataSource1.Value = Me.Gun_Collection_PicturesBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "BSMyGunCollection.Report_Pictures_AllPictureDetails.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.ServerReport.BearerToken = Nothing
+        Me.ReportViewer1.Size = New System.Drawing.Size(1040, 637)
+        Me.ReportViewer1.TabIndex = 0
+        '
         'Gun_Collection_PicturesTableAdapter
         '
-        Me.Gun_Collection_PicturesTableAdapter.ClearBeforeFill = True
+        Me.Gun_Collection_PicturesTableAdapter.ClearBeforeFill = true
         '
         'frmViewReport_Pictures
         '
-        Me.AutoScaleDimensions = New SizeF(6.0!, 13.0!)
-        Me.AutoScaleMode = AutoScaleMode.Font
-        Me.ClientSize = New Size(680, 471)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1040, 637)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "frmViewReport_Pictures"
         Me.Text = "frmViewReport_Pictures"
-        CType(Me.MGCDataSet, ISupportInitialize).EndInit()
-        CType(Me.Gun_Collection_PicturesBindingSource, ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        CType(Me.Gun_Collection_PicturesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.MGCDataSet,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents ReportViewer1 As ReportViewer
     Friend WithEvents Gun_Collection_PicturesBindingSource As BindingSource
     Friend WithEvents MGCDataSet As MGCDataSet
